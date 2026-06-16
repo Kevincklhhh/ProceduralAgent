@@ -1,0 +1,98 @@
+{
+ "recording": "8_25",
+ "task_id": "spicedhotchocolate",
+ "arm": "proposed_system",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 112.51
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 112.51,
+   "end_s": 150.54
+  },
+  {
+   "stage": "quiet_middle",
+   "start_s": 150.54,
+   "end_s": 442.88
+  }
+ ],
+ "transition_trace": [
+  {
+   "t_s": 0.0,
+   "transition": "start",
+   "step_or_block": "fill_milk",
+   "rule_id": "fill_start_source",
+   "evidence": [],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 120.0,
+   "transition": "complete",
+   "step_or_block": "fill_milk",
+   "rule_id": "fill_done_next_anchor",
+   "evidence": [],
+   "confidence": 0.5
+  },
+  {
+   "t_s": 112.51,
+   "transition": "start",
+   "step_or_block": "microwave_initial",
+   "rule_id": "mw1_start",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 150.54,
+   "transition": "complete",
+   "step_or_block": "microwave_initial",
+   "rule_id": "mw1_done",
+   "evidence": [
+    "D1.cycle_end"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 150.54,
+   "transition": "start",
+   "step_or_block": "quiet_middle",
+   "rule_id": "middle_start",
+   "evidence": [],
+   "confidence": 1.0
+  }
+ ],
+ "sensor_events": [
+  {
+   "t_s": 112.51,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 150.54,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 150.54,
+   "primitive": "D6",
+   "event": "undertime",
+   "confidence": 1.0,
+   "step_id": "microwave_initial",
+   "duration_s": 38.0,
+   "expected_s": 60
+  }
+ ],
+ "cost": {
+  "audio_on_s": 442.88,
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 1.02
+ }
+}

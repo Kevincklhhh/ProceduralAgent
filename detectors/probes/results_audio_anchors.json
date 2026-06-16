@@ -1,0 +1,727 @@
+{
+ "probe": "audio_anchors",
+ "summary": {
+  "recordings": 16,
+  "tol_s": 15.0,
+  "hum_anchor": {
+   "expected": 29,
+   "hit": 27,
+   "recall": 0.931,
+   "false_runs": 6
+  },
+  "beep_at_microwave_end": {
+   "expected": 29,
+   "hit": 27,
+   "recall": 0.931
+  },
+  "mix_clink_anchor": {
+   "expected": 14,
+   "hit": 9,
+   "recall": 0.643,
+   "false_strong_clinks": 17
+  }
+ },
+ "per_recording": {
+  "8_11": {
+   "recording": "8_11",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     116.4,
+     147.8,
+     31.5
+    ],
+    [
+     364.7,
+     393.1,
+     28.4
+    ]
+   ],
+   "n_beeps": 8,
+   "n_strong_clinks": 2,
+   "hum_steps": {
+    "89": {
+     "window": [
+      99.8,
+      173.9
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      347.5,
+      416.0
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     313.8,
+     347.8
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 1
+  },
+  "8_15": {
+   "recording": "8_15",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     96.4,
+     156.5,
+     60.2
+    ],
+    [
+     437.4,
+     497.3,
+     59.9
+    ]
+   ],
+   "n_beeps": 19,
+   "n_strong_clinks": 4,
+   "hum_steps": {
+    "89": {
+     "window": [
+      89.3,
+      160.0
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      424.1,
+      500.9
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     425.4,
+     487.0
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 3
+  },
+  "8_16": {
+   "recording": "8_16",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     73.1,
+     132.2,
+     59.1
+    ],
+    [
+     387.5,
+     447.4,
+     59.9
+    ]
+   ],
+   "n_beeps": 6,
+   "n_strong_clinks": 1,
+   "hum_steps": {
+    "89": {
+     "window": [
+      70.4,
+      134.5
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      377.4,
+      451.9
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     296.6,
+     376.9
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 0
+  },
+  "8_19": {
+   "recording": "8_19",
+   "n_hum_runs": 6,
+   "hum_runs": [
+    [
+     45.2,
+     66.2,
+     21.0
+    ],
+    [
+     101.2,
+     161.7,
+     60.4
+    ],
+    [
+     173.4,
+     194.2,
+     20.7
+    ],
+    [
+     243.6,
+     308.6,
+     65.0
+    ],
+    [
+     316.5,
+     341.9,
+     25.3
+    ],
+    [
+     446.1,
+     506.8,
+     60.7
+    ]
+   ],
+   "n_beeps": 15,
+   "n_strong_clinks": 0,
+   "hum_steps": {
+    "89": {
+     "window": [
+      78.7,
+      156.1
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      433.1,
+      511.5
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     354.7,
+     434.1
+    ],
+    "clink_hit": false
+   },
+   "false_hum_runs": 3,
+   "false_strong_clinks": 0
+  },
+  "8_20": {
+   "recording": "8_20",
+   "n_hum_runs": 5,
+   "hum_runs": [
+    [
+     98.7,
+     160.1,
+     61.4
+    ],
+    [
+     206.0,
+     235.9,
+     30.0
+    ],
+    [
+     248.7,
+     270.5,
+     21.8
+    ],
+    [
+     429.7,
+     468.6,
+     38.9
+    ],
+    [
+     504.2,
+     565.6,
+     61.4
+    ]
+   ],
+   "n_beeps": 12,
+   "n_strong_clinks": 3,
+   "hum_steps": {
+    "89": {
+     "window": [
+      79.7,
+      163.4
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      491.7,
+      567.0
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     422.7,
+     464.4
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 3,
+   "false_strong_clinks": 2
+  },
+  "8_25": {
+   "recording": "8_25",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     126.3,
+     146.6,
+     20.2
+    ],
+    [
+     371.8,
+     414.8,
+     43.0
+    ]
+   ],
+   "n_beeps": 11,
+   "n_strong_clinks": 2,
+   "hum_steps": {
+    "89": {
+     "window": [
+      75.2,
+      149.6
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      356.4,
+      439.8
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     305.0,
+     351.2
+    ],
+    "clink_hit": false
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 2
+  },
+  "8_26": {
+   "recording": "8_26",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     54.4,
+     168.1,
+     113.7
+    ],
+    [
+     377.7,
+     428.4,
+     50.7
+    ]
+   ],
+   "n_beeps": 28,
+   "n_strong_clinks": 1,
+   "hum_steps": {
+    "89": {
+     "window": [
+      47.1,
+      177.8
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      322.0,
+      445.3
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     285.6,
+     314.9
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 0
+  },
+  "8_3": {
+   "recording": "8_3",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     72.3,
+     132.2,
+     59.9
+    ],
+    [
+     343.4,
+     404.4,
+     60.9
+    ]
+   ],
+   "n_beeps": 15,
+   "n_strong_clinks": 4,
+   "hum_steps": {
+    "89": {
+     "window": [
+      61.6,
+      152.3
+     ],
+     "hum_hit": true,
+     "beep_at_end": false
+    },
+    "83": {
+     "window": [
+      332.1,
+      409.3
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     287.1,
+     331.3
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 3
+  },
+  "8_30": {
+   "recording": "8_30",
+   "n_hum_runs": 1,
+   "hum_runs": [
+    [
+     236.2,
+     357.2,
+     121.1
+    ]
+   ],
+   "n_beeps": 9,
+   "n_strong_clinks": 1,
+   "hum_steps": {
+    "89": "absent",
+    "83": {
+     "window": [
+      220.7,
+      368.3
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     195.0,
+     214.6
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 0
+  },
+  "8_31": {
+   "recording": "8_31",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     76.4,
+     96.6,
+     20.2
+    ],
+    [
+     183.9,
+     230.3,
+     46.3
+    ]
+   ],
+   "n_beeps": 13,
+   "n_strong_clinks": 3,
+   "hum_steps": {
+    "89": {
+     "window": [
+      48.0,
+      97.8
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      175.9,
+      233.2
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     152.8,
+     170.7
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 2
+  },
+  "8_33": {
+   "recording": "8_33",
+   "n_hum_runs": 0,
+   "hum_runs": [],
+   "n_beeps": 4,
+   "n_strong_clinks": 0,
+   "hum_steps": {
+    "89": {
+     "window": [
+      34.3,
+      171.0
+     ],
+     "hum_hit": false,
+     "beep_at_end": true
+    },
+    "83": "absent"
+   },
+   "mix": {
+    "window": [
+     259.2,
+     294.5
+    ],
+    "clink_hit": false
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 0
+  },
+  "8_35": {
+   "recording": "8_35",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     179.6,
+     202.4,
+     22.8
+    ],
+    [
+     355.7,
+     409.2,
+     53.5
+    ]
+   ],
+   "n_beeps": 23,
+   "n_strong_clinks": 0,
+   "hum_steps": {
+    "89": {
+     "window": [
+      148.7,
+      224.5
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      338.6,
+      414.7
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     286.8,
+     297.3
+    ],
+    "clink_hit": false
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 0
+  },
+  "8_40": {
+   "recording": "8_40",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     105.9,
+     196.7,
+     90.9
+    ],
+    [
+     324.0,
+     384.4,
+     60.4
+    ]
+   ],
+   "n_beeps": 25,
+   "n_strong_clinks": 2,
+   "hum_steps": {
+    "89": {
+     "window": [
+      95.0,
+      200.9
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      314.0,
+      388.3
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": {
+    "window": [
+     288.4,
+     309.8
+    ],
+    "clink_hit": true
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 1
+  },
+  "8_44": {
+   "recording": "8_44",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     204.4,
+     224.6,
+     20.2
+    ],
+    [
+     233.1,
+     323.2,
+     90.1
+    ]
+   ],
+   "n_beeps": 12,
+   "n_strong_clinks": 0,
+   "hum_steps": {
+    "89": "absent",
+    "83": {
+     "window": [
+      186.8,
+      343.1
+     ],
+     "hum_hit": true,
+     "beep_at_end": false
+    }
+   },
+   "mix": {
+    "window": [
+     167.4,
+     186.6
+    ],
+    "clink_hit": false
+   },
+   "false_hum_runs": 0,
+   "false_strong_clinks": 0
+  },
+  "8_45": {
+   "recording": "8_45",
+   "n_hum_runs": 2,
+   "hum_runs": [
+    [
+     146.3,
+     251.5,
+     105.2
+    ],
+    [
+     313.0,
+     352.6,
+     39.7
+    ]
+   ],
+   "n_beeps": 35,
+   "n_strong_clinks": 2,
+   "hum_steps": {
+    "89": {
+     "window": [
+      120.9,
+      254.6
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      260.2,
+      373.4
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    }
+   },
+   "mix": "absent",
+   "false_hum_runs": 0,
+   "false_strong_clinks": 2
+  },
+  "8_50": {
+   "recording": "8_50",
+   "n_hum_runs": 1,
+   "hum_runs": [
+    [
+     100.2,
+     158.6,
+     58.4
+    ]
+   ],
+   "n_beeps": 5,
+   "n_strong_clinks": 1,
+   "hum_steps": {
+    "89": {
+     "window": [
+      96.1,
+      159.8
+     ],
+     "hum_hit": true,
+     "beep_at_end": true
+    },
+    "83": {
+     "window": [
+      186.4,
+      251.7
+     ],
+     "hum_hit": false,
+     "beep_at_end": true
+    }
+   },
+   "mix": "absent",
+   "false_hum_runs": 0,
+   "false_strong_clinks": 1
+  }
+ }
+}

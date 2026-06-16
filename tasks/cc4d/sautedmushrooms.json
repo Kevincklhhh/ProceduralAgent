@@ -1,0 +1,209 @@
+{
+  "task_id": "sautedmushrooms",
+  "title": "Sautedmushrooms",
+  "source": "data/cc4d/annotations/task_graphs/sautedmushrooms.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 206,
+      "order": 1,
+      "name": "rinse_3_mushrooms_under",
+      "instruction": "Rinse 3 mushrooms under cold water",
+      "preconditions": []
+    },
+    {
+      "step_id": 205,
+      "order": 2,
+      "name": "pat_rinsed_mushrooms_dry",
+      "instruction": "pat rinsed mushrooms dry with a paper towel",
+      "preconditions": [
+        206
+      ]
+    },
+    {
+      "step_id": 212,
+      "order": 3,
+      "name": "chop_1_shallot",
+      "instruction": "Chop 1 shallot",
+      "preconditions": []
+    },
+    {
+      "step_id": 214,
+      "order": 4,
+      "name": "pull_out_mushroom_stems",
+      "instruction": "Pull out mushroom stems",
+      "preconditions": [
+        205
+      ]
+    },
+    {
+      "step_id": 210,
+      "order": 5,
+      "name": "slice_the_mushrooms",
+      "instruction": "Slice the mushrooms",
+      "preconditions": [
+        214
+      ]
+    },
+    {
+      "step_id": 176,
+      "order": 6,
+      "name": "peel_2_garlic_cloves",
+      "instruction": "Peel 2 garlic cloves",
+      "preconditions": []
+    },
+    {
+      "step_id": 211,
+      "order": 7,
+      "name": "mince_garlic_cloves",
+      "instruction": "mince garlic cloves",
+      "preconditions": [
+        176
+      ]
+    },
+    {
+      "step_id": 215,
+      "order": 8,
+      "name": "heat_1_tbsp_olive",
+      "instruction": "Heat 1 tbsp olive oil in a large skillet over medium-high heat",
+      "preconditions": [
+        210,
+        211,
+        212
+      ]
+    },
+    {
+      "step_id": 208,
+      "order": 9,
+      "name": "once_the_pan_is",
+      "instruction": "Once the pan is hot, add the mushrooms",
+      "preconditions": [
+        215
+      ]
+    },
+    {
+      "step_id": 213,
+      "order": 10,
+      "name": "cook_for_3_5",
+      "instruction": "cook for 3-5 minutes, stirring often, until mushrooms start to soften and brown",
+      "preconditions": [
+        208
+      ],
+      "duration_constraint_s": 300
+    },
+    {
+      "step_id": 209,
+      "order": 11,
+      "name": "add_chopped_shallot_to",
+      "instruction": "Add chopped shallot to the pan",
+      "preconditions": [
+        213
+      ]
+    },
+    {
+      "step_id": 207,
+      "order": 12,
+      "name": "cook_the_pan_often",
+      "instruction": "cook the pan, often stirring, for 1 minute",
+      "preconditions": [
+        209
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 217,
+      "order": 13,
+      "name": "1_4_tbsp_balsamic",
+      "instruction": "1/4 tbsp balsamic vinegar to the pan",
+      "preconditions": [
+        207
+      ]
+    },
+    {
+      "step_id": 218,
+      "order": 14,
+      "name": "add_2_cloves_of",
+      "instruction": "Add 2 cloves of minced garlic to the pan",
+      "preconditions": [
+        207
+      ]
+    },
+    {
+      "step_id": 207,
+      "order": 15,
+      "name": "cook_the_pan_often",
+      "instruction": "cook the pan, often stirring, for 1 minute",
+      "preconditions": [
+        217,
+        218
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 219,
+      "order": 16,
+      "name": "pepper_on_pan_to",
+      "instruction": "pepper on pan to taste",
+      "preconditions": [
+        207
+      ]
+    },
+    {
+      "step_id": 220,
+      "order": 17,
+      "name": "season_pan_with_salt",
+      "instruction": "Season pan with salt",
+      "preconditions": [
+        207
+      ]
+    },
+    {
+      "step_id": 216,
+      "order": 18,
+      "name": "transfer_the_contents_of",
+      "instruction": "Transfer the contents of the pan to a serving dish",
+      "preconditions": [
+        219,
+        220
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_cook_for_3_5",
+      "step_id": 213,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 300s",
+      "message": "The recipe says about 300s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_the_pan_often",
+      "step_id": 207,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_the_pan_often",
+      "step_id": 207,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

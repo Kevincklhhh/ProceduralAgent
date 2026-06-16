@@ -1,0 +1,127 @@
+{
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 0.0,
+   "end_s": 20.0
+  },
+  {
+   "stage": 88,
+   "start_s": 20.0,
+   "end_s": 40.0
+  },
+  {
+   "stage": "other",
+   "start_s": 40.0,
+   "end_s": 60.0
+  },
+  {
+   "stage": 88,
+   "start_s": 60.0,
+   "end_s": 80.0
+  },
+  {
+   "stage": 88,
+   "start_s": 80.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": "other",
+   "start_s": 100.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": "other",
+   "start_s": 120.0,
+   "end_s": 140.0
+  },
+  {
+   "stage": "other",
+   "start_s": 140.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": "other",
+   "start_s": 160.0,
+   "end_s": 180.0
+  },
+  {
+   "stage": 84,
+   "start_s": 180.0,
+   "end_s": 200.0
+  },
+  {
+   "stage": 84,
+   "start_s": 200.0,
+   "end_s": 220.0
+  },
+  {
+   "stage": 90,
+   "start_s": 220.0,
+   "end_s": 240.0
+  },
+  {
+   "stage": 87,
+   "start_s": 240.0,
+   "end_s": 260.0
+  },
+  {
+   "stage": 87,
+   "start_s": 260.0,
+   "end_s": 280.0
+  },
+  {
+   "stage": 87,
+   "start_s": 280.0,
+   "end_s": 300.0
+  },
+  {
+   "stage": 85,
+   "start_s": 300.0,
+   "end_s": 320.0
+  },
+  {
+   "stage": 85,
+   "start_s": 320.0,
+   "end_s": 340.0
+  },
+  {
+   "stage": 85,
+   "start_s": 340.0,
+   "end_s": 360.0
+  },
+  {
+   "stage": "other",
+   "start_s": 360.0,
+   "end_s": 380.0
+  },
+  {
+   "stage": "other",
+   "start_s": 380.0,
+   "end_s": 400.0
+  },
+  {
+   "stage": 89,
+   "start_s": 400.0,
+   "end_s": 420.0
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 21,
+  "frames_sent": 336,
+  "vlm_latency_total_s": 589.48,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "model": "Qwen/Qwen3.6-27B",
+  "interval_s": 20.0,
+  "fps_sampling": 1.0,
+  "evaluated_s": 427.0,
+  "parse_failures": 2,
+  "traced": true
+ },
+ "recording": "8_11",
+ "arm": "qwen36_i20"
+}

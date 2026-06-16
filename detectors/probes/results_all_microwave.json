@@ -1,0 +1,2239 @@
+{
+  "params": {
+    "min_run_s": 8.0,
+    "feat_med_frames": 7,
+    "med_frames": 7
+  },
+  "overall": {
+    "n_recs": 156,
+    "cycles": 250,
+    "hum_recall": 0.932,
+    "beep_recall": 0.828,
+    "fused_recall": 0.988,
+    "false_runs": 158,
+    "false_per_rec": 1.013
+  },
+  "per_recipe": [
+    {
+      "activity": "1",
+      "recipe": "Microwave Egg Sandwich",
+      "n_recs": 18,
+      "cycles": 48,
+      "hum_recall": 0.875,
+      "beep_recall": 0.792,
+      "fused_recall": 1.0,
+      "false_runs": 5,
+      "false_per_rec": 0.28,
+      "recordings": [
+        {
+          "rec": "1_7",
+          "n_runs": 4,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_10",
+          "n_runs": 3,
+          "steps": {
+            "8": {
+              "hum": true,
+              "beep": false
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_14",
+          "n_runs": 5,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": false
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_19",
+          "n_runs": 4,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": false
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "1_20",
+          "n_runs": 5,
+          "steps": {
+            "4": {
+              "hum": false,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_25",
+          "n_runs": 2,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": false,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_28",
+          "n_runs": 2,
+          "steps": {
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_30",
+          "n_runs": 4,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_32",
+          "n_runs": 2,
+          "steps": {
+            "4": {
+              "hum": false,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_33",
+          "n_runs": 5,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": false
+            },
+            "10": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "1_34",
+          "n_runs": 2,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": false
+            },
+            "8": {
+              "hum": false,
+              "beep": true
+            },
+            "10": {
+              "hum": false,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_36",
+          "n_runs": 2,
+          "steps": {
+            "8": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "1_37",
+          "n_runs": 3,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_42",
+          "n_runs": 2,
+          "steps": {
+            "4": {
+              "hum": false,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_43",
+          "n_runs": 3,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_49",
+          "n_runs": 5,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "1_136",
+          "n_runs": 4,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "1_143",
+          "n_runs": 3,
+          "steps": {
+            "4": {
+              "hum": true,
+              "beep": true
+            },
+            "8": {
+              "hum": true,
+              "beep": true
+            },
+            "10": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        }
+      ]
+    },
+    {
+      "activity": "2",
+      "recipe": "Dressed Up Meatballs",
+      "n_recs": 16,
+      "cycles": 30,
+      "hum_recall": 0.9,
+      "beep_recall": 0.733,
+      "fused_recall": 0.967,
+      "false_runs": 47,
+      "false_per_rec": 2.94,
+      "recordings": [
+        {
+          "rec": "2_3",
+          "n_runs": 3,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "2_4",
+          "n_runs": 5,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": false,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "2_5",
+          "n_runs": 9,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": false
+            },
+            "25": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 4
+        },
+        {
+          "rec": "2_8",
+          "n_runs": 8,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 5
+        },
+        {
+          "rec": "2_13",
+          "n_runs": 3,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "2_17",
+          "n_runs": 2,
+          "steps": {
+            "20": {
+              "hum": false,
+              "beep": true
+            },
+            "25": {
+              "hum": false,
+              "beep": false
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "2_19",
+          "n_runs": 9,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 7
+        },
+        {
+          "rec": "2_22",
+          "n_runs": 5,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "2_26",
+          "n_runs": 5,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "2_28",
+          "n_runs": 4,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "2_30",
+          "n_runs": 4,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "2_38",
+          "n_runs": 6,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 3
+        },
+        {
+          "rec": "2_41",
+          "n_runs": 2,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": false
+            },
+            "25": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "2_42",
+          "n_runs": 15,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 13
+        },
+        {
+          "rec": "2_46",
+          "n_runs": 3,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "2_47",
+          "n_runs": 6,
+          "steps": {
+            "20": {
+              "hum": true,
+              "beep": true
+            },
+            "25": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 4
+        }
+      ]
+    },
+    {
+      "activity": "3",
+      "recipe": "Microwave Mug Pizza",
+      "n_recs": 13,
+      "cycles": 13,
+      "hum_recall": 1.0,
+      "beep_recall": 0.692,
+      "fused_recall": 1.0,
+      "false_runs": 10,
+      "false_per_rec": 0.77,
+      "recordings": [
+        {
+          "rec": "3_2",
+          "n_runs": 1,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "3_5",
+          "n_runs": 2,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "3_11",
+          "n_runs": 1,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "3_12",
+          "n_runs": 1,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "3_13",
+          "n_runs": 1,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "3_14",
+          "n_runs": 3,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "3_18",
+          "n_runs": 5,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 3
+        },
+        {
+          "rec": "3_22",
+          "n_runs": 5,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 4
+        },
+        {
+          "rec": "3_34",
+          "n_runs": 2,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "3_36",
+          "n_runs": 1,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "3_46",
+          "n_runs": 4,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "3_49",
+          "n_runs": 2,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "3_50",
+          "n_runs": 1,
+          "steps": {
+            "32": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        }
+      ]
+    },
+    {
+      "activity": "4",
+      "recipe": "Ramen",
+      "n_recs": 17,
+      "cycles": 17,
+      "hum_recall": 1.0,
+      "beep_recall": 0.941,
+      "fused_recall": 1.0,
+      "false_runs": 26,
+      "false_per_rec": 1.53,
+      "recordings": [
+        {
+          "rec": "4_2",
+          "n_runs": 4,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 3
+        },
+        {
+          "rec": "4_3",
+          "n_runs": 4,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "4_5",
+          "n_runs": 2,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "4_7",
+          "n_runs": 7,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 5
+        },
+        {
+          "rec": "4_9",
+          "n_runs": 2,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "4_17",
+          "n_runs": 4,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "4_20",
+          "n_runs": 4,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "4_22",
+          "n_runs": 2,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "4_24",
+          "n_runs": 11,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 8
+        },
+        {
+          "rec": "4_30",
+          "n_runs": 5,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "4_32",
+          "n_runs": 7,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "4_35",
+          "n_runs": 1,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "4_36",
+          "n_runs": 6,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 5
+        },
+        {
+          "rec": "4_40",
+          "n_runs": 1,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "4_43",
+          "n_runs": 3,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "4_44",
+          "n_runs": 7,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "4_122",
+          "n_runs": 4,
+          "steps": {
+            "45": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        }
+      ]
+    },
+    {
+      "activity": "7",
+      "recipe": "Breakfast Burritos",
+      "n_recs": 16,
+      "cycles": 16,
+      "hum_recall": 1.0,
+      "beep_recall": 0.875,
+      "fused_recall": 1.0,
+      "false_runs": 6,
+      "false_per_rec": 0.38,
+      "recordings": [
+        {
+          "rec": "7_1",
+          "n_runs": 2,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_2",
+          "n_runs": 7,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_3",
+          "n_runs": 5,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_5",
+          "n_runs": 2,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_18",
+          "n_runs": 5,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "7_19",
+          "n_runs": 7,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "7_24",
+          "n_runs": 2,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_26",
+          "n_runs": 2,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_30",
+          "n_runs": 3,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_32",
+          "n_runs": 2,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_35",
+          "n_runs": 1,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_38",
+          "n_runs": 2,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_44",
+          "n_runs": 1,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_48",
+          "n_runs": 2,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_50",
+          "n_runs": 4,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "7_135",
+          "n_runs": 4,
+          "steps": {
+            "73": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        }
+      ]
+    },
+    {
+      "activity": "8",
+      "recipe": "Spiced Hot Chocolate",
+      "n_recs": 16,
+      "cycles": 29,
+      "hum_recall": 0.931,
+      "beep_recall": 0.931,
+      "fused_recall": 1.0,
+      "false_runs": 5,
+      "false_per_rec": 0.31,
+      "recordings": [
+        {
+          "rec": "8_3",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": false
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_11",
+          "n_runs": 3,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_15",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_16",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_19",
+          "n_runs": 3,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "8_20",
+          "n_runs": 6,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 4
+        },
+        {
+          "rec": "8_25",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": false,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_26",
+          "n_runs": 3,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_30",
+          "n_runs": 1,
+          "steps": {
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_31",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_33",
+          "n_runs": 0,
+          "steps": {
+            "89": {
+              "hum": false,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_35",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_40",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_44",
+          "n_runs": 2,
+          "steps": {
+            "83": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_45",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "8_50",
+          "n_runs": 2,
+          "steps": {
+            "89": {
+              "hum": true,
+              "beep": true
+            },
+            "83": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        }
+      ]
+    },
+    {
+      "activity": "9",
+      "recipe": "Microwave French Toast",
+      "n_recs": 14,
+      "cycles": 28,
+      "hum_recall": 0.893,
+      "beep_recall": 0.929,
+      "fused_recall": 1.0,
+      "false_runs": 4,
+      "false_per_rec": 0.29,
+      "recordings": [
+        {
+          "rec": "9_2",
+          "n_runs": 2,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_4",
+          "n_runs": 3,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_8",
+          "n_runs": 4,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_12",
+          "n_runs": 7,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "9_13",
+          "n_runs": 2,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_15",
+          "n_runs": 6,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "9_19",
+          "n_runs": 3,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": false
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_22",
+          "n_runs": 3,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": false
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_24",
+          "n_runs": 1,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": false,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_25",
+          "n_runs": 2,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_36",
+          "n_runs": 2,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_45",
+          "n_runs": 0,
+          "steps": {
+            "91": {
+              "hum": false,
+              "beep": true
+            },
+            "94": {
+              "hum": false,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "9_47",
+          "n_runs": 7,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "9_108",
+          "n_runs": 2,
+          "steps": {
+            "91": {
+              "hum": true,
+              "beep": true
+            },
+            "94": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        }
+      ]
+    },
+    {
+      "activity": "13",
+      "recipe": "Butter Corn Cup",
+      "n_recs": 14,
+      "cycles": 25,
+      "hum_recall": 0.92,
+      "beep_recall": 0.88,
+      "fused_recall": 0.92,
+      "false_runs": 7,
+      "false_per_rec": 0.5,
+      "recordings": [
+        {
+          "rec": "13_5",
+          "n_runs": 7,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "13_9",
+          "n_runs": 3,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_12",
+          "n_runs": 2,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": false,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_14",
+          "n_runs": 3,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_18",
+          "n_runs": 3,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_20",
+          "n_runs": 5,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_24",
+          "n_runs": 2,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_31",
+          "n_runs": 3,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_32",
+          "n_runs": 4,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "13_36",
+          "n_runs": 1,
+          "steps": {
+            "133": {
+              "hum": false,
+              "beep": false
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "13_38",
+          "n_runs": 7,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_41",
+          "n_runs": 4,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "13_44",
+          "n_runs": 6,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "13_45",
+          "n_runs": 2,
+          "steps": {
+            "133": {
+              "hum": true,
+              "beep": true
+            },
+            "134": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        }
+      ]
+    },
+    {
+      "activity": "26",
+      "recipe": "Mug Cake",
+      "n_recs": 17,
+      "cycles": 16,
+      "hum_recall": 1.0,
+      "beep_recall": 0.625,
+      "fused_recall": 1.0,
+      "false_runs": 34,
+      "false_per_rec": 2.0,
+      "recordings": [
+        {
+          "rec": "26_4",
+          "n_runs": 2,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "26_6",
+          "n_runs": 3,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "26_7",
+          "n_runs": 15,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 13
+        },
+        {
+          "rec": "26_17",
+          "n_runs": 1,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "26_18",
+          "n_runs": 3,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "26_19",
+          "n_runs": 4,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "26_20",
+          "n_runs": 1,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "26_22",
+          "n_runs": 2,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "26_24",
+          "n_runs": 11,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 8
+        },
+        {
+          "rec": "26_29",
+          "n_runs": 2,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "26_30",
+          "n_runs": 2,
+          "steps": {},
+          "false": 2
+        },
+        {
+          "rec": "26_34",
+          "n_runs": 7,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 5
+        },
+        {
+          "rec": "26_36",
+          "n_runs": 2,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "26_39",
+          "n_runs": 1,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "26_42",
+          "n_runs": 1,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "26_46",
+          "n_runs": 3,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "26_136",
+          "n_runs": 2,
+          "steps": {
+            "312": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        }
+      ]
+    },
+    {
+      "activity": "27",
+      "recipe": "Cheese Pimiento",
+      "n_recs": 15,
+      "cycles": 28,
+      "hum_recall": 0.964,
+      "beep_recall": 0.821,
+      "fused_recall": 1.0,
+      "false_runs": 14,
+      "false_per_rec": 0.93,
+      "recordings": [
+        {
+          "rec": "27_3",
+          "n_runs": 3,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": false
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_4",
+          "n_runs": 2,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": false
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_9",
+          "n_runs": 5,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "27_13",
+          "n_runs": 4,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": false
+            },
+            "323": {
+              "hum": false,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_15",
+          "n_runs": 3,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_17",
+          "n_runs": 5,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 3
+        },
+        {
+          "rec": "27_18",
+          "n_runs": 3,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_26",
+          "n_runs": 3,
+          "steps": {
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 2
+        },
+        {
+          "rec": "27_29",
+          "n_runs": 3,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 1
+        },
+        {
+          "rec": "27_31",
+          "n_runs": 3,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_34",
+          "n_runs": 2,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_37",
+          "n_runs": 2,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_38",
+          "n_runs": 8,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": false
+            }
+          },
+          "false": 6
+        },
+        {
+          "rec": "27_45",
+          "n_runs": 2,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": true
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        },
+        {
+          "rec": "27_49",
+          "n_runs": 3,
+          "steps": {
+            "318": {
+              "hum": true,
+              "beep": false
+            },
+            "323": {
+              "hum": true,
+              "beep": true
+            }
+          },
+          "false": 0
+        }
+      ]
+    }
+  ]
+}

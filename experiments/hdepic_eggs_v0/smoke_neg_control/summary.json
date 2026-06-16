@@ -1,0 +1,31 @@
+{
+  "video_id": "20251029-192843",
+  "task_id": "pan_fried_egg",
+  "baseline": {
+    "mode": "periodic_vlm",
+    "interval_s": 10.0,
+    "frames_per_call": 3,
+    "window_s": 2.0,
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "k_consecutive": 2,
+    "cooldown_s": 15.0
+  },
+  "video_duration_s": 180.0,
+  "evaluated_seconds": 180.0,
+  "stage_timeline": [
+    {
+      "step_id": "other",
+      "start_s": 10.0,
+      "end_s": 180.0
+    }
+  ],
+  "events": [],
+  "cost_log": {
+    "num_vlm_calls": 17,
+    "frames_sent": 51,
+    "mean_latency_s": 2.6,
+    "p95_latency_s": 4.03,
+    "parse_failure_rate": 0.0
+  }
+}

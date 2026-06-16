@@ -1,0 +1,292 @@
+{
+ "stage_intervals": [
+  {
+   "stage": 163,
+   "start_s": 0.0,
+   "end_s": 20.0
+  },
+  {
+   "stage": 163,
+   "start_s": 20.0,
+   "end_s": 40.0
+  },
+  {
+   "stage": 163,
+   "start_s": 40.0,
+   "end_s": 60.0
+  },
+  {
+   "stage": 163,
+   "start_s": 60.0,
+   "end_s": 80.0
+  },
+  {
+   "stage": 158,
+   "start_s": 80.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": 158,
+   "start_s": 100.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": 158,
+   "start_s": 120.0,
+   "end_s": 140.0
+  },
+  {
+   "stage": 169,
+   "start_s": 140.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": 169,
+   "start_s": 160.0,
+   "end_s": 180.0
+  },
+  {
+   "stage": 161,
+   "start_s": 180.0,
+   "end_s": 200.0
+  },
+  {
+   "stage": 176,
+   "start_s": 200.0,
+   "end_s": 220.0
+  },
+  {
+   "stage": 176,
+   "start_s": 220.0,
+   "end_s": 240.0
+  },
+  {
+   "stage": 176,
+   "start_s": 240.0,
+   "end_s": 260.0
+  },
+  {
+   "stage": 176,
+   "start_s": 260.0,
+   "end_s": 280.0
+  },
+  {
+   "stage": 176,
+   "start_s": 280.0,
+   "end_s": 300.0
+  },
+  {
+   "stage": 176,
+   "start_s": 300.0,
+   "end_s": 320.0
+  },
+  {
+   "stage": 176,
+   "start_s": 320.0,
+   "end_s": 340.0
+  },
+  {
+   "stage": 180,
+   "start_s": 340.0,
+   "end_s": 360.0
+  },
+  {
+   "stage": 180,
+   "start_s": 360.0,
+   "end_s": 380.0
+  },
+  {
+   "stage": 180,
+   "start_s": 380.0,
+   "end_s": 400.0
+  },
+  {
+   "stage": 180,
+   "start_s": 400.0,
+   "end_s": 420.0
+  },
+  {
+   "stage": 180,
+   "start_s": 420.0,
+   "end_s": 440.0
+  },
+  {
+   "stage": 164,
+   "start_s": 440.0,
+   "end_s": 460.0
+  },
+  {
+   "stage": 167,
+   "start_s": 460.0,
+   "end_s": 480.0
+  },
+  {
+   "stage": 167,
+   "start_s": 480.0,
+   "end_s": 500.0
+  },
+  {
+   "stage": 177,
+   "start_s": 500.0,
+   "end_s": 520.0
+  },
+  {
+   "stage": 159,
+   "start_s": 520.0,
+   "end_s": 540.0
+  },
+  {
+   "stage": 159,
+   "start_s": 540.0,
+   "end_s": 560.0
+  },
+  {
+   "stage": 159,
+   "start_s": 560.0,
+   "end_s": 580.0
+  },
+  {
+   "stage": 159,
+   "start_s": 580.0,
+   "end_s": 600.0
+  },
+  {
+   "stage": 173,
+   "start_s": 600.0,
+   "end_s": 620.0
+  },
+  {
+   "stage": 173,
+   "start_s": 620.0,
+   "end_s": 640.0
+  },
+  {
+   "stage": 173,
+   "start_s": 640.0,
+   "end_s": 660.0
+  },
+  {
+   "stage": 173,
+   "start_s": 660.0,
+   "end_s": 680.0
+  },
+  {
+   "stage": 173,
+   "start_s": 680.0,
+   "end_s": 700.0
+  },
+  {
+   "stage": 166,
+   "start_s": 700.0,
+   "end_s": 720.0
+  },
+  {
+   "stage": 179,
+   "start_s": 720.0,
+   "end_s": 740.0
+  },
+  {
+   "stage": "other",
+   "start_s": 740.0,
+   "end_s": 760.0
+  },
+  {
+   "stage": 160,
+   "start_s": 760.0,
+   "end_s": 780.0
+  },
+  {
+   "stage": 160,
+   "start_s": 780.0,
+   "end_s": 800.0
+  },
+  {
+   "stage": 166,
+   "start_s": 800.0,
+   "end_s": 820.0
+  },
+  {
+   "stage": 162,
+   "start_s": 820.0,
+   "end_s": 840.0
+  },
+  {
+   "stage": 162,
+   "start_s": 840.0,
+   "end_s": 860.0
+  },
+  {
+   "stage": 162,
+   "start_s": 860.0,
+   "end_s": 880.0
+  },
+  {
+   "stage": 162,
+   "start_s": 880.0,
+   "end_s": 900.0
+  },
+  {
+   "stage": 162,
+   "start_s": 900.0,
+   "end_s": 920.0
+  },
+  {
+   "stage": 170,
+   "start_s": 920.0,
+   "end_s": 940.0
+  },
+  {
+   "stage": 175,
+   "start_s": 940.0,
+   "end_s": 960.0
+  },
+  {
+   "stage": 171,
+   "start_s": 960.0,
+   "end_s": 980.0
+  },
+  {
+   "stage": 172,
+   "start_s": 980.0,
+   "end_s": 1000.0
+  },
+  {
+   "stage": 171,
+   "start_s": 1000.0,
+   "end_s": 1020.0
+  },
+  {
+   "stage": 171,
+   "start_s": 1020.0,
+   "end_s": 1040.0
+  },
+  {
+   "stage": 158,
+   "start_s": 1040.0,
+   "end_s": 1060.0
+  },
+  {
+   "stage": 174,
+   "start_s": 1060.0,
+   "end_s": 1080.0
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 54,
+  "frames_sent": 864,
+  "vlm_latency_total_s": 1225.56,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "model": "Qwen/Qwen3.6-27B",
+  "interval_s": 20.0,
+  "fps_sampling": 1.0,
+  "evaluated_s": 1080.4,
+  "parse_failures": 1,
+  "traced": true
+ },
+ "recording": "16_1",
+ "arm": "qwen36_i20"
+}

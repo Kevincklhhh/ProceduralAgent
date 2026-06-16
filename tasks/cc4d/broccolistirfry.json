@@ -1,0 +1,264 @@
+{
+  "task_id": "broccolistirfry",
+  "title": "Broccolistirfry",
+  "source": "data/cc4d/annotations/task_graphs/broccolistirfry.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 250,
+      "order": 1,
+      "name": "add_1_8_cup",
+      "instruction": "Add 1/8 cup soy sauce to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 252,
+      "order": 2,
+      "name": "add_1_tablespoon_honey",
+      "instruction": "Add 1 tablespoon honey to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 254,
+      "order": 3,
+      "name": "add_1_teaspoon_cornstarch",
+      "instruction": "Add 1 teaspoon cornstarch to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 257,
+      "order": 4,
+      "name": "peel_2_cloves_of",
+      "instruction": "Peel 2 cloves of garlic",
+      "preconditions": []
+    },
+    {
+      "step_id": 262,
+      "order": 5,
+      "name": "mince_garlic",
+      "instruction": "mince garlic",
+      "preconditions": [
+        257
+      ]
+    },
+    {
+      "step_id": 255,
+      "order": 6,
+      "name": "add_2_cloves_minced",
+      "instruction": "Add 2 cloves minced garlic to the bowl",
+      "preconditions": [
+        262
+      ]
+    },
+    {
+      "step_id": 267,
+      "order": 7,
+      "name": "add_1_2_tablespoon",
+      "instruction": "Add 1/2 tablespoon minced ginger to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 268,
+      "order": 8,
+      "name": "add_1_8_teaspoon",
+      "instruction": "Add 1/8 teaspoon black pepper to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 269,
+      "order": 9,
+      "name": "add_1_6_cup",
+      "instruction": "Add 1/6 cup water the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 260,
+      "order": 10,
+      "name": "whisk_the_contents_of",
+      "instruction": "Whisk the contents of bowl",
+      "preconditions": [
+        250,
+        252,
+        254,
+        255,
+        267,
+        268,
+        269
+      ]
+    },
+    {
+      "step_id": 251,
+      "order": 11,
+      "name": "set_aside_the_sauce",
+      "instruction": "Set aside the sauce mixture",
+      "preconditions": [
+        260
+      ]
+    },
+    {
+      "step_id": 270,
+      "order": 12,
+      "name": "take_2_cremini_mushrooms",
+      "instruction": "Take 2 cremini mushrooms",
+      "preconditions": []
+    },
+    {
+      "step_id": 259,
+      "order": 13,
+      "name": "slice_mushrooms",
+      "instruction": "slice mushrooms",
+      "preconditions": [
+        270
+      ]
+    },
+    {
+      "step_id": 271,
+      "order": 14,
+      "name": "take_1_bell_pepper",
+      "instruction": "Take 1 bell pepper",
+      "preconditions": []
+    },
+    {
+      "step_id": 263,
+      "order": 15,
+      "name": "slice_1_3_of",
+      "instruction": "slice 1/3 of the bell pepper",
+      "preconditions": [
+        271
+      ]
+    },
+    {
+      "step_id": 273,
+      "order": 16,
+      "name": "take_5_in_number",
+      "instruction": "Take 5 in number broccoli florets",
+      "preconditions": []
+    },
+    {
+      "step_id": 266,
+      "order": 17,
+      "name": "heat_2_tablespoons_olive",
+      "instruction": "Heat 2 tablespoons olive oil in a skillet over medium-high heat",
+      "preconditions": [
+        251,
+        259,
+        263,
+        273
+      ]
+    },
+    {
+      "step_id": 258,
+      "order": 18,
+      "name": "add_sliced_mushrooms_to",
+      "instruction": "add sliced mushrooms to the skillet",
+      "preconditions": [
+        266
+      ]
+    },
+    {
+      "step_id": 265,
+      "order": 19,
+      "name": "add_broccoli_to_the",
+      "instruction": "Add broccoli to the skillet",
+      "preconditions": [
+        266
+      ]
+    },
+    {
+      "step_id": 253,
+      "order": 20,
+      "name": "cook_stirring_often_for",
+      "instruction": "cook, stirring often, for 4 minutes. If the pan gets too hot on medium-high, turn the heat down to medium",
+      "preconditions": [
+        258,
+        265
+      ],
+      "duration_constraint_s": 240
+    },
+    {
+      "step_id": 261,
+      "order": 21,
+      "name": "add_bell_pepper_to",
+      "instruction": "Add bell pepper to the skillet",
+      "preconditions": [
+        253
+      ]
+    },
+    {
+      "step_id": 274,
+      "order": 22,
+      "name": "continue_cooking_stirring_often",
+      "instruction": "continue cooking, stirring often, for 2-3 minutes, until vegetables are crisp-tender",
+      "preconditions": [
+        261
+      ],
+      "duration_constraint_s": 180
+    },
+    {
+      "step_id": 272,
+      "order": 23,
+      "name": "whisk_the_sauce_again",
+      "instruction": "Whisk the sauce again to recombine the ingredients",
+      "preconditions": [
+        274
+      ]
+    },
+    {
+      "step_id": 256,
+      "order": 24,
+      "name": "pour_the_sauce_into",
+      "instruction": "Pour the sauce into the skillet",
+      "preconditions": [
+        272
+      ]
+    },
+    {
+      "step_id": 264,
+      "order": 25,
+      "name": "cook_stirring_for_1",
+      "instruction": "cook, stirring, for 1 minute until the sauce thickens",
+      "preconditions": [
+        256
+      ],
+      "duration_constraint_s": 60
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_cook_stirring_often_for",
+      "step_id": 253,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 240s",
+      "message": "The recipe says about 240s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_continue_cooking_stirring_often",
+      "step_id": 274,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 180s",
+      "message": "The recipe says about 180s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_stirring_for_1",
+      "step_id": 264,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

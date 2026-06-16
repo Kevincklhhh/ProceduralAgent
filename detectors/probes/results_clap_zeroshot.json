@@ -1,0 +1,515 @@
+{
+ "probe": "clap_zeroshot",
+ "model": "laion/clap-htsat-unfused",
+ "window_s": 5.0,
+ "hop_s": 2.5,
+ "sample_rate": 48000,
+ "prompts": [
+  "a microwave oven running",
+  "a microwave beep",
+  "pouring liquid into a cup",
+  "stirring a drink with a spoon, glass clinking",
+  "opening a wrapper or container",
+  "a person speaking",
+  "a quiet kitchen, refrigerator hum"
+ ],
+ "label_rule": "window positive if its center falls inside a GT step segment",
+ "events": {
+  "microwave_running": {
+   "prompt_idx": 0,
+   "positive_steps": [
+    83,
+    89
+   ]
+  },
+  "pouring": {
+   "prompt_idx": 2,
+   "positive_steps": [
+    88
+   ]
+  },
+  "stirring": {
+   "prompt_idx": 3,
+   "positive_steps": [
+    85
+   ]
+  }
+ },
+ "auc": {
+  "microwave_running": {
+   "per_recording": {
+    "8_16": {
+     "auc": 0.982,
+     "n_pos": 55,
+     "n_neg": 129
+    },
+    "8_26": {
+     "auc": 0.825,
+     "n_pos": 103,
+     "n_neg": 76
+    },
+    "8_3": {
+     "auc": 0.95,
+     "n_pos": 67,
+     "n_neg": 100
+    },
+    "8_25": {
+     "auc": 0.599,
+     "n_pos": 62,
+     "n_neg": 114
+    },
+    "8_31": {
+     "auc": 0.837,
+     "n_pos": 43,
+     "n_neg": 62
+    },
+    "8_50": {
+     "auc": 0.854,
+     "n_pos": 51,
+     "n_neg": 53
+    }
+   },
+   "prompt": "a microwave oven running",
+   "auc_tune_8_16": 0.982,
+   "auc_eval_pooled_5recs": 0.819,
+   "auc_pooled_all6": 0.863
+  },
+  "pouring": {
+   "per_recording": {
+    "8_16": {
+     "auc": 0.448,
+     "n_pos": 25,
+     "n_neg": 159
+    },
+    "8_26": {
+     "auc": 0.285,
+     "n_pos": 17,
+     "n_neg": 162
+    },
+    "8_3": {
+     "auc": 0.737,
+     "n_pos": 24,
+     "n_neg": 143
+    },
+    "8_25": {
+     "auc": 0.412,
+     "n_pos": 26,
+     "n_neg": 150
+    },
+    "8_31": {
+     "auc": 0.523,
+     "n_pos": 17,
+     "n_neg": 88
+    },
+    "8_50": {
+     "auc": 0.664,
+     "n_pos": 9,
+     "n_neg": 95
+    }
+   },
+   "prompt": "pouring liquid into a cup",
+   "auc_tune_8_16": 0.448,
+   "auc_eval_pooled_5recs": 0.536,
+   "auc_pooled_all6": 0.515
+  },
+  "stirring": {
+   "per_recording": {
+    "8_16": {
+     "auc": 0.825,
+     "n_pos": 32,
+     "n_neg": 152
+    },
+    "8_26": {
+     "auc": 0.739,
+     "n_pos": 11,
+     "n_neg": 168
+    },
+    "8_3": {
+     "auc": 0.944,
+     "n_pos": 18,
+     "n_neg": 149
+    },
+    "8_25": {
+     "auc": 0.851,
+     "n_pos": 19,
+     "n_neg": 157
+    },
+    "8_31": {
+     "auc": 0.771,
+     "n_pos": 7,
+     "n_neg": 98
+    },
+    "8_50": {
+     "auc": null,
+     "n_pos": 0,
+     "n_neg": 104
+    }
+   },
+   "prompt": "stirring a drink with a spoon, glass clinking",
+   "auc_tune_8_16": 0.825,
+   "auc_eval_pooled_5recs": 0.844,
+   "auc_pooled_all6": 0.822
+  }
+ },
+ "thresholded_detection": {
+  "microwave_running": {
+   "prompt": "a microwave oven running",
+   "threshold_softmax_prob": 0.6966,
+   "tuned_on_8_16": {
+    "precision": 0.926,
+    "recall": 0.909,
+    "f1": 0.917,
+    "tp": 50,
+    "fp": 4,
+    "fn": 5
+   },
+   "frozen_eval": {
+    "8_26": {
+     "precision": 0.722,
+     "recall": 0.806,
+     "f1": 0.761,
+     "tp": 83,
+     "fp": 32,
+     "fn": 20
+    },
+    "8_3": {
+     "precision": 0.903,
+     "recall": 0.836,
+     "f1": 0.868,
+     "tp": 56,
+     "fp": 6,
+     "fn": 11
+    },
+    "8_25": {
+     "precision": 0.439,
+     "recall": 0.694,
+     "f1": 0.537,
+     "tp": 43,
+     "fp": 55,
+     "fn": 19
+    },
+    "8_31": {
+     "precision": 0.58,
+     "recall": 0.93,
+     "f1": 0.714,
+     "tp": 40,
+     "fp": 29,
+     "fn": 3
+    },
+    "8_50": {
+     "precision": 0.672,
+     "recall": 0.804,
+     "f1": 0.732,
+     "tp": 41,
+     "fp": 20,
+     "fn": 10
+    },
+    "pooled_5recs": {
+     "precision": 0.649,
+     "recall": 0.807,
+     "f1": 0.72,
+     "tp": 263,
+     "fp": 142,
+     "fn": 63
+    }
+   }
+  },
+  "pouring": {
+   "prompt": "pouring liquid into a cup",
+   "threshold_softmax_prob": 0.0024,
+   "tuned_on_8_16": {
+    "precision": 0.338,
+    "recall": 0.96,
+    "f1": 0.5,
+    "tp": 24,
+    "fp": 47,
+    "fn": 1
+   },
+   "frozen_eval": {
+    "8_26": {
+     "precision": 0.068,
+     "recall": 0.176,
+     "f1": 0.098,
+     "tp": 3,
+     "fp": 41,
+     "fn": 14
+    },
+    "8_3": {
+     "precision": 0.315,
+     "recall": 0.708,
+     "f1": 0.436,
+     "tp": 17,
+     "fp": 37,
+     "fn": 7
+    },
+    "8_25": {
+     "precision": 0.191,
+     "recall": 0.346,
+     "f1": 0.247,
+     "tp": 9,
+     "fp": 38,
+     "fn": 17
+    },
+    "8_31": {
+     "precision": 0.311,
+     "recall": 0.824,
+     "f1": 0.452,
+     "tp": 14,
+     "fp": 31,
+     "fn": 3
+    },
+    "8_50": {
+     "precision": 0.3,
+     "recall": 0.667,
+     "f1": 0.414,
+     "tp": 6,
+     "fp": 14,
+     "fn": 3
+    },
+    "pooled_5recs": {
+     "precision": 0.233,
+     "recall": 0.527,
+     "f1": 0.323,
+     "tp": 49,
+     "fp": 161,
+     "fn": 44
+    }
+   }
+  },
+  "stirring": {
+   "prompt": "stirring a drink with a spoon, glass clinking",
+   "threshold_softmax_prob": 0.3449,
+   "tuned_on_8_16": {
+    "precision": 0.621,
+    "recall": 0.562,
+    "f1": 0.59,
+    "tp": 18,
+    "fp": 11,
+    "fn": 14
+   },
+   "frozen_eval": {
+    "8_26": {
+     "precision": 0.625,
+     "recall": 0.455,
+     "f1": 0.526,
+     "tp": 5,
+     "fp": 3,
+     "fn": 6
+    },
+    "8_3": {
+     "precision": 0.538,
+     "recall": 0.778,
+     "f1": 0.636,
+     "tp": 14,
+     "fp": 12,
+     "fn": 4
+    },
+    "8_25": {
+     "precision": 0.357,
+     "recall": 0.263,
+     "f1": 0.303,
+     "tp": 5,
+     "fp": 9,
+     "fn": 14
+    },
+    "8_31": {
+     "precision": 0.261,
+     "recall": 0.857,
+     "f1": 0.4,
+     "tp": 6,
+     "fp": 17,
+     "fn": 1
+    },
+    "8_50": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "tp": 0,
+     "fp": 12,
+     "fn": 0
+    },
+    "pooled_5recs": {
+     "precision": 0.361,
+     "recall": 0.545,
+     "f1": 0.435,
+     "tp": 30,
+     "fp": 53,
+     "fn": 25
+    }
+   }
+  }
+ },
+ "top_prompt_per_gt_segment": {
+  "8_16": [
+   {
+    "step_id": 88,
+    "t": "0-63s",
+    "desc": "Fill a microwave-safe mug with skimmed milk",
+    "top_prompt": "stirring a drink with a spoon, glass clinking",
+    "top_prob": 0.327,
+    "second_prompt": "a microwave oven running",
+    "second_prob": 0.32
+   },
+   {
+    "step_id": 89,
+    "t": "70-135s",
+    "desc": "Microwave the contents of the mug for 1 minute",
+    "top_prompt": "a microwave oven running",
+    "top_prob": 0.976,
+    "second_prompt": "a microwave beep",
+    "second_prob": 0.021
+   },
+   {
+    "step_id": 90,
+    "t": "134-170s",
+    "desc": "Add 2 pieces of chocolate to the mug",
+    "top_prompt": "opening a wrapper or container",
+    "top_prob": 0.786,
+    "second_prompt": "a microwave oven running",
+    "second_prob": 0.111
+   },
+   {
+    "step_id": 84,
+    "t": "170-219s",
+    "desc": "Add 1/5 teaspoon cinnamon to the mug",
+    "top_prompt": "opening a wrapper or container",
+    "top_prob": 0.673,
+    "second_prompt": "a quiet kitchen, refrigerator hum",
+    "second_prob": 0.185
+   },
+   {
+    "step_id": 87,
+    "t": "224-296s",
+    "desc": "Add 1 teaspoon of white sugar to the mug",
+    "top_prompt": "opening a wrapper or container",
+    "top_prob": 0.747,
+    "second_prompt": "a quiet kitchen, refrigerator hum",
+    "second_prob": 0.128
+   },
+   {
+    "step_id": 85,
+    "t": "297-377s",
+    "desc": "Mix the contents of the mug",
+    "top_prompt": "stirring a drink with a spoon, glass clinking",
+    "top_prob": 0.484,
+    "second_prompt": "opening a wrapper or container",
+    "second_prob": 0.252
+   },
+   {
+    "step_id": 83,
+    "t": "377-452s",
+    "desc": "Heat the contents of the mug for 1 minute and serv",
+    "top_prompt": "a microwave oven running",
+    "top_prob": 0.872,
+    "second_prompt": "a microwave beep",
+    "second_prob": 0.035
+   }
+  ],
+  "8_26": [
+   {
+    "step_id": 88,
+    "t": "2-44s",
+    "desc": "Fill a microwave-safe mug with skimmed milk",
+    "top_prompt": "a microwave oven running",
+    "top_prob": 0.618,
+    "second_prompt": "opening a wrapper or container",
+    "second_prob": 0.266
+   },
+   {
+    "step_id": 89,
+    "t": "47-178s",
+    "desc": "Microwave the contents of the mug for 1 minute",
+    "top_prompt": "a microwave oven running",
+    "top_prob": 0.889,
+    "second_prompt": "pouring liquid into a cup",
+    "second_prob": 0.042
+   },
+   {
+    "step_id": 90,
+    "t": "180-220s",
+    "desc": "Add 2 pieces of chocolate to the mug",
+    "top_prompt": "opening a wrapper or container",
+    "top_prob": 0.671,
+    "second_prompt": "a microwave oven running",
+    "second_prob": 0.309
+   },
+   {
+    "step_id": 87,
+    "t": "220-284s",
+    "desc": "Add 1 teaspoon of white sugar to the mug",
+    "top_prompt": "opening a wrapper or container",
+    "top_prob": 0.48,
+    "second_prompt": "a microwave oven running",
+    "second_prob": 0.41
+   },
+   {
+    "step_id": 85,
+    "t": "286-315s",
+    "desc": "Mix the contents of the mug",
+    "top_prompt": "a microwave oven running",
+    "top_prob": 0.422,
+    "second_prompt": "stirring a drink with a spoon, glass clinking",
+    "second_prob": 0.379
+   },
+   {
+    "step_id": 83,
+    "t": "322-445s",
+    "desc": "Heat the contents of the mug for 1 minute and serv",
+    "top_prompt": "a microwave oven running",
+    "top_prob": 0.79,
+    "second_prompt": "pouring liquid into a cup",
+    "second_prob": 0.082
+   }
+  ]
+ },
+ "latency": {
+  "gpu_batched_ms_per_window_model_forward": 1.89,
+  "cpu_single_window_feature_extract_ms": 34.5,
+  "cpu_single_window_model_forward_ms": 3028.4,
+  "per_recording_total_s": {
+   "8_16": {
+    "feature_extraction_s": 3.71,
+    "gpu_inference_s": 0.36,
+    "total_s": 4.08,
+    "audio_duration_s": 462.6,
+    "n_windows": 184
+   },
+   "8_26": {
+    "feature_extraction_s": 3.47,
+    "gpu_inference_s": 0.26,
+    "total_s": 3.73,
+    "audio_duration_s": 450.3,
+    "n_windows": 179
+   },
+   "8_3": {
+    "feature_extraction_s": 3.28,
+    "gpu_inference_s": 0.22,
+    "total_s": 3.5,
+    "audio_duration_s": 422.0,
+    "n_windows": 167
+   },
+   "8_25": {
+    "feature_extraction_s": 3.54,
+    "gpu_inference_s": 0.48,
+    "total_s": 4.02,
+    "audio_duration_s": 442.9,
+    "n_windows": 176
+   },
+   "8_31": {
+    "feature_extraction_s": 2.07,
+    "gpu_inference_s": 0.29,
+    "total_s": 2.36,
+    "audio_duration_s": 267.1,
+    "n_windows": 105
+   },
+   "8_50": {
+    "feature_extraction_s": 2.98,
+    "gpu_inference_s": 0.12,
+    "total_s": 3.09,
+    "audio_duration_s": 263.4,
+    "n_windows": 104
+   }
+  },
+  "model_load_s": 1.7
+ }
+}

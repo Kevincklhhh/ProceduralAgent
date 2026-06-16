@@ -1,0 +1,30 @@
+{
+  "recording": "8_50",
+  "arm": "periodic_vlm_qwen",
+  "stage_intervals": [
+    {
+      "stage": "other",
+      "start_s": 10.0,
+      "end_s": 60.0
+    },
+    {
+      "stage": "add_sugar",
+      "start_s": 60.0,
+      "end_s": 80.0
+    },
+    {
+      "stage": "other",
+      "start_s": 80.0,
+      "end_s": 263.5
+    }
+  ],
+  "events": [],
+  "escalation_requests": [],
+  "cost": {
+    "vlm_calls": 26,
+    "frames_sent": 78,
+    "vlm_latency_total_s": 1205.9,
+    "compute_s": 1210.1,
+    "notes": "interval=10s frames_per_call=3 model=Qwen/Qwen3.6-27B parse_failure_rate=0.0 mean_latency_s=46.38; ran at 2-way concurrency"
+  }
+}

@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+node_modules/
+# local secrets (HF_TOKEN, etc.)
+.env
+# datasets, videos, extracted audio (18 GB; see README "Data" for how to rebuild)
+data/
+# downscaled probe videos
+detectors/probes/*.mp4
+# regenerable visualizer trace frames (dumped by --trace; ~500MB)
+experiments/**/frames/

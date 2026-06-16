@@ -1,0 +1,135 @@
+{
+  "task_id": "cheesepimiento",
+  "title": "Cheesepimiento",
+  "source": "data/cc4d/annotations/task_graphs/cheesepimiento.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 316,
+      "order": 1,
+      "name": "add_1_3_cup",
+      "instruction": "Add 1/3 cup cheddar cheese to a microwave-safe cup",
+      "preconditions": []
+    },
+    {
+      "step_id": 320,
+      "order": 2,
+      "name": "add_1_tablespoons_of",
+      "instruction": "Add 1 tablespoons of water to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 321,
+      "order": 3,
+      "name": "chop_1_4_red",
+      "instruction": "Chop 1/4 red bell pepper into tiny bits",
+      "preconditions": []
+    },
+    {
+      "step_id": 322,
+      "order": 4,
+      "name": "place_the_chopped_pepper",
+      "instruction": "Place the chopped pepper in the microwave-safe bowl",
+      "preconditions": [
+        321
+      ]
+    },
+    {
+      "step_id": 318,
+      "order": 5,
+      "name": "microwave_the_bowl_covered",
+      "instruction": "Microwave the bowl, covered, for 2 minutes",
+      "preconditions": [
+        320,
+        322
+      ],
+      "duration_constraint_s": 120
+    },
+    {
+      "step_id": 323,
+      "order": 6,
+      "name": "melt_the_cheese_by",
+      "instruction": "Melt the cheese by microwaving cup for 30 sec. (Check after 30 seconds and microwave for 10 seconds more if needed)",
+      "preconditions": [
+        316
+      ],
+      "duration_constraint_s": 30
+    },
+    {
+      "step_id": 317,
+      "order": 7,
+      "name": "mix_the_cheese_and",
+      "instruction": "Mix the cheese and red bell pepper in the bowl",
+      "preconditions": [
+        318,
+        323
+      ]
+    },
+    {
+      "step_id": 314,
+      "order": 8,
+      "name": "add_1_2_tbsp",
+      "instruction": "add 1/2 tbsp softened butter to the bowl",
+      "preconditions": [
+        317
+      ]
+    },
+    {
+      "step_id": 315,
+      "order": 9,
+      "name": "add_1_4_teaspoon",
+      "instruction": "Add 1/4 teaspoon salt to the bowl",
+      "preconditions": [
+        317
+      ]
+    },
+    {
+      "step_id": 319,
+      "order": 10,
+      "name": "add_1_4_teaspoon",
+      "instruction": "Add 1/4 teaspoon pepper to the bowl",
+      "preconditions": [
+        317
+      ]
+    },
+    {
+      "step_id": 324,
+      "order": 11,
+      "name": "mix_all_the_ingredients",
+      "instruction": "Mix all the ingredients of the bowl well",
+      "preconditions": [
+        314,
+        315,
+        319
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_microwave_the_bowl_covered",
+      "step_id": 318,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 120s",
+      "message": "The recipe says about 120s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_melt_the_cheese_by",
+      "step_id": 323,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 30s",
+      "message": "The recipe says about 30s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

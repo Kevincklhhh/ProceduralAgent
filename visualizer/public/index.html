@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProceduralAgent Task Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>ProceduralAgent Task Visualizer</h1>
+    <nav id="view-nav">
+      <button data-view="video" class="active">Videos</button>
+      <button data-view="json">Task JSON</button>
+    </nav>
+    <select id="recipe-select" title="Filter by recipe"></select>
+    <label id="errors-only-label"><input type="checkbox" id="errors-only" /> errors only</label>
+    <select id="video-select"></select>
+    <span id="video-meta"></span>
+  </header>
+
+  <section id="json-view" hidden>
+    <div id="json-file-list"></div>
+    <div id="json-viewer">
+      <div id="json-viewer-header">
+        <h2 id="json-filename">Select a file</h2>
+        <button id="json-expand-all">Expand all</button>
+        <button id="json-collapse-all">Collapse all</button>
+      </div>
+      <div id="json-tree"></div>
+    </div>
+  </section>
+
+  <main id="video-view">
+    <div id="left-pane">
+      <video id="player" controls preload="metadata"></video>
+      <div id="timeline">
+        <div id="time-axis"></div>
+        <div id="tracks"></div>
+      </div>
+
+      <div id="vlm-context" hidden>
+        <div id="vlm-context-header">
+          <h3>VLM context window</h3>
+          <label class="muted">arm <select id="arm-select"></select></label>
+          <span id="vlm-call-meta" class="muted"></span>
+        </div>
+        <div id="vlm-frames"></div>
+        <div id="vlm-prompt"></div>
+      </div>
+
+      <div id="monitor-context" hidden>
+        <div id="monitor-context-header">
+          <h3>Procedure monitor — replay</h3>
+          <label class="muted">run <select id="mon-select"></select></label>
+          <button id="replay-btn">▶ replay</button>
+          <span id="mon-call-meta" class="muted"></span>
+        </div>
+        <div id="mon-state"></div>
+        <div id="mon-why"></div>
+        <div id="mon-poll"></div>
+      </div>
+    </div>
+
+    <div id="side-panel">
+      <h2 id="task-title">No task</h2>
+      <div id="rec-meta"></div>
+      <div id="json-links"></div>
+      <h3 id="steps-header">Steps</h3>
+      <div id="task-steps"></div>
+      <h3 id="reminders-header">Reminders</h3>
+      <div id="task-reminders"></div>
+      <h3 id="events-header">At playhead</h3>
+      <div id="active-events"></div>
+    </div>
+  </main>
+
+  <div id="tooltip"></div>
+  <script src="app.js"></script>
+</body>
+</html>

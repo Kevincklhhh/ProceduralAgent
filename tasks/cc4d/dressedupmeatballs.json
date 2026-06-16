@@ -1,0 +1,176 @@
+{
+  "task_id": "dressedupmeatballs",
+  "title": "Dressedupmeatballs",
+  "source": "data/cc4d/annotations/task_graphs/dressedupmeatballs.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 14,
+      "order": 1,
+      "name": "peel_1_garlic_clove",
+      "instruction": "Peel 1 garlic clove",
+      "preconditions": []
+    },
+    {
+      "step_id": 16,
+      "order": 2,
+      "name": "cut_1_8_garlic",
+      "instruction": "Cut 1/8 garlic clove",
+      "preconditions": [
+        14
+      ]
+    },
+    {
+      "step_id": 17,
+      "order": 3,
+      "name": "peel_one_medium_onion",
+      "instruction": "Peel one medium onion",
+      "preconditions": []
+    },
+    {
+      "step_id": 21,
+      "order": 4,
+      "name": "place_5_meatballs_in",
+      "instruction": "Place 5 meatballs in a Microwave-safe plate",
+      "preconditions": []
+    },
+    {
+      "step_id": 22,
+      "order": 5,
+      "name": "cut_1_4_medium",
+      "instruction": "Cut 1/4 medium carrot into short, thin strips",
+      "preconditions": []
+    },
+    {
+      "step_id": 23,
+      "order": 6,
+      "name": "mix_1_4_cup",
+      "instruction": "Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 26,
+      "order": 7,
+      "name": "mince_1_8_garlic",
+      "instruction": "Mince 1/8 garlic clove",
+      "preconditions": [
+        16
+      ]
+    },
+    {
+      "step_id": 27,
+      "order": 8,
+      "name": "cut_onion_into_two",
+      "instruction": "Cut onion into two pieces",
+      "preconditions": [
+        17
+      ]
+    },
+    {
+      "step_id": 19,
+      "order": 9,
+      "name": "slice_1_8_medium",
+      "instruction": "Slice 1/8 medium onion",
+      "preconditions": [
+        27
+      ]
+    },
+    {
+      "step_id": 24,
+      "order": 10,
+      "name": "top_the_plate_with",
+      "instruction": "Top the plate with the carrots, onion, garlic and 1/4 tsp pepper powder",
+      "preconditions": [
+        19,
+        21,
+        22,
+        26
+      ]
+    },
+    {
+      "step_id": 15,
+      "order": 11,
+      "name": "pour_the_sauces_over",
+      "instruction": "Pour the sauces over the meatballs",
+      "preconditions": [
+        23,
+        24
+      ]
+    },
+    {
+      "step_id": 20,
+      "order": 12,
+      "name": "microwave_the_plate_covered",
+      "instruction": "Microwave the plate, covered, on high for 1.5 minutes",
+      "preconditions": [
+        15
+      ],
+      "duration_constraint_s": 300
+    },
+    {
+      "step_id": 18,
+      "order": 13,
+      "name": "stir_the_contents_in",
+      "instruction": "Stir the contents in the microwave with a spoon",
+      "preconditions": [
+        20
+      ]
+    },
+    {
+      "step_id": 20,
+      "order": 14,
+      "name": "microwave_the_plate_covered",
+      "instruction": "Microwave the plate, covered, on high for 1.5 minutes",
+      "preconditions": [
+        18
+      ],
+      "duration_constraint_s": 300
+    },
+    {
+      "step_id": 18,
+      "order": 15,
+      "name": "stir_the_contents_in",
+      "instruction": "Stir the contents in the microwave with a spoon",
+      "preconditions": [
+        20
+      ]
+    },
+    {
+      "step_id": 25,
+      "order": 16,
+      "name": "microwave_for_1_more",
+      "instruction": "Microwave for 1 more minute",
+      "preconditions": [
+        18
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_microwave_the_plate_covered",
+      "step_id": 20,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 300s",
+      "message": "The recipe says about 300s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_microwave_the_plate_covered",
+      "step_id": 20,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 300s",
+      "message": "The recipe says about 300s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

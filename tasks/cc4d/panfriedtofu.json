@@ -1,0 +1,217 @@
+{
+  "task_id": "panfriedtofu",
+  "title": "Panfriedtofu",
+  "source": "data/cc4d/annotations/task_graphs/panfriedtofu.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 275,
+      "order": 1,
+      "name": "cut_1_4_block",
+      "instruction": "Cut 1/4 block or 3 ounces of fresh tofu into large cubes (about 1 in x 1 in)",
+      "preconditions": []
+    },
+    {
+      "step_id": 286,
+      "order": 2,
+      "name": "add_1_4_tsp",
+      "instruction": "add 1/4 tsp salt to the pan",
+      "preconditions": []
+    },
+    {
+      "step_id": 291,
+      "order": 3,
+      "name": "add_1_tablespoon_of",
+      "instruction": "Add 1 tablespoon of olive oil to a non-stick pan",
+      "preconditions": []
+    },
+    {
+      "step_id": 293,
+      "order": 4,
+      "name": "pat_tofu_dry_with",
+      "instruction": "pat tofu dry with a towel",
+      "preconditions": [
+        275
+      ]
+    },
+    {
+      "step_id": 279,
+      "order": 5,
+      "name": "add_the_tofu_cubes",
+      "instruction": "add the tofu cubes to the pan",
+      "preconditions": [
+        293
+      ]
+    },
+    {
+      "step_id": 276,
+      "order": 6,
+      "name": "turn_on_the_heat",
+      "instruction": "Turn on the heat to medium",
+      "preconditions": [
+        279,
+        286,
+        291
+      ]
+    },
+    {
+      "step_id": 292,
+      "order": 7,
+      "name": "cook_5_to_6",
+      "instruction": "Cook 5 to 6 minutes until tofu cubes are lightly browned on the bottom",
+      "preconditions": [
+        276
+      ],
+      "duration_constraint_s": 360
+    },
+    {
+      "step_id": 280,
+      "order": 8,
+      "name": "briefly_remove_the_pan",
+      "instruction": "Briefly remove the pan from the heat to reduce spitting",
+      "preconditions": [
+        292
+      ]
+    },
+    {
+      "step_id": 285,
+      "order": 9,
+      "name": "flip_the_tofu_with",
+      "instruction": "Flip the tofu with tongs",
+      "preconditions": [
+        280
+      ]
+    },
+    {
+      "step_id": 287,
+      "order": 10,
+      "name": "return_the_heat_to",
+      "instruction": "Return the heat to medium",
+      "preconditions": [
+        285
+      ]
+    },
+    {
+      "step_id": 290,
+      "order": 11,
+      "name": "cook_until_tofu_turns",
+      "instruction": "cook until tofu turns brown",
+      "preconditions": [
+        287
+      ]
+    },
+    {
+      "step_id": 282,
+      "order": 12,
+      "name": "briefly_remove_from_the",
+      "instruction": "Briefly remove from the heat again",
+      "preconditions": [
+        290
+      ]
+    },
+    {
+      "step_id": 277,
+      "order": 13,
+      "name": "drizzle_1_tablespoon_soy",
+      "instruction": "drizzle 1 tablespoon soy sauce (watch for spitting) on the pan",
+      "preconditions": [
+        282
+      ]
+    },
+    {
+      "step_id": 278,
+      "order": 14,
+      "name": "drizzle_with_the_1",
+      "instruction": "drizzle with the 1 tablespoons sesame oil on the pan",
+      "preconditions": [
+        282
+      ]
+    },
+    {
+      "step_id": 284,
+      "order": 15,
+      "name": "return_to_low_heat",
+      "instruction": "Return to low heat",
+      "preconditions": [
+        277,
+        278
+      ]
+    },
+    {
+      "step_id": 289,
+      "order": 16,
+      "name": "cook_pan_for_2",
+      "instruction": "cook pan for 2 minutes",
+      "preconditions": [
+        284
+      ],
+      "duration_constraint_s": 120
+    },
+    {
+      "step_id": 281,
+      "order": 17,
+      "name": "flip_tofu_on_the",
+      "instruction": "flip tofu on the pan",
+      "preconditions": [
+        289
+      ]
+    },
+    {
+      "step_id": 288,
+      "order": 18,
+      "name": "cook_pan_for_2",
+      "instruction": "cook pan for 2 minutes until the colour is darkened",
+      "preconditions": [
+        281
+      ],
+      "duration_constraint_s": 120
+    },
+    {
+      "step_id": 283,
+      "order": 19,
+      "name": "transfer_to_a_serving",
+      "instruction": "Transfer to a serving dish",
+      "preconditions": [
+        288
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_cook_5_to_6",
+      "step_id": 292,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 360s",
+      "message": "The recipe says about 360s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_pan_for_2",
+      "step_id": 289,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 120s",
+      "message": "The recipe says about 120s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_pan_for_2",
+      "step_id": 288,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 120s",
+      "message": "The recipe says about 120s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

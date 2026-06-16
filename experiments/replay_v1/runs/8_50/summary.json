@@ -1,0 +1,41 @@
+{
+  "video_id": "8_50",
+  "task_id": "spiced_hot_chocolate_cc4d",
+  "baseline": {
+    "mode": "periodic_vlm",
+    "interval_s": 10.0,
+    "frames_per_call": 3,
+    "window_s": 2.0,
+    "backend": "qwen",
+    "model": "Qwen/Qwen3.6-27B",
+    "k_consecutive": 2,
+    "cooldown_s": 15.0
+  },
+  "video_duration_s": 263.5,
+  "evaluated_seconds": 263.5,
+  "stage_timeline": [
+    {
+      "step_id": "other",
+      "start_s": 10.0,
+      "end_s": 60.0
+    },
+    {
+      "step_id": "add_sugar",
+      "start_s": 60.0,
+      "end_s": 80.0
+    },
+    {
+      "step_id": "other",
+      "start_s": 80.0,
+      "end_s": 263.5
+    }
+  ],
+  "events": [],
+  "cost_log": {
+    "num_vlm_calls": 26,
+    "frames_sent": 78,
+    "mean_latency_s": 46.38,
+    "p95_latency_s": 61.66,
+    "parse_failure_rate": 0.0
+  }
+}

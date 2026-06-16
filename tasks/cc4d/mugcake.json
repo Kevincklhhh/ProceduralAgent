@@ -1,0 +1,203 @@
+{
+  "task_id": "mugcake",
+  "title": "Mugcake",
+  "source": "data/cc4d/annotations/task_graphs/mugcake.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 297,
+      "order": 1,
+      "name": "1_5_tbsp_sugar",
+      "instruction": "1.5 tbsp sugar to the mixing bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 299,
+      "order": 2,
+      "name": "measure_and_add_2",
+      "instruction": "Measure and add 2 tbsp flour to the mixing bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 303,
+      "order": 3,
+      "name": "place_the_paper_cupcake",
+      "instruction": "Place the paper cupcake liner inside the mug",
+      "preconditions": []
+    },
+    {
+      "step_id": 301,
+      "order": 4,
+      "name": "set_aside_the_lined",
+      "instruction": "Set aside the lined mug",
+      "preconditions": [
+        303
+      ]
+    },
+    {
+      "step_id": 304,
+      "order": 5,
+      "name": "1_4_tsp_baking",
+      "instruction": "1/4 tsp baking powder to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 310,
+      "order": 6,
+      "name": "a_pinch_of_salt",
+      "instruction": "a pinch of salt to the mixing bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 308,
+      "order": 7,
+      "name": "whisk_to_combine_mixture",
+      "instruction": "Whisk to combine mixture of flour, sugar and baking powder in the bowl",
+      "preconditions": [
+        297,
+        299,
+        304,
+        310
+      ]
+    },
+    {
+      "step_id": 296,
+      "order": 8,
+      "name": "2_tbsp_water_to",
+      "instruction": "2 tbsp water to the bowl",
+      "preconditions": [
+        308
+      ]
+    },
+    {
+      "step_id": 300,
+      "order": 9,
+      "name": "measure_and_add_2",
+      "instruction": "Measure and add 2 tsp vegetable oil to the bowl",
+      "preconditions": [
+        308
+      ]
+    },
+    {
+      "step_id": 313,
+      "order": 10,
+      "name": "1_4_tsp_vanilla",
+      "instruction": "1/4 tsp vanilla extract to the bowl",
+      "preconditions": [
+        308
+      ]
+    },
+    {
+      "step_id": 294,
+      "order": 11,
+      "name": "whisk_batter_until_no",
+      "instruction": "Whisk batter until no lumps remain",
+      "preconditions": [
+        296,
+        300,
+        313
+      ]
+    },
+    {
+      "step_id": 307,
+      "order": 12,
+      "name": "pour_batter_into_prepared",
+      "instruction": "Pour batter into prepared mug",
+      "preconditions": [
+        294,
+        301
+      ]
+    },
+    {
+      "step_id": 312,
+      "order": 13,
+      "name": "microwave_the_mug_and",
+      "instruction": "Microwave the mug and batter on high power for 60 seconds. Check if the cake is done by inserting and toothpick into the center of the cake and then removing it. If wet batter clings to the toothpick, microwave for an additional 5 seconds. If the toothpick comes out clean, continue",
+      "preconditions": [
+        307
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 309,
+      "order": 14,
+      "name": "invert_the_mug_to",
+      "instruction": "Invert the mug to release the cake onto a plate",
+      "preconditions": [
+        312
+      ]
+    },
+    {
+      "step_id": 305,
+      "order": 15,
+      "name": "allow_to_cool_until",
+      "instruction": "Allow to cool until it is no longer hot to the touch",
+      "preconditions": [
+        309
+      ]
+    },
+    {
+      "step_id": 295,
+      "order": 16,
+      "name": "then_carefully_remove_the",
+      "instruction": "then carefully remove the paper liner",
+      "preconditions": [
+        305
+      ]
+    },
+    {
+      "step_id": 298,
+      "order": 17,
+      "name": "while_the_cake_is",
+      "instruction": "While the cake is cooling, prepare to pipe the frosting. Scoop 4 spoonfuls of chocolate frosting into a zip-top bag",
+      "preconditions": [
+        295
+      ]
+    },
+    {
+      "step_id": 311,
+      "order": 18,
+      "name": "seal_zip_top_bag",
+      "instruction": "seal zip top bag, removing as much air as possible",
+      "preconditions": [
+        298
+      ]
+    },
+    {
+      "step_id": 306,
+      "order": 19,
+      "name": "use_scissors_to_cut",
+      "instruction": "Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter",
+      "preconditions": [
+        311
+      ]
+    },
+    {
+      "step_id": 302,
+      "order": 20,
+      "name": "squeeze_the_frosting_through",
+      "instruction": "Squeeze the frosting through the opening to apply small dollops of frosting to the plate in a circle around the base of the cake",
+      "preconditions": [
+        306
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_microwave_the_mug_and",
+      "step_id": 312,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

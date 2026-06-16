@@ -1,0 +1,143 @@
+{
+  "task_id": "microwaveeggsandwich",
+  "title": "Microwaveeggsandwich",
+  "source": "data/cc4d/annotations/task_graphs/microwaveeggsandwich.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 3,
+      "order": 1,
+      "name": "coat_a_6_oz",
+      "instruction": "Coat a 6-oz. ramekin cup with cooking spray",
+      "preconditions": []
+    },
+    {
+      "step_id": 1,
+      "order": 2,
+      "name": "pour_1_egg_into",
+      "instruction": "Pour 1 egg into the ramekin cup",
+      "preconditions": [
+        3
+      ]
+    },
+    {
+      "step_id": 4,
+      "order": 3,
+      "name": "microwave_the_ramekin_cup",
+      "instruction": "Microwave the ramekin cup uncovered on high for 30 seconds",
+      "preconditions": [
+        1
+      ],
+      "duration_constraint_s": 30
+    },
+    {
+      "step_id": 11,
+      "order": 4,
+      "name": "stir_the_ramekin_cup",
+      "instruction": "stir the ramekin cup",
+      "preconditions": [
+        4
+      ]
+    },
+    {
+      "step_id": 8,
+      "order": 5,
+      "name": "continue_to_microwave_for",
+      "instruction": "Continue to Microwave for 15-30 more seconds or until the egg is almost set",
+      "preconditions": [
+        11
+      ]
+    },
+    {
+      "step_id": 6,
+      "order": 6,
+      "name": "top_cup_with_1",
+      "instruction": "Top cup with 1 tablespoon of salsa",
+      "preconditions": [
+        8
+      ]
+    },
+    {
+      "step_id": 5,
+      "order": 7,
+      "name": "sprinkle_1_tablespoon_of",
+      "instruction": "sprinkle 1 tablespoon of cheese on cup",
+      "preconditions": [
+        6
+      ]
+    },
+    {
+      "step_id": 10,
+      "order": 8,
+      "name": "microwave_just_until_cheese",
+      "instruction": "Microwave just until cheese melts, about 10 seconds",
+      "preconditions": [
+        5
+      ],
+      "duration_constraint_s": 10
+    },
+    {
+      "step_id": 12,
+      "order": 9,
+      "name": "cut_the_english_muffin",
+      "instruction": "Cut the English muffin into two pieces with a knife",
+      "preconditions": []
+    },
+    {
+      "step_id": 9,
+      "order": 10,
+      "name": "line_the_bottom_piece",
+      "instruction": "Line the bottom piece of the English muffin with lettuce",
+      "preconditions": [
+        12
+      ]
+    },
+    {
+      "step_id": 2,
+      "order": 11,
+      "name": "place_the_egg_from",
+      "instruction": "Place the egg from the cup over the lettuce",
+      "preconditions": [
+        9,
+        10
+      ]
+    },
+    {
+      "step_id": 7,
+      "order": 12,
+      "name": "replace_the_top_of",
+      "instruction": "replace the top of the English muffin",
+      "preconditions": [
+        2
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_microwave_the_ramekin_cup",
+      "step_id": 4,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 30s",
+      "message": "The recipe says about 30s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_microwave_just_until_cheese",
+      "step_id": 10,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 10s",
+      "message": "The recipe says about 10s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

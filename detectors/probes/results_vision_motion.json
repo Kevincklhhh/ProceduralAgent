@@ -1,0 +1,362 @@
+{
+  "probe": "vision_motion",
+  "config": {
+    "input": "320p @ 5 fps grayscale, Farneback flow, median-vector ego compensation",
+    "window_s": 10.0,
+    "hop_s": 1.0,
+    "band_hz": [
+      0.5,
+      2.5
+    ],
+    "note": "Nyquist at 5 fps is 2.5 Hz; requested 0.5-3 Hz band truncated to 0.5-2.5 Hz",
+    "score": "peak FFT power in band / median spectral power (DC excluded)"
+  },
+  "recordings": {
+    "8_16": {
+      "role": "tuning (threshold fit here)",
+      "n_frames_320p5": 2313,
+      "n_windows": 453,
+      "step85_interval_s": [
+        296.6,
+        376.9
+      ],
+      "periodicity_score": {
+        "mean_inside_step85": 8.375,
+        "mean_outside_step85": 9.296,
+        "roc_auc": 0.486,
+        "roc_auc_raw_motion_baseline": 0.462,
+        "median_peak_hz_inside_step85": 0.65
+      },
+      "detection_at_frozen_threshold": {
+        "precision": 0.183,
+        "recall": 0.963,
+        "f1": 0.308,
+        "tp": 77,
+        "fp": 343,
+        "fn": 3
+      },
+      "best_windows_top5": [
+        {
+          "t_s": 52.2,
+          "score": 87.34,
+          "peak_hz": 0.5,
+          "in_step85": false
+        },
+        {
+          "t_s": 53.2,
+          "score": 58.24,
+          "peak_hz": 0.5,
+          "in_step85": false
+        },
+        {
+          "t_s": 22.2,
+          "score": 55.82,
+          "peak_hz": 0.5,
+          "in_step85": false
+        },
+        {
+          "t_s": 51.2,
+          "score": 51.46,
+          "peak_hz": 0.5,
+          "in_step85": false
+        },
+        {
+          "t_s": 54.2,
+          "score": 49.75,
+          "peak_hz": 0.5,
+          "in_step85": false
+        }
+      ],
+      "worst_windows_inside_step85": [
+        {
+          "t_s": 357.2,
+          "score": 2.03,
+          "peak_hz": 0.6
+        },
+        {
+          "t_s": 361.2,
+          "score": 2.45,
+          "peak_hz": 1.6
+        },
+        {
+          "t_s": 304.2,
+          "score": 2.55,
+          "peak_hz": 1.2
+        }
+      ],
+      "per_step_motion": {
+        "83": {
+          "interval_s": [
+            377.4,
+            451.9
+          ],
+          "mean_resid_motion": 5.0701,
+          "mean_concentration_top5pct": 0.1705,
+          "mean_periodicity_score": 7.567
+        },
+        "84": {
+          "interval_s": [
+            170.5,
+            218.6
+          ],
+          "mean_resid_motion": 3.2335,
+          "mean_concentration_top5pct": 0.2031,
+          "mean_periodicity_score": 4.504
+        },
+        "85": {
+          "interval_s": [
+            296.6,
+            376.9
+          ],
+          "mean_resid_motion": 3.1385,
+          "mean_concentration_top5pct": 0.2133,
+          "mean_periodicity_score": 8.375
+        },
+        "87": {
+          "interval_s": [
+            223.8,
+            296.0
+          ],
+          "mean_resid_motion": 3.2122,
+          "mean_concentration_top5pct": 0.193,
+          "mean_periodicity_score": 7.802
+        },
+        "88": {
+          "interval_s": [
+            0.0,
+            63.2
+          ],
+          "mean_resid_motion": 5.147,
+          "mean_concentration_top5pct": 0.1663,
+          "mean_periodicity_score": 17.74
+        },
+        "89": {
+          "interval_s": [
+            70.4,
+            134.5
+          ],
+          "mean_resid_motion": 1.8951,
+          "mean_concentration_top5pct": 0.1872,
+          "mean_periodicity_score": 8.929
+        },
+        "90": {
+          "interval_s": [
+            133.9,
+            170.5
+          ],
+          "mean_resid_motion": 4.2158,
+          "mean_concentration_top5pct": 0.1704,
+          "mean_periodicity_score": 8.505
+        },
+        "outside_any_step": {
+          "mean_resid_motion": 4.7533,
+          "mean_concentration_top5pct": 0.142
+        }
+      },
+      "cost": {
+        "flow_ms_per_frame_mean": 15.02,
+        "flow_ms_per_frame_p95": 22.6,
+        "wall_s_motion_pass": 42.6,
+        "ms_per_processed_frame_incl_decode": 18.43
+      },
+      "ego_motion_median_vector_mag_mean_px": 2.916
+    },
+    "8_26": {
+      "role": "frozen eval",
+      "n_frames_320p5": 2252,
+      "n_windows": 441,
+      "step85_interval_s": [
+        285.6,
+        314.9
+      ],
+      "periodicity_score": {
+        "mean_inside_step85": 7.964,
+        "mean_outside_step85": 7.144,
+        "roc_auc": 0.555,
+        "roc_auc_raw_motion_baseline": 0.459,
+        "median_peak_hz_inside_step85": 0.5
+      },
+      "detection_at_frozen_threshold": {
+        "precision": 0.072,
+        "recall": 1.0,
+        "f1": 0.135,
+        "tp": 29,
+        "fp": 371,
+        "fn": 0
+      },
+      "best_windows_top5": [
+        {
+          "t_s": 162.2,
+          "score": 42.34,
+          "peak_hz": 0.5,
+          "in_step85": false
+        },
+        {
+          "t_s": 204.2,
+          "score": 38.23,
+          "peak_hz": 0.6,
+          "in_step85": false
+        },
+        {
+          "t_s": 161.2,
+          "score": 34.5,
+          "peak_hz": 0.5,
+          "in_step85": false
+        },
+        {
+          "t_s": 202.2,
+          "score": 26.5,
+          "peak_hz": 0.6,
+          "in_step85": false
+        },
+        {
+          "t_s": 203.2,
+          "score": 24.91,
+          "peak_hz": 0.6,
+          "in_step85": false
+        }
+      ],
+      "worst_windows_inside_step85": [
+        {
+          "t_s": 286.2,
+          "score": 2.8,
+          "peak_hz": 2.1
+        },
+        {
+          "t_s": 310.2,
+          "score": 2.91,
+          "peak_hz": 0.5
+        },
+        {
+          "t_s": 311.2,
+          "score": 3.39,
+          "peak_hz": 0.5
+        }
+      ],
+      "per_step_motion": {
+        "83": {
+          "interval_s": [
+            322.0,
+            445.3
+          ],
+          "mean_resid_motion": 4.5165,
+          "mean_concentration_top5pct": 0.1592,
+          "mean_periodicity_score": 6.833
+        },
+        "85": {
+          "interval_s": [
+            285.6,
+            314.9
+          ],
+          "mean_resid_motion": 4.271,
+          "mean_concentration_top5pct": 0.1708,
+          "mean_periodicity_score": 7.964
+        },
+        "87": {
+          "interval_s": [
+            220.1,
+            283.6
+          ],
+          "mean_resid_motion": 4.6173,
+          "mean_concentration_top5pct": 0.1615,
+          "mean_periodicity_score": 6.65
+        },
+        "88": {
+          "interval_s": [
+            2.0,
+            44.0
+          ],
+          "mean_resid_motion": 6.0046,
+          "mean_concentration_top5pct": 0.1506,
+          "mean_periodicity_score": 7.293
+        },
+        "89": {
+          "interval_s": [
+            47.1,
+            177.8
+          ],
+          "mean_resid_motion": 4.6121,
+          "mean_concentration_top5pct": 0.1443,
+          "mean_periodicity_score": 7.66
+        },
+        "90": {
+          "interval_s": [
+            179.7,
+            219.5
+          ],
+          "mean_resid_motion": 5.8556,
+          "mean_concentration_top5pct": 0.1613,
+          "mean_periodicity_score": 7.536
+        },
+        "outside_any_step": {
+          "mean_resid_motion": 5.484,
+          "mean_concentration_top5pct": 0.1574
+        }
+      },
+      "cost": {
+        "flow_ms_per_frame_mean": 12.65,
+        "flow_ms_per_frame_p95": 17.68,
+        "wall_s_motion_pass": 33.3,
+        "ms_per_processed_frame_incl_decode": 14.78
+      },
+      "ego_motion_median_vector_mag_mean_px": 3.9
+    }
+  },
+  "tuning": {
+    "tuned_on": "8_16",
+    "criterion": "max F1 on step-85 window labels",
+    "frozen_threshold": 2.756
+  },
+  "total_motion_pass_wall_s": 75.9,
+  "variant_exploration": {
+    "selection_on": "8_16",
+    "auc": {
+      "period_0.5-2.5Hz_resid": {
+        "8_16_tuning": 0.486,
+        "8_26_frozen_eval": 0.555
+      },
+      "period_1.0-2.5Hz_resid": {
+        "8_16_tuning": 0.597,
+        "8_26_frozen_eval": 0.398
+      },
+      "period_0.5-2.5Hz_conc": {
+        "8_16_tuning": 0.502,
+        "8_26_frozen_eval": 0.609
+      },
+      "period_1.0-2.5Hz_conc": {
+        "8_16_tuning": 0.482,
+        "8_26_frozen_eval": 0.591
+      },
+      "mean_concentration": {
+        "8_16_tuning": 0.596,
+        "8_26_frozen_eval": 0.733
+      },
+      "conc_over_egomag": {
+        "8_16_tuning": 0.583,
+        "8_26_frozen_eval": 0.86
+      }
+    },
+    "frozen_eval_8_26": {
+      "precision": 0.052,
+      "recall": 0.448,
+      "f1": 0.094,
+      "tp": 13,
+      "fp": 236,
+      "fn": 16,
+      "roc_auc": 0.398,
+      "mean_inside_step85": 2.6997,
+      "mean_outside_step85": 3.2245
+    },
+    "selected_variant": "period_1.0-2.5Hz_resid",
+    "frozen_threshold": 2.6803,
+    "tuning_8_16": {
+      "precision": 0.226,
+      "recall": 0.662,
+      "f1": 0.337,
+      "tp": 53,
+      "fp": 182,
+      "fn": 27,
+      "roc_auc": 0.597
+    }
+  }
+}

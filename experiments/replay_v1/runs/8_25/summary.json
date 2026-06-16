@@ -1,0 +1,76 @@
+{
+  "video_id": "8_25",
+  "task_id": "spiced_hot_chocolate_cc4d",
+  "baseline": {
+    "mode": "periodic_vlm",
+    "interval_s": 10.0,
+    "frames_per_call": 3,
+    "window_s": 2.0,
+    "backend": "qwen",
+    "model": "Qwen/Qwen3.6-27B",
+    "k_consecutive": 2,
+    "cooldown_s": 15.0
+  },
+  "video_duration_s": 442.9,
+  "evaluated_seconds": 442.9,
+  "stage_timeline": [
+    {
+      "step_id": "fill_milk",
+      "start_s": 10.0,
+      "end_s": 90.0
+    },
+    {
+      "step_id": "microwave_initial",
+      "start_s": 90.0,
+      "end_s": 110.0
+    },
+    {
+      "step_id": "other",
+      "start_s": 110.0,
+      "end_s": 170.0
+    },
+    {
+      "step_id": "add_cinnamon",
+      "start_s": 170.0,
+      "end_s": 220.0
+    },
+    {
+      "step_id": "add_chocolate",
+      "start_s": 220.0,
+      "end_s": 250.0
+    },
+    {
+      "step_id": "other",
+      "start_s": 250.0,
+      "end_s": 310.0
+    },
+    {
+      "step_id": "mix",
+      "start_s": 310.0,
+      "end_s": 380.0
+    },
+    {
+      "step_id": "heat_serve",
+      "start_s": 380.0,
+      "end_s": 400.0
+    },
+    {
+      "step_id": "other",
+      "start_s": 400.0,
+      "end_s": 440.0
+    },
+    {
+      "step_id": "heat_serve",
+      "start_s": 440.0,
+      "end_s": 442.9
+    }
+  ],
+  "events": [],
+  "cost_log": {
+    "num_vlm_calls": 44,
+    "frames_sent": 132,
+    "mean_latency_s": 47.65,
+    "p95_latency_s": 59.33,
+    "parse_failure_rate": 0.023
+  }
+}

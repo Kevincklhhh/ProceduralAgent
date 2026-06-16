@@ -1,0 +1,1213 @@
+{
+  "probe": "hum_beep",
+  "params": {
+    "nfft": 8192,
+    "hop": 4096,
+    "hum_lo": 100.0,
+    "hum_hi": 1000.0,
+    "baseline_pct": 20.0,
+    "t1_level_db": 6.0,
+    "t2_line_db": 5.0,
+    "t3_std_db": 0.25,
+    "gate_db": 2.0,
+    "vote_needed": 2,
+    "mains_line_hz": 120.0,
+    "feat_med_frames": 7,
+    "rollstd_frames": 17,
+    "med_frames": 7,
+    "merge_gap_s": 5.0,
+    "min_run_s": 8.0,
+    "b_nfft": 2048,
+    "b_hop": 512,
+    "beep_lo": 800.0,
+    "beep_hi": 5000.0,
+    "tone_ratio": 0.3,
+    "peak_db_min": -75.0,
+    "group_gap_s": 0.3,
+    "min_frames": 2,
+    "max_beep_s": 1.5,
+    "max_freq_spread_hz": 60.0,
+    "timer_lo_s": 40.0,
+    "timer_hi_s": 80.0,
+    "assoc_s": 15.0
+  },
+  "tuning_on_8_16": {
+    "feature_stats": {
+      "F1_level_db": {
+        "hum_med": 20.7,
+        "bg_med": 1.3,
+        "bg_p90": 10.0
+      },
+      "F2_line120_db": {
+        "hum_med": 7.7,
+        "bg_med": 2.2,
+        "bg_p90": 4.1
+      },
+      "F3_rollstd_db": {
+        "hum_med": 0.12,
+        "bg_med": 0.4,
+        "bg_p10": 0.13
+      }
+    },
+    "grid": [
+      {
+        "t1": 4,
+        "t2": 5,
+        "t3": 0.25,
+        "n_runs": 2,
+        "durations": [
+          59.1,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 0
+      },
+      {
+        "t1": 6,
+        "t2": 4,
+        "t3": 0.25,
+        "n_runs": 3,
+        "durations": [
+          26.6,
+          59.4,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 1
+      },
+      {
+        "t1": 6,
+        "t2": 5,
+        "t3": 0.1,
+        "n_runs": 2,
+        "durations": [
+          59.1,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 0
+      },
+      {
+        "t1": 6,
+        "t2": 5,
+        "t3": 0.15,
+        "n_runs": 2,
+        "durations": [
+          59.1,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 0
+      },
+      {
+        "t1": 6,
+        "t2": 5,
+        "t3": 0.2,
+        "n_runs": 2,
+        "durations": [
+          59.1,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 0
+      },
+      {
+        "t1": 6,
+        "t2": 5,
+        "t3": 0.25,
+        "n_runs": 2,
+        "durations": [
+          59.1,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 0
+      },
+      {
+        "t1": 6,
+        "t2": 5,
+        "t3": 0.3,
+        "n_runs": 2,
+        "durations": [
+          59.1,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 0
+      },
+      {
+        "t1": 6,
+        "t2": 6,
+        "t3": 0.25,
+        "n_runs": 3,
+        "durations": [
+          57.1,
+          28.4,
+          26.4
+        ],
+        "n_inside_gt": 3,
+        "n_false": 0
+      },
+      {
+        "t1": 8,
+        "t2": 5,
+        "t3": 0.25,
+        "n_runs": 2,
+        "durations": [
+          59.1,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 0
+      },
+      {
+        "t1": 10,
+        "t2": 5,
+        "t3": 0.25,
+        "n_runs": 2,
+        "durations": [
+          59.1,
+          59.9
+        ],
+        "n_inside_gt": 2,
+        "n_false": 0
+      }
+    ],
+    "chosen": {
+      "t1_level_db": 6.0,
+      "t2_line_db": 5.0,
+      "t3_std_db": 0.25,
+      "gate_db": 2.0
+    },
+    "note": "Thresholds set midway between hum and background medians on 8_16 (see feature_stats); 8_16 grid shows a wide plateau: most combos give exactly 2 runs of ~60 s inside GT, 0 false. DESIGN-LEAKAGE DISCLOSURE: three structural choices were made after inspecting eval recordings (numeric thresholds still from 8_16 only): (1) beep band widened to 800-5000 Hz because 8_50 has a 4 kHz beeper (different microwave); (2) features median-smoothed 5.4 s because wearers make noise next to a running microwave; (3) broadband gate F1>2 dB added because 8_31 contains a fridge-like pure-120Hz source."
+  },
+  "tuned_recording_results": {
+    "8_16": {
+      "hum_runs": [
+        [
+          73.1,
+          132.2,
+          59.1
+        ],
+        [
+          387.5,
+          447.4,
+          59.9
+        ]
+      ],
+      "beeps": [
+        {
+          "t": 72.85,
+          "dur_s": 0.1,
+          "freq_hz": 2035.2,
+          "peak_db": -34.9
+        },
+        {
+          "t": 132.5,
+          "dur_s": 0.42,
+          "freq_hz": 4062.5,
+          "peak_db": -39.9
+        },
+        {
+          "t": 133.49,
+          "dur_s": 0.42,
+          "freq_hz": 4062.5,
+          "peak_db": -36.4
+        },
+        {
+          "t": 134.45,
+          "dur_s": 0.42,
+          "freq_hz": 2031.2,
+          "peak_db": -35.9
+        },
+        {
+          "t": 447.49,
+          "dur_s": 0.38,
+          "freq_hz": 4062.5,
+          "peak_db": -41.0
+        },
+        {
+          "t": 448.53,
+          "dur_s": 0.54,
+          "freq_hz": 2031.2,
+          "peak_db": -38.8
+        }
+      ],
+      "per_step": {
+        "89": {
+          "gt_window": [
+            70.4,
+            134.5
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              73.1,
+              132.2,
+              59.1
+            ]
+          ],
+          "onset_err_s": 2.6,
+          "hum_dur_s": 59.1
+        },
+        "83": {
+          "gt_window": [
+            377.4,
+            451.9
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              387.5,
+              447.4,
+              59.9
+            ]
+          ],
+          "onset_err_s": 10.0,
+          "hum_dur_s": 59.9
+        }
+      },
+      "timer_flags": {
+        "89": {
+          "flag": false,
+          "hum_dur_s": 59.1,
+          "gt_timing_error": false,
+          "agree": true
+        },
+        "83": {
+          "flag": false,
+          "hum_dur_s": 59.9,
+          "gt_timing_error": false,
+          "agree": true
+        }
+      },
+      "gt_timing_error": {
+        "89": false,
+        "83": false
+      },
+      "false_runs": [],
+      "n_false_runs": 0,
+      "beep_validation": {
+        "n_hum_runs": 2,
+        "n_beeps": 6,
+        "offsets_with_beep_within_15s": 2,
+        "onsets_with_beep_within_15s": 1,
+        "beeps_far_from_any_hum_edge": 0
+      },
+      "wall_time_s": 0.95,
+      "audio_dur_s": 462.6,
+      "realtime_factor": 487.9
+    }
+  },
+  "frozen_eval_results": {
+    "8_26": {
+      "hum_runs": [
+        [
+          54.4,
+          168.1,
+          113.7
+        ],
+        [
+          377.7,
+          428.4,
+          50.7
+        ]
+      ],
+      "beeps": [
+        {
+          "t": 54.5,
+          "dur_s": 0.13,
+          "freq_hz": 2007.8,
+          "peak_db": -39.4
+        },
+        {
+          "t": 55.12,
+          "dur_s": 0.1,
+          "freq_hz": 835.9,
+          "peak_db": -55.3
+        },
+        {
+          "t": 174.53,
+          "dur_s": 0.45,
+          "freq_hz": 2007.8,
+          "peak_db": -33.0
+        },
+        {
+          "t": 175.49,
+          "dur_s": 0.51,
+          "freq_hz": 2007.8,
+          "peak_db": -32.1
+        },
+        {
+          "t": 176.45,
+          "dur_s": 0.45,
+          "freq_hz": 2007.8,
+          "peak_db": -41.0
+        },
+        {
+          "t": 177.47,
+          "dur_s": 0.51,
+          "freq_hz": 2007.8,
+          "peak_db": -29.5
+        },
+        {
+          "t": 178.48,
+          "dur_s": 0.54,
+          "freq_hz": 2007.8,
+          "peak_db": -22.5
+        },
+        {
+          "t": 279.89,
+          "dur_s": 0.03,
+          "freq_hz": 1328.1,
+          "peak_db": -49.9
+        },
+        {
+          "t": 284.11,
+          "dur_s": 0.03,
+          "freq_hz": 828.1,
+          "peak_db": -58.3
+        },
+        {
+          "t": 350.18,
+          "dur_s": 0.19,
+          "freq_hz": 2007.8,
+          "peak_db": -41.2
+        },
+        {
+          "t": 355.39,
+          "dur_s": 0.13,
+          "freq_hz": 2007.8,
+          "peak_db": -43.7
+        },
+        {
+          "t": 356.26,
+          "dur_s": 0.51,
+          "freq_hz": 2007.8,
+          "peak_db": -39.4
+        },
+        {
+          "t": 357.33,
+          "dur_s": 0.16,
+          "freq_hz": 2007.8,
+          "peak_db": -43.1
+        },
+        {
+          "t": 358.83,
+          "dur_s": 0.16,
+          "freq_hz": 2007.8,
+          "peak_db": -41.7
+        },
+        {
+          "t": 360.42,
+          "dur_s": 0.19,
+          "freq_hz": 2007.8,
+          "peak_db": -37.5
+        },
+        {
+          "t": 366.86,
+          "dur_s": 0.29,
+          "freq_hz": 2007.8,
+          "peak_db": -38.5
+        },
+        {
+          "t": 368.06,
+          "dur_s": 0.32,
+          "freq_hz": 2007.8,
+          "peak_db": -39.1
+        },
+        {
+          "t": 369.79,
+          "dur_s": 0.7,
+          "freq_hz": 2007.8,
+          "peak_db": -37.3
+        },
+        {
+          "t": 374.4,
+          "dur_s": 0.26,
+          "freq_hz": 2007.8,
+          "peak_db": -44.1
+        },
+        {
+          "t": 376.5,
+          "dur_s": 0.29,
+          "freq_hz": 2007.8,
+          "peak_db": -45.6
+        },
+        {
+          "t": 377.95,
+          "dur_s": 0.26,
+          "freq_hz": 2007.8,
+          "peak_db": -41.0
+        },
+        {
+          "t": 378.78,
+          "dur_s": 0.13,
+          "freq_hz": 960.9,
+          "peak_db": -53.9
+        },
+        {
+          "t": 436.06,
+          "dur_s": 0.19,
+          "freq_hz": 835.9,
+          "peak_db": -53.3
+        },
+        {
+          "t": 438.02,
+          "dur_s": 0.45,
+          "freq_hz": 2007.8,
+          "peak_db": -38.1
+        },
+        {
+          "t": 438.96,
+          "dur_s": 0.48,
+          "freq_hz": 2007.8,
+          "peak_db": -36.9
+        },
+        {
+          "t": 439.97,
+          "dur_s": 0.58,
+          "freq_hz": 2007.8,
+          "peak_db": -28.5
+        },
+        {
+          "t": 440.98,
+          "dur_s": 0.54,
+          "freq_hz": 2007.8,
+          "peak_db": -29.8
+        },
+        {
+          "t": 441.95,
+          "dur_s": 0.51,
+          "freq_hz": 2007.8,
+          "peak_db": -23.1
+        }
+      ],
+      "per_step": {
+        "89": {
+          "gt_window": [
+            47.1,
+            177.8
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              54.4,
+              168.1,
+              113.7
+            ]
+          ],
+          "onset_err_s": 7.3,
+          "hum_dur_s": 113.7
+        },
+        "83": {
+          "gt_window": [
+            322.0,
+            445.3
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              377.7,
+              428.4,
+              50.7
+            ]
+          ],
+          "onset_err_s": 55.8,
+          "hum_dur_s": 50.7
+        }
+      },
+      "timer_flags": {
+        "89": {
+          "flag": true,
+          "hum_dur_s": 113.7,
+          "gt_timing_error": true,
+          "agree": true
+        },
+        "83": {
+          "flag": false,
+          "hum_dur_s": 50.7,
+          "gt_timing_error": true,
+          "agree": false
+        }
+      },
+      "gt_timing_error": {
+        "89": true,
+        "83": true
+      },
+      "false_runs": [],
+      "n_false_runs": 0,
+      "beep_validation": {
+        "n_hum_runs": 2,
+        "n_beeps": 28,
+        "offsets_with_beep_within_15s": 2,
+        "onsets_with_beep_within_15s": 2,
+        "beeps_far_from_any_hum_edge": 8
+      },
+      "wall_time_s": 0.93,
+      "audio_dur_s": 450.3,
+      "realtime_factor": 483.3
+    },
+    "8_3": {
+      "hum_runs": [
+        [
+          72.3,
+          132.2,
+          59.9
+        ],
+        [
+          343.4,
+          404.4,
+          60.9
+        ]
+      ],
+      "beeps": [
+        {
+          "t": 33.17,
+          "dur_s": 0.29,
+          "freq_hz": 914.1,
+          "peak_db": -47.9
+        },
+        {
+          "t": 66.05,
+          "dur_s": 0.77,
+          "freq_hz": 1203.1,
+          "peak_db": -37.7
+        },
+        {
+          "t": 71.04,
+          "dur_s": 0.32,
+          "freq_hz": 1953.1,
+          "peak_db": -29.8
+        },
+        {
+          "t": 132.56,
+          "dur_s": 0.61,
+          "freq_hz": 1953.1,
+          "peak_db": -22.3
+        },
+        {
+          "t": 133.5,
+          "dur_s": 0.58,
+          "freq_hz": 1953.1,
+          "peak_db": -27.5
+        },
+        {
+          "t": 134.53,
+          "dur_s": 0.64,
+          "freq_hz": 1953.1,
+          "peak_db": -27.6
+        },
+        {
+          "t": 135.41,
+          "dur_s": 0.29,
+          "freq_hz": 1953.1,
+          "peak_db": -29.0
+        },
+        {
+          "t": 339.74,
+          "dur_s": 0.13,
+          "freq_hz": 1210.9,
+          "peak_db": -46.4
+        },
+        {
+          "t": 342.72,
+          "dur_s": 0.13,
+          "freq_hz": 1953.1,
+          "peak_db": -41.2
+        },
+        {
+          "t": 404.38,
+          "dur_s": 0.58,
+          "freq_hz": 1953.1,
+          "peak_db": -28.3
+        },
+        {
+          "t": 405.38,
+          "dur_s": 0.64,
+          "freq_hz": 1953.1,
+          "peak_db": -28.5
+        },
+        {
+          "t": 406.35,
+          "dur_s": 0.61,
+          "freq_hz": 1953.1,
+          "peak_db": -26.3
+        },
+        {
+          "t": 407.36,
+          "dur_s": 0.64,
+          "freq_hz": 1953.1,
+          "peak_db": -28.7
+        },
+        {
+          "t": 408.3,
+          "dur_s": 0.48,
+          "freq_hz": 1953.1,
+          "peak_db": -32.6
+        },
+        {
+          "t": 409.23,
+          "dur_s": 0.29,
+          "freq_hz": 1953.1,
+          "peak_db": -25.6
+        }
+      ],
+      "per_step": {
+        "89": {
+          "gt_window": [
+            61.6,
+            152.3
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              72.3,
+              132.2,
+              59.9
+            ]
+          ],
+          "onset_err_s": 10.7,
+          "hum_dur_s": 59.9
+        },
+        "83": {
+          "gt_window": [
+            332.1,
+            409.3
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              343.4,
+              404.4,
+              60.9
+            ]
+          ],
+          "onset_err_s": 11.3,
+          "hum_dur_s": 60.9
+        }
+      },
+      "timer_flags": {
+        "89": {
+          "flag": false,
+          "hum_dur_s": 59.9,
+          "gt_timing_error": false,
+          "agree": true
+        },
+        "83": {
+          "flag": false,
+          "hum_dur_s": 60.9,
+          "gt_timing_error": false,
+          "agree": true
+        }
+      },
+      "gt_timing_error": {
+        "89": false,
+        "83": false
+      },
+      "false_runs": [],
+      "n_false_runs": 0,
+      "beep_validation": {
+        "n_hum_runs": 2,
+        "n_beeps": 15,
+        "offsets_with_beep_within_15s": 2,
+        "onsets_with_beep_within_15s": 2,
+        "beeps_far_from_any_hum_edge": 1
+      },
+      "wall_time_s": 0.86,
+      "audio_dur_s": 422.0,
+      "realtime_factor": 490.8
+    },
+    "8_25": {
+      "hum_runs": [
+        [
+          126.3,
+          146.6,
+          20.2
+        ],
+        [
+          371.8,
+          414.8,
+          43.0
+        ]
+      ],
+      "beeps": [
+        {
+          "t": 86.4,
+          "dur_s": 0.06,
+          "freq_hz": 1960.9,
+          "peak_db": -28.9
+        },
+        {
+          "t": 89.6,
+          "dur_s": 0.06,
+          "freq_hz": 1960.9,
+          "peak_db": -31.3
+        },
+        {
+          "t": 148.67,
+          "dur_s": 0.58,
+          "freq_hz": 1960.9,
+          "peak_db": -33.9
+        },
+        {
+          "t": 149.62,
+          "dur_s": 0.48,
+          "freq_hz": 1960.9,
+          "peak_db": -32.8
+        },
+        {
+          "t": 150.54,
+          "dur_s": 0.29,
+          "freq_hz": 1960.9,
+          "peak_db": -39.8
+        },
+        {
+          "t": 324.72,
+          "dur_s": 0.03,
+          "freq_hz": 1355.5,
+          "peak_db": -31.1
+        },
+        {
+          "t": 335.97,
+          "dur_s": 0.06,
+          "freq_hz": 3398.4,
+          "peak_db": -41.3
+        },
+        {
+          "t": 338.82,
+          "dur_s": 0.06,
+          "freq_hz": 1320.3,
+          "peak_db": -42.7
+        },
+        {
+          "t": 368.51,
+          "dur_s": 0.06,
+          "freq_hz": 1960.9,
+          "peak_db": -35.5
+        },
+        {
+          "t": 430.77,
+          "dur_s": 0.54,
+          "freq_hz": 1960.9,
+          "peak_db": -34.6
+        },
+        {
+          "t": 431.73,
+          "dur_s": 0.48,
+          "freq_hz": 1960.9,
+          "peak_db": -36.6
+        }
+      ],
+      "per_step": {
+        "89": {
+          "gt_window": [
+            75.2,
+            149.6
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              126.3,
+              146.6,
+              20.2
+            ]
+          ],
+          "onset_err_s": 51.1,
+          "hum_dur_s": 20.2
+        },
+        "83": {
+          "gt_window": [
+            356.4,
+            439.8
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              371.8,
+              414.8,
+              43.0
+            ]
+          ],
+          "onset_err_s": 15.5,
+          "hum_dur_s": 43.0
+        }
+      },
+      "timer_flags": {
+        "89": {
+          "flag": true,
+          "hum_dur_s": 20.2,
+          "gt_timing_error": false,
+          "agree": false
+        },
+        "83": {
+          "flag": false,
+          "hum_dur_s": 43.0,
+          "gt_timing_error": false,
+          "agree": true
+        }
+      },
+      "gt_timing_error": {
+        "89": false,
+        "83": false
+      },
+      "false_runs": [],
+      "n_false_runs": 0,
+      "beep_validation": {
+        "n_hum_runs": 2,
+        "n_beeps": 11,
+        "offsets_with_beep_within_15s": 1,
+        "onsets_with_beep_within_15s": 1,
+        "beeps_far_from_any_hum_edge": 7
+      },
+      "wall_time_s": 0.91,
+      "audio_dur_s": 442.9,
+      "realtime_factor": 489.2
+    },
+    "8_31": {
+      "hum_runs": [
+        [
+          76.4,
+          96.6,
+          20.2
+        ],
+        [
+          183.9,
+          230.3,
+          46.3
+        ]
+      ],
+      "beeps": [
+        {
+          "t": 22.51,
+          "dur_s": 0.03,
+          "freq_hz": 2085.9,
+          "peak_db": -44.5
+        },
+        {
+          "t": 57.66,
+          "dur_s": 0.06,
+          "freq_hz": 4000.0,
+          "peak_db": -48.8
+        },
+        {
+          "t": 67.42,
+          "dur_s": 0.32,
+          "freq_hz": 4000.0,
+          "peak_db": -39.4
+        },
+        {
+          "t": 70.7,
+          "dur_s": 0.48,
+          "freq_hz": 4000.0,
+          "peak_db": -38.8
+        },
+        {
+          "t": 72.53,
+          "dur_s": 0.03,
+          "freq_hz": 4000.0,
+          "peak_db": -46.2
+        },
+        {
+          "t": 100.05,
+          "dur_s": 0.03,
+          "freq_hz": 1609.4,
+          "peak_db": -31.8
+        },
+        {
+          "t": 100.69,
+          "dur_s": 0.54,
+          "freq_hz": 1203.1,
+          "peak_db": -47.6
+        },
+        {
+          "t": 130.13,
+          "dur_s": 0.22,
+          "freq_hz": 1820.3,
+          "peak_db": -34.8
+        },
+        {
+          "t": 134.7,
+          "dur_s": 0.1,
+          "freq_hz": 1824.2,
+          "peak_db": -45.9
+        },
+        {
+          "t": 182.54,
+          "dur_s": 0.03,
+          "freq_hz": 4000.0,
+          "peak_db": -48.2
+        },
+        {
+          "t": 183.57,
+          "dur_s": 0.29,
+          "freq_hz": 4000.0,
+          "peak_db": -47.6
+        },
+        {
+          "t": 235.87,
+          "dur_s": 0.06,
+          "freq_hz": 2070.3,
+          "peak_db": -51.6
+        },
+        {
+          "t": 259.86,
+          "dur_s": 0.1,
+          "freq_hz": 976.6,
+          "peak_db": -50.9
+        }
+      ],
+      "per_step": {
+        "89": {
+          "gt_window": [
+            48.0,
+            97.8
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              76.4,
+              96.6,
+              20.2
+            ]
+          ],
+          "onset_err_s": 28.4,
+          "hum_dur_s": 20.2
+        },
+        "83": {
+          "gt_window": [
+            175.9,
+            233.2
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              183.9,
+              230.3,
+              46.3
+            ]
+          ],
+          "onset_err_s": 8.0,
+          "hum_dur_s": 46.3
+        }
+      },
+      "timer_flags": {
+        "89": {
+          "flag": true,
+          "hum_dur_s": 20.2,
+          "gt_timing_error": true,
+          "agree": true
+        },
+        "83": {
+          "flag": false,
+          "hum_dur_s": 46.3,
+          "gt_timing_error": true,
+          "agree": false
+        }
+      },
+      "gt_timing_error": {
+        "89": true,
+        "83": true
+      },
+      "false_runs": [],
+      "n_false_runs": 0,
+      "beep_validation": {
+        "n_hum_runs": 2,
+        "n_beeps": 13,
+        "offsets_with_beep_within_15s": 2,
+        "onsets_with_beep_within_15s": 2,
+        "beeps_far_from_any_hum_edge": 5
+      },
+      "wall_time_s": 0.56,
+      "audio_dur_s": 267.1,
+      "realtime_factor": 475.5
+    },
+    "8_50": {
+      "hum_runs": [
+        [
+          100.2,
+          158.6,
+          58.4
+        ]
+      ],
+      "beeps": [
+        {
+          "t": 158.64,
+          "dur_s": 0.48,
+          "freq_hz": 4000.0,
+          "peak_db": -42.3
+        },
+        {
+          "t": 159.58,
+          "dur_s": 0.45,
+          "freq_hz": 4000.0,
+          "peak_db": -41.8
+        },
+        {
+          "t": 190.78,
+          "dur_s": 0.06,
+          "freq_hz": 4000.0,
+          "peak_db": -43.4
+        },
+        {
+          "t": 191.76,
+          "dur_s": 0.22,
+          "freq_hz": 843.8,
+          "peak_db": -55.2
+        },
+        {
+          "t": 250.99,
+          "dur_s": 0.48,
+          "freq_hz": 4000.0,
+          "peak_db": -40.4
+        }
+      ],
+      "per_step": {
+        "89": {
+          "gt_window": [
+            96.1,
+            159.8
+          ],
+          "skipped": false,
+          "detected": true,
+          "runs_inside": [
+            [
+              100.2,
+              158.6,
+              58.4
+            ]
+          ],
+          "onset_err_s": 4.1,
+          "hum_dur_s": 58.4
+        },
+        "83": {
+          "gt_window": [
+            186.4,
+            251.7
+          ],
+          "skipped": false,
+          "detected": false,
+          "runs_inside": [],
+          "onset_err_s": null,
+          "hum_dur_s": null
+        }
+      },
+      "timer_flags": {
+        "89": {
+          "flag": false,
+          "hum_dur_s": 58.4,
+          "gt_timing_error": false,
+          "agree": true
+        },
+        "83": {
+          "flag": null,
+          "hum_dur_s": null,
+          "gt_timing_error": false,
+          "agree": false,
+          "note": "no hum run detected"
+        }
+      },
+      "gt_timing_error": {
+        "89": false,
+        "83": false
+      },
+      "false_runs": [],
+      "n_false_runs": 0,
+      "beep_validation": {
+        "n_hum_runs": 1,
+        "n_beeps": 5,
+        "offsets_with_beep_within_15s": 1,
+        "onsets_with_beep_within_15s": 0,
+        "beeps_far_from_any_hum_edge": 3
+      },
+      "wall_time_s": 0.53,
+      "audio_dur_s": 263.4,
+      "realtime_factor": 494.7
+    }
+  },
+  "summary": {
+    "tuned_on_8_16": {
+      "gt_microwave_steps": 2,
+      "steps_with_detected_run": 2,
+      "false_runs": 0,
+      "timer_flag_agree": "2/2",
+      "hum_offsets_with_beep_15s": "2/2",
+      "hum_onsets_with_beep_15s": "1/2",
+      "beeps_far_from_hum_edges": 0,
+      "onset_err_s": {
+        "mean": 6.3,
+        "max": 10.0
+      },
+      "hum_dur_s": [
+        59.1,
+        59.9
+      ]
+    },
+    "frozen_eval": {
+      "gt_microwave_steps": 10,
+      "steps_with_detected_run": 9,
+      "false_runs": 0,
+      "timer_flag_agree": "6/10",
+      "hum_offsets_with_beep_15s": "8/9",
+      "hum_onsets_with_beep_15s": "7/9",
+      "beeps_far_from_hum_edges": 24,
+      "onset_err_s": {
+        "mean": 21.4,
+        "max": 55.8
+      },
+      "hum_dur_s": [
+        113.7,
+        50.7,
+        59.9,
+        60.9,
+        20.2,
+        43.0,
+        20.2,
+        46.3,
+        58.4
+      ]
+    }
+  },
+  "params_original": {
+    "nfft": 8192,
+    "hop": 4096,
+    "hum_lo": 100.0,
+    "hum_hi": 1000.0,
+    "baseline_pct": 20.0,
+    "t1_level_db": 6.0,
+    "t2_line_db": 5.0,
+    "t3_std_db": 0.25,
+    "gate_db": 2.0,
+    "vote_needed": 2,
+    "mains_line_hz": 120.0,
+    "feat_med_frames": 21,
+    "rollstd_frames": 17,
+    "med_frames": 21,
+    "merge_gap_s": 5.0,
+    "min_run_s": 20.0,
+    "b_nfft": 2048,
+    "b_hop": 512,
+    "beep_lo": 800.0,
+    "beep_hi": 5000.0,
+    "tone_ratio": 0.3,
+    "peak_db_min": -75.0,
+    "group_gap_s": 0.3,
+    "min_frames": 2,
+    "max_beep_s": 1.5,
+    "max_freq_spread_hz": 60.0,
+    "timer_lo_s": 40.0,
+    "timer_hi_s": 80.0,
+    "assoc_s": 15.0
+  },
+  "params_note": "params UPDATED 2026-06-15 for SHORT-CYCLE microwave detection: min_run_s 20->8, feat_med_frames & med_frames 21->7 (smoothing 5.4s->1.8s). The probe result TABLES below (tuned_recording_results / frozen_eval_results) were produced with params_original (min_run=20). New params re-validated on TWO recipes: fused hum-or-beep recall 1.00 on Spiced Hot Chocolate (act 8, no regression: hum still 0.93/0.93) AND 1.00 on Microwave Egg Sandwich (act 1, was 0.92; ~10s melt hum 0.31->0.88). Evidence: results_opt_hum_shortrun.json + verify_hum_shortrun.py. Beep params unchanged. Disclosed design-leakage: tuned on eval recordings; proper next step = EPIC-SOUNDS calibration."
+}

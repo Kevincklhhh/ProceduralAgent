@@ -1,0 +1,411 @@
+{
+ "probe": "sizzle_act18",
+ "params": {
+  "nfft": 1024,
+  "hop": 256,
+  "band_lo": 1500.0,
+  "band_hi": 7000.0,
+  "block_s": 0.5,
+  "roll_win_s": 45.0,
+  "baseline_pct": 20,
+  "level_db": 8.0,
+  "merge_gap_s": 20.0,
+  "min_run_s": 30.0
+ },
+ "summary": {
+  "recipe": "Zoodles (act 18)",
+  "recordings": 15,
+  "cook_anchor_recall": 0.8,
+  "mean_coverage": 0.573,
+  "false_sizzle_prep_s_total": 2290.9,
+  "cook_len_s_total": 8231.0,
+  "false_rate_prep_vs_cook": 0.278,
+  "hum_falsepos_runs_total": 35
+ },
+ "per_recording": {
+  "18_2": {
+   "recording": "18_2",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     369.5,
+     645.3,
+     275.8
+    ]
+   ],
+   "cook_window": [
+    182.2,
+    647.2
+   ],
+   "cook_len_s": 465.0,
+   "sizzle_in_cook_s": 275.8,
+   "coverage": 0.593,
+   "cook_hit": true,
+   "onset_latency_s": 187.3,
+   "false_sizzle_prep_s": 138.4,
+   "n_hum_runs_falsepos": 1
+  },
+  "18_3": {
+   "recording": "18_3",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     176.1,
+     209.3,
+     33.2
+    ],
+    [
+     378.4,
+     718.2,
+     339.8
+    ]
+   ],
+   "cook_window": [
+    170.0,
+    704.2
+   ],
+   "cook_len_s": 534.1,
+   "sizzle_in_cook_s": 358.9,
+   "coverage": 0.672,
+   "cook_hit": true,
+   "onset_latency_s": 6.0,
+   "false_sizzle_prep_s": 91.8,
+   "n_hum_runs_falsepos": 0
+  },
+  "18_8": {
+   "recording": "18_8",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     533.2,
+     649.8,
+     116.6
+    ],
+    [
+     672.6,
+     1056.0,
+     383.4
+    ]
+   ],
+   "cook_window": [
+    345.7,
+    1041.9
+   ],
+   "cook_len_s": 696.2,
+   "sizzle_in_cook_s": 485.8,
+   "coverage": 0.698,
+   "cook_hit": true,
+   "onset_latency_s": 187.5,
+   "false_sizzle_prep_s": 118.3,
+   "n_hum_runs_falsepos": 1
+  },
+  "18_11": {
+   "recording": "18_11",
+   "n_sizzle_runs": 3,
+   "sizzle_runs": [
+    [
+     42.2,
+     121.5,
+     79.4
+    ],
+    [
+     287.7,
+     341.2,
+     53.6
+    ],
+    [
+     537.2,
+     784.7,
+     247.5
+    ]
+   ],
+   "cook_window": [
+    340.3,
+    769.4
+   ],
+   "cook_len_s": 429.1,
+   "sizzle_in_cook_s": 233.2,
+   "coverage": 0.543,
+   "cook_hit": true,
+   "onset_latency_s": -52.6,
+   "false_sizzle_prep_s": 224.3,
+   "n_hum_runs_falsepos": 4
+  },
+  "18_12": {
+   "recording": "18_12",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     1.0,
+     48.1,
+     47.1
+    ],
+    [
+     626.9,
+     996.0,
+     369.0
+    ]
+   ],
+   "cook_window": [
+    414.2,
+    970.5
+   ],
+   "cook_len_s": 556.3,
+   "sizzle_in_cook_s": 343.6,
+   "coverage": 0.618,
+   "cook_hit": true,
+   "onset_latency_s": 212.7,
+   "false_sizzle_prep_s": 150.1,
+   "n_hum_runs_falsepos": 0
+  },
+  "18_19": {
+   "recording": "18_19",
+   "n_sizzle_runs": 3,
+   "sizzle_runs": [
+    [
+     0.0,
+     83.3,
+     83.3
+    ],
+    [
+     335.8,
+     372.0,
+     36.2
+    ],
+    [
+     558.5,
+     883.4,
+     324.9
+    ]
+   ],
+   "cook_window": [
+    384.4,
+    863.3
+   ],
+   "cook_len_s": 478.8,
+   "sizzle_in_cook_s": 304.8,
+   "coverage": 0.636,
+   "cook_hit": true,
+   "onset_latency_s": 174.1,
+   "false_sizzle_prep_s": 230.8,
+   "n_hum_runs_falsepos": 3
+  },
+  "18_24": {
+   "recording": "18_24",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     77.4,
+     123.0,
+     45.6
+    ],
+    [
+     656.2,
+     1044.1,
+     387.9
+    ]
+   ],
+   "cook_window": [
+    312.5,
+    1027.5
+   ],
+   "cook_len_s": 715.1,
+   "sizzle_in_cook_s": 371.3,
+   "coverage": 0.519,
+   "cook_hit": true,
+   "onset_latency_s": 343.8,
+   "false_sizzle_prep_s": 176.4,
+   "n_hum_runs_falsepos": 3
+  },
+  "18_27": {
+   "recording": "18_27",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     137.9,
+     655.7,
+     517.8
+    ]
+   ],
+   "cook_window": [
+    54.1,
+    650
+   ],
+   "cook_len_s": 595.9,
+   "sizzle_in_cook_s": 512.1,
+   "coverage": 0.859,
+   "cook_hit": true,
+   "onset_latency_s": 83.8,
+   "false_sizzle_prep_s": 118.5,
+   "n_hum_runs_falsepos": 4
+  },
+  "18_28": {
+   "recording": "18_28",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     265.9,
+     702.8,
+     437.0
+    ]
+   ],
+   "cook_window": [
+    244.9,
+    651
+   ],
+   "cook_len_s": 406.1,
+   "sizzle_in_cook_s": 385.1,
+   "coverage": 0.948,
+   "cook_hit": true,
+   "onset_latency_s": 20.9,
+   "false_sizzle_prep_s": 168.1,
+   "n_hum_runs_falsepos": 0
+  },
+  "18_31": {
+   "recording": "18_31",
+   "n_sizzle_runs": 0,
+   "sizzle_runs": [],
+   "cook_window": [
+    27.6,
+    290.4
+   ],
+   "cook_len_s": 262.8,
+   "sizzle_in_cook_s": 0,
+   "coverage": 0.0,
+   "cook_hit": false,
+   "onset_latency_s": null,
+   "false_sizzle_prep_s": 0.0,
+   "n_hum_runs_falsepos": 0
+  },
+  "18_33": {
+   "recording": "18_33",
+   "n_sizzle_runs": 3,
+   "sizzle_runs": [
+    [
+     0.0,
+     41.2,
+     41.2
+    ],
+    [
+     86.3,
+     193.9,
+     107.6
+    ],
+    [
+     343.2,
+     530.2,
+     187.0
+    ]
+   ],
+   "cook_window": [
+    206.2,
+    581
+   ],
+   "cook_len_s": 374.8,
+   "sizzle_in_cook_s": 187.0,
+   "coverage": 0.499,
+   "cook_hit": true,
+   "onset_latency_s": 137.0,
+   "false_sizzle_prep_s": 210.6,
+   "n_hum_runs_falsepos": 0
+  },
+  "18_41": {
+   "recording": "18_41",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     2.5,
+     37.2,
+     34.7
+    ]
+   ],
+   "cook_window": [
+    218.3,
+    585.7
+   ],
+   "cook_len_s": 367.5,
+   "sizzle_in_cook_s": 0.0,
+   "coverage": 0.0,
+   "cook_hit": false,
+   "onset_latency_s": null,
+   "false_sizzle_prep_s": 30.5,
+   "n_hum_runs_falsepos": 0
+  },
+  "18_45": {
+   "recording": "18_45",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     187.0,
+     220.7,
+     33.7
+    ],
+    [
+     335.3,
+     1009.9,
+     674.6
+    ]
+   ],
+   "cook_window": [
+    232,
+    959.6
+   ],
+   "cook_len_s": 727.6,
+   "sizzle_in_cook_s": 624.3,
+   "coverage": 0.858,
+   "cook_hit": true,
+   "onset_latency_s": 103.3,
+   "false_sizzle_prep_s": 295.3,
+   "n_hum_runs_falsepos": 9
+  },
+  "18_49": {
+   "recording": "18_49",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     548.1,
+     1521.7,
+     973.6
+    ]
+   ],
+   "cook_window": [
+    360.9,
+    1391.3
+   ],
+   "cook_len_s": 1030.4,
+   "sizzle_in_cook_s": 843.2,
+   "coverage": 0.818,
+   "cook_hit": true,
+   "onset_latency_s": 187.2,
+   "false_sizzle_prep_s": 280.5,
+   "n_hum_runs_falsepos": 8
+  },
+  "18_101": {
+   "recording": "18_101",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     369.0,
+     443.9,
+     74.9
+    ],
+    [
+     615.5,
+     741.0,
+     125.5
+    ]
+   ],
+   "cook_window": [
+    221.7,
+    813
+   ],
+   "cook_len_s": 591.3,
+   "sizzle_in_cook_s": 200.4,
+   "coverage": 0.339,
+   "cook_hit": false,
+   "onset_latency_s": 147.3,
+   "false_sizzle_prep_s": 57.3,
+   "n_hum_runs_falsepos": 2
+  }
+ }
+}

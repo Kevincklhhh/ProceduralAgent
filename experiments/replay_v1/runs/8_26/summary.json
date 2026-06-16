@@ -1,0 +1,71 @@
+{
+  "video_id": "8_26",
+  "task_id": "spiced_hot_chocolate_cc4d",
+  "baseline": {
+    "mode": "periodic_vlm",
+    "interval_s": 10.0,
+    "frames_per_call": 3,
+    "window_s": 2.0,
+    "backend": "qwen",
+    "model": "Qwen/Qwen3.6-27B",
+    "k_consecutive": 2,
+    "cooldown_s": 15.0
+  },
+  "video_duration_s": 450.3,
+  "evaluated_seconds": 450.3,
+  "stage_timeline": [
+    {
+      "step_id": "other",
+      "start_s": 10.0,
+      "end_s": 30.0
+    },
+    {
+      "step_id": "fill_milk",
+      "start_s": 30.0,
+      "end_s": 70.0
+    },
+    {
+      "step_id": "other",
+      "start_s": 70.0,
+      "end_s": 210.0
+    },
+    {
+      "step_id": "add_chocolate",
+      "start_s": 210.0,
+      "end_s": 230.0
+    },
+    {
+      "step_id": "other",
+      "start_s": 230.0,
+      "end_s": 280.0
+    },
+    {
+      "step_id": "add_sugar",
+      "start_s": 280.0,
+      "end_s": 300.0
+    },
+    {
+      "step_id": "other",
+      "start_s": 300.0,
+      "end_s": 340.0
+    },
+    {
+      "step_id": "heat_serve",
+      "start_s": 340.0,
+      "end_s": 400.0
+    },
+    {
+      "step_id": "other",
+      "start_s": 400.0,
+      "end_s": 450.3
+    }
+  ],
+  "events": [],
+  "cost_log": {
+    "num_vlm_calls": 45,
+    "frames_sent": 135,
+    "mean_latency_s": 49.32,
+    "p95_latency_s": 58.35,
+    "parse_failure_rate": 0.0
+  }
+}

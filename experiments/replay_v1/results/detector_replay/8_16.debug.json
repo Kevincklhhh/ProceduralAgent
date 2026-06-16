@@ -1,0 +1,311 @@
+{
+ "recording": "8_16",
+ "audio_dur_s": 462.63,
+ "hum_runs": [
+  [
+   72.32,
+   132.48,
+   60.16
+  ],
+  [
+   387.2,
+   447.36,
+   60.16
+  ]
+ ],
+ "mw1": {
+  "onset": 72.32,
+  "hum_off": 132.48,
+  "fused_done": 134.45,
+  "beep_fused": true,
+  "fused_dur_s": 62.13
+ },
+ "mw2": {
+  "onset": 387.2,
+  "hum_off": 447.36,
+  "fused_done": 448.53,
+  "beep_fused": true,
+  "fused_dur_s": 61.33
+ },
+ "extra_hum_runs": [],
+ "beeps": [
+  {
+   "t": 72.85,
+   "dur_s": 0.1,
+   "freq_hz": 2035.2,
+   "peak_db": -34.9
+  },
+  {
+   "t": 132.5,
+   "dur_s": 0.42,
+   "freq_hz": 4062.5,
+   "peak_db": -39.9
+  },
+  {
+   "t": 133.49,
+   "dur_s": 0.42,
+   "freq_hz": 4062.5,
+   "peak_db": -36.4
+  },
+  {
+   "t": 134.45,
+   "dur_s": 0.42,
+   "freq_hz": 2031.2,
+   "peak_db": -35.9
+  },
+  {
+   "t": 447.49,
+   "dur_s": 0.38,
+   "freq_hz": 4062.5,
+   "peak_db": -41.0
+  },
+  {
+   "t": 448.53,
+   "dur_s": 0.54,
+   "freq_hz": 2031.2,
+   "peak_db": -38.8
+  }
+ ],
+ "clink_trains": [
+  {
+   "start": 0.0,
+   "end": 14.0,
+   "n_ringy_onsets": 11,
+   "density": 0.79,
+   "strong": false
+  },
+  {
+   "start": 18.0,
+   "end": 36.5,
+   "n_ringy_onsets": 10,
+   "density": 0.54,
+   "strong": false
+  },
+  {
+   "start": 38.5,
+   "end": 77.0,
+   "n_ringy_onsets": 55,
+   "density": 1.43,
+   "strong": false
+  },
+  {
+   "start": 128.5,
+   "end": 143.0,
+   "n_ringy_onsets": 12,
+   "density": 0.83,
+   "strong": false
+  },
+  {
+   "start": 186.5,
+   "end": 202.5,
+   "n_ringy_onsets": 19,
+   "density": 1.19,
+   "strong": false
+  },
+  {
+   "start": 214.0,
+   "end": 223.5,
+   "n_ringy_onsets": 5,
+   "density": 0.53,
+   "strong": false
+  },
+  {
+   "start": 223.5,
+   "end": 234.5,
+   "n_ringy_onsets": 6,
+   "density": 0.55,
+   "strong": false
+  },
+  {
+   "start": 237.0,
+   "end": 246.5,
+   "n_ringy_onsets": 6,
+   "density": 0.63,
+   "strong": false
+  },
+  {
+   "start": 247.0,
+   "end": 256.0,
+   "n_ringy_onsets": 3,
+   "density": 0.33,
+   "strong": false
+  },
+  {
+   "start": 255.5,
+   "end": 264.5,
+   "n_ringy_onsets": 4,
+   "density": 0.44,
+   "strong": false
+  },
+  {
+   "start": 264.0,
+   "end": 270.0,
+   "n_ringy_onsets": 3,
+   "density": 0.5,
+   "strong": false
+  },
+  {
+   "start": 272.5,
+   "end": 280.0,
+   "n_ringy_onsets": 3,
+   "density": 0.4,
+   "strong": false
+  },
+  {
+   "start": 286.0,
+   "end": 297.0,
+   "n_ringy_onsets": 8,
+   "density": 0.73,
+   "strong": false
+  },
+  {
+   "start": 305.0,
+   "end": 314.0,
+   "n_ringy_onsets": 3,
+   "density": 0.33,
+   "strong": false
+  },
+  {
+   "start": 319.5,
+   "end": 392.0,
+   "n_ringy_onsets": 144,
+   "density": 1.99,
+   "strong": true
+  },
+  {
+   "start": 404.5,
+   "end": 427.0,
+   "n_ringy_onsets": 20,
+   "density": 0.89,
+   "strong": false
+  },
+  {
+   "start": 443.5,
+   "end": 467.0,
+   "n_ringy_onsets": 20,
+   "density": 0.85,
+   "strong": false
+  }
+ ],
+ "strong_trains": [
+  {
+   "start": 319.5,
+   "end": 392.0,
+   "n_ringy_onsets": 144,
+   "density": 1.99,
+   "strong": true
+  }
+ ],
+ "mix_onset": 319.5,
+ "pours_secondary": [
+  {
+   "start": 4.9,
+   "end": 5.9,
+   "flatness": 0.236,
+   "rel_db": 14.8
+  },
+  {
+   "start": 150.9,
+   "end": 155.88,
+   "flatness": 0.398,
+   "rel_db": 25.2
+  },
+  {
+   "start": 156.86,
+   "end": 158.26,
+   "flatness": 0.211,
+   "rel_db": 21.8
+  },
+  {
+   "start": 165.12,
+   "end": 170.4,
+   "flatness": 0.406,
+   "rel_db": 29.9
+  },
+  {
+   "start": 173.38,
+   "end": 174.18,
+   "flatness": 0.35,
+   "rel_db": 18.4
+  },
+  {
+   "start": 185.28,
+   "end": 186.4,
+   "flatness": 0.349,
+   "rel_db": 18.5
+  },
+  {
+   "start": 195.68,
+   "end": 198.12,
+   "flatness": 0.15,
+   "rel_db": 11.4
+  },
+  {
+   "start": 215.1,
+   "end": 217.26,
+   "flatness": 0.273,
+   "rel_db": 16.9
+  },
+  {
+   "start": 224.04,
+   "end": 230.68,
+   "flatness": 0.253,
+   "rel_db": 30.4
+  },
+  {
+   "start": 240.08,
+   "end": 242.02,
+   "flatness": 0.191,
+   "rel_db": 14.3
+  },
+  {
+   "start": 251.26,
+   "end": 252.12,
+   "flatness": 0.202,
+   "rel_db": 9.8
+  },
+  {
+   "start": 259.74,
+   "end": 260.62,
+   "flatness": 0.221,
+   "rel_db": 19.2
+  },
+  {
+   "start": 266.14,
+   "end": 268.84,
+   "flatness": 0.209,
+   "rel_db": 16.0
+  },
+  {
+   "start": 273.78,
+   "end": 277.32,
+   "flatness": 0.198,
+   "rel_db": 19.9
+  },
+  {
+   "start": 290.48,
+   "end": 293.7,
+   "flatness": 0.176,
+   "rel_db": 28.9
+  },
+  {
+   "start": 300.22,
+   "end": 301.72,
+   "flatness": 0.361,
+   "rel_db": 28.1
+  },
+  {
+   "start": 305.38,
+   "end": 310.56,
+   "flatness": 0.311,
+   "rel_db": 30.0
+  },
+  {
+   "start": 347.88,
+   "end": 349.66,
+   "flatness": 0.166,
+   "rel_db": 26.0
+  }
+ ],
+ "lookahead_note": "hum mask <=~7.2s (cascaded centered medians, dominant window 5.38s), clink train 5s, beeps 1.5s; done-fusion finalizes up to 20s after hum offset"
+}

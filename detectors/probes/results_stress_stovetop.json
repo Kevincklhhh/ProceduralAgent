@@ -1,0 +1,218 @@
+{
+  "25": {
+    "recipe": "Pan Fried Tofu",
+    "n": 15,
+    "a4_recall": 1.0,
+    "a4_cov": 0.719,
+    "a4_false_rate": 0.04,
+    "al": {
+      "0.05": {
+        "recall": 0.533,
+        "cov": 0.406,
+        "false_rate": 0.02
+      },
+      "0.1": {
+        "recall": 0.333,
+        "cov": 0.323,
+        "false_rate": 0.015
+      },
+      "0.2": {
+        "recall": 0.2,
+        "cov": 0.259,
+        "false_rate": 0.012
+      }
+    }
+  },
+  "23": {
+    "recipe": "Broccoli Stir Fry",
+    "n": 16,
+    "a4_recall": 0.875,
+    "a4_cov": 0.654,
+    "a4_false_rate": 0.191,
+    "al": {
+      "0.05": {
+        "recall": 0.562,
+        "cov": 0.439,
+        "false_rate": 0.032
+      },
+      "0.1": {
+        "recall": 0.5,
+        "cov": 0.399,
+        "false_rate": 0.02
+      },
+      "0.2": {
+        "recall": 0.5,
+        "cov": 0.365,
+        "false_rate": 0.014
+      }
+    }
+  },
+  "20": {
+    "recipe": "Sauteed Mushrooms",
+    "n": 14,
+    "a4_recall": 0.857,
+    "a4_cov": 0.716,
+    "a4_false_rate": 0.292,
+    "al": {
+      "0.05": {
+        "recall": 0.571,
+        "cov": 0.44,
+        "false_rate": 0.082
+      },
+      "0.1": {
+        "recall": 0.5,
+        "cov": 0.398,
+        "false_rate": 0.063
+      },
+      "0.2": {
+        "recall": 0.429,
+        "cov": 0.356,
+        "false_rate": 0.049
+      }
+    }
+  },
+  "16": {
+    "recipe": "Scrambled Eggs",
+    "n": 16,
+    "a4_recall": 0.812,
+    "a4_cov": 0.637,
+    "a4_false_rate": 0.182,
+    "al": {
+      "0.05": {
+        "recall": 0.625,
+        "cov": 0.459,
+        "false_rate": 0.067
+      },
+      "0.1": {
+        "recall": 0.5,
+        "cov": 0.401,
+        "false_rate": 0.049
+      },
+      "0.2": {
+        "recall": 0.438,
+        "cov": 0.341,
+        "false_rate": 0.036
+      }
+    }
+  },
+  "22": {
+    "recipe": "Herb Omelet",
+    "n": 17,
+    "a4_recall": 0.706,
+    "a4_cov": 0.454,
+    "a4_false_rate": 0.095,
+    "al": {
+      "0.05": {
+        "recall": 0.529,
+        "cov": 0.35,
+        "false_rate": 0.078
+      },
+      "0.1": {
+        "recall": 0.235,
+        "cov": 0.311,
+        "false_rate": 0.067
+      },
+      "0.2": {
+        "recall": 0.176,
+        "cov": 0.272,
+        "false_rate": 0.059
+      }
+    }
+  },
+  "15": {
+    "recipe": "Tomato Chutney",
+    "n": 15,
+    "a4_recall": 0.6,
+    "a4_cov": 0.525,
+    "a4_false_rate": 0.165,
+    "al": {
+      "0.05": {
+        "recall": 0.0,
+        "cov": 0.153,
+        "false_rate": 0.022
+      },
+      "0.1": {
+        "recall": 0.0,
+        "cov": 0.113,
+        "false_rate": 0.012
+      },
+      "0.2": {
+        "recall": 0.0,
+        "cov": 0.087,
+        "false_rate": 0.007
+      }
+    }
+  },
+  "18": {
+    "recipe": "Zoodles",
+    "n": 15,
+    "a4_recall": 0.8,
+    "a4_cov": 0.573,
+    "a4_false_rate": 0.278,
+    "al": {
+      "0.05": {
+        "recall": 0.267,
+        "cov": 0.302,
+        "false_rate": 0.098
+      },
+      "0.1": {
+        "recall": 0.2,
+        "cov": 0.256,
+        "false_rate": 0.081
+      },
+      "0.2": {
+        "recall": 0.133,
+        "cov": 0.21,
+        "false_rate": 0.065
+      }
+    }
+  },
+  "21": {
+    "recipe": "Banana Pancakes",
+    "n": 19,
+    "a4_recall": 0.0,
+    "a4_cov": 0.077,
+    "a4_false_rate": 0.145,
+    "al": {
+      "0.05": {
+        "recall": 0.0,
+        "cov": 0.074,
+        "false_rate": 0.017
+      },
+      "0.1": {
+        "recall": 0.0,
+        "cov": 0.055,
+        "false_rate": 0.013
+      },
+      "0.2": {
+        "recall": 0.0,
+        "cov": 0.04,
+        "false_rate": 0.009
+      }
+    }
+  },
+  "29": {
+    "recipe": "Caprese Bruschetta",
+    "n": 16,
+    "a4_recall": 0.375,
+    "a4_cov": 0.319,
+    "a4_false_rate": 0.322,
+    "al": {
+      "0.05": {
+        "recall": 0.0,
+        "cov": 0.061,
+        "false_rate": 0.017
+      },
+      "0.1": {
+        "recall": 0.0,
+        "cov": 0.045,
+        "false_rate": 0.007
+      },
+      "0.2": {
+        "recall": 0.0,
+        "cov": 0.032,
+        "false_rate": 0.003
+      }
+    }
+  }
+}

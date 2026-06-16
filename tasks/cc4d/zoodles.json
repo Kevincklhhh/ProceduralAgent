@@ -1,0 +1,155 @@
+{
+  "task_id": "zoodles",
+  "title": "Zoodles",
+  "source": "data/cc4d/annotations/task_graphs/zoodles.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 200,
+      "order": 1,
+      "name": "peel_1_garlic_cloves",
+      "instruction": "Peel 1 garlic cloves",
+      "preconditions": []
+    },
+    {
+      "step_id": 203,
+      "order": 2,
+      "name": "spiralize_1_medium_zucchini",
+      "instruction": "Spiralize 1 medium zucchini into thin noodles using a spiralizer",
+      "preconditions": []
+    },
+    {
+      "step_id": 196,
+      "order": 3,
+      "name": "heat_a_large_pan",
+      "instruction": "Heat a large pan on medium heat",
+      "preconditions": [
+        200,
+        203
+      ]
+    },
+    {
+      "step_id": 204,
+      "order": 4,
+      "name": "melt_1_tablespoons_of",
+      "instruction": "Melt 1 tablespoons of softened butter",
+      "preconditions": [
+        196
+      ]
+    },
+    {
+      "step_id": 199,
+      "order": 5,
+      "name": "add_1_large_minced",
+      "instruction": "Add 1 large minced garlic cloves to the pan",
+      "preconditions": [
+        204
+      ]
+    },
+    {
+      "step_id": 202,
+      "order": 6,
+      "name": "cook_garlic_until_fragrant",
+      "instruction": "Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic",
+      "preconditions": [
+        199
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 193,
+      "order": 7,
+      "name": "1_6_cup_grated",
+      "instruction": "1/6 cup grated parmesan cheese",
+      "preconditions": [
+        202
+      ]
+    },
+    {
+      "step_id": 194,
+      "order": 8,
+      "name": "pepper_to_taste",
+      "instruction": "pepper to taste",
+      "preconditions": [
+        202
+      ]
+    },
+    {
+      "step_id": 198,
+      "order": 9,
+      "name": "season_with_salt",
+      "instruction": "season with salt",
+      "preconditions": [
+        202
+      ]
+    },
+    {
+      "step_id": 201,
+      "order": 10,
+      "name": "add_the_zucchini_noodles",
+      "instruction": "Add the zucchini noodles",
+      "preconditions": [
+        202
+      ]
+    },
+    {
+      "step_id": 192,
+      "order": 11,
+      "name": "cook_for_2_minutes",
+      "instruction": "Cook for 2 minutes or until the zoodles are done",
+      "preconditions": [
+        193,
+        194,
+        198,
+        201
+      ],
+      "duration_constraint_s": 120
+    },
+    {
+      "step_id": 197,
+      "order": 12,
+      "name": "remove_from_heat",
+      "instruction": "Remove from heat",
+      "preconditions": [
+        192
+      ]
+    },
+    {
+      "step_id": 195,
+      "order": 13,
+      "name": "top_with_more_parmesan",
+      "instruction": "Top with more parmesan if desired",
+      "preconditions": [
+        197
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_cook_garlic_until_fragrant",
+      "step_id": 202,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_for_2_minutes",
+      "step_id": 192,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 120s",
+      "message": "The recipe says about 120s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

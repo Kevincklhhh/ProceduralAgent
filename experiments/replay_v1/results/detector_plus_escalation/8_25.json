@@ -1,0 +1,65 @@
+{
+ "recording": "8_25",
+ "arm": "detector_plus_escalation",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 126.34
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 126.34,
+   "end_s": 150.54
+  },
+  {
+   "stage": "adds",
+   "start_s": 150.54,
+   "end_s": 371.84
+  },
+  {
+   "stage": "heat_serve",
+   "start_s": 371.84,
+   "end_s": 442.88
+  }
+ ],
+ "events": [
+  {
+   "t": 150.54,
+   "type": "warning",
+   "id": "undertime_microwave",
+   "message": "Microwave run 1 finished after only 24.2s (fused done 150.5s); recipe expects ~60s."
+  },
+  {
+   "t": 371.84,
+   "type": "reminder",
+   "id": "missing_mix_before_heat",
+   "message": "Second microwave run started at 371.8s but no stirring was detected since the first microwave finished; the recipe mixes the mug before the final heat."
+  },
+  {
+   "t": 371.84,
+   "type": "reminder",
+   "id": "missing_ingredient_before_mix",
+   "message": "Did you add the chocolate? The recipe adds 2 pieces of chocolate, 1/5 tsp cinnamon and 1 tsp sugar to the microwaved milk before mixing/heating."
+  },
+  {
+   "t": 431.73,
+   "type": "warning",
+   "id": "hot_mug_caution",
+   "message": "Second microwave run finished at 431.7s; the mug will be hot - handle with care."
+  }
+ ],
+ "escalation_requests": [
+  {
+   "t": 371.84,
+   "reason": "verify which ingredients were added to the mug before mixing/heating"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 1,
+  "frames_sent": 10,
+  "vlm_latency_total_s": 44.27,
+  "compute_s": 3.64,
+  "notes": "escalation VLM call at t=371.84s; verdict: chocolate=MISSING, cinnamon=added, sugar=added; confidence=0.9"
+ }
+}

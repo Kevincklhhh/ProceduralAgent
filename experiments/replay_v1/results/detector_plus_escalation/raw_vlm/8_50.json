@@ -1,0 +1,33 @@
+{
+ "recording": "8_50",
+ "t_esc": 245.5,
+ "model": "Qwen/Qwen3.6-27B",
+ "n_frames": 10,
+ "frame_times_s": [
+  0.0,
+  27.28,
+  54.56,
+  81.83,
+  109.11,
+  136.39,
+  163.67,
+  190.94,
+  218.22,
+  245.5
+ ],
+ "jpeg_quality": 80,
+ "latency_s": 35.62,
+ "raw_response": "{\n  \"chocolate_added\": false,\n  \"cinnamon_added\": false,\n  \"sugar_added\": false,\n  \"evidence\": [\n    \"The video frames show the user pouring milk into a mug.\",\n    \"The user then places the mug in the microwave and sets the timer.\",\n    \"The user opens a cabinet, revealing various ingredients including baking powder, vanilla extract, and other jars, but no chocolate, cinnamon, or sugar is seen being taken out or added to the mug.\",\n    \"The video ends before any ingredients are added to the heated milk.\"\n  ],\n  \"confidence\": 1.0\n}",
+ "parsed": {
+  "chocolate_added": false,
+  "cinnamon_added": false,
+  "sugar_added": false,
+  "evidence": [
+   "The video frames show the user pouring milk into a mug.",
+   "The user then places the mug in the microwave and sets the timer.",
+   "The user opens a cabinet, revealing various ingredients including baking powder, vanilla extract, and other jars, but no chocolate, cinnamon, or sugar is seen being taken out or added to the mug.",
+   "The video ends before any ingredients are added to the heated milk."
+  ],
+  "confidence": 1.0
+ }
+}

@@ -1,0 +1,97 @@
+{
+  "task_id": "tomatomozzarellasalad",
+  "title": "Tomatomozzarellasalad",
+  "source": "data/cc4d/annotations/task_graphs/tomatomozzarellasalad.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 125,
+      "order": 1,
+      "name": "rinse_a_tomato",
+      "instruction": "Rinse a tomato",
+      "preconditions": []
+    },
+    {
+      "step_id": 122,
+      "order": 2,
+      "name": "gently_dry_it_with",
+      "instruction": "gently dry it with a paper/tea towel",
+      "preconditions": [
+        125
+      ]
+    },
+    {
+      "step_id": 119,
+      "order": 3,
+      "name": "slice_one_tomato_into",
+      "instruction": "Slice one tomato into about 1/2 inch thick slices",
+      "preconditions": [
+        122
+      ]
+    },
+    {
+      "step_id": 120,
+      "order": 4,
+      "name": "place_the_thick_slices",
+      "instruction": "Place the thick slices of tomatoes on a platter, ensuring they only make a single layer",
+      "preconditions": [
+        119
+      ]
+    },
+    {
+      "step_id": 123,
+      "order": 5,
+      "name": "season_the_tomato_slices",
+      "instruction": "Season the tomato slices with salt",
+      "preconditions": [
+        120
+      ]
+    },
+    {
+      "step_id": 124,
+      "order": 6,
+      "name": "sprinkle_mozzarella_cheese_on",
+      "instruction": "Sprinkle mozzarella cheese on top of the tomato throughout the platter",
+      "preconditions": [
+        120
+      ]
+    },
+    {
+      "step_id": 126,
+      "order": 7,
+      "name": "season_platter_with_1",
+      "instruction": "Season platter with 1/4 teaspoon black pepper",
+      "preconditions": [
+        120
+      ]
+    },
+    {
+      "step_id": 127,
+      "order": 8,
+      "name": "garnish_platter_with_italian",
+      "instruction": "Garnish platter with italian seasoning",
+      "preconditions": [
+        120
+      ]
+    },
+    {
+      "step_id": 121,
+      "order": 9,
+      "name": "add_a_drizzle_of",
+      "instruction": "Add a drizzle of extra-virgin olive oil, about 1 tablespoon, over the entire platter",
+      "preconditions": [
+        123,
+        124,
+        126,
+        127
+      ]
+    }
+  ],
+  "reminders": [],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

@@ -1,0 +1,147 @@
+{
+ "recording": "8_31",
+ "task_id": "spicedhotchocolate",
+ "arm": "proposed_system",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 74.62
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 74.62,
+   "end_s": 100.69
+  },
+  {
+   "stage": "quiet_middle",
+   "start_s": 100.69,
+   "end_s": 183.94
+  },
+  {
+   "stage": "heat_serve",
+   "start_s": 183.94,
+   "end_s": 267.14
+  }
+ ],
+ "transition_trace": [
+  {
+   "t_s": 0.0,
+   "transition": "start",
+   "step_or_block": "fill_milk",
+   "rule_id": "fill_start_source",
+   "evidence": [],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 74.62,
+   "transition": "complete",
+   "step_or_block": "fill_milk",
+   "rule_id": "fill_done_next_anchor",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 74.62,
+   "transition": "start",
+   "step_or_block": "microwave_initial",
+   "rule_id": "mw1_start",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 100.69,
+   "transition": "complete",
+   "step_or_block": "microwave_initial",
+   "rule_id": "mw1_done",
+   "evidence": [
+    "D1.cycle_end"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 100.69,
+   "transition": "start",
+   "step_or_block": "quiet_middle",
+   "rule_id": "middle_start",
+   "evidence": [],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 183.94,
+   "transition": "complete",
+   "step_or_block": "quiet_middle",
+   "rule_id": "middle_done_next_anchor",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 183.94,
+   "transition": "start",
+   "step_or_block": "heat_serve",
+   "rule_id": "heat_start",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 235.87,
+   "transition": "complete",
+   "step_or_block": "heat_serve",
+   "rule_id": "heat_done",
+   "evidence": [
+    "D1.cycle_end"
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "sensor_events": [
+  {
+   "t_s": 74.62,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 100.69,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 183.94,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 235.87,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 100.69,
+   "primitive": "D6",
+   "event": "undertime",
+   "confidence": 1.0,
+   "step_id": "microwave_initial",
+   "duration_s": 26.1,
+   "expected_s": 60
+  }
+ ],
+ "cost": {
+  "audio_on_s": 267.14,
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.6
+ }
+}

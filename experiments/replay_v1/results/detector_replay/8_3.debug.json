@@ -1,0 +1,364 @@
+{
+ "recording": "8_3",
+ "audio_dur_s": 421.97,
+ "hum_runs": [
+  [
+   72.32,
+   132.22,
+   59.9
+  ],
+  [
+   344.19,
+   404.35,
+   60.16
+  ]
+ ],
+ "mw1": {
+  "onset": 72.32,
+  "hum_off": 132.22,
+  "fused_done": 135.41,
+  "beep_fused": true,
+  "fused_dur_s": 63.09
+ },
+ "mw2": {
+  "onset": 344.19,
+  "hum_off": 404.35,
+  "fused_done": 409.23,
+  "beep_fused": true,
+  "fused_dur_s": 65.04
+ },
+ "extra_hum_runs": [],
+ "beeps": [
+  {
+   "t": 33.17,
+   "dur_s": 0.29,
+   "freq_hz": 914.1,
+   "peak_db": -47.9
+  },
+  {
+   "t": 66.05,
+   "dur_s": 0.77,
+   "freq_hz": 1203.1,
+   "peak_db": -37.7
+  },
+  {
+   "t": 71.04,
+   "dur_s": 0.32,
+   "freq_hz": 1953.1,
+   "peak_db": -29.8
+  },
+  {
+   "t": 132.56,
+   "dur_s": 0.61,
+   "freq_hz": 1953.1,
+   "peak_db": -22.3
+  },
+  {
+   "t": 133.5,
+   "dur_s": 0.58,
+   "freq_hz": 1953.1,
+   "peak_db": -27.5
+  },
+  {
+   "t": 134.53,
+   "dur_s": 0.64,
+   "freq_hz": 1953.1,
+   "peak_db": -27.6
+  },
+  {
+   "t": 135.41,
+   "dur_s": 0.29,
+   "freq_hz": 1953.1,
+   "peak_db": -29.0
+  },
+  {
+   "t": 339.74,
+   "dur_s": 0.13,
+   "freq_hz": 1210.9,
+   "peak_db": -46.4
+  },
+  {
+   "t": 342.72,
+   "dur_s": 0.13,
+   "freq_hz": 1953.1,
+   "peak_db": -41.2
+  },
+  {
+   "t": 404.38,
+   "dur_s": 0.58,
+   "freq_hz": 1953.1,
+   "peak_db": -28.3
+  },
+  {
+   "t": 405.38,
+   "dur_s": 0.64,
+   "freq_hz": 1953.1,
+   "peak_db": -28.5
+  },
+  {
+   "t": 406.35,
+   "dur_s": 0.61,
+   "freq_hz": 1953.1,
+   "peak_db": -26.3
+  },
+  {
+   "t": 407.36,
+   "dur_s": 0.64,
+   "freq_hz": 1953.1,
+   "peak_db": -28.7
+  },
+  {
+   "t": 408.3,
+   "dur_s": 0.48,
+   "freq_hz": 1953.1,
+   "peak_db": -32.6
+  },
+  {
+   "t": 409.23,
+   "dur_s": 0.29,
+   "freq_hz": 1953.1,
+   "peak_db": -25.6
+  }
+ ],
+ "clink_trains": [
+  {
+   "start": 0.0,
+   "end": 13.0,
+   "n_ringy_onsets": 12,
+   "density": 0.92,
+   "strong": false
+  },
+  {
+   "start": 22.5,
+   "end": 37.5,
+   "n_ringy_onsets": 19,
+   "density": 1.27,
+   "strong": false
+  },
+  {
+   "start": 46.0,
+   "end": 87.0,
+   "n_ringy_onsets": 66,
+   "density": 1.61,
+   "strong": true
+  },
+  {
+   "start": 91.5,
+   "end": 99.5,
+   "n_ringy_onsets": 4,
+   "density": 0.5,
+   "strong": false
+  },
+  {
+   "start": 101.5,
+   "end": 155.0,
+   "n_ringy_onsets": 54,
+   "density": 1.01,
+   "strong": false
+  },
+  {
+   "start": 155.5,
+   "end": 164.5,
+   "n_ringy_onsets": 3,
+   "density": 0.33,
+   "strong": false
+  },
+  {
+   "start": 166.5,
+   "end": 192.0,
+   "n_ringy_onsets": 39,
+   "density": 1.53,
+   "strong": true
+  },
+  {
+   "start": 197.5,
+   "end": 205.5,
+   "n_ringy_onsets": 3,
+   "density": 0.38,
+   "strong": false
+  },
+  {
+   "start": 204.5,
+   "end": 221.5,
+   "n_ringy_onsets": 26,
+   "density": 1.53,
+   "strong": true
+  },
+  {
+   "start": 221.5,
+   "end": 250.5,
+   "n_ringy_onsets": 32,
+   "density": 1.1,
+   "strong": false
+  },
+  {
+   "start": 276.0,
+   "end": 289.0,
+   "n_ringy_onsets": 7,
+   "density": 0.54,
+   "strong": false
+  },
+  {
+   "start": 290.0,
+   "end": 299.5,
+   "n_ringy_onsets": 5,
+   "density": 0.53,
+   "strong": false
+  },
+  {
+   "start": 300.0,
+   "end": 426.5,
+   "n_ringy_onsets": 231,
+   "density": 1.83,
+   "strong": true
+  }
+ ],
+ "strong_trains": [
+  {
+   "start": 46.0,
+   "end": 87.0,
+   "n_ringy_onsets": 66,
+   "density": 1.61,
+   "strong": true
+  },
+  {
+   "start": 166.5,
+   "end": 192.0,
+   "n_ringy_onsets": 39,
+   "density": 1.53,
+   "strong": true
+  },
+  {
+   "start": 204.5,
+   "end": 221.5,
+   "n_ringy_onsets": 26,
+   "density": 1.53,
+   "strong": true
+  },
+  {
+   "start": 300.0,
+   "end": 426.5,
+   "n_ringy_onsets": 231,
+   "density": 1.83,
+   "strong": true
+  }
+ ],
+ "mix_onset": 166.5,
+ "pours_secondary": [
+  {
+   "start": 40.04,
+   "end": 42.46,
+   "flatness": 0.226,
+   "rel_db": 17.2
+  },
+  {
+   "start": 57.36,
+   "end": 58.48,
+   "flatness": 0.159,
+   "rel_db": 11.1
+  },
+  {
+   "start": 63.12,
+   "end": 64.34,
+   "flatness": 0.2,
+   "rel_db": 19.6
+  },
+  {
+   "start": 151.3,
+   "end": 155.5,
+   "flatness": 0.343,
+   "rel_db": 22.6
+  },
+  {
+   "start": 156.04,
+   "end": 161.62,
+   "flatness": 0.307,
+   "rel_db": 22.9
+  },
+  {
+   "start": 163.36,
+   "end": 167.42,
+   "flatness": 0.42,
+   "rel_db": 21.5
+  },
+  {
+   "start": 169.4,
+   "end": 170.2,
+   "flatness": 0.372,
+   "rel_db": 12.9
+  },
+  {
+   "start": 186.74,
+   "end": 187.64,
+   "flatness": 0.156,
+   "rel_db": 13.7
+  },
+  {
+   "start": 189.46,
+   "end": 192.56,
+   "flatness": 0.287,
+   "rel_db": 29.2
+  },
+  {
+   "start": 234.72,
+   "end": 235.66,
+   "flatness": 0.287,
+   "rel_db": 26.7
+  },
+  {
+   "start": 236.26,
+   "end": 237.12,
+   "flatness": 0.157,
+   "rel_db": 22.3
+  },
+  {
+   "start": 238.72,
+   "end": 239.56,
+   "flatness": 0.284,
+   "rel_db": 8.0
+  },
+  {
+   "start": 249.44,
+   "end": 251.38,
+   "flatness": 0.348,
+   "rel_db": 26.9
+  },
+  {
+   "start": 264.72,
+   "end": 270.02,
+   "flatness": 0.329,
+   "rel_db": 31.7
+  },
+  {
+   "start": 270.54,
+   "end": 272.94,
+   "flatness": 0.424,
+   "rel_db": 12.1
+  },
+  {
+   "start": 281.64,
+   "end": 283.56,
+   "flatness": 0.342,
+   "rel_db": 21.6
+  },
+  {
+   "start": 289.26,
+   "end": 293.46,
+   "flatness": 0.312,
+   "rel_db": 22.4
+  },
+  {
+   "start": 293.96,
+   "end": 295.12,
+   "flatness": 0.148,
+   "rel_db": 9.1
+  },
+  {
+   "start": 304.58,
+   "end": 310.26,
+   "flatness": 0.136,
+   "rel_db": 20.9
+  }
+ ],
+ "lookahead_note": "hum mask <=~7.2s (cascaded centered medians, dominant window 5.38s), clink train 5s, beeps 1.5s; done-fusion finalizes up to 20s after hum offset"
+}

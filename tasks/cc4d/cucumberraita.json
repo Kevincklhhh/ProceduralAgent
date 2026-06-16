@@ -1,0 +1,116 @@
+{
+  "task_id": "cucumberraita",
+  "title": "Cucumberraita",
+  "source": "data/cc4d/annotations/task_graphs/cucumberraita.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 183,
+      "order": 1,
+      "name": "in_a_mixing_bowl",
+      "instruction": "In a mixing bowl, whisk 1 cup of chilled curd until smooth. Use fresh homemade or packaged curd",
+      "preconditions": []
+    },
+    {
+      "step_id": 181,
+      "order": 2,
+      "name": "1_4_teaspoon_of",
+      "instruction": "1/4 teaspoon of red chilli powder to the bowl",
+      "preconditions": [
+        183
+      ]
+    },
+    {
+      "step_id": 184,
+      "order": 3,
+      "name": "1_4_teaspoon_salt",
+      "instruction": "1/4 teaspoon salt to the bowl",
+      "preconditions": [
+        183
+      ]
+    },
+    {
+      "step_id": 187,
+      "order": 4,
+      "name": "add_1_tablespoon_of",
+      "instruction": "add 1 tablespoon of chopped cilantro leaves to the bowl",
+      "preconditions": [
+        183
+      ]
+    },
+    {
+      "step_id": 188,
+      "order": 5,
+      "name": "add_1_teaspoon_of",
+      "instruction": "Add 1 teaspoon of cumin powder to the bowl",
+      "preconditions": [
+        183
+      ]
+    },
+    {
+      "step_id": 189,
+      "order": 6,
+      "name": "rinse_1_medium_sized",
+      "instruction": "Rinse 1 medium sized cucumber",
+      "preconditions": []
+    },
+    {
+      "step_id": 182,
+      "order": 7,
+      "name": "peel_the_cucumber",
+      "instruction": "peel the cucumber",
+      "preconditions": [
+        189
+      ]
+    },
+    {
+      "step_id": 185,
+      "order": 8,
+      "name": "chop_or_grate_the",
+      "instruction": "chop or grate the cucumber",
+      "preconditions": [
+        182
+      ]
+    },
+    {
+      "step_id": 190,
+      "order": 9,
+      "name": "add_the_chopped_or",
+      "instruction": "Add the chopped or grated cucumber to the whisked curd",
+      "preconditions": [
+        183,
+        185
+      ]
+    },
+    {
+      "step_id": 191,
+      "order": 10,
+      "name": "1_2_teaspoon_of",
+      "instruction": "1/2 teaspoon of chaat masala powder to the bowl",
+      "preconditions": [
+        183
+      ]
+    },
+    {
+      "step_id": 186,
+      "order": 11,
+      "name": "combine_all_the_ingredients",
+      "instruction": "Combine all the ingredients in the bowl",
+      "preconditions": [
+        181,
+        184,
+        187,
+        188,
+        190,
+        191
+      ]
+    }
+  ],
+  "reminders": [],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

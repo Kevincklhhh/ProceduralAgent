@@ -1,0 +1,184 @@
+{
+  "task_id": "pinwheels",
+  "title": "Pinwheels",
+  "source": "data/cc4d/annotations/task_graphs/pinwheels.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 115,
+      "order": 1,
+      "name": "place_8_inch_flour",
+      "instruction": "Place 8-inch flour tortilla on cutting board",
+      "preconditions": []
+    },
+    {
+      "step_id": 113,
+      "order": 2,
+      "name": "use_a_butter_knife",
+      "instruction": "Use a butter knife to scoop nut butter from the jar",
+      "preconditions": [
+        115
+      ]
+    },
+    {
+      "step_id": 112,
+      "order": 3,
+      "name": "spread_nut_butter_onto",
+      "instruction": "Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges",
+      "preconditions": [
+        113
+      ]
+    },
+    {
+      "step_id": 118,
+      "order": 4,
+      "name": "clean_the_knife_by",
+      "instruction": "Clean the knife by wiping it with a paper towel",
+      "preconditions": [
+        112
+      ]
+    },
+    {
+      "step_id": 111,
+      "order": 5,
+      "name": "use_the_knife_to",
+      "instruction": "Use the knife to scoop jelly from the jar",
+      "preconditions": [
+        118
+      ]
+    },
+    {
+      "step_id": 107,
+      "order": 6,
+      "name": "spread_jelly_over_the",
+      "instruction": "Spread jelly over the nut butter",
+      "preconditions": [
+        111
+      ]
+    },
+    {
+      "step_id": 104,
+      "order": 7,
+      "name": "clean_the_knife_by",
+      "instruction": "Clean the knife by wiping with a paper towel",
+      "preconditions": [
+        107
+      ]
+    },
+    {
+      "step_id": 116,
+      "order": 8,
+      "name": "roll_the_tortilla_from",
+      "instruction": "Roll the tortilla from one end to the other into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps, but not so tight that the filling leaks",
+      "preconditions": [
+        104
+      ]
+    },
+    {
+      "step_id": 110,
+      "order": 9,
+      "name": "secure_the_rolled_tortilla",
+      "instruction": "Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart",
+      "preconditions": [
+        116
+      ]
+    },
+    {
+      "step_id": 114,
+      "order": 10,
+      "name": "trim_the_ends_of",
+      "instruction": "Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll",
+      "preconditions": [
+        110
+      ]
+    },
+    {
+      "step_id": 103,
+      "order": 11,
+      "name": "discard_ends_of_the",
+      "instruction": "Discard ends of the tortilla",
+      "preconditions": [
+        114
+      ]
+    },
+    {
+      "step_id": 106,
+      "order": 12,
+      "name": "slide_floss_under_the",
+      "instruction": "Slide floss under the tortilla, perpendicular to the length of the roll",
+      "preconditions": [
+        114
+      ]
+    },
+    {
+      "step_id": 117,
+      "order": 13,
+      "name": "place_the_floss_halfway",
+      "instruction": "Place the floss halfway between toothpicks",
+      "preconditions": [
+        106
+      ]
+    },
+    {
+      "step_id": 105,
+      "order": 14,
+      "name": "cross_the_floss_s",
+      "instruction": "Cross the floss's two ends over the tortilla roll's top",
+      "preconditions": [
+        117
+      ]
+    },
+    {
+      "step_id": 108,
+      "order": 15,
+      "name": "pull_the_floss_ends",
+      "instruction": "pull the floss ends in opposite directions to slice",
+      "preconditions": [
+        105
+      ]
+    },
+    {
+      "step_id": 102,
+      "order": 16,
+      "name": "continue_slicing_with_floss",
+      "instruction": "Continue slicing with floss to create 1 more pinwheel",
+      "preconditions": [
+        108
+      ]
+    },
+    {
+      "step_id": 102,
+      "order": 17,
+      "name": "continue_slicing_with_floss",
+      "instruction": "Continue slicing with floss to create 1 more pinwheel",
+      "preconditions": [
+        102
+      ]
+    },
+    {
+      "step_id": 102,
+      "order": 18,
+      "name": "continue_slicing_with_floss",
+      "instruction": "Continue slicing with floss to create 1 more pinwheel",
+      "preconditions": [
+        102
+      ]
+    },
+    {
+      "step_id": 109,
+      "order": 19,
+      "name": "place_the_pinwheels_on",
+      "instruction": "Place the pinwheels on a plate",
+      "preconditions": [
+        102
+      ]
+    }
+  ],
+  "reminders": [],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

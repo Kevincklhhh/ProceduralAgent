@@ -1,0 +1,145 @@
+{
+  "task_id": "herbomeletwithfriedtomatoes",
+  "title": "Herbomeletwithfriedtomatoes",
+  "source": "data/cc4d/annotations/task_graphs/herbomeletwithfriedtomatoes.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 237,
+      "order": 1,
+      "name": "chop_2_tbsp_cilantro",
+      "instruction": "Chop 2 tbsp cilantro",
+      "preconditions": []
+    },
+    {
+      "step_id": 239,
+      "order": 2,
+      "name": "crack_one_egg_in",
+      "instruction": "crack one egg in a bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 242,
+      "order": 3,
+      "name": "add_the_chopped_cilantro",
+      "instruction": "add the chopped cilantro to the bowl",
+      "preconditions": [
+        237
+      ]
+    },
+    {
+      "step_id": 247,
+      "order": 4,
+      "name": "take_a_tomato",
+      "instruction": "Take a tomato",
+      "preconditions": []
+    },
+    {
+      "step_id": 246,
+      "order": 5,
+      "name": "cut_tomato_into_two",
+      "instruction": "Cut tomato into two pieces",
+      "preconditions": [
+        247
+      ]
+    },
+    {
+      "step_id": 249,
+      "order": 6,
+      "name": "1_2_tsp_ground",
+      "instruction": "1/2 tsp ground black pepper to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 248,
+      "order": 7,
+      "name": "beat_the_contents_of",
+      "instruction": "Beat the contents of the bowl",
+      "preconditions": [
+        239,
+        242,
+        249
+      ]
+    },
+    {
+      "step_id": 235,
+      "order": 8,
+      "name": "heat_1_tbsp_oil",
+      "instruction": "Heat 1 tbsp oil in a non-stick frying pan",
+      "preconditions": [
+        246,
+        248
+      ]
+    },
+    {
+      "step_id": 240,
+      "order": 9,
+      "name": "cook_the_tomatoes_cut",
+      "instruction": "cook the tomatoes cut-side down until they start to soften and colour",
+      "preconditions": [
+        235
+      ]
+    },
+    {
+      "step_id": 244,
+      "order": 10,
+      "name": "scoop_the_tomatoes_from",
+      "instruction": "Scoop the tomatoes from the pan",
+      "preconditions": [
+        240
+      ]
+    },
+    {
+      "step_id": 236,
+      "order": 11,
+      "name": "put_tomatoes_on_a",
+      "instruction": "put tomatoes on a serving plate",
+      "preconditions": [
+        244
+      ]
+    },
+    {
+      "step_id": 241,
+      "order": 12,
+      "name": "pour_the_egg_mixture",
+      "instruction": "Pour the egg mixture into the pan",
+      "preconditions": [
+        236
+      ]
+    },
+    {
+      "step_id": 238,
+      "order": 13,
+      "name": "stir_gently_with_a",
+      "instruction": "stir gently with a wooden spoon so the egg that sets on the base of the pan moves to enable the uncooked egg to flow into the space",
+      "preconditions": [
+        241
+      ]
+    },
+    {
+      "step_id": 245,
+      "order": 14,
+      "name": "stop_stirring_when_it",
+      "instruction": "Stop stirring when it's nearly cooked to allow it to set into an omelette",
+      "preconditions": [
+        238
+      ]
+    },
+    {
+      "step_id": 243,
+      "order": 15,
+      "name": "transfer_omelette_to_the",
+      "instruction": "Transfer omelette to the plate and serve with the tomatoes",
+      "preconditions": [
+        245
+      ]
+    }
+  ],
+  "reminders": [],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+ "recording": "8_25",
+ "t_esc": 371.84,
+ "model": "Qwen/Qwen3.6-27B",
+ "n_frames": 10,
+ "frame_times_s": [
+  0.0,
+  41.32,
+  82.63,
+  123.95,
+  165.26,
+  206.58,
+  247.89,
+  289.21,
+  330.52,
+  371.84
+ ],
+ "jpeg_quality": 80,
+ "latency_s": 44.27,
+ "raw_response": "{\n  \"chocolate_added\": false,\n  \"cinnamon_added\": true,\n  \"sugar_added\": true,\n  \"evidence\": [\n    \"In frame 5, the user is holding a small jar of cinnamon and a red measuring spoon, appearing to measure it out.\",\n    \"In frame 8, the user is using a blue measuring spoon to add a white powder (sugar) from a bag labeled 'Organic' into the mug.\",\n    \"In frame 9, the user is stirring the contents of the mug, which now contains the added ingredients.\",\n    \"There is no visual evidence of chocolate pieces being added to the mug in any of the provided frames.\"\n  ],\n  \"confidence\": 0.9\n}",
+ "parsed": {
+  "chocolate_added": false,
+  "cinnamon_added": true,
+  "sugar_added": true,
+  "evidence": [
+   "In frame 5, the user is holding a small jar of cinnamon and a red measuring spoon, appearing to measure it out.",
+   "In frame 8, the user is using a blue measuring spoon to add a white powder (sugar) from a bag labeled 'Organic' into the mug.",
+   "In frame 9, the user is stirring the contents of the mug, which now contains the added ingredients.",
+   "There is no visual evidence of chocolate pieces being added to the mug in any of the provided frames."
+  ],
+  "confidence": 0.9
+ }
+}

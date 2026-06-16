@@ -1,0 +1,32 @@
+{
+ "recording": "8_31",
+ "t_esc": 183.94,
+ "model": "Qwen/Qwen3.6-27B",
+ "n_frames": 10,
+ "frame_times_s": [
+  0.0,
+  20.44,
+  40.88,
+  61.31,
+  81.75,
+  102.19,
+  122.63,
+  143.06,
+  163.5,
+  183.94
+ ],
+ "jpeg_quality": 80,
+ "latency_s": 39.27,
+ "raw_response": "{\n  \"chocolate_added\": false,\n  \"cinnamon_added\": true,\n  \"sugar_added\": false,\n  \"evidence\": [\n    \"In frame 7, the user is holding a small jar of brown powder, which appears to be cinnamon, and is in the process of adding it to the mug.\",\n    \"In frame 8, the user is stirring the contents of the mug, which now contains a brown liquid, consistent with cinnamon being mixed in.\",\n    \"There is no visual evidence of chocolate pieces or sugar being added in any of the provided frames.\"\n  ],\n  \"confidence\": 0.9\n}",
+ "parsed": {
+  "chocolate_added": false,
+  "cinnamon_added": true,
+  "sugar_added": false,
+  "evidence": [
+   "In frame 7, the user is holding a small jar of brown powder, which appears to be cinnamon, and is in the process of adding it to the mug.",
+   "In frame 8, the user is stirring the contents of the mug, which now contains a brown liquid, consistent with cinnamon being mixed in.",
+   "There is no visual evidence of chocolate pieces or sugar being added in any of the provided frames."
+  ],
+  "confidence": 0.9
+ }
+}

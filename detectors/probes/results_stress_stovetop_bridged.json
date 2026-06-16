@@ -1,0 +1,128 @@
+{
+  "25": {
+    "recipe": "Pan Fried Tofu",
+    "n": 15,
+    "br0.05": {
+      "recall": 0.8,
+      "cov": 0.584,
+      "false_rate": 0.032
+    },
+    "br0.1": {
+      "recall": 0.6,
+      "cov": 0.491,
+      "false_rate": 0.027
+    }
+  },
+  "23": {
+    "recipe": "Broccoli Stir Fry",
+    "n": 16,
+    "br0.05": {
+      "recall": 0.812,
+      "cov": 0.583,
+      "false_rate": 0.069
+    },
+    "br0.1": {
+      "recall": 0.75,
+      "cov": 0.528,
+      "false_rate": 0.029
+    }
+  },
+  "20": {
+    "recipe": "Sauteed Mushrooms",
+    "n": 14,
+    "br0.05": {
+      "recall": 0.786,
+      "cov": 0.588,
+      "false_rate": 0.126
+    },
+    "br0.1": {
+      "recall": 0.786,
+      "cov": 0.548,
+      "false_rate": 0.102
+    }
+  },
+  "16": {
+    "recipe": "Scrambled Eggs",
+    "n": 16,
+    "br0.05": {
+      "recall": 0.875,
+      "cov": 0.623,
+      "false_rate": 0.122
+    },
+    "br0.1": {
+      "recall": 0.812,
+      "cov": 0.559,
+      "false_rate": 0.083
+    }
+  },
+  "22": {
+    "recipe": "Herb Omelet",
+    "n": 17,
+    "br0.05": {
+      "recall": 0.588,
+      "cov": 0.467,
+      "false_rate": 0.104
+    },
+    "br0.1": {
+      "recall": 0.588,
+      "cov": 0.414,
+      "false_rate": 0.085
+    }
+  },
+  "15": {
+    "recipe": "Tomato Chutney",
+    "n": 15,
+    "br0.05": {
+      "recall": 0.267,
+      "cov": 0.302,
+      "false_rate": 0.046
+    },
+    "br0.1": {
+      "recall": 0.133,
+      "cov": 0.207,
+      "false_rate": 0.024
+    }
+  },
+  "18": {
+    "recipe": "Zoodles",
+    "n": 15,
+    "br0.05": {
+      "recall": 0.667,
+      "cov": 0.451,
+      "false_rate": 0.14
+    },
+    "br0.1": {
+      "recall": 0.467,
+      "cov": 0.398,
+      "false_rate": 0.129
+    }
+  },
+  "21": {
+    "recipe": "Banana Pancakes",
+    "n": 19,
+    "br0.05": {
+      "recall": 0.105,
+      "cov": 0.131,
+      "false_rate": 0.029
+    },
+    "br0.1": {
+      "recall": 0.053,
+      "cov": 0.103,
+      "false_rate": 0.025
+    }
+  },
+  "29": {
+    "recipe": "Caprese Bruschetta",
+    "n": 16,
+    "br0.05": {
+      "recall": 0.062,
+      "cov": 0.116,
+      "false_rate": 0.027
+    },
+    "br0.1": {
+      "recall": 0.062,
+      "cov": 0.089,
+      "false_rate": 0.016
+    }
+  }
+}

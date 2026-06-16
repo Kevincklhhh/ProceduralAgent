@@ -1,0 +1,162 @@
+{
+  "task_id": "spicytunaavocadowraps",
+  "title": "Spicytunaavocadowraps",
+  "source": "data/cc4d/annotations/task_graphs/spicytunaavocadowraps.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 327,
+      "order": 1,
+      "name": "1_4_cup_mayonnaise",
+      "instruction": "1/4 cup mayonnaise to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 329,
+      "order": 2,
+      "name": "lay_out_2_large",
+      "instruction": "Lay out 2 large lettuce leaves",
+      "preconditions": []
+    },
+    {
+      "step_id": 335,
+      "order": 3,
+      "name": "take_1_ripe_avocado",
+      "instruction": "Take 1 ripe avocado",
+      "preconditions": []
+    },
+    {
+      "step_id": 336,
+      "order": 4,
+      "name": "open_a_can_of",
+      "instruction": "Open a can of tuna",
+      "preconditions": []
+    },
+    {
+      "step_id": 328,
+      "order": 5,
+      "name": "drain_excess_water_from",
+      "instruction": "drain excess water from can",
+      "preconditions": [
+        336
+      ]
+    },
+    {
+      "step_id": 334,
+      "order": 6,
+      "name": "add_1_can_drained",
+      "instruction": "Add 1 can drained tuna to the bowl",
+      "preconditions": [
+        328
+      ]
+    },
+    {
+      "step_id": 339,
+      "order": 7,
+      "name": "1_tsp_sriracha_sauce",
+      "instruction": "1 tsp Sriracha sauce to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 340,
+      "order": 8,
+      "name": "chop_1_scallion",
+      "instruction": "Chop 1 scallion",
+      "preconditions": []
+    },
+    {
+      "step_id": 333,
+      "order": 9,
+      "name": "add_chopped_scallion_to",
+      "instruction": "add chopped scallion to the bowl",
+      "preconditions": [
+        340
+      ]
+    },
+    {
+      "step_id": 331,
+      "order": 10,
+      "name": "mix_the_contents_of",
+      "instruction": "Mix the contents of the bowl",
+      "preconditions": [
+        327,
+        333,
+        334,
+        339
+      ]
+    },
+    {
+      "step_id": 326,
+      "order": 11,
+      "name": "season_1_4_tsp",
+      "instruction": "season 1/4 tsp pepper on the bowl",
+      "preconditions": [
+        331
+      ]
+    },
+    {
+      "step_id": 338,
+      "order": 12,
+      "name": "season_bowl_with_1",
+      "instruction": "Season bowl with 1/4 tsp salt",
+      "preconditions": [
+        331
+      ]
+    },
+    {
+      "step_id": 341,
+      "order": 13,
+      "name": "cut_avocado_into_thin",
+      "instruction": "cut avocado into thin slices",
+      "preconditions": [
+        335
+      ]
+    },
+    {
+      "step_id": 325,
+      "order": 14,
+      "name": "place_avocado_slices_on",
+      "instruction": "place avocado slices on each leaf",
+      "preconditions": [
+        329,
+        341
+      ]
+    },
+    {
+      "step_id": 332,
+      "order": 15,
+      "name": "top_lettuce_leaves_with",
+      "instruction": "top lettuce leaves with the tuna mixture",
+      "preconditions": [
+        325,
+        326,
+        338
+      ]
+    },
+    {
+      "step_id": 330,
+      "order": 16,
+      "name": "roll_up_the_lettuce",
+      "instruction": "Roll up the lettuce wraps",
+      "preconditions": [
+        332
+      ]
+    },
+    {
+      "step_id": 337,
+      "order": 17,
+      "name": "secure_the_wrap_with",
+      "instruction": "secure the wrap with a toothpick",
+      "preconditions": [
+        330
+      ]
+    }
+  ],
+  "reminders": [],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

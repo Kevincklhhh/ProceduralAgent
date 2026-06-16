@@ -1,0 +1,135 @@
+{
+  "task_id": "microwavefrenchtoast",
+  "title": "Microwavefrenchtoast",
+  "source": "data/cc4d/annotations/task_graphs/microwavefrenchtoast.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 94,
+      "order": 1,
+      "name": "in_a_large_mug",
+      "instruction": "In a large mug, melt 1 tablespoon of softened butter in the microwave for about 30 seconds",
+      "preconditions": [],
+      "duration_constraint_s": 30
+    },
+    {
+      "step_id": 98,
+      "order": 2,
+      "name": "roll_the_butter_around",
+      "instruction": "Roll the butter around in the mug to coat it",
+      "preconditions": [
+        94
+      ]
+    },
+    {
+      "step_id": 99,
+      "order": 3,
+      "name": "cut_or_tear_1",
+      "instruction": "Cut or tear 1 slices of bread into bite-size pieces",
+      "preconditions": []
+    },
+    {
+      "step_id": 101,
+      "order": 4,
+      "name": "in_the_mug_whisk",
+      "instruction": "In the mug, whisk one egg with a fork until well blended",
+      "preconditions": [
+        98
+      ]
+    },
+    {
+      "step_id": 95,
+      "order": 5,
+      "name": "sprinkle_1_4_teaspoon",
+      "instruction": "Sprinkle 1/4 teaspoon cinnamon over the egg",
+      "preconditions": [
+        101
+      ]
+    },
+    {
+      "step_id": 100,
+      "order": 6,
+      "name": "add_1_4_teaspoon",
+      "instruction": "Add 1/4 teaspoon vanilla extract to the mug",
+      "preconditions": [
+        101
+      ]
+    },
+    {
+      "step_id": 93,
+      "order": 7,
+      "name": "stir_the_mug",
+      "instruction": "stir the mug",
+      "preconditions": [
+        95,
+        100
+      ]
+    },
+    {
+      "step_id": 92,
+      "order": 8,
+      "name": "add_bread_pieces_to",
+      "instruction": "add bread pieces to the egg mixture in the mug, pressing the bread down into the egg",
+      "preconditions": [
+        93,
+        99
+      ]
+    },
+    {
+      "step_id": 91,
+      "order": 9,
+      "name": "microwave_on_high_for",
+      "instruction": "Microwave on high for 90 seconds until the egg is cooked through",
+      "preconditions": [
+        92
+      ],
+      "duration_constraint_s": 90
+    },
+    {
+      "step_id": 97,
+      "order": 10,
+      "name": "put_the_mug_s",
+      "instruction": "Put the mug's contents on a plate",
+      "preconditions": [
+        91
+      ]
+    },
+    {
+      "step_id": 96,
+      "order": 11,
+      "name": "cut_the_contents_on",
+      "instruction": "cut the contents on plate, and serve",
+      "preconditions": [
+        97
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_in_a_large_mug",
+      "step_id": 94,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 30s",
+      "message": "The recipe says about 30s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_microwave_on_high_for",
+      "step_id": 91,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 90s",
+      "message": "The recipe says about 90s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

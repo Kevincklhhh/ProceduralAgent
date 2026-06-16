@@ -1,0 +1,37 @@
+{
+ "recording": "8_25",
+ "arm": "detector_replay",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 112.51
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 112.51,
+   "end_s": 148.67
+  },
+  {
+   "stage": "adds",
+   "start_s": 148.67,
+   "end_s": 442.88
+  }
+ ],
+ "events": [
+  {
+   "t": 148.67,
+   "type": "warning",
+   "id": "undertime_microwave",
+   "message": "Microwave run 1 finished after only 36.2s (fused done 148.7s); recipe expects ~60s."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 4.58,
+  "notes": "extra hum runs (unassigned): [[137.3, 146.3]]"
+ }
+}

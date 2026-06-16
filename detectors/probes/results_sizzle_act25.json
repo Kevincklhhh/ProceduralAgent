@@ -1,0 +1,467 @@
+{
+ "probe": "sizzle_act25",
+ "params": {
+  "nfft": 1024,
+  "hop": 256,
+  "band_lo": 1500.0,
+  "band_hi": 7000.0,
+  "block_s": 0.5,
+  "roll_win_s": 45.0,
+  "baseline_pct": 20,
+  "level_db": 8.0,
+  "merge_gap_s": 20.0,
+  "min_run_s": 30.0
+ },
+ "summary": {
+  "recipe": "Pan Fried Tofu (act 25)",
+  "recordings": 15,
+  "cook_anchor_recall": 1.0,
+  "mean_coverage": 0.719,
+  "false_sizzle_prep_s_total": 608.0,
+  "cook_len_s_total": 15100.9,
+  "false_rate_prep_vs_cook": 0.04,
+  "hum_falsepos_runs_total": 72
+ },
+ "per_recording": {
+  "25_1": {
+   "recording": "25_1",
+   "n_sizzle_runs": 4,
+   "sizzle_runs": [
+    [
+     486.6,
+     603.6,
+     117.1
+    ],
+    [
+     630.4,
+     1005.4,
+     375.0
+    ],
+    [
+     1106.1,
+     1279.7,
+     173.6
+    ],
+    [
+     1366.5,
+     1685.9,
+     319.4
+    ]
+   ],
+   "cook_window": [
+    406,
+    1688.7
+   ],
+   "cook_len_s": 1282.7,
+   "sizzle_in_cook_s": 985.1,
+   "coverage": 0.768,
+   "cook_hit": true,
+   "onset_latency_s": 80.6,
+   "false_sizzle_prep_s": 13.1,
+   "n_hum_runs_falsepos": 7
+  },
+  "25_2": {
+   "recording": "25_2",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     182.0,
+     229.6,
+     47.6
+    ],
+    [
+     333.8,
+     1121.5,
+     787.6
+    ]
+   ],
+   "cook_window": [
+    323.2,
+    1066.9
+   ],
+   "cook_len_s": 743.7,
+   "sizzle_in_cook_s": 733.1,
+   "coverage": 0.986,
+   "cook_hit": true,
+   "onset_latency_s": 10.6,
+   "false_sizzle_prep_s": 57.1,
+   "n_hum_runs_falsepos": 4
+  },
+  "25_3": {
+   "recording": "25_3",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     292.1,
+     804.5,
+     512.4
+    ],
+    [
+     1017.3,
+     1170.1,
+     152.8
+    ]
+   ],
+   "cook_window": [
+    208.4,
+    1313.8
+   ],
+   "cook_len_s": 1105.4,
+   "sizzle_in_cook_s": 665.1,
+   "coverage": 0.602,
+   "cook_hit": true,
+   "onset_latency_s": 83.7,
+   "false_sizzle_prep_s": 14.9,
+   "n_hum_runs_falsepos": 0
+  },
+  "25_4": {
+   "recording": "25_4",
+   "n_sizzle_runs": 6,
+   "sizzle_runs": [
+    [
+     48.6,
+     79.4,
+     30.8
+    ],
+    [
+     652.7,
+     722.7,
+     69.9
+    ],
+    [
+     841.2,
+     1114.0,
+     272.8
+    ],
+    [
+     1150.7,
+     1242.0,
+     91.3
+    ],
+    [
+     1384.3,
+     1419.1,
+     34.7
+    ],
+    [
+     1558.4,
+     1601.6,
+     43.2
+    ]
+   ],
+   "cook_window": [
+    490.6,
+    1645.9
+   ],
+   "cook_len_s": 1155.4,
+   "sizzle_in_cook_s": 511.9,
+   "coverage": 0.443,
+   "cook_hit": true,
+   "onset_latency_s": 162.2,
+   "false_sizzle_prep_s": 15.0,
+   "n_hum_runs_falsepos": 7
+  },
+  "25_5": {
+   "recording": "25_5",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     370.0,
+     1357.6,
+     987.5
+    ]
+   ],
+   "cook_window": [
+    259.0,
+    1320.0
+   ],
+   "cook_len_s": 1061.0,
+   "sizzle_in_cook_s": 950.0,
+   "coverage": 0.895,
+   "cook_hit": true,
+   "onset_latency_s": 111.0,
+   "false_sizzle_prep_s": 28.4,
+   "n_hum_runs_falsepos": 6
+  },
+  "25_6": {
+   "recording": "25_6",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     617.5,
+     2142.2,
+     1524.7
+    ]
+   ],
+   "cook_window": [
+    352.8,
+    2066.0
+   ],
+   "cook_len_s": 1713.1,
+   "sizzle_in_cook_s": 1448.5,
+   "coverage": 0.845,
+   "cook_hit": true,
+   "onset_latency_s": 264.7,
+   "false_sizzle_prep_s": 55.0,
+   "n_hum_runs_falsepos": 17
+  },
+  "25_9": {
+   "recording": "25_9",
+   "n_sizzle_runs": 3,
+   "sizzle_runs": [
+    [
+     551.6,
+     639.8,
+     88.3
+    ],
+    [
+     685.0,
+     854.1,
+     169.1
+    ],
+    [
+     896.3,
+     1017.3,
+     121.0
+    ]
+   ],
+   "cook_window": [
+    258.0,
+    1012.5
+   ],
+   "cook_len_s": 754.5,
+   "sizzle_in_cook_s": 373.7,
+   "coverage": 0.495,
+   "cook_hit": true,
+   "onset_latency_s": 293.5,
+   "false_sizzle_prep_s": 51.4,
+   "n_hum_runs_falsepos": 2
+  },
+  "25_11": {
+   "recording": "25_11",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     483.6,
+     1325.8,
+     842.2
+    ]
+   ],
+   "cook_window": [
+    347.7,
+    1261.6
+   ],
+   "cook_len_s": 913.9,
+   "sizzle_in_cook_s": 778.0,
+   "coverage": 0.851,
+   "cook_hit": true,
+   "onset_latency_s": 135.9,
+   "false_sizzle_prep_s": 85.5,
+   "n_hum_runs_falsepos": 5
+  },
+  "25_13": {
+   "recording": "25_13",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     268.3,
+     1234.0,
+     965.7
+    ]
+   ],
+   "cook_window": [
+    222.7,
+    1196.1
+   ],
+   "cook_len_s": 973.4,
+   "sizzle_in_cook_s": 927.8,
+   "coverage": 0.953,
+   "cook_hit": true,
+   "onset_latency_s": 45.6,
+   "false_sizzle_prep_s": 41.6,
+   "n_hum_runs_falsepos": 4
+  },
+  "25_22": {
+   "recording": "25_22",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     0.0,
+     49.1,
+     49.1
+    ],
+    [
+     652.7,
+     1420.0,
+     767.3
+    ]
+   ],
+   "cook_window": [
+    372.4,
+    1372.3
+   ],
+   "cook_len_s": 999.8,
+   "sizzle_in_cook_s": 719.5,
+   "coverage": 0.72,
+   "cook_hit": true,
+   "onset_latency_s": 280.3,
+   "false_sizzle_prep_s": 68.2,
+   "n_hum_runs_falsepos": 8
+  },
+  "25_40": {
+   "recording": "25_40",
+   "n_sizzle_runs": 3,
+   "sizzle_runs": [
+    [
+     48.6,
+     140.4,
+     91.8
+    ],
+    [
+     346.2,
+     622.0,
+     275.8
+    ],
+    [
+     716.2,
+     876.9,
+     160.7
+    ]
+   ],
+   "cook_window": [
+    259.9,
+    863
+   ],
+   "cook_len_s": 603.1,
+   "sizzle_in_cook_s": 422.6,
+   "coverage": 0.701,
+   "cook_hit": true,
+   "onset_latency_s": 86.3,
+   "false_sizzle_prep_s": 31.2,
+   "n_hum_runs_falsepos": 0
+  },
+  "25_41": {
+   "recording": "25_41",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     309.5,
+     904.7,
+     595.2
+    ],
+    [
+     985.6,
+     1015.8,
+     30.3
+    ]
+   ],
+   "cook_window": [
+    132.7,
+    983.2
+   ],
+   "cook_len_s": 850.6,
+   "sizzle_in_cook_s": 595.2,
+   "coverage": 0.7,
+   "cook_hit": true,
+   "onset_latency_s": 176.8,
+   "false_sizzle_prep_s": 23.3,
+   "n_hum_runs_falsepos": 0
+  },
+  "25_42": {
+   "recording": "25_42",
+   "n_sizzle_runs": 3,
+   "sizzle_runs": [
+    [
+     25.3,
+     103.2,
+     77.9
+    ],
+    [
+     554.5,
+     669.6,
+     115.1
+    ],
+    [
+     705.8,
+     1187.9,
+     482.1
+    ]
+   ],
+   "cook_window": [
+    237.1,
+    1145.8
+   ],
+   "cook_len_s": 908.7,
+   "sizzle_in_cook_s": 555.0,
+   "coverage": 0.611,
+   "cook_hit": true,
+   "onset_latency_s": 317.5,
+   "false_sizzle_prep_s": 44.1,
+   "n_hum_runs_falsepos": 5
+  },
+  "25_48": {
+   "recording": "25_48",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     303.6,
+     460.8,
+     157.2
+    ],
+    [
+     490.0,
+     767.3,
+     277.3
+    ]
+   ],
+   "cook_window": [
+    118.8,
+    594.1
+   ],
+   "cook_len_s": 475.2,
+   "sizzle_in_cook_s": 261.2,
+   "coverage": 0.55,
+   "cook_hit": true,
+   "onset_latency_s": 184.7,
+   "false_sizzle_prep_s": 36.7,
+   "n_hum_runs_falsepos": 2
+  },
+  "25_109": {
+   "recording": "25_109",
+   "n_sizzle_runs": 4,
+   "sizzle_runs": [
+    [
+     903.2,
+     1031.7,
+     128.5
+    ],
+    [
+     1052.0,
+     1155.2,
+     103.2
+    ],
+    [
+     1236.0,
+     1556.9,
+     320.9
+    ],
+    [
+     1584.2,
+     2126.8,
+     542.6
+    ]
+   ],
+   "cook_window": [
+    504.4,
+    2064.7
+   ],
+   "cook_len_s": 1560.4,
+   "sizzle_in_cook_s": 1033.1,
+   "coverage": 0.662,
+   "cook_hit": true,
+   "onset_latency_s": 398.9,
+   "false_sizzle_prep_s": 42.5,
+   "n_hum_runs_falsepos": 5
+  }
+ }
+}

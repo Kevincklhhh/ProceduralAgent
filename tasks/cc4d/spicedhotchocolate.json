@@ -1,0 +1,101 @@
+{
+  "task_id": "spicedhotchocolate",
+  "title": "Spicedhotchocolate",
+  "source": "data/cc4d/annotations/task_graphs/spicedhotchocolate.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 88,
+      "order": 1,
+      "name": "fill_a_microwave_safe",
+      "instruction": "Fill a microwave-safe mug with skimmed milk",
+      "preconditions": []
+    },
+    {
+      "step_id": 89,
+      "order": 2,
+      "name": "microwave_the_contents_of",
+      "instruction": "Microwave the contents of the mug for 1 minute",
+      "preconditions": [
+        88
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 84,
+      "order": 3,
+      "name": "add_1_5_teaspoon",
+      "instruction": "Add 1/5 teaspoon cinnamon to the mug",
+      "preconditions": [
+        89
+      ]
+    },
+    {
+      "step_id": 87,
+      "order": 4,
+      "name": "add_1_teaspoon_of",
+      "instruction": "Add 1 teaspoon of white sugar to the mug",
+      "preconditions": [
+        89
+      ]
+    },
+    {
+      "step_id": 90,
+      "order": 5,
+      "name": "add_2_pieces_of",
+      "instruction": "Add 2 pieces of chocolate to the mug",
+      "preconditions": [
+        89
+      ]
+    },
+    {
+      "step_id": 85,
+      "order": 6,
+      "name": "mix_the_contents_of",
+      "instruction": "Mix the contents of the mug",
+      "preconditions": [
+        84,
+        87,
+        90
+      ]
+    },
+    {
+      "step_id": 83,
+      "order": 7,
+      "name": "heat_the_contents_of",
+      "instruction": "Heat the contents of the mug for 1 minute and serve",
+      "preconditions": [
+        85
+      ],
+      "duration_constraint_s": 60
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_microwave_the_contents_of",
+      "step_id": 89,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_heat_the_contents_of",
+      "step_id": 83,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

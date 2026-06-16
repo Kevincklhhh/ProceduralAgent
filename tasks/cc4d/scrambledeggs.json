@@ -1,0 +1,250 @@
+{
+  "task_id": "scrambledeggs",
+  "title": "Scrambledeggs",
+  "source": "data/cc4d/annotations/task_graphs/scrambledeggs.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 158,
+      "order": 1,
+      "name": "chop_1_tsp_cilantro",
+      "instruction": "Chop 1 tsp cilantro",
+      "preconditions": []
+    },
+    {
+      "step_id": 161,
+      "order": 2,
+      "name": "chop_1_green_chilli",
+      "instruction": "Chop 1 green chilli",
+      "preconditions": []
+    },
+    {
+      "step_id": 163,
+      "order": 3,
+      "name": "chop_1_4_medium",
+      "instruction": "Chop 1/4 medium onion",
+      "preconditions": []
+    },
+    {
+      "step_id": 164,
+      "order": 4,
+      "name": "add_1_3_tsp",
+      "instruction": "add 1/3 tsp salt to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 167,
+      "order": 5,
+      "name": "crack_one_egg_in",
+      "instruction": "Crack one egg in the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 169,
+      "order": 6,
+      "name": "chop_1_4_tomato",
+      "instruction": "Chop 1/4 tomato",
+      "preconditions": []
+    },
+    {
+      "step_id": 176,
+      "order": 7,
+      "name": "peel_2_garlic_cloves",
+      "instruction": "Peel 2 garlic cloves",
+      "preconditions": []
+    },
+    {
+      "step_id": 177,
+      "order": 8,
+      "name": "add_1_tbsp_milk",
+      "instruction": "add 1 tbsp milk to the bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 159,
+      "order": 9,
+      "name": "whisk_the_egg_mixture",
+      "instruction": "Whisk the egg mixture in the bowl",
+      "preconditions": [
+        164,
+        167,
+        177
+      ]
+    },
+    {
+      "step_id": 180,
+      "order": 10,
+      "name": "mince_peeled_garlic_cloves",
+      "instruction": "Mince peeled garlic cloves",
+      "preconditions": [
+        176
+      ]
+    },
+    {
+      "step_id": 173,
+      "order": 11,
+      "name": "heat_2_tbsp_oil",
+      "instruction": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat",
+      "preconditions": [
+        158,
+        159,
+        161,
+        163,
+        169,
+        180
+      ]
+    },
+    {
+      "step_id": 178,
+      "order": 12,
+      "name": "add_1_3_tsp",
+      "instruction": "add 1/3 tsp salt to the pan",
+      "preconditions": [
+        173
+      ]
+    },
+    {
+      "step_id": 179,
+      "order": 13,
+      "name": "add_chopped_onions_to",
+      "instruction": "add chopped onions to the pan",
+      "preconditions": [
+        173
+      ]
+    },
+    {
+      "step_id": 166,
+      "order": 14,
+      "name": "saute_the_onions_on",
+      "instruction": "Saute the onions on medium heat until they are soft and translucent",
+      "preconditions": [
+        178,
+        179
+      ]
+    },
+    {
+      "step_id": 160,
+      "order": 15,
+      "name": "add_garlic_to_the",
+      "instruction": "Add garlic to the pan",
+      "preconditions": [
+        166
+      ]
+    },
+    {
+      "step_id": 162,
+      "order": 16,
+      "name": "add_chilli_to_the",
+      "instruction": "Add chilli to the pan",
+      "preconditions": [
+        166
+      ]
+    },
+    {
+      "step_id": 165,
+      "order": 17,
+      "name": "cook_for_1_minute",
+      "instruction": "Cook for 1 minute, mixing everything",
+      "preconditions": [
+        160,
+        162
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 168,
+      "order": 18,
+      "name": "add_1_8_tsp",
+      "instruction": "Add 1/8 tsp of turmeric to the pan",
+      "preconditions": [
+        165
+      ]
+    },
+    {
+      "step_id": 175,
+      "order": 19,
+      "name": "add_tomatoes_to_the",
+      "instruction": "Add tomatoes to the pan",
+      "preconditions": [
+        165
+      ]
+    },
+    {
+      "step_id": 170,
+      "order": 20,
+      "name": "cook_covered_for_1",
+      "instruction": "Cook covered for 1 minute or until the tomatoes soften",
+      "preconditions": [
+        168,
+        175
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 172,
+      "order": 21,
+      "name": "slowly_pour_the_whisked",
+      "instruction": "Slowly pour the whisked eggs into the pan",
+      "preconditions": [
+        170
+      ]
+    },
+    {
+      "step_id": 171,
+      "order": 22,
+      "name": "keep_mixing_with_a",
+      "instruction": "Keep mixing with a spatula for 3 minutes or until the eggs are almost cooked",
+      "preconditions": [
+        172
+      ],
+      "duration_constraint_s": 180
+    },
+    {
+      "step_id": 174,
+      "order": 23,
+      "name": "garnish_with_1_tbsp",
+      "instruction": "Garnish with 1 tbsp chopped cilantro and serve",
+      "preconditions": [
+        171
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_cook_for_1_minute",
+      "step_id": 165,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_covered_for_1",
+      "step_id": 170,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_keep_mixing_with_a",
+      "step_id": 171,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 180s",
+      "message": "The recipe says about 180s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

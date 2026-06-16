@@ -1,0 +1,78 @@
+{
+  "recording": "8_16",
+  "arm": "periodic_vlm_qwen",
+  "stage_intervals": [
+    {
+      "stage": "other",
+      "start_s": 10.0,
+      "end_s": 30.0
+    },
+    {
+      "stage": "fill_milk",
+      "start_s": 30.0,
+      "end_s": 80.0
+    },
+    {
+      "stage": "microwave_initial",
+      "start_s": 80.0,
+      "end_s": 160.0
+    },
+    {
+      "stage": "add_chocolate",
+      "start_s": 160.0,
+      "end_s": 200.0
+    },
+    {
+      "stage": "add_cinnamon",
+      "start_s": 200.0,
+      "end_s": 240.0
+    },
+    {
+      "stage": "add_sugar",
+      "start_s": 240.0,
+      "end_s": 300.0
+    },
+    {
+      "stage": "mix",
+      "start_s": 300.0,
+      "end_s": 320.0
+    },
+    {
+      "stage": "other",
+      "start_s": 320.0,
+      "end_s": 340.0
+    },
+    {
+      "stage": "mix",
+      "start_s": 340.0,
+      "end_s": 410.0
+    },
+    {
+      "stage": "other",
+      "start_s": 410.0,
+      "end_s": 462.7
+    }
+  ],
+  "events": [
+    {
+      "t": 100.0,
+      "type": "warning",
+      "id": "overtime_microwave",
+      "message": "The recipe says 1 minute - the microwave is still running."
+    },
+    {
+      "t": 130.0,
+      "type": "warning",
+      "id": "overtime_microwave",
+      "message": "The recipe says 1 minute - the microwave is still running."
+    }
+  ],
+  "escalation_requests": [],
+  "cost": {
+    "vlm_calls": 46,
+    "frames_sent": 138,
+    "vlm_latency_total_s": 2471.6,
+    "compute_s": 2478.2,
+    "notes": "interval=10s frames_per_call=3 model=Qwen/Qwen3.6-27B parse_failure_rate=0.0 mean_latency_s=53.73; ran at 2-way concurrency; sequential smoke-test latency 43.6s/call"
+  }
+}

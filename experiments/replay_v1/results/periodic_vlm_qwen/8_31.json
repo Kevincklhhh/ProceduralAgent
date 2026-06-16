@@ -1,0 +1,35 @@
+{
+  "recording": "8_31",
+  "arm": "periodic_vlm_qwen",
+  "stage_intervals": [
+    {
+      "stage": "fill_milk",
+      "start_s": 10.0,
+      "end_s": 70.0
+    },
+    {
+      "stage": "microwave_initial",
+      "start_s": 70.0,
+      "end_s": 130.0
+    },
+    {
+      "stage": "add_cinnamon",
+      "start_s": 130.0,
+      "end_s": 160.0
+    },
+    {
+      "stage": "other",
+      "start_s": 160.0,
+      "end_s": 267.2
+    }
+  ],
+  "events": [],
+  "escalation_requests": [],
+  "cost": {
+    "vlm_calls": 26,
+    "frames_sent": 78,
+    "vlm_latency_total_s": 1261.0,
+    "compute_s": 1265.0,
+    "notes": "interval=10s frames_per_call=3 model=Qwen/Qwen3.6-27B parse_failure_rate=0.038 mean_latency_s=48.5; ran at 2-way concurrency"
+  }
+}

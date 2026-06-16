@@ -1,0 +1,119 @@
+{
+  "task_id": "capresebruschetta",
+  "title": "Capresebruschetta",
+  "source": "data/cc4d/annotations/task_graphs/capresebruschetta.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 342,
+      "order": 1,
+      "name": "1_8_cup_shredded",
+      "instruction": "1/8 cup shredded mozzarella to a bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 343,
+      "order": 2,
+      "name": "1_4_tsp_salt",
+      "instruction": "1/4 tsp salt to a bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 344,
+      "order": 3,
+      "name": "slice_two_1_2",
+      "instruction": "Slice two 1/2 inch thick rounds from a baguette (slice slanted)",
+      "preconditions": []
+    },
+    {
+      "step_id": 346,
+      "order": 4,
+      "name": "1_4_tsp_pepper",
+      "instruction": "1/4 tsp pepper to a bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 347,
+      "order": 5,
+      "name": "1_16_cup_basil",
+      "instruction": "1/16 cup basil to a bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 349,
+      "order": 6,
+      "name": "brush_2_slices_of",
+      "instruction": "Brush 2 slices of baguette with olive oil on both sides",
+      "preconditions": [
+        344
+      ]
+    },
+    {
+      "step_id": 350,
+      "order": 7,
+      "name": "cut_1_4_cup",
+      "instruction": "Cut 1/4 cup of cherry tomatoes into halves",
+      "preconditions": []
+    },
+    {
+      "step_id": 351,
+      "order": 8,
+      "name": "in_a_bowl_add",
+      "instruction": "In a bowl, add the cut cherry tomatoes",
+      "preconditions": [
+        350
+      ]
+    },
+    {
+      "step_id": 348,
+      "order": 9,
+      "name": "combine_the_contents_of",
+      "instruction": "Combine the contents of the bowl",
+      "preconditions": [
+        342,
+        343,
+        346,
+        347,
+        351
+      ]
+    },
+    {
+      "step_id": 352,
+      "order": 10,
+      "name": "toast_both_sides_of",
+      "instruction": "Toast both sides of the slices on the pan for 2 to 3 minutes until lightly charred and crispy and transfer the slices to a plate",
+      "preconditions": [
+        349
+      ],
+      "duration_constraint_s": 180
+    },
+    {
+      "step_id": 345,
+      "order": 11,
+      "name": "spoon_the_mixture_from",
+      "instruction": "Spoon the mixture from the bowl onto the bread",
+      "preconditions": [
+        348,
+        352
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_toast_both_sides_of",
+      "step_id": 352,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 180s",
+      "message": "The recipe says about 180s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

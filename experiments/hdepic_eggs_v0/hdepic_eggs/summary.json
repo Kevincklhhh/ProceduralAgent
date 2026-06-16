@@ -1,0 +1,54 @@
+{
+  "video_id": "hdepic_p08_scrambled_eggs_690-870",
+  "task_id": "scrambled_eggs_hdepic_p08",
+  "baseline": {
+    "mode": "periodic_vlm",
+    "interval_s": 10.0,
+    "frames_per_call": 3,
+    "window_s": 2.0,
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "k_consecutive": 2,
+    "cooldown_s": 15.0
+  },
+  "video_duration_s": 185.0,
+  "evaluated_seconds": 185.0,
+  "stage_timeline": [
+    {
+      "step_id": "pour_eggs",
+      "start_s": 10.0,
+      "end_s": 40.0
+    },
+    {
+      "step_id": "stir_curds",
+      "start_s": 40.0,
+      "end_s": 150.0
+    },
+    {
+      "step_id": "plate_serve",
+      "start_s": 150.0,
+      "end_s": 185.0
+    }
+  ],
+  "events": [
+    {
+      "timestamp_s": 100.0,
+      "action_type": "reminder",
+      "message": "The eggs look nearly set. Remove the pan from the heat.",
+      "step_id": "stir_curds"
+    },
+    {
+      "timestamp_s": 130.0,
+      "action_type": "reminder",
+      "message": "The eggs look nearly set. Remove the pan from the heat.",
+      "step_id": "stir_curds"
+    }
+  ],
+  "cost_log": {
+    "num_vlm_calls": 18,
+    "frames_sent": 54,
+    "mean_latency_s": 5.09,
+    "p95_latency_s": 10.19,
+    "parse_failure_rate": 0.0
+  }
+}

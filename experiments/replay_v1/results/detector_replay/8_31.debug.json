@@ -1,0 +1,192 @@
+{
+ "recording": "8_31",
+ "audio_dur_s": 267.14,
+ "hum_runs": [
+  [
+   74.62,
+   96.64,
+   22.02
+  ],
+  [
+   183.94,
+   230.27,
+   46.34
+  ]
+ ],
+ "mw1": {
+  "onset": 74.62,
+  "hum_off": 96.64,
+  "fused_done": 100.69,
+  "beep_fused": true,
+  "fused_dur_s": 26.07
+ },
+ "mw2": {
+  "onset": 183.94,
+  "hum_off": 230.27,
+  "fused_done": 235.87,
+  "beep_fused": true,
+  "fused_dur_s": 51.93
+ },
+ "extra_hum_runs": [],
+ "beeps": [
+  {
+   "t": 22.51,
+   "dur_s": 0.03,
+   "freq_hz": 2085.9,
+   "peak_db": -44.5
+  },
+  {
+   "t": 57.66,
+   "dur_s": 0.06,
+   "freq_hz": 4000.0,
+   "peak_db": -48.8
+  },
+  {
+   "t": 67.42,
+   "dur_s": 0.32,
+   "freq_hz": 4000.0,
+   "peak_db": -39.4
+  },
+  {
+   "t": 70.7,
+   "dur_s": 0.48,
+   "freq_hz": 4000.0,
+   "peak_db": -38.8
+  },
+  {
+   "t": 72.53,
+   "dur_s": 0.03,
+   "freq_hz": 4000.0,
+   "peak_db": -46.2
+  },
+  {
+   "t": 100.05,
+   "dur_s": 0.03,
+   "freq_hz": 1609.4,
+   "peak_db": -31.8
+  },
+  {
+   "t": 100.69,
+   "dur_s": 0.54,
+   "freq_hz": 1203.1,
+   "peak_db": -47.6
+  },
+  {
+   "t": 130.13,
+   "dur_s": 0.22,
+   "freq_hz": 1820.3,
+   "peak_db": -34.8
+  },
+  {
+   "t": 134.7,
+   "dur_s": 0.1,
+   "freq_hz": 1824.2,
+   "peak_db": -45.9
+  },
+  {
+   "t": 182.54,
+   "dur_s": 0.03,
+   "freq_hz": 4000.0,
+   "peak_db": -48.2
+  },
+  {
+   "t": 183.57,
+   "dur_s": 0.29,
+   "freq_hz": 4000.0,
+   "peak_db": -47.6
+  },
+  {
+   "t": 235.87,
+   "dur_s": 0.06,
+   "freq_hz": 2070.3,
+   "peak_db": -51.6
+  },
+  {
+   "t": 259.86,
+   "dur_s": 0.1,
+   "freq_hz": 976.6,
+   "peak_db": -50.9
+  }
+ ],
+ "clink_trains": [
+  {
+   "start": 0.0,
+   "end": 80.5,
+   "n_ringy_onsets": 163,
+   "density": 2.02,
+   "strong": true
+  },
+  {
+   "start": 81.5,
+   "end": 190.0,
+   "n_ringy_onsets": 223,
+   "density": 2.06,
+   "strong": true
+  },
+  {
+   "start": 188.5,
+   "end": 202.5,
+   "n_ringy_onsets": 8,
+   "density": 0.57,
+   "strong": false
+  },
+  {
+   "start": 220.5,
+   "end": 271.5,
+   "n_ringy_onsets": 78,
+   "density": 1.53,
+   "strong": true
+  }
+ ],
+ "strong_trains": [
+  {
+   "start": 0.0,
+   "end": 80.5,
+   "n_ringy_onsets": 163,
+   "density": 2.02,
+   "strong": true
+  },
+  {
+   "start": 81.5,
+   "end": 190.0,
+   "n_ringy_onsets": 223,
+   "density": 2.06,
+   "strong": true
+  },
+  {
+   "start": 220.5,
+   "end": 271.5,
+   "n_ringy_onsets": 78,
+   "density": 1.53,
+   "strong": true
+  }
+ ],
+ "mix_onset": null,
+ "pours_secondary": [
+  {
+   "start": 10.74,
+   "end": 12.38,
+   "flatness": 0.195,
+   "rel_db": 8.5
+  },
+  {
+   "start": 31.52,
+   "end": 36.12,
+   "flatness": 0.215,
+   "rel_db": 23.8
+  },
+  {
+   "start": 122.14,
+   "end": 123.24,
+   "flatness": 0.18,
+   "rel_db": 16.3
+  },
+  {
+   "start": 241.92,
+   "end": 243.72,
+   "flatness": 0.195,
+   "rel_db": 13.0
+  }
+ ],
+ "lookahead_note": "hum mask <=~7.2s (cascaded centered medians, dominant window 5.38s), clink train 5s, beeps 1.5s; done-fusion finalizes up to 20s after hum offset"
+}

@@ -1,0 +1,928 @@
+{
+  "summary": {
+    "activity": "1",
+    "recipe": "Microwave Egg Sandwich",
+    "n_recordings": 18,
+    "tol_s": 15.0,
+    "min_run_s_floor": 20.0,
+    "false_hum_runs_total": 2,
+    "per_step": {
+      "4": {
+        "present": 15,
+        "hum_recall": 0.533,
+        "beep_recall": 0.933
+      },
+      "8": {
+        "present": 17,
+        "hum_recall": 0.529,
+        "beep_recall": 0.765
+      },
+      "10": {
+        "present": 16,
+        "hum_recall": 0.312,
+        "beep_recall": 0.688
+      }
+    }
+  },
+  "recordings": [
+    {
+      "recording": "1_7",
+      "n_hum_runs": 0,
+      "hum_runs": [],
+      "n_beeps": 34,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            92.6,
+            135.3
+          ],
+          "dur_window_s": 42.7,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            225.1,
+            305.2
+          ],
+          "dur_window_s": 80.2,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            424.7,
+            482.3
+          ],
+          "dur_window_s": 57.5,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_10",
+      "n_hum_runs": 2,
+      "hum_runs": [
+        [
+          150.7,
+          172.2,
+          21.5
+        ],
+        [
+          185.5,
+          207.7,
+          22.3
+        ]
+      ],
+      "n_beeps": 20,
+      "steps": {
+        "4": {
+          "present": false
+        },
+        "8": {
+          "present": true,
+          "win": [
+            138.2,
+            227.4
+          ],
+          "dur_window_s": 89.2,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            21.5,
+            22.3
+          ],
+          "beep_hit": false
+        },
+        "10": {
+          "present": true,
+          "win": [
+            372.9,
+            406.5
+          ],
+          "dur_window_s": 33.6,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_14",
+      "n_hum_runs": 1,
+      "hum_runs": [
+        [
+          209.5,
+          239.7,
+          30.2
+        ]
+      ],
+      "n_beeps": 15,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            200.4,
+            247.8
+          ],
+          "dur_window_s": 47.4,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            30.2
+          ],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            290.5,
+            337.4
+          ],
+          "dur_window_s": 46.9,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": false
+        },
+        "10": {
+          "present": true,
+          "win": [
+            578.6,
+            654.4
+          ],
+          "dur_window_s": 75.8,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_19",
+      "n_hum_runs": 3,
+      "hum_runs": [
+        [
+          115.6,
+          140.7,
+          25.1
+        ],
+        [
+          374.4,
+          402.6,
+          28.2
+        ],
+        [
+          655.7,
+          680.1,
+          24.3
+        ]
+      ],
+      "n_beeps": 33,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            99.7,
+            154.1
+          ],
+          "dur_window_s": 54.4,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            25.1
+          ],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            367.1,
+            421.8
+          ],
+          "dur_window_s": 54.7,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            28.2
+          ],
+          "beep_hit": false
+        },
+        "10": {
+          "present": true,
+          "win": [
+            561.1,
+            654.5
+          ],
+          "dur_window_s": 93.4,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            24.3
+          ],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_20",
+      "n_hum_runs": 1,
+      "hum_runs": [
+        [
+          346.0,
+          367.0,
+          21.0
+        ]
+      ],
+      "n_beeps": 44,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            237.1,
+            295.5
+          ],
+          "dur_window_s": 58.4,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            368.9,
+            420.5
+          ],
+          "dur_window_s": 51.6,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            21.0
+          ],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            539.7,
+            653.4
+          ],
+          "dur_window_s": 113.7,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": false
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_25",
+      "n_hum_runs": 1,
+      "hum_runs": [
+        [
+          93.1,
+          119.4,
+          26.4
+        ]
+      ],
+      "n_beeps": 23,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            76.2,
+            133.6
+          ],
+          "dur_window_s": 57.3,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            26.4
+          ],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            163.7,
+            200.2
+          ],
+          "dur_window_s": 36.4,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            502.3,
+            568.3
+          ],
+          "dur_window_s": 65.9,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_28",
+      "n_hum_runs": 2,
+      "hum_runs": [
+        [
+          162.7,
+          223.4,
+          60.7
+        ],
+        [
+          341.6,
+          372.6,
+          31.0
+        ]
+      ],
+      "n_beeps": 17,
+      "steps": {
+        "4": {
+          "present": false
+        },
+        "8": {
+          "present": true,
+          "win": [
+            155.0,
+            229.4
+          ],
+          "dur_window_s": 74.4,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            60.7
+          ],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            330.2,
+            400.8
+          ],
+          "dur_window_s": 70.6,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            31.0
+          ],
+          "beep_hit": false
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_30",
+      "n_hum_runs": 0,
+      "hum_runs": [],
+      "n_beeps": 23,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            96.9,
+            122.5
+          ],
+          "dur_window_s": 25.6,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "8": {
+          "present": false
+        },
+        "10": {
+          "present": true,
+          "win": [
+            315.3,
+            445.0
+          ],
+          "dur_window_s": 129.6,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_32",
+      "n_hum_runs": 1,
+      "hum_runs": [
+        [
+          136.6,
+          165.5,
+          28.9
+        ]
+      ],
+      "n_beeps": 16,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            79.5,
+            111.0
+          ],
+          "dur_window_s": 31.5,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            129.9,
+            173.6
+          ],
+          "dur_window_s": 43.6,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            28.9
+          ],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            259.0,
+            292.0
+          ],
+          "dur_window_s": 33.0,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": false
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_33",
+      "n_hum_runs": 2,
+      "hum_runs": [
+        [
+          352.1,
+          380.3,
+          28.2
+        ],
+        [
+          437.4,
+          464.8,
+          27.4
+        ]
+      ],
+      "n_beeps": 16,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            343.9,
+            394.6
+          ],
+          "dur_window_s": 50.6,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            28.2
+          ],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            433.0,
+            500.2
+          ],
+          "dur_window_s": 67.2,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            27.4
+          ],
+          "beep_hit": false
+        },
+        "10": {
+          "present": true,
+          "win": [
+            541.3,
+            605.0
+          ],
+          "dur_window_s": 63.6,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": false
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_34",
+      "n_hum_runs": 1,
+      "hum_runs": [
+        [
+          101.2,
+          126.8,
+          25.6
+        ]
+      ],
+      "n_beeps": 10,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            87.0,
+            149.6
+          ],
+          "dur_window_s": 62.6,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            25.6
+          ],
+          "beep_hit": false
+        },
+        "8": {
+          "present": true,
+          "win": [
+            164.2,
+            194.1
+          ],
+          "dur_window_s": 29.8,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            287.3,
+            315.9
+          ],
+          "dur_window_s": 28.6,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_36",
+      "n_hum_runs": 1,
+      "hum_runs": [
+        [
+          379.8,
+          449.7,
+          69.9
+        ]
+      ],
+      "n_beeps": 31,
+      "steps": {
+        "4": {
+          "present": false
+        },
+        "8": {
+          "present": true,
+          "win": [
+            286.9,
+            321.9
+          ],
+          "dur_window_s": 35.0,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "10": {
+          "present": false
+        }
+      },
+      "false_hum_runs": 1
+    },
+    {
+      "recording": "1_37",
+      "n_hum_runs": 2,
+      "hum_runs": [
+        [
+          124.8,
+          167.0,
+          42.2
+        ],
+        [
+          546.9,
+          578.9,
+          32.0
+        ]
+      ],
+      "n_beeps": 36,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            94.8,
+            183.1
+          ],
+          "dur_window_s": 88.3,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            42.2
+          ],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            393.1,
+            430.4
+          ],
+          "dur_window_s": 37.3,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            481.3,
+            586.7
+          ],
+          "dur_window_s": 105.4,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            32.0
+          ],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_42",
+      "n_hum_runs": 0,
+      "hum_runs": [],
+      "n_beeps": 44,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            33.3,
+            122.1
+          ],
+          "dur_window_s": 88.7,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            229.0,
+            274.5
+          ],
+          "dur_window_s": 45.5,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            321.5,
+            354.8
+          ],
+          "dur_window_s": 33.3,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_43",
+      "n_hum_runs": 2,
+      "hum_runs": [
+        [
+          172.2,
+          204.2,
+          32.0
+        ],
+        [
+          328.6,
+          360.6,
+          32.0
+        ]
+      ],
+      "n_beeps": 28,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            61.0,
+            112.0
+          ],
+          "dur_window_s": 51.0,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            164.7,
+            208.2
+          ],
+          "dur_window_s": 43.5,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            32.0
+          ],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            326.8,
+            365.6
+          ],
+          "dur_window_s": 38.8,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            32.0
+          ],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_49",
+      "n_hum_runs": 2,
+      "hum_runs": [
+        [
+          241.8,
+          271.2,
+          29.4
+        ],
+        [
+          359.3,
+          380.5,
+          21.2
+        ]
+      ],
+      "n_beeps": 21,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            190.1,
+            218.2
+          ],
+          "dur_window_s": 28.1,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            236.6,
+            280.6
+          ],
+          "dur_window_s": 44.0,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            29.4
+          ],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            75.1,
+            101.8
+          ],
+          "dur_window_s": 26.7,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        }
+      },
+      "false_hum_runs": 1
+    },
+    {
+      "recording": "1_136",
+      "n_hum_runs": 2,
+      "hum_runs": [
+        [
+          582.3,
+          622.7,
+          40.4
+        ],
+        [
+          663.7,
+          703.6,
+          39.9
+        ]
+      ],
+      "n_beeps": 30,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            561.9,
+            744.7
+          ],
+          "dur_window_s": 182.8,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            40.4,
+            39.9
+          ],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            380.0,
+            413.7
+          ],
+          "dur_window_s": 33.6,
+          "hum_hit": false,
+          "hum_run_dur_s": [],
+          "beep_hit": true
+        },
+        "10": {
+          "present": false
+        }
+      },
+      "false_hum_runs": 0
+    },
+    {
+      "recording": "1_143",
+      "n_hum_runs": 3,
+      "hum_runs": [
+        [
+          149.1,
+          180.4,
+          31.2
+        ],
+        [
+          285.3,
+          316.8,
+          31.5
+        ],
+        [
+          509.6,
+          533.4,
+          23.8
+        ]
+      ],
+      "n_beeps": 65,
+      "steps": {
+        "4": {
+          "present": true,
+          "win": [
+            80.8,
+            185.6
+          ],
+          "dur_window_s": 104.8,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            31.2
+          ],
+          "beep_hit": true
+        },
+        "8": {
+          "present": true,
+          "win": [
+            275.6,
+            322.3
+          ],
+          "dur_window_s": 46.7,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            31.5
+          ],
+          "beep_hit": true
+        },
+        "10": {
+          "present": true,
+          "win": [
+            479.3,
+            537.9
+          ],
+          "dur_window_s": 58.5,
+          "hum_hit": true,
+          "hum_run_dur_s": [
+            23.8
+          ],
+          "beep_hit": false
+        }
+      },
+      "false_hum_runs": 0
+    }
+  ]
+}

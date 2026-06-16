@@ -1,0 +1,208 @@
+{
+  "task_id": "tomatochutney",
+  "title": "Tomatochutney",
+  "source": "data/cc4d/annotations/task_graphs/tomatochutney.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 145,
+      "order": 1,
+      "name": "peel_4_large_garlic",
+      "instruction": "Peel 4 large garlic cloves",
+      "preconditions": []
+    },
+    {
+      "step_id": 140,
+      "order": 2,
+      "name": "mince_the_garlic",
+      "instruction": "mince the garlic",
+      "preconditions": [
+        145
+      ]
+    },
+    {
+      "step_id": 149,
+      "order": 3,
+      "name": "take_1_tomato",
+      "instruction": "Take 1 tomato",
+      "preconditions": []
+    },
+    {
+      "step_id": 155,
+      "order": 4,
+      "name": "chop_tomato_roughly_anysize",
+      "instruction": "Chop tomato roughly (anysize chunks are fine)",
+      "preconditions": [
+        149
+      ]
+    },
+    {
+      "step_id": 150,
+      "order": 5,
+      "name": "puree_tomatoes_without_any",
+      "instruction": "puree tomatoes without any water in a blender/mixer",
+      "preconditions": [
+        155
+      ]
+    },
+    {
+      "step_id": 154,
+      "order": 6,
+      "name": "heat_3_tbsp_oil",
+      "instruction": "Heat 3 tbsp oil in a pan over medium heat",
+      "preconditions": [
+        140,
+        150
+      ]
+    },
+    {
+      "step_id": 139,
+      "order": 7,
+      "name": "add_1_4_tsp",
+      "instruction": "Add 1/4 tsp mustard to the pan",
+      "preconditions": [
+        154
+      ]
+    },
+    {
+      "step_id": 141,
+      "order": 8,
+      "name": "1_2_tsp_cumin",
+      "instruction": "1/2 tsp cumin seeds to the pan",
+      "preconditions": [
+        154
+      ]
+    },
+    {
+      "step_id": 152,
+      "order": 9,
+      "name": "when_mustard_and_cumin",
+      "instruction": "When mustard and cumin seeds begin to sizzle, add minced garlic",
+      "preconditions": [
+        139,
+        141
+      ]
+    },
+    {
+      "step_id": 151,
+      "order": 10,
+      "name": "lower_the_heat",
+      "instruction": "Lower the heat",
+      "preconditions": [
+        152
+      ]
+    },
+    {
+      "step_id": 148,
+      "order": 11,
+      "name": "saute_the_garlic_for",
+      "instruction": "Saute the garlic for 2-3 minutes",
+      "preconditions": [
+        151
+      ],
+      "duration_constraint_s": 180
+    },
+    {
+      "step_id": 147,
+      "order": 12,
+      "name": "add_2_tbsp_red",
+      "instruction": "Add 2 tbsp red chili powder to the pan",
+      "preconditions": [
+        148
+      ]
+    },
+    {
+      "step_id": 157,
+      "order": 13,
+      "name": "mix_well_contents_of",
+      "instruction": "mix well contents of the pan",
+      "preconditions": [
+        147
+      ]
+    },
+    {
+      "step_id": 142,
+      "order": 14,
+      "name": "add_tomato_puree_to",
+      "instruction": "Add tomato puree to the pan",
+      "preconditions": [
+        157
+      ]
+    },
+    {
+      "step_id": 146,
+      "order": 15,
+      "name": "1_2_tsp_salt",
+      "instruction": "1/2 tsp salt to the pan",
+      "preconditions": [
+        157
+      ]
+    },
+    {
+      "step_id": 144,
+      "order": 16,
+      "name": "mix_well_tomato_puree",
+      "instruction": "Mix well tomato puree with contents in the pan",
+      "preconditions": [
+        142,
+        146
+      ]
+    },
+    {
+      "step_id": 153,
+      "order": 17,
+      "name": "allow_the_mixture_to",
+      "instruction": "Allow the mixture to simmer over low heat for 5 minutes or until the mixture becomes thick",
+      "preconditions": [
+        144
+      ],
+      "duration_constraint_s": 300
+    },
+    {
+      "step_id": 143,
+      "order": 18,
+      "name": "take_the_pan_off",
+      "instruction": "Take the pan off the heat",
+      "preconditions": [
+        153
+      ]
+    },
+    {
+      "step_id": 156,
+      "order": 19,
+      "name": "transfer_it_to_a",
+      "instruction": "Transfer it to a serving bowl",
+      "preconditions": [
+        143
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_saute_the_garlic_for",
+      "step_id": 148,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 180s",
+      "message": "The recipe says about 180s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_allow_the_mixture_to",
+      "step_id": 153,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 300s",
+      "message": "The recipe says about 300s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

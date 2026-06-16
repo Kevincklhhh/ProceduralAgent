@@ -1,0 +1,67 @@
+{
+  "recording": "8_3",
+  "arm": "periodic_vlm_qwen",
+  "stage_intervals": [
+    {
+      "stage": "fill_milk",
+      "start_s": 10.0,
+      "end_s": 90.0
+    },
+    {
+      "stage": "other",
+      "start_s": 90.0,
+      "end_s": 170.0
+    },
+    {
+      "stage": "add_chocolate",
+      "start_s": 170.0,
+      "end_s": 190.0
+    },
+    {
+      "stage": "other",
+      "start_s": 190.0,
+      "end_s": 220.0
+    },
+    {
+      "stage": "add_cinnamon",
+      "start_s": 220.0,
+      "end_s": 260.0
+    },
+    {
+      "stage": "other",
+      "start_s": 260.0,
+      "end_s": 280.0
+    },
+    {
+      "stage": "add_sugar",
+      "start_s": 280.0,
+      "end_s": 310.0
+    },
+    {
+      "stage": "mix",
+      "start_s": 310.0,
+      "end_s": 350.0
+    },
+    {
+      "stage": "heat_serve",
+      "start_s": 350.0,
+      "end_s": 422.0
+    }
+  ],
+  "events": [
+    {
+      "t": 410.0,
+      "type": "warning",
+      "id": "hot_mug_caution",
+      "message": "Careful - the mug will be hot."
+    }
+  ],
+  "escalation_requests": [],
+  "cost": {
+    "vlm_calls": 42,
+    "frames_sent": 126,
+    "vlm_latency_total_s": 2214.7,
+    "compute_s": 2220.4,
+    "notes": "interval=10s frames_per_call=3 model=Qwen/Qwen3.6-27B parse_failure_rate=0.048 mean_latency_s=52.73; ran solo (1-way) after first attempt was killed at 25/42 calls"
+  }
+}

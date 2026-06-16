@@ -1,0 +1,169 @@
+{
+  "task_id": "blenderbananapancakes",
+  "title": "Blenderbananapancakes",
+  "source": "data/cc4d/annotations/task_graphs/blenderbananapancakes.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 221,
+      "order": 1,
+      "name": "1_2_tsp_baking",
+      "instruction": "1/2 tsp baking powder to a blender",
+      "preconditions": []
+    },
+    {
+      "step_id": 225,
+      "order": 2,
+      "name": "add_1_banana_to",
+      "instruction": "Add 1 banana to a blender",
+      "preconditions": []
+    },
+    {
+      "step_id": 229,
+      "order": 3,
+      "name": "1_egg_to_a",
+      "instruction": "1 egg to a blender",
+      "preconditions": []
+    },
+    {
+      "step_id": 232,
+      "order": 4,
+      "name": "1_heaped_tbsp_flour",
+      "instruction": "1 heaped tbsp flour to a blender",
+      "preconditions": []
+    },
+    {
+      "step_id": 227,
+      "order": 5,
+      "name": "blitz_the_blender_for",
+      "instruction": "blitz the blender for 20 seconds",
+      "preconditions": [
+        221,
+        225,
+        229,
+        232
+      ],
+      "duration_constraint_s": 20
+    },
+    {
+      "step_id": 223,
+      "order": 6,
+      "name": "melt_a_small_knob",
+      "instruction": "Melt a small knob of butter in a non-stick frying pan over low-medium heat",
+      "preconditions": [
+        227
+      ]
+    },
+    {
+      "step_id": 231,
+      "order": 7,
+      "name": "pour_three_little_puddles",
+      "instruction": "Pour three little puddles straight from the blender into the frying pan",
+      "preconditions": [
+        223
+      ]
+    },
+    {
+      "step_id": 226,
+      "order": 8,
+      "name": "cook_for_1_min",
+      "instruction": "Cook for 1 min or until the tops start to bubble",
+      "preconditions": [
+        231
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 228,
+      "order": 9,
+      "name": "flip_the_pancakes_with",
+      "instruction": "Flip the pancakes with a fork or a fish slice spatula",
+      "preconditions": [
+        226
+      ]
+    },
+    {
+      "step_id": 230,
+      "order": 10,
+      "name": "cook_for_20_30",
+      "instruction": "cook for 20-30 seconds more",
+      "preconditions": [
+        228
+      ],
+      "duration_constraint_s": 30
+    },
+    {
+      "step_id": 233,
+      "order": 11,
+      "name": "chop_1_strawberry",
+      "instruction": "Chop 1 strawberry",
+      "preconditions": []
+    },
+    {
+      "step_id": 234,
+      "order": 12,
+      "name": "transfer_to_a_plate",
+      "instruction": "Transfer to a plate",
+      "preconditions": [
+        230
+      ]
+    },
+    {
+      "step_id": 222,
+      "order": 13,
+      "name": "serve_the_pancakes_with",
+      "instruction": "Serve the pancakes with chopped strawberries",
+      "preconditions": [
+        233,
+        234
+      ]
+    },
+    {
+      "step_id": 224,
+      "order": 14,
+      "name": "splash_maple_syrup_on",
+      "instruction": "splash maple syrup on plate",
+      "preconditions": [
+        222
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_blitz_the_blender_for",
+      "step_id": 227,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 20s",
+      "message": "The recipe says about 20s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_for_1_min",
+      "step_id": 226,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_cook_for_20_30",
+      "step_id": 230,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 30s",
+      "message": "The recipe says about 30s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

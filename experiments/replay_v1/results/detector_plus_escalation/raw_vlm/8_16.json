@@ -1,0 +1,33 @@
+{
+ "recording": "8_16",
+ "t_esc": 319.5,
+ "model": "Qwen/Qwen3.6-27B",
+ "n_frames": 10,
+ "frame_times_s": [
+  0.0,
+  35.5,
+  71.0,
+  106.5,
+  142.0,
+  177.5,
+  213.0,
+  248.5,
+  284.0,
+  319.5
+ ],
+ "jpeg_quality": 80,
+ "latency_s": 47.66,
+ "raw_response": "{\n  \"chocolate_added\": false,\n  \"cinnamon_added\": true,\n  \"sugar_added\": true,\n  \"evidence\": [\n    \"In frame 5, a mug containing a white liquid (milk) is placed on the counter.\",\n    \"In frame 7, the user is holding a yellow measuring spoon over the mug, and brown powder (cinnamon) is visible on top of the milk, indicating it has been added.\",\n    \"In frame 9, the user is holding a blue measuring spoon filled with a white granular substance (sugar) over the mug, indicating it is about to be added or has just been added.\",\n    \"No chocolate pieces are visible being added to the mug in any of the frames.\"\n  ],\n  \"confidence\": 0.9\n}",
+ "parsed": {
+  "chocolate_added": false,
+  "cinnamon_added": true,
+  "sugar_added": true,
+  "evidence": [
+   "In frame 5, a mug containing a white liquid (milk) is placed on the counter.",
+   "In frame 7, the user is holding a yellow measuring spoon over the mug, and brown powder (cinnamon) is visible on top of the milk, indicating it has been added.",
+   "In frame 9, the user is holding a blue measuring spoon filled with a white granular substance (sugar) over the mug, indicating it is about to be added or has just been added.",
+   "No chocolate pieces are visible being added to the mug in any of the frames."
+  ],
+  "confidence": 0.9
+ }
+}

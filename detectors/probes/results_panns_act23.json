@@ -1,0 +1,108 @@
+{
+ "summary": {
+  "recipe": "23",
+  "recordings": 16,
+  "mean_prep_false": 0.002,
+  "mean_cook_cov": 0.365,
+  "cook_detect_rate": 1.0,
+  "median_end_err": 11.0
+ },
+ "per": {
+  "23_1": {
+   "prep_false": 0.006365372374283896,
+   "cook_cov": 0.06443298969072164,
+   "cook_detected": true,
+   "end_err": 217.2
+  },
+  "23_5": {
+   "prep_false": 0.0,
+   "cook_cov": 0.18251533742331288,
+   "cook_detected": true,
+   "end_err": 45.9
+  },
+  "23_6": {
+   "prep_false": 0.002886002886002886,
+   "cook_cov": 0.5310077519379846,
+   "cook_detected": true,
+   "end_err": 17.4
+  },
+  "23_9": {
+   "prep_false": 0.002059025394646534,
+   "cook_cov": 0.16689847009735745,
+   "cook_detected": true,
+   "end_err": 129.1
+  },
+  "23_12": {
+   "prep_false": 0.0,
+   "cook_cov": 0.14617486338797814,
+   "cook_detected": true,
+   "end_err": 2.1
+  },
+  "23_16": {
+   "prep_false": 0.0,
+   "cook_cov": 0.6579710144927536,
+   "cook_detected": true,
+   "end_err": 7.5
+  },
+  "23_17": {
+   "prep_false": 0.0,
+   "cook_cov": 0.3353115727002967,
+   "cook_detected": true,
+   "end_err": 61.8
+  },
+  "23_18": {
+   "prep_false": 0.0007692307692307692,
+   "cook_cov": 0.47465437788018433,
+   "cook_detected": true,
+   "end_err": 5.4
+  },
+  "23_19": {
+   "prep_false": 0.007590132827324478,
+   "cook_cov": 0.550471063257066,
+   "cook_detected": true,
+   "end_err": 0.4
+  },
+  "23_23": {
+   "prep_false": 0.0,
+   "cook_cov": 0.7123493975903614,
+   "cook_detected": true,
+   "end_err": 3.9
+  },
+  "23_24": {
+   "prep_false": 0.007352941176470588,
+   "cook_cov": 0.55,
+   "cook_detected": true,
+   "end_err": 0.7
+  },
+  "23_26": {
+   "prep_false": 0.007112375533428165,
+   "cook_cov": 0.5929878048780488,
+   "cook_detected": true,
+   "end_err": 14.5
+  },
+  "23_32": {
+   "prep_false": 0.0,
+   "cook_cov": 0.6048034934497817,
+   "cook_detected": true,
+   "end_err": 1.7
+  },
+  "23_38": {
+   "prep_false": 0.0,
+   "cook_cov": 0.005095541401273885,
+   "cook_detected": true,
+   "end_err": 4.0
+  },
+  "23_39": {
+   "prep_false": 0.0,
+   "cook_cov": 0.002224694104560623,
+   "cook_detected": true,
+   "end_err": 488.2
+  },
+  "23_41": {
+   "prep_false": 0.0,
+   "cook_cov": 0.26273458445040215,
+   "cook_detected": true,
+   "end_err": 58.4
+  }
+ }
+}

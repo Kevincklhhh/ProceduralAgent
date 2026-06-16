@@ -1,0 +1,28 @@
+{
+ "23_5": {
+  "prep_mean": 0.006,
+  "cook_mean": 0.128,
+  "cook_p90": 0.618,
+  "cook_frac_gt02": 0.18,
+  "prep_frac_gt02": 0.0,
+  "cook_window": [
+   1161.7,
+   1813.9
+  ],
+  "detected_cook_offset": 1768.0,
+  "gt_cook_end": 1813.9
+ },
+ "21_3": {
+  "prep_mean": 0.004,
+  "cook_mean": 0.007,
+  "cook_p90": 0.011,
+  "cook_frac_gt02": 0.0,
+  "prep_frac_gt02": 0.0,
+  "cook_window": [
+   274.6,
+   712.6
+  ],
+  "detected_cook_offset": null,
+  "gt_cook_end": 712.6
+ }
+}

@@ -1,0 +1,155 @@
+{
+  "task_id": "microwavemugpizza",
+  "title": "Microwavemugpizza",
+  "source": "data/cc4d/annotations/task_graphs/microwavemugpizza.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 36,
+      "order": 1,
+      "name": "take_a_microwavable_mug",
+      "instruction": "Take a microwavable mug",
+      "preconditions": []
+    },
+    {
+      "step_id": 28,
+      "order": 2,
+      "name": "measure_1_8_teaspoon",
+      "instruction": "Measure 1/8 teaspoon of salt and add it to the mug",
+      "preconditions": [
+        36
+      ]
+    },
+    {
+      "step_id": 33,
+      "order": 3,
+      "name": "measure_4_tablespoons_of",
+      "instruction": "Measure 4 tablespoons of flour and add it to the mug",
+      "preconditions": [
+        36
+      ]
+    },
+    {
+      "step_id": 35,
+      "order": 4,
+      "name": "measure_1_16_teaspoon",
+      "instruction": "Measure 1/16 teaspoon of baking soda and add it to the mug",
+      "preconditions": [
+        36
+      ]
+    },
+    {
+      "step_id": 40,
+      "order": 5,
+      "name": "measure_1_8_teaspoon",
+      "instruction": "Measure 1/8 teaspoon of baking powder and add it to the mug",
+      "preconditions": [
+        36
+      ]
+    },
+    {
+      "step_id": 38,
+      "order": 6,
+      "name": "stir_the_contents_in",
+      "instruction": "Stir the contents in the mug well",
+      "preconditions": [
+        28,
+        33,
+        35,
+        40
+      ]
+    },
+    {
+      "step_id": 34,
+      "order": 7,
+      "name": "1_tablespoon_of_olive",
+      "instruction": "1 tablespoon of olive oil to the mug",
+      "preconditions": [
+        38
+      ]
+    },
+    {
+      "step_id": 41,
+      "order": 8,
+      "name": "add_in_3_tablespoons",
+      "instruction": "Add in 3 tablespoons of milk to the mug",
+      "preconditions": [
+        38
+      ]
+    },
+    {
+      "step_id": 37,
+      "order": 9,
+      "name": "mix_the_contents_of",
+      "instruction": "Mix the contents of the mug thoroughly. (There might be some lumps, but that is ok.)",
+      "preconditions": [
+        34,
+        41
+      ]
+    },
+    {
+      "step_id": 30,
+      "order": 10,
+      "name": "take_1_tablespoon_of",
+      "instruction": "Take 1 tablespoon of marinara sauce",
+      "preconditions": [
+        37
+      ]
+    },
+    {
+      "step_id": 31,
+      "order": 11,
+      "name": "spread_marinara_sauce_around",
+      "instruction": "spread marinara sauce around the surface of the batter",
+      "preconditions": [
+        30
+      ]
+    },
+    {
+      "step_id": 39,
+      "order": 12,
+      "name": "sprinkle_1_generous_tablespoon",
+      "instruction": "Sprinkle 1 generous tablespoon of mozzarella cheese on top of the sauce",
+      "preconditions": [
+        31
+      ]
+    },
+    {
+      "step_id": 29,
+      "order": 13,
+      "name": "sprinkle_dried_italian_herbs",
+      "instruction": "Sprinkle dried Italian herbs inside the mug",
+      "preconditions": [
+        39
+      ]
+    },
+    {
+      "step_id": 32,
+      "order": 14,
+      "name": "microwave_for_1_minute",
+      "instruction": "Microwave for 1 minute 20 seconds, or until it rises and the toppings are bubbling",
+      "preconditions": [
+        29
+      ],
+      "duration_constraint_s": 60
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_microwave_for_1_minute",
+      "step_id": 32,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

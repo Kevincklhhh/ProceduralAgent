@@ -1,0 +1,171 @@
+{
+  "task_id": "ramen",
+  "title": "Ramen",
+  "source": "data/cc4d/annotations/task_graphs/ramen.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 44,
+      "order": 1,
+      "name": "remove_the_noodles_from",
+      "instruction": "Remove the noodles from the package(Break Noodles / Keep them as a block)",
+      "preconditions": []
+    },
+    {
+      "step_id": 47,
+      "order": 2,
+      "name": "peel_1_medium_onion",
+      "instruction": "Peel 1 medium onion",
+      "preconditions": []
+    },
+    {
+      "step_id": 46,
+      "order": 3,
+      "name": "slice_1_4_medium",
+      "instruction": "slice 1/4 medium onion into pieces",
+      "preconditions": [
+        47
+      ]
+    },
+    {
+      "step_id": 14,
+      "order": 4,
+      "name": "peel_1_garlic_clove",
+      "instruction": "Peel 1 garlic clove",
+      "preconditions": []
+    },
+    {
+      "step_id": 51,
+      "order": 5,
+      "name": "chop_1_garlic_clove",
+      "instruction": "Chop 1 garlic clove on a cutting board",
+      "preconditions": [
+        14
+      ]
+    },
+    {
+      "step_id": 54,
+      "order": 6,
+      "name": "put_all_the_vegetables",
+      "instruction": "Put all the Vegetables in a microwave-safe bowl",
+      "preconditions": [
+        46,
+        51
+      ]
+    },
+    {
+      "step_id": 52,
+      "order": 7,
+      "name": "add_the_noodles_to",
+      "instruction": "Add the noodles to the bowl",
+      "preconditions": [
+        44,
+        54
+      ]
+    },
+    {
+      "step_id": 55,
+      "order": 8,
+      "name": "cover_the_noodles_with",
+      "instruction": "cover the noodles with water",
+      "preconditions": [
+        52
+      ]
+    },
+    {
+      "step_id": 49,
+      "order": 9,
+      "name": "cover_with_a_lid",
+      "instruction": "Cover with a lid (or paper towel) to prevent splattering",
+      "preconditions": [
+        55
+      ]
+    },
+    {
+      "step_id": 45,
+      "order": 10,
+      "name": "microwave_the_ramen_for",
+      "instruction": "Microwave the ramen for 4 minutes",
+      "preconditions": [
+        49
+      ],
+      "duration_constraint_s": 240
+    },
+    {
+      "step_id": 48,
+      "order": 11,
+      "name": "let_the_noodles_sit",
+      "instruction": "Let the noodles sit for about 1 minute after the microwave stops",
+      "preconditions": [
+        45
+      ],
+      "duration_constraint_s": 60
+    },
+    {
+      "step_id": 50,
+      "order": 12,
+      "name": "add_basil_to_the",
+      "instruction": "Add basil to the bowl",
+      "preconditions": [
+        45
+      ]
+    },
+    {
+      "step_id": 53,
+      "order": 13,
+      "name": "add_chopped_cilantro_to",
+      "instruction": "Add chopped cilantro to the bowl",
+      "preconditions": [
+        45
+      ]
+    },
+    {
+      "step_id": 42,
+      "order": 14,
+      "name": "mix_in_the_flavour",
+      "instruction": "Mix in the flavour packet to the bowl",
+      "preconditions": [
+        48,
+        50,
+        53
+      ]
+    },
+    {
+      "step_id": 43,
+      "order": 15,
+      "name": "stir_noodles_with_a",
+      "instruction": "Stir noodles with a spoon or fork until the flavouring dissolves",
+      "preconditions": [
+        42
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_microwave_the_ramen_for",
+      "step_id": 45,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 240s",
+      "message": "The recipe says about 240s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_let_the_noodles_sit",
+      "step_id": 48,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 60s",
+      "message": "The recipe says about 60s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

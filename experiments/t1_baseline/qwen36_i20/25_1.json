@@ -1,0 +1,462 @@
+{
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 0.0,
+   "end_s": 20.0
+  },
+  {
+   "stage": 275,
+   "start_s": 20.0,
+   "end_s": 40.0
+  },
+  {
+   "stage": 275,
+   "start_s": 40.0,
+   "end_s": 60.0
+  },
+  {
+   "stage": 275,
+   "start_s": 60.0,
+   "end_s": 80.0
+  },
+  {
+   "stage": 275,
+   "start_s": 80.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": 275,
+   "start_s": 100.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": 275,
+   "start_s": 120.0,
+   "end_s": 140.0
+  },
+  {
+   "stage": 275,
+   "start_s": 140.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": 275,
+   "start_s": 160.0,
+   "end_s": 180.0
+  },
+  {
+   "stage": 293,
+   "start_s": 180.0,
+   "end_s": 200.0
+  },
+  {
+   "stage": 275,
+   "start_s": 200.0,
+   "end_s": 220.0
+  },
+  {
+   "stage": 275,
+   "start_s": 220.0,
+   "end_s": 240.0
+  },
+  {
+   "stage": 293,
+   "start_s": 240.0,
+   "end_s": 260.0
+  },
+  {
+   "stage": 293,
+   "start_s": 260.0,
+   "end_s": 280.0
+  },
+  {
+   "stage": 293,
+   "start_s": 280.0,
+   "end_s": 300.0
+  },
+  {
+   "stage": 293,
+   "start_s": 300.0,
+   "end_s": 320.0
+  },
+  {
+   "stage": 291,
+   "start_s": 320.0,
+   "end_s": 340.0
+  },
+  {
+   "stage": 291,
+   "start_s": 340.0,
+   "end_s": 360.0
+  },
+  {
+   "stage": 291,
+   "start_s": 360.0,
+   "end_s": 380.0
+  },
+  {
+   "stage": 291,
+   "start_s": 380.0,
+   "end_s": 400.0
+  },
+  {
+   "stage": 279,
+   "start_s": 400.0,
+   "end_s": 420.0
+  },
+  {
+   "stage": 279,
+   "start_s": 420.0,
+   "end_s": 440.0
+  },
+  {
+   "stage": 286,
+   "start_s": 440.0,
+   "end_s": 460.0
+  },
+  {
+   "stage": 276,
+   "start_s": 460.0,
+   "end_s": 480.0
+  },
+  {
+   "stage": 276,
+   "start_s": 480.0,
+   "end_s": 500.0
+  },
+  {
+   "stage": 276,
+   "start_s": 500.0,
+   "end_s": 520.0
+  },
+  {
+   "stage": 276,
+   "start_s": 520.0,
+   "end_s": 540.0
+  },
+  {
+   "stage": 276,
+   "start_s": 540.0,
+   "end_s": 560.0
+  },
+  {
+   "stage": 276,
+   "start_s": 560.0,
+   "end_s": 580.0
+  },
+  {
+   "stage": 292,
+   "start_s": 580.0,
+   "end_s": 600.0
+  },
+  {
+   "stage": "other",
+   "start_s": 600.0,
+   "end_s": 620.0
+  },
+  {
+   "stage": "other",
+   "start_s": 620.0,
+   "end_s": 640.0
+  },
+  {
+   "stage": 292,
+   "start_s": 640.0,
+   "end_s": 660.0
+  },
+  {
+   "stage": 292,
+   "start_s": 660.0,
+   "end_s": 680.0
+  },
+  {
+   "stage": 292,
+   "start_s": 680.0,
+   "end_s": 700.0
+  },
+  {
+   "stage": 292,
+   "start_s": 700.0,
+   "end_s": 720.0
+  },
+  {
+   "stage": 292,
+   "start_s": 720.0,
+   "end_s": 740.0
+  },
+  {
+   "stage": 292,
+   "start_s": 740.0,
+   "end_s": 760.0
+  },
+  {
+   "stage": 292,
+   "start_s": 760.0,
+   "end_s": 780.0
+  },
+  {
+   "stage": 292,
+   "start_s": 780.0,
+   "end_s": 800.0
+  },
+  {
+   "stage": 292,
+   "start_s": 800.0,
+   "end_s": 820.0
+  },
+  {
+   "stage": 292,
+   "start_s": 820.0,
+   "end_s": 840.0
+  },
+  {
+   "stage": 292,
+   "start_s": 840.0,
+   "end_s": 860.0
+  },
+  {
+   "stage": 292,
+   "start_s": 860.0,
+   "end_s": 880.0
+  },
+  {
+   "stage": 292,
+   "start_s": 880.0,
+   "end_s": 900.0
+  },
+  {
+   "stage": 292,
+   "start_s": 900.0,
+   "end_s": 920.0
+  },
+  {
+   "stage": 292,
+   "start_s": 920.0,
+   "end_s": 940.0
+  },
+  {
+   "stage": 292,
+   "start_s": 940.0,
+   "end_s": 960.0
+  },
+  {
+   "stage": 292,
+   "start_s": 960.0,
+   "end_s": 980.0
+  },
+  {
+   "stage": 292,
+   "start_s": 980.0,
+   "end_s": 1000.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1000.0,
+   "end_s": 1020.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1020.0,
+   "end_s": 1040.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1040.0,
+   "end_s": 1060.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1060.0,
+   "end_s": 1080.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1080.0,
+   "end_s": 1100.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1100.0,
+   "end_s": 1120.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1120.0,
+   "end_s": 1140.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1140.0,
+   "end_s": 1160.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1160.0,
+   "end_s": 1180.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1180.0,
+   "end_s": 1200.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1200.0,
+   "end_s": 1220.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1220.0,
+   "end_s": 1240.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1240.0,
+   "end_s": 1260.0
+  },
+  {
+   "stage": 292,
+   "start_s": 1260.0,
+   "end_s": 1280.0
+  },
+  {
+   "stage": 277,
+   "start_s": 1280.0,
+   "end_s": 1300.0
+  },
+  {
+   "stage": 277,
+   "start_s": 1300.0,
+   "end_s": 1320.0
+  },
+  {
+   "stage": 277,
+   "start_s": 1320.0,
+   "end_s": 1340.0
+  },
+  {
+   "stage": 280,
+   "start_s": 1340.0,
+   "end_s": 1360.0
+  },
+  {
+   "stage": "other",
+   "start_s": 1360.0,
+   "end_s": 1380.0
+  },
+  {
+   "stage": 278,
+   "start_s": 1380.0,
+   "end_s": 1400.0
+  },
+  {
+   "stage": 284,
+   "start_s": 1400.0,
+   "end_s": 1420.0
+  },
+  {
+   "stage": 284,
+   "start_s": 1420.0,
+   "end_s": 1440.0
+  },
+  {
+   "stage": 284,
+   "start_s": 1440.0,
+   "end_s": 1460.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1460.0,
+   "end_s": 1480.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1480.0,
+   "end_s": 1500.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1500.0,
+   "end_s": 1520.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1520.0,
+   "end_s": 1540.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1540.0,
+   "end_s": 1560.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1560.0,
+   "end_s": 1580.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1580.0,
+   "end_s": 1600.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1600.0,
+   "end_s": 1620.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1620.0,
+   "end_s": 1640.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1640.0,
+   "end_s": 1660.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1660.0,
+   "end_s": 1680.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1680.0,
+   "end_s": 1700.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1700.0,
+   "end_s": 1720.0
+  },
+  {
+   "stage": 283,
+   "start_s": 1720.0,
+   "end_s": 1740.0
+  },
+  {
+   "stage": 281,
+   "start_s": 1740.0,
+   "end_s": 1760.0
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 88,
+  "frames_sent": 1408,
+  "vlm_latency_total_s": 2010.06,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "model": "Qwen/Qwen3.6-27B",
+  "interval_s": 20.0,
+  "fps_sampling": 1.0,
+  "evaluated_s": 1761.2,
+  "parse_failures": 1,
+  "traced": true
+ },
+ "recording": "25_1",
+ "arm": "qwen36_i20"
+}

@@ -1,0 +1,865 @@
+{
+  "probe": "ast_tagger",
+  "model": "MIT/ast-finetuned-audioset-10-10-0.4593",
+  "config": {
+    "sr": 16000,
+    "window_s": 5.0,
+    "hop_s": 2.5,
+    "batch": 64,
+    "window_label_rule": "window center inside GT step interval",
+    "note_ast_padding": "AST pads 5s input to 10.24s internally"
+  },
+  "kitchen_class_matches": {
+    "microwave": [
+      "Microwave oven"
+    ],
+    "beep": [
+      "Reversing beeps",
+      "Beep, bleep"
+    ],
+    "liquid": [
+      "Liquid",
+      "Fill (with liquid)",
+      "Pump (liquid)"
+    ],
+    "pour": [
+      "Pour"
+    ],
+    "stir": [
+      "Stir"
+    ],
+    "cutlery": [
+      "Cutlery, silverware"
+    ],
+    "dishes": [
+      "Dishes, pots, and pans"
+    ],
+    "water": [
+      "Water",
+      "Waterfall",
+      "Boat, Water vehicle",
+      "Water tap, faucet"
+    ],
+    "boil": [
+      "Boiling"
+    ],
+    "sizzle": [
+      "Sizzle"
+    ],
+    "frying": [
+      "Frying (food)"
+    ],
+    "blender": [
+      "Blender"
+    ],
+    "speech": [
+      "Speech",
+      "Male speech, man speaking",
+      "Female speech, woman speaking",
+      "Child speech, kid speaking",
+      "Speech synthesizer",
+      "Hubbub, speech noise, speech babble"
+    ]
+  },
+  "roc_auc": {
+    "microwave_vs_steps_89_83": {
+      "per_rec": {
+        "8_16": 0.981,
+        "8_26": 0.786,
+        "8_3": 0.965,
+        "8_25": 0.634,
+        "8_31": 0.946,
+        "8_50": 0.862
+      },
+      "pooled": 0.868
+    },
+    "microwave_vs_step_89_only": {
+      "per_rec": {
+        "8_16": 0.922,
+        "8_26": 0.687,
+        "8_3": 0.884,
+        "8_25": 0.688,
+        "8_31": 0.861,
+        "8_50": 0.906
+      },
+      "pooled": 0.817
+    },
+    "pour_vs_step_88": {
+      "per_rec": {
+        "8_16": 0.796,
+        "8_26": 0.488,
+        "8_3": 0.703,
+        "8_25": 0.57,
+        "8_31": 0.445,
+        "8_50": 0.885
+      },
+      "pooled": 0.628
+    },
+    "liquid_vs_step_88": {
+      "per_rec": {
+        "8_16": 0.706,
+        "8_26": 0.505,
+        "8_3": 0.782,
+        "8_25": 0.557,
+        "8_31": 0.429,
+        "8_50": 0.748
+      },
+      "pooled": 0.622
+    },
+    "cutlery_vs_step_85": {
+      "per_rec": {
+        "8_16": 0.825,
+        "8_26": 0.818,
+        "8_3": 0.86,
+        "8_25": 0.865,
+        "8_31": 0.771,
+        "8_50": null
+      },
+      "pooled": 0.824
+    },
+    "dishes_vs_step_85": {
+      "per_rec": {
+        "8_16": 0.768,
+        "8_26": 0.773,
+        "8_3": 0.829,
+        "8_25": 0.816,
+        "8_31": 0.747,
+        "8_50": null
+      },
+      "pooled": 0.779
+    }
+  },
+  "top5_classes_per_step": {
+    "8_16": {
+      "step_88": {
+        "desc": "Fill-Fill a microwave-safe mug with skimmed milk",
+        "span": [
+          0.0,
+          63.2
+        ],
+        "top5": [
+          [
+            "Door",
+            0.124
+          ],
+          [
+            "Sliding door",
+            0.059
+          ],
+          [
+            "Dishes, pots, and pans",
+            0.049
+          ],
+          [
+            "Liquid",
+            0.034
+          ],
+          [
+            "Inside, small room",
+            0.034
+          ]
+        ]
+      },
+      "step_89": {
+        "desc": "Microwave-Microwave the contents of the mug for 1 minute",
+        "span": [
+          70.4,
+          134.5
+        ],
+        "top5": [
+          [
+            "Microwave oven",
+            0.228
+          ],
+          [
+            "Vehicle",
+            0.12
+          ],
+          [
+            "Air conditioning",
+            0.101
+          ],
+          [
+            "White noise",
+            0.068
+          ],
+          [
+            "Speech",
+            0.029
+          ]
+        ]
+      },
+      "step_90": {
+        "desc": "Add-Add 2 pieces of chocolate to the mug",
+        "span": [
+          133.9,
+          170.5
+        ],
+        "top5": [
+          [
+            "Crumpling, crinkling",
+            0.25
+          ],
+          [
+            "Inside, small room",
+            0.15
+          ],
+          [
+            "Door",
+            0.087
+          ],
+          [
+            "Tearing",
+            0.069
+          ],
+          [
+            "Slam",
+            0.04
+          ]
+        ]
+      },
+      "step_84": {
+        "desc": "Add-Add 1/5 teaspoon cinnamon to the mug",
+        "span": [
+          170.5,
+          218.6
+        ],
+        "top5": [
+          [
+            "Scissors",
+            0.102
+          ],
+          [
+            "Finger snapping",
+            0.089
+          ],
+          [
+            "Inside, small room",
+            0.044
+          ],
+          [
+            "Shuffling cards",
+            0.038
+          ],
+          [
+            "Single-lens reflex camera",
+            0.03
+          ]
+        ]
+      },
+      "step_87": {
+        "desc": "Add-Add 1 teaspoon of white sugar to the mug",
+        "span": [
+          223.8,
+          296.0
+        ],
+        "top5": [
+          [
+            "Zipper (clothing)",
+            0.097
+          ],
+          [
+            "Scissors",
+            0.074
+          ],
+          [
+            "Inside, small room",
+            0.045
+          ],
+          [
+            "Shuffling cards",
+            0.032
+          ],
+          [
+            "Tearing",
+            0.031
+          ]
+        ]
+      },
+      "step_85": {
+        "desc": "Mix-Mix the contents of the mug",
+        "span": [
+          296.6,
+          376.9
+        ],
+        "top5": [
+          [
+            "Water tap, faucet",
+            0.059
+          ],
+          [
+            "Dishes, pots, and pans",
+            0.052
+          ],
+          [
+            "Cutlery, silverware",
+            0.051
+          ],
+          [
+            "Water",
+            0.05
+          ],
+          [
+            "Sink (filling or washing)",
+            0.05
+          ]
+        ]
+      },
+      "step_83": {
+        "desc": "Heat-Heat the contents of the mug for 1 minute and serve",
+        "span": [
+          377.4,
+          451.9
+        ],
+        "top5": [
+          [
+            "Microwave oven",
+            0.186
+          ],
+          [
+            "Vehicle",
+            0.133
+          ],
+          [
+            "Door",
+            0.072
+          ],
+          [
+            "Speech",
+            0.042
+          ],
+          [
+            "Car",
+            0.039
+          ]
+        ]
+      }
+    },
+    "8_26": {
+      "step_88": {
+        "desc": "Fill-Fill a microwave-safe mug with skimmed milk",
+        "span": [
+          2.0,
+          44.0
+        ],
+        "top5": [
+          [
+            "Vehicle",
+            0.134
+          ],
+          [
+            "Speech",
+            0.067
+          ],
+          [
+            "Door",
+            0.059
+          ],
+          [
+            "Car",
+            0.053
+          ],
+          [
+            "Inside, small room",
+            0.046
+          ]
+        ]
+      },
+      "step_89": {
+        "desc": "Microwave-Microwave the contents of the mug for 1 minute",
+        "span": [
+          47.1,
+          177.8
+        ],
+        "top5": [
+          [
+            "Microwave oven",
+            0.127
+          ],
+          [
+            "Vehicle",
+            0.112
+          ],
+          [
+            "Water",
+            0.104
+          ],
+          [
+            "Water tap, faucet",
+            0.103
+          ],
+          [
+            "Sink (filling or washing)",
+            0.089
+          ]
+        ]
+      },
+      "step_90": {
+        "desc": "Add-Add 2 pieces of chocolate to the mug",
+        "span": [
+          179.7,
+          219.5
+        ],
+        "top5": [
+          [
+            "Crumpling, crinkling",
+            0.15
+          ],
+          [
+            "Inside, small room",
+            0.093
+          ],
+          [
+            "Vehicle",
+            0.075
+          ],
+          [
+            "Cupboard open or close",
+            0.058
+          ],
+          [
+            "Microwave oven",
+            0.042
+          ]
+        ]
+      },
+      "step_87": {
+        "desc": "Add-Add 1 teaspoon of white sugar to the mug",
+        "span": [
+          220.1,
+          283.6
+        ],
+        "top5": [
+          [
+            "Inside, small room",
+            0.082
+          ],
+          [
+            "Vehicle",
+            0.066
+          ],
+          [
+            "Speech",
+            0.038
+          ],
+          [
+            "Crumpling, crinkling",
+            0.038
+          ],
+          [
+            "Crackle",
+            0.03
+          ]
+        ]
+      },
+      "step_85": {
+        "desc": "Mix-Mix the contents of the mug",
+        "span": [
+          285.6,
+          314.9
+        ],
+        "top5": [
+          [
+            "Dishes, pots, and pans",
+            0.053
+          ],
+          [
+            "Vehicle",
+            0.047
+          ],
+          [
+            "Cutlery, silverware",
+            0.044
+          ],
+          [
+            "Inside, small room",
+            0.04
+          ],
+          [
+            "Door",
+            0.039
+          ]
+        ]
+      },
+      "step_83": {
+        "desc": "Heat-Heat the contents of the mug for 1 minute and serve",
+        "span": [
+          322.0,
+          445.3
+        ],
+        "top5": [
+          [
+            "Microwave oven",
+            0.193
+          ],
+          [
+            "Beep, bleep",
+            0.081
+          ],
+          [
+            "Vehicle",
+            0.075
+          ],
+          [
+            "Water",
+            0.07
+          ],
+          [
+            "Water tap, faucet",
+            0.067
+          ]
+        ]
+      }
+    }
+  },
+  "microwave_threshold": {
+    "tuned_on_8_16": {
+      "threshold": 0.0107,
+      "tune_rec": "8_16",
+      "tune_prf": [
+        0.964,
+        0.964,
+        0.964
+      ]
+    },
+    "frozen_eval_prf_other5": {
+      "8_26": [
+        0.835,
+        0.689,
+        0.755
+      ],
+      "8_3": [
+        0.982,
+        0.821,
+        0.894
+      ],
+      "8_25": [
+        0.43,
+        0.645,
+        0.516
+      ],
+      "8_31": [
+        0.683,
+        1.0,
+        0.811
+      ],
+      "8_50": [
+        0.878,
+        0.706,
+        0.783
+      ],
+      "pooled_5rec": [
+        0.725,
+        0.752,
+        0.738
+      ]
+    }
+  },
+  "microwave_events_frozen_threshold": {
+    "8_16": {
+      "detected": [
+        [
+          67.5,
+          137.5,
+          70.0
+        ],
+        [
+          380.0,
+          452.5,
+          72.5
+        ]
+      ],
+      "gt_steps": [
+        [
+          89,
+          70.4,
+          134.5
+        ],
+        [
+          83,
+          377.4,
+          451.9
+        ]
+      ]
+    },
+    "8_26": {
+      "detected": [
+        [
+          2.5,
+          17.5,
+          15.0
+        ],
+        [
+          40.0,
+          90.0,
+          50.0
+        ],
+        [
+          105.0,
+          182.5,
+          77.5
+        ],
+        [
+          252.5,
+          257.5,
+          5.0
+        ],
+        [
+          282.5,
+          290.0,
+          7.5
+        ],
+        [
+          310.0,
+          380.0,
+          70.0
+        ],
+        [
+          387.5,
+          402.5,
+          15.0
+        ],
+        [
+          415.0,
+          452.5,
+          37.5
+        ]
+      ],
+      "gt_steps": [
+        [
+          89,
+          47.1,
+          177.8
+        ],
+        [
+          83,
+          322.0,
+          445.3
+        ]
+      ]
+    },
+    "8_3": {
+      "detected": [
+        [
+          67.5,
+          145.0,
+          77.5
+        ],
+        [
+          332.5,
+          412.5,
+          80.0
+        ]
+      ],
+      "gt_steps": [
+        [
+          89,
+          61.6,
+          152.3
+        ],
+        [
+          83,
+          332.1,
+          409.3
+        ]
+      ]
+    },
+    "8_25": {
+      "detected": [
+        [
+          0.0,
+          32.5,
+          32.5
+        ],
+        [
+          40.0,
+          102.5,
+          62.5
+        ],
+        [
+          122.5,
+          167.5,
+          45.0
+        ],
+        [
+          177.5,
+          190.0,
+          12.5
+        ],
+        [
+          197.5,
+          210.0,
+          12.5
+        ],
+        [
+          220.0,
+          225.0,
+          5.0
+        ],
+        [
+          232.5,
+          240.0,
+          7.5
+        ],
+        [
+          257.5,
+          267.5,
+          10.0
+        ],
+        [
+          282.5,
+          327.5,
+          45.0
+        ],
+        [
+          337.5,
+          350.0,
+          12.5
+        ],
+        [
+          360.0,
+          385.0,
+          25.0
+        ],
+        [
+          397.5,
+          407.5,
+          10.0
+        ],
+        [
+          417.5,
+          445.0,
+          27.5
+        ]
+      ],
+      "gt_steps": [
+        [
+          89,
+          75.2,
+          149.6
+        ],
+        [
+          83,
+          356.4,
+          439.8
+        ]
+      ]
+    },
+    "8_31": {
+      "detected": [
+        [
+          45.0,
+          112.5,
+          67.5
+        ],
+        [
+          130.0,
+          157.5,
+          27.5
+        ],
+        [
+          172.5,
+          265.0,
+          92.5
+        ]
+      ],
+      "gt_steps": [
+        [
+          89,
+          48.0,
+          97.8
+        ],
+        [
+          83,
+          175.9,
+          233.2
+        ]
+      ]
+    },
+    "8_50": {
+      "detected": [
+        [
+          50.0,
+          55.0,
+          5.0
+        ],
+        [
+          92.5,
+          162.5,
+          70.0
+        ],
+        [
+          187.5,
+          202.5,
+          15.0
+        ],
+        [
+          230.0,
+          260.0,
+          30.0
+        ]
+      ],
+      "gt_steps": [
+        [
+          89,
+          96.1,
+          159.8
+        ],
+        [
+          83,
+          186.4,
+          251.7
+        ]
+      ]
+    }
+  },
+  "latency": {
+    "feature_extraction_ms_per_window_cpu": 3.9,
+    "gpu_forward_ms_batch1": 12.5,
+    "gpu_forward_ms_per_window_batch64": 14.22,
+    "cpu_forward_ms_batch1": 740.8,
+    "windows_per_450s_recording": 179,
+    "est_total_s_450s_gpu_batched": 3.2,
+    "est_total_s_450s_cpu": 133.3,
+    "measured_wall_s_per_recording_gpu_batched": {
+      "8_16": {
+        "audio_s": 462.6,
+        "wall_s": 3.39,
+        "n_windows": 185
+      },
+      "8_26": {
+        "audio_s": 450.3,
+        "wall_s": 2.92,
+        "n_windows": 180
+      },
+      "8_3": {
+        "audio_s": 422.0,
+        "wall_s": 4.42,
+        "n_windows": 168
+      },
+      "8_25": {
+        "audio_s": 442.9,
+        "wall_s": 7.37,
+        "n_windows": 177
+      },
+      "8_31": {
+        "audio_s": 267.1,
+        "wall_s": 4.35,
+        "n_windows": 106
+      },
+      "8_50": {
+        "audio_s": 263.4,
+        "wall_s": 6.4,
+        "n_windows": 105
+      }
+    },
+    "reference": {
+      "gemini_vlm_call_s": 2,
+      "local_qwen_vlm_call_s": 45
+    },
+    "note": "FE re-measured warm (3.9ms median, 30 reps); initial 267ms was cold-start artifact. End-to-end = FE + forward.",
+    "end_to_end_ms_per_window_gpu_batch1": 16.4,
+    "end_to_end_ms_per_window_gpu_batch64": 18.1,
+    "end_to_end_ms_per_window_cpu": 744.7
+  }
+}

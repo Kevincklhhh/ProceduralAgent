@@ -1,0 +1,74 @@
+{
+  "25": {
+    "recipe": "Pan Fried Tofu",
+    "n": 15,
+    "old_recall": 1.0,
+    "old_cov": 0.719,
+    "new_recall": 1.0,
+    "new_cov": 0.798
+  },
+  "23": {
+    "recipe": "Broccoli Stir Fry",
+    "n": 16,
+    "old_recall": 0.875,
+    "old_cov": 0.654,
+    "new_recall": 0.938,
+    "new_cov": 0.866
+  },
+  "20": {
+    "recipe": "Sauteed Mushrooms",
+    "n": 14,
+    "old_recall": 0.857,
+    "old_cov": 0.73,
+    "new_recall": 0.786,
+    "new_cov": 0.768
+  },
+  "16": {
+    "recipe": "Scrambled Eggs",
+    "n": 16,
+    "old_recall": 0.812,
+    "old_cov": 0.637,
+    "new_recall": 0.875,
+    "new_cov": 0.733
+  },
+  "22": {
+    "recipe": "Herb Omelet",
+    "n": 17,
+    "old_recall": 0.706,
+    "old_cov": 0.454,
+    "new_recall": 0.765,
+    "new_cov": 0.593
+  },
+  "15": {
+    "recipe": "Tomato Chutney",
+    "n": 14,
+    "old_recall": 0.571,
+    "old_cov": 0.491,
+    "new_recall": 0.786,
+    "new_cov": 0.701
+  },
+  "18": {
+    "recipe": "Zoodles",
+    "n": 15,
+    "old_recall": 0.8,
+    "old_cov": 0.573,
+    "new_recall": 0.8,
+    "new_cov": 0.77
+  },
+  "21": {
+    "recipe": "Banana Pancakes",
+    "n": 19,
+    "old_recall": 0.0,
+    "old_cov": 0.077,
+    "new_recall": 0.053,
+    "new_cov": 0.106
+  },
+  "29": {
+    "recipe": "Caprese Bruschetta",
+    "n": 16,
+    "old_recall": 0.375,
+    "old_cov": 0.319,
+    "new_recall": 0.375,
+    "new_cov": 0.319
+  }
+}

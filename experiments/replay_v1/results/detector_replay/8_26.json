@@ -1,0 +1,64 @@
+{
+ "recording": "8_26",
+ "arm": "detector_replay",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 54.4
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 54.4,
+   "end_s": 178.48
+  },
+  {
+   "stage": "adds",
+   "start_s": 178.48,
+   "end_s": 280.5
+  },
+  {
+   "stage": "mix",
+   "start_s": 280.5,
+   "end_s": 350.08
+  },
+  {
+   "stage": "heat_serve",
+   "start_s": 350.08,
+   "end_s": 450.33
+  }
+ ],
+ "events": [
+  {
+   "t": 134.4,
+   "type": "warning",
+   "id": "overtime_microwave",
+   "message": "Microwave run 1 still running 80s after it started (t=54.4s); typical recipe time is 60s."
+  },
+  {
+   "t": 378.78,
+   "type": "warning",
+   "id": "undertime_microwave_2",
+   "message": "Microwave run 2 finished after only 28.7s (fused done 378.8s); recipe expects ~60s."
+  },
+  {
+   "t": 378.78,
+   "type": "warning",
+   "id": "hot_mug_caution",
+   "message": "Second microwave run finished at 378.8s; the mug will be hot - handle with care."
+  }
+ ],
+ "escalation_requests": [
+  {
+   "t": 280.5,
+   "reason": "verify which ingredients were added to the mug before mixing/heating"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 4.6,
+  "notes": "extra hum runs (unassigned): [[377.7, 428.4]]"
+ }
+}

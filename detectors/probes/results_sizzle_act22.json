@@ -1,0 +1,453 @@
+{
+ "probe": "sizzle_act22",
+ "params": {
+  "nfft": 1024,
+  "hop": 256,
+  "band_lo": 1500.0,
+  "band_hi": 7000.0,
+  "block_s": 0.5,
+  "roll_win_s": 45.0,
+  "baseline_pct": 20,
+  "level_db": 8.0,
+  "merge_gap_s": 20.0,
+  "min_run_s": 30.0
+ },
+ "summary": {
+  "recipe": "Herb Omelet w/ Fried Tomatoes (act 22)",
+  "recordings": 17,
+  "cook_anchor_recall": 0.706,
+  "mean_coverage": 0.454,
+  "false_sizzle_prep_s_total": 833.9,
+  "cook_len_s_total": 8769.1,
+  "false_rate_prep_vs_cook": 0.095,
+  "hum_falsepos_runs_total": 30
+ },
+ "per_recording": {
+  "22_2": {
+   "recording": "22_2",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     548.6,
+     812.9,
+     264.4
+    ],
+    [
+     888.3,
+     1010.8,
+     122.5
+    ]
+   ],
+   "cook_window": [
+    375.5,
+    994.8
+   ],
+   "cook_len_s": 619.2,
+   "sizzle_in_cook_s": 370.8,
+   "coverage": 0.599,
+   "cook_hit": true,
+   "onset_latency_s": 173.1,
+   "false_sizzle_prep_s": 22.5,
+   "n_hum_runs_falsepos": 2
+  },
+  "22_4": {
+   "recording": "22_4",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     602.1,
+     646.8,
+     44.6
+    ],
+    [
+     805.0,
+     1081.3,
+     276.3
+    ]
+   ],
+   "cook_window": [
+    691.6,
+    1305.6
+   ],
+   "cook_len_s": 614.0,
+   "sizzle_in_cook_s": 276.3,
+   "coverage": 0.45,
+   "cook_hit": true,
+   "onset_latency_s": 113.4,
+   "false_sizzle_prep_s": 70.7,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_6": {
+   "recording": "22_6",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     243.5,
+     287.2,
+     43.6
+    ],
+    [
+     522.3,
+     807.5,
+     285.2
+    ]
+   ],
+   "cook_window": [
+    283.8,
+    789.6
+   ],
+   "cook_len_s": 505.8,
+   "sizzle_in_cook_s": 270.7,
+   "coverage": 0.535,
+   "cook_hit": true,
+   "onset_latency_s": -40.3,
+   "false_sizzle_prep_s": 69.6,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_8": {
+   "recording": "22_8",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     281.2,
+     494.0,
+     212.8
+    ]
+   ],
+   "cook_window": [
+    100.2,
+    571
+   ],
+   "cook_len_s": 470.8,
+   "sizzle_in_cook_s": 212.8,
+   "coverage": 0.452,
+   "cook_hit": true,
+   "onset_latency_s": 181.0,
+   "false_sizzle_prep_s": 10.1,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_10": {
+   "recording": "22_10",
+   "n_sizzle_runs": 5,
+   "sizzle_runs": [
+    [
+     0.0,
+     100.2,
+     100.2
+    ],
+    [
+     547.6,
+     874.0,
+     326.4
+    ],
+    [
+     968.2,
+     1033.7,
+     65.5
+    ],
+    [
+     1109.1,
+     1209.2,
+     100.2
+    ],
+    [
+     1242.5,
+     1286.6,
+     44.1
+    ]
+   ],
+   "cook_window": [
+    375.9,
+    1273.8
+   ],
+   "cook_len_s": 897.9,
+   "sizzle_in_cook_s": 523.4,
+   "coverage": 0.583,
+   "cook_hit": true,
+   "onset_latency_s": 171.7,
+   "false_sizzle_prep_s": 99.6,
+   "n_hum_runs_falsepos": 1
+  },
+  "22_13": {
+   "recording": "22_13",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     548.6,
+     720.7,
+     172.1
+    ]
+   ],
+   "cook_window": [
+    320.3,
+    798.3
+   ],
+   "cook_len_s": 478.0,
+   "sizzle_in_cook_s": 172.1,
+   "coverage": 0.36,
+   "cook_hit": false,
+   "onset_latency_s": 228.3,
+   "false_sizzle_prep_s": 26.5,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_21": {
+   "recording": "22_21",
+   "n_sizzle_runs": 3,
+   "sizzle_runs": [
+    [
+     290.2,
+     323.4,
+     33.2
+    ],
+    [
+     453.3,
+     638.8,
+     185.5
+    ],
+    [
+     662.2,
+     701.3,
+     39.2
+    ]
+   ],
+   "cook_window": [
+    323.0,
+    688.2
+   ],
+   "cook_len_s": 365.2,
+   "sizzle_in_cook_s": 211.9,
+   "coverage": 0.58,
+   "cook_hit": true,
+   "onset_latency_s": -32.8,
+   "false_sizzle_prep_s": 84.8,
+   "n_hum_runs_falsepos": 1
+  },
+  "22_24": {
+   "recording": "22_24",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     658.2,
+     695.9,
+     37.7
+    ],
+    [
+     805.0,
+     1972.1,
+     1167.1
+    ]
+   ],
+   "cook_window": [
+    538.8,
+    1953.0
+   ],
+   "cook_len_s": 1414.2,
+   "sizzle_in_cook_s": 1185.6,
+   "coverage": 0.838,
+   "cook_hit": true,
+   "onset_latency_s": 119.4,
+   "false_sizzle_prep_s": 61.1,
+   "n_hum_runs_falsepos": 11
+  },
+  "22_26": {
+   "recording": "22_26",
+   "n_sizzle_runs": 0,
+   "sizzle_runs": [],
+   "cook_window": [
+    274.5,
+    533.3
+   ],
+   "cook_len_s": 258.8,
+   "sizzle_in_cook_s": 0,
+   "coverage": 0.0,
+   "cook_hit": false,
+   "onset_latency_s": null,
+   "false_sizzle_prep_s": 0.0,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_30": {
+   "recording": "22_30",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     168.1,
+     337.3,
+     169.1
+    ],
+    [
+     417.1,
+     465.2,
+     48.1
+    ]
+   ],
+   "cook_window": [
+    58.6,
+    453
+   ],
+   "cook_len_s": 394.4,
+   "sizzle_in_cook_s": 205.0,
+   "coverage": 0.52,
+   "cook_hit": true,
+   "onset_latency_s": 109.5,
+   "false_sizzle_prep_s": 35.5,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_31": {
+   "recording": "22_31",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     286.2,
+     718.2,
+     432.0
+    ]
+   ],
+   "cook_window": [
+    260.4,
+    717.9
+   ],
+   "cook_len_s": 457.5,
+   "sizzle_in_cook_s": 431.8,
+   "coverage": 0.944,
+   "cook_hit": true,
+   "onset_latency_s": 25.8,
+   "false_sizzle_prep_s": 58.2,
+   "n_hum_runs_falsepos": 5
+  },
+  "22_32": {
+   "recording": "22_32",
+   "n_sizzle_runs": 0,
+   "sizzle_runs": [],
+   "cook_window": [
+    216.0,
+    541.8
+   ],
+   "cook_len_s": 325.8,
+   "sizzle_in_cook_s": 0,
+   "coverage": 0.0,
+   "cook_hit": false,
+   "onset_latency_s": null,
+   "false_sizzle_prep_s": 0.0,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_37": {
+   "recording": "22_37",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     149.3,
+     355.6,
+     206.3
+    ],
+    [
+     451.9,
+     485.6,
+     33.7
+    ]
+   ],
+   "cook_window": [
+    87.3,
+    525.3
+   ],
+   "cook_len_s": 438.0,
+   "sizzle_in_cook_s": 240.1,
+   "coverage": 0.548,
+   "cook_hit": true,
+   "onset_latency_s": 62.0,
+   "false_sizzle_prep_s": 104.2,
+   "n_hum_runs_falsepos": 1
+  },
+  "22_38": {
+   "recording": "22_38",
+   "n_sizzle_runs": 0,
+   "sizzle_runs": [],
+   "cook_window": [
+    211.8,
+    769.3
+   ],
+   "cook_len_s": 557.5,
+   "sizzle_in_cook_s": 0,
+   "coverage": 0.0,
+   "cook_hit": false,
+   "onset_latency_s": null,
+   "false_sizzle_prep_s": 0.0,
+   "n_hum_runs_falsepos": 4
+  },
+  "22_40": {
+   "recording": "22_40",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     0.0,
+     38.7,
+     38.7
+    ],
+    [
+     381.9,
+     453.3,
+     71.4
+    ]
+   ],
+   "cook_window": [
+    206.1,
+    424.2
+   ],
+   "cook_len_s": 218.1,
+   "sizzle_in_cook_s": 42.3,
+   "coverage": 0.194,
+   "cook_hit": false,
+   "onset_latency_s": 175.8,
+   "false_sizzle_prep_s": 41.9,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_41": {
+   "recording": "22_41",
+   "n_sizzle_runs": 2,
+   "sizzle_runs": [
+    [
+     238.6,
+     360.1,
+     121.5
+    ],
+    [
+     430.5,
+     505.4,
+     74.9
+    ]
+   ],
+   "cook_window": [
+    141.9,
+    489.9
+   ],
+   "cook_len_s": 348.0,
+   "sizzle_in_cook_s": 180.9,
+   "coverage": 0.52,
+   "cook_hit": true,
+   "onset_latency_s": 96.7,
+   "false_sizzle_prep_s": 59.4,
+   "n_hum_runs_falsepos": 0
+  },
+  "22_137": {
+   "recording": "22_137",
+   "n_sizzle_runs": 1,
+   "sizzle_runs": [
+    [
+     440.4,
+     680.5,
+     240.1
+    ]
+   ],
+   "cook_window": [
+    273.8,
+    679.7
+   ],
+   "cook_len_s": 405.9,
+   "sizzle_in_cook_s": 239.2,
+   "coverage": 0.589,
+   "cook_hit": true,
+   "onset_latency_s": 166.6,
+   "false_sizzle_prep_s": 89.8,
+   "n_hum_runs_falsepos": 5
+  }
+ }
+}

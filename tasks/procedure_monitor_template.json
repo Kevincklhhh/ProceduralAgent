@@ -1,0 +1,150 @@
+{
+  "schema_version": "0.6",
+  "artifact_type": "procedure_monitor_template",
+  "description": "Template for a recipe-specific procedure monitor: an EXECUTABLE sensor-conditioned state machine for online step recognition. eval/plan_loader.py compiles each rule's structured `cond` into a predicate and each `state_update` into typed ops; eval/monitor_runtime.py runs it on a tick loop and emits the output_schema. Conditions are machine-readable (not prose): see tasks/PROCEDURE_MONITOR_COMPILER.md for the grammar. A worked, filled-in instance is tasks/cc4d/spicedhotchocolate.monitor.json. This monitor recognizes step starts/completions and produces a transition trace + stage intervals; it does NOT define assistance behavior, error checks, or reminders.",
+  "task": {
+    "task_id": "FILL_TASK_ID",
+    "title": "FILL_TITLE",
+    "source": "FILL_RECIPE_TASK_JSON",
+    "detector_catalog": "tasks/AUDIO_RUNTIME_LIBRARY.md"
+  },
+  "runtime_config": { "tick_s": 1.0 },
+  "vlm_policy": {
+    "window_s": 10.0,
+    "n_frames": 10,
+    "period_s": 10.0,
+    "max_polls_per_step": 6,
+    "vlm_budget": 40
+  },
+  "graph": {
+    "steps": [
+      {
+        "step_id": "FILL_STEP_ID",
+        "cc4d_step_id": 0,
+        "order": 1,
+        "instruction": "FILL_STEP_TEXT",
+        "duration_constraint_s": null,
+        "requires": ["FILL_REQUIRED_STEP_OR_STATE"],
+        "produces": ["FILL_STATE_TRUE_AFTER_STEP"],
+        "sensing_role": "A-solve|B-trigger|C-none",
+        "monitor": {
+          "mode": "foreground|background|block",
+          "primitives": ["D1", "D6", "VLM"],
+          "watch_for": ["D1.cycle_start"],
+          "sleep": ["VLM"]
+        },
+        "start_when": [
+          {
+            "rule_id": "FILL_START_RULE_ID",
+            "when": "FILL_HUMAN_READABLE_CONDITION (doc only)",
+            "cond": {
+              "type": "sensor_event",
+              "primitive": "D1",
+              "event": "cycle_start",
+              "after": "FILL_PRIOR_STEP.start"
+            },
+            "state_update": [
+              { "op": "set_state", "step": "FILL_STEP_ID", "to": "active" },
+              { "op": "set_foreground", "step": "FILL_STEP_ID" }
+            ]
+          }
+        ],
+        "complete_when": [
+          {
+            "rule_id": "FILL_COMPLETION_RULE_ID",
+            "when": "FILL_HUMAN_READABLE_CONDITION (doc only)",
+            "cond": {
+              "type": "any",
+              "of": [
+                { "type": "sensor_event", "primitive": "D1", "event": "cycle_end", "after": "FILL_STEP_ID.start" },
+                { "type": "elapsed", "since": "step_active", "step": "FILL_STEP_ID", "max_s": 90, "fires_at": "max" }
+              ]
+            },
+            "state_update": [
+              { "op": "set_state", "step": "FILL_STEP_ID", "to": "complete" },
+              { "op": "open", "steps": ["FILL_NEXT_STEP_ID"] }
+            ]
+          }
+        ]
+      }
+    ],
+    "step_blocks": [
+      {
+        "block_id": "FILL_BLOCK_ID",
+        "order": 2,
+        "reason": "unordered_in_recipe|same_sensor_signature|background_process",
+        "members": [
+          { "step_id": "FILL_MEMBER_A", "cc4d_step_id": 0, "instruction": "FILL_TEXT" },
+          { "step_id": "FILL_MEMBER_B", "cc4d_step_id": 0, "instruction": "FILL_TEXT" }
+        ],
+        "requires": ["FILL_REQUIRED_STEP_OR_STATE"],
+        "produces": ["FILL_STATE_A", "FILL_STATE_B"],
+        "sensing_role": "C-none",
+        "monitor": {
+          "mode": "block",
+          "primitives": ["VLM"],
+          "watch_for": ["vlm.current_step"],
+          "sleep": ["D1"]
+        },
+        "vlm": { "poll": true, "question": "FILL_WHICH_MEMBER_IS_CURRENT" },
+        "start_when": [
+          {
+            "rule_id": "FILL_BLOCK_START_RULE_ID",
+            "when": "FILL_HUMAN_READABLE_CONDITION (doc only)",
+            "cond": { "type": "eligible" },
+            "state_update": [
+              { "op": "set_state", "step": "FILL_BLOCK_ID", "to": "active" },
+              { "op": "set_foreground", "step": "FILL_BLOCK_ID" }
+            ]
+          }
+        ],
+        "complete_when": [
+          {
+            "rule_id": "FILL_BLOCK_COMPLETION_RULE_ID",
+            "when": "FILL_HUMAN_READABLE_CONDITION (doc only)",
+            "cond": {
+              "type": "any",
+              "of": [
+                { "type": "next_anchor", "primitive": "D1", "event": "cycle_start", "after": "FILL_BLOCK_ID.start" },
+                { "type": "elapsed", "since": "step_active", "step": "FILL_BLOCK_ID", "max_s": 300, "fires_at": "max" }
+              ]
+            },
+            "state_update": [
+              { "op": "mark_members", "block": "FILL_BLOCK_ID", "confirmed": "complete", "rest": "unknown" },
+              { "op": "set_state", "step": "FILL_BLOCK_ID", "to": "complete" },
+              { "op": "open", "steps": ["FILL_NEXT_STEP_ID"] }
+            ]
+          }
+        ]
+      }
+    ],
+    "edges": [
+      { "from": "FILL_STEP_OR_BLOCK_ID", "to": "FILL_STEP_OR_BLOCK_ID", "relation": "requires|precedes|can_overlap" }
+    ]
+  },
+  "output_schema": {
+    "stage_intervals": [
+      { "stage": "predicted step_id or block_id", "start_s": 0.0, "end_s": 0.0 }
+    ],
+    "transition_trace": [
+      {
+        "t_s": 0.0,
+        "transition": "start|complete",
+        "step_or_block": "FILL_STEP_OR_BLOCK_ID",
+        "rule_id": "FILL_RULE_ID",
+        "evidence": ["D1.cycle_start"],
+        "confidence": 0.0
+      }
+    ],
+    "sensor_events": [
+      { "t_s": 0.0, "primitive": "D1", "event": "cycle_start", "confidence": 0.0 }
+    ],
+    "cost": {
+      "audio_on_s": 0.0,
+      "vlm_calls": 0,
+      "frames_sent": 0,
+      "vlm_latency_total_s": 0.0,
+      "compute_s": 0.0
+    }
+  }
+}

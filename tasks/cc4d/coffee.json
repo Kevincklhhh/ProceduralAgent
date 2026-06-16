@@ -1,0 +1,177 @@
+{
+  "task_id": "coffee",
+  "title": "Coffee",
+  "source": "data/cc4d/annotations/task_graphs/coffee.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 62,
+      "order": 1,
+      "name": "prepare_the_filter_insert",
+      "instruction": "Prepare the filter insert by folding the paper filter in half to create a semi-circle, and in half again to create a quarter-circle",
+      "preconditions": []
+    },
+    {
+      "step_id": 65,
+      "order": 2,
+      "name": "weigh_the_coffee_beans",
+      "instruction": "Weigh the coffee beans (0.8oz-0.12 oz)",
+      "preconditions": []
+    },
+    {
+      "step_id": 67,
+      "order": 3,
+      "name": "grind_the_coffee_beans",
+      "instruction": "Grind the coffee beans until the coffee grounds are the consistency of coarse sand, about 20 seconds",
+      "preconditions": [
+        65
+      ],
+      "duration_constraint_s": 20
+    },
+    {
+      "step_id": 68,
+      "order": 4,
+      "name": "measure_12_ounces_of",
+      "instruction": "Measure 12 ounces of cold water",
+      "preconditions": []
+    },
+    {
+      "step_id": 69,
+      "order": 5,
+      "name": "place_the_dripper_on",
+      "instruction": "Place the dripper on top of a coffee mug",
+      "preconditions": []
+    },
+    {
+      "step_id": 60,
+      "order": 6,
+      "name": "place_the_paper_filter",
+      "instruction": "Place the paper filter in the dripper",
+      "preconditions": [
+        62,
+        69
+      ]
+    },
+    {
+      "step_id": 59,
+      "order": 7,
+      "name": "spread_open_filter_in",
+      "instruction": "spread open filter in dripper to create a cone",
+      "preconditions": [
+        60
+      ]
+    },
+    {
+      "step_id": 58,
+      "order": 8,
+      "name": "transfer_the_grounds_to",
+      "instruction": "Transfer the grounds to the filter cone",
+      "preconditions": [
+        59,
+        67
+      ]
+    },
+    {
+      "step_id": 70,
+      "order": 9,
+      "name": "transfer_water_to_a",
+      "instruction": "transfer water to a kettle",
+      "preconditions": [
+        68
+      ]
+    },
+    {
+      "step_id": 64,
+      "order": 10,
+      "name": "boil_the_water_while",
+      "instruction": "Boil the water. (While the water is boiling, assemble the filter cone)",
+      "preconditions": [
+        70
+      ]
+    },
+    {
+      "step_id": 71,
+      "order": 11,
+      "name": "once_the_water_has",
+      "instruction": "Once the water has boiled, check the temperature of the water. (The water should be between 195-205 degrees Fahrenheit or between 91-96 degrees Celsius. If the water is too hot, let it cool briefly.)",
+      "preconditions": [
+        64
+      ]
+    },
+    {
+      "step_id": 57,
+      "order": 12,
+      "name": "pour_a_small_amount",
+      "instruction": "Pour a small amount of water into the filter to wet the grounds",
+      "preconditions": [
+        58,
+        71
+      ]
+    },
+    {
+      "step_id": 56,
+      "order": 13,
+      "name": "wait_about_30_seconds",
+      "instruction": "Wait about 30 seconds for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.)",
+      "preconditions": [
+        57
+      ],
+      "duration_constraint_s": 30
+    },
+    {
+      "step_id": 61,
+      "order": 14,
+      "name": "slowly_pour_the_rest",
+      "instruction": "Slowly pour the rest of the water over the grounds in a circular motion. Do not overfill beyond the top of the paper filter",
+      "preconditions": [
+        56
+      ]
+    },
+    {
+      "step_id": 66,
+      "order": 15,
+      "name": "let_the_coffee_drain",
+      "instruction": "Let the coffee drain completely into the mug before removing the dripper",
+      "preconditions": [
+        61
+      ]
+    },
+    {
+      "step_id": 63,
+      "order": 16,
+      "name": "discard_the_paper_filter",
+      "instruction": "Discard the paper filter and coffee grounds",
+      "preconditions": [
+        66
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_grind_the_coffee_beans",
+      "step_id": 67,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 20s",
+      "message": "The recipe says about 20s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    },
+    {
+      "reminder_id": "timing_wait_about_30_seconds",
+      "step_id": 56,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 30s",
+      "message": "The recipe says about 30s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}

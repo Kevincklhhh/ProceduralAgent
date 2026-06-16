@@ -1,0 +1,36 @@
+{
+ "recording": "8_26",
+ "t_esc": 280.5,
+ "model": "Qwen/Qwen3.6-27B",
+ "n_frames": 10,
+ "frame_times_s": [
+  0.0,
+  31.17,
+  62.33,
+  93.5,
+  124.67,
+  155.83,
+  187.0,
+  218.17,
+  249.33,
+  280.5
+ ],
+ "jpeg_quality": 80,
+ "latency_s": 53.31,
+ "raw_response": "{\n  \"chocolate_added\": false,\n  \"cinnamon_added\": false,\n  \"sugar_added\": false,\n  \"evidence\": [\n    \"The user is seen retrieving a blue mug from a dishwasher.\",\n    \"The user retrieves a bottle of milk from the refrigerator.\",\n    \"The user washes their hands at the sink.\",\n    \"The user places the mug in the microwave and sets the timer.\",\n    \"The user opens a pantry and reaches for items, but the specific items (chocolate, cinnamon, sugar) are not clearly identified as being added to the mug.\",\n    \"The user is seen handling a black object, possibly a charger or small appliance, but not ingredients.\",\n    \"The video ends before the user is seen adding any ingredients to the mug after microwaving the milk.\"\n  ],\n  \"confidence\": 0.9\n}",
+ "parsed": {
+  "chocolate_added": false,
+  "cinnamon_added": false,
+  "sugar_added": false,
+  "evidence": [
+   "The user is seen retrieving a blue mug from a dishwasher.",
+   "The user retrieves a bottle of milk from the refrigerator.",
+   "The user washes their hands at the sink.",
+   "The user places the mug in the microwave and sets the timer.",
+   "The user opens a pantry and reaches for items, but the specific items (chocolate, cinnamon, sugar) are not clearly identified as being added to the mug.",
+   "The user is seen handling a black object, possibly a charger or small appliance, but not ingredients.",
+   "The video ends before the user is seen adding any ingredients to the mug after microwaving the milk."
+  ],
+  "confidence": 0.9
+ }
+}

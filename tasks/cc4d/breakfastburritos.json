@@ -1,0 +1,125 @@
+{
+  "task_id": "breakfastburritos",
+  "title": "Breakfastburritos",
+  "source": "data/cc4d/annotations/task_graphs/breakfastburritos.json",
+  "_generated_by": "scripts/gen_task_jsons.py (firewall-clean: DAG + step text only)",
+  "steps": [
+    {
+      "step_id": 77,
+      "order": 1,
+      "name": "extract_and_add_contents",
+      "instruction": "Extract and add contents of an egg to a microwave-safe bowl",
+      "preconditions": []
+    },
+    {
+      "step_id": 72,
+      "order": 2,
+      "name": "whisk_the_egg",
+      "instruction": "Whisk the egg",
+      "preconditions": [
+        77
+      ]
+    },
+    {
+      "step_id": 73,
+      "order": 3,
+      "name": "microwave_for_3_minutes",
+      "instruction": "Microwave for 3 minutes, stirring in between",
+      "preconditions": [
+        72
+      ],
+      "duration_constraint_s": 180
+    },
+    {
+      "step_id": 74,
+      "order": 4,
+      "name": "add_1_2_tbsp",
+      "instruction": "Add 1/2 tbsp sweet and sour sauce to the bowl",
+      "preconditions": [
+        73
+      ]
+    },
+    {
+      "step_id": 80,
+      "order": 5,
+      "name": "add_1_tbsp_salsa",
+      "instruction": "Add 1 tbsp salsa to the bowl",
+      "preconditions": [
+        73
+      ]
+    },
+    {
+      "step_id": 81,
+      "order": 6,
+      "name": "place_8_inch_tortilla",
+      "instruction": "Place 8 inch tortilla on a cutting board",
+      "preconditions": []
+    },
+    {
+      "step_id": 82,
+      "order": 7,
+      "name": "sprinkle_oregano_in_the",
+      "instruction": "Sprinkle oregano in the bowl",
+      "preconditions": [
+        73
+      ]
+    },
+    {
+      "step_id": 76,
+      "order": 8,
+      "name": "mix_the_contents_of",
+      "instruction": "Mix the contents of the bowl well",
+      "preconditions": [
+        74,
+        80,
+        82
+      ]
+    },
+    {
+      "step_id": 79,
+      "order": 9,
+      "name": "pour_egg_mixture_on",
+      "instruction": "Pour egg mixture on top of the tortilla",
+      "preconditions": [
+        76,
+        81
+      ]
+    },
+    {
+      "step_id": 75,
+      "order": 10,
+      "name": "sprinkle_1_tbsp_shredded",
+      "instruction": "Sprinkle 1 tbsp shredded cheddar cheese on top of the egg",
+      "preconditions": [
+        79
+      ]
+    },
+    {
+      "step_id": 78,
+      "order": 11,
+      "name": "roll_the_tortilla_from",
+      "instruction": "Roll the tortilla from one end to another into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps but not so tight that the filling leaks",
+      "preconditions": [
+        75
+      ]
+    }
+  ],
+  "reminders": [
+    {
+      "reminder_id": "timing_microwave_for_3_minutes",
+      "step_id": 73,
+      "class": "parameter_violation",
+      "subtype": "timing",
+      "trigger": "this step has run noticeably beyond 180s",
+      "message": "The recipe says about 180s for this step \u2014 check timing.",
+      "type": "warning",
+      "_provisional": true
+    }
+  ],
+  "allowed_assistant_actions": [
+    "none",
+    "reminder",
+    "warning",
+    "ask_confirmation"
+  ]
+}
