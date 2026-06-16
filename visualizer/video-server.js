@@ -16,6 +16,7 @@ const TASKS_DIR = path.join(ROOT, 'tasks');
 const DATA_DIR = path.join(ROOT, 'data');
 const CC4D_ANN = path.join(DATA_DIR, 'cc4d', 'annotations');
 const EXP_DIR = path.join(ROOT, 'experiments', 't1_baseline');   // baseline arms + traces
+const REPLAY_DIR = path.join(ROOT, 'experiments', 'replay_v1');  // newer replay baselines
 const MON_DIR = path.join(ROOT, 'experiments', 'proposed_system'); // procedure-monitor arms
 
 // Video sources in priority order: when a recording exists in more than one
@@ -304,39 +305,88 @@ function buildTimeline(videoId) {
 // Baseline predictions + per-call VLM context (experiments/t1_baseline/<arm>/...)
 // ---------------------------------------------------------------------------
 
+function normalizeReplayCall(c) {
+  const parsed = c.parsed || {};
+  const evidence = Array.isArray(parsed.evidence) ? parsed.evidence.join('\n') : parsed.evidence;
+  return {
+    t: c.timestamp_s, start_s: Math.max(0, (c.timestamp_s || 0) - 10), end_s: c.timestamp_s,
+    frame_urls: [],
+    n_frames: c.n_frames || 0,
+    user_prompt: null,
+    prev_responses: [],
+    pred_step: parsed.step_id || 'other',
+    pred_status: parsed.status || 'unknown',
+    pred_evidence: evidence || '',
+    raw: c.raw,
+    latency_s: c.latency_s,
+    action: parsed.action || null,
+  };
+}
+
 // All arms that have a result file for this recording, each with its predicted
 // stage_intervals, cost, and the per-call trace (frames + prompt + prediction).
 function buildBaseline(rid) {
-  if (!fs.existsSync(EXP_DIR)) return { arms: [] };
   const arms = [];
-  for (const arm of fs.readdirSync(EXP_DIR).sort()) {
-    const resPath = path.join(EXP_DIR, arm, `${rid}.json`);
-    if (!fs.existsSync(resPath)) continue;
-    const res = readJson(resPath) || {};
-    // per-call trace (optional — present only when run with --trace)
-    let calls = [];
-    let systemPrompt = null;
-    const trPath = path.join(EXP_DIR, arm, 'traces', `${rid}.jsonl`);
-    if (fs.existsSync(trPath)) {
-      for (const line of fs.readFileSync(trPath, 'utf-8').split('\n')) {
-        if (!line.trim()) continue;
-        const c = JSON.parse(line);
-        if (systemPrompt === null) systemPrompt = c.system_prompt || null;
-        calls.push({
-          t: c.t, start_s: c.start_s, end_s: c.end_s,
-          frame_urls: (c.frame_files || []).map(
-            f => `/baseline_frames/${encodeURIComponent(arm)}/${encodeURIComponent(rid)}/${encodeURIComponent(f)}`),
-          user_prompt: c.user_prompt, prev_responses: c.prev_responses || c.completed_step_ids || [],
-          pred_step: c.pred_step, pred_status: c.pred_status,
-          pred_evidence: c.pred_evidence, raw: c.raw, latency_s: c.latency_s,
-        });
+
+  if (fs.existsSync(EXP_DIR)) {
+    for (const arm of fs.readdirSync(EXP_DIR).sort()) {
+      const resPath = path.join(EXP_DIR, arm, `${rid}.json`);
+      if (!fs.existsSync(resPath)) continue;
+      const res = readJson(resPath) || {};
+      // per-call trace (optional — present only when run with --trace)
+      let calls = [];
+      let systemPrompt = null;
+      const trPath = path.join(EXP_DIR, arm, 'traces', `${rid}.jsonl`);
+      if (fs.existsSync(trPath)) {
+        for (const line of fs.readFileSync(trPath, 'utf-8').split('\n')) {
+          if (!line.trim()) continue;
+          const c = JSON.parse(line);
+          if (systemPrompt === null) systemPrompt = c.system_prompt || null;
+          calls.push({
+            t: c.t, start_s: c.start_s, end_s: c.end_s,
+            frame_urls: (c.frame_files || []).map(
+              f => `/baseline_frames/${encodeURIComponent(arm)}/${encodeURIComponent(rid)}/${encodeURIComponent(f)}`),
+            user_prompt: c.user_prompt, prev_responses: c.prev_responses || c.completed_step_ids || [],
+            pred_step: c.pred_step, pred_status: c.pred_status,
+            pred_evidence: c.pred_evidence, raw: c.raw, latency_s: c.latency_s,
+          });
+        }
       }
+      arms.push({
+        arm, stage_intervals: res.stage_intervals || [], cost: res.cost || {},
+        meta: res._meta || {}, system_prompt: systemPrompt, calls,
+      });
     }
-    arms.push({
-      arm, stage_intervals: res.stage_intervals || [], cost: res.cost || {},
-      meta: res._meta || {}, system_prompt: systemPrompt, calls,
-    });
   }
+
+  const replayResults = path.join(REPLAY_DIR, 'results');
+  if (fs.existsSync(replayResults)) {
+    for (const arm of fs.readdirSync(replayResults).sort()) {
+      if (!arm.startsWith('periodic_vlm')) continue;
+      const resPath = path.join(replayResults, arm, `${rid}.json`);
+      if (!fs.existsSync(resPath)) continue;
+      const res = readJson(resPath) || {};
+      let calls = [];
+      const runDir = path.join(REPLAY_DIR, 'runs', rid);
+      const callPath = path.join(runDir, 'calls.jsonl');
+      if (fs.existsSync(callPath)) {
+        for (const line of fs.readFileSync(callPath, 'utf-8').split('\n')) {
+          if (!line.trim()) continue;
+          try { calls.push(normalizeReplayCall(JSON.parse(line))); } catch { /* skip bad line */ }
+        }
+      }
+      arms.push({
+        arm: `baseline ${arm}`,
+        stage_intervals: res.stage_intervals || [],
+        events: res.events || [],
+        cost: res.cost || res.cost_log || {},
+        meta: { source: 'experiments/replay_v1', ...(res._meta || {}) },
+        system_prompt: null,
+        calls,
+      });
+    }
+  }
+
   return { arms };
 }
 
@@ -376,6 +426,7 @@ function buildMonitor(rid) {
   const arms = [];
   let plan = null;
   for (const arm of fs.readdirSync(MON_DIR).sort()) {
+    if (arm === 'results') continue;
     const resPath = path.join(MON_DIR, arm, `${rid}.json`);
     if (!fs.existsSync(resPath)) continue;
     const res = readJson(resPath) || {};

@@ -35,6 +35,13 @@
     <div id="left-pane">
       <video id="player" controls preload="metadata"></video>
       <div id="timeline">
+        <div id="timeline-controls" aria-label="Timeline layers">
+          <span class="control-label">show</span>
+          <label><input type="checkbox" id="layer-gt" checked /> GT</label>
+          <label><input type="checkbox" id="layer-baseline" checked /> Baseline VLM</label>
+          <label><input type="checkbox" id="layer-proposed" checked /> Proposed monitor</label>
+          <label><input type="checkbox" id="layer-reference" /> Reference</label>
+        </div>
         <div id="time-axis"></div>
         <div id="tracks"></div>
       </div>

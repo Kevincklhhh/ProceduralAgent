@@ -32,6 +32,9 @@ Header controls:
 
 For the selected video:
 - Video player with click-to-seek timeline and playhead.
+- Timeline layer toggles for **GT**, **Baseline VLM**, **Proposed monitor**, and
+  **Reference** views. GT / Baseline / Proposed are enabled by default; the
+  Qualcomm reference layer is opt-in to keep the view readable.
 - Timeline tracks:
   - **Stages (ann)** / **Reminder windows** / **Mistakes** — from a
     hand-written `tasks/annotation_*.json` (activity-8 + HD-EPIC clip only)
@@ -47,6 +50,11 @@ For the selected video:
     preparation / measurement / timing / temperature). A mistake's timestamp
     is when it first becomes *visible* (median ~8 s before the step ends), so
     it sits earlier than the corresponding CC4D error span
+  - **Baseline VLM** — periodic-VLM stage predictions and call/action markers,
+    loaded from either `experiments/t1_baseline/` or periodic-VLM arms in the
+    newer `experiments/replay_v1/` results.
+  - **Proposed monitor** — sensor schedule, sparse VLM calls, monitor stages,
+    sensor events, and state transitions from `experiments/proposed_system/`.
 - Side panel:
   - recording metadata chips (activity id, person, environment,
     normal/error, recipe-graph size)

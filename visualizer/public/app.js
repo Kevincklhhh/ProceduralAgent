@@ -26,6 +26,10 @@ const els = {
   select: document.getElementById('video-select'),
   meta: document.getElementById('video-meta'),
   player: document.getElementById('player'),
+  layerGt: document.getElementById('layer-gt'),
+  layerBaseline: document.getElementById('layer-baseline'),
+  layerProposed: document.getElementById('layer-proposed'),
+  layerReference: document.getElementById('layer-reference'),
   axis: document.getElementById('time-axis'),
   tracks: document.getElementById('tracks'),
   taskTitle: document.getElementById('task-title'),
@@ -59,6 +63,7 @@ let state = {
   armIdx: 0,        // selected baseline arm
   monitor: null,    // /api/monitor response {plan, arms:[...]}
   monArmIdx: 0,     // selected monitor arm
+  timelineLayers: { gt: true, baseline: true, proposed: true, reference: false },
   replaying: false, // virtual-clock replay (when no video is driving the playhead)
   virtualT: 0,
   replayTimer: null,
@@ -76,6 +81,7 @@ function fmtTime(s) {
 
 async function init() {
   setupViewNav();
+  setupTimelineLayerControls();
   loadTaskFiles();
   state.stepDesc = await (await fetch(`${API}/api/stepdescriptions`)).json().catch(() => ({}));
   state.videos = await (await fetch(`${API}/api/videos`)).json();
@@ -94,6 +100,32 @@ async function init() {
   els.select.addEventListener('change', () => loadVideo(els.select.value));
 
   populateVideoSelect();
+}
+
+function setupTimelineLayerControls() {
+  const pairs = [
+    ['gt', els.layerGt],
+    ['baseline', els.layerBaseline],
+    ['proposed', els.layerProposed],
+    ['reference', els.layerReference],
+  ];
+  for (const [key, input] of pairs) {
+    if (!input) continue;
+    input.checked = !!state.timelineLayers[key];
+    input.addEventListener('change', () => {
+      state.timelineLayers[key] = input.checked;
+      syncLayerPanels();
+      renderTimeline();
+      updatePlayhead();
+    });
+  }
+}
+
+function syncLayerPanels() {
+  const hasBaseline = !!(state.baseline?.arms || []).length;
+  const hasMonitor = !!(state.monitor?.arms || []).length;
+  els.vlmContext.hidden = !hasBaseline || !state.timelineLayers.baseline;
+  els.monContext.hidden = !hasMonitor || !state.timelineLayers.proposed;
 }
 
 // Build the video dropdown from the current recipe / errors-only filters,
@@ -260,7 +292,7 @@ function matchStepId(text, gtSteps) {
 // result for this recording). Hides the whole VLM-context panel if none.
 function populateArmSelect() {
   const arms = state.baseline?.arms || [];
-  els.vlmContext.hidden = arms.length === 0;
+  syncLayerPanels();
   if (!arms.length) return;
   els.armSelect.innerHTML = arms.map((a, i) => {
     const c = a.cost?.vlm_calls != null ? ` · ${a.cost.vlm_calls} calls` : '';
@@ -300,11 +332,25 @@ function activeUnitId(arm, t) {
   return null;
 }
 
+const SENSOR_NAMES = {
+  D1: 'D1 microwave cycle',
+  D2: 'D2 appliance motor',
+  D3: 'D3 cook end',
+  D4: 'D4 cook start',
+  D5: 'D5 water flow',
+  D6: 'D6 timer logic',
+  VLM: 'VLM',
+};
+
+function sensorName(p) {
+  return SENSOR_NAMES[p] || p;
+}
+
 // Monitor arm selector (one entry per experiments/proposed_system/<arm>/ with a
 // result for this recording). Hides the monitor panel if none.
 function populateMonArmSelect() {
   const arms = state.monitor?.arms || [];
-  els.monContext.hidden = arms.length === 0;
+  syncLayerPanels();
   if (!arms.length) return;
   els.monSelect.innerHTML = arms.map((a, i) => {
     const c = a.cost?.vlm_calls != null ? ` · ${a.cost.vlm_calls} VLM` : '';
@@ -322,7 +368,7 @@ function populateMonArmSelect() {
 // events, and state transitions. Called from renderTimeline().
 function renderMonitorTracks() {
   const arm = monArm();
-  if (!arm) return;
+  if (!arm) return false;
 
   // 1. sensor schedule — one lane per primitive. Audio lanes shade ON over the
   //    intervals where the active step binds them (cheap, green); the VLM lane is
@@ -332,7 +378,8 @@ function renderMonitorTracks() {
     for (const p of u.primitives) if (!prims.includes(p)) prims.push(p);
   prims.sort((a, b) => (a === 'VLM') - (b === 'VLM') || a.localeCompare(b));
   for (const p of prims) {
-    const { track, lane } = makeTrack(`sensor ${p}`);
+    const label = p === 'VLM' ? 'Proposed: sparse VLM' : `Proposed: ${sensorName(p)}`;
+    const { track, lane } = makeTrack(label);
     if (p === 'VLM') {
       for (const iv of arm.stage_intervals || []) {
         const u = planUnitById(iv.stage);
@@ -352,7 +399,7 @@ function renderMonitorTracks() {
         const u = planUnitById(iv.stage);
         if (u && u.primitives.includes(p)) {
           lane.appendChild(makeSegment(iv.start_s, iv.end_s, p, '#52a675',
-            `${p} ON during ${iv.stage}\n${fmtTime(iv.start_s)} – ${fmtTime(iv.end_s)}`, 'sensor-on'));
+            `${sensorName(p)} ON during ${iv.stage}\n${fmtTime(iv.start_s)} – ${fmtTime(iv.end_s)}`, 'sensor-on'));
         }
       }
     }
@@ -361,7 +408,7 @@ function renderMonitorTracks() {
 
   // 2. predicted stages
   {
-    const { track, lane } = makeTrack(`monitor stages (${arm.arm})`);
+    const { track, lane } = makeTrack(`Proposed: stages (${arm.arm})`);
     for (const iv of arm.stage_intervals || []) {
       lane.appendChild(makeSegment(iv.start_s, iv.end_s, stepLabel(iv.stage),
         colorFor(String(iv.stage)),
@@ -372,10 +419,10 @@ function renderMonitorTracks() {
 
   // 3. sensor events (point markers)
   {
-    const { track, lane } = makeTrack('sensor events');
+    const { track, lane } = makeTrack('Proposed: events');
     for (const e of arm.sensor_events || []) {
       lane.appendChild(makeSegment(e.t_s, e.t_s + 1.5, '●', '#4f8cc9',
-        `${e.primitive}.${e.event} @${fmtTime(e.t_s)}` +
+        `${sensorName(e.primitive)}.${e.event} @${fmtTime(e.t_s)}` +
         (e.step_id ? `\nstep ${e.step_id}` : ''), 'marker'));
     }
     els.tracks.appendChild(track);
@@ -383,7 +430,7 @@ function renderMonitorTracks() {
 
   // 4. transitions (start/complete with the rule that fired)
   {
-    const { track, lane } = makeTrack('transitions');
+    const { track, lane } = makeTrack('Proposed: transitions');
     for (const tr of arm.transition_trace || []) {
       const sym = tr.transition === 'start' ? '▸' : '◼';
       lane.appendChild(makeSegment(tr.t_s, tr.t_s + 1.5, sym,
@@ -393,6 +440,7 @@ function renderMonitorTracks() {
     }
     els.tracks.appendChild(track);
   }
+  return true;
 }
 
 // Replay panel at the playhead: active unit (requires/produces + which detectors
@@ -635,16 +683,17 @@ function renderTimeline() {
   if (!tl) {
     const note = document.createElement('div');
     note.className = 'muted';
-    note.style.marginLeft = '110px';
+    note.style.marginLeft = '170px';
     note.textContent = 'No annotation or ground truth for this video.';
     els.tracks.appendChild(note);
     return;
   }
 
   const ann = tl.annotation;
-  if (ann) {
+  let renderedAny = false;
+  if (state.timelineLayers.gt && ann) {
     // Stage segments
-    const { track, lane } = makeTrack('Stages (ann)');
+    const { track, lane } = makeTrack('GT: task stages');
     for (const seg of ann.stage_segments || []) {
       lane.appendChild(makeSegment(
         seg.start_s, seg.end_s, seg.step_id, colorFor(seg.step_id),
@@ -652,9 +701,10 @@ function renderTimeline() {
       ));
     }
     els.tracks.appendChild(track);
+    renderedAny = true;
 
     if ((ann.reminder_windows || []).length) {
-      const { track, lane } = makeTrack('Reminder windows');
+      const { track, lane } = makeTrack('GT: reminders');
       for (const w of ann.reminder_windows || []) {
         lane.appendChild(makeSegment(
           w.start_s, w.end_s, w.reminder_id, '#f5a623',
@@ -662,10 +712,11 @@ function renderTimeline() {
         ));
       }
       els.tracks.appendChild(track);
+      renderedAny = true;
     }
 
     if ((ann.mistake_events || []).length) {
-      const { track, lane } = makeTrack('Mistakes');
+      const { track, lane } = makeTrack('GT: mistakes');
       for (const m of ann.mistake_events || []) {
         lane.appendChild(makeSegment(
           m.start_s, m.end_s, m.event_id, '#e5484d',
@@ -674,11 +725,12 @@ function renderTimeline() {
         ));
       }
       els.tracks.appendChild(track);
+      renderedAny = true;
     }
   }
 
-  if (tl.gt) {
-    const { track, lane } = makeTrack('GT steps');
+  if (state.timelineLayers.gt && tl.gt) {
+    const { track, lane } = makeTrack('GT: steps');
     for (const s of tl.gt.steps || []) {
       if (s.start_time < 0) continue; // step not performed
       const stepId = String(s.step_id);
@@ -693,10 +745,11 @@ function renderTimeline() {
       ));
     }
     els.tracks.appendChild(track);
+    renderedAny = true;
 
     const errSteps = (tl.gt.steps || []).filter(s => s.errors && s.errors.length && s.start_time >= 0);
     if (errSteps.length) {
-      const { track, lane } = makeTrack('GT errors');
+      const { track, lane } = makeTrack('GT: errors');
       for (const s of errSteps) {
         for (const e of s.errors) {
           lane.appendChild(makeSegment(
@@ -707,12 +760,20 @@ function renderTimeline() {
         }
       }
       els.tracks.appendChild(track);
+      renderedAny = true;
     }
   }
 
-  renderPredictedTrack();
-  renderMonitorTracks();
-  renderQualcommTracks(tl.qualcomm);
+  if (state.timelineLayers.baseline) renderedAny = renderPredictedTrack() || renderedAny;
+  if (state.timelineLayers.proposed) renderedAny = renderMonitorTracks() || renderedAny;
+  if (state.timelineLayers.reference) renderedAny = renderQualcommTracks(tl.qualcomm) || renderedAny;
+  if (!renderedAny) {
+    const note = document.createElement('div');
+    note.className = 'muted';
+    note.style.marginLeft = '170px';
+    note.textContent = 'Select at least one timeline layer above.';
+    els.tracks.appendChild(note);
+  }
 }
 
 // Baseline predicted-step track for the selected arm. Same palette as GT steps
@@ -720,8 +781,8 @@ function renderTimeline() {
 // against the GT-steps lane directly above it.
 function renderPredictedTrack() {
   const arm = state.baseline?.arms?.[state.armIdx];
-  if (!arm) return;
-  const { track, lane } = makeTrack(`Pred steps (${arm.arm})`);
+  if (!arm) return false;
+  const { track, lane } = makeTrack(`Baseline VLM: stages (${arm.arm})`);
   for (const iv of arm.stage_intervals || []) {
     const sid = String(iv.stage);
     const desc = stepDescOf(sid);
@@ -729,6 +790,28 @@ function renderPredictedTrack() {
       iv.start_s, iv.end_s, stepLabel(sid), colorFor(sid),
       `pred: step ${sid}${desc ? ' — ' + desc : ''}\n${fmtTime(iv.start_s)} – ${fmtTime(iv.end_s)}`, 'pred'
     ));
+  }
+  els.tracks.appendChild(track);
+  renderBaselineCallTrack(arm);
+  return true;
+}
+
+function renderBaselineCallTrack(arm) {
+  const calls = arm.calls || [];
+  const events = arm.events || [];
+  if (!calls.length && !events.length) return;
+  const { track, lane } = makeTrack('Baseline VLM: calls/actions');
+  for (const c of calls) {
+    const action = c.action?.type && c.action.type !== 'none' ? `\naction: ${c.action.type} — ${c.action.message || ''}` : '';
+    const nFrames = c.n_frames ?? (c.frame_urls || []).length;
+    lane.appendChild(makeSegment(c.t, c.t + 1.5, '◆', '#e5484d',
+      `VLM call @${fmtTime(c.t)}\npred: ${stepLabel(c.pred_step)} (${c.pred_status || '?'})` +
+      `\n${nFrames} frames · ${c.latency_s || '?'}s latency${action}`, 'marker vlm-poll'));
+  }
+  for (const e of events) {
+    const t = e.t ?? e.timestamp_s;
+    lane.appendChild(makeSegment(t, t + 2.0, '!', '#f5a623',
+      `${e.type || e.action_type || 'action'} @${fmtTime(t)}\n${e.message || e.id || ''}`, 'marker'));
   }
   els.tracks.appendChild(track);
 }
@@ -749,11 +832,12 @@ function updateVlmContext(t) {
   if (!c) c = calls.reduce((b, x) => Math.abs(x.t - t) < Math.abs(b.t - t) ? x : b, calls[0]);
   const col = colorFor(String(c.pred_step));
   const pdesc = stepDescOf(c.pred_step);
+  const nFrames = c.n_frames ?? (c.frame_urls || []).length;
   els.vlmCallMeta.innerHTML =
     `call @ ${fmtTime(c.t)} · window ${fmtTime(c.start_s)}–${fmtTime(c.end_s)} · ` +
     `pred <b style="color:${col}">${escapeHtml(stepLabel(c.pred_step))}</b> ` +
     `<span class="muted">step ${escapeHtml(String(c.pred_step))}${pdesc ? ' — ' + escapeHtml(pdesc) : ''}</span> ` +
-    `(${escapeHtml(c.pred_status || '?')}) · ${(c.frame_urls || []).length} frames · ${c.latency_s}s`;
+    `(${escapeHtml(c.pred_status || '?')}) · ${nFrames} frames · ${c.latency_s}s`;
   els.vlmFrames.innerHTML = (c.frame_urls || [])
     .map(u => `<img src="${API}${u}" loading="lazy" title="${escapeAttr(u.split('/').pop())}" />`).join('');
   // Only the per-call-varying parts: the previous-responses history fed this call
@@ -782,7 +866,8 @@ function updateVlmContext(t) {
 // feedback track of point markers (✓ success confirmations + ⚠ typed mistakes,
 // whose timestamp is when the mistake first becomes visible).
 function renderQualcommTracks(qc) {
-  if (!qc) return;
+  if (!qc) return false;
+  let rendered = false;
   const instr = qc.instructions || [];
   if (instr.length) {
     const { track, lane } = makeTrack('Qualcomm steps');
@@ -802,6 +887,7 @@ function renderQualcommTracks(qc) {
       ));
     });
     els.tracks.appendChild(track);
+    rendered = true;
   }
 
   const successes = qc.successes || [];
@@ -821,7 +907,9 @@ function renderQualcommTracks(qc) {
       ));
     }
     els.tracks.appendChild(track);
+    rendered = true;
   }
+  return rendered;
 }
 
 function renderAxis() {

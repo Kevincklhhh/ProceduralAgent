@@ -104,10 +104,36 @@ main {
   padding: 8px 10px 12px;
 }
 
+#timeline-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 8px 170px;
+  font-size: 11px;
+  color: #b8b8c2;
+}
+
+#timeline-controls .control-label {
+  color: #6f7079;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#timeline-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  background: #1e1f24;
+  border: 1px solid #3a3b44;
+  border-radius: 4px;
+}
+
 #time-axis {
   position: relative;
   height: 18px;
-  margin-left: 110px;
+  margin-left: 170px;
   font-size: 10px;
   color: #8a8a95;
 }
@@ -125,7 +151,7 @@ main {
 }
 
 .track-label {
-  width: 110px;
+  width: 170px;
   flex-shrink: 0;
   font-size: 11px;
   color: #b8b8c2;
