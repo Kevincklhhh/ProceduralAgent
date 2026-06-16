@@ -2,9 +2,9 @@
 """Tier-1 baseline: ONLINE CURRENT-STEP RECOGNITION (T1 only), RGB-only, Pro2Assist-style.
 
 Per call (every --interval s): sample frames at 1 fps over the last interval, send
-[system prompt + recipe step guideline + completed-steps history + frames], ask for the
-current step + status. Replicates Pro2Assist's step / status / historical-context / system
-prompt. DROPPED on purpose (per design 2026-06-15): proactive trigger, consistency-check
+[system prompt + recipe step guideline + the model's own recent responses (timestamp +
+predicted step + evidence, last --history of them) + frames], ask for the current step +
+status. DROPPED on purpose (per design 2026-06-15): proactive trigger, consistency-check
 smoothing, hand-motion cues, fine-tuning. Model is zero-shot Qwen3.6 on saltyfish.
 
 The predicted step labels the window [t-interval, t); successive windows tile the timeline
@@ -187,15 +187,14 @@ def run_one(video, task, backend, interval, max_seconds=None, verbose=True,
             trace.write(json.dumps({
                 "t": round(t, 1), "start_s": round(t - interval, 1), "end_s": round(min(t, end_t), 1),
                 "frame_files": frame_files, "system_prompt": SYSTEM_PROMPT, "user_prompt": prompt,
-                "completed_step_ids": list(completed), "pred_step": step,
+                "prev_responses": ctx, "pred_step": step,
                 "pred_status": (parsed or {}).get("status"), "pred_evidence": (parsed or {}).get("evidence"),
                 "raw": raw, "error": err, "latency_s": round(lat, 2)}) + "\n")
             trace.flush()
 
-        if step != "other" and step != active:        # immediate completed-step update
-            if active is not None and active != "other":
-                completed.append(active)
-            active = step
+        history.append({"t": round(t, 1), "step": step,
+                        "status": (parsed or {}).get("status") or "?",
+                        "evidence": (parsed or {}).get("evidence") or ""})
         if verbose:
             st = parsed.get("status") if parsed else "PARSE_FAIL"
             print(f"  t={t:6.0f}s  step={step}  ({st})")
@@ -245,6 +244,8 @@ def main():
     ap.add_argument("--video-dir", default="data/videos_360p")
     ap.add_argument("--trace", action="store_true",
                     help="dump per-call frames+prompt+prediction for the visualizer")
+    ap.add_argument("--history", type=int, default=5,
+                    help="# of prior VLM responses (timestamp+step+evidence) shown in the prompt; 0=all")
     a = ap.parse_args()
 
     backend = Qwen()
@@ -264,7 +265,7 @@ def main():
             task = json.loads((BASE / 'tasks/cc4d' / f"{stem}.json").read_text())
             print(f"[{i}/{len(todo)}] {rid} ({stem})")
             res = run_one(BASE / a.video_dir / f"{rid}.mp4", task, backend, a.interval,
-                          a.max_seconds, verbose=False, trace_dir=tdir, rid=rid)
+                          a.max_seconds, verbose=False, trace_dir=tdir, rid=rid, history_k=a.history)
             res["recording"], res["arm"] = rid, a.arm
             outp.write_text(json.dumps(res, indent=1))
     else:
@@ -273,7 +274,7 @@ def main():
         rid = Path(a.video).stem
         task = json.loads(Path(a.task).read_text())
         res = run_one(a.video, task, backend, a.interval, a.max_seconds,
-                      trace_dir=tdir, rid=rid)
+                      trace_dir=tdir, rid=rid, history_k=a.history)
         res["recording"], res["arm"] = rid, a.arm
         (outd / f"{rid}.json").write_text(json.dumps(res, indent=1))
         print(f"wrote {outd / (rid + '.json')}  ({res['cost']['vlm_calls']} calls, "

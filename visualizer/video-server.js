@@ -326,7 +326,7 @@ function buildBaseline(rid) {
           t: c.t, start_s: c.start_s, end_s: c.end_s,
           frame_urls: (c.frame_files || []).map(
             f => `/baseline_frames/${encodeURIComponent(arm)}/${encodeURIComponent(rid)}/${encodeURIComponent(f)}`),
-          user_prompt: c.user_prompt, completed_step_ids: c.completed_step_ids || [],
+          user_prompt: c.user_prompt, prev_responses: c.prev_responses || c.completed_step_ids || [],
           pred_step: c.pred_step, pred_status: c.pred_status,
           pred_evidence: c.pred_evidence, raw: c.raw, latency_s: c.latency_s,
         });

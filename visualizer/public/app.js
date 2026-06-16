@@ -756,14 +756,23 @@ function updateVlmContext(t) {
     `(${escapeHtml(c.pred_status || '?')}) · ${(c.frame_urls || []).length} frames · ${c.latency_s}s`;
   els.vlmFrames.innerHTML = (c.frame_urls || [])
     .map(u => `<img src="${API}${u}" loading="lazy" title="${escapeAttr(u.split('/').pop())}" />`).join('');
-  // Only the per-call-varying parts: the Historical Context (completed steps fed
-  // this call) and the raw response. Guideline + system prompt are static across
-  // the recipe; the sensory context is the frames above.
-  const histHtml = (c.completed_step_ids || [])
-    .map(id => `<span class="hist-step" title="${escapeAttr(stepDescOf(id))}" style="border-color:${colorFor(String(id))}">${escapeHtml(stepLabel(id))}</span>`)
-    .join(' ');
+  // Only the per-call-varying parts: the previous-responses history fed this call
+  // and the raw response. Guideline + system prompt are static; frames are above.
+  const prev = c.prev_responses || [];
+  let histHtml;
+  if (prev.length && typeof prev[0] === 'object') {
+    // new format: prior VLM responses {t, step, status, evidence}
+    histHtml = prev.map(h =>
+      `<div class="prev-resp"><span class="hist-step" style="border-color:${colorFor(String(h.step))}">` +
+      `${fmtTime(h.t)} · ${escapeHtml(stepLabel(h.step))}</span> ` +
+      `<span class="muted">(${escapeHtml(h.status || '?')})</span> ${escapeHtml(h.evidence || '')}</div>`).join('');
+  } else {
+    // old format: list of completed step ids
+    histHtml = prev.map(id =>
+      `<span class="hist-step" style="border-color:${colorFor(String(id))}">${escapeHtml(stepLabel(id))}</span>`).join(' ');
+  }
   els.vlmPrompt.innerHTML =
-    `<div class="vlm-hist"><b>Historical Context</b> — completed steps sent this call: ` +
+    `<div class="vlm-hist"><b>Previous observations sent this call:</b><br>` +
     (histHtml || '<span class="muted">none yet</span>') + `</div>` +
     `<div class="vlm-raw"><b>raw model response</b><pre>${escapeHtml(c.raw || '')}</pre></div>`;
 }
