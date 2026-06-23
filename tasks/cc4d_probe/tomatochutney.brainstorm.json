@@ -1,0 +1,951 @@
+{
+  "recipe": "tomatochutney",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "19 steps x 2 (recog+completion) + 33 checks = 71 total claims. Blender step (150) gates D2. Active saute/fry stages gate D3+D4. Two timed steps (148=180s, 153=300s) gate D6. DAG has two parallel prep chains (garlic 145->140; tomato 149->155->150) reconverging at 154, then mostly-linear cook chain. No microwave (D1 not gated). No water/tap (D5 not gated). Large majority of steps are silent dry-add or prep steps -> cv B-trigger or C-none. Speculative sensors: thermal-spot on pan/burner for heat-setting and cook-done; monochrome OK for motion-only recognition; low-res-ROI on stove knob and pan area; IMU for stirring/pour gross motion.",
+  "claims": [
+    {
+      "step_id": 145,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is peeling garlic cloves at prep surface (concurrent root with 149)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "hand-on-small-object optical-flow at board ROI -> 1 VLM call to disambiguate peeling vs tomato-grab (both root steps active)"
+    },
+    {
+      "step_id": 145,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "garlic peeled; inferred when mince-garlic (140) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 145->140: when 140 recognized, 145 marked complete; no sensor needed"
+    },
+    {
+      "step_id": 145,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "4 large cloves peeled (not fewer or very small)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low",
+      "config_oneline": "VLM periodic on board ROI to count cloves; audio/cv cannot count"
+    },
+    {
+      "step_id": 145,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "cloves peeled cleanly, no broken or skin-on cloves",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM call at completion to inspect clove surface quality"
+    },
+    {
+      "step_id": 145,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "each clove fully peeled, not partially peeled",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM call at completion to check for residual skin"
+    },
+    {
+      "step_id": 140,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is mincing peeled garlic with a knife",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "rapid chopping optical-flow on board ROI after 145 done -> 1 VLM call to confirm mincing"
+    },
+    {
+      "step_id": 140,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "garlic minced; inferred when heat-oil (154) is recognized (DAG reconvergence)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 140->154: when 154 recognized, both 140 and 150 are marked complete"
+    },
+    {
+      "step_id": 140,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "garlic minced (fine pieces) not sliced or crushed",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM call at completion to inspect piece size and cutting style"
+    },
+    {
+      "step_id": 140,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "all 4 garlic cloves minced, not just some",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM periodic to check all peeled cloves are in the minced pile"
+    },
+    {
+      "step_id": 149,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user picks up a tomato (concurrent root with 145)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "hand-reaches-produce optical-flow -> 1 VLM call to confirm tomato grabbed vs garlic context"
+    },
+    {
+      "step_id": 149,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tomato in hand; inferred when chop-tomato (155) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 149->155: when 155 recognized, 149 complete"
+    },
+    {
+      "step_id": 149,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "exactly 1 tomato taken, not 2",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low",
+      "config_oneline": "VLM call at B-trigger grab event to count tomatoes in hand"
+    },
+    {
+      "step_id": 149,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "tomato is clean (not soiled/unwashed)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at pick-up trigger to check surface cleanliness"
+    },
+    {
+      "step_id": 155,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is roughly chopping tomato on board",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "chopping optical-flow on board ROI -> 1 VLM call to confirm tomato chopping"
+    },
+    {
+      "step_id": 155,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tomato chopped; inferred when blender starts (D2 motor_on marks 150 recognition)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 155->150: D2 motor_on fires for 150 recognition, marking 155 complete"
+    },
+    {
+      "step_id": 155,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "rough chunks produced, not sliced or crushed",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at completion trigger to inspect chunk shape and size"
+    },
+    {
+      "step_id": 150,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is blending tomato in blender/mixer",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D2 motor_on: blender motor loud and distinctive; gate=blender step present; camera can sleep"
+    },
+    {
+      "step_id": 150,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "blending done (motor off)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D2 motor_off: authoritative end of blending cycle; camera can sleep entire blender stage"
+    },
+    {
+      "step_id": 150,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "no water added to blender before pureeing",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium",
+      "config_oneline": "D2 motor_off fires 1 VLM call on blender contents to check for water/liquid presence"
+    },
+    {
+      "step_id": 150,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "tomato blended smooth without water, no chunks",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "D2 motor_off -> 1 VLM call on blender jar ROI to inspect smoothness (piggybacks on completion VLM)"
+    },
+    {
+      "step_id": 150,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "pureeing run long enough for smooth result",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium",
+      "config_oneline": "D2 motor_off -> VLM call checks smoothness; D2 duration tracked but no explicit threshold in recipe so visual confirm needed"
+    },
+    {
+      "step_id": 154,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is adding oil to pan and heating on stove (DAG reconvergence point)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "hand-over-pan or knob-turn motion -> 1 VLM call to confirm oil added and heat on; thermal-spot could independently confirm heat rising"
+    },
+    {
+      "step_id": 154,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "oil hot in pan; inferred when mustard/cumin add (139 or 141) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edges 154->139, 154->141: when either spice add recognized, 154 marked complete"
+    },
+    {
+      "step_id": 154,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "3 tbsp oil used (not 2/4/5 tbsp or wrong unit)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low",
+      "config_oneline": "VLM call at pour event to estimate oil volume; no cheap volume sensor; pour audio excluded from library"
+    },
+    {
+      "step_id": 154,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "medium heat not low or high",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "VLM on knob area to read dial position; thermal-spot on pan base speculative cheapener for heat confirmation"
+    },
+    {
+      "step_id": 154,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "oil poured cleanly without spill",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at pour event to check for spills on stove or counter"
+    },
+    {
+      "step_id": 139,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is adding mustard seeds to hot pan (concurrent with 141)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "hand-with-spoon over pan ROI -> 1 VLM call to confirm mustard seeds (not cumin) being added"
+    },
+    {
+      "step_id": 139,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "mustard added; inferred when garlic-add (152) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 139->152: when 152 recognized (after both spice adds + sizzle), 139 marked complete"
+    },
+    {
+      "step_id": 139,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 tsp mustard used, not more or wrong unit",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at spoon-over-pan event to inspect spoon fill level"
+    },
+    {
+      "step_id": 139,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "mustard seeds added, not wrong spice (e.g. red chili flakes)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at add event to identify ingredient by color/texture/container label"
+    },
+    {
+      "step_id": 139,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "mustard added cleanly, no spill out of pan",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at add event to check spill on stove surface"
+    },
+    {
+      "step_id": 141,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is adding cumin seeds to hot pan (concurrent with 139)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "hand-with-spoon over pan ROI -> 1 VLM call to confirm cumin (not mustard) being added"
+    },
+    {
+      "step_id": 141,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "cumin added; inferred when garlic-add (152) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 141->152: same as 139, both spice adds resolved when 152 fires"
+    },
+    {
+      "step_id": 141,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/2 tsp cumin seeds, not a different amount",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at spoon-over-pan event to inspect spoon fill level"
+    },
+    {
+      "step_id": 141,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "cumin seeds go cleanly into pan, no spill",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at add event to check for spilled seeds on stove"
+    },
+    {
+      "step_id": 152,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is adding minced garlic when seeds begin to sizzle",
+      "modality": "audio",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D4 cook_start_candidate fires on seed sizzle onset -> 1 VLM call to confirm garlic being added to sizzling pan"
+    },
+    {
+      "step_id": 152,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "garlic added to pan; inferred when lower-heat (151) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 152->151: when 151 recognized, 152 marked complete"
+    },
+    {
+      "step_id": 152,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "garlic added at sizzle onset, not too late (seeds burnt) or too early",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D4 detects sizzle onset; D6 flags if garlic add lags sizzle onset beyond tolerance window; no VLM needed for timing check"
+    },
+    {
+      "step_id": 152,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "seeds not overheated or burnt before garlic added",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "low",
+      "config_oneline": "VLM at D4 trigger to inspect seed color for burning; thermal-spot speculative for pan-temp overrun"
+    },
+    {
+      "step_id": 152,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "garlic added cleanly into pan, no spill",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at D4-triggered call to check for garlic spill on stove"
+    },
+    {
+      "step_id": 151,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is turning stove dial down to lower heat",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "hand-at-knob ROI motion -> 1 VLM call to confirm dial turned lower (not off or higher)"
+    },
+    {
+      "step_id": 151,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "heat lowered; inferred when saute-garlic (148) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 151->148: when 148 recognized, 151 marked complete"
+    },
+    {
+      "step_id": 151,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "heat actually lowered, not raised or turned off",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "low-res-ROI on knob position to detect direction of turn -> VLM confirm; thermal-spot on burner speculative (temperature drop observable)"
+    },
+    {
+      "step_id": 148,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is sauteing minced garlic in pan over lowered heat",
+      "modality": "audio",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium",
+      "config_oneline": "D4 ongoing sizzle after step 152 (garlic added) -> 1 VLM call to confirm saute underway; D4 is trigger not settle since saute can be quiet"
+    },
+    {
+      "step_id": 148,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "garlic sauteed 2-3 min (~180s) and fragrant/golden",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 timer anchored on 152 completion: fires overtime/undertime at 180s; D3 cook_end also crosschecks if saute stops early"
+    },
+    {
+      "step_id": 148,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "saute 2-3 minutes (~180s), not too short or too long",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 pure-logic timer from saute anchor: emits undertime/overtime flags; no vision needed"
+    },
+    {
+      "step_id": 147,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is adding red chili powder to pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "hand-with-spoon over pan -> 1 VLM call to identify red chili powder (red color distinctive but VLM needed for identity)"
+    },
+    {
+      "step_id": 147,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "red chili powder added; inferred when mix-pan (157) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 147->157: when 157 recognized, 147 complete"
+    },
+    {
+      "step_id": 147,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "2 tbsp red chili powder, not more or less",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low",
+      "config_oneline": "VLM at add event to estimate spoon count; 2 tbsp requires counting scoops"
+    },
+    {
+      "step_id": 157,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is stirring pan contents to mix well",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "stirring/circular-hand-motion in pan ROI -> 1 VLM call to confirm mixing (not adding anything)"
+    },
+    {
+      "step_id": 157,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "pan contents well mixed; inferred when tomato-puree add (142) or salt (146) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edges 157->142, 157->146: when either next-step recognized, 157 complete"
+    },
+    {
+      "step_id": 142,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is pouring tomato puree into pan (concurrent with 146)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "pour/tilt-container motion over pan ROI -> 1 VLM call to confirm puree (red liquid) vs salt context"
+    },
+    {
+      "step_id": 142,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "puree added; inferred when mix-puree (144) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 142->144: when 144 recognized (both 142+146 done), 142 complete"
+    },
+    {
+      "step_id": 142,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "puree poured cleanly into pan, no spill",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at pour trigger to check stove surface for spilled puree"
+    },
+    {
+      "step_id": 146,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is adding salt to pan (concurrent with 142)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "hand-with-spoon over pan ROI -> 1 VLM call to confirm salt (not puree) being added"
+    },
+    {
+      "step_id": 146,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "salt added; inferred when mix-puree (144) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 146->144: when 144 recognized, 146 complete"
+    },
+    {
+      "step_id": 146,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/2 tsp salt, not 1 tsp or 1/2 cup",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at add event to inspect spoon size and fill; tiny amount hard to measure without VLM"
+    },
+    {
+      "step_id": 146,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "salt measured with spoon, not added freehand",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM to check whether a measuring spoon is in hand vs freehand pouring from container"
+    },
+    {
+      "step_id": 144,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is stirring to mix tomato puree with pan contents",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "stirring motion in pan ROI after puree add context -> 1 VLM call to confirm mixing action"
+    },
+    {
+      "step_id": 144,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "puree well mixed; inferred when simmer (153) is recognized",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG edge 144->153: when 153 recognized, 144 complete"
+    },
+    {
+      "step_id": 144,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "mixing done cleanly, no spill out of pan",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at completion to check stove surface for spilled contents"
+    },
+    {
+      "step_id": 144,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "tomatoes cooked/combined adequately, not left effectively uncooked",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM periodic during mixing to assess visual integration of puree; no acoustic or timing anchor available"
+    },
+    {
+      "step_id": 153,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "mixture is simmering in pan over low heat",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "low-heat simmer has no sharp acoustic onset (not a D4 sizzle event); VLM periodic to confirm simmer state; thermal-spot could confirm heat active"
+    },
+    {
+      "step_id": 153,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "mixture simmered ~5 min (~300s) until thick",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 timer anchored on 144 completion: fires at 300s; thickening visual check optional VLM call at timer"
+    },
+    {
+      "step_id": 153,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "simmer ~5 minutes (~300s), not 1-2 min short",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 pure-logic timer from 144 completion anchor: undertime/overtime flags at 300s"
+    },
+    {
+      "step_id": 153,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "simmer over low heat, not high heat",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "VLM on knob to confirm low-heat dial position; thermal-spot speculative cheapener for burner output level"
+    },
+    {
+      "step_id": 143,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user takes pan off heat / turns off stove",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D3 cook_end: frying/simmer sound stops; cook_end event at ~2s latency marks stove-off/pan-removed"
+    },
+    {
+      "step_id": 143,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "pan off heat / stove off (observable end-state)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D3 cook_end is the event itself; pan-off is coincident with cook sound cessation; camera sleeps"
+    },
+    {
+      "step_id": 156,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is transferring chutney from pan to serving bowl (terminal step)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "pour/scrape motion from pan toward new vessel -> 1 VLM call to confirm transfer to bowl"
+    },
+    {
+      "step_id": 156,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "chutney plated in serving bowl (observable end-state)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "motion-stop + bowl-present in frame -> 1 VLM call to confirm transfer complete; low-res bowl-ROI sufficient"
+    },
+    {
+      "step_id": 156,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "chutney transferred cleanly, no spill while pouring",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at transfer trigger to check for spilled chutney on surface"
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 145,
+        "stage": "garlic-prep-A (root)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 149,
+        "stage": "tomato-prep-A (root, concurrent)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 140,
+        "stage": "garlic-prep-B (mince)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 155,
+        "stage": "tomato-prep-B (chop)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 150,
+        "stage": "blender-puree",
+        "camera": "OFF",
+        "audio": "D2 motor_on/off",
+        "vlm": "1 call at D2 motor_off (smoothness check)",
+        "role": "A-solve (recog+completion); B-trigger (3 checks at motor_off)"
+      },
+      {
+        "step_id": 154,
+        "stage": "heat-oil (reconvergence)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 139,
+        "stage": "add-mustard (concurrent with 141)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 141,
+        "stage": "add-cumin (concurrent with 139)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 152,
+        "stage": "add-garlic-at-sizzle",
+        "camera": "on-B-trigger",
+        "audio": "D4 cook_start_candidate",
+        "vlm": "1 call at D4 sizzle trigger",
+        "role": "B-trigger (recog); A-solve (timing check via D4+D6)"
+      },
+      {
+        "step_id": 151,
+        "stage": "lower-heat",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at knob-motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 148,
+        "stage": "saute-garlic-180s",
+        "camera": "off (D6 timer guards)",
+        "audio": "D6 timer + D3 cook_end",
+        "vlm": "0 calls (pure timer; D3 crosscheck)",
+        "role": "A-solve (completion + timing check)"
+      },
+      {
+        "step_id": 147,
+        "stage": "add-chili-powder",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 157,
+        "stage": "mix-pan",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at stir-motion trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 142,
+        "stage": "add-tomato-puree (concurrent with 146)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at pour trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 146,
+        "stage": "add-salt (concurrent with 142)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at spoon-over-pan trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 144,
+        "stage": "mix-puree-with-pan",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1 call at stir trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 153,
+        "stage": "simmer-300s",
+        "camera": "OFF (D6 timer guards; periodic VLM for recognition only)",
+        "audio": "D6 timer + D3 cook_end crosscheck",
+        "vlm": "periodic for recognition; 0 calls for timing (D6)",
+        "role": "C-none (recognition); A-solve (completion + timing check)"
+      },
+      {
+        "step_id": 143,
+        "stage": "pan-off-heat",
+        "camera": "OFF",
+        "audio": "D3 cook_end",
+        "vlm": "0 calls",
+        "role": "A-solve"
+      },
+      {
+        "step_id": 156,
+        "stage": "transfer-to-bowl (terminal)",
+        "camera": "on-B-trigger",
+        "audio": "none",
+        "vlm": "1-2 calls at pour+completion",
+        "role": "B-trigger"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 29,
+      "B-trigger": 30,
+      "C-none": 12
+    },
+    "cost_estimate": "Blender stage (150) + saute stage (148) + simmer stage (153) + pan-off (143): camera fully OFF for 4 steps. All other steps fire at most 1 targeted VLM call at a cheap-sensor trigger event. 12 C-none claims require periodic VLM; most are fine-quality checks (spills, ingredient identity, counts) that fire at step-entry rather than continuously. Estimated VLM calls vs always-on baseline: ~85% reduction on the cook-chain steps with audio anchors; ~50-60% reduction overall given the large silent-prep chain. Assumption: 1 VLM call per B-trigger event costs ~100ms GPU at 1fps baseline; A-solve steps cost 0 VLM calls.",
+    "honest_limits": "C-none slice (12 claims, 17% of all): predominantly fine-measurement checks (counts, volumes like 3tbsp oil / 1 tsp amounts), ingredient identity (mustard vs cumin), technique quality (no spills, fully peeled), and simmer-recognition. These CANNOT be cheapened below periodic VLM. Step 153 recognition is also C-none because low-heat simmer has no acoustic onset (gentle, not D4 territory). The timing check for step 150 (blending long enough) is classified B-trigger since the duration threshold is unspecified in the recipe and smoothness is visual. Thermal-spot speculative candidates (steps 154, 152, 153, 151) are medium-feasibility hypotheses -- they could reduce 3-4 C-none temperature checks to A-solve but require hardware not yet deployed. IMU candidates for stirring (steps 157, 144) are low-feasibility since fine mixing technique still needs visual confirmation."
+  }
+}

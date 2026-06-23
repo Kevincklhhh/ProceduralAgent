@@ -1,0 +1,308 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/buttercorncup.reminders.json) -- one per observed subtype -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG has two parallel roots (129 measure corn, 131 extract lime juice); steps 130 and 138 form an unordered fork (both require only step 133); steps 128 and 136 form a second unordered fork (both require only step 134, with 128 also requiring 131); terminal node 76 requires both 128 and 136.",
+  "task": {
+    "task_id": "buttercorncup",
+    "title": "Buttercorncup",
+    "source": "tasks/cc4d/buttercorncup.json"
+  },
+  "nodes": [
+    {
+      "step_id": 129,
+      "instruction": "Measure 2 cups of frozen corn",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (no preconditions); active from the start of the recipe. One of two concurrently-eligible roots (129 measure corn, 131 extract lime juice) with no order imposed between them; recognition must say which is active now. The user is measuring frozen corn into a measuring cup."
+      },
+      "completion": {
+        "claim": "Two cups of frozen corn have been measured; no distinct end signal of its own, inferred from the thaw step beginning.",
+        "inferred_from": 137
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 2 cups of frozen corn; flag if a different amount is measured (e.g., 1 cup or 3 cups instead of 2)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects corn to be transferred cleanly; flag if corn is spilled while measuring or while adding it to the sieve."
+        }
+      ]
+    },
+    {
+      "step_id": 131,
+      "instruction": "Extract lime juice from 1/3 lime",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (no preconditions); active from the start of the recipe. One of two concurrently-eligible roots (129 measure corn, 131 extract lime juice) with no order imposed between them; recognition must say which is active now. The user is squeezing juice from approximately 1/3 of a lime into a separate container."
+      },
+      "completion": {
+        "claim": "Lime juice has been extracted from about a third of a lime; no distinct end signal of its own, inferred from the lime juice being added to the bowl (step 128 begins).",
+        "inferred_from": 128
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects lime juice to be extracted without spillage; flag if juice spills during the extraction process."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies extracting lime juice as a separate step before adding it to the bowl later; flag if the extraction and bowl addition are combined into a single action (e.g., juicing the lime directly into the corn bowl)."
+        }
+      ]
+    },
+    {
+      "step_id": 137,
+      "instruction": "Thaw the frozen corn by putting it in a sieve and running it under cold water",
+      "preconditions": [
+        129
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is placing the measured frozen corn into a sieve and running cold water over it to thaw it."
+      },
+      "completion": {
+        "claim": "The corn has been thawed under cold running water; no distinct end signal of its own, inferred from the corn being transferred into the microwave-safe bowl (step 132 begins).",
+        "inferred_from": 132
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects corn to remain in the sieve during rinsing; flag if corn spills into the sink or out of the sieve while thawing or rinsing."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe specifies cold water to thaw the corn; flag if hot or warm water is used instead."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies using a sieve for the thawing step; flag if the sieve is not used (e.g., a cup with a hand as lid is used instead)."
+        }
+      ]
+    },
+    {
+      "step_id": 132,
+      "instruction": "Add the corn into a microwave-safe bowl",
+      "preconditions": [
+        137
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is transferring the thawed corn from the sieve into a microwave-safe bowl."
+      },
+      "completion": {
+        "claim": "The corn is in the microwave-safe bowl; no distinct end signal of its own, inferred from the microwave being started (step 133 begins).",
+        "inferred_from": 133
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects corn to be transferred cleanly into the bowl; flag if corn spills during the transfer from sieve to bowl."
+        }
+      ]
+    },
+    {
+      "step_id": 133,
+      "instruction": "Microwave the corn for 2 minutes",
+      "preconditions": [
+        132
+      ],
+      "duration_constraint_s": 120,
+      "recognition": {
+        "claim": "The user has placed the corn-filled bowl in the microwave and the microwave is running for the first cook."
+      },
+      "completion": {
+        "claim": "The microwave finishes and stops after 2 minutes; this step ends with its own observable event (the microwave timer completing or the beep).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for 2 minutes (120 seconds) of microwave time; flag if the corn is microwaved for a noticeably different duration (e.g., only 30 seconds, 1.5 minutes, or over 3 minutes)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe implies safe food-handling when removing a hot bowl from the microwave; flag if the bowl is removed without appropriate hand protection (e.g., no oven gloves used)."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe expects the microwave to run at its standard (high) power setting; flag if a low power level is selected instead."
+        }
+      ]
+    },
+    {
+      "step_id": 130,
+      "instruction": "1 teaspoon of pepper powder to the bowl",
+      "preconditions": [
+        133
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (steps 130 and 138 both require only step 133); recognition must say which is active now. The user is adding pepper powder to the corn bowl."
+      },
+      "completion": {
+        "claim": "One teaspoon of pepper powder has been added to the bowl; no distinct end signal of its own, inferred from the stir step beginning (step 135 begins).",
+        "inferred_from": 135
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects pepper powder to be added without spillage; flag if pepper spills into the corn bowl during measuring or adding, potentially introducing an excess amount."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for pepper powder specifically; flag if a different spice is used instead (e.g., oregano substituted for pepper powder)."
+        }
+      ]
+    },
+    {
+      "step_id": 138,
+      "instruction": "Add 1 teaspoon of softened butter",
+      "preconditions": [
+        133
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (steps 138 and 130 both require only step 133); recognition must say which is active now. The user is adding butter to the corn bowl."
+      },
+      "completion": {
+        "claim": "One teaspoon of softened butter has been added to the bowl; no distinct end signal of its own, inferred from the stir step beginning (step 135 begins).",
+        "inferred_from": 135
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for plain softened butter; flag if a different fat or butter type is used (e.g., garlic butter, vegetable oil, or unsoftened/cold butter), or if hands are used to add it instead of a utensil."
+        }
+      ]
+    },
+    {
+      "step_id": 135,
+      "instruction": "then stir the bowl",
+      "preconditions": [
+        130,
+        138
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is stirring the contents of the bowl after pepper powder and butter have been added."
+      },
+      "completion": {
+        "claim": "The bowl contents have been stirred and combined; no distinct end signal of its own, inferred from the second microwave run beginning (step 134 begins).",
+        "inferred_from": 134
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for stirring the bowl thoroughly; flag if stirring is clearly insufficient (e.g., only a few passes) or if contents spill out of the bowl during stirring."
+        }
+      ]
+    },
+    {
+      "step_id": 134,
+      "instruction": "Microwave the corn for 3 more minutes",
+      "preconditions": [
+        135
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user has placed the bowl back in the microwave and the microwave is running for the second cook."
+      },
+      "completion": {
+        "claim": "The microwave finishes and stops after 3 minutes; this step ends with its own observable event (the microwave timer completing or the beep).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for 3 more minutes of microwave time; flag if the corn is microwaved for a noticeably different duration (e.g., stopped after only 2 minutes instead of 3)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects the corn to remain in the bowl during and after the second microwave run; flag if corn is spilled when removing the bowl from the microwave."
+        }
+      ]
+    },
+    {
+      "step_id": 128,
+      "instruction": "add lime juice to the bowl",
+      "preconditions": [
+        131,
+        134
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (steps 128 and 136 both require step 134, with 128 also requiring step 131); recognition must say which is active now. The user is pouring the previously extracted lime juice into the corn bowl."
+      },
+      "completion": {
+        "claim": "The lime juice has been added to the bowl; no distinct end signal of its own, inferred from the final mix step beginning (step 76 begins).",
+        "inferred_from": 76
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects lime juice to be added to the bowl without spillage; flag if lime juice spills during the addition."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies adding the separately-extracted lime juice as a distinct step; flag if the lime juice extraction and bowl addition were already performed as a single combined action (making this step redundant or already-executed)."
+        }
+      ]
+    },
+    {
+      "step_id": 136,
+      "instruction": "Add 1 teaspoon salt to the bowl",
+      "preconditions": [
+        134
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (steps 136 and 128 both require only step 134); recognition must say which is active now. The user is adding salt to the corn bowl."
+      },
+      "completion": {
+        "claim": "One teaspoon of salt has been added to the bowl; no distinct end signal of its own, inferred from the final mix step beginning (step 76 begins).",
+        "inferred_from": 76
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for salt specifically; flag if a different ingredient is added instead (e.g., sugar used in place of salt)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects salt to be added cleanly to the bowl; flag if salt spills during the addition."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 teaspoon of salt; flag if a visibly different quantity is added (e.g., 1.5 teaspoons)."
+        }
+      ]
+    },
+    {
+      "step_id": 76,
+      "instruction": "Mix the contents of the bowl well",
+      "preconditions": [
+        128,
+        136
+      ],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is mixing all the ingredients in the bowl together after lime juice and salt have been added."
+      },
+      "completion": {
+        "claim": "The contents of the bowl are thoroughly mixed and the dish is complete; this is the terminal step ending with its own observable end-state (well-mixed contents, user stops stirring).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for mixing the bowl contents well; flag if mixing is clearly insufficient (e.g., only brief mixing, no circular motion, or contents spill during mixing)."
+        }
+      ]
+    }
+  ]
+}

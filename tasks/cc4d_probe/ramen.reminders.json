@@ -1,0 +1,513 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "ramen",
+ "activity_id": 4,
+ "n_recordings": 17,
+ "n_error_recordings": 7,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 44,
+   "order": 1,
+   "instruction": "Remove the noodles from the package(Break Noodles / Keep them as a block)",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Throw the noodles block while opening from the package"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Also break the noodles into 2 pieces"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 47,
+   "order": 2,
+   "instruction": "Peel 1 medium onion",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Did not peel completely",
+      "Do not peel onion"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Do not peel the onion"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 46,
+   "order": 3,
+   "instruction": "slice 1/4 medium onion into pieces",
+   "duration_constraint_s": null,
+   "preconditions": [
+    47
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "chop onion instead of slice",
+      "Chopping the 1/4 onion instead of slicing.",
+      "Chop instead of slice"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Slice 1 onion instead of 1/4th onion"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Missed this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 14,
+   "order": 4,
+   "instruction": "Peel 1 garlic clove",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Peel 2 garlic cloves",
+      "Peeling two garlic cloves instead of one.",
+      "Peel 2 instead of 1 garlic clove"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Peeled improperly",
+      "Peel garlic clove incompletely"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 51,
+   "order": 5,
+   "instruction": "Chop 1 garlic clove on a cutting board",
+   "duration_constraint_s": null,
+   "preconditions": [
+    14
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "slice garlic clove instead of chopping"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 54,
+   "order": 6,
+   "instruction": "Put all the Vegetables in a microwave-safe bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    46,
+    51
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding cilantro",
+      "Step performed before slicing the onions",
+      "Step performed after adding noodles to the bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spilling some vegetables on the counter top."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 52,
+   "order": 7,
+   "instruction": "Add the noodles to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    44,
+    54
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding cilantro",
+      "Step performed after adding basil to the bowl",
+      "Step performed before adding vegetables to the bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 55,
+   "order": 8,
+   "instruction": "cover the noodles with water",
+   "duration_constraint_s": null,
+   "preconditions": [
+    52
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "the water does not cover the noodles, half cover",
+      "Using a plate instead of bowl"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after microwaving and adding vegetables",
+      "Step performed before adding noodles to the bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add a little amount that does not cover the noodles with water"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 49,
+   "order": 9,
+   "instruction": "Cover with a lid (or paper towel) to prevent splattering",
+   "duration_constraint_s": null,
+   "preconditions": [
+    55
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Missed this step",
+      "Did not cover the lid with a paper towel"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding cilantro and before adding water",
+      "Step performed before adding noodles to the bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Not covering the paper towel properly."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 45,
+   "order": 10,
+   "instruction": "Microwave the ramen for 4 minutes",
+   "duration_constraint_s": 240,
+   "preconditions": [
+    49
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 5,
+     "descriptions": [
+      "Microwave for 16 seconds",
+      "Microwave for 2 min instead of 4 min",
+      "Microwave for 1 min instead of 4 min",
+      "Instead of 4 minute microwaving only for two and half minutes.",
+      "1 instead of 4 minutes",
+      "Microwave for 3 mins instead of 4 mins"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding cilantro and before adding water",
+      "Step performed after adding basil to the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using non-microwaveable things and using things which does not fit into microwave"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 48,
+   "order": 11,
+   "instruction": "Let the noodles sit for about 1 minute after the microwave stops",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    45
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Let the noodles sit for 2 minutes instead of 1 minute",
+      "Allowing it to sit only for 1/2 minute instead of 1 minute.",
+      "30 seconds instead of 1 minute",
+      "Let the noodles sit for 30 secs instead of 1 min"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding cilantro and before adding water",
+      "Step performed before adding cilantro"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 50,
+   "order": 12,
+   "instruction": "Add basil to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    45
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Missed this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding water to the bowl",
+      "Step performed before adding water and microwaving the bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 53,
+   "order": 13,
+   "instruction": "Add chopped cilantro to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    45
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding vegetables and microwaving the noodles",
+      "Step performed after letting the noodles sit"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add fresh cilantro to the bowl without chopping"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 42,
+   "order": 14,
+   "instruction": "Mix in the flavour packet to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    48,
+    50,
+    53
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "While mixing the flavour packet and spilled some out of the bowl."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Missed this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 43,
+   "order": 15,
+   "instruction": "Stir noodles with a spoon or fork until the flavouring dissolves",
+   "duration_constraint_s": null,
+   "preconditions": [
+    42
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Water spilled outside when mixing the flavour",
+      "Stir it faster such that water spills out of the bowl",
+      "Stir fast to spill the water out of the bowl",
+      "Stir improperly such that flavouring does not dissolve"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,361 @@
+{
+ "schema_version": "2.0",
+ "artifact_type": "procedure_criteria",
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/blenderbananapancakes.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG: five roots (221/225/229/232 ingredient adds + 233 chop strawberry) reconverge at 227 (blitz), then a linear cook chain 223->231->226->228->230->234, with 222 (serve) joining 233+234 and 224 (syrup) terminal.",
+ "task": {
+  "task_id": "blenderbananapancakes",
+  "title": "Blenderbananapancakes",
+  "source": "tasks/cc4d/blenderbananapancakes.json"
+ },
+ "nodes": [
+  {
+   "step_id": 221,
+   "instruction": "1/2 tsp baking powder to a blender",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is adding baking powder into the blender. This is a root step (no preconditions), one of five concurrently-eligible starting steps (221, 225, 229, 232, 233); recognition must say which is active now, with no order imposed among them."
+   },
+   "completion": {
+    "claim": "The baking powder has been deposited in the blender; this add has no distinct end signal of its own, so it is inferred over once a later step in the fork begins -- earliest direct successor is the blitz step.",
+    "inferred_from": 227
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 1/2 tsp of baking powder; flag a different amount or the wrong measuring spoon (e.g. a tablespoon instead of a teaspoon)."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The powder should go cleanly into the blender; flag spilling it onto hands or outside the blender."
+    }
+   ]
+  },
+  {
+   "step_id": 225,
+   "instruction": "Add 1 banana to a blender",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is adding a banana into the blender. This is a root step (no preconditions), one of five concurrently-eligible starting steps (221, 225, 229, 232, 233); recognition must say which is active now, with no order imposed among them."
+   },
+   "completion": {
+    "claim": "The banana has been placed in the blender; this add has no distinct end signal of its own, so it is inferred over once a later step in the fork begins -- earliest direct successor is the blitz step.",
+    "inferred_from": 227
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 1 whole banana; flag a different quantity (e.g. only half a banana)."
+    }
+   ]
+  },
+  {
+   "step_id": 229,
+   "instruction": "1 egg to a blender",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is adding an egg into the blender. This is a root step (no preconditions), one of five concurrently-eligible starting steps (221, 225, 229, 232, 233); recognition must say which is active now, with no order imposed among them."
+   },
+   "completion": {
+    "claim": "The egg has been added to the blender; this add has no distinct end signal of its own, so it is inferred over once a later step in the fork begins -- earliest direct successor is the blitz step.",
+    "inferred_from": 227
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 1 egg; flag a different number of eggs (e.g. two)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The egg should be clean and intact; flag using a soiled or already-broken egg."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The egg should be cracked cleanly into the blender; flag dropping eggshell into the blender or spilling while adding the egg."
+    }
+   ]
+  },
+  {
+   "step_id": 232,
+   "instruction": "1 heaped tbsp flour to a blender",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is adding flour into the blender. This is a root step (no preconditions), one of five concurrently-eligible starting steps (221, 225, 229, 232, 233); recognition must say which is active now, with no order imposed among them."
+   },
+   "completion": {
+    "claim": "The flour has been added to the blender; this add has no distinct end signal of its own, so it is inferred over once a later step in the fork begins -- earliest direct successor is the blitz step.",
+    "inferred_from": 227
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 1 heaped tbsp of flour; flag a flattened or level tablespoon, or otherwise the wrong amount."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The flour should go cleanly into the blender; flag spilling or dropping flour outside the blender while adding it."
+    }
+   ]
+  },
+  {
+   "step_id": 227,
+   "instruction": "blitz the blender for 20 seconds",
+   "preconditions": [
+    221,
+    225,
+    229,
+    232
+   ],
+   "duration_constraint_s": 20,
+   "recognition": {
+    "claim": "The user is running the blender to blitz the batter; the blender is on and the contents are being blended."
+   },
+   "completion": {
+    "claim": "The blender stops after blitzing -- this is the step's own observable end event (the appliance turning off).",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "timing",
+     "claim": "The recipe calls for about 20 seconds of blitzing; flag running noticeably longer (e.g. 25-40 seconds)."
+    }
+   ]
+  },
+  {
+   "step_id": 223,
+   "instruction": "Melt a small knob of butter in a non-stick frying pan over low-medium heat",
+   "preconditions": [
+    227
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is melting butter in a frying pan on the stove; a knob of butter is in the pan over heat."
+   },
+   "completion": {
+    "claim": "The butter has melted in the pan; melting just continues until the next step and has no distinct end signal of its own, so completion is inferred from the next direct successor (the pour step) beginning.",
+    "inferred_from": 231
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for a small knob of butter; flag using a noticeably larger amount (e.g. a tablespoon or spoonful)."
+    },
+    {
+     "reminder": "temperature",
+     "claim": "The recipe calls for low-medium heat; flag using high (or otherwise too-high) heat."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for a non-stick frying pan; flag using a different pan (e.g. a steel pan)."
+    }
+   ]
+  },
+  {
+   "step_id": 231,
+   "instruction": "Pour three little puddles straight from the blender into the frying pan",
+   "preconditions": [
+    223
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is pouring batter from the blender into the frying pan to form pancakes."
+   },
+   "completion": {
+    "claim": "The batter has been poured into the pan; pouring just stops with no distinct end signal of its own, so completion is inferred from the next direct successor (the cook step) beginning.",
+    "inferred_from": 226
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for three little puddles; flag pouring one large puddle or the wrong number of puddles."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for pouring into a proper frying pan; flag using an inappropriate pan."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The batter should be poured straight from the blender; flag spooning the batter into the pan instead of pouring."
+    }
+   ]
+  },
+  {
+   "step_id": 226,
+   "instruction": "Cook for 1 min or until the tops start to bubble",
+   "preconditions": [
+    231
+   ],
+   "duration_constraint_s": 60,
+   "recognition": {
+    "claim": "The pancakes are cooking in the pan on the stove; the user is waiting for the tops to start bubbling."
+   },
+   "completion": {
+    "claim": "The pancake tops start to bubble after about a minute -- this is the step's own observable end state.",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "timing",
+     "claim": "The recipe calls for about 1 minute (or until the tops bubble); flag cooking noticeably too long or too short (e.g. 2 minutes, or not cooking to the bubbling state)."
+    },
+    {
+     "reminder": "temperature",
+     "claim": "[probe-added] The pancakes should cook at the established low-medium heat; flag cooking on high heat."
+    }
+   ]
+  },
+  {
+   "step_id": 228,
+   "instruction": "Flip the pancakes with a fork or a fish slice spatula",
+   "preconditions": [
+    226
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is flipping the pancakes in the pan using a utensil."
+   },
+   "completion": {
+    "claim": "The pancakes have been turned over in the pan -- the flip is a discrete action with its own observable end state.",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for a fork or a fish slice spatula; flag flipping without an appropriate utensil."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] Each whole pancake should be flipped cleanly inside the pan; flag flipping only part of a pancake or flipping it outside the pan."
+    }
+   ]
+  },
+  {
+   "step_id": 230,
+   "instruction": "cook for 20-30 seconds more",
+   "preconditions": [
+    228
+   ],
+   "duration_constraint_s": 30,
+   "recognition": {
+    "claim": "The pancakes are cooking on the second side for a short additional time."
+   },
+   "completion": {
+    "claim": "The pancakes finish cooking the second side; this short cook just continues until stopped and has no distinct end signal of its own, so completion is inferred from the next direct successor (the transfer step) beginning.",
+    "inferred_from": 234
+   },
+   "checks": [
+    {
+     "reminder": "timing",
+     "claim": "The recipe calls for 20-30 seconds more; flag cooking noticeably too short or too long (e.g. 10 seconds, or well over 30 seconds)."
+    },
+    {
+     "reminder": "temperature",
+     "claim": "[probe-added] The pancakes should cook at the established low-medium heat; flag cooking on high heat."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "[probe-added] The stove should be turned off once this short cook is done; flag leaving the stove on after the cook."
+    }
+   ]
+  },
+  {
+   "step_id": 233,
+   "instruction": "Chop 1 strawberry",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is chopping a strawberry. This is a root step (no preconditions), one of five concurrently-eligible starting steps (221, 225, 229, 232, 233); recognition must say which is active now, with no order imposed among them."
+   },
+   "completion": {
+    "claim": "The strawberry has been chopped -- chopping is a discrete prep action with its own observable end state (the chopped strawberry).",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 1 strawberry; flag chopping a different number (e.g. two)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The strawberry should be clean; flag using a soiled strawberry."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The strawberry should be chopped with a knife; flag tearing it by hand, or slicing/mincing/cutting instead of chopping."
+    }
+   ]
+  },
+  {
+   "step_id": 234,
+   "instruction": "Transfer to a plate",
+   "preconditions": [
+    230
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is transferring the cooked pancakes onto a plate."
+   },
+   "completion": {
+    "claim": "The pancakes are on the plate -- the transfer is a discrete action with its own observable end state.",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for transferring to a plate; flag using a different vessel (e.g. a bowl)."
+    }
+   ]
+  },
+  {
+   "step_id": 222,
+   "instruction": "Serve the pancakes with chopped strawberries",
+   "preconditions": [
+    233,
+    234
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is serving the pancakes, adding the chopped strawberries to the plate."
+   },
+   "completion": {
+    "claim": "The chopped strawberries have been added to the plated pancakes; this add just stops with no distinct end signal of its own, so completion is inferred from the next direct successor (the maple syrup step) beginning.",
+    "inferred_from": 224
+   },
+   "checks": [
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] All the chopped strawberries should be added cleanly to the plate; flag spilling them or adding only some of them."
+    }
+   ]
+  },
+  {
+   "step_id": 224,
+   "instruction": "splash maple syrup on plate",
+   "preconditions": [
+    222
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is splashing maple syrup onto the plated pancakes. This is the terminal step of the recipe."
+   },
+   "completion": {
+    "claim": "Maple syrup has been splashed onto the plate; this is the final step, so there is no successor to infer from -- completion is when the user finishes adding the syrup.",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for maple syrup; flag using a different condiment (e.g. sriracha sauce)."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The syrup should be splashed cleanly onto the plate; flag spilling/dropping it, or pouring it instead of splashing."
+    }
+   ]
+  }
+ ]
+}

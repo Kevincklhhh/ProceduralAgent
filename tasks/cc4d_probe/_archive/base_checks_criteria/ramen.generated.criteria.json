@@ -1,0 +1,187 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/ramen.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG: two prep chains (onion 47->46, garlic 14->51) plus a noodle root (44) merge at 54->52->55->49->45; after the microwave (45) three adds fork unordered (48 sit, 50 basil, 53 cilantro) and reconverge at 42->43.",
+  "task": {
+    "task_id": "ramen",
+    "title": "Ramen",
+    "source": "tasks/cc4d/ramen.json"
+  },
+  "nodes": [
+    {
+      "step_id": 44,
+      "instruction": "Remove the noodles from the package(Break Noodles / Keep them as a block)",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is taking the dried noodle block out of its package; active from the start (root step, no prerequisites), one of several initially-eligible prep steps (peel onion 47, peel garlic 14) running in no fixed order." },
+      "completion": { "claim": "The noodles are out of the package (as a block or broken); this just stops with no end signal of its own, inferred from the user adding the noodles to the bowl.", "inferred_from": 52 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The noodles should be removed cleanly; flag mishandling such as throwing/dropping the noodle block while opening the package." },
+        { "reminder": "preparation", "claim": "[probe-added] The recipe leaves block-vs-broken to the user; note if the noodle block is broken into pieces when it was meant to be kept whole (or vice versa)." }
+      ]
+    },
+    {
+      "step_id": 47,
+      "instruction": "Peel 1 medium onion",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is peeling a medium onion; active from the start (root step), one of several initially-eligible prep steps (remove noodles 44, peel garlic 14) running in no fixed order." },
+      "completion": { "claim": "One medium onion is fully peeled; this just stops with no end signal of its own, inferred from the user starting to slice the onion.", "inferred_from": 46 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 medium onion; flag a different count." },
+        { "reminder": "preparation", "claim": "The onion is the expected ingredient and should be peeled; flag if the onion is left unpeeled when peeling is required." },
+        { "reminder": "technique", "claim": "[probe-added] The onion should be peeled completely; flag a partial or skipped peel that leaves skin on." }
+      ]
+    },
+    {
+      "step_id": 46,
+      "instruction": "slice 1/4 medium onion into pieces",
+      "preconditions": [47],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is slicing the peeled onion into pieces; eligible once the onion is peeled (step 47)." },
+      "completion": { "claim": "A quarter of the onion is sliced into pieces; this just stops with no end signal of its own, inferred from the user putting the vegetables into the microwave-safe bowl.", "inferred_from": 54 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 of a medium onion; flag a different amount (e.g. slicing a whole onion)." },
+        { "reminder": "technique", "claim": "The onion should be sliced into pieces; flag using the wrong cut (e.g. chopping instead of slicing)." }
+      ]
+    },
+    {
+      "step_id": 14,
+      "instruction": "Peel 1 garlic clove",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is peeling a garlic clove; active from the start (root step), one of several initially-eligible prep steps (remove noodles 44, peel onion 47) running in no fixed order." },
+      "completion": { "claim": "One garlic clove is fully peeled; this just stops with no end signal of its own, inferred from the user starting to chop the garlic.", "inferred_from": 51 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 garlic clove; flag a different count (e.g. peeling 2 cloves)." },
+        { "reminder": "preparation", "claim": "Garlic is the expected ingredient and should be peeled; flag if it is left unpeeled." },
+        { "reminder": "technique", "claim": "[probe-added] The garlic clove should be peeled completely/properly; flag a partial or improper peel." }
+      ]
+    },
+    {
+      "step_id": 51,
+      "instruction": "Chop 1 garlic clove on a cutting board",
+      "preconditions": [14],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is chopping the peeled garlic clove on a cutting board; eligible once the garlic is peeled (step 14)." },
+      "completion": { "claim": "One garlic clove is chopped on the cutting board; this just stops with no end signal of its own, inferred from the user putting the vegetables into the microwave-safe bowl.", "inferred_from": 54 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 garlic clove; flag a different count." },
+        { "reminder": "technique", "claim": "The garlic should be chopped; flag using the wrong cut (e.g. slicing instead of chopping)." }
+      ]
+    },
+    {
+      "step_id": 54,
+      "instruction": "Put all the Vegetables in a microwave-safe bowl",
+      "preconditions": [46, 51],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is transferring all the prepped vegetables into a microwave-safe bowl; eligible once both the onion is sliced (46) and the garlic is chopped (51)." },
+      "completion": { "claim": "All the prepped vegetables are in the microwave-safe bowl; this just stops with no end signal of its own, inferred from the user adding the noodles to the bowl.", "inferred_from": 52 },
+      "checks": [
+        { "reminder": "preparation", "claim": "All the prepped vegetables should go into a microwave-safe bowl; flag using a non-microwave-safe container or omitting vegetables." },
+        { "reminder": "technique", "claim": "[probe-added] The vegetables should be transferred cleanly into the bowl; flag spilling vegetables onto the countertop." }
+      ]
+    },
+    {
+      "step_id": 52,
+      "instruction": "Add the noodles to the bowl",
+      "preconditions": [44, 54],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding the noodles to the bowl; eligible once the noodles are out of the package (44) and the vegetables are in the bowl (54)." },
+      "completion": { "claim": "The noodles are in the bowl; this just stops with no end signal of its own, inferred from the user covering the noodles with water.", "inferred_from": 55 },
+      "checks": []
+    },
+    {
+      "step_id": 55,
+      "instruction": "cover the noodles with water",
+      "preconditions": [52],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is pouring water into the bowl to cover the noodles; eligible once the noodles are in the bowl (52)." },
+      "completion": { "claim": "The noodles are covered with water; this just stops with no end signal of its own, inferred from the user covering the bowl with a lid.", "inferred_from": 49 },
+      "checks": [
+        { "reminder": "preparation", "claim": "Water should fully cover the noodles in a (microwave-safe) bowl; flag under-filling that leaves noodles exposed or using the wrong container (e.g. a plate)." },
+        { "reminder": "technique", "claim": "[probe-added] Enough water should be added to cover the noodles; flag adding too little water so the noodles are not covered." }
+      ]
+    },
+    {
+      "step_id": 49,
+      "instruction": "Cover with a lid (or paper towel) to prevent splattering",
+      "preconditions": [55],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is covering the bowl with a lid or paper towel; eligible once the noodles are covered with water (55)." },
+      "completion": { "claim": "The bowl is covered with a lid or paper towel; this just stops with no end signal of its own, inferred from the user starting the microwave.", "inferred_from": 45 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The bowl should be covered with a lid or paper towel; flag if no cover is used." },
+        { "reminder": "technique", "claim": "[probe-added] The cover should be placed properly to prevent splattering; flag a loose or improperly-placed lid/paper towel." }
+      ]
+    },
+    {
+      "step_id": 45,
+      "instruction": "Microwave the ramen for 4 minutes",
+      "preconditions": [49],
+      "duration_constraint_s": 240,
+      "recognition": { "claim": "The microwave is running with the covered ramen bowl inside; eligible once the bowl is covered (49)." },
+      "completion": { "claim": "The microwave has finished its run; ends with its own observable event (the microwave stops/beeps).", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for microwaving about 4 minutes (240s); flag a noticeably shorter or longer run (e.g. 1-3 min or seconds-only)." },
+        { "reminder": "preparation", "claim": "[probe-added] The bowl/cover must be microwave-safe and fit in the microwave; flag microwaving non-microwaveable items or a container that does not fit." }
+      ]
+    },
+    {
+      "step_id": 48,
+      "instruction": "Let the noodles sit for about 1 minute after the microwave stops",
+      "preconditions": [45],
+      "duration_constraint_s": 60,
+      "recognition": { "claim": "The bowl is resting untouched after the microwave stops; eligible once the microwave run is done (45). One of three concurrently-eligible post-microwave steps (let sit 48, add basil 50, add cilantro 53) sharing precondition 45, in no fixed order; recognition must identify the resting/wait is what is happening now." },
+      "completion": { "claim": "The noodles have sat for about a minute; this just stops with no distinct end signal of its own, inferred from the user mixing in the flavour packet.", "inferred_from": 42 },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for letting the noodles sit about 1 minute (60s); flag a noticeably shorter or longer wait (e.g. 30s or 2 min)." }
+      ]
+    },
+    {
+      "step_id": 50,
+      "instruction": "Add basil to the bowl",
+      "preconditions": [45],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding basil to the bowl; eligible once the microwave run is done (45). One of three concurrently-eligible post-microwave steps (let sit 48, add basil 50, add cilantro 53) sharing precondition 45, in no fixed order; recognition must say which is active now." },
+      "completion": { "claim": "Basil has been added to the bowl; this just stops with no end signal of its own, inferred from the user mixing in the flavour packet.", "inferred_from": 42 },
+      "checks": [
+        { "reminder": "preparation", "claim": "Basil is the expected ingredient to add here; flag a missing or wrong herb." }
+      ]
+    },
+    {
+      "step_id": 53,
+      "instruction": "Add chopped cilantro to the bowl",
+      "preconditions": [45],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding chopped cilantro to the bowl; eligible once the microwave run is done (45). One of three concurrently-eligible post-microwave steps (let sit 48, add basil 50, add cilantro 53) sharing precondition 45, in no fixed order; recognition must say which is active now." },
+      "completion": { "claim": "Chopped cilantro has been added to the bowl; this just stops with no end signal of its own, inferred from the user mixing in the flavour packet.", "inferred_from": 42 },
+      "checks": [
+        { "reminder": "technique", "claim": "The cilantro should be chopped before adding; flag adding whole/unchopped cilantro." }
+      ]
+    },
+    {
+      "step_id": 42,
+      "instruction": "Mix in the flavour packet to the bowl",
+      "preconditions": [48, 50, 53],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is mixing the flavour packet into the bowl; eligible once the noodles have rested (48), basil is added (50), and cilantro is added (53)." },
+      "completion": { "claim": "The flavour packet has been mixed into the bowl; this just stops with no end signal of its own, inferred from the user starting to stir the noodles.", "inferred_from": 43 },
+      "checks": [
+        { "reminder": "technique", "claim": "The flavour packet should be mixed in cleanly; flag spilling contents out of the bowl while mixing." }
+      ]
+    },
+    {
+      "step_id": 43,
+      "instruction": "Stir noodles with a spoon or fork until the flavouring dissolves",
+      "preconditions": [42],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is stirring the noodles with a spoon or fork; eligible once the flavour packet is mixed in (42). Final step." },
+      "completion": { "claim": "The noodles are stirred until the flavouring dissolves; ends with its own observable end-state (the flavouring is dissolved and the dish is finished).", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "The noodles should be stirred (with a spoon or fork) gently until the flavouring fully dissolves; flag stirring too fast so water spills, or stirring so poorly the flavouring does not dissolve." }
+      ]
+    }
+  ]
+}

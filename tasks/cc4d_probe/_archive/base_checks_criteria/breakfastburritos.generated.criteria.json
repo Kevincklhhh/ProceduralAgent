@@ -1,0 +1,167 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/breakfastburritos.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG has two roots (77 extract egg, 81 place tortilla), an unordered fork 74/80/82 sharing preconditions [73] that reconverges at 76, then 79->75->78.",
+  "task": {
+    "task_id": "breakfastburritos",
+    "title": "Breakfastburritos",
+    "source": "tasks/cc4d/breakfastburritos.json"
+  },
+  "nodes": [
+    {
+      "step_id": 77,
+      "instruction": "Extract and add contents of an egg to a microwave-safe bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is cracking an egg and adding its contents into a microwave-safe bowl. This is a root step, active from the start." },
+      "completion": { "claim": "The egg contents are in the bowl; the step just stops with no distinct end signal, so it is inferred from the onset of whisking (step 72).", "inferred_from": 72 },
+      "checks": [
+        { "reminder": "preparation",
+          "claim": "The recipe calls for an egg added to a microwave-safe bowl; flag a wrong vessel (e.g. a mug instead of a bowl)." },
+        { "reminder": "technique",
+          "claim": "[probe-added] The egg should be cracked cleanly; flag shell fragments left in the bowl." }
+      ]
+    },
+    {
+      "step_id": 72,
+      "instruction": "Whisk the egg",
+      "preconditions": [77],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is whisking the egg in the bowl." },
+      "completion": { "claim": "The egg is whisked; the step just stops with no distinct end signal of its own, so it is inferred from the onset of microwaving (step 73).", "inferred_from": 73 },
+      "checks": [
+        { "reminder": "technique",
+          "claim": "The recipe calls for whisking the egg; flag improper whisking (under-whisked) or egg splashed/spilled outside the bowl." },
+        { "reminder": "preparation",
+          "claim": "[probe-added] The egg should be whisked in a bowl with a whisk; flag a wrong tool (spoon instead of whisk) or wrong vessel (mug instead of bowl)." }
+      ]
+    },
+    {
+      "step_id": 73,
+      "instruction": "Microwave for 3 minutes, stirring in between",
+      "preconditions": [72],
+      "duration_constraint_s": 180,
+      "recognition": { "claim": "The user is microwaving the bowl of egg and stirring it partway through." },
+      "completion": { "claim": "The microwave stops after the cook time, which is its own observable end event.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing",
+          "claim": "The recipe calls for about 180s of microwaving; flag a noticeably shorter or longer cook time." },
+        { "reminder": "preparation",
+          "claim": "The recipe calls for stirring the bowl in between microwaving; flag failure to stir partway through (and a wrong vessel such as a mug)." }
+      ]
+    },
+    {
+      "step_id": 74,
+      "instruction": "Add 1/2 tbsp sweet and sour sauce to the bowl",
+      "preconditions": [73],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding sweet and sour sauce into the bowl. This is one of three concurrently-eligible steps (74, 80, 82) sharing preconditions [73]; recognition must identify which is active now, and no order is imposed among them." },
+      "completion": { "claim": "The sauce is in the bowl; the step just stops with no distinct end signal, so it is inferred from the onset of mixing (step 76), the shared reconvergence node.", "inferred_from": 76 },
+      "checks": [
+        { "reminder": "measurement",
+          "claim": "The recipe calls for 1/2 tbsp; flag a different amount or wrong measuring unit (e.g. 1 tbsp, or a teaspoon used as a tablespoon)." },
+        { "reminder": "preparation",
+          "claim": "The recipe calls for sweet and sour sauce added to the bowl; flag a wrong ingredient (e.g. minced garlic) or wrong vessel." }
+      ]
+    },
+    {
+      "step_id": 80,
+      "instruction": "Add 1 tbsp salsa to the bowl",
+      "preconditions": [73],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding salsa into the bowl. This is one of three concurrently-eligible steps (74, 80, 82) sharing preconditions [73]; recognition must identify which is active now, with no order imposed among them." },
+      "completion": { "claim": "The salsa is in the bowl; the step just stops with no distinct end signal, so it is inferred from the onset of mixing (step 76), the shared reconvergence node.", "inferred_from": 76 },
+      "checks": [
+        { "reminder": "measurement",
+          "claim": "The recipe calls for 1 tbsp salsa; flag a different amount (e.g. 2 tbsp)." },
+        { "reminder": "preparation",
+          "claim": "The recipe calls for salsa added to the bowl; flag a wrong vessel or a soiled/unclean measuring spoon." }
+      ]
+    },
+    {
+      "step_id": 81,
+      "instruction": "Place 8 inch tortilla on a cutting board",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is placing an 8 inch tortilla on a cutting board. This is a root step, active from the start." },
+      "completion": { "claim": "The tortilla is resting on the cutting board, an observable placed end-state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "measurement",
+          "claim": "The recipe calls for an 8 inch tortilla; flag a wrong tortilla size." },
+        { "reminder": "preparation",
+          "claim": "The recipe calls for the tortilla on a cutting board; flag a wrong surface (e.g. a plate) or a soiled tortilla." }
+      ]
+    },
+    {
+      "step_id": 82,
+      "instruction": "Sprinkle oregano in the bowl",
+      "preconditions": [73],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is sprinkling oregano into the bowl. This is one of three concurrently-eligible steps (74, 80, 82) sharing preconditions [73]; recognition must identify which is active now, with no order imposed among them." },
+      "completion": { "claim": "The oregano is in the bowl; the step just stops with no distinct end signal, so it is inferred from the onset of mixing (step 76), the shared reconvergence node.", "inferred_from": 76 },
+      "checks": [
+        { "reminder": "preparation",
+          "claim": "The recipe calls for oregano; flag a wrong herb (e.g. basil or cilantro instead of oregano)." },
+        { "reminder": "technique",
+          "claim": "[probe-added] The oregano should land in the bowl; flag oregano sprinkled outside the bowl or onto the countertop." }
+      ]
+    },
+    {
+      "step_id": 76,
+      "instruction": "Mix the contents of the bowl well",
+      "preconditions": [74, 80, 82],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is mixing the contents of the bowl together thoroughly." },
+      "completion": { "claim": "The bowl contents are well mixed; the step just stops with no distinct end signal, so it is inferred from the onset of pouring (step 79).", "inferred_from": 79 },
+      "checks": [
+        { "reminder": "technique",
+          "claim": "The recipe calls for mixing the contents well; flag inadequate or incorrect mixing (e.g. whisking instead of mixing)." },
+        { "reminder": "preparation",
+          "claim": "[probe-added] Mixing should occur in the bowl; flag a wrong vessel (mug instead of bowl)." }
+      ]
+    },
+    {
+      "step_id": 79,
+      "instruction": "Pour egg mixture on top of the tortilla",
+      "preconditions": [76, 81],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is pouring the egg mixture from the bowl onto the tortilla." },
+      "completion": { "claim": "The egg mixture is on the tortilla; the step just stops with no distinct end signal, so it is inferred from the onset of sprinkling cheese (step 75).", "inferred_from": 75 },
+      "checks": [
+        { "reminder": "preparation",
+          "claim": "[probe-added] The egg mixture should come from the correct bowl onto the tortilla; flag a wrong vessel (mug instead of bowl)." }
+      ]
+    },
+    {
+      "step_id": 75,
+      "instruction": "Sprinkle 1 tbsp shredded cheddar cheese on top of the egg",
+      "preconditions": [79],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is sprinkling shredded cheddar cheese on top of the egg." },
+      "completion": { "claim": "The cheese is on the egg; the step just stops with no distinct end signal, so it is inferred from the onset of rolling (step 78).", "inferred_from": 78 },
+      "checks": [
+        { "reminder": "measurement",
+          "claim": "The recipe calls for 1 tbsp cheese; flag a different amount (e.g. 1/2 tbsp instead of 1 tbsp)." },
+        { "reminder": "preparation",
+          "claim": "The recipe calls for shredded cheddar cheese; flag a wrong cheese (e.g. mozzarella), a dirty spoon, hands used instead of a spoon, or spilled cheese." },
+        { "reminder": "technique",
+          "claim": "[probe-added] The cheese should be placed on top of the egg; flag cheese put beside the egg rather than on it." }
+      ]
+    },
+    {
+      "step_id": 78,
+      "instruction": "Roll the tortilla from one end to another into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps but not so tight that the filling leaks",
+      "preconditions": [75],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is rolling the tortilla from one end to the other into a log-shaped burrito." },
+      "completion": { "claim": "The tortilla is rolled into a finished log-shaped burrito, an observable end-state; this is the final step with no successor.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique",
+          "claim": "The recipe calls for rolling tight enough to prevent gaps but not so tight that the filling leaks; flag improper rolling that leaks the filling or breaks the tortilla." },
+        { "reminder": "measurement",
+          "claim": "The recipe calls for a log about 1.5 inches thick; flag a noticeably wrong roll thickness." }
+      ]
+    }
+  ]
+}

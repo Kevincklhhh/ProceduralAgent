@@ -1,0 +1,507 @@
+{
+ "schema_version": "2.0",
+ "artifact_type": "procedure_criteria",
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/mugcake.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). The DAG is a wide dry-add fork (297/299/304/310 from start) reconverging at whisk 308, a second wet-add fork (296/300/313) reconverging at whisk 294, then a strictly-linear bake/cool/frost tail (307->312->309->305->295->298->311->306->302).",
+ "task": {
+  "task_id": "mugcake",
+  "title": "Mugcake",
+  "source": "tasks/cc4d/mugcake.json"
+ },
+ "nodes": [
+  {
+   "step_id": 297,
+   "instruction": "1.5 tbsp sugar to the mixing bowl",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is measuring sugar and adding it to the mixing bowl. This is a root step, eligible from the start; it is one of four concurrently-eligible dry-addition steps (sugar 297, flour 299, baking powder 304, salt 310) that share an empty precondition set, so recognition must say which one is happening now -- no order is imposed among them."
+   },
+   "completion": {
+    "claim": "The sugar has been tipped into the bowl. There is no distinct end signal of the user's own; inferred from the onset of the shared reconvergence whisk step.",
+    "inferred_from": 308
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 1.5 tbsp sugar; flag a noticeably different amount (e.g. roughly double)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for white sugar measured with a clean instrument and added to the mixing bowl; flag a wrong ingredient (salt or brown sugar in place of white sugar), a soiled/unclean measuring spoon, or adding to a mug instead of the mixing bowl."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The sugar should be transferred cleanly; flag spilling sugar while measuring or transferring."
+    }
+   ]
+  },
+  {
+   "step_id": 299,
+   "instruction": "Measure and add 2 tbsp flour to the mixing bowl",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is measuring flour and adding it to the mixing bowl. This is a root step, eligible from the start; it is one of four concurrently-eligible dry-addition steps (sugar 297, flour 299, baking powder 304, salt 310) sharing an empty precondition set, so recognition must say which one is happening now -- no order is imposed among them."
+   },
+   "completion": {
+    "claim": "The flour has been added to the bowl. There is no distinct end signal of its own; inferred from the onset of the shared reconvergence whisk step.",
+    "inferred_from": 308
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 2 tbsp flour; flag a different amount or the wrong unit (a teaspoon used in place of a tablespoon)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for flour measured with a clean instrument and added to the mixing bowl; flag a soiled/unclean measuring spoon or cup, or adding to a mug instead of the mixing bowl."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The flour should be transferred cleanly without dropping containers; flag spilling flour outside the bowl or dropping the flour/sugar box while taking it."
+    }
+   ]
+  },
+  {
+   "step_id": 303,
+   "instruction": "Place the paper cupcake liner inside the mug",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is placing a paper cupcake liner inside the mug. This is a root step, eligible from the start, and is the first of the ordered liner sub-chain (303 then 301) that runs in parallel with the dry-addition fork."
+   },
+   "completion": {
+    "claim": "The paper liner is seated inside the mug. There is no distinct end signal of its own; inferred from the onset of its direct successor, setting the lined mug aside.",
+    "inferred_from": 301
+   },
+   "checks": [
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for a paper cupcake liner placed in the correct mug; flag using tissue paper instead of a paper cupcake liner, or using a wrong-shaped mug."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The liner should be seated so it fully covers the bottom of the mug; flag a folded/misplaced liner that does not cover the bottom fully."
+    }
+   ]
+  },
+  {
+   "step_id": 301,
+   "instruction": "Set aside the lined mug",
+   "preconditions": [
+    303
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is setting the lined mug aside, out of the working area. This step follows placing the liner (303)."
+   },
+   "completion": {
+    "claim": "The lined mug has been set aside and is no longer being handled. There is no distinct end signal of its own; inferred from the onset of its only direct successor, pouring batter into the mug.",
+    "inferred_from": 307
+   },
+   "checks": []
+  },
+  {
+   "step_id": 304,
+   "instruction": "1/4 tsp baking powder to the bowl",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is measuring baking powder and adding it to the bowl. This is a root step, eligible from the start; it is one of four concurrently-eligible dry-addition steps (sugar 297, flour 299, baking powder 304, salt 310) sharing an empty precondition set, so recognition must say which one is happening now -- no order is imposed among them."
+   },
+   "completion": {
+    "claim": "The baking powder has been added to the bowl. There is no distinct end signal of its own; inferred from the onset of the shared reconvergence whisk step.",
+    "inferred_from": 308
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 1/4 tsp baking powder; flag a different amount (e.g. 1/2 tsp, or noticeably more)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for baking powder added to the mixing bowl; flag using baking soda instead of baking powder, or adding to a mug instead of the mixing bowl."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The baking powder should be transferred cleanly; flag spilling powder while opening the container or adding it, or dropping the measuring instrument into the bowl."
+    }
+   ]
+  },
+  {
+   "step_id": 310,
+   "instruction": "a pinch of salt to the mixing bowl",
+   "preconditions": [],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is adding a pinch of salt to the mixing bowl. This is a root step, eligible from the start; it is one of four concurrently-eligible dry-addition steps (sugar 297, flour 299, baking powder 304, salt 310) sharing an empty precondition set, so recognition must say which one is happening now -- no order is imposed among them."
+   },
+   "completion": {
+    "claim": "A pinch of salt has been added to the bowl. There is no distinct end signal of its own; inferred from the onset of the shared reconvergence whisk step.",
+    "inferred_from": 308
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for a pinch of salt; flag adding a measured teaspoon or otherwise noticeably more than a pinch."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for plain salt added to the mixing bowl; flag using sugar in place of salt, seasoned salt instead of plain salt, or adding to a mug instead of the mixing bowl."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The salt should be transferred cleanly by pinch; flag dropping or spilling salt while measuring or transferring."
+    }
+   ]
+  },
+  {
+   "step_id": 308,
+   "instruction": "Whisk to combine mixture of flour, sugar and baking powder in the bowl",
+   "preconditions": [
+    297,
+    299,
+    304,
+    310
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is whisking the dry ingredients together in the bowl to combine them. This is the reconvergence step after all four dry additions (297, 299, 304, 310)."
+   },
+   "completion": {
+    "claim": "The dry mixture is combined and whisking stops. There is no distinct end signal of its own; inferred from the onset of the recipe-order-earliest wet addition, adding water.",
+    "inferred_from": 296
+   },
+   "checks": [
+    {
+     "reminder": "technique",
+     "claim": "The recipe calls for whisking to combine; flag whisking with a spoon or with bare hands instead of a whisk."
+    }
+   ]
+  },
+  {
+   "step_id": 296,
+   "instruction": "2 tbsp water to the bowl",
+   "preconditions": [
+    308
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is adding water to the bowl. After whisking the dry mix (308), this is one of three concurrently-eligible wet-addition steps (water 296, oil 300, vanilla 313) that share precondition 308, so recognition must say which one is happening now -- no order is imposed among them."
+   },
+   "completion": {
+    "claim": "The water has been added to the bowl. There is no distinct end signal of its own; inferred from the onset of the shared reconvergence batter-whisk step.",
+    "inferred_from": 294
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 2 tbsp water; flag a different amount or the wrong unit (teaspoon in place of tablespoon)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for water added to the mixing bowl; flag using milk in place of water, or adding to a mug instead of the mixing bowl."
+    }
+   ]
+  },
+  {
+   "step_id": 300,
+   "instruction": "Measure and add 2 tsp vegetable oil to the bowl",
+   "preconditions": [
+    308
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is measuring vegetable oil and adding it to the bowl. After whisking the dry mix (308), this is one of three concurrently-eligible wet-addition steps (water 296, oil 300, vanilla 313) that share precondition 308, so recognition must say which one is happening now -- no order is imposed among them."
+   },
+   "completion": {
+    "claim": "The oil has been added to the bowl. There is no distinct end signal of its own; inferred from the onset of the shared reconvergence batter-whisk step.",
+    "inferred_from": 294
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 2 tsp vegetable oil; flag a different amount or the wrong unit (tablespoons in place of teaspoons, or noticeably more than 2 tsp)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for vegetable oil; flag using a different oil (e.g. olive oil) in its place."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The oil should be poured cleanly; flag dropping the oil bottle or spilling oil onto the counter."
+    }
+   ]
+  },
+  {
+   "step_id": 313,
+   "instruction": "1/4 tsp vanilla extract to the bowl",
+   "preconditions": [
+    308
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is adding vanilla extract to the bowl. After whisking the dry mix (308), this is one of three concurrently-eligible wet-addition steps (water 296, oil 300, vanilla 313) that share precondition 308, so recognition must say which one is happening now -- no order is imposed among them."
+   },
+   "completion": {
+    "claim": "The vanilla extract has been added to the bowl. There is no distinct end signal of its own; inferred from the onset of the shared reconvergence batter-whisk step.",
+    "inferred_from": 294
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 1/4 tsp vanilla extract; flag a different amount (e.g. 1/2 tsp)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "[probe-added] The vanilla extract should be added to the mixing bowl; flag adding it to a mug instead of the mixing bowl."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The vanilla extract should be transferred cleanly; flag spilling vanilla extract while measuring or adding it."
+    }
+   ]
+  },
+  {
+   "step_id": 294,
+   "instruction": "Whisk batter until no lumps remain",
+   "preconditions": [
+    296,
+    300,
+    313
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is whisking the batter to a smooth, lump-free consistency. This is the reconvergence step after all three wet additions (296, 300, 313)."
+   },
+   "completion": {
+    "claim": "The batter is smooth with no visible lumps and whisking stops. There is no distinct end signal of its own; inferred from the onset of its only direct successor, pouring the batter into the mug.",
+    "inferred_from": 307
+   },
+   "checks": [
+    {
+     "reminder": "technique",
+     "claim": "The recipe calls for whisking until no lumps remain; flag whisking with a spoon or bare hands instead of a whisk, or stopping early so lumps remain (incomplete mixing)."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "[probe-added] The batter should be mixed in the proper clean mixing bowl with clean utensils; flag using a mug instead of the mixing bowl or using unclean instruments."
+    }
+   ]
+  },
+  {
+   "step_id": 307,
+   "instruction": "Pour batter into prepared mug",
+   "preconditions": [
+    294,
+    301
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is pouring the batter into the prepared (lined) mug. This step follows both whisking the batter smooth (294) and setting the lined mug aside (301)."
+   },
+   "completion": {
+    "claim": "The batter has been transferred into the prepared mug. There is no distinct end signal of its own; inferred from the onset of its only direct successor, microwaving the mug.",
+    "inferred_from": 312
+   },
+   "checks": [
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The batter should be poured into the mug, not handled by hand; flag using hands to transfer or place the batter into the mug."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "[probe-added] The batter being poured should be smooth; flag pouring a lumpy batter instead of a smooth one."
+    }
+   ]
+  },
+  {
+   "step_id": 312,
+   "instruction": "Microwave the mug and batter on high power for 60 seconds. Check if the cake is done by inserting and toothpick into the center of the cake and then removing it. If wet batter clings to the toothpick, microwave for an additional 5 seconds. If the toothpick comes out clean, continue",
+   "preconditions": [
+    307
+   ],
+   "duration_constraint_s": 60,
+   "recognition": {
+    "claim": "The mug with batter is in the microwave running on high power, followed by the user checking doneness with a toothpick. This step follows pouring the batter into the mug (307)."
+   },
+   "completion": {
+    "claim": "The microwave has stopped and the doneness check (toothpick comes out clean) passes -- an observable end-of-step event of its own.",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "timing",
+     "claim": "The recipe calls for about 60 seconds on high power (plus optional 5s increments only if the toothpick is wet); flag a run noticeably beyond 60s (e.g. 90s or a full extra minute), which risks burning."
+    },
+    {
+     "reminder": "temperature",
+     "claim": "The recipe calls for high power; flag a run long enough that the cake reaches a burnt state (over-cooking)."
+    }
+   ]
+  },
+  {
+   "step_id": 309,
+   "instruction": "Invert the mug to release the cake onto a plate",
+   "preconditions": [
+    312
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is inverting the mug to release the cake onto a plate. This step follows microwaving (312)."
+   },
+   "completion": {
+    "claim": "The cake has been released from the mug onto the plate -- an observable end-of-step event of its own.",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for inverting onto a plate; flag releasing onto a bowl instead of a plate, or scraping/spooning the cake out (e.g. with a butter knife or spoon) instead of inverting cleanly."
+    }
+   ]
+  },
+  {
+   "step_id": 305,
+   "instruction": "Allow to cool until it is no longer hot to the touch",
+   "preconditions": [
+    309
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The cake is being left to cool and is not being handled. This step follows inverting the cake onto the plate (309)."
+   },
+   "completion": {
+    "claim": "The cake has cooled to where it is no longer hot to the touch -- an observable end-state of its own.",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "timing",
+     "claim": "[probe-added] The recipe calls for cooling until the cake is no longer hot to the touch; flag proceeding with no real cooling time so the cake is still hot."
+    }
+   ]
+  },
+  {
+   "step_id": 295,
+   "instruction": "then carefully remove the paper liner",
+   "preconditions": [
+    305
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is carefully removing the paper liner from the cooled cake. This step follows the cake cooling (305)."
+   },
+   "completion": {
+    "claim": "The paper liner has been removed from the cake. There is no distinct end signal of its own; inferred from the onset of its only direct successor, scooping frosting into the bag.",
+    "inferred_from": 298
+   },
+   "checks": []
+  },
+  {
+   "step_id": 298,
+   "instruction": "While the cake is cooling, prepare to pipe the frosting. Scoop 4 spoonfuls of chocolate frosting into a zip-top bag",
+   "preconditions": [
+    295
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is scooping chocolate frosting into a zip-top bag to prepare for piping. This step follows removing the paper liner (295)."
+   },
+   "completion": {
+    "claim": "Four spoonfuls of chocolate frosting are in the zip-top bag. There is no distinct end signal of its own; inferred from the onset of its only direct successor, sealing the bag.",
+    "inferred_from": 311
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for 4 spoonfuls of frosting; flag scooping noticeably fewer (e.g. 1, 1.5, or 2 spoonfuls), which may be too little."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for chocolate frosting in a zip-top bag; flag using cocoa powder or chocolate pieces in place of frosting, or a plain polythene bag instead of a zip-top bag."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] The frosting should be scooped with a spoon; flag transferring it by hand instead of scooping with a spoon."
+    }
+   ]
+  },
+  {
+   "step_id": 311,
+   "instruction": "seal zip top bag, removing as much air as possible",
+   "preconditions": [
+    298
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is sealing the zip-top bag and pressing out the air. This step follows scooping the frosting into the bag (298)."
+   },
+   "completion": {
+    "claim": "The bag is sealed with the air removed. There is no distinct end signal of its own; inferred from the onset of its only direct successor, cutting the corner of the bag.",
+    "inferred_from": 306
+   },
+   "checks": [
+    {
+     "reminder": "technique",
+     "claim": "The recipe calls for sealing while removing as much air as possible; flag sealing without removing the air from the bag."
+    }
+   ]
+  },
+  {
+   "step_id": 306,
+   "instruction": "Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter",
+   "preconditions": [
+    311
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is cutting one corner off the bag with scissors to make a small piping opening. This step follows sealing the bag (311)."
+   },
+   "completion": {
+    "claim": "A small ~1/4 inch opening has been cut in one corner of the bag. There is no distinct end signal of its own; inferred from the onset of its only direct successor, squeezing the frosting.",
+    "inferred_from": 302
+   },
+   "checks": [
+    {
+     "reminder": "measurement",
+     "claim": "The recipe calls for a small opening about 1/4 inch in diameter; flag cutting a noticeably bigger hole."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "The recipe calls for scissors to cut the corner; flag using a knife instead of scissors."
+    },
+    {
+     "reminder": "technique",
+     "claim": "[probe-added] Only a small corner should be cut; flag cutting the bag in half or otherwise damaging it so it cannot be used to pipe."
+    }
+   ]
+  },
+  {
+   "step_id": 302,
+   "instruction": "Squeeze the frosting through the opening to apply small dollops of frosting to the plate in a circle around the base of the cake",
+   "preconditions": [
+    306
+   ],
+   "duration_constraint_s": null,
+   "recognition": {
+    "claim": "The user is squeezing the bag to apply small dollops of frosting in a circle around the base of the cake on the plate. This step follows cutting the bag opening (306) and is the final step of the recipe."
+   },
+   "completion": {
+    "claim": "Small dollops of frosting have been applied in a circle around the base of the cake -- an observable end-state and the final step.",
+    "inferred_from": null
+   },
+   "checks": [
+    {
+     "reminder": "technique",
+     "claim": "The recipe calls for small dollops applied in a circle around the base of the cake; flag piping in a square, one big circle, or otherwise not making small dollops around the base."
+    },
+    {
+     "reminder": "preparation",
+     "claim": "[probe-added] The frosting should be applied to the plate around the cake; flag using a bowl instead of a plate."
+    }
+   ]
+  }
+ ]
+}

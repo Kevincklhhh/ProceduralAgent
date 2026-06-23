@@ -1,0 +1,495 @@
+{
+  "recipe": "tomatomozzarellasalad",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "No microwave, blender, fry, or boil steps. Only audio gate: D5 (water tap, step 125). D6 covers DAG precondition/order. Remaining ~90% of claims are silent prep (dry, slice, place, season, sprinkle, garnish, drizzle) -> C-none or B-trigger via cv HSV state-change.",
+  "claims": [
+    {
+      "step_id": 125,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User rinsing tomato under running water at sink",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D5 water_on event at sink -> recognize step 125 active; no VLM needed"
+    },
+    {
+      "step_id": 125,
+      "kind": "completion",
+      "subtype": "inferred_from:122",
+      "claim_short": "Tomato rinsed; completion inferred from moving to step 122 (dry)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D5 water_off event -> complete step 125; D6 verifies successor 122 begins"
+    },
+    {
+      "step_id": 125,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Wrong produce used (e.g. cherry tomatoes vs normal tomato)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "D5 water_on -> fire 1 VLM frame to verify produce identity; low-res ROI at hand+sink zone"
+    },
+    {
+      "step_id": 125,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "[probe] Wrong count of tomatoes (e.g. 2 cherry vs 1 normal)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "D5 water_on -> fire 1 VLM frame for count+identity; bundle with preparation check"
+    },
+    {
+      "step_id": 125,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "[probe] Rinsing with hot water instead of cold",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "low",
+      "config_oneline": "D5 water_on -> cv steam-detection heuristic or thermal-spot at tap; triggers VLM only if steam detected; thermal-spot strong candidate but not validated"
+    },
+    {
+      "step_id": 122,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User patting/drying tomato with paper or tea towel",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "D5 water_off -> cv motion/optical-flow at counter zone triggers 1 VLM call to confirm drying action; mono camera sufficient (no color needed)"
+    },
+    {
+      "step_id": 122,
+      "kind": "completion",
+      "subtype": "inferred_from:119",
+      "claim_short": "Tomato dried; completion inferred from moving to step 119 (slice)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "cv motion-stop at counter + knife pick-up motion -> triggers 1 VLM call to confirm slice step began; mono ok"
+    },
+    {
+      "step_id": 122,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Unsuitable towel (e.g. wet towel) used instead of paper/tea towel",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "No cheap sensor can classify towel material/wetness; VLM continuous during step 122"
+    },
+    {
+      "step_id": 122,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Tomato not dried completely / failure to fully dry",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "No cheap sensor detects surface wetness on tomato; VLM must judge dryness; C-none"
+    },
+    {
+      "step_id": 119,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User slicing tomato on board with knife into ~1/2 inch slices",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "high",
+      "config_oneline": "cv optical-flow/motion burst at cutting board -> triggers 1 VLM call; chopping motion detectable mono; confirms step 119 active"
+    },
+    {
+      "step_id": 119,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Tomato sliced into set of even ~1/2 inch slices on board (observable end-state)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv motion-stop at board triggers 1 VLM call to confirm slice set present; low-res-ROI at board could reduce compute"
+    },
+    {
+      "step_id": 119,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Slices markedly wrong thickness (e.g. ~1 inch chunks instead of ~1/2 inch)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "No cheap sensor measures slice thickness; VLM call triggered by cv motion-stop; low-res ROI of board sufficient for thickness visual"
+    },
+    {
+      "step_id": 119,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Chopping instead of slicing, or non-uniform thickness",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "medium",
+      "config_oneline": "Fine technique distinction (slice vs chop rhythm) -> VLM; cv motion burst could weakly distinguish but not reliably"
+    },
+    {
+      "step_id": 119,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Slicing on soiled/dirty chopping board",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "Board cleanliness requires VLM; could fire as part of step-start 1-frame check triggered by cv motion onset; low-res ROI"
+    },
+    {
+      "step_id": 120,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User arranging tomato slices onto platter",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "cv HSV state-change at platter ROI detects object placement onset -> triggers 1 VLM call; mono camera ok for motion"
+    },
+    {
+      "step_id": 120,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Slices laid out in single layer on platter (observable end-state)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv motion-stop at platter -> triggers 1 VLM call to verify single layer; low-res ROI of platter surface"
+    },
+    {
+      "step_id": 120,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Piling/double-layering, throwing slices, or spilling while placing",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "Single-layer vs pile judgment needs VLM; cv could detect fall/spill motion but not stacking; low-res ROI of platter"
+    },
+    {
+      "step_id": 123,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User sprinkling salt over tomato slices on platter (fork step, one of 123/124/126/127)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "Silent seasoning action; cv HSV cannot distinguish salt vs pepper vs cheese; VLM periodic during fork stage"
+    },
+    {
+      "step_id": 123,
+      "kind": "completion",
+      "subtype": "inferred_from:121",
+      "claim_short": "Tomato slices salted; completion inferred from moving to step 121 (olive oil)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 tracks fork completion: once 123+124+126+127 all complete (by VLM verdict), D6 unlocks step 121; no additional sensor needed"
+    },
+    {
+      "step_id": 123,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Wrong seasoning (e.g. sugar instead of salt) or seasoning wrong surface (board not platter)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "Salt vs sugar identity and location judgment -> VLM only; C-none"
+    },
+    {
+      "step_id": 123,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Careless/exaggerated seasoning (e.g. salt-bae style)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "Fine technique (sprinkling height/motion) -> VLM only; no audio or cheap cv signal"
+    },
+    {
+      "step_id": 124,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User sprinkling mozzarella cheese over tomatoes on platter (fork step, one of 123/124/126/127)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "Silent sprinkling; cv HSV detects color-change at platter (white mozzarella on red) as weak B-trigger but cannot confirm identity; VLM periodic"
+    },
+    {
+      "step_id": 124,
+      "kind": "completion",
+      "subtype": "inferred_from:121",
+      "claim_short": "Mozzarella sprinkled; completion inferred from moving to step 121 (olive oil)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 fork convergence logic; same as step 123 completion"
+    },
+    {
+      "step_id": 124,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Wrong cheese (e.g. cheddar) or sprinkling wrong surface (board not platter)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv HSV color gate: mozzarella=white, cheddar=orange/yellow -> cheap B-trigger; but sprinkling-surface check still needs VLM; low-res ROI at platter"
+    },
+    {
+      "step_id": 124,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Pouring instead of sprinkling, sprinkling from too high, spilling cheese",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "Fine technique distinction -> VLM only; cv motion could detect large-dump vs sprinkle weakly but unreliable"
+    },
+    {
+      "step_id": 126,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User seasoning platter with black pepper (fork step, one of 123/124/126/127)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "Silent seasoning; cv cannot distinguish black pepper from other garnishes; VLM periodic during fork stage"
+    },
+    {
+      "step_id": 126,
+      "kind": "completion",
+      "subtype": "inferred_from:121",
+      "claim_short": "Platter seasoned with black pepper; completion inferred from moving to step 121 (olive oil)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 fork convergence logic; same as steps 123/124 completion"
+    },
+    {
+      "step_id": 126,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Wrong amount of black pepper (e.g. 1/8 tsp or large spill instead of 1/4 tsp)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "No cheap sensor measures fine seasoning amount; VLM call to judge spill vs normal; C-none"
+    },
+    {
+      "step_id": 126,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Wrong vessel (e.g. lid instead of plate) or spreading pepper by hand",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "VLM needed to identify vessel type; low-res ROI of platter area at step start; C-none for hand-spreading detection"
+    },
+    {
+      "step_id": 126,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Spilling pepper while measuring or emptying whole bottle",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv HSV/motion: large fast motion at platter or rapid dark-color spread detects major spill -> triggers 1 VLM call; low-res ROI; minor spills still C-none"
+    },
+    {
+      "step_id": 127,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User garnishing platter with Italian seasoning (fork step, one of 123/124/126/127)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "Silent garnishing; cv cannot distinguish Italian seasoning (green flakes) from other herbs; VLM periodic during fork stage"
+    },
+    {
+      "step_id": 127,
+      "kind": "completion",
+      "subtype": "inferred_from:121",
+      "claim_short": "Platter garnished with Italian seasoning; completion inferred from moving to step 121 (olive oil)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 fork convergence logic; unlocks step 121 once 123+124+126+127 all done"
+    },
+    {
+      "step_id": 127,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Garnishing wrong surface (e.g. on chopping board instead of platter)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "Location of garnishing action -> VLM; low-res ROI of platter vs board zone weakly usable as B-trigger; mostly C-none"
+    },
+    {
+      "step_id": 127,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Spilling Italian seasoning while garnishing",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv motion-burst + HSV spread detection at platter zone -> major spill B-trigger for 1 VLM call; minor spills C-none; low-res ROI"
+    },
+    {
+      "step_id": 121,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User drizzling olive oil over the entire seasoned+garnished platter (reconvergence step)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv HSV state-change at platter (sheen/gloss change from oil) OR motion of tilted bottle triggers 1 VLM call; low-res ROI at platter; D6 confirms preconditions (123+124+126+127) met"
+    },
+    {
+      "step_id": 121,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "~1 tbsp olive oil drizzled over whole platter; final step, no successor",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv motion-stop at platter -> triggers 1 VLM call to judge amount/coverage of oil; low-res ROI of platter; no cheap sensor measures oil quantity"
+    },
+    {
+      "step_id": 121,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Wrong amount of olive oil (e.g. 2 tsp instead of 1 tbsp)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low",
+      "config_oneline": "No cheap sensor measures liquid volume; VLM judges coverage+sheen; low-res ROI; C-none"
+    },
+    {
+      "step_id": 121,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Wrong liquid (e.g. vegetable oil, vinegar) instead of extra-virgin olive oil",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "Liquid identity (EVOO vs other) -> VLM only; cv cannot distinguish oils by appearance; C-none"
+    },
+    {
+      "step_id": 121,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Spilling olive oil while drizzling",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv HSV gloss/spread detection at table/platter edge -> large spill B-trigger for 1 VLM call; low-res ROI; minor drips C-none"
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 125,
+        "stage": "rinse_tomato",
+        "camera": "off",
+        "audio": "D5",
+        "vlm": "1 B-trigger call on D5 water_on for produce identity+count; water temp check bundled",
+        "role": "A-solve (recognition/completion) + B-trigger (checks)"
+      },
+      {
+        "step_id": 122,
+        "stage": "dry_tomato",
+        "camera": "low-power-motion",
+        "audio": "D5 water_off as trigger",
+        "vlm": "1 B-trigger call on water_off+motion",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 119,
+        "stage": "slice_tomato",
+        "camera": "low-power-motion at board",
+        "audio": "none",
+        "vlm": "1 B-trigger on motion onset (recognition) + 1 call on motion stop (completion+checks)",
+        "role": "B-trigger (recognition) + C-none (thickness/technique VLM at stop)"
+      },
+      {
+        "step_id": 120,
+        "stage": "place_slices_on_platter",
+        "camera": "low-power-HSV at platter ROI",
+        "audio": "none",
+        "vlm": "1 B-trigger on HSV-change (recognition) + 1 call on motion-stop (completion single-layer check)",
+        "role": "B-trigger + C-none"
+      },
+      {
+        "step_ids": [123, 124, 126, 127],
+        "stage": "fork_season_garnish",
+        "camera": "periodic VLM at ~0.25fps (one frame per 4s during fork)",
+        "audio": "none",
+        "vlm": "periodic C-none for all 4 fork steps recognition; cv spill-detect B-triggers for technique checks only",
+        "role": "C-none (dominant) + B-trigger (spill detection steps 126/127)"
+      },
+      {
+        "step_id": 121,
+        "stage": "drizzle_olive_oil",
+        "camera": "low-power-HSV at platter",
+        "audio": "none",
+        "vlm": "1 B-trigger on bottle-tilt motion (recognition) + periodic C-none for amount/identity checks",
+        "role": "B-trigger + C-none"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 7,
+      "B-trigger": 13,
+      "C-none": 19
+    },
+    "cost_estimate": "Tomatomozzarellasalad is a silent-prep recipe. D5 gates only step 125 (rinse). All 4 fork steps (season/garnish stage) are fully C-none for recognition -- camera must stay on. Camera can be OFF for ~15% of wall-time (only during sustained water-run at step 125). Estimated VLM savings vs always-on: ~30-40% of VLM calls replaced by cv motion B-triggers or audio A-solves; but the fork stage (which is the longest stage) still requires periodic VLM. Speculative thermal-spot at tap could help temperature check (step 125) but not validated.",
+    "honest_limits": "1. The four-way fork (steps 123/124/126/127) is the core difficult slice: all four are silent sprinkle/garnish actions that audio and cheap cv cannot distinguish from each other. These 8 recognition+completion claims (minus 4 D6-solved completions) stay C-none. 2. Fine seasoning amounts (1/4 tsp pepper, 1 tbsp oil) have no cheap acoustic or visual correlate below VLM resolution. 3. Ingredient identity (salt vs sugar, EVOO vs other oil, correct cheese type) is entirely VLM-dependent. 4. The thermal-spot candidate (tap water temperature, step 125) is speculative and not validated on CC4D."
+  }
+}

@@ -1,0 +1,1513 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "zoodles",
+ "activity_id": 18,
+ "n_recordings": 15,
+ "n_error_recordings": 11,
+ "steps": [
+  {
+   "step_id": 200,
+   "order": 1,
+   "instruction": "Peel 1 garlic cloves",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 200,
+       "description": "Do not peel garlic properly",
+       "video_window": [
+        5.1,
+        23.2
+       ]
+      },
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 200,
+       "description": "Peel improperly",
+       "video_window": [
+        25.6,
+        78.2
+       ]
+      },
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 200,
+       "description": "peel only halfway",
+       "video_window": [
+        183.9,
+        210.1
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 200,
+       "description": "Peel cloves improperly",
+       "video_window": [
+        0,
+        328.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "18_3",
+       "cc4d_step_id": 200,
+       "description": "Step performed after heating and melting the butter",
+       "video_window": [
+        294.2,
+        339.2
+       ]
+      },
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 200,
+       "description": "Step performed before after heating pan and melting butter",
+       "video_window": [
+        183.9,
+        210.1
+       ]
+      },
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 200,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        189.1,
+        202.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 200,
+       "description": "Peel entire garlic instead of 1 garlic clove",
+       "video_window": [
+        0,
+        328.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 203,
+   "order": 2,
+   "instruction": "Spiralize 1 medium zucchini into thin noodles using a spiralizer",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 203,
+       "description": "Step performed after heating the pan and adding garlic",
+       "video_window": [
+        150.1,
+        191.3
+       ]
+      },
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 203,
+       "description": "Step performed after heating the pan and melting the butter",
+       "video_window": [
+        123.4,
+        228.2
+       ]
+      },
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 203,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        36.3,
+        188.2
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 203,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        65.3,
+        212.9
+       ]
+      },
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 203,
+       "description": "Step performed after heating the pan and garlic",
+       "video_window": [
+        467.5,
+        638.3
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 203,
+       "description": "Step performed after seasoning",
+       "video_window": [
+        906.8,
+        1077.7
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 203,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        450.0,
+        622.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 203,
+       "description": "Grate 1 medium zucchini into thin noodles",
+       "video_window": [
+        150.1,
+        191.3
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 203,
+       "description": "Instead of spiralizing chopping the zucchini.",
+       "video_window": [
+        65.3,
+        212.9
+       ]
+      },
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 203,
+       "description": "Spiralize-Spiralize 1 medium zucchini into thin noodles using a spiralizer. Did not remove top part of zucchini. Just pressing the zucchini against the spiralizer at the start. Incomplete action of spiralizing. Used both ends of zucchini. Spilling happens.",
+       "video_window": [
+        467.5,
+        638.3
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 203,
+       "description": "did not remove ends to spiralize",
+       "video_window": [
+        450.0,
+        622.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 203,
+       "description": "Using soiled zuccini",
+       "video_window": [
+        123.4,
+        228.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 203,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 196,
+   "order": 3,
+   "instruction": "Heat a large pan on medium heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    200,
+    203
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 9,
+     "n_recordings": 9,
+     "instances": [
+      {
+       "recording_id": "18_3",
+       "cc4d_step_id": 196,
+       "description": "Step performed before peeling garlic",
+       "video_window": [
+        160.1,
+        170.8
+       ]
+      },
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 196,
+       "description": "Step performed before spiralizing zucchini",
+       "video_window": [
+        24.3,
+        46.5
+       ]
+      },
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 196,
+       "description": "Step performed before spiralizing zucchini",
+       "video_window": [
+        84.3,
+        120.1
+       ]
+      },
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 196,
+       "description": "Step performed before peeling garlic",
+       "video_window": [
+        2.0,
+        23.8
+       ]
+      },
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 196,
+       "description": "Step performed before spiralizing the zucchini",
+       "video_window": [
+        1.0,
+        33.1
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 196,
+       "description": "Step performed before peeling and spiralizing the zucchini.",
+       "video_window": [
+        4.3,
+        10.8
+       ]
+      },
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 196,
+       "description": "Step performed before spiralizing zucchini and peel garlic",
+       "video_window": [
+        5.1,
+        30.0
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 196,
+       "description": "Step performed before spiralizing zucchini",
+       "video_window": [
+        335.4,
+        343.1
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 196,
+       "description": "Step performed before spiralizing zucchini",
+       "video_window": [
+        54.2,
+        91.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 196,
+       "description": "Heat-Heat a large pan on high heat",
+       "video_window": [
+        24.3,
+        46.5
+       ]
+      },
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 196,
+       "description": "use low heat instead of medium",
+       "video_window": [
+        2.0,
+        23.8
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 196,
+       "description": "Heating the pan on a low heat.",
+       "video_window": [
+        4.3,
+        10.8
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 196,
+       "description": "Heat-Heat a large pan on high heat",
+       "video_window": [
+        335.4,
+        343.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 196,
+       "description": "Turn on the wrong burner and turn off the heat and turn on the correct burner",
+       "video_window": [
+        84.3,
+        120.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 204,
+   "order": 4,
+   "instruction": "Melt 1 tablespoons of softened butter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    196
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "18_3",
+       "cc4d_step_id": 204,
+       "description": "Step performed before peeling garlic",
+       "video_window": [
+        170.0,
+        289.6
+       ]
+      },
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 204,
+       "description": "Step performed before spiralizing zucchini",
+       "video_window": [
+        54.1,
+        112.0
+       ]
+      },
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 204,
+       "description": "Step performed before peeling garlic",
+       "video_window": [
+        27.6,
+        179.9
+       ]
+      },
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 204,
+       "description": "Step performed before spiralizing zucchini and after cooking garlic",
+       "video_window": [
+        308,
+        321
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 204,
+       "description": "Step performed after correct order",
+       "video_window": [
+        1116.6,
+        1168.4
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 204,
+       "description": "Step performed before spiralizing zucchini",
+       "video_window": [
+        221.7,
+        285.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 204,
+       "description": "Melt-Melt 1 tablespoons of clarified butter(ghee)",
+       "video_window": [
+        308,
+        321
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 204,
+       "description": "Added garlic butter",
+       "video_window": [
+        221.7,
+        285.1
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 204,
+       "description": "Used hands to add butter to pan",
+       "video_window": [
+        221.7,
+        285.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 204,
+       "description": "Burn the butter by heating on high",
+       "video_window": [
+        244.9,
+        312.9
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 204,
+       "description": "Freeze-Freeze 1 tablespoons of softened butter",
+       "video_window": [
+        1116.6,
+        1168.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 204,
+       "description": "1/2 tbsp of butter instead of 1 tbsp",
+       "video_window": [
+        27.6,
+        179.9
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 204,
+       "description": "Using teaspoon instead of tablespoon.",
+       "video_window": [
+        218.3,
+        285.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 199,
+   "order": 5,
+   "instruction": "Add 1 large minced garlic cloves to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    204
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 199,
+       "description": "Chop the garlic instead of mincing",
+       "video_window": [
+        288.7,
+        315.2
+       ]
+      },
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 199,
+       "description": "crushed instead of minced",
+       "video_window": [
+        214.2,
+        246.1
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 199,
+       "description": "Instead of mincing chopping the garlic.",
+       "video_window": [
+        288.2,
+        325.7
+       ]
+      },
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 199,
+       "description": "Add-Add 1 large sliced garlic cloves to the pan. Throwing cloves. Spilling also.",
+       "video_window": [
+        686.8,
+        710.5
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 199,
+       "description": "Add-Add 2 large sliced garlic to the pan. mince not done properly instead slicing done",
+       "video_window": [
+        360.9,
+        685.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 199,
+       "description": "Step performed before spiralizing zucchini",
+       "video_window": [
+        117.8,
+        146.2
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 199,
+       "description": "Step performed before spiralizing zucchini and melting butter in the pan",
+       "video_window": [
+        360.9,
+        685.0
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 199,
+       "description": "Step performed before spiralizing zucchini",
+       "video_window": [
+        292.6,
+        436.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 199,
+       "description": "Add un peeled not minced garlic clove to the pan",
+       "video_window": [
+        117.8,
+        146.2
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 199,
+       "description": "Add cloves along with peeled skin",
+       "video_window": [
+        360.9,
+        685.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 199,
+       "description": "Add 2 large cloves instead of 1",
+       "video_window": [
+        117.8,
+        146.2
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 199,
+       "description": "Add all cloves in a garlic instead of 1",
+       "video_window": [
+        360.9,
+        685.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 202,
+   "order": 6,
+   "instruction": "Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    199
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 202,
+       "description": "Wash all dishes while cooking for 3 minutes to burn the garlic",
+       "video_window": [
+        195.5,
+        436.0
+       ]
+      },
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 202,
+       "description": "Cook until the garlic is burnt",
+       "video_window": [
+        323.6,
+        377.2
+       ]
+      },
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 202,
+       "description": "1/2 min instead of 1 min",
+       "video_window": [
+        251.0,
+        290.4
+       ]
+      },
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 202,
+       "description": "Cook-Cook garlic until it burns (about 2.5 minutes).",
+       "video_window": [
+        232,
+        720
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 202,
+       "description": "Cook-Cook garlic until fragrant (about 3 minutes). Burn the garlic.",
+       "video_window": [
+        686.1,
+        858.8
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 202,
+       "description": "Cook garlic for more than 1 minute",
+       "video_window": [
+        420,
+        621
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 202,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 202,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 202,
+       "description": "Step performed before adding butter and spiralizing zucchini",
+       "video_window": [
+        232,
+        720
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 202,
+       "description": "Step performed before spiralizing zucchini and melting butter in the pan",
+       "video_window": [
+        686.1,
+        858.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 202,
+       "description": "Cook-Cook garlic until fragrant (about 3 minutes). Burn the garlic.",
+       "video_window": [
+        686.1,
+        858.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 193,
+   "order": 7,
+   "instruction": "1/6 cup grated parmesan cheese",
+   "duration_constraint_s": null,
+   "preconditions": [
+    202
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "18_2",
+       "cc4d_step_id": 193,
+       "description": "Spill",
+       "video_window": [
+        462.6,
+        495.4
+       ]
+      },
+      {
+       "recording_id": "18_11",
+       "cc4d_step_id": 193,
+       "description": "Spill cheese while adding to the pan",
+       "video_window": [
+        662,
+        700
+       ]
+      },
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 193,
+       "description": "Spill some cheese while adding it",
+       "video_window": [
+        476.5,
+        510.2
+       ]
+      },
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 193,
+       "description": "Spill while adding grated cheese",
+       "video_window": [
+        416.7,
+        453.1
+       ]
+      },
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 193,
+       "description": "spill while adding",
+       "video_window": [
+        313.0,
+        394.1
+       ]
+      },
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 193,
+       "description": "spill some out while adding",
+       "video_window": [
+        480,
+        509
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 193,
+       "description": "Add-1 cup grated parmesan cheese",
+       "video_window": [
+        476.5,
+        510.2
+       ]
+      },
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 193,
+       "description": "Add 1/3 cup grated parmesan cheese instead of 1/6 cup",
+       "video_window": [
+        416.7,
+        453.1
+       ]
+      },
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 193,
+       "description": "Add without measuring the exact amount",
+       "video_window": [
+        480,
+        509
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 193,
+       "description": "Using less than 1/6 cup.",
+       "video_window": [
+        338.9,
+        399.9
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 193,
+       "description": "Add-1/4 cup grated parmesan cheese",
+       "video_window": [
+        1391.8,
+        1459.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 193,
+       "description": "Step performed after cooking for 1 minute",
+       "video_window": [
+        480,
+        509
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 193,
+       "description": "Step performed after cooking zoodles",
+       "video_window": [
+        1391.8,
+        1459.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 194,
+   "order": 8,
+   "instruction": "pepper to taste",
+   "duration_constraint_s": null,
+   "preconditions": [
+    202
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 194,
+       "description": "Add a lot of pepper instead of just seasoning",
+       "video_window": [
+        442.2,
+        458.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 194,
+       "description": "Step performed before spiralizing zucchini and melting butter in the pan",
+       "video_window": [
+        860.0,
+        876.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 198,
+   "order": 9,
+   "instruction": "season with salt",
+   "duration_constraint_s": null,
+   "preconditions": [
+    202
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 198,
+       "description": "Drop salt spoon while seasoning",
+       "video_window": [
+        600,
+        623.7
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 198,
+       "description": "Spilled some salt.",
+       "video_window": [
+        410.8,
+        424.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_27",
+       "cc4d_step_id": 198,
+       "description": "Add more salt than needed due to dropping of the spoon",
+       "video_window": [
+        600,
+        623.7
+       ]
+      },
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 198,
+       "description": "Add a lot of salt, not season with salt",
+       "video_window": [
+        434.0,
+        457.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 198,
+       "description": "Step performed before spiralizing the zucchini",
+       "video_window": [
+        434.0,
+        457.4
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 198,
+       "description": "Step performed before spiralizing zucchini and melting butter in the pan",
+       "video_window": [
+        878.9,
+        887.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 198,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 201,
+   "order": 10,
+   "instruction": "Add the zucchini noodles",
+   "duration_constraint_s": null,
+   "preconditions": [
+    202
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 201,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 201,
+       "description": "Add-Add the zucchini noodles. Improper way of transferring. Not taking the chopping board and transferring with hand. Spilling the noodles as well.",
+       "video_window": [
+        726.9,
+        759.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 201,
+       "description": "Step performed after seasoning",
+       "video_window": [
+        1085.8,
+        1105.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 192,
+   "order": 11,
+   "instruction": "Cook for 2 minutes or until the zoodles are done",
+   "duration_constraint_s": 120,
+   "preconditions": [
+    193,
+    194,
+    198,
+    201
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "18_2",
+       "cc4d_step_id": 192,
+       "description": "Spill",
+       "video_window": [
+        521.5,
+        647.2
+       ]
+      },
+      {
+       "recording_id": "18_28",
+       "cc4d_step_id": 192,
+       "description": "Spill outside while sauteing to cook",
+       "video_window": [
+        460.1,
+        651
+       ]
+      },
+      {
+       "recording_id": "18_45",
+       "cc4d_step_id": 192,
+       "description": "Cook-Cook for 2 minutes with improper action. Just pressing the zoodles. Taking zoodles in the spoon and out of container. Spilling the zoodles as well.",
+       "video_window": [
+        821.1,
+        959.6
+       ]
+      },
+      {
+       "recording_id": "18_101",
+       "cc4d_step_id": 192,
+       "description": "Spill while sauteing and cooking the zoodles",
+       "video_window": [
+        685.1,
+        813
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 192,
+       "description": "Cook for more than 3 minutes",
+       "video_window": [
+        406,
+        581
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 192,
+       "description": "Cooking for more than 2 minutes.",
+       "video_window": [
+        480.0,
+        585.7
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 192,
+       "description": "Cook-Cook for 4 minutes or until the zoodles are done",
+       "video_window": [
+        1190.3,
+        1391.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 192,
+       "description": "Step started before adding parmesan cheese",
+       "video_window": [
+        406,
+        581
+       ]
+      },
+      {
+       "recording_id": "18_49",
+       "cc4d_step_id": 192,
+       "description": "Step performed before adding parmesan cheese",
+       "video_window": [
+        1190.3,
+        1391.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 192,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 197,
+   "order": 12,
+   "instruction": "Remove from heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    192
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "18_33",
+       "cc4d_step_id": 197,
+       "description": "Step performed before correct order",
+       "video_window": [
+        510.6,
+        521.8
+       ]
+      },
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 197,
+       "description": "Added after topping with parmesan.",
+       "video_window": [
+        594.3,
+        599.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 195,
+   "order": 13,
+   "instruction": "Top with more parmesan if desired",
+   "duration_constraint_s": null,
+   "preconditions": [
+    197
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_31",
+       "cc4d_step_id": 195,
+       "description": "top with cheddar cheese instead of parmesan",
+       "video_window": [
+        416.2,
+        435.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 195,
+       "description": "Spill some parmeasan while adding.",
+       "video_window": [
+        586.1,
+        592.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "18_41",
+       "cc4d_step_id": 195,
+       "description": "Added before removing from heat.",
+       "video_window": [
+        586.1,
+        592.0
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

@@ -1,0 +1,466 @@
+{
+  "_kind": "corpus_sensor_control_brainstorm_aggregate",
+  "_note": "Firewall-neutral feasibility hypotheses, not measured detector performance. STEP/WINDOW mixes are the deployable numbers (max role over concurrent claims).",
+  "n_recipes": 21,
+  "n_claims": 1232,
+  "n_steps": 305,
+  "n_windows": 198,
+  "claim_level_role": {
+    "A-solve": 350,
+    "B-trigger": 529,
+    "C-none": 353
+  },
+  "step_level_role": {
+    "A-solve": 9,
+    "B-trigger": 86,
+    "C-none": 210
+  },
+  "window_level_role": {
+    "A-solve": 8,
+    "B-trigger": 60,
+    "C-none": 130
+  },
+  "modality": {
+    "vlm": 589,
+    "cv": 283,
+    "dag": 252,
+    "audio": 108
+  },
+  "role_x_modality": {
+    "C-none|vlm": 349,
+    "B-trigger|cv": 264,
+    "A-solve|dag": 249,
+    "B-trigger|vlm": 240,
+    "A-solve|audio": 86,
+    "B-trigger|audio": 22,
+    "A-solve|cv": 15,
+    "C-none|cv": 4,
+    "B-trigger|dag": 3
+  },
+  "subtype_x_role": {
+    "completion|A-solve": 267,
+    "completion|B-trigger": 23,
+    "completion|C-none": 15,
+    "measurement|B-trigger": 82,
+    "measurement|C-none": 61,
+    "preparation|A-solve": 6,
+    "preparation|B-trigger": 140,
+    "preparation|C-none": 56,
+    "recognition|A-solve": 36,
+    "recognition|B-trigger": 195,
+    "recognition|C-none": 74,
+    "technique|A-solve": 1,
+    "technique|B-trigger": 79,
+    "technique|C-none": 125,
+    "temperature|A-solve": 2,
+    "temperature|B-trigger": 6,
+    "temperature|C-none": 21,
+    "timing|A-solve": 38,
+    "timing|B-trigger": 4,
+    "timing|C-none": 1
+  },
+  "step_cnone_culprit_subtype": {
+    "technique": 125,
+    "recognition": 74,
+    "measurement": 61,
+    "preparation": 56,
+    "temperature": 21,
+    "completion": 15,
+    "timing": 1
+  },
+  "speculative_sensor": {
+    "low-res-roi": 531,
+    "(none)": 391,
+    "monochrome": 144,
+    "thermal-spot": 92,
+    "imu": 47,
+    "cv-other": 27
+  },
+  "audio_detector_recipes": {
+    "D1": 9,
+    "D2": 3,
+    "D3": 7,
+    "D4": 8,
+    "D5": 8,
+    "D6": 21
+  },
+  "step_role_sensitivity": {
+    "as_is": {
+      "n": 305,
+      "A-solve": 9,
+      "B-trigger": 86,
+      "C-none": 210
+    },
+    "drop_technique": {
+      "n": 305,
+      "A-solve": 14,
+      "B-trigger": 131,
+      "C-none": 160
+    },
+    "drop_technique_temperature": {
+      "n": 305,
+      "A-solve": 17,
+      "B-trigger": 142,
+      "C-none": 146
+    }
+  },
+  "source_split": {
+    "_note": "base = rule-generated from recipe step text/DAG (firewall-clean); probe = [probe-added] from the observed-error space (not firewall-clean).",
+    "claim_level": {
+      "base": {
+        "A-solve": 346,
+        "B-trigger": 433,
+        "C-none": 245
+      },
+      "probe": {
+        "A-solve": 4,
+        "B-trigger": 96,
+        "C-none": 108
+      }
+    },
+    "step_level_max_role": {
+      "all_claims": {
+        "A-solve": 9,
+        "B-trigger": 86,
+        "C-none": 210
+      },
+      "base_only": {
+        "A-solve": 19,
+        "B-trigger": 105,
+        "C-none": 181
+      }
+    },
+    "steps_pushed_to_cnone_only_by_probe": 29
+  },
+  "per_recipe": [
+    {
+      "recipe": "blenderbananapancakes",
+      "n_claims": 57,
+      "n_steps": 14,
+      "n_windows": 10,
+      "claim_role": {
+        "A-solve": 18,
+        "B-trigger": 23,
+        "C-none": 16
+      },
+      "audio_detectors": [
+        "D2",
+        "D3",
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "breakfastburritos",
+      "n_claims": 44,
+      "n_steps": 11,
+      "n_windows": 8,
+      "claim_role": {
+        "A-solve": 13,
+        "B-trigger": 19,
+        "C-none": 12
+      },
+      "audio_detectors": [
+        "D1",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "broccolistirfry",
+      "n_claims": 101,
+      "n_steps": 25,
+      "n_windows": 13,
+      "claim_role": {
+        "A-solve": 31,
+        "B-trigger": 49,
+        "C-none": 21
+      },
+      "audio_detectors": [
+        "D3",
+        "D4",
+        "D5",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "buttercorncup",
+      "n_claims": 51,
+      "n_steps": 12,
+      "n_windows": 9,
+      "claim_role": {
+        "A-solve": 16,
+        "B-trigger": 22,
+        "C-none": 13
+      },
+      "audio_detectors": [
+        "D1",
+        "D5",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "capresebruschetta",
+      "n_claims": 52,
+      "n_steps": 11,
+      "n_windows": 4,
+      "claim_role": {
+        "A-solve": 12,
+        "B-trigger": 23,
+        "C-none": 17
+      },
+      "audio_detectors": [
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "cheesepimiento",
+      "n_claims": 47,
+      "n_steps": 11,
+      "n_windows": 6,
+      "claim_role": {
+        "A-solve": 12,
+        "B-trigger": 23,
+        "C-none": 12
+      },
+      "audio_detectors": [
+        "D1",
+        "D5",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "coffee",
+      "n_claims": 58,
+      "n_steps": 16,
+      "n_windows": 9,
+      "claim_role": {
+        "A-solve": 19,
+        "B-trigger": 19,
+        "C-none": 20
+      },
+      "audio_detectors": [
+        "D2",
+        "D5",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "cucumberraita",
+      "n_claims": 51,
+      "n_steps": 11,
+      "n_windows": 5,
+      "claim_role": {
+        "A-solve": 11,
+        "B-trigger": 21,
+        "C-none": 19
+      },
+      "audio_detectors": [
+        "D5",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "herbomeletwithfriedtomatoes",
+      "n_claims": 64,
+      "n_steps": 15,
+      "n_windows": 11,
+      "claim_role": {
+        "A-solve": 15,
+        "B-trigger": 35,
+        "C-none": 14
+      },
+      "audio_detectors": [
+        "D3",
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "microwaveeggsandwich",
+      "n_claims": 51,
+      "n_steps": 12,
+      "n_windows": 10,
+      "claim_role": {
+        "A-solve": 18,
+        "B-trigger": 26,
+        "C-none": 7
+      },
+      "audio_detectors": [
+        "D1",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "microwavefrenchtoast",
+      "n_claims": 42,
+      "n_steps": 11,
+      "n_windows": 9,
+      "claim_role": {
+        "A-solve": 15,
+        "B-trigger": 15,
+        "C-none": 12
+      },
+      "audio_detectors": [
+        "D1",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "microwavemugpizza",
+      "n_claims": 53,
+      "n_steps": 14,
+      "n_windows": 10,
+      "claim_role": {
+        "A-solve": 16,
+        "B-trigger": 31,
+        "C-none": 6
+      },
+      "audio_detectors": [
+        "D1",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "mugcake",
+      "n_claims": 80,
+      "n_steps": 20,
+      "n_windows": 13,
+      "claim_role": {
+        "A-solve": 23,
+        "B-trigger": 17,
+        "C-none": 40
+      },
+      "audio_detectors": [
+        "D1",
+        "D5",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "panfriedtofu",
+      "n_claims": 67,
+      "n_steps": 19,
+      "n_windows": 16,
+      "claim_role": {
+        "A-solve": 18,
+        "B-trigger": 33,
+        "C-none": 16
+      },
+      "audio_detectors": [
+        "D3",
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "ramen",
+      "n_claims": 55,
+      "n_steps": 15,
+      "n_windows": 10,
+      "claim_role": {
+        "A-solve": 19,
+        "B-trigger": 24,
+        "C-none": 12
+      },
+      "audio_detectors": [
+        "D1",
+        "D5",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "scrambledeggs",
+      "n_claims": 96,
+      "n_steps": 23,
+      "n_windows": 12,
+      "claim_role": {
+        "A-solve": 28,
+        "B-trigger": 40,
+        "C-none": 28
+      },
+      "audio_detectors": [
+        "D3",
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "spicedhotchocolate",
+      "n_claims": 30,
+      "n_steps": 7,
+      "n_windows": 5,
+      "claim_role": {
+        "A-solve": 8,
+        "B-trigger": 14,
+        "C-none": 8
+      },
+      "audio_detectors": [
+        "D1",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "spicytunaavocadowraps",
+      "n_claims": 68,
+      "n_steps": 17,
+      "n_windows": 8,
+      "claim_role": {
+        "A-solve": 13,
+        "B-trigger": 34,
+        "C-none": 21
+      },
+      "audio_detectors": [
+        "D6"
+      ]
+    },
+    {
+      "recipe": "tomatochutney",
+      "n_claims": 71,
+      "n_steps": 19,
+      "n_windows": 15,
+      "claim_role": {
+        "A-solve": 23,
+        "B-trigger": 21,
+        "C-none": 27
+      },
+      "audio_detectors": [
+        "D2",
+        "D3",
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "tomatomozzarellasalad",
+      "n_claims": 39,
+      "n_steps": 9,
+      "n_windows": 6,
+      "claim_role": {
+        "A-solve": 6,
+        "B-trigger": 11,
+        "C-none": 22
+      },
+      "audio_detectors": [
+        "D5",
+        "D6"
+      ]
+    },
+    {
+      "recipe": "zoodles",
+      "n_claims": 55,
+      "n_steps": 13,
+      "n_windows": 9,
+      "claim_role": {
+        "A-solve": 16,
+        "B-trigger": 29,
+        "C-none": 10
+      },
+      "audio_detectors": [
+        "D3",
+        "D4",
+        "D6"
+      ]
+    }
+  ]
+}

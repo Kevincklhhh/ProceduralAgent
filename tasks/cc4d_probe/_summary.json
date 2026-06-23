@@ -1,0 +1,30 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "n_recipes": 1,
+ "corpus_by_subtype": {
+  "order": 19,
+  "technique": 18,
+  "timing": 10,
+  "missing_step": 8,
+  "preparation": 5,
+  "measurement": 4
+ },
+ "recipes": [
+  {
+   "recipe": "ramen",
+   "activity_id": 4,
+   "n_recordings": 17,
+   "n_error_recordings": 7,
+   "n_reminder_occurrences": 64,
+   "by_subtype": {
+    "order": 19,
+    "technique": 18,
+    "timing": 10,
+    "missing_step": 8,
+    "preparation": 5,
+    "measurement": 4
+   },
+   "n_unmapped": 0
+  }
+ ]
+}

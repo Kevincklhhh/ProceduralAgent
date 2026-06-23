@@ -1,0 +1,3369 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "scrambledeggs",
+ "activity_id": 16,
+ "n_recordings": 16,
+ "n_error_recordings": 10,
+ "steps": [
+  {
+   "step_id": 158,
+   "order": 1,
+   "instruction": "Chop 1 tsp cilantro",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 158,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        294.2,
+        355.4
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 158,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        121.5,
+        166.2
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 158,
+       "description": "Step performed after adding salt to the pan",
+       "video_window": [
+        390.5,
+        427.0
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 158,
+       "description": "Step performed after adding tomatoes to the pan",
+       "video_window": [
+        957.2,
+        1029.9
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 158,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        592.4,
+        621.8
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 158,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        296.9,
+        424.9
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 158,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        428.3,
+        497.3
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 158,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        282.2,
+        327.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 158,
+       "description": "chop 1 tbsp cilantro instead of 1 tsp cilantro",
+       "video_window": [
+        592.4,
+        621.8
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 158,
+       "description": "Using 1 tbsp instead of 1 tsp.",
+       "video_window": [
+        296.9,
+        424.9
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 158,
+       "description": "Chop-Chop 1 tsp cilantro",
+       "video_window": [
+        428.3,
+        497.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 158,
+       "description": "No chop before use the cilantro",
+       "video_window": [
+        121.5,
+        166.2
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 158,
+       "description": "Use soiled cilantro instead of fresh cilantro",
+       "video_window": [
+        592.4,
+        621.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 158,
+       "description": "Tear the cilantro instead of chopping",
+       "video_window": [
+        294.2,
+        355.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 161,
+   "order": 2,
+   "instruction": "Chop 1 green chilli",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 161,
+       "description": "Step performed after adding salt to the pan",
+       "video_window": [
+        396.2,
+        421.9
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 161,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        364.5,
+        407.2
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 161,
+       "description": "Step performed after adding chopped onions to the pan",
+       "video_window": [
+        481.8,
+        519.1
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 161,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        120.1,
+        153.7
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 161,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        236.2,
+        296.9
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 161,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        358.3,
+        388.6
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 161,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        483.4,
+        522.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 161,
+       "description": "Mince chilli instead of chop",
+       "video_window": [
+        477.7,
+        550.8
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 161,
+       "description": "Chop, but all connected together",
+       "video_window": [
+        120.1,
+        153.7
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 161,
+       "description": "Chop with knife and use hands to separate the cut parts",
+       "video_window": [
+        358.3,
+        388.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 161,
+       "description": "Chop 2 instead of 1 green chilli",
+       "video_window": [
+        364.5,
+        407.2
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 161,
+       "description": "1/2 green chilli",
+       "video_window": [
+        483.4,
+        522.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 161,
+       "description": "Not washing the green chilli.",
+       "video_window": [
+        236.2,
+        296.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 163,
+   "order": 3,
+   "instruction": "Chop 1/4 medium onion",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 163,
+       "description": "Slice instead of chop",
+       "video_window": [
+        6.8,
+        94.3
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 163,
+       "description": "slice instead of chop",
+       "video_window": [
+        3.7,
+        50.5
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 163,
+       "description": "slice instead of chop",
+       "video_window": [
+        3.3,
+        142.0
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 163,
+       "description": "Mince onion instead of chopping it",
+       "video_window": [
+        223.2,
+        373.7
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 163,
+       "description": "Slice onion instead of chop.",
+       "video_window": [
+        132.3,
+        232.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 163,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        223.2,
+        373.7
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 163,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        132.3,
+        232.1
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 163,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        540.5,
+        628.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 163,
+       "description": "Did not take 1/4 onion",
+       "video_window": [
+        3.3,
+        142.0
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 163,
+       "description": "Chop 1/2 onion instead of 1/4 medium onion",
+       "video_window": [
+        540.5,
+        628.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 163,
+       "description": "Did not peel the onion",
+       "video_window": [
+        6.8,
+        94.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 163,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 164,
+   "order": 4,
+   "instruction": "add 1/3 tsp salt to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 164,
+       "description": "Step performed after adding salt to the pan",
+       "video_window": [
+        432.6,
+        445.2
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 164,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        483.5,
+        500.7
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 164,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        672.4,
+        711.2
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 164,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        1075.4,
+        1102.3
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 164,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        513.8,
+        525.3
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 164,
+       "description": "Step performed after whisking the bowl and heating the pan.",
+       "video_window": [
+        813.4,
+        977.3
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 164,
+       "description": "Step performed after cooking tomatoes to the pan",
+       "video_window": [
+        813.1,
+        838.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 164,
+       "description": "Add salt to the pan instead of the bowl",
+       "video_window": [
+        432.6,
+        445.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 164,
+       "description": "Spilling some salt while seasoning it in the bowl",
+       "video_window": [
+        672.4,
+        711.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 164,
+       "description": "Adding the 1/3 tbsp instead of 1/3 tsp.",
+       "video_window": [
+        813.4,
+        977.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 164,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 167,
+   "order": 5,
+   "instruction": "Crack one egg in the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 167,
+       "description": "Step performed after adding salt to the pan",
+       "video_window": [
+        532.6,
+        606.9
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 167,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        531.5,
+        562.7
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 167,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        613.0,
+        658.8
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 167,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        147.3,
+        202.3
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 167,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        272.0,
+        286.0
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 167,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        430.9,
+        514.0
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 167,
+       "description": "Step performed after cooking tomatoes to the pan",
+       "video_window": [
+        754.5,
+        790.9
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 167,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        382.0,
+        444.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 167,
+       "description": "Crack the egg with shells in the bowl",
+       "video_window": [
+        147.3,
+        202.3
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 167,
+       "description": "Crack with egg shells in the bowl",
+       "video_window": [
+        430.9,
+        514.0
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 167,
+       "description": "Throw egg into the bowl while cracking it",
+       "video_window": [
+        754.5,
+        790.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 167,
+       "description": "Crack 2 eggs instead of one egg",
+       "video_window": [
+        531.5,
+        562.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 167,
+       "description": "Leaving the egg shell remains in the bowl.",
+       "video_window": [
+        430.9,
+        514.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 169,
+   "order": 6,
+   "instruction": "Chop 1/4 tomato",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 169,
+       "description": "Chop 1/2 instead of 1/4 tomato",
+       "video_window": [
+        146.7,
+        177.8
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 169,
+       "description": "Chop 1/2 tomato instead of 1/4 tomato",
+       "video_window": [
+        414.8,
+        473.6
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 169,
+       "description": "Using 1/8 tomato instead of 1/4 tomato.",
+       "video_window": [
+        524.0,
+        631.3
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 169,
+       "description": "Chop-Chop 1/2 tomato",
+       "video_window": [
+        60.5,
+        117.7
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 169,
+       "description": "Chop 1 full tomato",
+       "video_window": [
+        182.4,
+        242.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 169,
+       "description": "Step performed after adding chopped onions to the pan",
+       "video_window": [
+        414.8,
+        473.6
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 169,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        296.8,
+        316.4
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 169,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        524.0,
+        631.3
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 169,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        182.4,
+        242.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 169,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 169,
+       "description": "slice instead of chop",
+       "video_window": [
+        182.4,
+        242.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 176,
+   "order": 7,
+   "instruction": "Peel 2 garlic cloves",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 176,
+       "description": "Step performed after adding salt to the pan",
+       "video_window": [
+        477.3,
+        515.6
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 176,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        409.6,
+        477.7
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 176,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        811.5,
+        902.6
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 176,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        63.9,
+        140.4
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 176,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        324.2,
+        407.5
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 176,
+       "description": "Step performed after heating the pan and before mixing milk and salt.",
+       "video_window": [
+        745.2,
+        802.6
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 176,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        93.2,
+        179.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 176,
+       "description": "Half peel garlic",
+       "video_window": [
+        63.9,
+        140.4
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 176,
+       "description": "One clove is not well peeled",
+       "video_window": [
+        324.2,
+        407.5
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 176,
+       "description": "Not properly peeling the Garlic cloves.",
+       "video_window": [
+        745.2,
+        802.6
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 176,
+       "description": "Peel-Peel 2 garlic cloves improperly",
+       "video_window": [
+        131.9,
+        213.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 176,
+       "description": "Peel 1 clove instead of 2 garlic cloves",
+       "video_window": [
+        477.3,
+        515.6
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 176,
+       "description": "Peel 1 instead of 2 garlic cloves",
+       "video_window": [
+        409.6,
+        477.7
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 176,
+       "description": "Peel 3 garlic clove instead of 2 garlic cloves",
+       "video_window": [
+        93.2,
+        179.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 176,
+       "description": "not peel 1 garlic clove",
+       "video_window": [
+        811.5,
+        902.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 177,
+   "order": 8,
+   "instruction": "add 1 tbsp milk to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 177,
+       "description": "Step performed after cooking tomatoes",
+       "video_window": [
+        802.1,
+        837.0
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 177,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        311.5,
+        355.9
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 177,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        731.3,
+        763.5
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 177,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        159.5,
+        227.6
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 177,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        1166.9,
+        1232.6
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 177,
+       "description": "Step performed after cooking tomatoes to the pan",
+       "video_window": [
+        795,
+        811
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 177,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        446.8,
+        482.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_2",
+       "cc4d_step_id": 177,
+       "description": "forgot to add milk during cooking",
+       "video_window": null
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 177,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 177,
+       "description": "Add 2 tbsp instead of 1 tbsp",
+       "video_window": [
+        802.1,
+        837.0
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 177,
+       "description": "Adding 1 tsp milk to the bowl instead of 1 tbsp.",
+       "video_window": [
+        1166.9,
+        1232.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 177,
+       "description": "Spill some milk outside the bowl",
+       "video_window": [
+        311.5,
+        355.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 177,
+       "description": "Add milk to the mug instead of the bowl",
+       "video_window": [
+        159.5,
+        227.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 159,
+   "order": 9,
+   "instruction": "Whisk the egg mixture in the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    164,
+    167,
+    177
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 159,
+       "description": "Step performed after cooking tomatoes",
+       "video_window": [
+        842.0,
+        864.7
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 159,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        618.9,
+        641.3
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 159,
+       "description": "Step performed after cooking covered for one minute",
+       "video_window": [
+        981.1,
+        1010.6
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 159,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        1107.0,
+        1142.1
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 159,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        628,
+        637
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 159,
+       "description": "Step performed after heating the pan and before mixing milk and salt.",
+       "video_window": [
+        637.9,
+        677.9
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 159,
+       "description": "Step performed after cooking tomatoes to the pan",
+       "video_window": [
+        839.4,
+        852.4
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 159,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        744.5,
+        771.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 159,
+       "description": "Spilling while whisking the egg mixture in the bowl",
+       "video_window": [
+        1107.0,
+        1142.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 180,
+   "order": 10,
+   "instruction": "Mince peeled garlic cloves",
+   "duration_constraint_s": null,
+   "preconditions": [
+    176
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 180,
+       "description": "Slice instead of mince",
+       "video_window": [
+        625.8,
+        648.2
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 180,
+       "description": "Slice instead of mincing the garlic cloves",
+       "video_window": [
+        502.4,
+        514.7
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 180,
+       "description": "chop instead of mince",
+       "video_window": [
+        903.2,
+        911.3
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 180,
+       "description": "cut the garlic cloves instead of mince",
+       "video_window": [
+        536.6,
+        568.5
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 180,
+       "description": "Not properly peeling the Garlic cloves.",
+       "video_window": [
+        982.3,
+        1022.2
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 180,
+       "description": "Cut-Cut peeled garlic cloves instead of mincing it",
+       "video_window": [
+        213.7,
+        248.2
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 180,
+       "description": "slice instead of mince",
+       "video_window": [
+        331.0,
+        369.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 180,
+       "description": "Step performed after adding salt to the pan",
+       "video_window": [
+        625.8,
+        648.2
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 180,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        502.4,
+        514.7
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 180,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        903.2,
+        911.3
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 180,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        982.3,
+        1022.2
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 180,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        331.0,
+        369.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 180,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 180,
+       "description": "Take cooked garlic from the pan to mince",
+       "video_window": [
+        536.6,
+        568.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 173,
+   "order": 11,
+   "instruction": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    158,
+    159,
+    161,
+    163,
+    169,
+    180
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 173,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        162.7,
+        235.5
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 173,
+       "description": "Step performed after adding turmeric to the pan and before preparing the ingredients",
+       "video_window": [
+        173.2,
+        235.2
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 173,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        192.5,
+        271.6
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 173,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        8.9,
+        62.6
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 173,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        8.2,
+        53.9
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 173,
+       "description": "Step performed before preparing the ingredients.",
+       "video_window": [
+        3.9,
+        130.3
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 173,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        264.7,
+        336.1
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 173,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        3.3,
+        87.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 173,
+       "description": "low-medium instead of medium",
+       "video_window": [
+        162.7,
+        235.5
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 173,
+       "description": "High heat instead of medium heat",
+       "video_window": [
+        173.2,
+        235.2
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 173,
+       "description": "high level heat instead of medium heat",
+       "video_window": [
+        192.5,
+        271.6
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 173,
+       "description": "Low heat instead of medium.",
+       "video_window": [
+        3.9,
+        130.3
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 173,
+       "description": "Heat-Heat oil in a heavy-bottomed or nonstick pan on high heat",
+       "video_window": [
+        264.7,
+        336.1
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 173,
+       "description": "low heat used instead of medium heat",
+       "video_window": [
+        3.3,
+        87.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 173,
+       "description": "Using 3 tbsp of oil instead of 2 tbsp.",
+       "video_window": [
+        3.9,
+        130.3
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 173,
+       "description": "Heat 3 tbsp oil instead of 2 tbsp oil",
+       "video_window": [
+        3.3,
+        87.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 173,
+       "description": "Drop while adding oil to the pan",
+       "video_window": [
+        264.7,
+        336.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 178,
+   "order": 12,
+   "instruction": "add 1/3 tsp salt to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    173
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 178,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        358.3,
+        380.1
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 178,
+       "description": "Step performed after adding turmeric to the pan and before preparing the ingredients",
+       "video_window": [
+        291.4,
+        303.7
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 178,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        335.4,
+        377.4
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 178,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        525.4,
+        549.4
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 178,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        240.8,
+        271.8
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 178,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        245.6,
+        273.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 178,
+       "description": "1 instead of 1/3 tsp",
+       "video_window": [
+        291.4,
+        303.7
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 178,
+       "description": "1 instead of 1/3",
+       "video_window": [
+        335.4,
+        377.4
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 178,
+       "description": "Adding 1/2 tsp salt",
+       "video_window": [
+        525.4,
+        549.4
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 178,
+       "description": "Add 1/4 tsp instead of 1/3 tsp",
+       "video_window": [
+        245.6,
+        273.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 178,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 178,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 178,
+       "description": "sugar instead of salt",
+       "video_window": [
+        358.3,
+        380.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 179,
+   "order": 13,
+   "instruction": "add chopped onions to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    173
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 179,
+       "description": "Step performed before preparing the ingredients and after adding tomatoes to the pan",
+       "video_window": [
+        610.3,
+        666.6
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 179,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        518.0,
+        525.8
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 179,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        306.0,
+        326.7
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 179,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        393.9,
+        409.1
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 179,
+       "description": "Step performed before preparing the ingredients.",
+       "video_window": [
+        722.8,
+        741.1
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 179,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        417.0,
+        426.9
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 179,
+       "description": "Step performed after adding chilli and garlic",
+       "video_window": [
+        772.8,
+        788.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 179,
+       "description": "sliced onions instead of chopped",
+       "video_window": [
+        306.0,
+        326.7
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 179,
+       "description": "Throw onions outside the pan while adding them",
+       "video_window": [
+        393.9,
+        409.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 179,
+       "description": "Move the onion to the bowl then move to the pan",
+       "video_window": [
+        610.3,
+        666.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 179,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 166,
+   "order": 14,
+   "instruction": "Saute the onions on medium heat until they are soft and translucent",
+   "duration_constraint_s": null,
+   "preconditions": [
+    178,
+    179
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 166,
+       "description": "Step performed before preparing the ingredients and after adding tomatoes to the pan",
+       "video_window": [
+        667.1,
+        686.0
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 166,
+       "description": "Step performed after adding turmeric to the pan and before preparing the ingredients",
+       "video_window": [
+        572.6,
+        590.6
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 166,
+       "description": "Step performed after adding turmeric to the pan and before preparing the ingredients",
+       "video_window": [
+        770.1,
+        797.9
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 166,
+       "description": "Step performed after adding tomatoes to the pan and before preparing the ingredients",
+       "video_window": [
+        575.6,
+        714.0
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 166,
+       "description": "Step performed before preparing the ingredients.",
+       "video_window": [
+        1033.0,
+        1145.4
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 166,
+       "description": "Step performed before adding salt and preparing ingredients",
+       "video_window": [
+        506,
+        576
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 166,
+       "description": "Step performed after adding chilli and garlic",
+       "video_window": [
+        789.4,
+        900.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 166,
+       "description": "Just cook onion for a short time",
+       "video_window": [
+        667.1,
+        686.0
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 166,
+       "description": "remove the onions quickly",
+       "video_window": [
+        572.6,
+        590.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 166,
+       "description": "Saute onions in high heat",
+       "video_window": [
+        575.6,
+        714.0
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 166,
+       "description": "lower-medium heat",
+       "video_window": [
+        789.4,
+        900.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 166,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 160,
+   "order": 15,
+   "instruction": "Add garlic to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    166
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 160,
+       "description": "Step performed after adding turmeric to the pan and before preparing the ingredients",
+       "video_window": [
+        606.6,
+        615.2
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 160,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        911.3,
+        914.6
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 160,
+       "description": "Step performed after adding tomatoes to the pan and before preparing the ingredients",
+       "video_window": [
+        714.3,
+        716.4
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 160,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        575.5,
+        587.5
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 160,
+       "description": "Step performed after cooking the rest of the ingredients.",
+       "video_window": [
+        1642.3,
+        1651.9
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 160,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        593.3,
+        606.8
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 160,
+       "description": "Step performed before sauteing onions and preparing ingredients",
+       "video_window": [
+        526.7,
+        534.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 160,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 160,
+       "description": "Add already cooked garlic",
+       "video_window": [
+        575.5,
+        587.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 160,
+       "description": "Spill while adding garlic",
+       "video_window": [
+        575.5,
+        587.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 162,
+   "order": 16,
+   "instruction": "Add chilli to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    166
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 162,
+       "description": "Step performed before preparing the ingredients and after adding tomatoes to the pan",
+       "video_window": [
+        691.9,
+        703.5
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 162,
+       "description": "Step performed after adding turmeric to the pan and before preparing the ingredients",
+       "video_window": [
+        591.0,
+        606.6
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 162,
+       "description": "Step performed after adding tomatoes to the pan and before preparing the ingredients",
+       "video_window": [
+        717.1,
+        723.9
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 162,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        424.9,
+        445.3
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 162,
+       "description": "Step performed before preparing the ingredients.",
+       "video_window": [
+        1146.3,
+        1164.0
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 162,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        593.3,
+        606.8
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 162,
+       "description": "Step performed before sauteing onions and preparing ingredients",
+       "video_window": [
+        634.8,
+        640.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 162,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 165,
+   "order": 17,
+   "instruction": "Cook for 1 minute, mixing everything",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    160,
+    162
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 165,
+       "description": "Step performed before preparing the ingredients and after adding tomatoes to the pan",
+       "video_window": [
+        703.5,
+        761.8
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 165,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        641.5,
+        674.3
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 165,
+       "description": "Step performed after adding turmeric to the pan",
+       "video_window": [
+        915.7,
+        962.0
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 165,
+       "description": "Step performed after adding tomatoes to the pan and before preparing the ingredients",
+       "video_window": [
+        724.8,
+        956.3
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 165,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        446.0,
+        506.0
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 165,
+       "description": "Step performed before adding turmeric and garlic to the pan.",
+       "video_window": [
+        1233,
+        1265
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 165,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        608,
+        663
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 165,
+       "description": "Step performed before sauteing onions and preparing ingredients",
+       "video_window": [
+        646.4,
+        738.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 165,
+       "description": "30 seconds instead of 1 minute",
+       "video_window": [
+        641.5,
+        674.3
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 165,
+       "description": "Cook for 3 min instead of 1 min",
+       "video_window": [
+        724.8,
+        956.3
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 165,
+       "description": "Cook for less than a minute.",
+       "video_window": [
+        1233,
+        1265
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 165,
+       "description": "Cook for 2 mins instead of 1 min",
+       "video_window": [
+        646.4,
+        738.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 165,
+       "description": "Spill things while cooking",
+       "video_window": [
+        608,
+        663
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 165,
+       "description": "Cook on high heat instead of medium heat",
+       "video_window": [
+        608,
+        663
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 168,
+   "order": 18,
+   "instruction": "Add 1/8 tsp of turmeric to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    165
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 168,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        250.5,
+        285.5
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 168,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        56.2,
+        115.3
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 168,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        559.5,
+        605.1
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 168,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        1039.4,
+        1070.7
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 168,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        64.2,
+        115.9
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 168,
+       "description": "Step performed before adding garlic to the pan and after cooking the rest of the ingredients.",
+       "video_window": [
+        1577.9,
+        1641.5
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 168,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        687.4,
+        725.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 168,
+       "description": "Add 1/2 tsp instead of 1/8 tsp",
+       "video_window": [
+        250.5,
+        285.5
+       ]
+      },
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 168,
+       "description": "Add 1/2 tsp instead of 1/8 tsp",
+       "video_window": [
+        56.2,
+        115.3
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 168,
+       "description": "Adding 1/8 tbsp turmeric instead of 1/8 tsp.",
+       "video_window": [
+        1577.9,
+        1641.5
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 168,
+       "description": "Adding more than 1/8 tsp of turmeric",
+       "video_window": [
+        687.4,
+        725.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_18",
+       "cc4d_step_id": 168,
+       "description": "forgot to add turmeric during cooking",
+       "video_window": null
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 168,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 175,
+   "order": 19,
+   "instruction": "Add tomatoes to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    165
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 175,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        453.0,
+        474.4
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 175,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        441.2,
+        463.0
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 175,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        561.4,
+        574.7
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 175,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        424.3,
+        446.0
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 175,
+       "description": "Step performed before preparing the ingredients.",
+       "video_window": [
+        698.7,
+        722.8
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 175,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        669,
+        672
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 175,
+       "description": "Spill some tomatoes outside",
+       "video_window": [
+        453.0,
+        474.4
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 175,
+       "description": "Spill some tomatoes outside the pan while adding",
+       "video_window": [
+        441.2,
+        463.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 175,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 175,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 175,
+       "description": "added chopped  tomato, garlic full cloves to the pan",
+       "video_window": [
+        424.3,
+        446.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 170,
+   "order": 20,
+   "instruction": "Cook covered for 1 minute or until the tomatoes soften",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    168,
+    175
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 170,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        762.7,
+        841
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 170,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        963.7,
+        1011.1
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 170,
+       "description": "Step performed before adding turmeric and garlic to the pan.",
+       "video_window": [
+        1265.1,
+        1378.1
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 170,
+       "description": "Step performed before preparing ingredients",
+       "video_window": [
+        735,
+        855
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "16_27",
+       "cc4d_step_id": 170,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 170,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 170,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 170,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 170,
+       "description": "30 seconds instead of 1 minute",
+       "video_window": [
+        963.7,
+        1011.1
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 170,
+       "description": "Covering more than a minute instead of 1 minute.",
+       "video_window": [
+        1265.1,
+        1378.1
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 170,
+       "description": "Cook-Cook until something is burnt",
+       "video_window": [
+        735,
+        855
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_2",
+       "cc4d_step_id": 170,
+       "description": "forgot to cover the lid during cooking",
+       "video_window": [
+        992.6,
+        1072.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 172,
+   "order": 21,
+   "instruction": "Slowly pour the whisked eggs into the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    170
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 172,
+       "description": "Pour quickly instead of slowly",
+       "video_window": [
+        865.2,
+        870.5
+       ]
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 172,
+       "description": "rapidly instead of slowly",
+       "video_window": [
+        1012.7,
+        1016.0
+       ]
+      },
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 172,
+       "description": "Transfer completely at once",
+       "video_window": [
+        1143.7,
+        1158.3
+       ]
+      },
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 172,
+       "description": "whisk the eggs while pouring into the pan",
+       "video_window": [
+        633,
+        640.2
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 172,
+       "description": "Pouring very fastly into the pan instead of slowly.",
+       "video_window": [
+        1378.2,
+        1384
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 172,
+       "description": "Pour at once instead of slowly pouring the whisked eggs",
+       "video_window": [
+        860.5,
+        871.0
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 172,
+       "description": "Quickly pour the whisked eggs into the pan",
+       "video_window": [
+        903.1,
+        909.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 172,
+       "description": "Step performed before adding turmeric and garlic to the pan.",
+       "video_window": [
+        1378.2,
+        1384
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 171,
+   "order": 22,
+   "instruction": "Keep mixing with a spatula for 3 minutes or until the eggs are almost cooked",
+   "duration_constraint_s": 180,
+   "preconditions": [
+    172
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 171,
+       "description": "1.5 minutes instead of 3 minutes",
+       "video_window": [
+        879.7,
+        975.4
+       ]
+      },
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 171,
+       "description": "Mixing with a spatula less than 3 minutes instead of exactly 3 minutes.",
+       "video_window": [
+        1384.8,
+        1554.1
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 171,
+       "description": "Mix more than 3 mins",
+       "video_window": [
+        906.4,
+        1076.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_18",
+       "cc4d_step_id": 171,
+       "description": "Did  not mix fully and let it form an omlet instead of scrambled eggs",
+       "video_window": [
+        1220.7,
+        1329.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 171,
+       "description": "Step performed before adding turmeric and garlic to the pan.",
+       "video_window": [
+        1384.8,
+        1554.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 174,
+   "order": 23,
+   "instruction": "Garnish with 1 tbsp chopped cilantro and serve",
+   "duration_constraint_s": null,
+   "preconditions": [
+    171
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "16_35",
+       "cc4d_step_id": 174,
+       "description": "Mixing the dish instead of garnishing it",
+       "video_window": [
+        1242.4,
+        1270.8
+       ]
+      },
+      {
+       "recording_id": "16_42",
+       "cc4d_step_id": 174,
+       "description": "Mix-Mix with 1 tbsp chopped cilantro and serve",
+       "video_window": [
+        919.8,
+        940.4
+       ]
+      },
+      {
+       "recording_id": "16_44",
+       "cc4d_step_id": 174,
+       "description": "Sprinkle instead of garnish",
+       "video_window": [
+        1076.1,
+        1097.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "16_26",
+       "cc4d_step_id": 174,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "16_28",
+       "cc4d_step_id": 174,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_39",
+       "cc4d_step_id": 174,
+       "description": "Mix the pan contents after garnishing",
+       "video_window": [
+        685.5,
+        692.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "16_40",
+       "cc4d_step_id": 174,
+       "description": "Step performed before adding turmeric and garlic to the pan.",
+       "video_window": [
+        1554.2,
+        1575.4
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

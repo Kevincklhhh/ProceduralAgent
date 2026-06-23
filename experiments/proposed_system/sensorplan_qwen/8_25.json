@@ -1,0 +1,129 @@
+{
+ "recording": "8_25",
+ "task_id": "spicedhotchocolate",
+ "arm": "sensorplan_qwen",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 112.5
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 112.5,
+   "end_s": 150.5
+  },
+  {
+   "stage": "add_cinnamon",
+   "start_s": 150.5,
+   "end_s": 200.5
+  },
+  {
+   "stage": "add_sugar",
+   "start_s": 200.5,
+   "end_s": 210.5
+  },
+  {
+   "stage": "add_chocolate",
+   "start_s": 210.5,
+   "end_s": 310.5
+  },
+  {
+   "stage": "mix",
+   "start_s": 310.5,
+   "end_s": 440.5
+  }
+ ],
+ "transition_trace": [
+  {
+   "t_s": 0.0,
+   "transition": "start",
+   "step_or_block": "fill_milk",
+   "evidence": [
+    "procedure_start (t=0)"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 112.5,
+   "transition": "start",
+   "step_or_block": "microwave_initial",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 150.5,
+   "transition": "start",
+   "step_or_block": "add_cinnamon",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 200.5,
+   "transition": "start",
+   "step_or_block": "add_sugar",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 210.5,
+   "transition": "start",
+   "step_or_block": "add_chocolate",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 310.5,
+   "transition": "start",
+   "step_or_block": "mix",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "sensor_events": [
+  {
+   "t_s": 112.51,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0,
+   "release_t": 120.51
+  },
+  {
+   "t_s": 150.54,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0,
+   "release_t": 158.54
+  }
+ ],
+ "cost": {
+  "audio_on_s": 442.88,
+  "vlm_calls": 29,
+  "frames_sent": 290,
+  "vlm_latency_total_s": 361.91,
+  "compute_s": 1.13
+ },
+ "events": [],
+ "escalation_requests": [],
+ "_meta": {
+  "degraded": "one_cycle",
+  "vlm_mode": "qwen",
+  "interval_s": 10.0,
+  "anchors": {
+   "A": 112.5,
+   "B": 150.5,
+   "C": 442.9,
+   "D": 442.9
+  }
+ }
+}

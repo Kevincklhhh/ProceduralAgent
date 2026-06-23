@@ -10,7 +10,7 @@ Project concept and rationale: [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md) 
 | --- | --- |
 | `docs/` | Research docs: task definition, detector feasibility study, related-work survey, project memory. `docs/multi-sensor/` = parent-project notes. |
 | `related_work/` | Paper PDFs (30+) + extracted text for key ones. Index: [docs/RELATED_WORK_TASK_STRUCTURES.md](docs/RELATED_WORK_TASK_STRUCTURES.md) |
-| `tasks/` | Task-graph JSONs (the compiled "sensing graph" per recipe) + ground-truth annotation templates. Schema: [docs/TASK_DEFINITION.md](docs/TASK_DEFINITION.md) |
+| `tasks/` | Task-graph JSONs (the compiled "sensing graph" per recipe) + ground-truth annotation templates. Schema: [tasks/PROCEDURE_MONITOR_COMPILER.md](tasks/PROCEDURE_MONITOR_COMPILER.md) (two-stage criteria→sensorplan templates) |
 | `detectors/` | Detector library (`detectors_lib.py` — frozen, validated audio detectors) and `probes/` (the feasibility experiments that validated them, scripts + results JSONs + plots) |
 | `eval/` | Main evaluation scripts (see "How to run") |
 | `experiments/` | Run artifacts and reports. `replay_v1/` = the 3-arm detector-vs-VLM experiment ([REPORT.md](experiments/replay_v1/REPORT.md)); `hdepic_eggs_v0/` = first baseline sanity runs on an HD-EPIC clip |
@@ -42,20 +42,20 @@ Always use Qwen on saltyfish (`QWEN_VIDEO_SERVER_URL=http://saltyfish.eecs.umich
 
 ```bash
 # Arm 1: detector-only replay (audio DSP + task graph) -> experiments/replay_v1/results/detector_replay/
-python3 eval/engine.py
+python3 eval/legacy_detector_replay.py
 
 # Arm 2: periodic VLM baseline (one recording)
 export QWEN_VIDEO_SERVER_URL=http://saltyfish.eecs.umich.edu:8000
-python3 eval/periodic_vlm.py --video data/videos_480p/8_16.mp4 \
+python3 eval/baseline_periodic_vlm.py --video data/videos_480p/8_16.mp4 \
     --task tasks/task_spiced_hot_chocolate_cc4d.json --backend qwen \
     --interval 10 --frames-per-call 3 --out experiments/replay_v1/runs/8_16
-python3 eval/convert_periodic_vlm.py        # -> unified results format
+python3 eval/baseline_periodic_vlm_convert.py        # -> unified results format
 
 # Arm 3: escalation (needs arm-1 results + 480p videos)
-python3 eval/run_escalation.py
+python3 eval/legacy_escalation.py
 
 # Score all arms -> experiments/replay_v1/results/scores.json + REPORT.md
-python3 eval/score.py
+python3 eval/eval_score_activity8.py
 ```
 
 ## Data (rebuilding `data/`, which is gitignored)

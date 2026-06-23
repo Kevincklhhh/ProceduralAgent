@@ -1,0 +1,1566 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "blenderbananapancakes",
+ "activity_id": 21,
+ "n_recordings": 19,
+ "n_error_recordings": 12,
+ "steps": [
+  {
+   "step_id": 221,
+   "order": 1,
+   "instruction": "1/2 tsp baking powder to a blender",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 221,
+       "description": "Using Tbsp instead of tsp.",
+       "video_window": [
+        13.7,
+        63.7
+       ]
+      },
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 221,
+       "description": "Add-1 tbsp baking powder instead of 1/2 tsp to a blender",
+       "video_window": [
+        107.6,
+        149.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_28",
+       "cc4d_step_id": 221,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 221,
+       "description": "Spilling the powder onto hands while adding it to the blender",
+       "video_window": [
+        11.0,
+        71.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 225,
+   "order": 2,
+   "instruction": "Add 1 banana to a blender",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 225,
+       "description": "Instead of full banana adding half.",
+       "video_window": [
+        355.0,
+        383.8
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 225,
+       "description": "Add half banana instead of 1 banana",
+       "video_window": [
+        118.3,
+        172.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 225,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 225,
+       "description": "Step performed after adding maple syrup to the plate",
+       "video_window": [
+        355.0,
+        383.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 229,
+   "order": 3,
+   "instruction": "1 egg to a blender",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 229,
+       "description": "Dropping egg shell while adding to blender",
+       "video_window": [
+        76.0,
+        106.2
+       ]
+      },
+      {
+       "recording_id": "21_37",
+       "cc4d_step_id": 229,
+       "description": "Spill while adding egg to a blender and dropping egg shell into blender",
+       "video_window": [
+        8.7,
+        57.2
+       ]
+      },
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 229,
+       "description": "Cracking the egg improperly such that some part of the egg shell falls into the blender",
+       "video_window": [
+        118.8,
+        160.4
+       ]
+      },
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 229,
+       "description": "Crack egg such that it falls into the blender",
+       "video_window": [
+        166.3,
+        187.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 229,
+       "description": "Step performed after doing everything.",
+       "video_window": [
+        907.1,
+        946.6
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 229,
+       "description": "Step performed after blitzing",
+       "video_window": [
+        327.0,
+        347.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 229,
+       "description": "Add 2 eggs instead of  1 egg",
+       "video_window": [
+        76.0,
+        106.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 229,
+       "description": "Using a soiled and broken egg.",
+       "video_window": [
+        907.1,
+        946.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 232,
+   "order": 4,
+   "instruction": "1 heaped tbsp flour to a blender",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_28",
+       "cc4d_step_id": 232,
+       "description": "Not a heaped tbsp flour.",
+       "video_window": [
+        80.5,
+        119.1
+       ]
+      },
+      {
+       "recording_id": "21_37",
+       "cc4d_step_id": 232,
+       "description": "Add 1 flattened tbsp of flour to a blender instead of heaped tbsp",
+       "video_window": [
+        102.3,
+        192.5
+       ]
+      },
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 232,
+       "description": "Adding without a heap instead of heaped tbsp.",
+       "video_window": [
+        66.7,
+        100.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 232,
+       "description": "Spill some flour outside while adding to blender",
+       "video_window": [
+        21.1,
+        68.6
+       ]
+      },
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 232,
+       "description": "Dropping flour while adding heaped measuring utensil into the blender",
+       "video_window": [
+        178.8,
+        197.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 232,
+       "description": "Step performed after blending it once",
+       "video_window": [
+        276.3,
+        317.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 227,
+   "order": 5,
+   "instruction": "blitz the blender for 20 seconds",
+   "duration_constraint_s": 20,
+   "preconditions": [
+    221,
+    225,
+    229,
+    232
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 227,
+       "description": "40 instead of 20 seconds",
+       "video_window": [
+        163.8,
+        222.4
+       ]
+      },
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 227,
+       "description": "Blitzing the blender for more than 20 seconds.",
+       "video_window": [
+        399.0,
+        503.6
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 227,
+       "description": "30 secs",
+       "video_window": [
+        290.5,
+        332.6
+       ]
+      },
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 227,
+       "description": "Blend the contents improperly for 30 seconds",
+       "video_window": [
+        185.4,
+        256.0
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 227,
+       "description": "blitz for 25 secs instead of 20 secs",
+       "video_window": [
+        210.0,
+        253.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 227,
+       "description": "Step performed after adding maple syrup to the plate and before adding egg.",
+       "video_window": [
+        399.0,
+        503.6
+       ]
+      },
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 227,
+       "description": "Step performed before adding flour to the blender",
+       "video_window": [
+        185.4,
+        256.0
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 227,
+       "description": "Step performed before adding egg",
+       "video_window": [
+        210.0,
+        253.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 223,
+   "order": 6,
+   "instruction": "Melt a small knob of butter in a non-stick frying pan over low-medium heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    227
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 223,
+       "description": "Used high heat instead of low-medium heat",
+       "video_window": [
+        231.6,
+        284.6
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 223,
+       "description": "used medium heat instead of low-medium heat",
+       "video_window": [
+        624.8,
+        678.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_37",
+       "cc4d_step_id": 223,
+       "description": "Melt a spoon of butter instead of small knob of butter in a non-stick frying pan",
+       "video_window": [
+        305.3,
+        537.7
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 223,
+       "description": "Use a tablespoon of butter instead of a small knob",
+       "video_window": [
+        336.2,
+        439.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 223,
+       "description": "Step performed after adding maple syrup to the plate and before adding egg.",
+       "video_window": [
+        523.4,
+        656.8
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 223,
+       "description": "Step performed after flipping pancakes",
+       "video_window": [
+        624.8,
+        678.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_32",
+       "cc4d_step_id": 223,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 223,
+       "description": "Using a steel pan instead of a non-stick pan.",
+       "video_window": [
+        523.4,
+        656.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 231,
+   "order": 7,
+   "instruction": "Pour three little puddles straight from the blender into the frying pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    223
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 231,
+       "description": "Poured on large puddle instead of three little puddles",
+       "video_window": [
+        284.6,
+        343.2
+       ]
+      },
+      {
+       "recording_id": "21_37",
+       "cc4d_step_id": 231,
+       "description": "Pour one puddle instead of three little puddles straight from the blender into the frying pan",
+       "video_window": [
+        535.9,
+        563.7
+       ]
+      },
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 231,
+       "description": "Pour one large puddle instead of little puddles",
+       "video_window": [
+        422.5,
+        450.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 231,
+       "description": "Step performed after adding maple syrup to the plate and before adding egg.",
+       "video_window": [
+        655.3,
+        713.0
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 231,
+       "description": "Step performed after adding maple syrup on plate",
+       "video_window": [
+        483.8,
+        522.3
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 231,
+       "description": "Step performed before melting butter in pan",
+       "video_window": [
+        358.9,
+        466.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 231,
+       "description": "Spooned the content instead of pouring.",
+       "video_window": [
+        655.3,
+        713.0
+       ]
+      },
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 231,
+       "description": "Spooning the batter into the pan instead of pouring",
+       "video_window": [
+        368.4,
+        444.9
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 231,
+       "description": "Spooning instead of pouring",
+       "video_window": [
+        358.9,
+        466.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 231,
+       "description": "Not using a proper frying pan.",
+       "video_window": [
+        284.6,
+        343.2
+       ]
+      },
+      {
+       "recording_id": "21_32",
+       "cc4d_step_id": 231,
+       "description": "Not using a proper frying pan.",
+       "video_window": [
+        326.4,
+        399.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_14",
+       "cc4d_step_id": 231,
+       "description": "Drop the blender",
+       "video_window": [
+        371.7,
+        414.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 226,
+   "order": 8,
+   "instruction": "Cook for 1 min or until the tops start to bubble",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    231
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_32",
+       "cc4d_step_id": 226,
+       "description": "Did not cook for required time.",
+       "video_window": [
+        380,
+        453
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 226,
+       "description": "Cook for 2 mins instead of 1 min",
+       "video_window": [
+        524.7,
+        665.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 226,
+       "description": "Step performed after adding maple syrup to the plate and before adding egg.",
+       "video_window": [
+        726.6,
+        785.8
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 226,
+       "description": "Step performed after adding maple syrup on plate",
+       "video_window": [
+        524.7,
+        665.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 226,
+       "description": "Not cooking until required state is reached",
+       "video_window": [
+        453.1,
+        595.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 226,
+       "description": "Cook on high for 1 minute",
+       "video_window": [
+        567.0,
+        607.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 228,
+   "order": 9,
+   "instruction": "Flip the pancakes with a fork or a fish slice spatula",
+   "duration_constraint_s": null,
+   "preconditions": [
+    226
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "21_28",
+       "cc4d_step_id": 228,
+       "description": "Didn't flip the pancakes properly.",
+       "video_window": [
+        494.1,
+        543.7
+       ]
+      },
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 228,
+       "description": "Did not flip the entire pancake, but only a part of it",
+       "video_window": [
+        504.3,
+        517.1
+       ]
+      },
+      {
+       "recording_id": "21_32",
+       "cc4d_step_id": 228,
+       "description": "Did not flip entire pancake but only half of it.",
+       "video_window": [
+        453,
+        469.3
+       ]
+      },
+      {
+       "recording_id": "21_37",
+       "cc4d_step_id": 228,
+       "description": "Did not flip the entire puddle at once",
+       "video_window": [
+        917.5,
+        969.5
+       ]
+      },
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 228,
+       "description": "Not flipping entire pancake at once",
+       "video_window": [
+        592.7,
+        676.0
+       ]
+      },
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 228,
+       "description": "Flipped a pancake outside the pan instead of inside.",
+       "video_window": [
+        782.8,
+        819.2
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 228,
+       "description": "Did not flip the entire pancake",
+       "video_window": [
+        535.7,
+        623.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "21_32",
+       "cc4d_step_id": 228,
+       "description": "Not using a fork or a fish slice spatula to flip the pancakes",
+       "video_window": [
+        453,
+        469.3
+       ]
+      },
+      {
+       "recording_id": "21_37",
+       "cc4d_step_id": 228,
+       "description": "Not using a fork or a fish slice spatula to flip the pancakes",
+       "video_window": [
+        917.5,
+        969.5
+       ]
+      },
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 228,
+       "description": "Not using fish slice spatula resulting in making a large ball",
+       "video_window": [
+        592.7,
+        676.0
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 228,
+       "description": "Not using a fork or a fish slice spatula",
+       "video_window": [
+        662.7,
+        694.0
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 228,
+       "description": "Flipped without using fork or spatula",
+       "video_window": [
+        535.7,
+        623.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 228,
+       "description": "Step performed after adding maple syrup to the plate and before adding egg.",
+       "video_window": [
+        782.8,
+        819.2
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 228,
+       "description": "Step performed after adding maple syrup on plate",
+       "video_window": [
+        662.7,
+        694.0
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 228,
+       "description": "Step performed melting butter in pan",
+       "video_window": [
+        535.7,
+        623.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 230,
+   "order": 10,
+   "instruction": "cook for 20-30 seconds more",
+   "duration_constraint_s": 30,
+   "preconditions": [
+    228
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 230,
+       "description": "10 instead of 20-30 seconds",
+       "video_window": [
+        520.8,
+        532.7
+       ]
+      },
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 230,
+       "description": "Cook on high for 1 minute",
+       "video_window": [
+        563,
+        610
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 230,
+       "description": "cook for more than 20 seconds",
+       "video_window": [
+        677,
+        780
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_3",
+       "cc4d_step_id": 230,
+       "description": "Did not turn off the stove after 30 seconds",
+       "video_window": [
+        670.8,
+        712.6
+       ]
+      },
+      {
+       "recording_id": "21_103",
+       "cc4d_step_id": 230,
+       "description": "Did not turn off the stove after 30 seconds",
+       "video_window": [
+        731.4,
+        763.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 230,
+       "description": "Step performed after adding maple syrup to the plate and before adding egg.",
+       "video_window": [
+        816.1,
+        855.6
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 230,
+       "description": "Step performed after adding maple syrup on plate",
+       "video_window": [
+        691.6,
+        721.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 230,
+       "description": "Cook on high for 1 minute",
+       "video_window": [
+        563,
+        610
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 233,
+   "order": 11,
+   "instruction": "Chop 1 strawberry",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "21_28",
+       "cc4d_step_id": 233,
+       "description": "Teared strawberries with hands instead of chopping them with a knife",
+       "video_window": [
+        568.0,
+        596.7
+       ]
+      },
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 233,
+       "description": "mince instead of chopping 1 strawberry",
+       "video_window": [
+        422.8,
+        502.5
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 233,
+       "description": "Slice instead of chop",
+       "video_window": [
+        198.1,
+        253.3
+       ]
+      },
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 233,
+       "description": "Cut instead of chopping a strawberry",
+       "video_window": [
+        663.8,
+        702.1
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 233,
+       "description": "Slice instead of chop",
+       "video_window": [
+        713.9,
+        763.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_37",
+       "cc4d_step_id": 233,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 233,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 233,
+       "description": "Chopping two strawberries instead of one.",
+       "video_window": [
+        163.8,
+        279.1
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 233,
+       "description": "Use 2 strawberry instead of 1",
+       "video_window": [
+        198.1,
+        253.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_32",
+       "cc4d_step_id": 233,
+       "description": "Use soiled strawberry.",
+       "video_window": [
+        175.2,
+        216.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 234,
+   "order": 12,
+   "instruction": "Transfer to a plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    230
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 234,
+       "description": "Step performed after adding maple syrup to the plate",
+       "video_window": [
+        727.7,
+        748.4
+       ]
+      },
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 234,
+       "description": "Step performed after adding maple syrup to the plate and before adding egg.",
+       "video_window": [
+        852.5,
+        878.3
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 234,
+       "description": "Step performed after adding maple syrup on plate",
+       "video_window": [
+        719.2,
+        740.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_29",
+       "cc4d_step_id": 234,
+       "description": "Bowl instead of plate",
+       "video_window": [
+        530.8,
+        546.4
+       ]
+      },
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 234,
+       "description": "Use bowl instead plate",
+       "video_window": [
+        784.3,
+        810.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 222,
+   "order": 13,
+   "instruction": "Serve the pancakes with chopped strawberries",
+   "duration_constraint_s": null,
+   "preconditions": [
+    233,
+    234
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_3",
+       "cc4d_step_id": 222,
+       "description": "Spilled while adding strawberries to the plate",
+       "video_window": [
+        764.9,
+        788.4
+       ]
+      },
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 222,
+       "description": "Did not add all the chopped strawberries.",
+       "video_window": [
+        878.3,
+        907.1
+       ]
+      },
+      {
+       "recording_id": "21_103",
+       "cc4d_step_id": 222,
+       "description": "Spilled while adding strawberries to the plate",
+       "video_window": [
+        827.5,
+        842.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_37",
+       "cc4d_step_id": 222,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 222,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 222,
+       "description": "Step performed after adding maple syrup to the plate and before adding egg.",
+       "video_window": [
+        878.3,
+        907.1
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 222,
+       "description": "Step performed after adding maple syrup on plate",
+       "video_window": [
+        738.4,
+        754.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 224,
+   "order": 14,
+   "instruction": "splash maple syrup on plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    222
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "21_28",
+       "cc4d_step_id": 224,
+       "description": "Spill the maple syrup while splashing on plate.",
+       "video_window": [
+        648.5,
+        669.5
+       ]
+      },
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 224,
+       "description": "Spill some maple syrup.",
+       "video_window": [
+        317.0,
+        358.0
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 224,
+       "description": "Pour instead of splash maple syrup on plate",
+       "video_window": [
+        457.4,
+        479.0
+       ]
+      },
+      {
+       "recording_id": "21_47",
+       "cc4d_step_id": 224,
+       "description": "Drop while adding maple syrup into the plate",
+       "video_window": [
+        712,
+        739
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "21_43",
+       "cc4d_step_id": 224,
+       "description": "Step performed before adding strawberries to the plate",
+       "video_window": [
+        709.1,
+        722.2
+       ]
+      },
+      {
+       "recording_id": "21_44",
+       "cc4d_step_id": 224,
+       "description": "Step performed before making pancakes",
+       "video_window": [
+        317.0,
+        358.0
+       ]
+      },
+      {
+       "recording_id": "21_46",
+       "cc4d_step_id": 224,
+       "description": "Step performed before making pan cakes",
+       "video_window": [
+        457.4,
+        479.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_32",
+       "cc4d_step_id": 224,
+       "description": "Using siracha sauce instead of maple syrup.",
+       "video_window": [
+        557.2,
+        575.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "21_50",
+       "cc4d_step_id": 224,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

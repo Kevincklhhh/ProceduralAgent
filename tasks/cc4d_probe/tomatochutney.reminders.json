@@ -1,0 +1,905 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "tomatochutney",
+ "activity_id": 15,
+ "n_recordings": 15,
+ "n_error_recordings": 10,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 145,
+   "order": 1,
+   "instruction": "Peel 4 large garlic cloves",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after adding mustard and cumin seeds to the pan"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Break the garlic while peeling and do not peel correctly",
+      "Did not peel the garlic cloves correctly"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "only 2 garlic are peeled and minced instead of 4",
+      "Took small garlic cloves"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Peel garlic partially"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 140,
+   "order": 2,
+   "instruction": "mince the garlic",
+   "duration_constraint_s": null,
+   "preconditions": [
+    145
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after heating and adding mustard and cumin seeds",
+      "Step performed after adding mustard and cumin seeds to the pan",
+      "Step performed after adding mustard seeds to the pan"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Slice the garlic instead of mincing",
+      "crush the garlic instead of mincing",
+      "Cut the garlic instead of mincing",
+      "slice the garlic instead of mince"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "mince only 2 garlic instead of 4"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 149,
+   "order": 3,
+   "instruction": "Take 1 tomato",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after heating and adding mustard and cumin seeds",
+      "Step performed after adding red chili powder to the pan",
+      "Step performed after adding minced garlic",
+      "Step performed after adding minced garlic to the pan"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Take 2 tomatoes rather than one tomato",
+      "Take 2 tomatoes",
+      "Take 2 tomatoes instead of 1"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use a soiled tomato and don't wash it",
+      "donot wash the tomatoes"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 155,
+   "order": 4,
+   "instruction": "Chop tomato roughly (anysize chunks are fine)",
+   "duration_constraint_s": null,
+   "preconditions": [
+    149
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after heating and adding mustard and cumin seeds",
+      "Step performed after adding red chili powder to the pan",
+      "Step performed after adding mustard and cumin seeds to the pan",
+      "Step performed after adding minced garlic to the pan",
+      "Step performed before making puree"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "slice instead of chopping the tomatoes",
+      "Slice-Slice tomato roughly",
+      "crush tomatoes instead of chop"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 150,
+   "order": 5,
+   "instruction": "puree tomatoes without any water in a blender/mixer",
+   "duration_constraint_s": null,
+   "preconditions": [
+    155
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 10,
+     "n_recordings": 10,
+     "descriptions": [
+      "Step performed after adding salt to the pan",
+      "Step performed after heating and adding mustard and cumin seeds",
+      "Step performed after adding red chili powder to the pan",
+      "Step performed after sauteing garlic",
+      "Step performed after heating the pan",
+      "Step performed after adding minced garlic",
+      "Step performed after adding mustard and cumin seeds to the pan",
+      "Step performed after adding minced garlic to the pan",
+      "Step performed after sauteing garlic and after taking the pan off heat"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "making puree of tomatoes with water in blender/mixer",
+      "spill some water while adding to blender",
+      "Did not puree the tomatoes, instead left them as chunks"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Do not blend enough - Leave some chunks",
+      "add 1 cup water in addition to tomatoes"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Did not puree the tomatoes correctly"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 154,
+   "order": 6,
+   "instruction": "Heat 3 tbsp oil in a pan over medium heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    140,
+    150
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 10,
+     "n_recordings": 10,
+     "descriptions": [
+      "Step performed before making puree and mincing garlic",
+      "Step performed before making the puree and mincing the garlic",
+      "Step performed before making the puree"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Heat 5 tbsp oil in a pan over medium heat",
+      "Use a tsp rather than tbsp",
+      "Spill and as a consequence added more oil than required",
+      "heart only 2 tbsp oil instead of 3 tbsp",
+      "use 1/2 tbsp instead of 1 tbsp",
+      "Heating 4tbsps of oil instead of 3 tbsps"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use low heat instead of medium heat",
+      "Used high heat instead of medium heat"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill oil while adding to the pan",
+      "Heat-Heat 3 tbsp oil in a pan over medium heat. Spilling happened while putting oil in the pan."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 139,
+   "order": 7,
+   "instruction": "Add 1/4 tsp mustard to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    154
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 9,
+     "n_recordings": 9,
+     "descriptions": [
+      "Step performed before making puree and mincing garlic",
+      "Step performed before making the puree and mincing the garlic",
+      "Step performed before making the puree"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Added more",
+      "Added 1/4 tbsp instead of 1/4 tsp"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Added red chilli flakes instead of mustard",
+      "spilled some out"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill out while scooping and adding mustard seeds to the pan"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 141,
+   "order": 8,
+   "instruction": "1/2 tsp cumin seeds to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    154
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "descriptions": [
+      "Step performed before making puree",
+      "Step performed before making puree and mincing garlic",
+      "Step performed before making the puree and mincing the garlic",
+      "Step performed before making the puree"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "spill some out while adding"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 152,
+   "order": 9,
+   "instruction": "When mustard and cumin seeds begin to sizzle, add minced garlic",
+   "duration_constraint_s": null,
+   "preconditions": [
+    139,
+    141
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed before making puree",
+      "Step performed before making the puree"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "burn mustard due to cooking for too long"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "spill garlic while adding"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "add-When mustard and cumin seeds are burnt, add minced garlic"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 151,
+   "order": 10,
+   "instruction": "Lower the heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    152
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "descriptions": [
+      "Step performed before making puree",
+      "Step performed before making puree and mincing garlic",
+      "Step performed before making the puree"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Increase heat from medium to high",
+      "High heat instead of low heat",
+      "increase the heat instead of reducing",
+      "Turn off the heat. Because of smoke and pungent odor.",
+      "Turn off the heat"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 148,
+   "order": 11,
+   "instruction": "Saute the garlic for 2-3 minutes",
+   "duration_constraint_s": 180,
+   "preconditions": [
+    151
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before making puree",
+      "Step performed before making puree and lower the heat"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Saute for 1 minute",
+      "saute the garlic only for 1 min and burn it",
+      "Saute-Saute the garlic for 1-2 minutes"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 147,
+   "order": 12,
+   "instruction": "Add 2 tbsp red chili powder to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    148
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before making puree",
+      "Step performed before making puree and mincing garlic",
+      "Step performed after adding salt and mixing"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Add 4 tbsp instead of 2 tbsp",
+      "Added less than 2 tbsp red chili powder",
+      "added less chilli powder"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 157,
+   "order": 13,
+   "instruction": "mix well contents of the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    147
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before making puree",
+      "Step performed after adding the salt",
+      "Step performed before adding red chili powder to the pan",
+      "Step performed after taking the pan off heat"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 142,
+   "order": 14,
+   "instruction": "Add tomato puree to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    157
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after correct order",
+      "Step performed after taking the pan off heat"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "spill some out while adding to the pan"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 146,
+   "order": 15,
+   "instruction": "1/2 tsp salt to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    157
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before making puree",
+      "Step performed before mixing the contents of the pan",
+      "Step performed before adding red chili powder to the pan",
+      "Step performed after taking the pan off heat"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add 1 tsp rather than 1/2 tsp",
+      "add 1/2 cup salt instead of 1/2 tsp"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Adding more salt to the pan instead of 1/2 tsp as there is no scooping and measuring"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 144,
+   "order": 16,
+   "instruction": "Mix well tomato puree with contents in the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    142,
+    146
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill out while mixing",
+      "spill some out while mixing"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Leave tomatoes uncooked"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after taking the pan off heat"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 153,
+   "order": 17,
+   "instruction": "Allow the mixture to simmer over low heat for 5 minutes or until the mixture becomes thick",
+   "duration_constraint_s": 300,
+   "preconditions": [
+    144
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Cooked for 2 minutes instead of 5 minutes",
+      "simmer only for 1 min",
+      "Simmer for one min instead of 5 mins",
+      "cook for only 2 mins instead of cooking till mixture is thick"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Used high heat instead of low heat"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after taking the pan off heat"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 143,
+   "order": 18,
+   "instruction": "Take the pan off the heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    153
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before recipe is done"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 156,
+   "order": 19,
+   "instruction": "Transfer it to a serving bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    143
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while transferring"
+     ]
+    }
+   ]
+  }
+ ]
+}

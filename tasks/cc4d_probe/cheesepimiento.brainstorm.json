@@ -1,0 +1,624 @@
+{
+  "recipe": "cheesepimiento",
+  "_kind": "detector_and_control_brainstorm",
+  "_notes": "11 steps x 2 (recog+completion) = 22 role claims + 25 check claims = 47 total. No fry/saute (no D3/D4). No blender (no D2). Water is poured from a cup not a running tap (no D5 -- D5 requires a running tap). D1 binds steps 318 and 323 (both microwave). D6 handles timing on 318/323 and precondition edges. Everything else is silent add/chop/mix -> C-none or cv state-change B-trigger.",
+  "claims": [
+    {
+      "step_id": 316,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding cheddar cheese into a microwave-safe cup (one of 3 concurrent roots)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- three concurrent eligible roots with no audio/motion distinction; cv color change could detect a hand-over-cup event but cannot distinguish cheese from other adds with confidence",
+      "config_oneline": "periodic VLM; cv HSV hand-in-ROI(cup) may narrow window but cannot confirm identity"
+    },
+    {
+      "step_id": 316,
+      "kind": "completion",
+      "subtype": "inferred_from:323",
+      "claim_short": "Cheese add complete -- inferred when microwave step 323 starts",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- D1 cycle_start on step 323 is the anchor; DAG logic (D6) marks step 316 complete when 323 is confirmed running",
+      "config_oneline": "D1.cycle_start(323) -> D6 mark 316 complete"
+    },
+    {
+      "step_id": 320,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding water into the bowl (one of 3 concurrent roots)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- silent pour; D5 requires running tap which is not applicable here (water poured from pitcher/cup); cv tilt/pour motion B-trigger feasible but unvalidated",
+      "config_oneline": "periodic VLM; cv hand-tilt on bowl ROI could B-trigger but Pour is in the excluded list"
+    },
+    {
+      "step_id": 320,
+      "kind": "completion",
+      "subtype": "inferred_from:318",
+      "claim_short": "Water add complete -- inferred when microwave step 318 starts",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- D1 cycle_start(318) is the anchor; D6 marks 320 complete once 318 confirmed running",
+      "config_oneline": "D1.cycle_start(318) -> D6 mark 320 complete"
+    },
+    {
+      "step_id": 321,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is chopping red bell pepper into tiny bits (one of 3 concurrent roots)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- chop transient audio is in the EXCLUDED list (material-blind, false-fires); however optical-flow motion on cutting-board ROI is distinctive enough to B-trigger one VLM call to confirm identity",
+      "config_oneline": "cv motion(cutting-board ROI) -> B-trigger VLM confirm pepper chop"
+    },
+    {
+      "step_id": 321,
+      "kind": "completion",
+      "subtype": "inferred_from:322",
+      "claim_short": "Pepper chopped -- inferred when place-pepper step 322 starts",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- motion/optical-flow cessation on cutting-board ROI plus hand-toward-bowl movement can B-trigger VLM to confirm transfer begins",
+      "config_oneline": "cv motion-stop(cutting-board) + hand-toward-bowl -> B-trigger VLM confirm 322 start"
+    },
+    {
+      "step_id": 322,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is placing chopped pepper into the microwave-safe bowl",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- hand-moving-over-bowl with colored object (HSV red blob) is detectable as state change; B-triggers one VLM call for confirmation",
+      "config_oneline": "cv HSV red-blob + hand-over-bowl ROI -> B-trigger VLM confirm pepper placement"
+    },
+    {
+      "step_id": 322,
+      "kind": "completion",
+      "subtype": "inferred_from:318",
+      "claim_short": "Pepper placement complete -- inferred when microwave step 318 starts",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- D1 cycle_start(318) anchors; D6 marks 322 complete when 318 confirmed running",
+      "config_oneline": "D1.cycle_start(318) -> D6 mark 322 complete"
+    },
+    {
+      "step_id": 318,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Covered bowl is in the microwave running for ~2 minutes",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- D1 cycle_start detects microwave hum onset within 8s latency; camera can sleep during 2-minute cook",
+      "config_oneline": "D1.cycle_start -> A-solve step 318 recognition; camera OFF"
+    },
+    {
+      "step_id": 318,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Microwave bowl stops after ~2 minutes (appliance stopping = end event)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- D1 cycle_end (end-beep) gives authoritative completion; latency ~8s within buffer",
+      "config_oneline": "D1.cycle_end -> A-solve step 318 complete; camera OFF entire duration"
+    },
+    {
+      "step_id": 323,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Cup of cheese is in the microwave running to melt cheese for ~30 seconds",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- D1 cycle_start detects hum onset; note min_run_s=8s so a 30s cycle is short but still within detection range (memory note: hum retuned min_run 20->8 for short cycles); camera can sleep",
+      "config_oneline": "D1.cycle_start(min_run_s=8) -> A-solve step 323 recognition; camera OFF"
+    },
+    {
+      "step_id": 323,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Microwave cup stops after ~30 seconds and cheese is melted",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high for stop event (D1 end-beep); thermal-spot could confirm cheese actually melted (temp >60C) as speculative augmentation but not required for cycle-end completion",
+      "config_oneline": "D1.cycle_end -> A-solve step 323 complete; thermal-spot optional melt-confirm"
+    },
+    {
+      "step_id": 317,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is mixing melted cheese and red bell pepper in the bowl",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- stirring motion is detectable via optical-flow on bowl ROI; this fires after D1 confirms both 318 and 323 are complete (DAG precondition), so timing context narrows the window; B-trigger VLM to confirm mix identity",
+      "config_oneline": "DAG(318+323 complete) + cv optical-flow(bowl ROI) -> B-trigger VLM confirm mix 317"
+    },
+    {
+      "step_id": 317,
+      "kind": "completion",
+      "subtype": "inferred_from:314",
+      "claim_short": "Cheese+pepper mixed -- inferred when butter add step 314 starts",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- no audio/motion anchor for butter add onset; cv HSV yellow-blob state change on bowl ROI is speculative but unvalidated at this granularity",
+      "config_oneline": "periodic VLM after step 317 is believed active"
+    },
+    {
+      "step_id": 314,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding softened butter into the bowl (one of 3 concurrent post-317 steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- silent add; three concurrent eligible steps (314/315/319); no audio/motion distinguisher; cv color change (yellow) possible but butter/salt/pepper are near-silent and visually small",
+      "config_oneline": "periodic VLM; cv HSV(bowl ROI) may B-trigger but identity needs VLM"
+    },
+    {
+      "step_id": 314,
+      "kind": "completion",
+      "subtype": "inferred_from:324",
+      "claim_short": "Butter add complete -- inferred when final mix step 324 starts",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- once all three of 314/315/319 are believed added (via VLM confirmation or cv state-change), DAG emits precondition-satisfied for 324",
+      "config_oneline": "D6 DAG: 314+315+319 complete -> 324 unlocked"
+    },
+    {
+      "step_id": 315,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding salt into the bowl (one of 3 concurrent post-317 steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- white granule add is entirely silent and visually small; cv cannot distinguish salt from pepper visually at wearable resolution; VLM needed for identity",
+      "config_oneline": "periodic VLM; no cheap shortcut"
+    },
+    {
+      "step_id": 315,
+      "kind": "completion",
+      "subtype": "inferred_from:324",
+      "claim_short": "Salt add complete -- inferred when final mix step 324 starts",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- same DAG convergence logic as 314; D6 marks complete when 324 is believed started",
+      "config_oneline": "D6 DAG: all of 314/315/319 complete -> 324 unlocked"
+    },
+    {
+      "step_id": 319,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding pepper into the bowl (one of 3 concurrent post-317 steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- tiny dark granule; visually and acoustically identical to salt add; VLM required for identity",
+      "config_oneline": "periodic VLM; no cheap shortcut"
+    },
+    {
+      "step_id": 319,
+      "kind": "completion",
+      "subtype": "inferred_from:324",
+      "claim_short": "Pepper add complete -- inferred when final mix step 324 starts",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG convergence; D6 marks complete when 324 starts",
+      "config_oneline": "D6 DAG: all of 314/315/319 complete -> 324 unlocked"
+    },
+    {
+      "step_id": 324,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is mixing all ingredients in the bowl thoroughly",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- stirring motion via optical-flow on bowl ROI; DAG preconditions (314+315+319) gate the timing; one VLM call confirms this is the final mix",
+      "config_oneline": "DAG(314+315+319 complete) + cv optical-flow(bowl ROI) -> B-trigger VLM confirm final mix 324"
+    },
+    {
+      "step_id": 324,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "All ingredients mixed into uniform mixture -- terminal step",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- uniformity/doneness of mixing requires VLM or cv texture analysis; no audio anchor; periodic VLM until user stops stirring motion",
+      "config_oneline": "periodic VLM or cv motion-stop(bowl ROI) -> final VLM confirm uniform"
+    },
+
+    {
+      "step_id": 316,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag wrong amount of cheese (e.g. 1/2 cup instead of 1/3 cup)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv cannot count/measure; VLM needed; cv hand-over-cup state change fires B-trigger at the add moment for one targeted VLM measurement check",
+      "config_oneline": "cv hand-in-ROI(cup) -> B-trigger VLM measure cheese amount"
+    },
+    {
+      "step_id": 316,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong ingredient (not cheddar) or wrong vessel (bowl not cup)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- ingredient identity needs VLM; vessel type (cup vs bowl) could be cv shape but VLM is cleaner; fire one B-trigger VLM at the add event",
+      "config_oneline": "cv hand-in-ROI(cup) -> B-trigger VLM confirm cheddar + microwave-safe cup"
+    },
+    {
+      "step_id": 316,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spill while adding cheese",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- spill = sudden HSV state-change outside vessel footprint; cv can detect this on counter ROI; B-trigger one VLM for confirmation",
+      "config_oneline": "cv HSV state-change(counter ROI outside cup) -> B-trigger VLM confirm spill"
+    },
+    {
+      "step_id": 320,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag wrong amount of water (e.g. 2-3 tbsp instead of 1 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low-medium -- 1 tbsp is tiny; cv cannot reliably measure volume this small; B-trigger VLM at pour moment but measurement of small volumes is challenging even for VLM",
+      "config_oneline": "cv hand-tilt(bowl ROI) -> B-trigger VLM estimate water volume (challenging at 1tbsp)"
+    },
+    {
+      "step_id": 321,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag wrong amount of red bell pepper (not 1/4 pepper)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- amount visible before chopping; B-trigger VLM at recognition moment to verify portion size",
+      "config_oneline": "cv motion(cutting-board) -> B-trigger VLM check pepper quantity"
+    },
+    {
+      "step_id": 321,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong pepper color (e.g. green), seeds left in, or not on cutting board",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium-high -- red vs green pepper is easily detectable by cv HSV (could A-solve color check); seeds and cutting-board confirm need VLM; HSV could gate color then VLM confirms rest",
+      "config_oneline": "cv HSV(pepper color gate) -> B-trigger VLM confirm red+seeded+board"
+    },
+    {
+      "step_id": 321,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Flag slicing instead of chopping or pieces too large",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- fine technique (chop vs slice, piece size) requires VLM visual assessment; audio chop transients are excluded; cv cannot assess piece size reliably at wearable resolution",
+      "config_oneline": "periodic VLM while cutting-board motion detected"
+    },
+    {
+      "step_id": 322,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag pepper placed into wrong vessel (e.g. plate instead of bowl)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv shape/size of target vessel can partially discriminate bowl vs plate (depth cue); B-trigger VLM at transfer event to confirm target vessel",
+      "config_oneline": "cv hand-over-ROI(bowl area) + HSV red-blob -> B-trigger VLM confirm target is bowl"
+    },
+    {
+      "step_id": 322,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spill placing pepper, or pepper piled to one side",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low-medium -- spill: cv HSV state-change outside bowl can flag; piling-to-one-side is fine spatial arrangement needing VLM; B-trigger covers the spill case, piling is C-none quality",
+      "config_oneline": "cv HSV(counter ROI) -> B-trigger VLM spill; piling-to-one-side = C-none/VLM"
+    },
+    {
+      "step_id": 318,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Flag undercook (<60s) or overcook (>120s) of bowl microwave",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- D6 timer anchored on D1.cycle_start emits undertime/overtime; D1.cycle_end closes the window; pure audio+DAG, camera stays OFF entire microwave run",
+      "config_oneline": "D6.timer(anchor=D1.cycle_start(318), expected=120s) -> undertime/overtime; camera OFF"
+    },
+    {
+      "step_id": 318,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag bowl microwaved uncovered",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cover presence is a visual check; fire ONE VLM call at D1.cycle_start(318) event to check bowl coverage before 2-minute run; after that camera sleeps",
+      "config_oneline": "D1.cycle_start(318) -> B-trigger ONE VLM call to check cover; camera sleeps remainder"
+    },
+    {
+      "step_id": 323,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Flag too-short (<15s, cheese not melted) or too-long (>60s) microwave of cheese cup",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high -- D6 anchored on D1.cycle_start(323); thermal-spot could confirm cheese melt state (temp rise) as speculative augmentation for 'not melted' flag",
+      "config_oneline": "D6.timer(anchor=D1.cycle_start(323), expected=30s) -> undertime/overtime; thermal-spot optional melt-confirm"
+    },
+    {
+      "step_id": 323,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag bowl microwaved instead of cup for cheese melt",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- fire ONE VLM call at D1.cycle_start(323) to verify the item going into microwave is the cup (not bowl); camera then sleeps for 30s run",
+      "config_oneline": "D1.cycle_start(323) -> B-trigger ONE VLM call confirm cup not bowl; camera sleeps remainder"
+    },
+    {
+      "step_id": 323,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "[probe-added] Flag microwave set to low power instead of normal",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- microwave power level is shown on display; cv OCR on appliance screen ROI could A-solve this but OCR accuracy on small displays is uncertain; B-trigger VLM at D1.cycle_start to check display",
+      "config_oneline": "D1.cycle_start(323) -> B-trigger VLM check microwave power display; cv OCR speculative A-solve"
+    },
+    {
+      "step_id": 317,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Flag spill while mixing cheese and pepper",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- cv HSV state-change on counter ROI outside bowl; stirring motion already being tracked via optical-flow; spill detection is ancillary B-trigger",
+      "config_oneline": "cv HSV(counter ROI, outside bowl) during step 317 -> B-trigger VLM spill confirm"
+    },
+    {
+      "step_id": 317,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Flag mixing with bare hands or in wrong vessel",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low -- utensil vs bare-hands is a fine visual distinction needing VLM; wrong vessel identity also needs VLM; no cheap sensor can discriminate",
+      "config_oneline": "periodic VLM during step 317 mixing phase"
+    },
+    {
+      "step_id": 314,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag wrong amount of butter (e.g. 1/4 or 1 tbsp instead of 1/2 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low-medium -- small measurement (1/2 tbsp); cv cannot measure; VLM accuracy at this volume is also uncertain; B-trigger at add event",
+      "config_oneline": "cv hand-in-ROI(bowl) -> B-trigger VLM estimate butter amount"
+    },
+    {
+      "step_id": 314,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag butter added with hands instead of utensil",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low -- hand vs utensil for adding butter is fine visual technique; silent; needs VLM; cv hand-detection alone cannot distinguish",
+      "config_oneline": "periodic VLM during step 314"
+    },
+    {
+      "step_id": 315,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag wrong amount of salt (e.g. 1/2 tsp instead of 1/4 tsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- white granule measurement is extremely challenging even for VLM; cv impossible; B-trigger fires VLM at add moment but flagging 1/4 vs 1/2 tsp of white powder is very hard",
+      "config_oneline": "cv hand-in-ROI(bowl) -> B-trigger VLM estimate salt -- low accuracy expected"
+    },
+    {
+      "step_id": 315,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spill while adding salt",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- cv HSV/brightness state-change on counter ROI outside bowl; white powder spill detectable as brightness increase; B-trigger VLM to confirm",
+      "config_oneline": "cv brightness-change(counter ROI outside bowl) during step 315 -> B-trigger VLM spill"
+    },
+    {
+      "step_id": 319,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag wrong amount of pepper (e.g. 1/2 tsp instead of 1/4 tsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- dark granule measurement is challenging for VLM; cv impossible; same issue as salt measurement",
+      "config_oneline": "cv hand-in-ROI(bowl) -> B-trigger VLM estimate pepper amount -- low accuracy expected"
+    },
+    {
+      "step_id": 319,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spill while adding pepper",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium -- cv HSV dark-powder state-change on counter ROI; B-trigger VLM confirm",
+      "config_oneline": "cv HSV-dark-change(counter ROI outside bowl) during step 319 -> B-trigger VLM spill"
+    },
+    {
+      "step_id": 319,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Flag pepper added to wrong/empty bowl",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- whether the bowl has prior ingredients can be checked by VLM at B-trigger moment; cv HSV could detect prior content (yellow+red vs empty) but VLM is more reliable",
+      "config_oneline": "cv hand-in-ROI(bowl) -> B-trigger VLM confirm bowl has prior ingredients"
+    },
+    {
+      "step_id": 324,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Flag incomplete mixing where cheese and pepper separate",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- visual uniformity/texture of mixture is a fine assessment needing VLM; no audio or motion proxy for mixture uniformity",
+      "config_oneline": "periodic VLM during step 324 mixing; fire at motion-stop to check final state"
+    },
+    {
+      "step_id": 324,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Flag mixing with bare hands or transferring to plate to mix",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low -- utensil vs hands and wrong vessel are fine visual distinctions; VLM needed; no cheap sensor path",
+      "config_oneline": "periodic VLM during step 324"
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 316,
+        "stage": "root concurrent (add cheese)",
+        "camera": "periodic (C-none recognition) -> OFF once 323 starts",
+        "audio": "D1 standby",
+        "vlm": "periodic until step believed active; B-trigger at add event for measurement+preparation checks",
+        "role": "C-none recognition; A-solve completion via D1 anchor"
+      },
+      {
+        "step_id": 320,
+        "stage": "root concurrent (add water)",
+        "camera": "periodic (C-none recognition) -> OFF once 318 starts",
+        "audio": "D1 standby",
+        "vlm": "periodic; B-trigger at add event for measurement check",
+        "role": "C-none recognition; A-solve completion via D1 anchor"
+      },
+      {
+        "step_id": 321,
+        "stage": "root concurrent (chop pepper)",
+        "camera": "B-trigger on cutting-board motion; then sleep",
+        "audio": "none bindable (chop transient excluded)",
+        "vlm": "one call at motion B-trigger for recognition + measurement + preparation checks",
+        "role": "B-trigger recognition; B-trigger completion"
+      },
+      {
+        "step_id": 322,
+        "stage": "transfer pepper to bowl",
+        "camera": "B-trigger on hand+red-blob-over-bowl; then OFF once 318 starts",
+        "audio": "D1 standby",
+        "vlm": "one call at B-trigger for recognition + preparation check",
+        "role": "B-trigger recognition; A-solve completion via D1"
+      },
+      {
+        "step_id": 318,
+        "stage": "microwave bowl 2 min",
+        "camera": "OFF entire 2-minute run (one B-trigger VLM call at cycle_start for cover check)",
+        "audio": "D1 primary + D6 timer",
+        "vlm": "one call at D1.cycle_start to check cover; else OFF",
+        "role": "A-solve recognition + completion + timing check"
+      },
+      {
+        "step_id": 323,
+        "stage": "microwave cheese cup 30s",
+        "camera": "OFF entire 30s run (one B-trigger VLM at cycle_start for cup-vs-bowl + power check)",
+        "audio": "D1 primary (min_run_s=8) + D6 timer",
+        "vlm": "one call at D1.cycle_start; else OFF",
+        "role": "A-solve recognition + completion + timing check"
+      },
+      {
+        "step_id": 317,
+        "stage": "mix cheese and pepper",
+        "camera": "B-trigger on optical-flow(bowl); periodic for C-none checks",
+        "audio": "none bindable",
+        "vlm": "B-trigger VLM at motion onset; periodic for preparation check (bare hands)",
+        "role": "B-trigger recognition; C-none completion + preparation check"
+      },
+      {
+        "step_id": 314,
+        "stage": "add butter (concurrent)",
+        "camera": "periodic",
+        "audio": "none bindable",
+        "vlm": "periodic; B-trigger at add event for measurement",
+        "role": "C-none recognition; A-solve completion via DAG"
+      },
+      {
+        "step_id": 315,
+        "stage": "add salt (concurrent)",
+        "camera": "periodic",
+        "audio": "none bindable",
+        "vlm": "periodic; B-trigger at add event for measurement",
+        "role": "C-none recognition; A-solve completion via DAG"
+      },
+      {
+        "step_id": 319,
+        "stage": "add pepper seasoning (concurrent)",
+        "camera": "periodic",
+        "audio": "none bindable",
+        "vlm": "periodic; B-trigger at add event for measurement + preparation",
+        "role": "C-none recognition; A-solve completion via DAG"
+      },
+      {
+        "step_id": 324,
+        "stage": "final mix all ingredients",
+        "camera": "B-trigger on optical-flow(bowl); periodic VLM for C-none checks",
+        "audio": "none bindable",
+        "vlm": "B-trigger at motion onset; periodic for uniformity + preparation",
+        "role": "B-trigger recognition; C-none completion + checks"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 14,
+      "B-trigger": 21,
+      "C-none": 12
+    },
+    "cost_estimate": "Two microwave stages (steps 318+323) account for ~150s of camera-OFF time. Recognition of silent adds (316, 320, 314, 315, 319) are C-none requiring periodic VLM -- these are ~5 of 11 recognition claims. Completions largely resolve to A-solve via D1 anchors or DAG logic. Overall: camera can be OFF for the two microwave runs (~40% of elapsed recipe time if microwave stages dominate); the 5 silent-add recognition claims force periodic VLM during prep phases.",
+    "honest_limits": "C-none slice (12 claims, ~26% of total): recognition of concurrent silent adds (316/320/314/315/319 -- 5 recognition claims), completion of step 317 (inferred from butter-add which is itself silent), bare-hands technique checks for 317+324, final mix uniformity check 324. These require continuous or periodic VLM with no cheap trigger. The three concurrent root steps (316/320/321) cannot be cheaply disambiguated from audio alone -- all three can be active simultaneously and two (316/320) are acoustically silent. Spill checks and small-volume measurements (1 tbsp water, 1/4 tsp salt/pepper) have low accuracy even for VLM. Thermal-spot for cheese melt confirm (step 323) is speculative and unvalidated on CC4D. cv HSV red-pepper-color gate for step 321 preparation check is the most plausible speculative A-solve in the set."
+  }
+}

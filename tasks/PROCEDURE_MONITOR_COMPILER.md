@@ -1,15 +1,24 @@
-# Procedure Monitor Compiler Guide
+# Procedure Monitor Compiler Guide (Stage 2: criteria → sensor control plan)
 
-This guide tells an LLM how to turn a recipe task graph into an **executable**
-`procedure_monitor` JSON — a sensor-conditioned state machine for online step
-recognition. Its job is to detect step starts and completions throughout a video,
-maintain procedure context, and emit a transition trace plus stage intervals.
+This guide tells an LLM how to compile a **stage-1 criteria DAG** into an **executable**
+sensor control plan — a sensor-conditioned state machine for online step recognition. Its job
+is to detect step starts and completions throughout a video, maintain procedure context, and
+emit a transition trace plus stage intervals. (Stage 1, recipe → criteria, is a separate hop;
+see `tasks/PROCEDURE_MONITOR_VERSIONS.md`.)
 
-- Template: `tasks/procedure_monitor_template.json` (schema 0.6).
+- Template: `tasks/criteria_to_sensorplan_template.json` (schema 2.0, nodes form). The old
+  combined `tasks/_archive/procedure_monitor_template_0.6_STALE.json` is superseded — do not
+  author from it.
+- Stage-1 input: a criteria DAG (`tasks/cc4d/<name>.criteria.json`, from
+  `tasks/recipe_to_criteria_template.json`). The stage-2 output is the **same nodes list** with
+  each node's observers replaced by a `{detector, detection_criteria}` binding (audio → `D*`;
+  silent → `VLM`) plus a `sensing_role`; no `cond`/`state_update` is authored.
 - Detector catalog (authority): `tasks/AUDIO_RUNTIME_LIBRARY.md`.
-- Worked instance: `tasks/cc4d/spicedhotchocolate.monitor.json`.
-- The compiled JSON is consumed by `eval/plan_loader.py` (compiles conditions to
-  predicates) and run by `eval/monitor_runtime.py`.
+- Worked instance: `tasks/cc4d/spicedhotchocolate.sensorplan.json`.
+- The sensorplan is consumed by `eval/proposed_plan_loader.py`, which compiles the nodes form
+  into the executable graph (`sensorplan_to_graph()` → predicates), and is run by
+  `eval/proposed_runtime.py`. (The old hand-written `spicedhotchocolate.monitor.json` is the
+  byte-identical golden reference for that compile; see `PROCEDURE_MONITOR_VERSIONS.md`.)
 
 This monitor is not a VLM replica and not a proactive assistant. Do not add error
 checks, reminders, user messages, or intervention policies. It uses the recipe

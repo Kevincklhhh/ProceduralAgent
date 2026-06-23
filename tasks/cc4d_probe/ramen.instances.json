@@ -1,0 +1,1008 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "ramen",
+ "activity_id": 4,
+ "n_recordings": 17,
+ "n_error_recordings": 7,
+ "steps": [
+  {
+   "step_id": 44,
+   "order": 1,
+   "instruction": "Remove the noodles from the package(Break Noodles / Keep them as a block)",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_32",
+       "cc4d_step_id": 44,
+       "description": "Throw the noodles block while opening from the package",
+       "video_window": [
+        119.4,
+        146.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 44,
+       "description": "Also break the noodles into 2 pieces",
+       "video_window": [
+        273.6,
+        289.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 47,
+   "order": 2,
+   "instruction": "Peel 1 medium onion",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_32",
+       "cc4d_step_id": 47,
+       "description": "Did not peel completely",
+       "video_window": [
+        36.7,
+        90.1
+       ]
+      },
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 47,
+       "description": "Do not peel onion",
+       "video_window": [
+        20.6,
+        30
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 47,
+       "description": "Do not peel the onion",
+       "video_window": [
+        175.8,
+        190.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 46,
+   "order": 3,
+   "instruction": "slice 1/4 medium onion into pieces",
+   "duration_constraint_s": null,
+   "preconditions": [
+    47
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "4_35",
+       "cc4d_step_id": 46,
+       "description": "chop onion instead of slice",
+       "video_window": [
+        134.4,
+        170.1
+       ]
+      },
+      {
+       "recording_id": "4_36",
+       "cc4d_step_id": 46,
+       "description": "Chopping the 1/4 onion instead of slicing.",
+       "video_window": [
+        344.7,
+        417.1
+       ]
+      },
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 46,
+       "description": "Chop instead of slice",
+       "video_window": [
+        313.4,
+        335.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_30",
+       "cc4d_step_id": 46,
+       "description": "Slice 1 onion instead of 1/4th onion",
+       "video_window": [
+        264.2,
+        320.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_32",
+       "cc4d_step_id": 46,
+       "description": "Missed this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 14,
+   "order": 4,
+   "instruction": "Peel 1 garlic clove",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "4_30",
+       "cc4d_step_id": 14,
+       "description": "Peel 2 garlic cloves",
+       "video_window": [
+        61.6,
+        112.4
+       ]
+      },
+      {
+       "recording_id": "4_36",
+       "cc4d_step_id": 14,
+       "description": "Peeling two garlic cloves instead of one.",
+       "video_window": [
+        170.5,
+        245.3
+       ]
+      },
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 14,
+       "description": "Peel 2 instead of 1 garlic clove",
+       "video_window": [
+        53.6,
+        152.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_30",
+       "cc4d_step_id": 14,
+       "description": "Peeled improperly",
+       "video_window": [
+        61.6,
+        112.4
+       ]
+      },
+      {
+       "recording_id": "4_32",
+       "cc4d_step_id": 14,
+       "description": "Peel garlic clove incompletely",
+       "video_window": [
+        189.2,
+        210.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 51,
+   "order": 5,
+   "instruction": "Chop 1 garlic clove on a cutting board",
+   "duration_constraint_s": null,
+   "preconditions": [
+    14
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_35",
+       "cc4d_step_id": 51,
+       "description": "slice garlic clove instead of chopping",
+       "video_window": [
+        177.8,
+        190.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 54,
+   "order": 6,
+   "instruction": "Put all the Vegetables in a microwave-safe bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    46,
+    51
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 54,
+       "description": "Step performed after adding cilantro",
+       "video_window": [
+        433.7,
+        443.9
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 54,
+       "description": "Step performed before slicing the onions",
+       "video_window": [
+        143.9,
+        150.7
+       ]
+      },
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 54,
+       "description": "Step performed after adding noodles to the bowl",
+       "video_window": [
+        180.2,
+        195.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_36",
+       "cc4d_step_id": 54,
+       "description": "Spilling some vegetables on the counter top.",
+       "video_window": [
+        506.4,
+        525.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 52,
+   "order": 7,
+   "instruction": "Add the noodles to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    44,
+    54
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 52,
+       "description": "Step performed after adding cilantro",
+       "video_window": [
+        421.4,
+        427.2
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 52,
+       "description": "Step performed after adding basil to the bowl",
+       "video_window": [
+        390.1,
+        393.9
+       ]
+      },
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 52,
+       "description": "Step performed before adding vegetables to the bowl",
+       "video_window": [
+        108.1,
+        131.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 55,
+   "order": 8,
+   "instruction": "cover the noodles with water",
+   "duration_constraint_s": null,
+   "preconditions": [
+    52
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 55,
+       "description": "the water does not cover the noodles, half cover",
+       "video_window": [
+        622.9,
+        633.2
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 55,
+       "description": "Using a plate instead of bowl",
+       "video_window": [
+        277.1,
+        331.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 55,
+       "description": "Step performed after microwaving and adding vegetables",
+       "video_window": [
+        622.9,
+        633.2
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 55,
+       "description": "Step performed before adding noodles to the bowl",
+       "video_window": [
+        277.1,
+        331.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 55,
+       "description": "Add a little amount that does not cover the noodles with water",
+       "video_window": [
+        222.9,
+        226.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 49,
+   "order": 9,
+   "instruction": "Cover with a lid (or paper towel) to prevent splattering",
+   "duration_constraint_s": null,
+   "preconditions": [
+    55
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "4_30",
+       "cc4d_step_id": 49,
+       "description": "Missed this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "4_35",
+       "cc4d_step_id": 49,
+       "description": "Missed this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 49,
+       "description": "Did not cover the lid with a paper towel",
+       "video_window": [
+        335.8,
+        342.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 49,
+       "description": "Step performed after adding cilantro and before adding water",
+       "video_window": [
+        456.5,
+        466.4
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 49,
+       "description": "Step performed before adding noodles to the bowl",
+       "video_window": [
+        335.8,
+        342.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_36",
+       "cc4d_step_id": 49,
+       "description": "Not covering the paper towel properly.",
+       "video_window": [
+        608.7,
+        614.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 45,
+   "order": 10,
+   "instruction": "Microwave the ramen for 4 minutes",
+   "duration_constraint_s": 240,
+   "preconditions": [
+    49
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "4_30",
+       "cc4d_step_id": 45,
+       "description": "Microwave for 16 seconds",
+       "video_window": [
+        420,
+        444
+       ]
+      },
+      {
+       "recording_id": "4_30",
+       "cc4d_step_id": 45,
+       "description": "Microwave for 2 min instead of 4 min",
+       "video_window": [
+        454.6,
+        580.9
+       ]
+      },
+      {
+       "recording_id": "4_35",
+       "cc4d_step_id": 45,
+       "description": "Microwave for 1 min instead of 4 min",
+       "video_window": [
+        296.1,
+        373.7
+       ]
+      },
+      {
+       "recording_id": "4_36",
+       "cc4d_step_id": 45,
+       "description": "Instead of 4 minute microwaving only for two and half minutes.",
+       "video_window": [
+        641.5,
+        801.8
+       ]
+      },
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 45,
+       "description": "1 instead of 4 minutes",
+       "video_window": [
+        472.3,
+        543.3
+       ]
+      },
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 45,
+       "description": "Microwave for 3 mins instead of 4 mins",
+       "video_window": [
+        252.3,
+        443.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 45,
+       "description": "Step performed after adding cilantro and before adding water",
+       "video_window": [
+        472.3,
+        543.3
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 45,
+       "description": "Step performed after adding basil to the bowl",
+       "video_window": [
+        360,
+        372
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 45,
+       "description": "Step performed after adding basil to the bowl",
+       "video_window": [
+        403.4,
+        651.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 45,
+       "description": "Using non-microwaveable things and using things which does not fit into microwave",
+       "video_window": [
+        360,
+        372
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 48,
+   "order": 11,
+   "instruction": "Let the noodles sit for about 1 minute after the microwave stops",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    45
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "4_35",
+       "cc4d_step_id": 48,
+       "description": "Let the noodles sit for 2 minutes instead of 1 minute",
+       "video_window": [
+        375.7,
+        495
+       ]
+      },
+      {
+       "recording_id": "4_36",
+       "cc4d_step_id": 48,
+       "description": "Allowing it to sit only for 1/2 minute instead of 1 minute.",
+       "video_window": [
+        853.7,
+        887.8
+       ]
+      },
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 48,
+       "description": "30 seconds instead of 1 minute",
+       "video_window": [
+        565.9,
+        595.1
+       ]
+      },
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 48,
+       "description": "Let the noodles sit for 30 secs instead of 1 min",
+       "video_window": [
+        509.1,
+        541.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 48,
+       "description": "Step performed after adding cilantro and before adding water",
+       "video_window": [
+        565.9,
+        595.1
+       ]
+      },
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 48,
+       "description": "Step performed before adding cilantro",
+       "video_window": [
+        509.1,
+        541.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 50,
+   "order": 12,
+   "instruction": "Add basil to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    45
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "4_30",
+       "cc4d_step_id": 50,
+       "description": "Missed this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "4_32",
+       "cc4d_step_id": 50,
+       "description": "Missed this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "4_35",
+       "cc4d_step_id": 50,
+       "description": "Missed this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 50,
+       "description": "Step performed before adding water to the bowl",
+       "video_window": [
+        600.0,
+        615.3
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 50,
+       "description": "Step performed before adding water and microwaving the bowl",
+       "video_window": [
+        202.7,
+        214.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 53,
+   "order": 13,
+   "instruction": "Add chopped cilantro to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    45
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 53,
+       "description": "Step performed before adding vegetables and microwaving the noodles",
+       "video_window": [
+        413.2,
+        420.4
+       ]
+      },
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 53,
+       "description": "Step performed after letting the noodles sit",
+       "video_window": [
+        564.3,
+        573.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_35",
+       "cc4d_step_id": 53,
+       "description": "Add fresh cilantro to the bowl without chopping",
+       "video_window": [
+        420.5,
+        426.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 42,
+   "order": 14,
+   "instruction": "Mix in the flavour packet to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    48,
+    50,
+    53
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_36",
+       "cc4d_step_id": 42,
+       "description": "While mixing the flavour packet and spilled some out of the bowl.",
+       "video_window": [
+        986.3,
+        1003.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "4_40",
+       "cc4d_step_id": 42,
+       "description": "Missed this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 43,
+   "order": 15,
+   "instruction": "Stir noodles with a spoon or fork until the flavouring dissolves",
+   "duration_constraint_s": null,
+   "preconditions": [
+    42
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "4_30",
+       "cc4d_step_id": 43,
+       "description": "Water spilled outside when mixing the flavour",
+       "video_window": [
+        741.5,
+        780.1
+       ]
+      },
+      {
+       "recording_id": "4_32",
+       "cc4d_step_id": 43,
+       "description": "Stir it faster such that water spills out of the bowl",
+       "video_window": [
+        726.4,
+        750.7
+       ]
+      },
+      {
+       "recording_id": "4_43",
+       "cc4d_step_id": 43,
+       "description": "Stir fast to spill the water out of the bowl",
+       "video_window": [
+        776.5,
+        808.0
+       ]
+      },
+      {
+       "recording_id": "4_44",
+       "cc4d_step_id": 43,
+       "description": "Stir improperly such that flavouring does not dissolve",
+       "video_window": [
+        597.4,
+        604.2
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

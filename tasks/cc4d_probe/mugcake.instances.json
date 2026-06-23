@@ -1,0 +1,1769 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "mugcake",
+ "activity_id": 26,
+ "n_recordings": 17,
+ "n_error_recordings": 10,
+ "steps": [
+  {
+   "step_id": 297,
+   "order": 1,
+   "instruction": "1.5 tbsp sugar to the mixing bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 297,
+       "description": "Using salt in place of sugar",
+       "video_window": [
+        54.8,
+        91.4
+       ]
+      },
+      {
+       "recording_id": "26_36",
+       "cc4d_step_id": 297,
+       "description": "Use of soiled measuring instrument",
+       "video_window": [
+        159.2,
+        196.9
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 297,
+       "description": "Used a mug instead of mixing bowl",
+       "video_window": [
+        0,
+        77.9
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 297,
+       "description": "use brown sugar instead of white sugar",
+       "video_window": [
+        104.2,
+        129.3
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 297,
+       "description": "Use of unclean measuring spoon",
+       "video_window": [
+        104.2,
+        129.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 297,
+       "description": "Add more sugar. Might make the cake very sweet",
+       "video_window": [
+        88.1,
+        119.6
+       ]
+      },
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 297,
+       "description": "Add 3 tbsp instead of 1.5 tbsp",
+       "video_window": [
+        0,
+        88.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 297,
+       "description": "Spilling while measuring the sugar",
+       "video_window": [
+        0,
+        88.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 297,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 299,
+   "order": 2,
+   "instruction": "Measure and add 2 tbsp flour to the mixing bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 299,
+       "description": "Used soiled measuring spoon instead of clean one",
+       "video_window": [
+        109.3,
+        138.9
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 299,
+       "description": "Did not clean the measuring cup before scooping flour and adding it to the cup",
+       "video_window": [
+        78.4,
+        103.6
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 299,
+       "description": "Used a mug instead of mixing bowl",
+       "video_window": [
+        78.4,
+        103.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 299,
+       "description": "spill some outside and use a tsp rather than a tbsp",
+       "video_window": [
+        85.5,
+        100.0
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 299,
+       "description": "Drop the sugar box while taking flour",
+       "video_window": [
+        79.7,
+        100.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 299,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 299,
+       "description": "Use tsp rather than tbsp",
+       "video_window": [
+        85.5,
+        100.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 303,
+   "order": 3,
+   "instruction": "Place the paper cupcake liner inside the mug",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_24",
+       "cc4d_step_id": 303,
+       "description": "Used wrong shaped mug",
+       "video_window": [
+        262.5,
+        306.7
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 303,
+       "description": "Place tissue paper instead of paper cupcake liner",
+       "video_window": [
+        183.0,
+        213.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 303,
+       "description": "Folded paper cupcake liner will not cover the bottom of the cup fully",
+       "video_window": [
+        280.9,
+        310.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 303,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 301,
+   "order": 4,
+   "instruction": "Set aside the lined mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    303
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 301,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 304,
+   "order": 5,
+   "instruction": "1/4 tsp baking powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "26_36",
+       "cc4d_step_id": 304,
+       "description": "Dropping the measuring instrument in the bowl",
+       "video_window": [
+        10.8,
+        57.2
+       ]
+      },
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 304,
+       "description": "spilled the baking powder out while adding to cup",
+       "video_window": [
+        177.3,
+        225.3
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 304,
+       "description": "Spill powder while opening the cup",
+       "video_window": [
+        106.7,
+        138.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 304,
+       "description": "Add more baking powder. Might give bitter taste to the cupcake",
+       "video_window": [
+        39.6,
+        87.8
+       ]
+      },
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 304,
+       "description": "Added 1/2 tsp rather than 1/4 tsp",
+       "video_window": [
+        177.3,
+        225.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 304,
+       "description": "Add baking soda instead of baking powder",
+       "video_window": [
+        100.8,
+        152.5
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 304,
+       "description": "Used a mug instead of mixing bowl",
+       "video_window": [
+        106.7,
+        138.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 304,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 310,
+   "order": 6,
+   "instruction": "a pinch of salt to the mixing bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 310,
+       "description": "drop/ spill salt while trying to measure and trasfer",
+       "video_window": [
+        158.5,
+        174.7
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 310,
+       "description": "Used teaspoon instead of a pinch",
+       "video_window": [
+        183.1,
+        198.6
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 310,
+       "description": "Seasoned salt instead of adding a pinch of salt",
+       "video_window": [
+        63.8,
+        76.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 310,
+       "description": "Add a pinch of sugar to the mixing bowl instead of salt",
+       "video_window": [
+        92.8,
+        123.0
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 310,
+       "description": "Used a mug instead of mixing bowl",
+       "video_window": [
+        183.1,
+        198.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 310,
+       "description": "Add a teaspoon rather than a pinch",
+       "video_window": [
+        0,
+        79.0
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 310,
+       "description": "Added more instead of a pinch of salt",
+       "video_window": [
+        183.1,
+        198.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 308,
+   "order": 7,
+   "instruction": "Whisk to combine mixture of flour, sugar and baking powder in the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    297,
+    299,
+    304,
+    310
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 308,
+       "description": "Use spoon instead of a whisker",
+       "video_window": [
+        150.0,
+        160.9
+       ]
+      },
+      {
+       "recording_id": "26_36",
+       "cc4d_step_id": 308,
+       "description": "use spoon to whisk instead of whisker",
+       "video_window": [
+        205.8,
+        219.7
+       ]
+      },
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 308,
+       "description": "Used hands instead of whisk",
+       "video_window": [
+        188.6,
+        207.0
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 308,
+       "description": "Whisked with spoon instead of a whisker",
+       "video_window": [
+        132.6,
+        147.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 308,
+       "description": "Step performed after adding water",
+       "video_window": [
+        269.7,
+        288.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 296,
+   "order": 8,
+   "instruction": "2 tbsp water to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    308
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 296,
+       "description": "Measure and add-2 tbsp milk to the bowl",
+       "video_window": [
+        286.7,
+        343.6
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 296,
+       "description": "Used a mug instead of mixing bowl",
+       "video_window": [
+        253.5,
+        278.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 296,
+       "description": "use tsp instead of tbsp",
+       "video_window": [
+        312.4,
+        359.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 296,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 296,
+       "description": "Step performed before whisking the mixture",
+       "video_window": [
+        226.8,
+        269.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 300,
+   "order": 9,
+   "instruction": "Measure and add 2 tsp vegetable oil to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    308
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "26_18",
+       "cc4d_step_id": 300,
+       "description": "Added 2 tablespoons instead of 2 teaspoons",
+       "video_window": [
+        333.4,
+        379.7
+       ]
+      },
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 300,
+       "description": "add 1 tsp instead of 2 tsp",
+       "video_window": [
+        266.4,
+        311.4
+       ]
+      },
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 300,
+       "description": "used tbsp instead of tsp",
+       "video_window": [
+        220.0,
+        243.8
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 300,
+       "description": "Adding more than 2 tsp oil to the mug",
+       "video_window": [
+        358.7,
+        397.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 300,
+       "description": "Measure and add-Measure and add 2 tsp olive oil to the bowl",
+       "video_window": [
+        399.8,
+        430.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 300,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 300,
+       "description": "Dropping the vegetable oil bottle and spilling the oil on the kitchen top",
+       "video_window": [
+        358.7,
+        397.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 300,
+       "description": "Step performed after adding oil to the batter",
+       "video_window": [
+        358.7,
+        397.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 313,
+   "order": 10,
+   "instruction": "1/4 tsp vanilla extract to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    308
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 313,
+       "description": "spilling vanilla extract in the process",
+       "video_window": [
+        215.0,
+        253.3
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 313,
+       "description": "Spilling vanilla extract while measuring and adding it to the mug",
+       "video_window": [
+        280.0,
+        310.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 313,
+       "description": "Measure and add-1/2 tsp vanilla extract to the bowl",
+       "video_window": [
+        222.0,
+        278.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 313,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 313,
+       "description": "Used a mug instead of mixing bowl",
+       "video_window": [
+        280.0,
+        310.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 294,
+   "order": 11,
+   "instruction": "Whisk batter until no lumps remain",
+   "duration_constraint_s": null,
+   "preconditions": [
+    296,
+    300,
+    313
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 8,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 294,
+       "description": "Used spoon instead of whisker",
+       "video_window": [
+        312.2,
+        325.7
+       ]
+      },
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 294,
+       "description": "Use spoon instead of whisker to whisk batter until no lumps remain",
+       "video_window": [
+        447.6,
+        498.2
+       ]
+      },
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 294,
+       "description": "Using hands in the last few seconds of the video",
+       "video_window": [
+        447.6,
+        498.2
+       ]
+      },
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 294,
+       "description": "whisk incompletely",
+       "video_window": [
+        363.4,
+        405.0
+       ]
+      },
+      {
+       "recording_id": "26_36",
+       "cc4d_step_id": 294,
+       "description": "use a spoon to whisk instead of whisker",
+       "video_window": [
+        394.7,
+        438.8
+       ]
+      },
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 294,
+       "description": "Used hands to mix",
+       "video_window": [
+        275.7,
+        302.2
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 294,
+       "description": "Used a mug instead of mixing bowl",
+       "video_window": [
+        313.1,
+        347.3
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 294,
+       "description": "Use of unclean measuring instruments",
+       "video_window": [
+        278,
+        290
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 294,
+       "description": "Did not whisk completely. Will lead to lumps in the cupcake",
+       "video_window": [
+        312.2,
+        325.7
+       ]
+      },
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 294,
+       "description": "Make a big lump instead of a smooth batter",
+       "video_window": [
+        275.7,
+        302.2
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 294,
+       "description": "Do not whisk enough - ingredients will be not mixed properly",
+       "video_window": [
+        278,
+        290
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 294,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 294,
+       "description": "Step performed before adding oil to the batter",
+       "video_window": [
+        313.1,
+        347.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 307,
+   "order": 12,
+   "instruction": "Pour batter into prepared mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    294,
+    301
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 307,
+       "description": "Using hand to transfer batter into prepared mug",
+       "video_window": [
+        518.5,
+        580.4
+       ]
+      },
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 307,
+       "description": "Use hands to place the lump of batter into the mug",
+       "video_window": [
+        301.7,
+        312.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 307,
+       "description": "Has a lump instead of a smooth batter",
+       "video_window": [
+        301.7,
+        312.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 312,
+   "order": 13,
+   "instruction": "Microwave the mug and batter on high power for 60 seconds. Check if the cake is done by inserting and toothpick into the center of the cake and then removing it. If wet batter clings to the toothpick, microwave for an additional 5 seconds. If the toothpick comes out clean, continue",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    307
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 312,
+       "description": "Microwave for 90 seconds.",
+       "video_window": [
+        352.1,
+        572.7
+       ]
+      },
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 312,
+       "description": "Time is set to 90 sec instead of 60 sec",
+       "video_window": [
+        453.0,
+        586.0
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 312,
+       "description": "Microwaved the mug for 90 seconds instead of 60 seconds",
+       "video_window": [
+        423.4,
+        561.7
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 312,
+       "description": "Microwave for 1 minute additionally - might burn the cake",
+       "video_window": [
+        313.1,
+        471.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 312,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 312,
+       "description": "Microwaved to get to a burnt stage",
+       "video_window": [
+        325.5,
+        491.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 309,
+   "order": 14,
+   "instruction": "Invert the mug to release the cake onto a plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    312
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 309,
+       "description": "Invert-Invert the mug to release the cake onto a bowl",
+       "video_window": [
+        599.3,
+        626
+       ]
+      },
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 309,
+       "description": "Use butter knife to scrape the ingredients from the mug",
+       "video_window": [
+        589.1,
+        656.3
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 309,
+       "description": "Cannot invert due to the tissue paper. Use a spoon to Invert the mug to release the cake onto a plate",
+       "video_window": [
+        474.8,
+        509.3
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 309,
+       "description": "Invert into a bowl instead of a plate",
+       "video_window": [
+        474.8,
+        509.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 309,
+       "description": "Step performed after allowing the cake to cool",
+       "video_window": [
+        580.5,
+        620.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 305,
+   "order": 15,
+   "instruction": "Allow to cool until it is no longer hot to the touch",
+   "duration_constraint_s": null,
+   "preconditions": [
+    309
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 305,
+       "description": "Allow-No time to allow for cooling so that it is still hot to the touch",
+       "video_window": [
+        626,
+        635
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_36",
+       "cc4d_step_id": 305,
+       "description": "did not wait the cake to be cool",
+       "video_window": [
+        583.1,
+        593.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 305,
+       "description": "Step performed before inverting the mug",
+       "video_window": [
+        507.2,
+        576.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 305,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 295,
+   "order": 16,
+   "instruction": "then carefully remove the paper liner",
+   "duration_constraint_s": null,
+   "preconditions": [
+    305
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 295,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 295,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_24",
+       "cc4d_step_id": 295,
+       "description": "Flipped the cake after removing the paper liner",
+       "video_window": [
+        963.1,
+        971.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 298,
+   "order": 17,
+   "instruction": "While the cake is cooling, prepare to pipe the frosting. Scoop 4 spoonfuls of chocolate frosting into a zip-top bag",
+   "duration_constraint_s": null,
+   "preconditions": [
+    295
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 298,
+       "description": "Take only 1 spoon, will not be enough for the forsting",
+       "video_window": [
+        634.4,
+        700.5
+       ]
+      },
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 298,
+       "description": "Scooped 2 spoonfuls instead of 4 spoonfuls of chocolate frosting into a zip-top bag",
+       "video_window": [
+        659.8,
+        751.1
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 298,
+       "description": "Using only 1.5 spoons of frosting instead of 4 spoons",
+       "video_window": [
+        604.2,
+        717.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 298,
+       "description": "Used cocoa powder instead of chocolate frosting",
+       "video_window": [
+        634.4,
+        700.5
+       ]
+      },
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 298,
+       "description": "Using polythene bag instead of zip-top bag",
+       "video_window": [
+        659.8,
+        751.1
+       ]
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 298,
+       "description": "Take chocolate pieces instead of frosting",
+       "video_window": [
+        609.4,
+        657.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 298,
+       "description": "Transferring with hand instead of scooping with a spoon",
+       "video_window": [
+        659.8,
+        751.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 311,
+   "order": 18,
+   "instruction": "seal zip top bag, removing as much air as possible",
+   "duration_constraint_s": null,
+   "preconditions": [
+    298
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 311,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "26_34",
+       "cc4d_step_id": 311,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 311,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 311,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 311,
+       "description": "Do not remove the air",
+       "video_window": [
+        688.7,
+        696.1
+       ]
+      },
+      {
+       "recording_id": "26_42",
+       "cc4d_step_id": 311,
+       "description": "Did not remove the air from the bag completely",
+       "video_window": [
+        720.4,
+        756.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 306,
+   "order": 19,
+   "instruction": "Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    311
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 306,
+       "description": "Cut a bigger hole in the bag",
+       "video_window": [
+        700.6,
+        715.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 306,
+       "description": "Use knife instead of scissors to cut one corner",
+       "video_window": [
+        753.0,
+        786.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 306,
+       "description": "Cut the bag in half. Cannot use it since we used pieces",
+       "video_window": [
+        667.6,
+        676.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 302,
+   "order": 20,
+   "instruction": "Squeeze the frosting through the opening to apply small dollops of frosting to the plate in a circle around the base of the cake",
+   "duration_constraint_s": null,
+   "preconditions": [
+    306
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "26_29",
+       "cc4d_step_id": 302,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "26_36",
+       "cc4d_step_id": 302,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "26_136",
+       "cc4d_step_id": 302,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 302,
+       "description": "Squeeze in a square instead of circle",
+       "video_window": [
+        787.4,
+        866.3
+       ]
+      },
+      {
+       "recording_id": "26_39",
+       "cc4d_step_id": 302,
+       "description": "Make a big circle instead of small dollops",
+       "video_window": [
+        656.4,
+        698.4
+       ]
+      },
+      {
+       "recording_id": "26_46",
+       "cc4d_step_id": 302,
+       "description": "Not making small dollops of frosting in a circle around the base of the cake",
+       "video_window": [
+        731.4,
+        782.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "26_30",
+       "cc4d_step_id": 302,
+       "description": "Use bowl instead of plate",
+       "video_window": [
+        787.4,
+        866.3
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

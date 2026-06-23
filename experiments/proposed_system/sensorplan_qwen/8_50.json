@@ -1,0 +1,129 @@
+{
+ "recording": "8_50",
+ "task_id": "spicedhotchocolate",
+ "arm": "sensorplan_qwen",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 100.5
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 100.5,
+   "end_s": 159.6
+  },
+  {
+   "stage": "add_cinnamon",
+   "start_s": 159.6,
+   "end_s": 169.6
+  },
+  {
+   "stage": "add_chocolate",
+   "start_s": 169.6,
+   "end_s": 229.6
+  },
+  {
+   "stage": "heat_serve",
+   "start_s": 232.1,
+   "end_s": 251.0
+  }
+ ],
+ "transition_trace": [
+  {
+   "t_s": 0.0,
+   "transition": "start",
+   "step_or_block": "fill_milk",
+   "evidence": [
+    "procedure_start (t=0)"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 100.5,
+   "transition": "start",
+   "step_or_block": "microwave_initial",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 159.6,
+   "transition": "start",
+   "step_or_block": "add_cinnamon",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 169.6,
+   "transition": "start",
+   "step_or_block": "add_chocolate",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 232.1,
+   "transition": "start",
+   "step_or_block": "heat_serve",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "sensor_events": [
+  {
+   "t_s": 100.48,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0,
+   "release_t": 108.48
+  },
+  {
+   "t_s": 159.58,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0,
+   "release_t": 167.58
+  },
+  {
+   "t_s": 232.06,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0,
+   "release_t": 240.06
+  },
+  {
+   "t_s": 250.99,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0,
+   "release_t": 258.99
+  }
+ ],
+ "cost": {
+  "audio_on_s": 263.45,
+  "vlm_calls": 7,
+  "frames_sent": 70,
+  "vlm_latency_total_s": 93.76,
+  "compute_s": 0.56
+ },
+ "events": [],
+ "escalation_requests": [],
+ "_meta": {
+  "degraded": null,
+  "vlm_mode": "qwen",
+  "interval_s": 10.0,
+  "anchors": {
+   "A": 100.5,
+   "B": 159.6,
+   "C": 232.1,
+   "D": 251.0
+  }
+ }
+}

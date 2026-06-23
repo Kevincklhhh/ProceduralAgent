@@ -1,0 +1,635 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "cucumberraita",
+ "activity_id": 17,
+ "n_recordings": 20,
+ "n_error_recordings": 8,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 183,
+   "order": 1,
+   "instruction": "In a mixing bowl, whisk 1 cup of chilled curd until smooth. Use fresh homemade or packaged curd",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed after adding ingredients to the bowl",
+      "Performed after whisking curd in the bowl",
+      "Step performed after whisking curd in the bowl",
+      "Step performed after ingredients to the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Used coffee mug instead of mixing bowl",
+      "Did not whisk just added curd",
+      "Added to a separate bowl instead of same bowl",
+      "use flavoured fruit yogurt instead of curd",
+      "Did not whisk, just added the curd"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "add less than 1 cup",
+      "Whisk 1/2 cup instead of 1 cup of chilled curd until smooth."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Did not whisk the curd completely"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Whisking not done properly. Instead of moving hand in circular motion. Used hands by just pushing up and down the curd."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 181,
+   "order": 2,
+   "instruction": "1/4 teaspoon of red chilli powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before whisking curd in the bowl"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "added approximate quantity instead of measuring",
+      "Added tablespoon instead of teaspoon"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Added to curd bowl instead of the original bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill some outside while adding red chilli powder"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 184,
+   "order": 3,
+   "instruction": "1/4 teaspoon salt to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before whisking curd in the bowl"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add-1/2 teaspoon salt to the bowl.",
+      "Add 1 teaspoon instead of 1/4 teaspoon"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Added to curd bowl instead of the original bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "spill while adding"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 187,
+   "order": 4,
+   "instruction": "add 1 tablespoon of chopped cilantro leaves to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed before whisking curd in the bowl",
+      "Performed before whisking curd in the bowl",
+      "Step performed after combining all the ingredients in the bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Made into pieces using hand instead of chopping.",
+      "Used peeler instead of knife to chop cilantro leaves. Did not remove stems of cilantro leaves."
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "added approximate quantity, did not measure",
+      "add-add 2 tablespoons instead of 1 tablespoon of chopped cilantro"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "add scallions instead of cilantro"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 188,
+   "order": 5,
+   "instruction": "Add 1 teaspoon of cumin powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Performed before whisking curd in the bowl",
+      "Step performed before whisking curd in the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Added Cinnamon powder instead of cumin powder",
+      "Add raw cumin seeds instead of cumin powder",
+      "add cumin seed instead of powder",
+      "add turmeric instead of cumin powder"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "spill some cumin powder"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "add 2 teaspoons instead of 1 teaspoon"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 189,
+   "order": 6,
+   "instruction": "Rinse 1 medium sized cucumber",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Used zucchini instead of cucumber",
+      "Use zucchini instead of cucumber"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Rinsed only half of the zucchini. Did not rinse the other half."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 182,
+   "order": 7,
+   "instruction": "peel the cucumber",
+   "duration_constraint_s": null,
+   "preconditions": [
+    189
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Skin not removed properly",
+      "peel the cucumber incompletely",
+      "Did not peel the cucumber properly with peeler",
+      "peel the cucumber improperly. or half peeled",
+      "donot peel the cucumber properly"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "descriptions": [
+      "Peeled using fork instead of peeler",
+      "Used zucchini instead of cucumber",
+      "used grater instead of peeler",
+      "Peeled using knife instead of peeler first and then knife"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Didn't peel the cucumber just cut the ends.",
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 185,
+   "order": 8,
+   "instruction": "chop or grate the cucumber",
+   "duration_constraint_s": null,
+   "preconditions": [
+    182
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Didn't properly chopped the cucumber.",
+      "Used blunt knife instead of sharp knife to chop cucumber. Chopping action is not proper.",
+      "slice the cucumber into discs",
+      "slice instead of chop or grate",
+      "cut cucumber into thin strips instead of chop/ grate"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Used zucchini instead of cucumber",
+      "Cut with scissor instead of chopping",
+      "Use zucchini instead of cucumber"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "use zucchini instead of cucumber and chop or grate only half zucchini instead of full"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after combining all the ingredients in the bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 190,
+   "order": 9,
+   "instruction": "Add the chopped or grated cucumber to the whisked curd",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183,
+    185
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before whisking curd in the bowl",
+      "Step performed after combining all the ingredients in the bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Directly transferring the entire cutting board and not the chopped zucchini. Spilling happens. kitchen platform became messy."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Added non-chopped cucumber to the bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 191,
+   "order": 10,
+   "instruction": "1/2 teaspoon of chaat masala powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before whisking curd in the bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spilled while transferring chaat masala powder from packet to bowl",
+      "spill while adding"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Measured 1 tsp instead of 1/2 tsp.",
+      "Add-1 teaspoon of chaat masala powder to the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Added to curd bowl instead of the original bowl",
+      "add garam masala instead of chaat masala"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 186,
+   "order": 11,
+   "instruction": "Combine all the ingredients in the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    181,
+    184,
+    187,
+    188,
+    190,
+    191
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Did not combine all the ingredients properly. Did not mix the ingredients",
+      "spill some ingredients out while combining",
+      "Spilling while combining in the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Did not combine all the ingredients in the bowl, just rotated the bowl in a circular motion.",
+      "Used knife instead of spoon to combine the ingredients"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding cucumber",
+      "Step performed before adding all the ingredients in the bowl"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  }
+ ]
+}

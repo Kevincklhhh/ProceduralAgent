@@ -1,0 +1,175 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "sensor_control_plan",
+  "task": {
+    "task_id": "spicedhotchocolate",
+    "title": "Spiced Hot Chocolate",
+    "recipe_source": "tasks/cc4d/spicedhotchocolate.json",
+    "criteria_source": "tasks/cc4d_probe/spicedhotchocolate.criteria.json",
+    "detector_catalog": "tasks/AUDIO_RUNTIME_LIBRARY.md"
+  },
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-2 node form, compiled from spicedhotchocolate.criteria.json by binding each node's recognition/completion to a sensor. The two microwave runs give 4 crisp D1 transition events (cycle_start/cycle_end x2) that settle fill/microwave/heat for free; the silent fork (the 3 adds) and mix are C-none -> the periodic VLM classifies which is active. Recognition/timing bindings are firewall-clean; checks tagged `[probe-added]` come from the observed error space (probing mode) and bind to VLM (or D6) like any other check -- do not score this plan as a clean predictor result. See tasks/CRITERIA_GENERATION_PROBING.md.",
+
+  "runtime_config": { "tick_s": 1.0 },
+  "vlm_policy": { "window_s": 10.0, "fps": 1.0, "period_s": 10.0 },
+
+  "nodes": [
+    {
+      "step_id": "fill_milk",
+      "instruction": "Fill a microwave-safe mug with skimmed milk",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "sensing_role": "A-solve",
+      "recognition": {
+        "detector": "none",
+        "detection_criteria": "auto: fill is the root, active from t=0 (no predecessor to wait on; pouring itself is silent)."
+      },
+      "completion": {
+        "detector": "D1",
+        "detection_criteria": "inferred from microwave_initial.recognition: the first D1.cycle_start means the mug is filled.",
+        "inferred_from": "microwave_initial"
+      },
+      "checks": [
+        { "reminder": "preparation", "detector": "VLM",
+          "detection_criteria": "VLM: is the milk being poured skimmed milk (recipe states skimmed, not whole/2%)?" },
+        { "reminder": "technique", "detector": "VLM",
+          "detection_criteria": "[probe-added] VLM: did the user spill/make a mess while pouring the milk?" },
+        { "reminder": "measurement", "detector": "VLM",
+          "detection_criteria": "[probe-added] VLM: is the mug filled roughly full, or clearly under-filled (e.g. half)?" }
+      ]
+    },
+    {
+      "step_id": "microwave_initial",
+      "instruction": "Microwave the contents of the mug for 1 minute",
+      "preconditions": ["fill_milk"],
+      "duration_constraint_s": 60,
+      "sensing_role": "A-solve",
+      "recognition": {
+        "detector": "D1",
+        "detection_criteria": "D1.cycle_start (first hum onset)."
+      },
+      "completion": {
+        "detector": "D1",
+        "detection_criteria": "D1.cycle_end (first run, beep-fused hum offset).",
+        "inferred_from": null
+      },
+      "checks": [
+        { "reminder": "timing", "detector": "D6",
+          "detection_criteria": "active duration vs duration_constraint_s (60 s); fire if it overruns." },
+        { "reminder": "temperature", "detector": "VLM",
+          "detection_criteria": "[probe-added, best-effort] VLM: is the microwave power clearly reduced (e.g. 10% not 100%)? Scored, but expect low recall: dial often off-screen." }
+      ]
+    },
+    {
+      "step_id": "add_cinnamon",
+      "instruction": "Add 1/5 teaspoon cinnamon to the mug",
+      "preconditions": ["microwave_initial"],
+      "duration_constraint_s": null,
+      "sensing_role": "C-none",
+      "recognition": {
+        "detector": "VLM",
+        "detection_criteria": "VLM poll: is the user adding cinnamon? (one of 3 concurrently-eligible adds; the VLM classifies which is active, no order enforced)."
+      },
+      "completion": {
+        "detector": "VLM",
+        "detection_criteria": "inferred: done once the VLM recognizes a different add or stirring (no own end signal).",
+        "inferred_from": null
+      },
+      "checks": [
+        { "reminder": "measurement", "detector": "VLM",
+          "detection_criteria": "VLM: roughly how much cinnamon went in vs the recipe's ~1/5 tsp?" },
+        { "reminder": "preparation", "detector": "VLM",
+          "detection_criteria": "VLM: is the powder added cinnamon (not another spice)?" },
+        { "reminder": "technique", "detector": "VLM",
+          "detection_criteria": "[probe-added] VLM: did the user spill/make a mess while adding the cinnamon?" }
+      ]
+    },
+    {
+      "step_id": "add_sugar",
+      "instruction": "Add 1 teaspoon of white sugar to the mug",
+      "preconditions": ["microwave_initial"],
+      "duration_constraint_s": null,
+      "sensing_role": "C-none",
+      "recognition": {
+        "detector": "VLM",
+        "detection_criteria": "VLM poll: is the user adding sugar? (one of the 3 unordered adds)."
+      },
+      "completion": {
+        "detector": "VLM",
+        "detection_criteria": "inferred: done once the VLM recognizes a different add or stirring.",
+        "inferred_from": null
+      },
+      "checks": [
+        { "reminder": "measurement", "detector": "VLM",
+          "detection_criteria": "VLM: roughly how much sugar went in vs the recipe's ~1 tsp?" },
+        { "reminder": "preparation", "detector": "VLM",
+          "detection_criteria": "VLM: is it white sugar (recipe states white, not brown/other)?" }
+      ]
+    },
+    {
+      "step_id": "add_chocolate",
+      "instruction": "Add 2 pieces of chocolate to the mug",
+      "preconditions": ["microwave_initial"],
+      "duration_constraint_s": null,
+      "sensing_role": "C-none",
+      "recognition": {
+        "detector": "VLM",
+        "detection_criteria": "VLM poll: is the user putting chocolate pieces in? (one of the 3 unordered adds)."
+      },
+      "completion": {
+        "detector": "VLM",
+        "detection_criteria": "inferred: done once the VLM recognizes a different add or stirring.",
+        "inferred_from": null
+      },
+      "checks": [
+        { "reminder": "measurement", "detector": "VLM",
+          "detection_criteria": "VLM (B-trigger, one call): how many chocolate pieces went in? Flag if != 2." },
+        { "reminder": "technique", "detector": "VLM",
+          "detection_criteria": "[probe-added] VLM: did the user spill/make a mess while adding the chocolate?" }
+      ]
+    },
+    {
+      "step_id": "mix",
+      "instruction": "Mix the contents of the mug",
+      "preconditions": ["add_cinnamon", "add_sugar", "add_chocolate"],
+      "duration_constraint_s": null,
+      "sensing_role": "C-none",
+      "recognition": {
+        "detector": "VLM",
+        "detection_criteria": "VLM poll: is the user stirring the mug? (eligible only once all 3 adds are complete)."
+      },
+      "completion": {
+        "detector": "D1",
+        "detection_criteria": "inferred from heat_serve.recognition: the second D1.cycle_start closes the mix.",
+        "inferred_from": "heat_serve"
+      },
+      "checks": [
+        { "reminder": "technique", "detector": "VLM",
+          "detection_criteria": "VLM: is the mug stirred until combined (no unmixed powder/separation)?" }
+      ]
+    },
+    {
+      "step_id": "heat_serve",
+      "instruction": "Heat the contents of the mug for 1 minute and serve",
+      "preconditions": ["mix"],
+      "duration_constraint_s": 60,
+      "sensing_role": "A-solve",
+      "recognition": {
+        "detector": "D1",
+        "detection_criteria": "D1.cycle_start (second hum onset)."
+      },
+      "completion": {
+        "detector": "D1",
+        "detection_criteria": "D1.cycle_end (second run, beep-fused hum offset).",
+        "inferred_from": null
+      },
+      "checks": [
+        { "reminder": "timing", "detector": "D6",
+          "detection_criteria": "active duration vs duration_constraint_s (60 s); fire if it overruns." },
+        { "reminder": "temperature", "detector": "VLM",
+          "detection_criteria": "[probe-added, best-effort] VLM: is the microwave power clearly reduced? Scored, but expect low recall: dial often off-screen." }
+      ]
+    }
+  ]
+}

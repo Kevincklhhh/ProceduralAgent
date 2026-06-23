@@ -8,7 +8,7 @@ Older docs that bundled them (`CONVERSION_AND_EVAL_PROTOCOL.md`) are superseded 
 │ in : CC4D error tags + Qualcomm timestamps + DAG          │
 │ alg: reactive (Qualcomm ts) | DAG-derived (missing step)  │
 │ out: data/cc4d_family_a/{rid}.json  {window, class, id}   │
-│ doc: FAMILY_A_CC4D_AUGMENTATION.md   code: eval/build_family_a_gt.py
+│ doc: FAMILY_A_CC4D_AUGMENTATION.md   code: eval/gt_build_family_a.py
 └───────────────────────────────────────────────────────────┘
                               │ truth table
                               ▼
@@ -16,17 +16,24 @@ Older docs that bundled them (`CONVERSION_AND_EVAL_PROTOCOL.md`) are superseded 
 │ in : predicted reminders  +  Box-1 truth table            │
 │ alg: windowed per-class P/R/F1; G-Mean F1; silence scored │
 │ out: _scores_corpus.json (corpus) / scores.json (pilot)   │
-│ doc: REMINDER_EVALUATION.md   code: eval/score_corpus.py   │
+│ doc: REMINDER_EVALUATION.md   code: eval/eval_score_corpus.py │
 └───────────────────────────────────────────────────────────┘
                               ▲ predicted reminders
                               │
 ┌─ BOX 3 ─ RECIPE → SENSOR MAPPING (our predictor) ────────┐
 │ in : recipe DAG + step text  ONLY  (never tags / ts)      │
-│ alg: per-stage sensor schedule + anticipated reminders    │
-│ out: task JSON / sensor_schedule                          │
-│ doc: SENSOR_GRAPH_COMPILER_PROMPT.md                      │
+│ alg: 2 hops recipe→criteria→sensorplan; runtime drives the │
+│      active-set FSM + duty-cycles VLM; reminders ride state │
+│ out: <name>.criteria.json → <name>.sensorplan.json         │
+│ doc: tasks/PROCEDURE_MONITOR_COMPILER.md (stage 2) +        │
+│      REMINDER_RUNTIME.md (runtime)  code: eval/proposed_*.py │
 └───────────────────────────────────────────────────────────┘
 ```
+
+**T1 vs T2.** The boxes above are **T2** (proactive reminders). **T1** (online current-step
+recognition) shares Box 3's predictor — the same `.sensorplan.json` runtime emits the stage
+timeline — and is scored by a parallel referee, `TASK_T1_STEP_LOCALIZATION.md`, built on CC4D's
+**step annotations only** (no error tags / Qualcomm ts). One predictor, two scored tasks.
 
 ## The firewall (the one rule that ties the boxes together)
 
@@ -39,15 +46,15 @@ invalidates every score.
 
 ## Box 1 — what counts as GT (mechanical-only, 2026-06-15)
 
-Every scored event's window start comes from one of exactly **two mechanisms**:
+Every scored event's window start comes from one of exactly **three mechanical anchors**:
 
 | Mechanism | Window start `s` | Window end `e` | Classes (counts) |
 |---|---|---|---|
-| **Reactive** (Qualcomm timestamp) | Qualcomm visibility ts; `step.end` fallback for timing when absent | `step.end + grace` | execution_error {technique 453, preparation 360, measurement 325, temperature 54}, parameter/timing 178 |
+| **Reactive** (Qualcomm timestamp) | Qualcomm visibility ts; `step.end` fallback for timing when absent | `step.end + grace` | execution_error {technique 453, preparation 360, measurement 325, temperature 54 (Qualcomm-timed)}, parameter/timing 178 |
 | **DAG-derived** | first executed transitive DAG-successor of the skipped step | `s + grace` | precondition/missing_step 237 |
-| **Out-of-order step start** | the out-of-order step's own `start_time` | `step.end + grace` | precondition/order 789 |
+| **Step start** | the step's own `start_time` | `step.end + grace` | precondition/order 789; execution/temperature 13 (power-level, no Qualcomm ts) |
 
-**Total scored: 2,396 events** over 384 recordings; 171 recordings have no scored event
+**Total scored: 2,409 events** over 384 recordings; 171 recordings have no scored event
 (164 truly clean + 7 all-dropped/unmapped). Silence on clean recordings is scored.
 
 ### The order class is scored straight off the CC4D tag (decided 2026-06-15)
@@ -65,17 +72,13 @@ slice), **48% (381/789) no** (CC4D's canonical sequence is stricter than the DAG
 order, or the DAG is missing an edge — a detector-recall gap to report, not a reason to
 drop the event).
 
-### Suspended GT (still non-mechanical; reversible)
+### Temperature (power-level subset) is now scored (2026-06-21)
 
-Suspended events are still emitted (into `out['suspended']` per recording, and
-`suspended_by_class` in `_summary.json`) so the decision is reversible — they are never
-scored and never mint decision points.
-
-| Suspended | Count | Why it isn't mechanical |
-|---|---|---|
-| **execution/temperature** (power-level subset) | 13 | no Qualcomm timestamp and no window semantics ("low instead of high" is wrong from step start, not at a crossing) |
-
-To un-suspend temperature-power-level later: needs a declared anchor convention.
+The 13 Temperature-tagged steps with no Qualcomm timestamp (the "low instead of high"
+power-level subset) are no longer set aside — they are scored with a **step-start anchor**:
+a wrong power level is in effect from the moment the step begins, so the window is the whole
+active interval `[step.start, step.end + grace]` (flagged `low_confidence_temperature`). There
+are **no suspended classes**; every CC4D-tagged class is either scored or excluded by design.
 
 ### Also excluded by design (predates the mechanical cut)
 
@@ -95,7 +98,7 @@ These are applied mechanically to every recording; they are not debatable per-ca
 | FA-2 negative ratio | e.g. 3:1 | silent:interrupt decision points in Box 2 |
 | detector floors | per-primitive (e.g. 20 s hum) | a-priori scoring exclusions, declared per rule |
 
-Note: `grace` is doing double duty in `build_family_a_gt.py` (window-end pad AND negative
+Note: `grace` is doing double duty in `gt_build_family_a.py` (window-end pad AND negative
 dedup); tuning one moves the other. Split into two constants if that ever matters.
 
 ## Glossary

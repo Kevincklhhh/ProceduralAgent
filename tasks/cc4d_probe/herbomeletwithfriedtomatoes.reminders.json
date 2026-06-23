@@ -1,0 +1,744 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "herbomeletwithfriedtomatoes",
+ "activity_id": 22,
+ "n_recordings": 17,
+ "n_error_recordings": 11,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 237,
+   "order": 1,
+   "instruction": "Chop 2 tbsp cilantro",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Chop 1 tbsp cilantro",
+      "No measurements used",
+      "1 instead of 2 tbsp"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Didn't measure the Cilantro.",
+      "Did not chop the cilantro using knofe but made into pieces using hands"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after cooking tomatoes in the pan"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "not really chop, just cut into pieces"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 239,
+   "order": 2,
+   "instruction": "crack one egg in a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after cooking the tomatoes",
+      "Step performed after transferring tomatoes to the plate",
+      "Step performed after cooking tomatoes"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "splashing some part of the egg",
+      "egg shells are in the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using hand to scoop the liquid from the cutting board and placing it in the bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 242,
+   "order": 3,
+   "instruction": "add the chopped cilantro to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    237
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed after cooking the tomatoes",
+      "Step performed after preparing tomatoes",
+      "Step performed after cooking tomatoes in the pan",
+      "Step performed after heating the pan"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 247,
+   "order": 4,
+   "instruction": "Take a tomato",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after heating the pan"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Half tomato only",
+      "two instead of one tomato"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Using a cherry tomato instead of a Tomato.",
+      "Using a cherry tomato instead of a tomato."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 246,
+   "order": 5,
+   "instruction": "Cut tomato into two pieces",
+   "duration_constraint_s": null,
+   "preconditions": [
+    247
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed before correct order"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Chop tomato into many pieces",
+      "Cut some small pieces, not two pieces"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Using a cherry tomato instead of a tomato."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 249,
+   "order": 6,
+   "instruction": "1/2 tsp ground black pepper to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after preparing tomatoes",
+      "Step performed after correct order",
+      "Step performed after transferring tomatoes to the plate"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "No measurements used, pour directly",
+      "2 instead of 1/2"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Adding more pepper due improper transfer from the shaker to the measuring utensil",
+      "Splash some pepper outside"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 248,
+   "order": 7,
+   "instruction": "Beat the contents of the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    239,
+    242,
+    249
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed after cooking the tomatoes",
+      "Step performed after heating the pan",
+      "Step performed after cooking the tomatoes and before adding cilantro to the bowl",
+      "Step performed before adding cilantro to the bowl",
+      "Step performed after cooking the tomatoes and before adding cilantro, egg and pepper"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "spilled egg mixture while beating swiflty",
+      "very slow stir",
+      "Slowly stir the contents",
+      "Instead of beating the contents the bowl is just rotated in a circle"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using hand finger to beat the contents..."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 235,
+   "order": 8,
+   "instruction": "Heat 1 tbsp oil in a non-stick frying pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    246,
+    248
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "descriptions": [
+      "Step performed before beating the egg mixture",
+      "Step performed before egg mixture is ready",
+      "Step performed before preparing the egg mixture",
+      "Step performed before making the egg mixture",
+      "Step performed before preparing egg mixture"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Chinese wok, not a pan",
+      "Not using a proper frying pan.",
+      "Using soiled pan",
+      "Using a big frying pan."
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Too much oil, not 1 tbsp",
+      "Add more oil due to spillage"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spilling oil onto the pan while measuring 1 tbsp from the bottle"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "not heat the oil"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 240,
+   "order": 9,
+   "instruction": "cook the tomatoes cut-side down until they start to soften and colour",
+   "duration_constraint_s": null,
+   "preconditions": [
+    235
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed before beating the egg mixture",
+      "Step performed before egg mixture is ready",
+      "Step performed before adding cilantro to the bowl",
+      "Step performed before preparing egg mixture"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Undercook, without waiting for them to start to soften and color",
+      "Didn't cook the tomatoes until they soften and change in colour.",
+      "just cook a little time",
+      "cook the tomatoes in a short time"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Scooping and placing cooked items on the cutting board",
+      "Using a cherry tomato instead of a tomato."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 244,
+   "order": 10,
+   "instruction": "Scoop the tomatoes from the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    240
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed before beating the egg mixture",
+      "Step performed before egg mixture is ready",
+      "Step performed before adding cilantro to the bowl",
+      "Step performed after pouring the egg mixture",
+      "Step performed before preparing egg mixture"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Scooping and placing cooked items on the cutting board",
+      "Not using a proper item for scooping."
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "more like pour them out"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 236,
+   "order": 11,
+   "instruction": "put tomatoes on a serving plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    244
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed before beating the egg mixture",
+      "Step performed after putting the omelette on the plate",
+      "Step performed before adding cilantro to the bowl",
+      "Step performed after pouring the egg mixture",
+      "Step performed before preparing egg mixture"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Pour the tomatoes into the pan instead of putting them"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "bowl instead of plate"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 241,
+   "order": 12,
+   "instruction": "Pour the egg mixture into the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    236
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before putting tomatoes on the plate",
+      "Step performed before adding cilantro to the bowl and after heating the pan",
+      "Step performed before scooping the tomatoes"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Pour some part of the egg outside the pan"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 238,
+   "order": 13,
+   "instruction": "stir gently with a wooden spoon so the egg that sets on the base of the pan moves to enable the uncooked egg to flow into the space",
+   "duration_constraint_s": null,
+   "preconditions": [
+    241
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "The egg cooked so fast and.not able to stir properly.",
+      "Stirred gently such that uncooked egg is transferred to the sides of the pan",
+      "Stir action is not proper and the egg not cooked evenly.",
+      "Stirring action is not correct",
+      "stir rapidly",
+      "stir rapidly instead of gently"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Used steel spoon instead of wooden spoon",
+      "Using metal spatula instead of wooden ladle",
+      "Using wooden spatula instead of a spoon and not properly stirring the contents.",
+      "Stir after cooking is done"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before putting tomatoes on the plate"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 245,
+   "order": 14,
+   "instruction": "Stop stirring when it's nearly cooked to allow it to set into an omelette",
+   "duration_constraint_s": null,
+   "preconditions": [
+    238
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "set into small pieces instead of an omelette",
+      "Stop stirring before the egg set into an omelette.",
+      "Did not stop stirring when its nearly cooked thus making it into smaller pieces",
+      "not an exact omelette"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before putting tomatoes on the plate"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 243,
+   "order": 15,
+   "instruction": "Transfer omelette to the plate and serve with the tomatoes",
+   "duration_constraint_s": null,
+   "preconditions": [
+    245
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before putting tomatoes on the plate"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -6,11 +6,12 @@ place Box 1 (answer key) and Box 3 (predictor) meet. Split out of the former
 `CONVERSION_AND_EVAL_PROTOCOL.md` Part 2.
 
 Scored taxonomy is **mechanical-only** (2026-06-15): execution_error (technique /
-preparation / measurement / temperature-with-ts), parameter/timing, precondition/missing_step,
+preparation / measurement / temperature), parameter/timing, precondition/missing_step,
 and **precondition/order** (scored straight off the CC4D Order tag — one event per tagged
-step, 789 total, no benign/harmful adjudication; see `PIPELINE_THREE_BOXES.md`). Only
-temperature-power-level (13) remains suspended; safety and next-step guidance are excluded.
-See `FAMILY_A_CC4D_AUGMENTATION.md` for derivation. **2,396 scored events total.**
+step, 789 total, no benign/harmful adjudication; see `PIPELINE_THREE_BOXES.md`). Temperature
+is fully scored (the power-level subset uses a step-start anchor, 2026-06-21) — **no suspended
+classes**; safety and next-step guidance are excluded.
+See `FAMILY_A_CC4D_AUGMENTATION.md` for derivation. **2,409 scored events total.**
 
 ## Protocol (frozen)
 
@@ -29,14 +30,14 @@ See `FAMILY_A_CC4D_AUGMENTATION.md` for derivation. **2,396 scored events total.
    cost:{vlm_calls, frames_sent, vlm_latency_total_s, compute_s}}`.
 5. **Splits.** Adopt the Qualcomm splits (train 213 / val 62 / test 109) for LiveMamba
    comparability.
-6. **Scoring implementation.** `eval/score_corpus.py` is the corpus referee for all arms
+6. **Scoring implementation.** `eval/eval_score_corpus.py` is the corpus referee for all arms
    over the full 384-recording `data/cc4d_family_a/` truth table → `_scores_corpus.json`.
    It scores FA-1 per-class P/R/F1 (membership + ±15 s + ±30 s), FA-2 G-Mean F1, stage
    accuracy, and cost; order is scored with a `dag_edge_violation` sub-breakdown (the
    cheap-DAG-detector recoverable share, 52%). Validated by GT-derived `oracle` (→ all
    1.0) and `silent` (→ recall 0, G-Mean 0) reference arms. Real arms are scored via
    `--results-dir <dir> --arms a,b` (unified per-recording JSON: `stage_intervals`,
-   `events[{t,class,subtype}]`, `escalation_requests`, `cost`). The older `eval/score.py`
+   `events[{t,class,subtype}]`, `escalation_requests`, `cost`). The older `eval/eval_score_activity8.py`
    remains the activity-8 replay pilot (3 arms, hand-built truth, `experiments/replay_v1`).
 
 ## The three task arms
@@ -94,9 +95,10 @@ At each given timestamp `t`, output `interrupt` / `silent` given stream up to `t
 
 ## Reporting rules
 
-- Per-class, never pooled. Temperature reported as its own execution sub-row.
-- Report the suspended-order fraction honestly (events that exist as CC4D facts but are not
-  scored here) so coverage is not overstated.
+- Per-class, never pooled. Temperature reported as its own execution sub-row (its power-level
+  subset is the audio/off-screen-leaning slice — expect low detector recall there).
+- Report the detector-recoverable fraction honestly (e.g. the 48% of order events that break
+  no real DAG edge; the C-none slice) so coverage is not overstated.
 - Declare the FA-2 negative-sampling ratio + rule in the release; report sampling-free
   FA-1 window-membership numbers alongside.
 - Oracle-stage ablation (PWR-style): main number with self-tracked stages + an optional

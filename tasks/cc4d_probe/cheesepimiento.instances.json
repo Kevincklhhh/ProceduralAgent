@@ -1,0 +1,1111 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "cheesepimiento",
+ "activity_id": 27,
+ "n_recordings": 15,
+ "n_error_recordings": 9,
+ "steps": [
+  {
+   "step_id": 316,
+   "order": 1,
+   "instruction": "Add 1/3 cup cheddar cheese to a microwave-safe cup",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_3",
+       "cc4d_step_id": 316,
+       "description": "Placed in bowl instead of cup",
+       "video_window": [
+        204.2,
+        235.6
+       ]
+      },
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 316,
+       "description": "Adding cheese to the bowl rather than cup",
+       "video_window": [
+        319.3,
+        349.1
+       ]
+      },
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 316,
+       "description": "use mozarella cheese instead of cheddar",
+       "video_window": [
+        6.1,
+        61.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_26",
+       "cc4d_step_id": 316,
+       "description": "Spill while adding",
+       "video_window": [
+        5.8,
+        80.5
+       ]
+      },
+      {
+       "recording_id": "27_31",
+       "cc4d_step_id": 316,
+       "description": "spill some cheese while adding",
+       "video_window": [
+        51.5,
+        108.8
+       ]
+      },
+      {
+       "recording_id": "27_49",
+       "cc4d_step_id": 316,
+       "description": "Spill while adding",
+       "video_window": [
+        44.1,
+        62.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 316,
+       "description": "Add-Add 1/2 cup instead of 1/3 cup cheddar cheese",
+       "video_window": [
+        211.5,
+        301.6
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 316,
+       "description": "Add-Add 1/2 cup cheddar cheese to a microwave-safe cup",
+       "video_window": [
+        27.6,
+        100.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 320,
+   "order": 2,
+   "instruction": "Add 1 tablespoons of water to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_34",
+       "cc4d_step_id": 320,
+       "description": "Add 2 tablespoonds of water rather than 1",
+       "video_window": [
+        4.0,
+        71.2
+       ]
+      },
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 320,
+       "description": "Add 3 tbsp rather than 1 tbsp",
+       "video_window": [
+        7.5,
+        53.9
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 320,
+       "description": "Add-Add 2 tablespoons of water to the bowl",
+       "video_window": [
+        810.5,
+        836.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 320,
+       "description": "Step performed after microwaving the bowl",
+       "video_window": [
+        340.0,
+        368.2
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 320,
+       "description": "Step performed in incorrect order",
+       "video_window": [
+        810.5,
+        836.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 320,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 321,
+   "order": 3,
+   "instruction": "Chop 1/4 red bell pepper into tiny bits",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 321,
+       "description": "Chopping bell pepper without removing the seeds",
+       "video_window": [
+        45.0,
+        165.2
+       ]
+      },
+      {
+       "recording_id": "27_34",
+       "cc4d_step_id": 321,
+       "description": "Slice instead of chopping",
+       "video_window": [
+        79.2,
+        145.4
+       ]
+      },
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 321,
+       "description": "Chop into large bits rather than tiny bits",
+       "video_window": [
+        110.3,
+        184.1
+       ]
+      },
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 321,
+       "description": "Chopped without removing seeds",
+       "video_window": [
+        110.3,
+        184.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_34",
+       "cc4d_step_id": 321,
+       "description": "Used green bell pepper instead of red bell pepper",
+       "video_window": [
+        79.2,
+        145.4
+       ]
+      },
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 321,
+       "description": "Chop on counter top instead of cutting board",
+       "video_window": [
+        70.5,
+        219.2
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 321,
+       "description": "Chopping without removing seeds",
+       "video_window": [
+        132.9,
+        194.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 322,
+   "order": 4,
+   "instruction": "Place the chopped pepper in the microwave-safe bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    321
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "27_26",
+       "cc4d_step_id": 322,
+       "description": "Spill while placing pepper in bowl",
+       "video_window": [
+        270.6,
+        285.8
+       ]
+      },
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 322,
+       "description": "Place-Place the chopped pepper in the microwave-safe bowl.  Should have covered the complete base of the bowl but put in just one side instead. wrong technique.",
+       "video_window": [
+        405.4,
+        433.0
+       ]
+      },
+      {
+       "recording_id": "27_31",
+       "cc4d_step_id": 322,
+       "description": "spill some bell pepper while adding to bowl",
+       "video_window": [
+        361.5,
+        391.9
+       ]
+      },
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 322,
+       "description": "Spill the bell pepper while adding it to the bowl",
+       "video_window": [
+        294.4,
+        316.8
+       ]
+      },
+      {
+       "recording_id": "27_49",
+       "cc4d_step_id": 322,
+       "description": "Spill while placing chopped pepper in bowl",
+       "video_window": [
+        181.6,
+        195.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 322,
+       "description": "Step performed after adding pepper and microwaving",
+       "video_window": [
+        294.4,
+        316.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 322,
+       "description": "Place-Place the chopped pepper in the microwave-safe plate",
+       "video_window": [
+        322.6,
+        366.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 318,
+   "order": 5,
+   "instruction": "Microwave the bowl, covered, for 2 minutes",
+   "duration_constraint_s": 120,
+   "preconditions": [
+    320,
+    322
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 318,
+       "description": "Microwave for 1 minute instead of 2 minutes.",
+       "video_window": [
+        434.2,
+        513.1
+       ]
+      },
+      {
+       "recording_id": "27_34",
+       "cc4d_step_id": 318,
+       "description": "Microwave for 30 seconds rather than 2 minutes",
+       "video_window": [
+        274.8,
+        345.0
+       ]
+      },
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 318,
+       "description": "Under cook - Cook only for 1 minute",
+       "video_window": [
+        198.2,
+        291.9
+       ]
+      },
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 318,
+       "description": "microwave only for 30 sec instead of 2 minutes",
+       "video_window": [
+        257.3,
+        331.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 318,
+       "description": "Step performed before adding bell pepper and after adding pepper",
+       "video_window": [
+        198.2,
+        291.9
+       ]
+      },
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 318,
+       "description": "Step performed before adding water to the bowl",
+       "video_window": [
+        257.3,
+        331.6
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 318,
+       "description": "Step performed before adding contents to the bowl",
+       "video_window": [
+        497.6,
+        671.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "27_31",
+       "cc4d_step_id": 318,
+       "description": "Did not cover the bowl",
+       "video_window": [
+        393.1,
+        528.7
+       ]
+      },
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 318,
+       "description": "Microwave uncovered instead of covered",
+       "video_window": [
+        257.3,
+        331.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_26",
+       "cc4d_step_id": 318,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 323,
+   "order": 6,
+   "instruction": "Melt the cheese by microwaving cup for 30 sec. (Check after 30 seconds and microwave for 10 seconds more if needed)",
+   "duration_constraint_s": 30,
+   "preconditions": [
+    316
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "27_26",
+       "cc4d_step_id": 323,
+       "description": "Cheese has not melted after 30 seconds",
+       "video_window": [
+        330.1,
+        379.1
+       ]
+      },
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 323,
+       "description": "Microwave for 60 seconds instead of 30 seconds.",
+       "video_window": [
+        304.1,
+        391.7
+       ]
+      },
+      {
+       "recording_id": "27_34",
+       "cc4d_step_id": 323,
+       "description": "Microwave for 10 seconds rather than 30 seconds",
+       "video_window": [
+        234.7,
+        273.8
+       ]
+      },
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 323,
+       "description": "Microwave for 10 seconds - (Cheese will not melt)",
+       "video_window": [
+        354.1,
+        393.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 323,
+       "description": "Microwaving the bowl rather than cup",
+       "video_window": [
+        354.1,
+        393.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 323,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 323,
+       "description": "Melt-Melt the cheese by microwaving cup for 30 sec on low heat.",
+       "video_window": [
+        368.0,
+        421.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 317,
+   "order": 7,
+   "instruction": "Mix the cheese and red bell pepper in the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    318,
+    323
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 317,
+       "description": "Step performed after adding pepper",
+       "video_window": [
+        396.4,
+        415.5
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 317,
+       "description": "Step performed before adding water",
+       "video_window": [
+        682.4,
+        739.1
+       ]
+      },
+      {
+       "recording_id": "27_49",
+       "cc4d_step_id": 317,
+       "description": "Step performed before microwave bell pepper",
+       "video_window": [
+        196.0,
+        229.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 317,
+       "description": "Mix with bare hands",
+       "video_window": [
+        376.2,
+        423.1
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 317,
+       "description": "Mix-Mix the cheese and red bell pepper in the plate",
+       "video_window": [
+        682.4,
+        739.1
+       ]
+      },
+      {
+       "recording_id": "27_49",
+       "cc4d_step_id": 317,
+       "description": "Mixed with hands",
+       "video_window": [
+        196.0,
+        229.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_26",
+       "cc4d_step_id": 317,
+       "description": "Spill while mixing",
+       "video_window": [
+        382.6,
+        418.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 314,
+   "order": 8,
+   "instruction": "add 1/2 tbsp softened butter to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    317
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 314,
+       "description": "add-add 1/4 tbsp softened butter to the bowl",
+       "video_window": [
+        657.0,
+        690.7
+       ]
+      },
+      {
+       "recording_id": "27_34",
+       "cc4d_step_id": 314,
+       "description": "Add 1 tbsp rather than 1/2 tbsp",
+       "video_window": [
+        411.2,
+        466.4
+       ]
+      },
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 314,
+       "description": "use 1 tbsp butter instead of 1/2 tbsp",
+       "video_window": [
+        433.4,
+        483.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_26",
+       "cc4d_step_id": 314,
+       "description": "Using hands to add softened butter to the bowl",
+       "video_window": [
+        421.1,
+        458.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 314,
+       "description": "Step performed in incorrect order",
+       "video_window": [
+        847.8,
+        870.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 315,
+   "order": 9,
+   "instruction": "Add 1/4 teaspoon salt to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    317
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 315,
+       "description": "Add-Add 1/2 teaspoon salt to the bowl",
+       "video_window": [
+        703.3,
+        723.3
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 315,
+       "description": "Add-Add 1/2 teaspoon salt to the bowl",
+       "video_window": [
+        893.1,
+        923.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "27_34",
+       "cc4d_step_id": 315,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 315,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_26",
+       "cc4d_step_id": 315,
+       "description": "Spill while adding pepper to the bowl",
+       "video_window": [
+        533.1,
+        559.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 315,
+       "description": "Step performed in incorrect order",
+       "video_window": [
+        893.1,
+        923.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 319,
+   "order": 10,
+   "instruction": "Add 1/4 teaspoon pepper to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    317
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "27_29",
+       "cc4d_step_id": 319,
+       "description": "Add-Add 1/2 teaspoon pepper to the bowl",
+       "video_window": [
+        563.1,
+        625.7
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 319,
+       "description": "Add-Add 1/2 teaspoon pepper to the bowl",
+       "video_window": [
+        750.5,
+        781.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "27_37",
+       "cc4d_step_id": 319,
+       "description": "Step performed before adding bell pepper and cheese",
+       "video_window": [
+        67.2,
+        92.9
+       ]
+      },
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 319,
+       "description": "Step performed in incorrect order",
+       "video_window": [
+        750.5,
+        781.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_26",
+       "cc4d_step_id": 319,
+       "description": "Spill while adding pepper to the bowl",
+       "video_window": [
+        470.1,
+        531.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_31",
+       "cc4d_step_id": 319,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 319,
+       "description": "Using another bowl without ingredients in it",
+       "video_window": [
+        750.5,
+        781.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 324,
+   "order": 11,
+   "instruction": "Mix all the ingredients of the bowl well",
+   "duration_constraint_s": null,
+   "preconditions": [
+    314,
+    315,
+    319
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 324,
+       "description": "Mix-put all the ingredients of the bowl into the plate. Then mix all the ingredients in the plate.",
+       "video_window": [
+        927.2,
+        1014.7
+       ]
+      },
+      {
+       "recording_id": "27_49",
+       "cc4d_step_id": 324,
+       "description": "Used hands to mix",
+       "video_window": [
+        456.5,
+        490.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_38",
+       "cc4d_step_id": 324,
+       "description": "mix incompletely, so that cheese and bell pepper seperates",
+       "video_window": [
+        533.6,
+        550.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "27_45",
+       "cc4d_step_id": 324,
+       "description": "Step performed in incorrect order",
+       "video_window": [
+        927.2,
+        1014.7
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

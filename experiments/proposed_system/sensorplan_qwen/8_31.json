@@ -1,0 +1,115 @@
+{
+ "recording": "8_31",
+ "task_id": "spicedhotchocolate",
+ "arm": "sensorplan_qwen",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 74.6
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 74.6,
+   "end_s": 100.7
+  },
+  {
+   "stage": "add_cinnamon",
+   "start_s": 100.7,
+   "end_s": 180.7
+  },
+  {
+   "stage": "heat_serve",
+   "start_s": 183.9,
+   "end_s": 235.9
+  }
+ ],
+ "transition_trace": [
+  {
+   "t_s": 0.0,
+   "transition": "start",
+   "step_or_block": "fill_milk",
+   "evidence": [
+    "procedure_start (t=0)"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 74.6,
+   "transition": "start",
+   "step_or_block": "microwave_initial",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 100.7,
+   "transition": "start",
+   "step_or_block": "add_cinnamon",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 183.9,
+   "transition": "start",
+   "step_or_block": "heat_serve",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "sensor_events": [
+  {
+   "t_s": 74.62,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0,
+   "release_t": 82.62
+  },
+  {
+   "t_s": 100.69,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0,
+   "release_t": 108.69
+  },
+  {
+   "t_s": 183.94,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0,
+   "release_t": 191.94
+  },
+  {
+   "t_s": 235.87,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0,
+   "release_t": 243.87
+  }
+ ],
+ "cost": {
+  "audio_on_s": 267.14,
+  "vlm_calls": 8,
+  "frames_sent": 80,
+  "vlm_latency_total_s": 105.22,
+  "compute_s": 0.69
+ },
+ "events": [],
+ "escalation_requests": [],
+ "_meta": {
+  "degraded": null,
+  "vlm_mode": "qwen",
+  "interval_s": 10.0,
+  "anchors": {
+   "A": 74.6,
+   "B": 100.7,
+   "C": 183.9,
+   "D": 235.9
+  }
+ }
+}

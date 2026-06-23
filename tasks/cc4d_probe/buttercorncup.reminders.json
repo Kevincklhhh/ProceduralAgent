@@ -1,0 +1,615 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "buttercorncup",
+ "activity_id": 13,
+ "n_recordings": 14,
+ "n_error_recordings": 9,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 129,
+   "order": 1,
+   "instruction": "Measure 2 cups of frozen corn",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Added 3 cups instead of 2 cups",
+      "Measured 1 cup instead of 2 cups",
+      "Measure 3 cups instead of 2"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spilling the corn while measuring",
+      "spill the corn while adding it to seive"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 131,
+   "order": 2,
+   "instruction": "Extract lime juice from 1/3 lime",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before microwave for 3 minutes",
+      "Step performed before microwaving",
+      "Step performed after adding salt and before stirring"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "missing step",
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill while extracting",
+      "Spill some lime juice"
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "directly extract lime juice to the bowl. so next step becomes obselete"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Performed both steps together extraction and addition"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 137,
+   "order": 3,
+   "instruction": "Thaw the frozen corn by putting it in a sieve and running it under cold water",
+   "duration_constraint_s": null,
+   "preconditions": [
+    129
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spill while rinsing",
+      "Spilling while thawing",
+      "spill some corn in sink while thawing"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Used hot water instead of cold water",
+      "Thaw under hot water"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Do not use sieve. Use cup and hand as lid."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 132,
+   "order": 4,
+   "instruction": "Add the corn into a microwave-safe bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    137
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spill while adding",
+      "Spill while adding the corn to the bowl",
+      "Spilling while adding corn to a microwave-safe bowl"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before correct order"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 133,
+   "order": 5,
+   "instruction": "Microwave the corn for 2 minutes",
+   "duration_constraint_s": 120,
+   "preconditions": [
+    132
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Microwaved only for 30 secs",
+      "Microwave-Microwave the corn. Timer started from 20 minutes and stopped at 16:16. Did for 3:44 minutes.",
+      "Microwave for 3 minutes",
+      "Microwave for 1 minute 30 seconds"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Did not use gloves while removing from microwave"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Microwave on low power instead of high power"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding pepper powder"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 130,
+   "order": 6,
+   "instruction": "1 teaspoon of pepper powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    133
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill while adding",
+      "spilled some pepper into corn bowl while measuring leading to adding extra pepper"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "used oregano instead of pepper powder"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before microwaving the corn"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 138,
+   "order": 7,
+   "instruction": "Add 1 teaspoon of softened butter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    133
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "descriptions": [
+      "Added garlic butter instead of plain butter",
+      "Used hands to add butter",
+      "Add-Add 1 teaspoon of vegetable oil instead of butter",
+      "Use unsoftened butter"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding lime juice"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 135,
+   "order": 8,
+   "instruction": "then stir the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    130,
+    138
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Do not stir enough",
+      "Spill while stirring",
+      "spill while stirring"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding lime juice",
+      "Step performed after adding salt and microwaving"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 134,
+   "order": 9,
+   "instruction": "Microwave the corn for 3 more minutes",
+   "duration_constraint_s": null,
+   "preconditions": [
+    135
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding lime juice",
+      "Step performed before correct order",
+      "Step performed after adding salt and before stirring"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Microwave the corn for 2 more minutes rather than 3 mins",
+      "stopped the microwave at 2 mins only"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spilled the corn"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 128,
+   "order": 10,
+   "instruction": "add lime juice to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    131,
+    134
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before microwave for 3 minutes",
+      "Step performed before microwaving",
+      "Step performed after adding salt and before stirring"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "missing step",
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while adding"
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "this step is included into the above step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Performed both steps together extraction and addition"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 136,
+   "order": 11,
+   "instruction": "Add 1 teaspoon salt to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    134
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "missing step",
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add-Add 1 teaspoon sugar to the bowl instead of salt"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "spill some salt while adding"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add 1.5 tsp"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before microwaving"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 76,
+   "order": 12,
+   "instruction": "Mix the contents of the bowl well",
+   "duration_constraint_s": null,
+   "preconditions": [
+    128,
+    136
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Mix for very little time",
+      "Spill while  mixing",
+      "Mix-Mix the contents of the bowl without circular motion and just pressing the spoon up and down.",
+      "spilled some corn while mixing"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "missing step",
+      "Skipped this step"
+     ]
+    }
+   ]
+  }
+ ]
+}

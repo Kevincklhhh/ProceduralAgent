@@ -6,7 +6,7 @@ it does **not** use error tags or Qualcomm mistake timestamps (those are T2 / Bo
 Qualcomm `instructions` field (step-completion times) is a redundant cross-check, not a
 required input.
 
-> **Status:** the metric is already implemented as `stage_acc()` in `eval/score_corpus.py`
+> **Status:** the metric is already implemented as `stage_acc()` in `eval/eval_score_corpus.py`
 > (per-second current-step accuracy). This doc promotes it from "T2 substrate / stage
 > accuracy reporting line" to a **named, first-class task** and freezes its conventions.
 
@@ -72,7 +72,7 @@ now using the active-set rule. Macro is a small addition if wanted.
 A bare accuracy number is **not** the contribution. Per the project goal (sensor control:
 energy/latency saved at equal coverage), T1 is only meaningful **paired with the sensing
 cost that achieved it**. Report Step-Acc *alongside* `cost` (`vlm_calls`, `frames_sent`,
-`vlm_latency_total_s`, detector `compute_s`) — already logged per arm in `score_corpus.py`.
+`vlm_latency_total_s`, detector `compute_s`) — already logged per arm in `eval_score_corpus.py`.
 
 The intended comparison: a **periodic-VLM** arm (call the VLM every Δ s) vs a
 **detector-gated** arm (cheap RGB/audio tracks the step; VLM fires only on ambiguous

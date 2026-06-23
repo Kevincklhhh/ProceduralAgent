@@ -1,0 +1,158 @@
+{
+ "recording": "8_16",
+ "task_id": "spicedhotchocolate",
+ "arm": "proposed_system",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 72.32
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 72.32,
+   "end_s": 134.45
+  },
+  {
+   "stage": "quiet_middle",
+   "start_s": 134.45,
+   "end_s": 143.0
+  },
+  {
+   "stage": "add_cinnamon",
+   "start_s": 143.0,
+   "end_s": 153.0
+  },
+  {
+   "stage": "add_chocolate",
+   "start_s": 153.0,
+   "end_s": 173.0
+  },
+  {
+   "stage": "add_sugar",
+   "start_s": 173.0,
+   "end_s": 183.0
+  },
+  {
+   "stage": "add_cinnamon",
+   "start_s": 183.0,
+   "end_s": 387.2
+  },
+  {
+   "stage": "heat_serve",
+   "start_s": 387.2,
+   "end_s": 462.63
+  }
+ ],
+ "transition_trace": [
+  {
+   "t_s": 0.0,
+   "transition": "start",
+   "step_or_block": "fill_milk",
+   "rule_id": "fill_start_source",
+   "evidence": [],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 72.32,
+   "transition": "complete",
+   "step_or_block": "fill_milk",
+   "rule_id": "fill_done_next_anchor",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 72.32,
+   "transition": "start",
+   "step_or_block": "microwave_initial",
+   "rule_id": "mw1_start",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 134.45,
+   "transition": "complete",
+   "step_or_block": "microwave_initial",
+   "rule_id": "mw1_done",
+   "evidence": [
+    "D1.cycle_end"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 134.45,
+   "transition": "start",
+   "step_or_block": "quiet_middle",
+   "rule_id": "middle_start",
+   "evidence": [],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 387.2,
+   "transition": "complete",
+   "step_or_block": "quiet_middle",
+   "rule_id": "middle_done_next_anchor",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 387.2,
+   "transition": "start",
+   "step_or_block": "heat_serve",
+   "rule_id": "heat_start",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 448.53,
+   "transition": "complete",
+   "step_or_block": "heat_serve",
+   "rule_id": "heat_done",
+   "evidence": [
+    "D1.cycle_end"
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "sensor_events": [
+  {
+   "t_s": 72.32,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 134.45,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 387.2,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 448.53,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0
+  }
+ ],
+ "cost": {
+  "audio_on_s": 462.63,
+  "vlm_calls": 6,
+  "frames_sent": 60,
+  "vlm_latency_total_s": 113.11,
+  "compute_s": 1.01
+ }
+}

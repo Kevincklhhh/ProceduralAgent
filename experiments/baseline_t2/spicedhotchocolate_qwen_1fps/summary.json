@@ -1,0 +1,56 @@
+{
+  "recipe": "spicedhotchocolate",
+  "arm": "qwen",
+  "window": "oracle",
+  "n_recordings": 2,
+  "n_calls": 14,
+  "n_frames": 819,
+  "wall_s": 422.2,
+  "sample_fps": 1.0,
+  "max_frames": 300,
+  "per_subtype": {
+    "measurement": {
+      "TP": 1,
+      "FN": 1,
+      "FP": 1,
+      "recall": 0.5,
+      "precision": 0.5
+    },
+    "preparation": {
+      "TP": 0,
+      "FN": 1,
+      "FP": 0,
+      "recall": 0.0,
+      "precision": null
+    },
+    "technique": {
+      "TP": 0,
+      "FN": 1,
+      "FP": 0,
+      "recall": 0.0,
+      "precision": null
+    },
+    "temperature": {
+      "TP": 0,
+      "FN": 1,
+      "FP": 0,
+      "recall": 0.0,
+      "precision": null
+    },
+    "timing": {
+      "TP": 0,
+      "FN": 2,
+      "FP": 0,
+      "recall": 0.0,
+      "precision": null
+    }
+  },
+  "no_authored_check": {},
+  "_caveats": "oracle step-span windowing (detection ceiling, not deployable); in-sample (criteria probe-derived from these recordings).",
+  "overall": {
+    "TP": 1,
+    "FN": 6,
+    "FP": 1,
+    "recall": 0.14285714285714285
+  }
+}

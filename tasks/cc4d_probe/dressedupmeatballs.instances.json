@@ -1,0 +1,1488 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "dressedupmeatballs",
+ "activity_id": 2,
+ "n_recordings": 16,
+ "n_error_recordings": 10,
+ "steps": [
+  {
+   "step_id": 14,
+   "order": 1,
+   "instruction": "Peel 1 garlic clove",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 14,
+       "description": "Not properly peeling the garlic clove.",
+       "video_window": [
+        8.1,
+        62.5
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 14,
+       "description": "Peel-Peel garlic clove improperly",
+       "video_window": [
+        283.8,
+        323.8
+       ]
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 14,
+       "description": "Peeled the garlic improperly",
+       "video_window": [
+        71,
+        90
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 14,
+       "description": "Peeled 2 instead of 1 garlic clove",
+       "video_window": [
+        18.7,
+        120.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 16,
+   "order": 2,
+   "instruction": "Cut 1/8 garlic clove",
+   "duration_constraint_s": null,
+   "preconditions": [
+    14
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 16,
+       "description": "Using 1/2 garlic instead of 1/8 garlic.",
+       "video_window": [
+        177.4,
+        215.7
+       ]
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 16,
+       "description": "Use 1/2 garlic clove",
+       "video_window": [
+        215.6,
+        229.8
+       ]
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 16,
+       "description": "Cut 1/2 garlic clove instead of 1/8 garlic clove.",
+       "video_window": [
+        149.9,
+        171.1
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 16,
+       "description": "Cut 1 garlic clove",
+       "video_window": [
+        319.8,
+        347.0
+       ]
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 16,
+       "description": "Cut 1/2 garlic clove",
+       "video_window": [
+        94.1,
+        109.1
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 16,
+       "description": "Cut 1/2 instead of 1/8 garlic clove",
+       "video_window": [
+        576.5,
+        593.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 16,
+       "description": "Slice garlic clove",
+       "video_window": [
+        215.6,
+        229.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 17,
+   "order": 3,
+   "instruction": "Peel one medium onion",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 17,
+       "description": "Not properly peeling the onion.",
+       "video_window": [
+        10.5,
+        40.2
+       ]
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 17,
+       "description": "Peel improperly",
+       "video_window": [
+        16.0,
+        54.6
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 17,
+       "description": "Peel-Peel one medium onion improperly",
+       "video_window": [
+        131.9,
+        197.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 21,
+   "order": 4,
+   "instruction": "Place 5 meatballs in a Microwave-safe plate",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 21,
+       "description": "Using 6 meatballs instead of 5 meatballs.",
+       "video_window": [
+        445.6,
+        494.0
+       ]
+      },
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 21,
+       "description": "Place only 4 instead of 5.",
+       "video_window": [
+        517.1,
+        569.5
+       ]
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 21,
+       "description": "Pouring many balls, more than 5",
+       "video_window": [
+        57.4,
+        88.5
+       ]
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 21,
+       "description": "Placing 6 meatballs instead of 5.",
+       "video_window": [
+        547.0,
+        612.4
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 21,
+       "description": "3 meatballs instead of 5 meatballs",
+       "video_window": [
+        281.5,
+        320.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 21,
+       "description": "Place meat balls after the sauces are poured and topped with vegetables",
+       "video_window": [
+        577.7,
+        621.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 21,
+       "description": "Using bowl instead of plate",
+       "video_window": [
+        248.2,
+        321.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 21,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 22,
+   "order": 5,
+   "instruction": "Cut 1/4 medium carrot into short, thin strips",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 22,
+       "description": "Cutting into long instead of short.",
+       "video_window": [
+        266.2,
+        397.2
+       ]
+      },
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 22,
+       "description": "Cutting the carrot into long and thick strips.",
+       "video_window": [
+        234.1,
+        311.0
+       ]
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 22,
+       "description": "Not thin",
+       "video_window": [
+        231.6,
+        275.9
+       ]
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 22,
+       "description": "Instead of short thin strips cutting it into long irregular strips.",
+       "video_window": [
+        215.4,
+        420.3
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 22,
+       "description": "slice horizontally carrot instead of cut into short, thin strips",
+       "video_window": [
+        30,
+        90.6
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 22,
+       "description": "Carrot is not cut into thin strips",
+       "video_window": [
+        239.1,
+        279.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 22,
+       "description": "Not taking the 1/4 medium carrot.",
+       "video_window": [
+        215.4,
+        420.3
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 22,
+       "description": "use 1/2 medium carrot instead of 1/4 medium carrot",
+       "video_window": [
+        30,
+        90.6
+       ]
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 22,
+       "description": "Took a large carrot instead of a medium carrot",
+       "video_window": [
+        341.2,
+        404.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 23,
+   "order": 6,
+   "instruction": "Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 23,
+       "description": "Mixing 1/2 cup instead of 1/4 cup sweet and sour sauce and 1 teaspoon of soy sauce instead of 1/2 teaspoon.",
+       "video_window": [
+        619.0,
+        762.2
+       ]
+      },
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 23,
+       "description": "Using 1 teaspoon instead of 1/2 teaspoon.",
+       "video_window": [
+        396.6,
+        511.9
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 23,
+       "description": "Mix-Mix 1/2 cup sweet-and-sour sauce and 1/2 cup soy sauce in a small bowl",
+       "video_window": [
+        399.8,
+        491.7
+       ]
+      },
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 23,
+       "description": "1/2 tablespoon soy sauce instead of 1/2 tsp soy sauce",
+       "video_window": [
+        86.7,
+        242.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 23,
+       "description": "Spill soy sauce while measuring.",
+       "video_window": [
+        619.0,
+        762.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 23,
+       "description": "1/2 tsp used is soiled",
+       "video_window": [
+        144.1,
+        196.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 23,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 23,
+       "description": "Preparing the mixture after microwaving the meatballs",
+       "video_window": [
+        596.8,
+        715.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 26,
+   "order": 7,
+   "instruction": "Mince 1/8 garlic clove",
+   "duration_constraint_s": null,
+   "preconditions": [
+    16
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 26,
+       "description": "Using 1/2 garlic clove instead of 1/8.",
+       "video_window": [
+        217.8,
+        260.1
+       ]
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 26,
+       "description": "Almost 1/4 garlic cloves",
+       "video_window": [
+        287.2,
+        304.1
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 26,
+       "description": "Mince 1 garlic clove",
+       "video_window": [
+        346.4,
+        380.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 26,
+       "description": "Likely chopping",
+       "video_window": [
+        287.2,
+        304.1
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 26,
+       "description": "Chop instead of mince",
+       "video_window": [
+        717.2,
+        746.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 27,
+   "order": 8,
+   "instruction": "Cut onion into two pieces",
+   "duration_constraint_s": null,
+   "preconditions": [
+    17
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 27,
+       "description": "Cutting into 4 pieces instead of two.",
+       "video_window": [
+        496.0,
+        524.2
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 27,
+       "description": "cut into 4 pieces",
+       "video_window": [
+        176.3,
+        191.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 27,
+       "description": "cut-Cut onion into two pieces one large and one small",
+       "video_window": [
+        195.9,
+        241.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 19,
+   "order": 9,
+   "instruction": "Slice 1/8 medium onion",
+   "duration_constraint_s": null,
+   "preconditions": [
+    27
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 19,
+       "description": "Instead of slicing chopping the onion.",
+       "video_window": [
+        475.2,
+        540.6
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 19,
+       "description": "Chop instead of slice",
+       "video_window": [
+        237.9,
+        281.8
+       ]
+      },
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 19,
+       "description": "chop instead of slice",
+       "video_window": [
+        691.5,
+        729.0
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 19,
+       "description": "Chop instead of slice",
+       "video_window": [
+        189.6,
+        207.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 19,
+       "description": "Slicing 1/4 onion instead of 1/8 onion.",
+       "video_window": [
+        520.2,
+        584.7
+       ]
+      },
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 19,
+       "description": "Using 1/4 medium onion instead of 1/8.",
+       "video_window": [
+        41.9,
+        190.4
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 19,
+       "description": "Chop 1/2 onion instead of 1/8th",
+       "video_window": [
+        237.9,
+        281.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 24,
+   "order": 10,
+   "instruction": "Top the plate with the carrots, onion, garlic and 1/4 tsp pepper powder",
+   "duration_constraint_s": null,
+   "preconditions": [
+    19,
+    21,
+    22,
+    26
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 24,
+       "description": "Step performed before adding meat balls",
+       "video_window": [
+        501,
+        514.6
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 24,
+       "description": "Adding pepper powder after pouring sauces on the plate",
+       "video_window": [
+        636,
+        651
+       ]
+      },
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 24,
+       "description": "Top meatballs after microwaving",
+       "video_window": [
+        776.3,
+        868.9
+       ]
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 24,
+       "description": "Topping after microwaving",
+       "video_window": [
+        449.2,
+        516.6
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 24,
+       "description": "Step performed after microwaving meatballs and pouring the sauces",
+       "video_window": [
+        790.1,
+        851.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 24,
+       "description": "using 1/2 tsp instead of 1/4 tsp.",
+       "video_window": [
+        651.6,
+        746.0
+       ]
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 24,
+       "description": "Seasoning pepper on top, no measuring",
+       "video_window": [
+        306.0,
+        337.1
+       ]
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 24,
+       "description": "Using the 1/2 tsp instead of 1/4 tsp.",
+       "video_window": [
+        627.2,
+        728.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_4",
+       "cc4d_step_id": 24,
+       "description": "Put extra 1/4 tsp pepper to the bowl",
+       "video_window": [
+        493.6,
+        562.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 24,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 24,
+       "description": "Seasoning pepper on top, no measuring",
+       "video_window": [
+        306.0,
+        337.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 15,
+   "order": 11,
+   "instruction": "Pour the sauces over the meatballs",
+   "duration_constraint_s": null,
+   "preconditions": [
+    23,
+    24
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 15,
+       "description": "Pouring sauces before placing meatballs",
+       "video_window": [
+        493.7,
+        539.7
+       ]
+      },
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 15,
+       "description": "Step performed after microwaving and stirring",
+       "video_window": [
+        941.8,
+        956
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 15,
+       "description": "Step performed after microwaving the meatballs and before topping vegetables",
+       "video_window": [
+        747.7,
+        786.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 15,
+       "description": "Instead of pouring sauces over meatballs, put the meatballs into the sauces.",
+       "video_window": [
+        764.2,
+        834.7
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 15,
+       "description": "Dropping one meatball from the plate while pouring the sauces",
+       "video_window": [
+        747.7,
+        786.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 15,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 15,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 15,
+       "description": "Spill some while pouring the sauces.",
+       "video_window": [
+        749.4,
+        829.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 20,
+   "order": 14,
+   "instruction": "Microwave the plate, covered, on high for 1.5 minutes",
+   "duration_constraint_s": 300,
+   "preconditions": [
+    18
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 12,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "2_3",
+       "cc4d_step_id": 20,
+       "description": "Microwave the plate, covered, on high for 5 minutes instead of 1.5 minutes",
+       "video_window": [
+        843,
+        1204.6
+       ]
+      },
+      {
+       "recording_id": "2_3",
+       "cc4d_step_id": 20,
+       "description": "Microwave the plate, covered, on high for 5 minutes instead of 1.5 minutes",
+       "video_window": [
+        1228.8,
+        1564.8
+       ]
+      },
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 20,
+       "description": "Using 1 minute instead of 1.5 minutes.",
+       "video_window": [
+        831.6,
+        973.8
+       ]
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 20,
+       "description": "1 min",
+       "video_window": [
+        348,
+        422
+       ]
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 20,
+       "description": "1 min",
+       "video_window": [
+        420.9,
+        490.6
+       ]
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 20,
+       "description": "Instead of 1.5 minutes only 3 minutes.",
+       "video_window": [
+        1091.8,
+        1298.8
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 20,
+       "description": "Microwave for 3 minutes instead of 1.5 minutes",
+       "video_window": [
+        677.7,
+        925.4
+       ]
+      },
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 20,
+       "description": "Microwave for 2 mins instead of 1.5 mins",
+       "video_window": [
+        378,
+        490
+       ]
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 20,
+       "description": "Microwave for 1 min instead of 1.5 mins",
+       "video_window": [
+        221.4,
+        294.3
+       ]
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 20,
+       "description": "Microwave for 1 min instead of 1.5 mins",
+       "video_window": [
+        516.6,
+        586.1
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 20,
+       "description": "Microwave for 3 min instead of 1.5 minutes",
+       "video_window": [
+        313.2,
+        509.4
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 20,
+       "description": "Microwaving for 1 minute instead of 1.5 minutes",
+       "video_window": [
+        854.6,
+        947.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 20,
+       "description": "Microwave the plate uncovered without covering it.",
+       "video_window": [
+        830.7,
+        963.7
+       ]
+      },
+      {
+       "recording_id": "2_28",
+       "cc4d_step_id": 20,
+       "description": "Not covered the plate.",
+       "video_window": [
+        831.6,
+        973.8
+       ]
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 20,
+       "description": "Not using the microwave cover to cover the contents.",
+       "video_window": [
+        737,
+        1092
+       ]
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 20,
+       "description": "Not using the microwave cover to cover the contents.",
+       "video_window": [
+        1091.8,
+        1298.8
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 20,
+       "description": "Microwave without covering the plate",
+       "video_window": [
+        677.7,
+        925.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 20,
+       "description": "Microwave before adding vegetables and sauces",
+       "video_window": [
+        378,
+        490
+       ]
+      },
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 20,
+       "description": "Step performed before correct order",
+       "video_window": [
+        882.7,
+        945.7
+       ]
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 20,
+       "description": "Microwave empty bowl without meatballs, sauces and vegetables",
+       "video_window": [
+        221.4,
+        294.3
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 20,
+       "description": "Microwaving before adding vegatables and sauces",
+       "video_window": [
+        313.2,
+        509.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 20,
+       "description": "Instead of high power level we microwave on a medium power level.",
+       "video_window": [
+        988.0,
+        1111.0
+       ]
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 20,
+       "description": "Instead of high using medium power level.",
+       "video_window": [
+        737,
+        1092
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 20,
+       "description": "Microwave on medium instead of high",
+       "video_window": [
+        313.2,
+        509.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 18,
+   "order": 15,
+   "instruction": "Stir the contents in the microwave with a spoon",
+   "duration_constraint_s": null,
+   "preconditions": [
+    20
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 18,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "2_30",
+       "cc4d_step_id": 18,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 18,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 18,
+       "description": "Stirring before adding sauces",
+       "video_window": [
+        866.9,
+        888.6
+       ]
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 18,
+       "description": "Stirring the contents without adding meatballs, sauces and vegetables",
+       "video_window": [
+        293.5,
+        300.7
+       ]
+      },
+      {
+       "recording_id": "2_47",
+       "cc4d_step_id": 18,
+       "description": "Stirring before adding vegetables and sauces",
+       "video_window": [
+        547.6,
+        569.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 18,
+       "description": "Using a fork instead of a spoon.",
+       "video_window": [
+        961.7,
+        992
+       ]
+      },
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 18,
+       "description": "Using a fork instead of a spoon.",
+       "video_window": [
+        961.8,
+        992.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 25,
+   "order": 16,
+   "instruction": "Microwave for 1 more minute",
+   "duration_constraint_s": null,
+   "preconditions": [
+    18
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "2_26",
+       "cc4d_step_id": 25,
+       "description": "Microwave for more than a minute.",
+       "video_window": [
+        1109.0,
+        1177.5
+       ]
+      },
+      {
+       "recording_id": "2_41",
+       "cc4d_step_id": 25,
+       "description": "Microwave-Microwave for 2 minutes instead of 1 min",
+       "video_window": [
+        1097.4,
+        1222.2
+       ]
+      },
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 25,
+       "description": "Microwave for 1.5 mins instead of 1 min",
+       "video_window": [
+        979,
+        1085
+       ]
+      },
+      {
+       "recording_id": "2_42",
+       "cc4d_step_id": 25,
+       "description": "Microwave for 1.5 mins instead of 1 min",
+       "video_window": [
+        1099.4,
+        1227.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "2_38",
+       "cc4d_step_id": 25,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "2_46",
+       "cc4d_step_id": 25,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

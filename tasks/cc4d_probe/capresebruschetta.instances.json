@@ -1,0 +1,1310 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "capresebruschetta",
+ "activity_id": 29,
+ "n_recordings": 18,
+ "n_error_recordings": 12,
+ "steps": [
+  {
+   "step_id": 342,
+   "order": 1,
+   "instruction": "1/8 cup shredded mozzarella to a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 342,
+       "description": "Not adding 1/8 cup of mozzarella",
+       "video_window": [
+        336.1,
+        360.1
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 342,
+       "description": "add-1/4 cup shredded mozzarella to a bowl",
+       "video_window": [
+        834.1,
+        900.3
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 342,
+       "description": "add-1/4 cup instead of 1/8 cup shredded mozzarella to a bowl",
+       "video_window": [
+        132.8,
+        188.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_29",
+       "cc4d_step_id": 342,
+       "description": "Spill while measuring mozarella to the cup",
+       "video_window": [
+        218.9,
+        247.9
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 342,
+       "description": "Spill while adding mozzarella to a bowl",
+       "video_window": [
+        335.9,
+        361.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 342,
+       "description": "add-1/8 cup shredded mozzarella to a plate instead of bowl",
+       "video_window": [
+        394.4,
+        469.9
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 342,
+       "description": "Using hand to add mozzarella to a plate instead of using measuring cup",
+       "video_window": [
+        336.1,
+        360.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 342,
+       "description": "Step performed after combining the contents of the bowl",
+       "video_window": [
+        834.1,
+        900.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 343,
+   "order": 2,
+   "instruction": "1/4 tsp salt to a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_28",
+       "cc4d_step_id": 343,
+       "description": "The measuring spoon was wet",
+       "video_window": [
+        6.9,
+        47.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_28",
+       "cc4d_step_id": 343,
+       "description": "Add twice the amount of salt",
+       "video_window": [
+        6.9,
+        47.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 343,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 343,
+       "description": "Spill while adding salt to the plate",
+       "video_window": [
+        290.3,
+        332.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 343,
+       "description": "Step performed after spooning the mixture on the bread",
+       "video_window": [
+        726.5,
+        755.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 344,
+   "order": 3,
+   "instruction": "Slice two 1/2 inch thick rounds from a baguette (slice slanted)",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "29_28",
+       "cc4d_step_id": 344,
+       "description": "Cut it straight instead of slanted cuts",
+       "video_window": [
+        204.8,
+        264.9
+       ]
+      },
+      {
+       "recording_id": "29_29",
+       "cc4d_step_id": 344,
+       "description": "Cut it straight instead of slanted cuts",
+       "video_window": [
+        63.6,
+        133.3
+       ]
+      },
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 344,
+       "description": "Cut straight instead of slanted",
+       "video_window": [
+        231.8,
+        316.5
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 344,
+       "description": "Not slicing slanted",
+       "video_window": [
+        177.5,
+        283.9
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 344,
+       "description": "Slice both vertically and horizontally",
+       "video_window": [
+        311.6,
+        447.8
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 344,
+       "description": "Do not slice the baguette slanted",
+       "video_window": [
+        110.3,
+        143.3
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 344,
+       "description": "Slice into wedges instead of rounds",
+       "video_window": [
+        93.4,
+        129.8
+       ]
+      },
+      {
+       "recording_id": "29_129",
+       "cc4d_step_id": 344,
+       "description": "Do not slice slanted",
+       "video_window": [
+        58.5,
+        122.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 344,
+       "description": "Using muffin instead of baguette",
+       "video_window": [
+        177.5,
+        283.9
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 344,
+       "description": "Using peeler instead of knife to slice",
+       "video_window": [
+        177.5,
+        283.9
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 344,
+       "description": "Using soiled baguette",
+       "video_window": [
+        311.6,
+        447.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 344,
+       "description": "Making into 3 pieces instead of 2 slices",
+       "video_window": [
+        177.5,
+        283.9
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 344,
+       "description": "Slice-Slice four 1/4 inch thick rounds from a baguette (slice slanted).",
+       "video_window": [
+        311.6,
+        447.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 346,
+   "order": 4,
+   "instruction": "1/4 tsp pepper to a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 346,
+       "description": "add-1/4 tsp pepper to plate instead of a bowl",
+       "video_window": [
+        6.4,
+        54.2
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 346,
+       "description": "add-1/4 tsp pepper to a plate.",
+       "video_window": [
+        361.7,
+        469.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 346,
+       "description": "Unable to open the container and replaced with other pepper powder container. Spilled while transferring",
+       "video_window": [
+        361.7,
+        469.3
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 346,
+       "description": "Spill while adding pepper to a bowl",
+       "video_window": [
+        5.8,
+        74.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_37",
+       "cc4d_step_id": 346,
+       "description": "Step performed after combining",
+       "video_window": [
+        687.3,
+        728.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 346,
+       "description": "add-1/2 tsp pepper to a bowl",
+       "video_window": [
+        599.3,
+        640.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 347,
+   "order": 5,
+   "instruction": "1/16 cup basil to a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "29_29",
+       "cc4d_step_id": 347,
+       "description": "Spill while measuring basil to the cup",
+       "video_window": [
+        139.0,
+        182.7
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 347,
+       "description": "Spill while measuring oregano",
+       "video_window": [
+        6.8,
+        168.2
+       ]
+      },
+      {
+       "recording_id": "29_129",
+       "cc4d_step_id": 347,
+       "description": "Dropping the measuring utensil while adding basil to the bowl",
+       "video_window": [
+        127.5,
+        160.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 347,
+       "description": "Add 1/8 cup basil instead of 1/16 cup",
+       "video_window": [
+        342.5,
+        393.2
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 347,
+       "description": "add-1/8 cup basil to a bowl",
+       "video_window": [
+        454.4,
+        592.0
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 347,
+       "description": "Added 1/4 cup basil instead of 1/16 cup basil",
+       "video_window": [
+        144.8,
+        190.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 347,
+       "description": "Add 1/8 cup basil to a plate instead of bowl",
+       "video_window": [
+        342.5,
+        393.2
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 347,
+       "description": "add-1/16 cup oregano to a plate instead of basil to bowl",
+       "video_window": [
+        6.8,
+        168.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 349,
+   "order": 6,
+   "instruction": "Brush 2 slices of baguette with olive oil on both sides",
+   "duration_constraint_s": null,
+   "preconditions": [
+    344
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "29_5",
+       "cc4d_step_id": 349,
+       "description": "Used a wooden spoon instead of a brush",
+       "video_window": [
+        208.8,
+        313.3
+       ]
+      },
+      {
+       "recording_id": "29_17",
+       "cc4d_step_id": 349,
+       "description": "Used the wrong utelsil, brushed the oil with knife instead of brush",
+       "video_window": [
+        193.7,
+        279.2
+       ]
+      },
+      {
+       "recording_id": "29_29",
+       "cc4d_step_id": 349,
+       "description": "Using hand to apply olive oil instead of using brush",
+       "video_window": [
+        343.3,
+        375.1
+       ]
+      },
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 349,
+       "description": "Brush using softened butter instead of olive oil",
+       "video_window": [
+        472.8,
+        536.8
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 349,
+       "description": "Using vegetable oil instead of olive oil",
+       "video_window": [
+        534.0,
+        572.9
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 349,
+       "description": "Use spoon instead of brush to apply olive oil",
+       "video_window": [
+        688.6,
+        777.2
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 349,
+       "description": "Used sesame oil instead of olive oil",
+       "video_window": [
+        429.2,
+        472.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "29_28",
+       "cc4d_step_id": 349,
+       "description": "Pour olive ol instead of brushing",
+       "video_window": [
+        270.1,
+        293.3
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 349,
+       "description": "Directly applying oil instead of using brush",
+       "video_window": [
+        534.0,
+        572.9
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 349,
+       "description": "Dip baguette in olive oil instead of brushing",
+       "video_window": [
+        520.8,
+        561.7
+       ]
+      },
+      {
+       "recording_id": "29_129",
+       "cc4d_step_id": 349,
+       "description": "Instead of brushing the slices with oil pouring oil onto brush and the slices then perform brushing action",
+       "video_window": [
+        308,
+        364
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_37",
+       "cc4d_step_id": 349,
+       "description": "Step performed after toasting",
+       "video_window": [
+        406.9,
+        467.2
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 349,
+       "description": "Step performed after toasting the bread",
+       "video_window": [
+        429.2,
+        472.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_34",
+       "cc4d_step_id": 349,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 350,
+   "order": 7,
+   "instruction": "Cut 1/4 cup of cherry tomatoes into halves",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "29_29",
+       "cc4d_step_id": 350,
+       "description": "Spill while taking tomatoes to cut into halves",
+       "video_window": [
+        254.4,
+        340.8
+       ]
+      },
+      {
+       "recording_id": "29_34",
+       "cc4d_step_id": 350,
+       "description": "cut cherry tomatoes in to 4 parts instead of halves",
+       "video_window": [
+        425.1,
+        516.6
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 350,
+       "description": "mince 1/4 cup of cherry tomatoes instead of cutting into halves",
+       "video_window": [
+        190.1,
+        415.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 350,
+       "description": "Cut-Cut 1/4 cup of normal tomatoes into halves",
+       "video_window": [
+        55.4,
+        215.6
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 350,
+       "description": "Using normal tomatoes instead of cherry tomatoes",
+       "video_window": [
+        0.7,
+        108.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 350,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 350,
+       "description": "Cut-Cut 1/2 cup of cherry tomatoes into halves",
+       "video_window": [
+        88.6,
+        304.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 351,
+   "order": 8,
+   "instruction": "In a bowl, add the cut cherry tomatoes",
+   "duration_constraint_s": null,
+   "preconditions": [
+    350
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "29_29",
+       "cc4d_step_id": 351,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "29_34",
+       "cc4d_step_id": 351,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 351,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "29_129",
+       "cc4d_step_id": 351,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 351,
+       "description": "Add to a plate instead of cherry tomatoes",
+       "video_window": [
+        788.7,
+        805.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 351,
+       "description": "Spill some tomatoes outside while adding in the bowl",
+       "video_window": [
+        419.7,
+        447.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 348,
+   "order": 9,
+   "instruction": "Combine the contents of the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    342,
+    343,
+    346,
+    347,
+    351
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "29_37",
+       "cc4d_step_id": 348,
+       "description": "Step performed before adding salt to the bowl",
+       "video_window": [
+        655.8,
+        671.4
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 348,
+       "description": "Step performed before adding cheese to the bowl",
+       "video_window": [
+        781.9,
+        814.9
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 348,
+       "description": "Step performed after spooning the mixture on the bread",
+       "video_window": [
+        756.2,
+        770.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_29",
+       "cc4d_step_id": 348,
+       "description": "Spill the mixture while combining the contents of the bowl",
+       "video_window": [
+        386.9,
+        395.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 348,
+       "description": "Combine the contents of the plate instead of the bowl",
+       "video_window": [
+        818,
+        850
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 352,
+   "order": 10,
+   "instruction": "Toast both sides of the slices on the pan for 2 to 3 minutes until lightly charred and crispy and transfer the slices to a plate",
+   "duration_constraint_s": 180,
+   "preconditions": [
+    349
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 352,
+       "description": "Toast for 1 minute instead of 2 or 3 minutes",
+       "video_window": [
+        548.3,
+        784.7
+       ]
+      },
+      {
+       "recording_id": "29_34",
+       "cc4d_step_id": 352,
+       "description": "Toast but do not until charred and crispy",
+       "video_window": [
+        129.9,
+        380.4
+       ]
+      },
+      {
+       "recording_id": "29_37",
+       "cc4d_step_id": 352,
+       "description": "Toasting for more than 3 minutes",
+       "video_window": [
+        145.7,
+        338.9
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 352,
+       "description": "Toast-Toast both sides of the slices on the pan for 30 seconds",
+       "video_window": [
+        900.3,
+        1037.2
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 352,
+       "description": "Toasted for 1 minute instead of 2 to 3 minutes",
+       "video_window": [
+        192.6,
+        329.8
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 352,
+       "description": "toast for only 1/2 min and there baugette slices are not charred",
+       "video_window": [
+        562.6,
+        687.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_28",
+       "cc4d_step_id": 352,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 352,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_37",
+       "cc4d_step_id": 352,
+       "description": "Toast on high temperature to make it scorched",
+       "video_window": [
+        145.7,
+        338.9
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 352,
+       "description": "Toasted on low heat",
+       "video_window": [
+        192.6,
+        329.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "29_37",
+       "cc4d_step_id": 352,
+       "description": "Step performed before brushing with olive oil",
+       "video_window": [
+        145.7,
+        338.9
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 352,
+       "description": "Step performed before brushing the bread with olive oil",
+       "video_window": [
+        192.6,
+        329.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 345,
+   "order": 11,
+   "instruction": "Spoon the mixture from the bowl onto the bread",
+   "duration_constraint_s": null,
+   "preconditions": [
+    348,
+    352
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "29_29",
+       "cc4d_step_id": 345,
+       "description": "Pour the mixture from the bowl completely instead of spooning it",
+       "video_window": [
+        629.9,
+        645.4
+       ]
+      },
+      {
+       "recording_id": "29_32",
+       "cc4d_step_id": 345,
+       "description": "Pouring the mixture instead of spooning",
+       "video_window": [
+        879.8,
+        901.7
+       ]
+      },
+      {
+       "recording_id": "29_45",
+       "cc4d_step_id": 345,
+       "description": "Did not use spoon but poured mixture directly from the bowl onto the bread",
+       "video_window": [
+        1037.8,
+        1055.7
+       ]
+      },
+      {
+       "recording_id": "29_48",
+       "cc4d_step_id": 345,
+       "description": "Spill while spooning the mixture from bowl onto the bread",
+       "video_window": [
+        550,
+        575
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 345,
+       "description": "spill some out while placing mixture on the bread",
+       "video_window": [
+        687.6,
+        726.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "29_28",
+       "cc4d_step_id": 345,
+       "description": "Used hands to add mixture instead of spoon",
+       "video_window": [
+        520.0,
+        534.1
+       ]
+      },
+      {
+       "recording_id": "29_35",
+       "cc4d_step_id": 345,
+       "description": "Using fork instead of spoon",
+       "video_window": [
+        584.6,
+        622.7
+       ]
+      },
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 345,
+       "description": "Use fork instead of a spoon",
+       "video_window": [
+        687.6,
+        726.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_37",
+       "cc4d_step_id": 345,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "29_49",
+       "cc4d_step_id": 345,
+       "description": "Step performed before adding salt and combining the contents of the bowl",
+       "video_window": [
+        687.6,
+        726.0
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

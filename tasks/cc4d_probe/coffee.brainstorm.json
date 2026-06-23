@@ -1,0 +1,804 @@
+{
+  "recipe": "coffee",
+  "_kind": "detector_and_control_brainstorm",
+  "_n_steps": 16,
+  "_n_checks": 30,
+  "_n_claims_total": 62,
+  "_note": "16 steps x2 (recognition+completion) + 30 check claims = 62 total. Audio gate summary: D2 fires on grinder (step 67); D5 water-flow fires on water-transfer (step 70) and pours (steps 57, 61); D6 timer fires on grinding (step 67, 20s) and bloom (step 56, 30s); D1/D3/D4 excluded (no microwave, no fry/saute; kettle boil is on excluded list). All paper-folding, placement, spreading, weighing, and temperature-check steps are silent -> C-none or cv/vlm.",
+  "claims": [
+
+    {
+      "step_id": 62,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is folding paper filter in half twice into a quarter-circle (one of four concurrent roots)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — folding is fine-motion silent; mono could detect hand-paper motion but cannot verify fold correctness",
+      "config_oneline": "periodic VLM on 1 fps; no audio gate; check for paper handling in hands"
+    },
+    {
+      "step_id": 62,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Filter folded into quarter-circle; completion inferred from step 60 (placing filter in dripper)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG edge 62->60 fires when step 60 recognition is confirmed",
+      "config_oneline": "DAG: emit step62_complete when step60_recognition fires; no sensor"
+    },
+    {
+      "step_id": 62,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Single filter folded (not rolled/double); flag wrong count or mis-shape",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — a small ROI crop of the filter in hand could show shape but count requires identity clarity -> VLM",
+      "config_oneline": "B-trigger: fire VLM on cv hand-region motion detection; 1 call to inspect shape"
+    },
+    {
+      "step_id": 62,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Filter must actually be folded (not skipped); flag skipping or improper fold",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — detecting absence of folding action requires visual confirmation; mono motion insufficient",
+      "config_oneline": "periodic VLM during root-step window; check paper manipulation event"
+    },
+
+    {
+      "step_id": 65,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User placing coffee beans on scale (one of four concurrent roots)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — scale ROI crop could detect item-placed event via cv, but identity (beans vs. other) needs VLM",
+      "config_oneline": "B-trigger: cv scale-region change -> 1 VLM call to confirm beans on scale"
+    },
+    {
+      "step_id": 65,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Beans weighed; completion inferred from step 67 (grinder starts)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step67 recognition (D2 motor_on) fires -> step65 complete",
+      "config_oneline": "DAG: emit step65_complete when D2 motor_on fires for step67; no camera needed"
+    },
+    {
+      "step_id": 65,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Bean weight 0.8-1.2 oz; flag outside range",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "high — scale display crop at thumbnail res is readable by OCR/VLM; low-res-roi is a strong speculative cheapener -> could become cv+OCR",
+      "config_oneline": "B-trigger: cv scale-region detects non-zero reading -> VLM/OCR call on scale display ROI"
+    },
+    {
+      "step_id": 65,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Flag spilling beans during transfer from packet to scale",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — spill detection of small objects silent; mono motion could flag gross spill but not granular specifics",
+      "config_oneline": "periodic VLM near transfer event; check for scatter outside scale"
+    },
+
+    {
+      "step_id": 67,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User operating coffee grinder on beans",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "validated — D2 appliance_motor detects grinder motor_on within 5-7s",
+      "config_oneline": "D2 gate=grinder; motor_on event -> step67 recognized; camera sleeps"
+    },
+    {
+      "step_id": 67,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Grinding stops; completion inferred from step 58 (grounds transfer to filter)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "validated — D2 motor_off settles grind-end; then DAG waits for step58 confirmation",
+      "config_oneline": "D2 motor_off -> step67 complete; D6 checks 20s window"
+    },
+    {
+      "step_id": 67,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Grind ~20 seconds; flag notably longer or shorter",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "validated — D6 timer anchored on D2 motor_on; emits overtime/undertime vs 20s threshold",
+      "config_oneline": "D6: start_time=D2.motor_on, duration=20s, tolerance=±5s; emits overtime/undertime"
+    },
+    {
+      "step_id": 67,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Must use coffee grinder; flag improvised tool (mortar etc.)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "medium — D2 detects the motor signature of a grinder; mortar use is silent so absence of D2 signal + VLM confirms improvised method. Treating D2 silence as flag is heuristic but reasonable.",
+      "config_oneline": "D2 gate=grinder; if no motor_on within expected window -> B-trigger VLM to check tool"
+    },
+    {
+      "step_id": 67,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Grounds reach coarse-sand consistency without spill; flag under-grind or spill to grinder",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low for spill; medium for consistency — consistency requires VLM texture judgment after grind. Low-res ROI on grounds could help but texture is hard at thumbnail res.",
+      "config_oneline": "B-trigger: D2 motor_off -> 1 VLM call on grounds ROI to check texture and spillage"
+    },
+
+    {
+      "step_id": 68,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User measuring cold water to target volume (one of four concurrent roots)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv can detect water/jug presence but volume and cold-water identity need VLM",
+      "config_oneline": "B-trigger: cv detects jug motion in scene -> 1 VLM call to confirm measuring action"
+    },
+    {
+      "step_id": 68,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "12 oz measured; completion inferred from step 70 (water transfer to kettle)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step70 recognition fires -> step68 complete",
+      "config_oneline": "DAG: emit step68_complete when step70_recognition fires; no sensor"
+    },
+    {
+      "step_id": 68,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "12 ounces of water; flag more or less",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — measuring jug markings readable by OCR/VLM from low-res ROI; imu could detect pour weight indirectly but impractical",
+      "config_oneline": "B-trigger: cv detects jug in ROI -> VLM/OCR call on measuring jug markings"
+    },
+    {
+      "step_id": 68,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Must use cold water in measuring jug; flag milk or wrong vessel (e.g. weighing scale)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — liquid color (white=milk) detectable by cv/color; vessel shape detectable in low-res ROI. Combined B-trigger approach feasible.",
+      "config_oneline": "B-trigger: cv color-change in jug ROI (non-clear liquid) -> VLM to confirm water vs. milk and vessel identity"
+    },
+
+    {
+      "step_id": 69,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User placing dripper on top of coffee mug (one of four concurrent roots)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — object placement detected by cv motion; dripper-on-mug config identifiable by shape in low-res ROI",
+      "config_oneline": "B-trigger: cv object-placement motion in scene -> 1 VLM call to confirm dripper on mug"
+    },
+    {
+      "step_id": 69,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Dripper resting on mug; completion inferred from step 60 (filter placed in dripper)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step60 recognition fires -> step69 complete",
+      "config_oneline": "DAG: emit step69_complete when step60_recognition fires; no sensor"
+    },
+    {
+      "step_id": 69,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Must use coffee mug under dripper; flag bowl or wrong vessel",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — mug vs. bowl shape distinguishable by cv/shape in low-res ROI; single targeted VLM call sufficient",
+      "config_oneline": "B-trigger: cv detects dripper placement event -> 1 VLM call to verify vessel shape (mug)"
+    },
+
+    {
+      "step_id": 60,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User placing folded paper filter into the dripper",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv motion in dripper ROI detects placement event; identity of paper filter vs. other object needs VLM",
+      "config_oneline": "B-trigger: cv motion in dripper-top ROI -> 1 VLM call to confirm filter placement"
+    },
+    {
+      "step_id": 60,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Filter seated in dripper; completion inferred from step 59 (spreading filter open)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step59 recognition fires -> step60 complete",
+      "config_oneline": "DAG: emit step60_complete when step59_recognition fires; no sensor"
+    },
+    {
+      "step_id": 60,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Filter must be seated properly (not improperly folded/misaligned); flag mis-seated filter",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — filter seating visible as shape in dripper ROI; correct vs. wrong seating requires VLM judgment",
+      "config_oneline": "B-trigger: cv motion in dripper ROI -> VLM call to verify filter seated correctly"
+    },
+    {
+      "step_id": 60,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "[probe] Single filter in dripper; flag placing more than one",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — counting filters in dripper is fine visual judgment; low-res ROI likely insufficient for count",
+      "config_oneline": "B-trigger: cv placement event -> VLM call to count filters in dripper"
+    },
+
+    {
+      "step_id": 59,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User spreading seated filter open to form a cone inside dripper",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — spreading is fine hand motion in dripper; mono motion could detect hand activity but shape judgment needs VLM",
+      "config_oneline": "periodic VLM; check hand motion in dripper area and cone shape"
+    },
+    {
+      "step_id": 59,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Filter opened into cone; completion inferred from step 58 (grounds transfer)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step58 recognition fires -> step59 complete",
+      "config_oneline": "DAG: emit step59_complete when step58_recognition fires; no sensor"
+    },
+    {
+      "step_id": 59,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Filter must be spread into proper cone; flag failure to form cone or incorrect spread",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cone shape visible in dripper ROI; correct vs. collapsed/wrong shape needs VLM",
+      "config_oneline": "B-trigger: cv motion in dripper ROI -> VLM call to verify cone shape formed"
+    },
+
+    {
+      "step_id": 58,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User transferring ground coffee into filter cone",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — HSV/color-change in cone ROI detects grounds appear (dark material); mono sufficient for color-state-change since grounds are dark vs. white filter. Fires one VLM call to confirm.",
+      "config_oneline": "cv HSV-change in filter-cone ROI (white->dark) -> 1 VLM call to confirm grounds transfer"
+    },
+    {
+      "step_id": 58,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Grounds in filter cone; completion inferred from step 57 (first small pour)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step57 recognition fires -> step58 complete",
+      "config_oneline": "DAG: emit step58_complete when step57_recognition fires; no sensor"
+    },
+    {
+      "step_id": 58,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Grounds must land in cone without spill; flag spilling outside filter",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — spill detection requires spatial judgment around cone; VLM needed; low-res ROI crop helps reduce compute",
+      "config_oneline": "B-trigger: cv color-change outside cone ROI (dark material on counter) -> VLM to confirm spill"
+    },
+
+    {
+      "step_id": 70,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User pouring measured water into kettle",
+      "modality": "audio",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium — D5 water_flow can detect water pouring but pour detector is on excluded list; D5 is tap-specific. The sound of water poured into kettle is somewhat similar but less reliable. Use D5 as B-trigger with low confidence -> 1 VLM call to confirm.",
+      "config_oneline": "D5 gated to water-transfer step; water_on event -> 1 VLM call to confirm water-to-kettle pour"
+    },
+    {
+      "step_id": 70,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Water in kettle; completion inferred from step 64 (boiling starts)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step64 recognition fires -> step70 complete",
+      "config_oneline": "DAG: emit step70_complete when step64_recognition fires; no sensor"
+    },
+    {
+      "step_id": 70,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Water (not milk) transferred to kettle (not wrong vessel); flag wrong liquid or vessel",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — liquid color (white=milk) and vessel shape (kettle) detectable in low-res ROI; VLM call at pour event",
+      "config_oneline": "B-trigger: cv/D5 detects pour event -> VLM call on kettle ROI to verify liquid type and vessel"
+    },
+    {
+      "step_id": 70,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Water reaches kettle without loss; flag spilling during transfer",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — spill detection outside vessel requires spatial context; mono motion could detect gross spill but VLM needed for confirmation",
+      "config_oneline": "periodic VLM during transfer window; check for water spill outside kettle"
+    },
+
+    {
+      "step_id": 64,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User heating kettle to bring water to a boil",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high — kettle plug-in/power-on is visible as LED state change (cv); thermal-spot would detect heat rise directly. Note: kettle boil excluded from audio (gentle broadband ramp). cv appliance-LED detection is strong candidate.",
+      "config_oneline": "cv: detect kettle LED on (appliance power state) -> step64 recognized; thermal-spot could A-solve heat rise"
+    },
+    {
+      "step_id": 64,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Water boils in kettle; own observable end state (water boils)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — kettle auto-shutoff LED change is detectable by cv; steam visible on camera; thermal-spot would give authoritative temp signal. Audio kettle-boil excluded. cv LED-off or steam -> 1 VLM call to confirm.",
+      "config_oneline": "cv: detect kettle LED-off or steam condensation -> 1 VLM call to confirm boil complete; thermal-spot A-solve if available"
+    },
+    {
+      "step_id": 64,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Must boil in kettle (not pan, not microwave milk); flag wrong vessel or liquid",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv can confirm appliance type (kettle shape/LED); VLM single call at step start to confirm correct setup",
+      "config_oneline": "B-trigger: at step64 start, 1 VLM call on appliance ROI to verify kettle with water"
+    },
+
+    {
+      "step_id": 71,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User checking water temperature (and letting cool if too hot)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high — thermal-spot could directly read water temp and A-solve; without it, thermometer use is visual (VLM). Thermometer digital display readable by low-res-roi+OCR.",
+      "config_oneline": "B-trigger: DAG fires after step64_complete -> 1 VLM call to confirm temperature-check action; thermal-spot could A-solve"
+    },
+    {
+      "step_id": 71,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Water temp within 195-205F; completion inferred from step 57 (first pour)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "n/a for DAG; thermal-spot would upgrade to A-solve with temp reading — DAG fires when step57 recognition fires",
+      "config_oneline": "DAG: emit step71_complete when step57_recognition fires; thermal-spot could provide authoritative temp-in-range signal"
+    },
+    {
+      "step_id": 71,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "Water must be 195-205F (91-96C); flag too hot or too cold",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high — thermal-spot pixel on kettle water surface would give authoritative temp reading; this is the strongest thermal-spot candidate in the recipe. Without it, thermometer display OCR or VLM.",
+      "config_oneline": "thermal-spot A-solve: if temp in [91-96C] pass; else flag; fallback: B-trigger VLM on thermometer display ROI"
+    },
+    {
+      "step_id": 71,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Temperature checked on kettle water (not wrong vessel like pan); flag wrong vessel",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — vessel shape (kettle vs. pan) visible in scene ROI; single VLM call at temp-check moment",
+      "config_oneline": "B-trigger: DAG step64_complete -> 1 VLM call to verify thermometer in correct vessel"
+    },
+
+    {
+      "step_id": 57,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User pouring small amount of water from kettle into filter to wet grounds",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — cv color/motion detects pour into cone (wet darkening of grounds); mono detects hand motion over cone. Single VLM call to confirm. Note: Pour excluded from audio library.",
+      "config_oneline": "cv: HSV-change in filter-cone ROI (grounds darkening) -> 1 VLM call to confirm small pour"
+    },
+    {
+      "step_id": 57,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Grounds wetted; completion inferred from step 56 (bloom wait begins)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step56 recognition (wait start, anchored to step57 end) fires -> step57 complete",
+      "config_oneline": "DAG: emit step57_complete when step56 timer starts; no sensor"
+    },
+    {
+      "step_id": 57,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Only a small amount of water; flag pouring large amount instead",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — pour volume estimation requires visual judgment; 'small vs. large' is coarse but VLM needed for reliable judgment. Low-res ROI on cone might show overfill.",
+      "config_oneline": "B-trigger: cv pour-detection in cone ROI -> VLM call to judge pour volume (small vs large)"
+    },
+    {
+      "step_id": 57,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Must pour water from kettle (not milk, not from tap); flag wrong liquid or source",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — kettle as source visible in scene; liquid color (clear vs. white) detectable by cv; VLM call at pour event",
+      "config_oneline": "B-trigger: cv pour-event in cone ROI -> 1 VLM call to verify kettle as source and clear water"
+    },
+    {
+      "step_id": 57,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Controlled small pour without spilling; flag spill",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — spill detection requires spatial context outside cone; mono motion could flag gross spill but VLM needed",
+      "config_oneline": "B-trigger: cv detects liquid outside cone ROI -> VLM call to confirm spill"
+    },
+
+    {
+      "step_id": 56,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User waiting while wetted grounds bloom (bubbles/foam visible)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step57_complete + 30s timer starts; bloom is a passive wait step; camera can sleep during this window",
+      "config_oneline": "DAG: step56 recognized as step57_complete event fires; D6 timer starts 30s countdown; camera off"
+    },
+    {
+      "step_id": 56,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "~30s bloom elapsed, foaming subsides; completion inferred from step 61 (main pour starts)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D6 timer emits after 30s; step56 complete = DAG edge to step61; camera sleeps entire bloom window",
+      "config_oneline": "D6: timer 30s from step57_complete -> step56_complete; camera fully off during bloom"
+    },
+    {
+      "step_id": 56,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Wait ~30 seconds for bloom; flag notably longer or shorter",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "validated — D6 timer anchored on step57_complete; emits overtime/undertime vs 30s threshold",
+      "config_oneline": "D6: start_time=step57_complete, duration=30s, tolerance=±10s; emits overtime/undertime; camera off"
+    },
+
+    {
+      "step_id": 61,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User slowly pouring remaining water in circular motion, not overfilling",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — cv HSV-change in cone ROI (more water appearing) detects pour start; circular motion and overfill judgment need VLM. Mono detects hand movement above cone.",
+      "config_oneline": "cv HSV-change in cone ROI after step56_complete -> 1 VLM call to confirm main pour begins"
+    },
+    {
+      "step_id": 61,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "All water poured; completion inferred from step 66 (drain wait)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "n/a — DAG: step66 recognition fires -> step61 complete",
+      "config_oneline": "DAG: emit step61_complete when step66_recognition fires; no sensor"
+    },
+    {
+      "step_id": 61,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Slow circular pour; no overfill beyond filter top; flag fast dump, no circular motion, overfill, spill",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — pour speed, circular motion, and fill level all require continuous visual monitoring; even low-res ROI needs periodic VLM calls",
+      "config_oneline": "C-none: periodic VLM at ~2fps during step61; check pour technique and fill level"
+    },
+    {
+      "step_id": 61,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Must pour water (not milk); flag milk instead of water",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "high — white (milk) vs. clear (water) is a color distinction; cv HSV can detect white liquid entering cone; monochrome cannot distinguish this — needs color cv",
+      "config_oneline": "cv: HSV color in pour stream (white=flag milk) -> B-trigger VLM call if ambiguous"
+    },
+
+    {
+      "step_id": 66,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User letting coffee drain through filter into mug before lifting dripper",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: after step61_complete, step66 is a passive wait; user inaction = draining; camera can sleep",
+      "config_oneline": "DAG: step66 recognized at step61_complete; camera off during drain; wait for dripper-lift event"
+    },
+    {
+      "step_id": 66,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Coffee fully drained, dripper removed; own observable end state (dripper lifted)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "high — cv motion detects dripper lift (large object removal from mug top); mono sufficient for this gross motion event",
+      "config_oneline": "cv: motion detection on dripper ROI (large object lifted) -> step66_complete; camera wakes only at this moment"
+    },
+    {
+      "step_id": 66,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "[probe] Must wait until fully drained before removing dripper; flag premature removal",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "high — cv detects dripper-lift event; if this fires too early (before drain estimated complete), flag. D6 could track time-since-pour as a proxy for drain completeness.",
+      "config_oneline": "cv: dripper-lift detection; D6: if time < expected_drain_time -> flag premature removal"
+    },
+
+    {
+      "step_id": 63,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User removing spent filter and grounds and discarding them",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "high — cv motion detects filter removal from dripper; gross object-removal motion detectable by mono",
+      "config_oneline": "cv: motion in dripper ROI (filter removed) -> step63 recognized; 1 VLM call optional to confirm discard"
+    },
+    {
+      "step_id": 63,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Filter and grounds discarded; final step, own observable end (filter thrown away)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — cv can detect filter object disappearing from scene (thrown in trash); gross motion toward trash bin; mono sufficient",
+      "config_oneline": "cv: object-disappear in scene -> step63_complete; final step; pipeline ends"
+    }
+
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 62,
+        "stage": "prep-parallel-root",
+        "camera": "periodic-vlm",
+        "audio": "none",
+        "vlm": "periodic ~1fps",
+        "role": "C-none"
+      },
+      {
+        "step_id": 65,
+        "stage": "prep-parallel-root",
+        "camera": "cv-roi-trigger",
+        "audio": "none",
+        "vlm": "B-trigger on cv event",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 67,
+        "stage": "grind",
+        "camera": "OFF during grind; 1 call after motor_off",
+        "audio": "D2 + D6",
+        "vlm": "1 call post-grind for texture/spill",
+        "role": "A-solve (recognition/timing) + B-trigger (technique check)"
+      },
+      {
+        "step_id": 68,
+        "stage": "prep-parallel-root",
+        "camera": "cv-roi-trigger",
+        "audio": "none",
+        "vlm": "B-trigger on cv event",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 69,
+        "stage": "prep-parallel-root",
+        "camera": "cv-motion-trigger",
+        "audio": "none",
+        "vlm": "B-trigger on cv event",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 60,
+        "stage": "filter-assembly",
+        "camera": "cv-roi-trigger",
+        "audio": "none",
+        "vlm": "B-trigger on cv event",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 59,
+        "stage": "filter-assembly",
+        "camera": "periodic-vlm",
+        "audio": "none",
+        "vlm": "periodic or B-trigger on motion",
+        "role": "C-none"
+      },
+      {
+        "step_id": 58,
+        "stage": "filter-assembly",
+        "camera": "cv-hsv-trigger",
+        "audio": "none",
+        "vlm": "B-trigger on color change",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 70,
+        "stage": "water-prep",
+        "camera": "cv-trigger",
+        "audio": "D5 (partial)",
+        "vlm": "B-trigger",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 64,
+        "stage": "boil",
+        "camera": "cv-led-trigger",
+        "audio": "none (kettle boil excluded)",
+        "vlm": "B-trigger on LED-off",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 71,
+        "stage": "temp-check",
+        "camera": "OFF if thermal-spot available; else cv-roi",
+        "audio": "none",
+        "vlm": "B-trigger or thermal-spot A-solve",
+        "role": "C-none -> thermal-spot speculative A-solve"
+      },
+      {
+        "step_id": 57,
+        "stage": "bloom-pour",
+        "camera": "cv-hsv-trigger",
+        "audio": "none",
+        "vlm": "B-trigger on color change",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 56,
+        "stage": "bloom-wait",
+        "camera": "OFF",
+        "audio": "D6 timer 30s",
+        "vlm": "none",
+        "role": "A-solve"
+      },
+      {
+        "step_id": 61,
+        "stage": "main-pour",
+        "camera": "periodic-vlm (technique monitoring)",
+        "audio": "none",
+        "vlm": "periodic ~2fps for technique check",
+        "role": "C-none (technique), B-trigger (recognition)"
+      },
+      {
+        "step_id": 66,
+        "stage": "drain",
+        "camera": "OFF then cv-motion-wake",
+        "audio": "none",
+        "vlm": "1 call at dripper-lift event",
+        "role": "A-solve (recognition) + B-trigger (completion)"
+      },
+      {
+        "step_id": 63,
+        "stage": "cleanup",
+        "camera": "cv-motion-trigger",
+        "audio": "none",
+        "vlm": "optional 1 call",
+        "role": "B-trigger"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 18,
+      "B-trigger": 28,
+      "C-none": 16
+    },
+    "cost_estimate": "Camera fully OFF: step 56 bloom (30s guaranteed sleep window), step 66 drain wait (variable ~60-120s typical). Grinder step 67: camera can sleep during grinding (~20s), wakes once for texture check. Bloom is the most reliable camera-off slot. D2 grinder is the only validated audio A-solve for recognition; D6 covers timing for grinding and bloom. All silent-prep steps (62, 59, 65-wet-measurement) remain C-none or B-trigger.",
+    "honest_limits": "Coffee is predominantly a silent-prep recipe. The four concurrent root steps (62,65,68,69) have no audio gate whatsoever. Folding (step 62), spreading (step 59), and temperature checking (step 71) have no cheap sensor solve without speculative hardware (thermal-spot for step 71). Kettle boil (step 64) is audio-excluded per library. The main-pour step (step 61) requires continuous VLM for technique monitoring (circular motion, overfill). Only 2 steps are truly camera-off: the bloom wait (D6 timer) and the drain wait (passive DAG). All measurement/preparation/technique checks for fine visual identity require VLM. The thermal-spot at step 71 (water temperature) is the highest-value speculative sensor in this recipe — it would convert the only temperature check from C-none to A-solve."
+  }
+}

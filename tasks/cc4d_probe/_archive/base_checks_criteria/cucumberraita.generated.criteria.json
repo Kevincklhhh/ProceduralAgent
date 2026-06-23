@@ -1,0 +1,152 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/cucumberraita.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG: two roots (183 whisk curd, 189 rinse cucumber); a wide unordered ingredient fork off 183 (181/184/187/188/191) plus a cucumber chain 189->182->185, all reconverging at 190 (needs 183+185) and finally 186 (combine, needs all).",
+  "task": {
+    "task_id": "cucumberraita",
+    "title": "Cucumberraita",
+    "source": "tasks/cc4d/cucumberraita.json"
+  },
+  "nodes": [
+    {
+      "step_id": 183,
+      "instruction": "In a mixing bowl, whisk 1 cup of chilled curd until smooth. Use fresh homemade or packaged curd",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "Root step, active from the start: the user is whisking curd in a mixing bowl until it is smooth." },
+      "completion": { "claim": "The curd in the bowl is whisked smooth. No distinct end signal of its own (whisking just stops); inferred from the first ingredient being added to the bowl.", "inferred_from": 181 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 cup of curd; flag whisking a different amount (e.g. less than 1 cup)." },
+        { "reminder": "preparation", "claim": "The recipe calls for plain curd whisked in a mixing bowl; flag using a different container (e.g. a coffee mug or a separate bowl) or a different material (e.g. flavoured fruit yogurt instead of curd)." },
+        { "reminder": "technique", "claim": "The recipe calls for whisking the curd until smooth; flag not whisking (just adding curd) or an improper whisking motion (e.g. pushing up and down instead of a circular stir)." }
+      ]
+    },
+    {
+      "step_id": 181,
+      "instruction": "1/4 teaspoon of red chilli powder to the bowl",
+      "preconditions": [183],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of several concurrently-eligible ingredient-add steps off the whisked curd (no order imposed among 181/184/187/188/190/191); recognition must say this specific one is active -- the user is adding red chilli powder to the bowl." },
+      "completion": { "claim": "The red chilli powder is in the bowl. No end sound; inferred from the combine step starting.", "inferred_from": 186 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 teaspoon of red chilli powder; flag a different amount or eyeballing instead of measuring (e.g. a tablespoon instead of a teaspoon)." },
+        { "reminder": "preparation", "claim": "The recipe calls for red chilli powder added to the main bowl; flag a wrong material or adding it to the wrong container." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling red chilli powder outside the bowl while adding." }
+      ]
+    },
+    {
+      "step_id": 184,
+      "instruction": "1/4 teaspoon salt to the bowl",
+      "preconditions": [183],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of several concurrently-eligible ingredient-add steps off the whisked curd (no order imposed among 181/184/187/188/190/191); recognition must say this specific one is active -- the user is adding salt to the bowl." },
+      "completion": { "claim": "The salt is in the bowl. No end sound; inferred from the combine step starting.", "inferred_from": 186 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 teaspoon of salt; flag a different amount (e.g. 1/2 or 1 teaspoon)." },
+        { "reminder": "preparation", "claim": "The recipe calls for salt added to the main bowl; flag adding it to the wrong container." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling salt outside the bowl while adding." }
+      ]
+    },
+    {
+      "step_id": 187,
+      "instruction": "add 1 tablespoon of chopped cilantro leaves to the bowl",
+      "preconditions": [183],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of several concurrently-eligible ingredient-add steps off the whisked curd (no order imposed among 181/184/187/188/190/191); recognition must say this specific one is active -- the user is adding chopped cilantro leaves to the bowl." },
+      "completion": { "claim": "The chopped cilantro is in the bowl. No end sound; inferred from the combine step starting.", "inferred_from": 186 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 tablespoon of chopped cilantro; flag a different amount or eyeballing (e.g. 2 tablespoons instead of 1)." },
+        { "reminder": "preparation", "claim": "The recipe calls for cilantro leaves; flag a wrong ingredient (e.g. scallions instead of cilantro)." },
+        { "reminder": "technique", "claim": "The recipe calls for the cilantro to be chopped (with a knife, stems removed); flag tearing by hand or chopping it improperly." }
+      ]
+    },
+    {
+      "step_id": 188,
+      "instruction": "Add 1 teaspoon of cumin powder to the bowl",
+      "preconditions": [183],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of several concurrently-eligible ingredient-add steps off the whisked curd (no order imposed among 181/184/187/188/190/191); recognition must say this specific one is active -- the user is adding cumin powder to the bowl." },
+      "completion": { "claim": "The cumin powder is in the bowl. No end sound; inferred from the combine step starting.", "inferred_from": 186 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 teaspoon of cumin powder; flag a different amount (e.g. 2 teaspoons instead of 1)." },
+        { "reminder": "preparation", "claim": "The recipe calls for cumin powder; flag a wrong spice (e.g. cinnamon or turmeric) or wrong form (cumin seeds instead of powder)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling cumin powder outside the bowl while adding." }
+      ]
+    },
+    {
+      "step_id": 189,
+      "instruction": "Rinse 1 medium sized cucumber",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "Root step, active from the start (independent of the curd branch): the user is rinsing a cucumber under water." },
+      "completion": { "claim": "The cucumber has been rinsed. No distinct end signal of its own; inferred from the peeling step starting.", "inferred_from": 182 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for a cucumber; flag using a different vegetable (e.g. zucchini instead of cucumber)." },
+        { "reminder": "technique", "claim": "The recipe calls for rinsing the whole cucumber; flag rinsing only part of it." }
+      ]
+    },
+    {
+      "step_id": 182,
+      "instruction": "peel the cucumber",
+      "preconditions": [189],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is peeling the rinsed cucumber." },
+      "completion": { "claim": "The cucumber skin has been removed. No distinct end signal of its own; inferred from the chop/grate step starting.", "inferred_from": 185 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for peeling the cucumber with a peeler; flag the wrong tool (e.g. fork, knife, or grater) or the wrong vegetable (zucchini)." },
+        { "reminder": "technique", "claim": "The recipe calls for the cucumber to be fully peeled; flag incomplete or improper peeling (skin left on, half-peeled, or only the ends cut off)." }
+      ]
+    },
+    {
+      "step_id": 185,
+      "instruction": "chop or grate the cucumber",
+      "preconditions": [182],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is chopping or grating the peeled cucumber." },
+      "completion": { "claim": "The cucumber has been chopped or grated. No distinct end signal of its own; inferred from the chopped cucumber being added to the curd.", "inferred_from": 190 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for the cucumber to be chopped or grated; flag a different cut (e.g. slicing into discs, thin strips, or using a blunt knife) or cutting with scissors." },
+        { "reminder": "preparation", "claim": "The recipe calls for cucumber; flag using a different vegetable (e.g. zucchini)." },
+        { "reminder": "measurement", "claim": "[probe-added] Flag processing only part of the vegetable (e.g. chopping/grating only half) instead of the whole cucumber." }
+      ]
+    },
+    {
+      "step_id": 190,
+      "instruction": "Add the chopped or grated cucumber to the whisked curd",
+      "preconditions": [183, 185],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "Reconvergence of the curd branch (183) and the cucumber chain (185): the user is adding the chopped or grated cucumber into the whisked curd." },
+      "completion": { "claim": "The chopped cucumber is in the curd bowl. No end sound; inferred from the combine step starting.", "inferred_from": 186 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for the chopped or grated cucumber to be added to the curd; flag adding non-chopped cucumber." },
+        { "reminder": "technique", "claim": "The recipe calls for transferring the chopped cucumber cleanly into the bowl; flag tipping the whole cutting board or spilling and making a mess." }
+      ]
+    },
+    {
+      "step_id": 191,
+      "instruction": "1/2 teaspoon of chaat masala powder to the bowl",
+      "preconditions": [183],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of several concurrently-eligible ingredient-add steps off the whisked curd (no order imposed among 181/184/187/188/190/191); recognition must say this specific one is active -- the user is adding chaat masala powder to the bowl." },
+      "completion": { "claim": "The chaat masala powder is in the bowl. No end sound; inferred from the combine step starting.", "inferred_from": 186 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/2 teaspoon of chaat masala; flag a different amount (e.g. 1 teaspoon instead of 1/2)." },
+        { "reminder": "preparation", "claim": "The recipe calls for chaat masala added to the main bowl; flag a wrong spice (e.g. garam masala) or the wrong container." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling chaat masala outside the bowl while transferring it from the packet." }
+      ]
+    },
+    {
+      "step_id": 186,
+      "instruction": "Combine all the ingredients in the bowl",
+      "preconditions": [181, 184, 187, 188, 190, 191],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "Final reconvergence step: the user is combining all the added ingredients together in the bowl." },
+      "completion": { "claim": "All ingredients are mixed together into a uniform raita. This step ends with its own observable end-state (a combined mixture).", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for thoroughly combining all ingredients; flag not actually mixing (e.g. just rotating the bowl), incomplete mixing, or spilling ingredients out while combining." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag using the wrong utensil to combine (e.g. a knife instead of a spoon)." }
+      ]
+    }
+  ]
+}

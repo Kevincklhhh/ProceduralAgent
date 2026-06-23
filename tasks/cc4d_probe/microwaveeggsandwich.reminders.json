@@ -1,0 +1,681 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "microwaveeggsandwich",
+ "activity_id": 1,
+ "n_recordings": 18,
+ "n_error_recordings": 13,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 3,
+   "order": 1,
+   "instruction": "Coat a 6-oz. ramekin cup with cooking spray",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Coat a bowl than ramekin cup with cooking spray",
+      "Coating a large bowl instead of 6-oz ramekin cup",
+      "Take a big cup instead of a 6 Oz ramekin cup.",
+      "use mug instead of ramekin cup",
+      "use regular oil instead of cooking spray",
+      "Bowl instead of ramekin cup"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding egg, microwaving and stirring"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Take a big cup instead of a 6 Oz ramekin cup."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 1,
+   "order": 2,
+   "instruction": "Pour 1 egg into the ramekin cup",
+   "duration_constraint_s": null,
+   "preconditions": [
+    3
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "2 instead of 1 egg",
+      "Cracking another egg thus making a measurement error",
+      "Add 2 eggs instead of 1 egg."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before correct order",
+      "Step performed before coating with cooking spray",
+      "Step performed after adding and melting cheese to the cup"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Cracking the egg inappropriately",
+      "Accidentally, cracked an egg such that it spills on the kitchen top and floor and clean it",
+      "Cracked egg with shell and did not clear it"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "large cup instead of ramekin cup",
+      "Bowl instead of cup",
+      "bowl instead of ramekin cup"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 4,
+   "order": 3,
+   "instruction": "Microwave the ramekin cup uncovered on high for 30 seconds",
+   "duration_constraint_s": 30,
+   "preconditions": [
+    1
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Microwaved for 10 secs instead of 30 seconds",
+      "15 instead of 30 seconds",
+      "20 secs",
+      "60 instead of 30 seconds",
+      "15 seconds instead of 30 seconds",
+      "Microwave for 1 minute 10 seconds"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Microwave set on power level low instead of high",
+      "medium instead of high",
+      "Temperature is set to medium instead of high",
+      "Set microwave to medium temperature instead of high"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before coating with cooking spray",
+      "Step performed before correct order",
+      "Step performed after adding and melting cheese to the cup",
+      "Step performed after adding cheese"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "The material in microwave is spilled out"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 11,
+   "order": 4,
+   "instruction": "stir the ramekin cup",
+   "duration_constraint_s": null,
+   "preconditions": [
+    4
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "stir too rapidly",
+      "Egg is not stirred properly leaving yolk unmixed and did not stir properly"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before coating with cooking spray",
+      "Step performed after adding and melting cheese to the cup"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Stirring with knife"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 8,
+   "order": 5,
+   "instruction": "Continue to Microwave for 15-30 more seconds or until the egg is almost set",
+   "duration_constraint_s": null,
+   "preconditions": [
+    11
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Microwave on high for 1 min",
+      "Microwave for less than 15 seconds.",
+      "10 seconds"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding cheese to the cup",
+      "Step performed after adding salsa to the bowl",
+      "Step performed after adding cheese and before initial stirring"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Not checking if the egg is set or not and microwaving for only 30 seconds"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 6,
+   "order": 6,
+   "instruction": "Top cup with 1 tablespoon of salsa",
+   "duration_constraint_s": null,
+   "preconditions": [
+    8
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 9,
+     "n_recordings": 9,
+     "descriptions": [
+      "Top the cup with 1 teaspoon of salsa",
+      "1/2  tablespoon of salsa",
+      "2 instead of 1 tablespoon",
+      "Add 3 Tbsp of salsa instead of 1 Tbsp",
+      "2 tablespoon instead of 1 tbsp salsa",
+      "1 instead of 2 tablespoon"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Step performed before microwaving completely for the egg to set",
+      "Step performed before microwaving completely until egg is almost set",
+      "Step performed after microwaving to melt the cheese",
+      "Step performed after adding and melting cheese",
+      "Step performed after adding cheese and before microwaving enough to set the egg"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Top cup with 2 tablespoons of salsa"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add salsa to the cheese bowl instead of ramekin bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 5,
+   "order": 7,
+   "instruction": "sprinkle 1 tablespoon of cheese on cup",
+   "duration_constraint_s": null,
+   "preconditions": [
+    6
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Sprinkled cheese on top of the cup without measuring it",
+      "Instead of 1 Tbsp add 2 Tbsp of cheese.",
+      "2 tbsp instead of 1 tablespoon",
+      "2 instead of 1tablespoon"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before microwaving the egg",
+      "Step performed before adding salsa",
+      "Step performed before adding and microwaving egg and adding salsa to it",
+      "Step performed before microwaving and adding salsa"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "pour directly",
+      "cheese is sprinkled on muffin and not in cup"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Added butter instead of cheese on cup"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 10,
+   "order": 8,
+   "instruction": "Microwave just until cheese melts, about 10 seconds",
+   "duration_constraint_s": 10,
+   "preconditions": [
+    5
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "descriptions": [
+      "Microwave for 30 sec",
+      "Until egg is solid",
+      "Did not wait for cheese to melt",
+      "Microwave more than 30 seconds.",
+      "Microwaved for 30 seconds instead of 10 seconds",
+      "20 instead of 10 seconds",
+      "Microwave it for 20 seconds"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding salsa",
+      "Step performed before adding egg and salsa to it"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add cheese to another bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 12,
+   "order": 9,
+   "instruction": "Cut the English muffin into two pieces with a knife",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Cut the muffin into two pieces with hand",
+      "hand instead of knife",
+      "hands instead of knife",
+      "Using hand instead of knife",
+      "hands instead of a knife"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Cut the muffin improperly such that it results into 3 pieces",
+      "Cutting into two uneven pieces."
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Cut the muffin improperly such that it results into 3 pieces",
+      "Cut the muffin into multiple pieces instead of two halves"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after correct order"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 9,
+   "order": 10,
+   "instruction": "Line the bottom piece of the English muffin with lettuce",
+   "duration_constraint_s": null,
+   "preconditions": [
+    12
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after correct order"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "The top piece"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "two pieces instead of bottom piece"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 2,
+   "order": 11,
+   "instruction": "Place the egg from the cup over the lettuce",
+   "duration_constraint_s": null,
+   "preconditions": [
+    9,
+    10
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Remove already present lettuce, place egg and then place lettuce on top of the egg",
+      "Removing the placed lettuce on one piece of the muffin and placing egg on it and then lining it with lettuce."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Place the egg on other piece of English muffin instead of lettuce."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 7,
+   "order": 12,
+   "instruction": "replace the top of the English muffin",
+   "duration_constraint_s": null,
+   "preconditions": [
+    2
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "flipped top muffin",
+      "Replace with the bottom piece"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "add and replace - add contents of the bowl to the lettuce and replace the top of the English muffin"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Place the other English muffin piece with lettuce on top of the egg."
+     ]
+    }
+   ]
+  }
+ ]
+}

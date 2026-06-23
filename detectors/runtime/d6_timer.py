@@ -1,6 +1,6 @@
 """D6 timer -- duration & precondition logic (A-solve, pure logic).
 
-Generalised from the inline checks in eval/engine.py (over/under-time on the
+Generalised from the inline checks in eval/legacy_detector_replay.py (over/under-time on the
 microwave runs, and the missing-mix-before-heat precondition). No audio: it
 reasons over the procedure graph plus completion events emitted by D1-D5.
 

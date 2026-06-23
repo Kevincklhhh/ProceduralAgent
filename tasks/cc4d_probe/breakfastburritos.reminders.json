@@ -1,0 +1,535 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "breakfastburritos",
+ "activity_id": 7,
+ "n_recordings": 16,
+ "n_error_recordings": 10,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 77,
+   "order": 1,
+   "instruction": "Extract and add contents of an egg to a microwave-safe bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Not extracting egg correctly and adding shells to the bowl and remove them later",
+      "While breaking the egg leave tiny pieces of egg shell."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using a mug instead of a bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 72,
+   "order": 2,
+   "instruction": "Whisk the egg",
+   "duration_constraint_s": null,
+   "preconditions": [
+    77
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Splash some egg outside the bowl while whisking",
+      "Did not whisk the contents properly",
+      "Spilling the egg contents while mixing."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after microwaving the contents of the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Using a mug instead of a bowl",
+      "Using spoon instead of whisk"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 73,
+   "order": 3,
+   "instruction": "Microwave for 3 minutes, stirring in between",
+   "duration_constraint_s": 180,
+   "preconditions": [
+    72
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 9,
+     "n_recordings": 9,
+     "descriptions": [
+      "1.5 minutes instead of 3 minutes",
+      "Microwave for 2 mins instead of 3 mins",
+      "Microwaved for 1.5 minutes instead of 3 minutes",
+      "Microwave for 30 sec instead of 3 min",
+      "Microwave 2 mins instead of 3 mins",
+      "Microwave for 2 min instead of 3 min."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 6,
+     "n_recordings": 5,
+     "descriptions": [
+      "Not stir in between",
+      "The bowl is not stirred in between microwaving",
+      "Microwave without stirring in between",
+      "Using a mug instead of a bowl",
+      "Do not stir in between"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after adding sauce and salsa to the bowl",
+      "Step performed before whisking the egg",
+      "Step performed before whisking and after adding sweet and sour sauce",
+      "Step performed after adding salsa and sweet and sour sauce"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 74,
+   "order": 4,
+   "instruction": "Add 1/2 tbsp sweet and sour sauce to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    73
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "descriptions": [
+      "1 tbsp instead of 1/2 tbsp",
+      "Add 1 tbsp instead of 1/2 tbsp",
+      "Add 1 tbsp instead of 1/2 tbsp of sweet and sour sauce",
+      "Add 1/2 tsp instead of 1/2 tbsp to the bowl",
+      "Instead of tablespoon using the teaspoon."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Step performed before microwaving the egg for 3 minutes",
+      "Step performed before whisking the egg",
+      "Step performed before whisking and microwaving",
+      "Step performed after pouring the egg mixture on top of the tortilla.",
+      "Step performed before microwaving the contents of the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add minced garlic instead of sweet and sour sauce",
+      "Placing the overflown contents back into the bowl to add sauce",
+      "Using a mug instead of a bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 80,
+   "order": 5,
+   "instruction": "Add 1 tbsp salsa to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    73
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before microwaving the egg for 3 minutes",
+      "Step performed before whisking the contents of the bowl",
+      "Step performed after rolling the tortilla.",
+      "Step performed before microwaving the contents of the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Used soiled measuring spoon to add salsa",
+      "Using unclean measuring spoon to add salsa",
+      "Using a mug instead of a bowl"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "2 instead of 1 tbsp",
+      "Adding 2 tbsp instead of 1 tbsp."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 81,
+   "order": 6,
+   "instruction": "Place 8 inch tortilla on a cutting board",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Using a soiled tortilla",
+      "Use plate instead of cutting board",
+      "use plate instead of cutting board"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 82,
+   "order": 7,
+   "instruction": "Sprinkle oregano in the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    73
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Sprinkle basil instead of oregano",
+      "Add cilantro instead of oregano"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Splash some oregano outside the bowl",
+      "Sprinking on the countertop also."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before whisking the egg",
+      "Step performed after rolling the tortilla."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 76,
+   "order": 8,
+   "instruction": "Mix the contents of the bowl well",
+   "duration_constraint_s": null,
+   "preconditions": [
+    74,
+    80,
+    82
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after pouring the egg mixture on top of the tortilla",
+      "Step performed after rolling the tortilla."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using a mug instead of a bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Instead of mixing, whisking the contents of the bowl."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 79,
+   "order": 9,
+   "instruction": "Pour egg mixture on top of the tortilla",
+   "duration_constraint_s": null,
+   "preconditions": [
+    76,
+    81
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before mixing the contents of the bowl",
+      "Step performed before adding salsa, oregano and sweet and sour sauce."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using a mug instead of a bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 75,
+   "order": 10,
+   "instruction": "Sprinkle 1 tbsp shredded cheddar cheese on top of the egg",
+   "duration_constraint_s": null,
+   "preconditions": [
+    79
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Spill some cheese.",
+      "Using dirty spoon to scoop cheddar cheese",
+      "Using mozzarella cheese instead of cheddar cheese",
+      "Using hands instead of spoon to remove cheese from the packet"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "1/2 tbsp instead of 1 tbsp",
+      "Instead of 1 tbsp use 1/2 tbsp."
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Put the cheese beside the egg"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before adding salsa, oregano and sweet and sour sauce."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 78,
+   "order": 11,
+   "instruction": "Roll the tortilla from one end to another into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps but not so tight that the filling leaks",
+   "duration_constraint_s": null,
+   "preconditions": [
+    75
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Roll improperly such that filling leaks",
+      "Rolling it tighly and leak some contents thus breaking the tortilla."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after pouring the egg mixture on top of the tortilla."
+     ]
+    }
+   ]
+  }
+ ]
+}

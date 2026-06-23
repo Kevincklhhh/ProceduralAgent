@@ -1,0 +1,182 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/spicedhotchocolate.reminders.json) -- one per observed subtype -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG is mostly linear (88->89) with an unordered fork of three adds (84, 87, 90) all gated on 89 and reconverging at mix (85), then heat_serve (83).",
+  "task": {
+    "task_id": "spicedhotchocolate",
+    "title": "Spicedhotchocolate",
+    "source": "tasks/cc4d/spicedhotchocolate.json"
+  },
+  "nodes": [
+    {
+      "step_id": 88,
+      "instruction": "Fill a microwave-safe mug with skimmed milk",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is filling a microwave-safe mug with milk. This is the root step (no preconditions), active from the start of the procedure."
+      },
+      "completion": {
+        "claim": "The mug has been filled with milk and the user stops pouring. There is no distinct end signal of its own; the step is over once the next step (microwaving the mug, step 89) begins.",
+        "inferred_from": 89
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "Filling should be done without spilling milk outside the mug; flag a spill or mess while pouring milk into the mug (observed: spill while filling, 6 recordings)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for skimmed milk in a clean, microwave-safe mug; flag use of a different milk type (e.g. whole or expired milk) or an unsuitable/unclean container (observed: wrong milk type, soiled mug, expired milk, 5 recordings)."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for filling the mug; flag a noticeable underfill (e.g. filling only half the mug) rather than a standard full fill (observed: underfill -- only half mug, 1 recording)."
+        }
+      ]
+    },
+    {
+      "step_id": 89,
+      "instruction": "Microwave the contents of the mug for 1 minute",
+      "preconditions": [88],
+      "duration_constraint_s": 60,
+      "recognition": {
+        "claim": "The user has placed the mug in the microwave and the microwave is running."
+      },
+      "completion": {
+        "claim": "The microwave finishes its run and stops (its own observable event: the appliance turns off or the door is opened to remove the mug).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe specifies microwaving for 1 minute (60 s); flag a run noticeably shorter (e.g. 35-45 s) or longer (e.g. 1.5-2 min) than 60 s (observed: under- and over-timing deviations, 6 recordings)."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe expects full (100%) microwave power; flag if a reduced power level is set instead (observed: power level set to 10% instead of 100%, 1 recording)."
+        }
+      ]
+    },
+    {
+      "step_id": 84,
+      "instruction": "Add 1/5 teaspoon cinnamon to the mug",
+      "preconditions": [89],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding cinnamon to the mug. This is one of three concurrently-eligible steps (84 add cinnamon, 87 add sugar, 90 add chocolate) which all share the same precondition (step 89 complete); no order is imposed among them, so recognition must say which of the three is active now."
+      },
+      "completion": {
+        "claim": "The cinnamon has been added to the mug and the user stops. There is no distinct end signal of its own; the step is over once mixing (step 85, the earliest direct successor) begins.",
+        "inferred_from": 85
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/5 teaspoon of cinnamon; flag a different quantity or the use of a tablespoon instead of a teaspoon (observed: 1/4 tsp used, tablespoon substituted, 4 recordings)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for cinnamon added to the mug; flag a different spice (e.g. cumin) or the wrong vessel (e.g. a plate instead of the mug) (observed: cumin substituted, plate used, 3 recordings)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "Cinnamon should be added cleanly in one correctly-measured portion without spilling; flag spilling or an uncontrolled add (e.g. over-adding then removing cinnamon) (observed: spill while adding, incorrect add-and-remove, 1 recording)."
+        }
+      ]
+    },
+    {
+      "step_id": 87,
+      "instruction": "Add 1 teaspoon of white sugar to the mug",
+      "preconditions": [89],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding white sugar to the mug. This is one of three concurrently-eligible steps (84 add cinnamon, 87 add sugar, 90 add chocolate) which all share the same precondition (step 89 complete); no order is imposed among them, so recognition must say which of the three is active now."
+      },
+      "completion": {
+        "claim": "The sugar has been added to the mug and the user stops. There is no distinct end signal of its own; the step is over once mixing (step 85, the earliest direct successor) begins.",
+        "inferred_from": 85
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 teaspoon of white sugar; flag a different amount (e.g. 2 teaspoons) or using a tablespoon instead of a teaspoon (observed: tablespoon used instead of teaspoon, double quantity, 4 recordings)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for white sugar; flag a different ingredient used instead (e.g. salt or corn starch) (observed: corn starch, salt substituted for sugar, 2 recordings)."
+        }
+      ]
+    },
+    {
+      "step_id": 90,
+      "instruction": "Add 2 pieces of chocolate to the mug",
+      "preconditions": [89],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding chocolate pieces to the mug. This is one of three concurrently-eligible steps (84 add cinnamon, 87 add sugar, 90 add chocolate) which all share the same precondition (step 89 complete); no order is imposed among them, so recognition must say which of the three is active now."
+      },
+      "completion": {
+        "claim": "The chocolate has been added to the mug and the user stops. There is no distinct end signal of its own; the step is over once mixing (step 85, the earliest direct successor) begins.",
+        "inferred_from": 85
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for exactly 2 pieces of chocolate; flag a different count (e.g. 1, 4, or 5 pieces instead of 2) (observed: 1, 4, 5 pieces used, 6 recordings)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "Chocolate pieces should be placed into the mug cleanly without spillage; flag spilling while adding the chocolate (observed: spill while adding chocolate, 1 recording)."
+        }
+      ]
+    },
+    {
+      "step_id": 85,
+      "instruction": "Mix the contents of the mug",
+      "preconditions": [84, 87, 90],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is stirring or mixing the contents of the mug. This step becomes active only after all three adds (cinnamon, sugar, chocolate -- steps 84, 87, 90) are complete."
+      },
+      "completion": {
+        "claim": "The contents are mixed and the user stops stirring. There is no distinct end signal of its own; the step is over once the final heat-and-serve step (83) begins.",
+        "inferred_from": 83
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for properly mixing the contents of the mug; flag mixing that is incomplete, too hasty, uses an incorrect motion (e.g. rotating the cup or moving up-down/sideways instead of stirring), or that causes spilling (observed: improper motion, spilling during mix, insufficient mixing, 4 recordings)."
+        }
+      ]
+    },
+    {
+      "step_id": 83,
+      "instruction": "Heat the contents of the mug for 1 minute and serve",
+      "preconditions": [85],
+      "duration_constraint_s": 60,
+      "recognition": {
+        "claim": "The user has placed the mug back in the microwave for the final heating before serving."
+      },
+      "completion": {
+        "claim": "The microwave finishes heating and stops, and the mug is removed and served (its own observable event: the appliance turns off and the drink is served).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "temperature",
+          "claim": "The recipe expects full (high) microwave power for the final heat; flag a reduced or low power setting (observed: low power, mixed high/low split, 4 occurrences across 3 recordings)."
+        },
+        {
+          "reminder": "timing",
+          "claim": "The recipe specifies heating for 1 minute (60 s) before serving; flag a heat noticeably shorter (e.g. 8-40 s) or longer (e.g. 2 min) than 60 s (observed: 8 s, 40 s, 2 min deviations, 4 recordings)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The contents should be heated and served as specified without overflow; flag the milk rising and spilling out of the mug due to excess heat or time, or an incorrect serving arrangement (observed: milk overflow from over-heating, wrong serving vessel used, 2 recordings)."
+        }
+      ]
+    }
+  ]
+}

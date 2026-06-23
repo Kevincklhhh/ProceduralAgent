@@ -1,0 +1,654 @@
+{
+  "recipe": "ramen",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "15 steps × (1 recognition + 1 completion) + 25 checks = 55 total claims. DAG: parallel roots 44/47/14; onion chain 47→46, garlic chain 14→51, both converge at 54→52→55→49→45; post-microwave fork 48/50/53 (unordered) → 42→43. One appliance anchor (D1, step 45). D5 bindable at step 55 if tap-fill used. D6 covers two timed steps (45 @240s, 48 @60s). ~60% of steps are structurally silent prep/add.",
+  "claims": [
+
+    {
+      "step_id": 44,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is taking dried noodle block out of its package (root step, no prior)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — package-open motion might show hand-ROI activity but cannot distinguish noodle package from other package without color/shape identity",
+      "config_oneline": "periodic VLM; cv hand-in-ROI as weak B-trigger candidate only"
+    },
+    {
+      "step_id": 44,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Noodles are out of package; inferred from noodles added to bowl (step 52)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG: once step 52 is recognized (noodles in bowl), step 44 is complete by graph edge; no sensor needed",
+      "config_oneline": "dag: completion = precondition of 52 satisfied"
+    },
+    {
+      "step_id": 44,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Flag mishandling/throwing/dropping noodle block while opening package",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — sudden motion spike might trigger cv alert but cannot verify cause without VLM",
+      "config_oneline": "C-none: no cheap sensor; periodic VLM during step 44 window"
+    },
+    {
+      "step_id": 44,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Flag breaking noodle block when meant to keep whole (or vice versa)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — shape of block vs fragments is distinguishable at low res but requires VLM for reliable label",
+      "config_oneline": "B-trigger: one VLM call at package-open event if cv detects noodle-manipulation activity"
+    },
+
+    {
+      "step_id": 47,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is peeling a medium onion (root step, concurrent with 44/14)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — hand+object motion visible but peeling vs other prep indistinguishable without VLM",
+      "config_oneline": "C-none: periodic VLM during concurrent root-step window"
+    },
+    {
+      "step_id": 47,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Onion fully peeled; inferred from slicing onion starting (step 46)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: completion = step 46 recognized",
+      "config_oneline": "dag: completion = precondition of 46 satisfied"
+    },
+    {
+      "step_id": 47,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 medium onion; flag different count",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — one targeted VLM call at peel-start; cv cannot count reliably",
+      "config_oneline": "B-trigger: VLM call when hand-in-ROI motion detected at start of step 47"
+    },
+    {
+      "step_id": 47,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Correct ingredient (onion) and should be peeled; flag unpeeled onion",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — ingredient identity requires VLM; one call at step start sufficient",
+      "config_oneline": "B-trigger: one VLM call at step 47 onset to verify ingredient identity"
+    },
+    {
+      "step_id": 47,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Flag partial or skipped peel leaving skin on",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — skin vs no-skin requires visual detail; continuous or end-of-step VLM call needed",
+      "config_oneline": "C-none: VLM at end of peel step to check completeness"
+    },
+
+    {
+      "step_id": 46,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is slicing peeled onion (after step 47)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — rhythmic blade motion on cutting board detectable via optical flow / motion signature; fires one VLM for confirmation. Note: transient-train (chop audio) excluded per library",
+      "config_oneline": "B-trigger: cv optical-flow blade-rhythm on cutting board → one VLM confirm"
+    },
+    {
+      "step_id": 46,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "1/4 onion sliced; inferred from vegetables put in bowl (step 54)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 54 recognized implies step 46 done",
+      "config_oneline": "dag: completion = precondition of 54 satisfied"
+    },
+    {
+      "step_id": 46,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 of medium onion; flag slicing whole onion",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — partial onion amount requires VLM to assess; one call at slice-start",
+      "config_oneline": "B-trigger: VLM call triggered at slice-recognition event"
+    },
+    {
+      "step_id": 46,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Onion should be sliced not chopped; flag wrong cut",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — slice vs chop motion distinction is subtle; optical flow patterns differ slightly but not reliably enough for A-solve",
+      "config_oneline": "C-none: VLM needed to distinguish slice vs chop motion"
+    },
+
+    {
+      "step_id": 14,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is peeling a garlic clove (root step, concurrent with 44/47)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — small-object hand manipulation; cannot distinguish garlic from other small items without VLM",
+      "config_oneline": "C-none: periodic VLM during root-step window"
+    },
+    {
+      "step_id": 14,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Garlic clove fully peeled; inferred from chopping (step 51)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 51 recognized implies step 14 done",
+      "config_oneline": "dag: completion = precondition of 51 satisfied"
+    },
+    {
+      "step_id": 14,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 garlic clove; flag different count (e.g. 2 cloves)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — count of small objects requires VLM; one call at step onset",
+      "config_oneline": "B-trigger: VLM call at step 14 onset to count cloves"
+    },
+    {
+      "step_id": 14,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Correct ingredient (garlic) and should be peeled; flag unpeeled",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — ingredient identity needs VLM; one call at step start",
+      "config_oneline": "B-trigger: VLM call at step 14 onset to verify ingredient"
+    },
+    {
+      "step_id": 14,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Flag partial or improper peel on garlic",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — small object detail; VLM call at end of peel step needed",
+      "config_oneline": "C-none: VLM at end of step 14 to check peel completeness"
+    },
+
+    {
+      "step_id": 51,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is chopping garlic on cutting board (after step 14)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — blade motion on cutting board detectable via optical flow; note: transient audio excluded, but visual rhythm is usable. One VLM call to confirm garlic vs onion",
+      "config_oneline": "B-trigger: cv optical-flow cutting-board motion → one VLM confirm (garlic vs onion)"
+    },
+    {
+      "step_id": 51,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Garlic chopped; inferred from vegetables put in bowl (step 54)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 54 recognized implies step 51 done",
+      "config_oneline": "dag: completion = precondition of 54 satisfied"
+    },
+    {
+      "step_id": 51,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 garlic clove chopped; flag different count",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — count requires VLM; reuse the B-trigger VLM call at chop recognition",
+      "config_oneline": "B-trigger: VLM call at chop-recognition event (same call as recognition)"
+    },
+    {
+      "step_id": 51,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Garlic should be chopped not sliced; flag wrong cut",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — chop vs slice distinction is subtle visually; VLM needed",
+      "config_oneline": "C-none: VLM to assess chop vs slice result on garlic"
+    },
+
+    {
+      "step_id": 54,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User transferring all prepped veg into microwave-safe bowl (after steps 46+51)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — HSV color-state-change in bowl ROI detects that an add happened; bowl fills with colored veg. Fires one VLM call to confirm the ingredient and container type",
+      "config_oneline": "B-trigger: cv HSV bowl-ROI state-change → one VLM confirm (correct bowl + veg identity)"
+    },
+    {
+      "step_id": 54,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "All veg in bowl; inferred from noodles added (step 52)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 52 recognized implies step 54 done",
+      "config_oneline": "dag: completion = precondition of 52 satisfied"
+    },
+    {
+      "step_id": 54,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Veg into microwave-safe bowl; flag non-microwave-safe container or omitting veg",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — container identity (microwave-safe) requires VLM; reuse B-trigger call at step 54 recognition",
+      "config_oneline": "B-trigger: VLM call at HSV-trigger event checks container type"
+    },
+    {
+      "step_id": 54,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Flag veg spilling onto countertop",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — HSV color-state-change outside bowl ROI detects spill; fires one VLM to confirm",
+      "config_oneline": "B-trigger: cv spill-detection outside bowl ROI → VLM confirm"
+    },
+
+    {
+      "step_id": 52,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding noodles to bowl (after steps 44+54)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — noodle block add causes clear visual state-change in bowl (color/texture); cv HSV detects add event, VLM confirms noodles vs other ingredient",
+      "config_oneline": "B-trigger: cv bowl-ROI state-change (texture/color shift) → one VLM confirm"
+    },
+    {
+      "step_id": 52,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Noodles in bowl; inferred from covering with water (step 55)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 55 recognized implies step 52 done",
+      "config_oneline": "dag: completion = precondition of 55 satisfied"
+    },
+
+    {
+      "step_id": 55,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User pouring water into bowl to cover noodles (after step 52)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — if water is poured from tap, D5 water_on event fires. Note: 'Pour' is excluded from audio library but D5 detects running TAP water, not free-pour from a vessel. If water comes directly from tap into bowl, D5 is valid. If pre-filled vessel is used, falls to cv (visual water level in bowl)",
+      "config_oneline": "D5 water_on → A-solve IF tap-fill; cv water-level ROI as fallback for vessel-pour (B-trigger)"
+    },
+    {
+      "step_id": 55,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Noodles covered with water; inferred from lid placement (step 49)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 49 recognized implies step 55 done",
+      "config_oneline": "dag: completion = precondition of 49 satisfied"
+    },
+    {
+      "step_id": 55,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Water fully covers noodles; flag under-fill or wrong container (plate)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — D5 water_off triggers one VLM call to check water level vs noodles in bowl",
+      "config_oneline": "B-trigger: D5 water_off → VLM call to verify water level covers noodles"
+    },
+    {
+      "step_id": 55,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Enough water added; flag too little so noodles not covered",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — same VLM call as preparation check above; triggered at D5 water_off or after pour completes",
+      "config_oneline": "B-trigger: reuse VLM call at water-event to check coverage"
+    },
+
+    {
+      "step_id": 49,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User covering bowl with lid or paper towel (after step 55)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — occlusion event on bowl ROI detectable by cv (bowl disappears under cover); triggers one VLM call to confirm lid vs paper towel vs nothing",
+      "config_oneline": "B-trigger: cv bowl-ROI occlusion event → VLM confirm cover present"
+    },
+    {
+      "step_id": 49,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Bowl covered with lid/paper towel; inferred from microwave starting (step 45)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_start confirms microwave began, which implies bowl was placed and covered; DAG + D1 together settle this",
+      "config_oneline": "D1 cycle_start → A-solve (microwave starting implies bowl was covered and placed)"
+    },
+    {
+      "step_id": 49,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Bowl should have a cover; flag no cover used",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — reuse B-trigger VLM call at bowl-ROI occlusion to check cover presence",
+      "config_oneline": "B-trigger: VLM call at occlusion event verifies cover used"
+    },
+    {
+      "step_id": 49,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe] Cover placed properly; flag loose or improperly placed lid",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — 'properly placed' requires VLM to assess fit/placement quality; one careful call needed, not just occlusion detection",
+      "config_oneline": "C-none: VLM call at step 49 to assess cover placement quality"
+    },
+
+    {
+      "step_id": 45,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Microwave running with covered ramen bowl inside (after step 49)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_start (confirmed after 8s min_run); camera can sleep entirely during microwave",
+      "config_oneline": "D1 cycle_start → A-solve; camera OFF during step 45"
+    },
+    {
+      "step_id": 45,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Microwave finished; ends with its own observable event (beep)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_end (end-beep association window ~8s); camera remains OFF",
+      "config_oneline": "D1 cycle_end → A-solve; camera OFF during step 45"
+    },
+    {
+      "step_id": 45,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Microwave ~4 min (240s); flag noticeably shorter or longer run",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D6 timer anchored on D1 cycle_start/cycle_end; duration measured exactly from audio events. No camera needed",
+      "config_oneline": "D6 duration=D1.cycle_end−D1.cycle_start; flag if |dur−240|>threshold"
+    },
+    {
+      "step_id": 45,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe] Bowl/cover must be microwave-safe and fit in microwave; flag non-microwaveable items",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — must check BEFORE microwave starts; B-trigger at step 49 VLM call (cover-placement) already verifies container. If not caught there, one VLM call at D1 cycle_start as safety check",
+      "config_oneline": "B-trigger: VLM call at D1 cycle_start (first 8s confirmation) to verify safe container"
+    },
+
+    {
+      "step_id": 48,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Bowl resting untouched after microwave stops; one of three concurrent post-microwave steps",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_end fires; DAG emits step 48 as eligible. Absence of motion/interaction (cv or IMU idle) confirms resting state. D6 starts 60s countdown",
+      "config_oneline": "D1 cycle_end → DAG enables 48; D6 60s countdown starts; cv motion-absence confirms rest"
+    },
+    {
+      "step_id": 48,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Noodles sat ~1 min; inferred from flavour packet mixing (step 42)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D6 fires at 60s after D1 cycle_end; DAG also satisfied when step 42 is recognized",
+      "config_oneline": "D6 timer @60s from D1 cycle_end → A-solve; DAG edge to 42 as backup"
+    },
+    {
+      "step_id": 48,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Sit ~1 min (60s); flag shorter or longer wait",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D6 timer anchored on D1 cycle_end; pure logic, no sensor",
+      "config_oneline": "D6 timer from D1 cycle_end; overtime/undertime emitted at deviation threshold"
+    },
+
+    {
+      "step_id": 50,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding basil to bowl; one of three concurrent post-microwave steps",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — HSV green-state-change in bowl ROI detects herb addition; fires one VLM call to confirm basil vs cilantro vs something else",
+      "config_oneline": "B-trigger: cv bowl-ROI HSV green-state-change → VLM confirm herb identity (basil vs cilantro)"
+    },
+    {
+      "step_id": 50,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Basil added to bowl; inferred from flavour packet mixing (step 42)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 42 recognized (all three post-microwave steps must be done)",
+      "config_oneline": "dag: completion = precondition of 42 satisfied"
+    },
+    {
+      "step_id": 50,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Basil is the expected herb; flag missing or wrong herb",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — herb identity requires VLM; reuse the B-trigger call at HSV state-change",
+      "config_oneline": "B-trigger: VLM call at bowl-ROI color-change to verify basil identity"
+    },
+
+    {
+      "step_id": 53,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding chopped cilantro to bowl; one of three concurrent post-microwave steps",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — similar to basil: HSV green-state-change in bowl; VLM needed to distinguish cilantro from basil and verify it is chopped",
+      "config_oneline": "B-trigger: cv bowl-ROI HSV green-state-change → VLM confirm cilantro and check chopped state"
+    },
+    {
+      "step_id": 53,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Chopped cilantro added to bowl; inferred from flavour packet mixing (step 42)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 42 recognized implies step 53 done",
+      "config_oneline": "dag: completion = precondition of 42 satisfied"
+    },
+    {
+      "step_id": 53,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Cilantro should be chopped before adding; flag whole/unchopped cilantro",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — chopped vs whole herb distinguishable in a targeted VLM call; reuse B-trigger call at bowl-ROI event",
+      "config_oneline": "B-trigger: VLM call at bowl-ROI color-change checks cilantro chopped state"
+    },
+
+    {
+      "step_id": 42,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User mixing flavour packet into bowl (after steps 48+50+53)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — packet tear + powder color change in bowl detectable by cv HSV; fires one VLM to confirm flavour packet (not other ingredient) being mixed",
+      "config_oneline": "B-trigger: cv bowl-ROI HSV color-change (powder dump) → VLM confirm flavour packet"
+    },
+    {
+      "step_id": 42,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Flavour packet mixed in; inferred from stirring (step 43)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — DAG edge: step 43 recognized implies step 42 done",
+      "config_oneline": "dag: completion = precondition of 43 satisfied"
+    },
+    {
+      "step_id": 42,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Flag spilling flavour packet contents out of bowl while mixing",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — powder spill outside bowl ROI detectable by HSV color-change in countertop ROI; fires VLM to confirm spill event",
+      "config_oneline": "B-trigger: cv counter-ROI HSV state-change during step 42 → VLM confirm spill"
+    },
+
+    {
+      "step_id": 43,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User stirring noodles with spoon or fork (after step 42, final step)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — circular/stirring motion in bowl ROI detectable by optical flow; fires one VLM to confirm stirring action and utensil type",
+      "config_oneline": "B-trigger: cv bowl-ROI circular motion (optical flow) → VLM confirm stirring with utensil"
+    },
+    {
+      "step_id": 43,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Noodles stirred until flavouring dissolves; ends with observable end-state (dish finished)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "low — 'flavouring dissolved' is a visual quality judgement; no audio/cv proxy. Thermal-spot can confirm heat of final dish (speculative) but not dissolution state",
+      "config_oneline": "C-none: VLM call at end of stirring motion to assess dissolution"
+    },
+    {
+      "step_id": 43,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Stir gently; flag stirring too fast (water spills) or too poorly (flavouring not dissolved)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — stir speed and dissolution quality both require VLM; optical flow gives speed proxy but calibration is recipe-specific and unreliable for 'too fast'",
+      "config_oneline": "C-none: VLM continuous/periodic during step 43 to assess technique and dissolution"
+    }
+
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {"step_id": 44, "stage": "prep-root", "camera": "periodic-low-fps", "audio": "none", "vlm": "periodic", "role": "C-none"},
+      {"step_id": 47, "stage": "prep-root", "camera": "periodic-low-fps", "audio": "none", "vlm": "periodic", "role": "C-none"},
+      {"step_id": 14, "stage": "prep-root", "camera": "periodic-low-fps", "audio": "none", "vlm": "periodic", "role": "C-none"},
+      {"step_id": 46, "stage": "prep-cut", "camera": "motion-gated", "audio": "none", "vlm": "B-trigger@motion", "role": "B-trigger"},
+      {"step_id": 51, "stage": "prep-cut", "camera": "motion-gated", "audio": "none", "vlm": "B-trigger@motion", "role": "B-trigger"},
+      {"step_id": 54, "stage": "assemble", "camera": "ROI-hsv-gated", "audio": "none", "vlm": "B-trigger@hsv-change", "role": "B-trigger"},
+      {"step_id": 52, "stage": "assemble", "camera": "ROI-hsv-gated", "audio": "none", "vlm": "B-trigger@hsv-change", "role": "B-trigger"},
+      {"step_id": 55, "stage": "fill", "camera": "standby", "audio": "D5-gated", "vlm": "B-trigger@D5-off", "role": "A-solve+B-trigger"},
+      {"step_id": 49, "stage": "prep-microwave", "camera": "ROI-gated", "audio": "none", "vlm": "B-trigger@occlusion", "role": "B-trigger"},
+      {"step_id": 45, "stage": "microwave", "camera": "OFF", "audio": "D1", "vlm": "none", "role": "A-solve"},
+      {"step_id": 48, "stage": "rest", "camera": "OFF-motion-idle", "audio": "D1+D6", "vlm": "none", "role": "A-solve"},
+      {"step_id": 50, "stage": "add-herb", "camera": "ROI-hsv-gated", "audio": "none", "vlm": "B-trigger@hsv-change", "role": "B-trigger"},
+      {"step_id": 53, "stage": "add-herb", "camera": "ROI-hsv-gated", "audio": "none", "vlm": "B-trigger@hsv-change", "role": "B-trigger"},
+      {"step_id": 42, "stage": "season", "camera": "ROI-hsv-gated", "audio": "none", "vlm": "B-trigger@hsv-change", "role": "B-trigger"},
+      {"step_id": 43, "stage": "finish", "camera": "periodic-motion", "audio": "none", "vlm": "periodic", "role": "C-none"}
+    ],
+    "role_mix": {
+      "A-solve": 21,
+      "B-trigger": 25,
+      "C-none": 9
+    },
+    "cost_estimate": "Camera OFF for step 45 (~240s) + step 48 (~60s) = ~5 min of full camera sleep. Camera periodic/low-res for root prep steps (~3 concurrent root steps). Camera ROI-gated for all silent adds. Total VLM calls: ~12–15 targeted B-trigger calls + periodic sampling during 3 root steps and final stir. vs always-on-VLM baseline which samples every 10s through a ~15-min recipe = ~90 VLM calls. Estimated reduction: 80–85% fewer VLM calls at equal coverage.",
+    "honest_limits": "C-none slice (9 claims): the 3 root-step recognitions (44/47/14) are structurally silent fine-prep with no acoustic or cheap-cv distinguisher — periodic VLM is unavoidable. Two technique-quality checks (46 slice-vs-chop, 51 chop-vs-slice) need VLM to assess cut quality. The final stir recognition (43 completion) requires VLM to judge dissolution. The lid-placement technique check (49) requires VLM to assess 'properly placed'. These 9 claims represent the irreducible VLM budget. D5 water-fill assumption: bindable only if user fills bowl from tap; if pre-filled vessel is used, step 55 recognition falls to cv B-trigger. Herb disambiguation (basil vs cilantro, steps 50/53): cv HSV detects green-herb add but CANNOT distinguish which herb — VLM call mandatory for both herb steps even though the trigger is cheap."
+  }
+}

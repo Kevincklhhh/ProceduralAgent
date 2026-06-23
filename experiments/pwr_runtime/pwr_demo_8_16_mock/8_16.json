@@ -1,0 +1,126 @@
+{
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 0.0,
+   "end_s": 60.0
+  },
+  {
+   "stage": 89,
+   "start_s": 60.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": 84,
+   "start_s": 120.0,
+   "end_s": 180.0
+  },
+  {
+   "stage": 87,
+   "start_s": 180.0,
+   "end_s": 210.0
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "none",
+   "subtype": "none",
+   "id": "pwr_step_complete",
+   "message": "Move to the next step."
+  },
+  {
+   "t": 120.0,
+   "class": "none",
+   "subtype": "none",
+   "id": "pwr_step_complete",
+   "message": "Move to the next step."
+  },
+  {
+   "t": 180.0,
+   "class": "none",
+   "subtype": "none",
+   "id": "pwr_step_complete",
+   "message": "Move to the next step."
+  }
+ ],
+ "interventions": [
+  {
+   "t_s": 60.0,
+   "type": "step_complete",
+   "step_id": 88,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Move to the next step.",
+   "evidence": "mock elapsed-step completion"
+  },
+  {
+   "t_s": 120.0,
+   "type": "step_complete",
+   "step_id": 89,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Move to the next step.",
+   "evidence": "mock elapsed-step completion"
+  },
+  {
+   "t_s": 180.0,
+   "type": "step_complete",
+   "step_id": 84,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Move to the next step.",
+   "evidence": "mock elapsed-step completion"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 11,
+  "duplex_calls": 8,
+  "planner_calls": 3,
+  "frames_sent": 160,
+  "vlm_latency_total_s": 0.0,
+  "duplex_latency_s": 0.0,
+  "planner_latency_s": 0.0,
+  "compute_s": 0.0
+ },
+ "replication_manifest": {
+  "arm": "pwr_demo_8_16_mock",
+  "claim": "PWR-style framework implementation; not an exact reproduction of unreleased trained checkpoints.",
+  "paper_mapping": [
+   "duplex interaction model receives cached plan and plan-anchored visual clips",
+   "planner is invoked only when duplex emits interrupt",
+   "planner receives only the most recent visual clip plus cached plan",
+   "plan state stores completed/current/remaining steps and visual cues"
+  ],
+  "approximations": [
+   "zero-shot Qwen or mock backend replaces the unreleased trained PWR models",
+   "visual cues are heuristic unless the planner backend refreshes them",
+   "CC4D replay has no live user utterances, so reactive turns are not simulated",
+   "tick can be set to 0.5s for the paper's 2 fps decision cadence, but sparse ticks are practical for Qwen replay"
+  ],
+  "params": {
+   "tick_s": 30.0,
+   "clip_window_s": 8.0,
+   "frames_per_clip": 8,
+   "max_clips": 15
+  }
+ },
+ "_meta": {
+  "model": "mock-pwr-framework",
+  "evaluated_s": 210.0,
+  "video_duration_s": 462.66,
+  "parse_failures": 0,
+  "task_id": "spicedhotchocolate",
+  "final_plan": "Task: Spicedhotchocolate\nProcedural plan:\n- [completed] step_id=88: Fill a microwave-safe mug with skimmed milk\n- [completed] step_id=89: Microwave the contents of the mug for 1 minute\n- [completed] step_id=84: Add 1/5 teaspoon cinnamon to the mug\n- [current] step_id=87: Add 1 teaspoon of white sugar to the mug\n- [next] step_id=90: Add 2 pieces of chocolate to the mug\n- [remaining] step_id=85: Mix the contents of the mug\n- [remaining] step_id=83: Heat the contents of the mug for 1 minute and serve\n\nCurrent-step complete cues:\n- Visible evidence that this is finished: Add 1 teaspoon of white sugar to the mug.\n- Hands move away from the main object or begin preparing the next action.\n\nCurrent-step incomplete cues:\n- The user is still doing or setting up: Add 1 teaspoon of white sugar to the mug.\n- The required object state for the completed action is not yet visible.",
+  "plan_update_times": [
+   0.0,
+   60.0,
+   120.0,
+   180.0
+  ],
+  "trace": true
+ },
+ "recording": "8_16",
+ "arm": "pwr_demo_8_16_mock"
+}

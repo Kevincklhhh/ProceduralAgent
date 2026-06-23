@@ -1,0 +1,733 @@
+{
+  "recipe": "blenderbananapancakes",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "Pancake cooking is explicitly listed under 'What audio cannot do: Gentle or dry cooking (e.g. low-heat pancakes)'. D3/D4 are EXCLUDED from all cook stages. D2 covers blitz (step 227) only. D6 anchors timing checks on D2 (for step 227) and DAG elapsed-time (for steps 226/230 anchored by pour/flip recognition). No microwave (D1), no water tap (D5) in this recipe.",
+  "claims": [
+    {
+      "step_id": 221,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding baking powder into the blender (one of 5 concurrent root steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — HSV state-change could detect SOMETHING added to blender but cannot distinguish baking powder from flour/banana; identity needs VLM",
+      "config_oneline": "periodic VLM (low-rate); cv HSV motion-in-blender-ROI as weak corroboration only"
+    },
+    {
+      "step_id": 221,
+      "kind": "completion",
+      "subtype": "inferred_from:227",
+      "claim_short": "Baking powder deposited in blender; inferred from blitz (step 227) beginning",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — once D2 motor_on fires for step 227, DAG marks all four root-add completions (221,225,229,232) done",
+      "config_oneline": "D2 motor_on -> DAG closes 221/225/229/232 completions simultaneously"
+    },
+    {
+      "step_id": 221,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/2 tsp baking powder; flag wrong spoon (e.g. tablespoon) or wrong amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — a 1-frame ROI crop of the measuring spoon at the moment of add (triggered by cv motion-in-blender ROI) can give VLM enough signal to judge spoon size; fine grain identity still needs VLM",
+      "config_oneline": "cv motion-in-blender-ROI fires one VLM call with low-res spoon crop"
+    },
+    {
+      "step_id": 221,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Powder should go cleanly into blender; flag spilling outside",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — spill detection on fine powder is difficult even for full-res VLM; monochrome cv could see large spills but not powder dust",
+      "config_oneline": "periodic VLM; no reliable cheap sensor for fine spill"
+    },
+    {
+      "step_id": 225,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding a banana into the blender (one of 5 concurrent root steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "medium — banana is large and yellow; cv HSV color gate could distinguish banana from powder/egg/flour adds; a B-trigger VLM call to confirm identity is plausible",
+      "config_oneline": "cv HSV yellow-object gate -> one B-trigger VLM call to confirm banana identity"
+    },
+    {
+      "step_id": 225,
+      "kind": "completion",
+      "subtype": "inferred_from:227",
+      "claim_short": "Banana in blender; inferred from blitz (step 227) beginning",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — same as 221 completion; D2 motor_on -> DAG closes all root-add completions",
+      "config_oneline": "D2 motor_on -> DAG closes 221/225/229/232 completions simultaneously"
+    },
+    {
+      "step_id": 225,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 whole banana; flag half a banana",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — banana size/wholeness is a coarse visual property; cv rough-size gate on yellow ROI could trigger one VLM call",
+      "config_oneline": "cv yellow-object-size gate -> one VLM call to verify whole vs partial banana"
+    },
+    {
+      "step_id": 229,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding an egg into the blender (one of 5 concurrent root steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — egg cracking is partially audible (transient crack sound) but 'Transient train' is excluded; cv could see egg-shaped object but identity needs VLM",
+      "config_oneline": "periodic VLM; no reliable cheap audio/cv anchor for egg add specifically"
+    },
+    {
+      "step_id": 229,
+      "kind": "completion",
+      "subtype": "inferred_from:227",
+      "claim_short": "Egg added to blender; inferred from blitz (step 227) beginning",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D2 motor_on -> DAG closes all root-add completions",
+      "config_oneline": "D2 motor_on -> DAG closes 221/225/229/232 completions simultaneously"
+    },
+    {
+      "step_id": 229,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 egg; flag two eggs",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — counting eggs is a discrete visual task; cv could detect motion-near-blender and fire one VLM call for count",
+      "config_oneline": "cv motion-in-blender-ROI -> one VLM call to count eggs"
+    },
+    {
+      "step_id": 229,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Egg should be clean and intact; flag soiled or pre-broken egg",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — a single VLM frame of the egg before cracking can assess cleanliness/integrity",
+      "config_oneline": "cv hand-holding-round-object gate -> one VLM call to inspect egg condition"
+    },
+    {
+      "step_id": 229,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Egg cracked cleanly into blender; flag eggshell dropping in or spilling",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low — eggshell fragments in liquid are a fine detail only VLM can see; no cheap cv or audio trigger is reliable enough",
+      "config_oneline": "periodic VLM during egg-add window; no cheap sensor for eggshell detection"
+    },
+    {
+      "step_id": 232,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding flour into the blender (one of 5 concurrent root steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — flour is white and may be confused with baking powder; cv HSV cannot distinguish; identity needs VLM",
+      "config_oneline": "periodic VLM; cv motion-in-blender-ROI as weak trigger only"
+    },
+    {
+      "step_id": 232,
+      "kind": "completion",
+      "subtype": "inferred_from:227",
+      "claim_short": "Flour added to blender; inferred from blitz (step 227) beginning",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D2 motor_on -> DAG closes all root-add completions",
+      "config_oneline": "D2 motor_on -> DAG closes 221/225/229/232 completions simultaneously"
+    },
+    {
+      "step_id": 232,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 heaped tbsp of flour; flag level/flattened tbsp or wrong amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — heaped vs level tbsp is a coarse visual judgment; cv motion gate fires one VLM call with ROI crop of spoon",
+      "config_oneline": "cv motion-in-blender-ROI -> one VLM call inspecting spoon fill level"
+    },
+    {
+      "step_id": 232,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flour goes cleanly into blender; flag spilling outside",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — flour spill is fine and hard to detect; white flour on light surfaces invisible to cheap cv; needs full VLM or human oversight",
+      "config_oneline": "periodic VLM; no reliable cheap sensor for flour spill"
+    },
+    {
+      "step_id": 227,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Blender running to blitz batter",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D2 ApplianceMotorDetector: loud sustained motor is unmistakable; motor_on event is the recognition anchor",
+      "config_oneline": "D2 motor_on -> step 227 recognized; camera may sleep during blitz"
+    },
+    {
+      "step_id": 227,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Blender stops after blitzing (own end signal: motor off)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D2 motor_off event is the completion anchor; camera stays off",
+      "config_oneline": "D2 motor_off -> step 227 complete; camera stays off"
+    },
+    {
+      "step_id": 227,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "About 20s blitzing; flag noticeably longer (25-40s)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D6 timer anchored on D2 motor_on: computes elapsed duration, emits overtime if > ~25s; pure logic",
+      "config_oneline": "D6 timer anchored on D2 motor_on: overtime if duration > 25s"
+    },
+    {
+      "step_id": 223,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is melting butter in frying pan on stove over heat",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — DAG knows step 227 is complete (D2 motor_off); next step is 223; cv can detect pan-on-stove layout change; thermal-spot could confirm heat presence. A single VLM call confirms butter-in-pan. D4 sizzle NOT usable here (butter melt is gentle/low-heat, not a hard sizzle onset)",
+      "config_oneline": "DAG postcondition D2 motor_off -> cv pan-in-stove-ROI motion -> one B-trigger VLM call; thermal-spot speculative for heat confirm"
+    },
+    {
+      "step_id": 223,
+      "kind": "completion",
+      "subtype": "inferred_from:231",
+      "claim_short": "Butter melted; completion inferred from pour step (231) beginning",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — cv HSV can detect pouring motion (liquid stream from blender to pan); thermal could confirm pan warming. One VLM call at first pour motion to confirm step 231 started (implying 223 done)",
+      "config_oneline": "cv pour-motion in blender-to-pan ROI -> B-trigger VLM to confirm 231 start (closes 223 completion)"
+    },
+    {
+      "step_id": 223,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Small knob of butter; flag noticeably large amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — butter quantity is a coarse visual judgment; cv motion-in-pan gate + one VLM call with pan ROI crop",
+      "config_oneline": "cv motion-in-pan-ROI -> one VLM call to judge butter quantity"
+    },
+    {
+      "step_id": 223,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "Low-medium heat; flag high heat",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — thermal-spot on pan base could read temperature quantitatively; this is the strongest thermal-spot candidate in the recipe. Without it, heat level is not audible and requires stove-knob visual or pan surface VLM inspection",
+      "config_oneline": "thermal-spot on pan base A-solves heat level (speculative); fallback: one VLM call inspecting stove-knob position"
+    },
+    {
+      "step_id": 223,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Non-stick frying pan; flag steel or inappropriate pan",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — pan type is a one-time visual check; one low-res ROI VLM call at step entry can identify pan material/color",
+      "config_oneline": "DAG step-entry event -> one VLM call with pan-type low-res-ROI crop"
+    },
+    {
+      "step_id": 231,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is pouring batter from blender into frying pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium — cv optical-flow can detect gross pouring motion (liquid stream, blender tilting); IMU could sense tilt/pour gesture on a wearable. One VLM call to confirm pour content is batter (not water)",
+      "config_oneline": "cv pour-motion-in-pan-ROI (or IMU tilt event) -> one B-trigger VLM call to confirm batter pour"
+    },
+    {
+      "step_id": 231,
+      "kind": "completion",
+      "subtype": "inferred_from:226",
+      "claim_short": "Batter poured; inferred from cook step (226) beginning (pancakes in pan)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "medium — DAG can infer completion of 231 once 226 is recognized; but 226 recognition itself is C-none (no audio for low-heat pancakes), so this is DAG-on-VLM: when VLM confirms pan has pancakes, DAG closes 231",
+      "config_oneline": "DAG closes 231 completion when 226 recognition fires (VLM confirms pancakes in pan)"
+    },
+    {
+      "step_id": 231,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Three little puddles; flag one large puddle or wrong number",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — counting distinct puddles requires visual inspection of pan surface; no cheap audio/motion sensor can count liquid puddles; needs VLM with pan-ROI frame",
+      "config_oneline": "periodic VLM with pan-ROI frame; no cheap count sensor"
+    },
+    {
+      "step_id": 231,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Pour into proper frying pan; flag inappropriate pan",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — pan was already verified at step 223 check; DAG carries forward 'pan type confirmed'; no re-check needed unless pan changed",
+      "config_oneline": "DAG: pan type confirmed at step 223 carries forward; no additional check at 231"
+    },
+    {
+      "step_id": 231,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Batter poured straight from blender (not spooned)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "cv",
+      "feasibility": "medium — cv can detect presence of a ladle/spoon vs direct blender pour (different object shape and motion trajectory); one VLM call at pour moment can confirm method",
+      "config_oneline": "cv pour-motion gate -> one VLM call to confirm blender-direct vs spoon method"
+    },
+    {
+      "step_id": 226,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Pancakes cooking in pan; user waiting for tops to bubble",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "low — low-heat pancakes explicitly excluded from D3/D4 audio detection; thermal-spot could confirm heat is applied but not cooking state; needs VLM for pancake bubble state",
+      "config_oneline": "periodic VLM; D3/D4 excluded (low-heat pancakes); DAG knows 231 done -> 226 is active"
+    },
+    {
+      "step_id": 226,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Tops start to bubble (own observable end state)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "low — bubbling surface requires visual inspection; audio cannot detect low-heat pancake bubble formation; thermal-spot could fire when pan reaches threshold temp as weak trigger",
+      "config_oneline": "periodic VLM watching pan surface; thermal-spot as speculative trigger at temp threshold"
+    },
+    {
+      "step_id": 226,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "About 1 min (or until bubbling); flag too long or too short",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "medium — D6 timer anchored on VLM-confirmed 231 completion (pour done); emits overtime at ~90s; undertime only checkable if VLM signals flip happened too early. Pure timing arithmetic is A-solve once anchor is known",
+      "config_oneline": "D6 timer anchored on 231 completion -> overtime at ~90s; undertime if flip recognized before 45s"
+    },
+    {
+      "step_id": 226,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "[probe-added] Low-medium heat maintained during cook; flag high heat",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — thermal-spot is strongest candidate here; ongoing pan temperature check; without it needs VLM stove-knob inspection periodically",
+      "config_oneline": "thermal-spot continuous on pan base (speculative A-solve); fallback: periodic VLM stove-knob check"
+    },
+    {
+      "step_id": 228,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is flipping pancakes with utensil",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "cv",
+      "feasibility": "medium — cv optical-flow can detect fast discrete motion in pan ROI (flip is an abrupt, quick gross motion); one VLM call triggered by motion spike to confirm flip action. IMU on wrist could also detect flip wrist motion",
+      "config_oneline": "cv motion-spike in pan-ROI -> one B-trigger VLM call to confirm flip"
+    },
+    {
+      "step_id": 228,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Pancakes turned over — discrete action with own end state",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "imu",
+      "feasibility": "medium — once flip motion ends (optical-flow drops), completion is inferred; IMU wrist-motion return-to-rest could confirm. No audio needed",
+      "config_oneline": "cv motion-spike ends in pan-ROI -> flip complete; IMU wrist-return as corroboration"
+    },
+    {
+      "step_id": 228,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flip with fork or fish-slice spatula; flag no appropriate utensil",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — utensil identity can be checked in one VLM call triggered by the cv motion spike; low-res ROI of hand+utensil is sufficient",
+      "config_oneline": "cv motion-spike -> one VLM call with hand+utensil low-res-ROI crop"
+    },
+    {
+      "step_id": 228,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Each whole pancake flipped cleanly inside pan; flag partial flip or outside-pan",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — whether flip is clean or partial requires watching the pancake during flip; a fine visual judgment needing VLM at the motion event",
+      "config_oneline": "cv motion-spike -> periodic VLM during flip window; cv cannot distinguish clean vs partial flip alone"
+    },
+    {
+      "step_id": 230,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Pancakes cooking on second side for short additional time",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG knows 228 (flip) is complete -> 230 is active by pure logic; no new sensor needed for recognition",
+      "config_oneline": "DAG: 228 completion -> 230 recognized automatically"
+    },
+    {
+      "step_id": 230,
+      "kind": "completion",
+      "subtype": "inferred_from:234",
+      "claim_short": "Second-side cook done; inferred from transfer step (234) beginning",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "medium — DAG closes 230 when 234 (transfer) is recognized; 234 recognition is cv/vlm; DAG handles the inference",
+      "config_oneline": "DAG closes 230 completion when 234 transfer recognition fires"
+    },
+    {
+      "step_id": 230,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "20-30 seconds more; flag too short or too long",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D6 timer anchored on 228 (flip) completion: overtime at ~35s, undertime at ~15s; pure arithmetic; camera can sleep during this window",
+      "config_oneline": "D6 timer anchored on 228 completion: overtime > 35s, undertime < 15s"
+    },
+    {
+      "step_id": 230,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "[probe-added] Low-medium heat during second-side cook; flag high heat",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — same as 226 temperature; thermal-spot speculative A-solve; without it, periodic VLM stove-knob check",
+      "config_oneline": "thermal-spot continuous (speculative); fallback: periodic VLM stove-knob check"
+    },
+    {
+      "step_id": 230,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Stove turned off once short cook done; flag leaving stove on",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — thermal-spot could detect pan cooling as evidence stove is off; cv could check stove-knob position; one VLM call as confirmation at 234 transfer recognition",
+      "config_oneline": "DAG at 234 recognition -> one VLM call or thermal-spot drop to confirm stove-off"
+    },
+    {
+      "step_id": 233,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is chopping a strawberry (root step, concurrent with 221/225/229/232)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "cv",
+      "feasibility": "medium — cv optical-flow can detect chopping motion (rhythmic, board-area); color gate can detect red strawberry on cutting board; one VLM call to confirm strawberry identity and chopping action",
+      "config_oneline": "cv rhythmic-motion on board-ROI + HSV red gate -> one B-trigger VLM call to confirm strawberry chop"
+    },
+    {
+      "step_id": 233,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Strawberry chopped — discrete prep action with own end state (chopped pieces visible)",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "medium — cv can detect chopping motion stopped; the presence of chopped-piece pattern (multiple small red pieces) on board is a coarse state-change detectable by cv HSV segmentation. No VLM needed for completion",
+      "config_oneline": "cv chopping-motion ends + HSV red-pieces-on-board state-change -> 233 complete"
+    },
+    {
+      "step_id": 233,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 strawberry; flag chopping two",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — counting whole strawberries before chopping; one VLM call at recognition trigger can count red whole objects on board",
+      "config_oneline": "cv red-object gate on board-ROI -> one VLM call to count strawberries before chop"
+    },
+    {
+      "step_id": 233,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Strawberry should be clean; flag soiled strawberry",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low-medium — cleanliness is a fine visual judgment; one VLM call at recognition can inspect strawberry surface",
+      "config_oneline": "cv red-object gate -> one VLM call with strawberry low-res-ROI to assess cleanliness"
+    },
+    {
+      "step_id": 233,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Strawberry chopped with knife; flag tearing by hand or slicing instead of chopping",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "cv",
+      "feasibility": "medium — cv can distinguish knife-on-board rhythmic motion from hand-tearing (different motion signature); one VLM call at recognition to confirm knife use vs alternative method",
+      "config_oneline": "cv motion-type on board-ROI -> one VLM call to confirm knife-chopping vs alternative"
+    },
+    {
+      "step_id": 234,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User transferring cooked pancakes onto a plate",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium — cv optical-flow detects pan-tilt/spatula-lift motion from pan to plate; gross transfer motion is detectable; one VLM call to confirm pancakes on plate vs other object",
+      "config_oneline": "cv pan-to-plate motion in ROI -> one B-trigger VLM call to confirm pancake transfer"
+    },
+    {
+      "step_id": 234,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Pancakes on plate — discrete action with own observable end state",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "medium — cv state-change: pancakes now visible on plate ROI (color/shape on plate background); motion ends; no VLM needed for completion once pan-to-plate transfer motion done",
+      "config_oneline": "cv motion ends + pancake-on-plate state-change in plate-ROI -> 234 complete"
+    },
+    {
+      "step_id": 234,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Transfer to a plate; flag using bowl or wrong vessel",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — vessel identity (plate vs bowl) is a one-time visual check; one VLM call with vessel-ROI at transfer recognition",
+      "config_oneline": "cv motion -> one VLM call with vessel low-res-ROI to confirm plate vs bowl"
+    },
+    {
+      "step_id": 222,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User serving pancakes, adding chopped strawberries to plate",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "cv",
+      "feasibility": "medium — cv HSV can detect red strawberry pieces moving onto white plate; one VLM call to confirm strawberry-on-pancake add",
+      "config_oneline": "cv HSV red-motion toward plate-ROI -> one B-trigger VLM call to confirm strawberry add"
+    },
+    {
+      "step_id": 222,
+      "kind": "completion",
+      "subtype": "inferred_from:224",
+      "claim_short": "Strawberries on plate; inferred from syrup step (224) beginning",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG closes 222 completion when 224 (maple syrup) recognition fires; syrup step is the direct successor",
+      "config_oneline": "DAG closes 222 completion when 224 recognition fires"
+    },
+    {
+      "step_id": 222,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] All chopped strawberries added cleanly; flag spilling or partial add",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — whether 'all' strawberries were added cleanly requires visual count and spill check; cv could detect large spill of red pieces but not partial-add vs full-add; VLM needed",
+      "config_oneline": "periodic VLM during strawberry-add window; cv large-spill gate as weak corroboration"
+    },
+    {
+      "step_id": 224,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User splashing maple syrup onto plated pancakes (terminal step)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium — cv optical-flow can detect liquid-pouring motion over plate; color (amber/brown) could distinguish maple syrup from water; one VLM call to confirm syrup identity",
+      "config_oneline": "cv pour-motion + HSV amber gate over plate-ROI -> one B-trigger VLM call to confirm syrup"
+    },
+    {
+      "step_id": 224,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Maple syrup splashed on plate; terminal step, no successor; completion when user finishes",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "medium — cv motion stops over plate; pouring gesture ends; state-change: glossy amber on plate visible; no VLM needed for completion once pour motion ends",
+      "config_oneline": "cv pour-motion ends over plate-ROI -> 224 complete; recipe done"
+    },
+    {
+      "step_id": 224,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Maple syrup; flag different condiment (e.g. sriracha)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — condiment identity needs label or color inspection; cv amber-color gate can narrow it but cannot distinguish maple syrup vs honey vs similar amber liquids; one VLM call with bottle-label ROI",
+      "config_oneline": "cv pour-motion gate -> one VLM call with bottle low-res-ROI to verify maple syrup label"
+    },
+    {
+      "step_id": 224,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Syrup splashed cleanly onto plate; flag spilling or pouring instead of splashing",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "cv",
+      "feasibility": "low — distinguishing 'splash' from 'pour' is a fine technique judgment; amount of syrup outside plate vs inside is a fine visual detail; needs VLM",
+      "config_oneline": "periodic VLM during syrup-add window; no reliable cheap sensor for technique quality"
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": "221-225-229-232 (root adds fork)",
+        "stage": "ingredient adds to blender",
+        "camera": "periodic low-rate",
+        "audio": "none (no audio signature for adds)",
+        "vlm": "periodic + B-trigger per add motion",
+        "role": "C-none/B-trigger"
+      },
+      {
+        "step_id": 227,
+        "stage": "blitz",
+        "camera": "OFF",
+        "audio": "D2 motor_on/off + D6 timer",
+        "vlm": "none",
+        "role": "A-solve"
+      },
+      {
+        "step_id": 223,
+        "stage": "butter melt",
+        "camera": "low-rate ROI",
+        "audio": "none (D4 excluded: low-heat)",
+        "vlm": "one B-trigger at entry",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 231,
+        "stage": "pour batter",
+        "camera": "cv optical-flow",
+        "audio": "none",
+        "vlm": "one B-trigger at pour motion",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 226,
+        "stage": "first-side cook",
+        "camera": "periodic VLM watching pan surface",
+        "audio": "none (D3/D4 excluded: low-heat pancakes)",
+        "vlm": "periodic for bubble detection",
+        "role": "C-none + D6 timing"
+      },
+      {
+        "step_id": 228,
+        "stage": "flip",
+        "camera": "cv motion-spike",
+        "audio": "none",
+        "vlm": "one B-trigger at motion spike",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 230,
+        "stage": "second-side cook",
+        "camera": "minimal (DAG + D6 cover timing)",
+        "audio": "none",
+        "vlm": "minimal periodic",
+        "role": "A-solve (timing) + C-none (temp)"
+      },
+      {
+        "step_id": 233,
+        "stage": "chop strawberry (concurrent)",
+        "camera": "cv optical-flow + HSV",
+        "audio": "none (chop transient excluded)",
+        "vlm": "one B-trigger at chop motion",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 234,
+        "stage": "transfer to plate",
+        "camera": "cv motion",
+        "audio": "none",
+        "vlm": "one B-trigger at transfer motion",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 222,
+        "stage": "serve with strawberries",
+        "camera": "cv HSV red motion",
+        "audio": "none",
+        "vlm": "one B-trigger at add motion",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 224,
+        "stage": "maple syrup splash",
+        "camera": "cv pour-motion",
+        "audio": "none",
+        "vlm": "one B-trigger at pour motion",
+        "role": "B-trigger"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 17,
+      "B-trigger": 26,
+      "C-none": 14
+    },
+    "cost_estimate": "Camera can be fully OFF only during blitz (step 227, ~20s): D2+D6 A-solve all 3 claims. All cook stages (226, 230) require periodic VLM due to low-heat pancake audio exclusion. Root ingredient adds (221-232) are partially cheapened by cv B-trigger but identity still needs VLM. Approximately 30% of claims (A-solve) need no camera/VLM. Another ~46% (B-trigger) reduce VLM from continuous to one-shot. Only ~24% remain C-none continuous VLM.",
+    "honest_limits": "1) The LARGEST C-none block is cook stage 226 (bubble detection) and cook stage 230 (second-side completion inferred from VLM-confirmed 234): low-heat pancakes are EXPLICITLY excluded from D3/D4 audio. 2) Ingredient identity among the 4 root adds (221/225/229/232) — flour vs baking powder are both white, can be confused; banana is cheapened by cv HSV yellow gate (to B-trigger), but the others need VLM. 3) Technique checks (eggshell fragments, spill detection, flip quality, syrup splash vs pour) are almost entirely C-none — fine technique is a VLM-only domain. 4) Thermal-spot is a promising speculative sensor for temperature checks (3 instances: steps 223/226/230 temperature) and cook-completion in 226/230, but is NOT proven in this library."
+  }
+}

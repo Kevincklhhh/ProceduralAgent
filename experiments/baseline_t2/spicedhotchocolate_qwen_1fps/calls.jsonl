@@ -1,0 +1,146 @@
+[
+ {
+  "rid": "8_26",
+  "step_id": 88,
+  "n_frames": 42,
+  "latency_s": 16.49,
+  "pred": {
+   "technique": false,
+   "preparation": false,
+   "measurement": false
+  }
+ },
+ {
+  "rid": "8_26",
+  "step_id": 89,
+  "n_frames": 131,
+  "latency_s": 42.34,
+  "pred": {
+   "timing": false,
+   "temperature": false
+  }
+ },
+ {
+  "rid": "8_26",
+  "step_id": 84,
+  "n_frames": 1,
+  "latency_s": 25.27,
+  "pred": {
+   "measurement": false,
+   "preparation": false,
+   "technique": false
+  }
+ },
+ {
+  "rid": "8_26",
+  "step_id": 87,
+  "n_frames": 63,
+  "latency_s": 28.47,
+  "pred": {
+   "measurement": false,
+   "preparation": false
+  }
+ },
+ {
+  "rid": "8_26",
+  "step_id": 90,
+  "n_frames": 40,
+  "latency_s": 18.9,
+  "pred": {
+   "measurement": false,
+   "technique": false
+  }
+ },
+ {
+  "rid": "8_26",
+  "step_id": 85,
+  "n_frames": 29,
+  "latency_s": 18.68,
+  "pred": {
+   "technique": false
+  }
+ },
+ {
+  "rid": "8_26",
+  "step_id": 83,
+  "n_frames": 123,
+  "latency_s": 38.82,
+  "pred": {
+   "temperature": false,
+   "timing": false,
+   "preparation": false
+  }
+ },
+ {
+  "rid": "8_11",
+  "step_id": 88,
+  "n_frames": 85,
+  "latency_s": 29.94,
+  "pred": {
+   "technique": false,
+   "preparation": false,
+   "measurement": false
+  }
+ },
+ {
+  "rid": "8_11",
+  "step_id": 89,
+  "n_frames": 74,
+  "latency_s": 25.77,
+  "pred": {
+   "timing": false,
+   "temperature": false
+  }
+ },
+ {
+  "rid": "8_11",
+  "step_id": 84,
+  "n_frames": 46,
+  "latency_s": 34.97,
+  "pred": {
+   "measurement": true,
+   "preparation": false,
+   "technique": false
+  }
+ },
+ {
+  "rid": "8_11",
+  "step_id": 87,
+  "n_frames": 52,
+  "latency_s": 33.07,
+  "pred": {
+   "measurement": true,
+   "preparation": false
+  }
+ },
+ {
+  "rid": "8_11",
+  "step_id": 90,
+  "n_frames": 31,
+  "latency_s": 27.22,
+  "pred": {
+   "measurement": false,
+   "technique": false
+  }
+ },
+ {
+  "rid": "8_11",
+  "step_id": 85,
+  "n_frames": 34,
+  "latency_s": 19.68,
+  "pred": {
+   "technique": false
+  }
+ },
+ {
+  "rid": "8_11",
+  "step_id": 83,
+  "n_frames": 68,
+  "latency_s": 30.4,
+  "pred": {
+   "temperature": false,
+   "timing": false,
+   "preparation": false
+  }
+ }
+]

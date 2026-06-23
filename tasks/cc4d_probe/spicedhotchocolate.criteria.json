@@ -1,0 +1,179 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "task": {
+    "task_id": "spicedhotchocolate",
+    "title": "Spiced Hot Chocolate",
+    "source": "tasks/cc4d/spicedhotchocolate.json"
+  },
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 node form (partial order). DAG: fill -> microwave -> {cinnamon, sugar, chocolate} (all require only the microwave) -> mix (requires all three adds) -> heat. The three adds are an EMERGENT unordered group (same preconditions). Channel-blind: each recognition/completion/check carries a plain-language `claim` only; how to SENSE it (detector + executable criteria) is added in stage 2 (spicedhotchocolate.sensorplan.json). PROBING MODE: the base checks are recipe-text-anticipated; checks tagged `[probe-added]` were added from the observed error space (tasks/cc4d_probe/spicedhotchocolate.reminders.json, inclusion threshold n>=1) and therefore are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). heat_serve's observed `preparation` (\"heat 40 s\") is omitted as redundant with the timing check. See tasks/CRITERIA_GENERATION_PROBING.md.",
+
+  "nodes": [
+    {
+      "step_id": "fill_milk",
+      "instruction": "Fill a microwave-safe mug with skimmed milk",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is pouring skimmed milk into a mug. This is the root step, active from the start."
+      },
+      "completion": {
+        "claim": "The mug is full and pouring has stopped. There is no end sound, so completion is INFERRED from the microwave starting.",
+        "inferred_from": "microwave_initial"
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies skimmed milk; flag if a different milk (whole/2%) is used."
+        },
+        {
+          "reminder": "technique",
+          "claim": "[probe-added] The milk should go into the mug cleanly; flag spilling/mess while pouring. (generic pour/transfer slip; not pinned by recipe text, but the most frequent observed error on this step.)"
+        },
+        {
+          "reminder": "measurement",
+          "claim": "[probe-added] The mug should be filled roughly full; flag a clearly under-filled mug (e.g. half)."
+        }
+      ]
+    },
+    {
+      "step_id": "microwave_initial",
+      "instruction": "Microwave the contents of the mug for 1 minute",
+      "preconditions": ["fill_milk"],
+      "duration_constraint_s": 60,
+      "recognition": {
+        "claim": "The microwave is running with the mug inside (first cycle)."
+      },
+      "completion": {
+        "claim": "The first microwave run has finished and the mug is taken out.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe says about 60 s; flag if the run goes well beyond that."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "[probe-added, best-effort] The recipe implies full microwave power; flag a clearly reduced power level (e.g. 10% instead of 100%). Scored, but expect low recall: power dial usually off-screen."
+        }
+      ]
+    },
+    {
+      "step_id": "add_cinnamon",
+      "instruction": "Add 1/5 teaspoon cinnamon to the mug",
+      "preconditions": ["microwave_initial"],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding cinnamon to the mug. One of three concurrently-eligible adds; recognition says which is active now."
+      },
+      "completion": {
+        "claim": "Cinnamon is in and the user has moved on. Silent and unordered, so completion is observed as the user no longer adding cinnamon (recognition moves to another add or to stirring).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for about 1/5 teaspoon cinnamon; flag a clearly different amount."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The powder added should be cinnamon; flag another spice."
+        },
+        {
+          "reminder": "technique",
+          "claim": "[probe-added] The cinnamon should go into the mug cleanly; flag spilling/mess."
+        }
+      ]
+    },
+    {
+      "step_id": "add_sugar",
+      "instruction": "Add 1 teaspoon of white sugar to the mug",
+      "preconditions": ["microwave_initial"],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding white sugar to the mug (one of the three unordered adds)."
+      },
+      "completion": {
+        "claim": "Sugar is in and the user has moved on (silent; recognition moves off sugar).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for about 1 teaspoon of sugar; flag a clearly different amount."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies white sugar; flag brown or another sweetener."
+        }
+      ]
+    },
+    {
+      "step_id": "add_chocolate",
+      "instruction": "Add 2 pieces of chocolate to the mug",
+      "preconditions": ["microwave_initial"],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is putting chocolate pieces into the mug (one of the three unordered adds)."
+      },
+      "completion": {
+        "claim": "The chocolate is in and the user has moved on (silent; recognition moves off chocolate).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 2 pieces of chocolate; flag a different count."
+        },
+        {
+          "reminder": "technique",
+          "claim": "[probe-added] The chocolate should go into the mug cleanly; flag spilling/mess."
+        }
+      ]
+    },
+    {
+      "step_id": "mix",
+      "instruction": "Mix the contents of the mug",
+      "preconditions": ["add_cinnamon", "add_sugar", "add_chocolate"],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is stirring/mixing the contents of the mug. Eligible only once all three adds are done."
+      },
+      "completion": {
+        "claim": "Stirring has stopped and the spoon is out. Silent, so completion is INFERRED from the second microwave starting.",
+        "inferred_from": "heat_serve"
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The contents should be stirred until combined; flag a token stir that leaves it unmixed."
+        }
+      ]
+    },
+    {
+      "step_id": "heat_serve",
+      "instruction": "Heat the contents of the mug for 1 minute and serve",
+      "preconditions": ["mix"],
+      "duration_constraint_s": 60,
+      "recognition": {
+        "claim": "The microwave is running again with the mug inside (second cycle)."
+      },
+      "completion": {
+        "claim": "The second microwave run has finished, the mug is removed, and the drink is served.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe says about 60 s; flag if the run goes well beyond that."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "[probe-added, best-effort] The recipe implies full microwave power; flag a clearly reduced power level. Scored, but expect low recall: power dial usually off-screen."
+        }
+      ]
+    }
+  ]
+}

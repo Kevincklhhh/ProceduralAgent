@@ -1,0 +1,389 @@
+{
+  "recipe": "spicedhotchocolate",
+  "_kind": "detector_and_control_brainstorm",
+  "_schema": "v1.0",
+  "_note": "7 steps, 30 total claims (14 recog/compl + 16 checks). Two microwave steps anchor the whole timing spine via D1. All three add-steps (84/87/90) are silent dry pours — audio cannot tell them apart; the unordered fork makes recognition a VLM-only problem. Mix (85) detectable by cv motion/optical-flow. Thermal-spot is a strong speculative cheapener on both microwave steps.",
+  "claims": [
+    {
+      "step_id": 88,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is filling mug with milk (root step, no precond)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — optical-flow / HSV color-change in mug ROI detects a pour event; fires one VLM call to confirm step context. Pour transient is excluded from audio catalog.",
+      "config_oneline": "cv.motion_roi(mug_region) -> B-trigger VLM call; low-res 96x96 crop sufficient"
+    },
+    {
+      "step_id": 88,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Mug filled; completion inferred when step 89 (microwave) starts",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_start for step 89 fires within 8s; DAG edge 88->89 back-closes 88. No vision needed.",
+      "config_oneline": "dag: close(88) on D1.cycle_start(step=89)"
+    },
+    {
+      "step_id": 88,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Skimmed milk only; mug must be clean and microwave-safe",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium-high — ingredient identity (skim vs whole; mug type) is a VLM task; cv B-trigger (motion in mug ROI) wakes one VLM call as user reaches for the mug/milk",
+      "config_oneline": "cv.motion_roi(mug+container_region) -> VLM(ingredient_identity, container_check); 1 call"
+    },
+    {
+      "step_id": 88,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] No spill while filling mug",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — large HSV state-change outside mug ROI = spill signal; cheap enough to leave cv on during this short step",
+      "config_oneline": "cv.hsv_change(outside_mug_roi, threshold=0.15) -> B-trigger VLM(spill_confirm); low-res ROI"
+    },
+    {
+      "step_id": 88,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "[probe-added] Mug fill level not noticeably under (e.g. only half full)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — fill level in a mug is a VLM spatial reasoning task; fire one VLM call when pour stops (cv motion drops). Thermal-spot infeasible here (milk temp change too small before microwave).",
+      "config_oneline": "cv.motion_stop(mug_roi) -> VLM(fill_level_check); 1 call at pour-end"
+    },
+    {
+      "step_id": 89,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Mug placed in microwave, microwave running",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 MicrowaveCycleDetector: cycle_start emitted within 8s of hum onset. Camera OFF.",
+      "config_oneline": "D1.cycle_start -> A-solve step_89_active; camera OFF during entire microwave run"
+    },
+    {
+      "step_id": 89,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Microwave finishes: beep + hum stops",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_end: end-beep + hum offset, latency <=8s. Authoritative. Camera stays OFF.",
+      "config_oneline": "D1.cycle_end -> A-solve step_89_complete; camera OFF"
+    },
+    {
+      "step_id": 89,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Microwave run ~60s; flag noticeably shorter or longer",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D6 timer anchored on D1.cycle_start, threshold at 60s; D1.duration emitted directly. Pure logic.",
+      "config_oneline": "D6.timer(anchor=D1.cycle_start, target=60s, tol=10s) -> A-solve timing_check"
+    },
+    {
+      "step_id": 89,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "[probe-added] Full microwave power (not 10% or reduced power)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — microwave power level is displayed on the appliance panel; audio cannot distinguish power levels (tested/excluded); thermal-spot inside microwave not accessible; only option is VLM reading the microwave display before door closes. Feasibility of low-res-ROI: medium if camera can see display.",
+      "config_oneline": "C-none -> periodic VLM(microwave_display) or single frame at cycle_start if display visible; fallback: accept risk"
+    },
+    {
+      "step_id": 84,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding cinnamon (one of three concurrent-eligible unordered adds)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "high — audio cannot distinguish cinnamon from sugar from chocolate (all silent dry pours/drops); cv HSV can detect 'something was added' (state-change) but NOT which ingredient; VLM required for ingredient identity. C-none: periodic VLM during the add-fork window.",
+      "config_oneline": "C-none -> periodic VLM every ~3s during add-fork window (after D1.cycle_end step_89)"
+    },
+    {
+      "step_id": 84,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Cinnamon added; completion inferred when step 85 (mix) begins",
+      "modality": "dag",
+      "role": "B-trigger",
+      "speculative_sensor": "imu_candidates",
+      "feasibility": "medium — cv optical-flow or IMU wrist-rotation detects stir motion onset (step 85 recognition); DAG then closes 84 (along with 87, 90). Stir-clink excluded from audio catalog but cv motion is valid.",
+      "config_oneline": "cv.motion_roi(mug+spoon) OR imu.rotation_pattern -> B-trigger step_85_recog -> dag close(84,87,90)"
+    },
+    {
+      "step_id": 84,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/5 tsp cinnamon — not a tablespoon; correct amount",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — sub-teaspoon volumes are extremely hard to gauge from video; VLM needed but even VLM accuracy on '1/5 tsp' vs '1/4 tsp' is low. C-none + accept residual risk.",
+      "config_oneline": "C-none -> VLM(utensil_size_check) during step_84 active window; 1 call at add-event"
+    },
+    {
+      "step_id": 84,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Right spice (cinnamon, not cumin etc.) in the mug not a plate",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium-high — cv state-change in mug ROI detects an add event; fires one VLM call for spice identity confirmation",
+      "config_oneline": "cv.hsv_change(mug_roi) -> VLM(spice_identity, target_container); 1 call per add-event"
+    },
+    {
+      "step_id": 84,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Cinnamon added cleanly, correct measuring motion (no spill)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low-medium — fine pouring technique (dip-and-sweep vs dump) is a subtle visual motion; VLM with a close-up ROI frame could judge, but this is near VLM accuracy floor for such fine movements",
+      "config_oneline": "C-none -> VLM(technique_check) at add-event frame; low-res ROI 128x128 may suffice for spill"
+    },
+    {
+      "step_id": 87,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding white sugar (one of three concurrent-eligible unordered adds)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "high — same reasoning as step 84 recognition: silent add, ingredient identity not audio-detectable; VLM required",
+      "config_oneline": "C-none -> periodic VLM every ~3s during add-fork window"
+    },
+    {
+      "step_id": 87,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Sugar added; completion inferred when step 85 (mix) begins",
+      "modality": "dag",
+      "role": "B-trigger",
+      "speculative_sensor": "imu_candidates",
+      "feasibility": "medium — same as step 84 completion: cv/IMU stir-onset -> DAG closes 87",
+      "config_oneline": "cv.motion_roi(mug+spoon) OR imu.rotation_pattern -> B-trigger step_85_recog -> dag close(84,87,90)"
+    },
+    {
+      "step_id": 87,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 tsp sugar — not a tablespoon, correct amount",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — 1 tsp is more visible than 1/5 tsp; VLM can check spoon size (teaspoon vs tablespoon) with a close-up frame",
+      "config_oneline": "C-none -> VLM(utensil_size_check) at add-event; 1 call; low-res ROI may suffice for spoon shape"
+    },
+    {
+      "step_id": 87,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "White sugar, not salt or starch",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium-high — cv state-change detects add event; VLM identifies container label or powder texture/color (sugar vs salt vs starch appearance differ in VLM)",
+      "config_oneline": "cv.hsv_change(mug_roi) -> VLM(ingredient_identity); 1 call at add-event"
+    },
+    {
+      "step_id": 90,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding chocolate pieces (one of three concurrent-eligible unordered adds)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — chocolate pieces are large dark solid objects, visually distinct from powder (cinnamon/sugar); cv color+shape change in mug ROI can flag 'dark solid added' and fire one VLM call to confirm identity and count",
+      "config_oneline": "cv.hsv_shape_roi(mug_region, detect=dark_solid) -> B-trigger VLM(identity+count); 1 call"
+    },
+    {
+      "step_id": 90,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Chocolate added; completion inferred when step 85 (mix) begins",
+      "modality": "dag",
+      "role": "B-trigger",
+      "speculative_sensor": "imu_candidates",
+      "feasibility": "medium — same as 84/87: cv/IMU stir-onset -> DAG closes 90",
+      "config_oneline": "cv.motion_roi(mug+spoon) OR imu.rotation_pattern -> B-trigger step_85_recog -> dag close(84,87,90)"
+    },
+    {
+      "step_id": 90,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "2 pieces of chocolate — flag 1, 4, or 5 pieces",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — counting discrete solid pieces is within VLM capability with a close-up ROI frame; the B-trigger cv event (dark solid detected) fires the count VLM call. Low-res ROI 128x128 likely sufficient.",
+      "config_oneline": "cv.shape_roi(mug_region) -> VLM(count_pieces, expected=2); 1 call at add-event"
+    },
+    {
+      "step_id": 90,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Chocolate added cleanly into mug, no spill",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — spill = large state-change outside mug ROI; same HSV-change spill check as step 88. cv can detect this without VLM.",
+      "config_oneline": "cv.hsv_change(outside_mug_roi, threshold=0.15) -> B-trigger alert(spill); low-res ROI"
+    },
+    {
+      "step_id": 85,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User stirring/mixing mug contents (active after all three adds done)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu_candidates",
+      "feasibility": "medium — repetitive optical-flow in mug ROI + hand motion indicates stir; stir-clink is EXCLUDED from audio catalog; cv motion is valid but needs confirmation (many false sources of motion). IMU wrist-rotation pattern is a good speculative cheaper alternative.",
+      "config_oneline": "cv.optical_flow_roi(mug_region, pattern=circular) OR imu.rotation -> B-trigger VLM(stir_confirm); 1 call"
+    },
+    {
+      "step_id": 85,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Mixing done; completion inferred when step 83 (second microwave) starts",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_start for step 83 fires; DAG edge 85->83 back-closes 85. Camera OFF once mug is in microwave.",
+      "config_oneline": "dag: close(85) on D1.cycle_start(step=83)"
+    },
+    {
+      "step_id": 85,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Mixing thorough — not too hasty, right motion, no spill",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "imu_candidates",
+      "feasibility": "low — judging 'thorough enough' stir quality is fine technique; VLM needed. IMU could weakly flag very brief stir (undertime), but confirming 'no lumps / proper circular motion vs up-down' needs VLM. Periodic VLM during mix window.",
+      "config_oneline": "C-none -> periodic VLM(technique_quality) every 3s during step_85 window; camera ON"
+    },
+    {
+      "step_id": 83,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Mug placed in microwave for final heat; microwave running",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_start for second microwave run. Same as step 89. Camera OFF.",
+      "config_oneline": "D1.cycle_start(second_run) -> A-solve step_83_active; camera OFF during run"
+    },
+    {
+      "step_id": 83,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Final microwave finishes; mug removed and served",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D1 cycle_end: end-beep + hum offset. Camera stays OFF through the run.",
+      "config_oneline": "D1.cycle_end(second_run) -> A-solve step_83_complete; procedure done"
+    },
+    {
+      "step_id": 83,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Final heat ~60s; flag noticeably shorter or longer",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": null,
+      "feasibility": "high — D6 timer anchored on D1.cycle_start(step=83), threshold 60s. Same as step 89 timing check.",
+      "config_oneline": "D6.timer(anchor=D1.cycle_start_83, target=60s, tol=10s) -> A-solve timing_check"
+    },
+    {
+      "step_id": 83,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "[probe-added] Final heat at full microwave power (not reduced)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — same constraint as step 89: power level only visible on appliance display; audio cannot detect. Low-res ROI of microwave panel at cycle_start is the best available.",
+      "config_oneline": "C-none -> single VLM frame(microwave_display) at D1.cycle_start if display visible; else accept risk"
+    },
+    {
+      "step_id": 83,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] No milk overflow/spill from excessive heat",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — overflow cannot be seen while door is closed; best detection window is immediately after D1.cycle_end when door is opened. D1.cycle_end triggers one VLM call to inspect mug exterior/microwave interior for spill. Thermal-spot: speculative — a thermal pixel on the microwave interior could detect overflow heating pattern (medium feasibility, not proven).",
+      "config_oneline": "D1.cycle_end -> VLM(mug_overflow_check); 1 call at door-open moment"
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 88,
+        "stage": "fill_mug",
+        "camera": "ON (low-res ROI)",
+        "audio": "none",
+        "vlm": "B-trigger (1-2 calls: recognition + preparation/fill-level checks)",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 89,
+        "stage": "microwave_1min",
+        "camera": "OFF",
+        "audio": "D1 (A-solve recognition + completion + D6 timing)",
+        "vlm": "0 calls during run; optional 1 call at cycle_start if display visible (power check)",
+        "role": "A-solve"
+      },
+      {
+        "step_id": "84+87+90",
+        "stage": "add_fork (cinnamon+sugar+chocolate, unordered)",
+        "camera": "ON (low-res ROI)",
+        "audio": "none (all silent adds)",
+        "vlm": "C-none periodic (~3s) + B-trigger calls at each detected add event; ~4-6 VLM calls total for 3 adds",
+        "role": "C-none / B-trigger"
+      },
+      {
+        "step_id": 85,
+        "stage": "mix",
+        "camera": "ON (low-res ROI / optical-flow)",
+        "audio": "none (stir-clink excluded)",
+        "vlm": "B-trigger (1 VLM confirm at stir detection) + C-none technique check",
+        "role": "B-trigger / C-none"
+      },
+      {
+        "step_id": 83,
+        "stage": "final_heat_1min",
+        "camera": "OFF (D1 A-solve); single frame at cycle_start if display check wanted",
+        "audio": "D1 (A-solve recognition + completion + D6 timing)",
+        "vlm": "0-1 calls during run (display check); 1 call at cycle_end (overflow check)",
+        "role": "A-solve"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 8,
+      "B-trigger": 14,
+      "C-none": 8
+    },
+    "cost_estimate": "Camera OFF for both microwave stages (steps 89 + 83 = ~120s of ~200s total procedure = ~60% of wall-clock time, camera off). During camera-on stages, only low-res ROI frames needed for cv triggers. VLM called ~8-10 times total vs continuous periodic VLM every 3s (~65 calls over same window). Estimated VLM savings: ~85-90% call reduction for the same event coverage, assuming D1 and cv triggers work reliably.",
+    "honest_limits": "C-none slice: step 84/87 recognition (2 claims) and 5 checks (89/83 power-level, 84 measurement + technique, 85 technique, 87 measurement) — 7 claims total requiring periodic or continuous VLM. The three-way unordered add-fork (84/87/90) is the hard core: audio cannot help at all, cv only detects 'something was added' not WHICH ingredient except for chocolate pieces. The 1/5-tsp cinnamon measurement is near-impossible to reliably flag even with VLM (sub-teaspoon precision). Microwave power-level checks (89+83 temperature) are low-feasibility with any cheap sensor."
+  }
+}

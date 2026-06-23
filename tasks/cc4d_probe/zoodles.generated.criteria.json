@@ -1,0 +1,303 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/zoodles.reminders.json) -- one per observed subtype per step -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG: two concurrent root steps (200 peel garlic, 203 spiralize zucchini, both preconditions []), reconverging at 196 heat pan -> 204 melt butter -> 199 add garlic -> 202 cook garlic, which forks into four concurrently-eligible steps (193 parmesan, 194 pepper, 198 salt, 201 add zoodles all require [202]), reconverging at 192 cook 2 min -> 197 remove from heat -> 195 top with parmesan; 13 distinct step_ids, no repeated step_ids.",
+  "task": {
+    "task_id": "zoodles",
+    "title": "Zoodles",
+    "source": "tasks/cc4d/zoodles.json"
+  },
+  "nodes": [
+    {
+      "step_id": 200,
+      "instruction": "Peel 1 garlic cloves",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (no preconditions); active from the start. This step is one of 2 concurrently-eligible roots (alongside step 203 spiralize zucchini); recognition must say which is active now. The user is peeling a garlic clove, removing the papery skin by hand."
+      },
+      "completion": {
+        "claim": "A peeled garlic clove is ready. Peeling has no distinct end signal of its own; inferred from the onset of heating the pan (step 196), which proves both root prep steps are done.",
+        "inferred_from": 196
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires properly and fully peeling the garlic; flag if the clove is only partially peeled, skin is left on, or the clove is not peeled at all."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 garlic clove to be peeled; flag if more than 1 clove or an entire garlic head is peeled instead."
+        }
+      ]
+    },
+    {
+      "step_id": 203,
+      "instruction": "Spiralize 1 medium zucchini into thin noodles using a spiralizer",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (no preconditions); active from the start. This step is one of 2 concurrently-eligible roots (alongside step 200 peel garlic); recognition must say which is active now. The user is running a medium zucchini through a spiralizer to produce thin noodles."
+      },
+      "completion": {
+        "claim": "The zucchini has been fully spiralized into thin noodles. Spiralizing has no distinct end signal of its own; inferred from the onset of heating the pan (step 196), which proves both root prep steps are done.",
+        "inferred_from": 196
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires using a spiralizer to produce thin noodles; flag if a different method is used (e.g., grating or chopping instead of spiralizing), if the ends are not trimmed before spiralizing, or if the action is incomplete."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires a clean zucchini; flag if a soiled or unwashed zucchini is used."
+        }
+      ]
+    },
+    {
+      "step_id": 196,
+      "instruction": "Heat a large pan on medium heat",
+      "preconditions": [200, 203],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is placing a large pan on a burner and setting the heat to medium. Active once both root steps (200 peel garlic, 203 spiralize zucchini) are complete."
+      },
+      "completion": {
+        "claim": "The pan is on the burner at medium heat. Heating has no distinct end signal of its own; inferred from the onset of melting butter in the pan (step 204).",
+        "inferred_from": 204
+      },
+      "checks": [
+        {
+          "reminder": "temperature",
+          "claim": "The recipe calls for medium heat; flag if the burner is set to high or low heat instead of medium."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires heating the correct burner; flag if the wrong burner is turned on (e.g., turning on one burner then switching to a different one)."
+        }
+      ]
+    },
+    {
+      "step_id": 204,
+      "instruction": "Melt 1 tablespoons of softened butter",
+      "preconditions": [196],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding butter to the heated pan and allowing it to melt."
+      },
+      "completion": {
+        "claim": "One tablespoon of butter is melted in the pan. Melting has no distinct end signal of its own; inferred from the onset of adding minced garlic to the pan (step 199).",
+        "inferred_from": 199
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for softened regular butter; flag if a different fat is used (e.g., clarified butter/ghee, garlic butter) or if the butter is added in an improper manner (e.g., by hand)."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe requires gently melting the butter; flag if the heat is too high causing the butter to burn, or if frozen rather than softened butter is used."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 tablespoon of softened butter; flag if a different amount is used (e.g., 1/2 tablespoon, or a teaspoon measured instead of a tablespoon)."
+        }
+      ]
+    },
+    {
+      "step_id": 199,
+      "instruction": "Add 1 large minced garlic cloves to the pan",
+      "preconditions": [204],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding minced garlic to the buttered pan."
+      },
+      "completion": {
+        "claim": "Minced garlic is in the pan. Adding has no distinct end signal of its own; inferred from the onset of cooking the garlic (step 202).",
+        "inferred_from": 202
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires garlic to be minced before adding; flag if the garlic is sliced, chopped, or crushed instead of minced, or if it is thrown carelessly into the pan causing spilling."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires peeled and minced garlic; flag if unpeeled garlic or cloves with skin still attached are added to the pan."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 large garlic clove; flag if 2 or more cloves (or an entire garlic head's worth) are added instead."
+        }
+      ]
+    },
+    {
+      "step_id": 202,
+      "instruction": "Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic",
+      "preconditions": [199],
+      "duration_constraint_s": 60,
+      "recognition": {
+        "claim": "The user is actively cooking the garlic in butter over heat, watching and stirring to prevent burning."
+      },
+      "completion": {
+        "claim": "Garlic is fragrant and lightly golden; this is directly observable (color change, aroma). Set inferred_from to null.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for about 1 minute (60 s) of cooking; flag if the garlic is cooked significantly shorter (under ~30 s) or longer (beyond 60 s, especially to the point of burning)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires cooking garlic carefully to avoid burning; flag if the garlic is cooked unattended, left on heat too long, or actively burnt."
+        }
+      ]
+    },
+    {
+      "step_id": 193,
+      "instruction": "1/6 cup grated parmesan cheese",
+      "preconditions": [202],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "This step is one of 4 concurrently-eligible steps (alongside 194 pepper, 198 salt, 201 add zoodles — all require only [202]); recognition must say which is active now. The user is measuring and adding 1/6 cup of grated parmesan cheese to the pan."
+      },
+      "completion": {
+        "claim": "Parmesan has been added to the pan. Adding has no distinct end signal of its own; inferred from the onset of cooking the zoodles (step 192).",
+        "inferred_from": 192
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires adding the parmesan into the pan without spillage; flag if cheese is spilled outside the pan during transfer."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/6 cup of grated parmesan; flag if a different amount is used (e.g., 1 cup, 1/3 cup, 1/4 cup, or an unmeasured quantity)."
+        }
+      ]
+    },
+    {
+      "step_id": 194,
+      "instruction": "pepper to taste",
+      "preconditions": [202],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "This step is one of 4 concurrently-eligible steps (alongside 193 parmesan, 198 salt, 201 add zoodles — all require only [202]); recognition must say which is active now. The user is adding pepper to the dish."
+      },
+      "completion": {
+        "claim": "Pepper has been added. Adding has no distinct end signal of its own; inferred from the onset of cooking the zoodles (step 192).",
+        "inferred_from": 192
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for pepper to taste (a moderate seasoning); flag if an excessive amount of pepper is added rather than a reasonable taste-level quantity."
+        }
+      ]
+    },
+    {
+      "step_id": 198,
+      "instruction": "season with salt",
+      "preconditions": [202],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "This step is one of 4 concurrently-eligible steps (alongside 193 parmesan, 194 pepper, 201 add zoodles — all require only [202]); recognition must say which is active now. The user is sprinkling salt over the dish."
+      },
+      "completion": {
+        "claim": "Salt has been added. Seasoning has no distinct end signal of its own; inferred from the onset of cooking the zoodles (step 192).",
+        "inferred_from": 192
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires a controlled salt seasoning; flag if the salt spoon or shaker is dropped causing an uncontrolled spill of salt."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for a moderate salt seasoning; flag if an excessive amount of salt is added (e.g., from a dropped spoon or deliberate over-salting)."
+        }
+      ]
+    },
+    {
+      "step_id": 201,
+      "instruction": "Add the zucchini noodles",
+      "preconditions": [202],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "This step is one of 4 concurrently-eligible steps (alongside 193 parmesan, 194 pepper, 198 salt — all require only [202]); recognition must say which is active now. The user is transferring the spiralized zucchini noodles into the pan."
+      },
+      "completion": {
+        "claim": "Zucchini noodles are in the pan. Adding has no distinct end signal of its own; inferred from the onset of cooking the zoodles (step 192).",
+        "inferred_from": 192
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires transferring the zucchini noodles cleanly into the pan; flag if the noodles are transferred improperly (e.g., not using the cutting board, scooping with hands only, causing noodles to spill outside the pan)."
+        }
+      ]
+    },
+    {
+      "step_id": 192,
+      "instruction": "Cook for 2 minutes or until the zoodles are done",
+      "preconditions": [193, 194, 198, 201],
+      "duration_constraint_s": 120,
+      "recognition": {
+        "claim": "The user is actively sauteing or tossing the zucchini noodles in the pan with all other ingredients over heat. Active once all four fork steps (193, 194, 198, 201) are complete."
+      },
+      "completion": {
+        "claim": "Zoodles are cooked through (tender, not mushy); this is directly observable (texture, color change). Set inferred_from to null.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires properly sauteing the zoodles in the pan; flag if zoodles are spilled outside the pan or handled improperly (e.g., pressed down rather than tossed, or scooped out of the pan)."
+        },
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for 2 minutes (120 s) of cooking or until done; flag if the zoodles are cooked significantly beyond 2 minutes (e.g., 3 or 4 minutes), risking overcooking."
+        }
+      ]
+    },
+    {
+      "step_id": 197,
+      "instruction": "Remove from heat",
+      "preconditions": [192],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is removing the pan from the burner or turning off the heat."
+      },
+      "completion": {
+        "claim": "The pan is off the heat; this is directly observable (pan moved off burner or burner turned off). Set inferred_from to null.",
+        "inferred_from": null
+      },
+      "checks": []
+    },
+    {
+      "step_id": 195,
+      "instruction": "Top with more parmesan if desired",
+      "preconditions": [197],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is sprinkling additional parmesan cheese on top of the finished, plated zoodles."
+      },
+      "completion": {
+        "claim": "The dish is topped with parmesan and plating is complete; this is the last step with no successor — end is the finished dish. Set inferred_from to null.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for parmesan cheese as the topping; flag if a different cheese (e.g., cheddar) is used instead."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires adding parmesan to the top of the dish cleanly; flag if parmesan is spilled while adding the topping."
+        }
+      ]
+    }
+  ]
+}

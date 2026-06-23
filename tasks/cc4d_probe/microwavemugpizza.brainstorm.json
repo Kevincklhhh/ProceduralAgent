@@ -1,0 +1,696 @@
+{
+  "recipe": "microwavemugpizza",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "53 claims total: 14 recognition + 14 completion + 25 checks. This is a predominantly silent prep recipe (dry/wet measure-and-add) with ONE microwave step. Audio covers only that microwave step. Everything else is C-none or cv-triggered VLM.",
+  "claims": [
+
+    {
+      "step_id": 36,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User picks up / sets out a microwavable mug (root step, active from start)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — HSV color-change or hand-in-ROI detects a mug appearing at counter-center; fires one VLM call to confirm it is microwavable. Small fixed-size crop suffices.",
+      "config_oneline": "cv hand-in-ROI @ counter → B-trigger VLM(1 frame) to confirm microwavable mug"
+    },
+    {
+      "step_id": 36,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Mug in hand — completion inferred from earliest measure-and-add step (28) starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — pure graph logic: once any of steps 28/33/35/40 is recognized, step 36 is complete; no sensor needed",
+      "config_oneline": "dag: step-36 complete when first of {28,33,35,40} recognized"
+    },
+    {
+      "step_id": 36,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Mug should be clean; flag soiled or uncleaned mug",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — cleanliness requires VLM texture/appearance reasoning on the mug interior; no cheap proxy",
+      "config_oneline": "vlm periodic @ mug ROI once on recognition → flag visible soiling"
+    },
+
+    {
+      "step_id": 28,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User measures salt with a measuring spoon and adds it to mug (one of 4 concurrent steps)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — HSV state-change on mug ROI detects that an add happened; a low-res crop can detect spoon-to-mug motion; VLM fired once to identify which ingredient (salt vs others)",
+      "config_oneline": "cv HSV state-change mug-ROI → B-trigger VLM(1 frame) identify ingredient=salt"
+    },
+    {
+      "step_id": 28,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Salt in mug — no end sound; inferred from stir step 38 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — graph logic: once step 38 recognized all four add-steps (28,33,35,40) are complete",
+      "config_oneline": "dag: step-28 complete when step-38 recognized"
+    },
+    {
+      "step_id": 28,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag clearly wrong amount of salt (e.g. 1/4 tsp vs 1/8 tsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM fired on the same B-trigger call that identifies the ingredient; spoon size partially visible but 1/16 vs 1/8 tsp is sub-VLM resolution; flag only gross violations",
+      "config_oneline": "vlm B-trigger call (same as recognition) inspect spoon fullness → flag gross mismeasure"
+    },
+    {
+      "step_id": 28,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong ingredient or unclean/contaminating spoon",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM on the same single triggered frame can identify ingredient label/color; spoon cleanliness partially assessable",
+      "config_oneline": "vlm B-trigger call inspect ingredient identity + spoon state"
+    },
+
+    {
+      "step_id": 33,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User measures flour and adds it to mug (one of 4 concurrent steps)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — same cv state-change trigger as step 28; white powder visible via HSV; VLM confirms flour vs other white ingredient",
+      "config_oneline": "cv HSV state-change mug-ROI → B-trigger VLM(1 frame) identify ingredient=flour"
+    },
+    {
+      "step_id": 33,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Flour in mug — inferred from stir step 38 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — graph logic same as step 28",
+      "config_oneline": "dag: step-33 complete when step-38 recognized"
+    },
+    {
+      "step_id": 33,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag clearly wrong amount of flour (e.g. 2, 3, or 5 tbsp vs 4 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM on triggered frame can judge spoon-fill count if multiple scoops are visible; partial coverage",
+      "config_oneline": "vlm B-trigger call inspect spoon count / fill level → flag gross mismeasure"
+    },
+    {
+      "step_id": 33,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong ingredient or unclean spoon",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — same VLM call identifies white powder variety; spoon state also assessed",
+      "config_oneline": "vlm B-trigger call inspect ingredient identity + spoon cleanliness"
+    },
+    {
+      "step_id": 33,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spilling flour while transferring into mug",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — optical-flow / HSV brightness change on counter surface outside mug can detect a white scatter; fires VLM to confirm spill",
+      "config_oneline": "cv HSV-scatter on counter-ROI → B-trigger VLM(1 frame) confirm flour spill"
+    },
+
+    {
+      "step_id": 35,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User measures baking soda and adds it to mug (one of 4 concurrent steps)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — HSV change on mug; baking soda is white powder similar to flour; VLM needed for identity",
+      "config_oneline": "cv HSV state-change mug-ROI → B-trigger VLM(1 frame) identify ingredient=baking-soda"
+    },
+    {
+      "step_id": 35,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Baking soda in mug — inferred from stir step 38 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "dag: step-35 complete when step-38 recognized"
+    },
+    {
+      "step_id": 35,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag clearly wrong amount of baking soda (e.g. 1 tsp vs 1/16 tsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM on triggered frame; gross violation (1 tsp vs pinch) is visible",
+      "config_oneline": "vlm B-trigger call inspect spoon fill → flag gross over-measure"
+    },
+    {
+      "step_id": 35,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong ingredient (e.g. baking powder swapped) or unclean spoon",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low-medium — baking soda vs baking powder look identical to camera; VLM may need label read; OCR on container label is the best bet",
+      "config_oneline": "vlm B-trigger call + OCR on container label → flag wrong white powder identity"
+    },
+
+    {
+      "step_id": 40,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User measures baking powder and adds it to mug (one of 4 concurrent steps)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — same trigger as step 35; VLM or OCR differentiates baking powder from baking soda",
+      "config_oneline": "cv HSV state-change mug-ROI → B-trigger VLM(1 frame) identify ingredient=baking-powder"
+    },
+    {
+      "step_id": 40,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Baking powder in mug — inferred from stir step 38 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "dag: step-40 complete when step-38 recognized"
+    },
+    {
+      "step_id": 40,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag clearly wrong amount of baking powder (e.g. 1/4 tsp vs 1/8 tsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — gross violations visible on triggered frame",
+      "config_oneline": "vlm B-trigger call inspect spoon fill → flag gross mismeasure"
+    },
+    {
+      "step_id": 40,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong ingredient (baking soda swapped) or unclean spoon",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low-medium — container label OCR needed for baking soda vs baking powder swap; these look identical",
+      "config_oneline": "vlm B-trigger call + OCR on container → flag swapped white powder"
+    },
+
+    {
+      "step_id": 38,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User stirs dry contents of mug with utensil (reconvergence after all 4 dry adds)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu/motion",
+      "feasibility": "medium — optical-flow on mug-ROI detects repetitive circular motion; IMU on wrist would capture stir cadence. B-trigger fires VLM to confirm utensil vs hand and that all 4 adds are complete",
+      "config_oneline": "cv optical-flow circular motion mug-ROI (or IMU stir-cadence) → B-trigger VLM confirm utensil stir"
+    },
+    {
+      "step_id": 38,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Stirring stops — inferred from earliest wet-add step (34 or 41) starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — once step 34 or 41 recognized, step 38 completion follows",
+      "config_oneline": "dag: step-38 complete when first of {34,41} recognized"
+    },
+    {
+      "step_id": 38,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Flag stirring with hand instead of utensil, or spilling contents while stirring",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — spilling detectable by cv HSV on counter, but distinguishing hand vs utensil inside a mug at angle requires VLM; continuous or periodic VLM during stir window",
+      "config_oneline": "vlm periodic(2s) during stir window → flag hand-stir or spill; cv scatter-on-counter as spill trigger"
+    },
+    {
+      "step_id": 38,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Flag using a hand rather than a clean utensil (hygiene concern)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — same as above; requires VLM to see what is inside the mug",
+      "config_oneline": "vlm periodic during stir window → flag hand contact with mug contents"
+    },
+
+    {
+      "step_id": 34,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adds olive oil to mug (one of 2 concurrent wet-add steps after stir)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — a pour event creates a liquid-motion optical-flow or HSV change in mug; cv detects the add and triggers VLM to confirm olive oil vs milk",
+      "config_oneline": "cv HSV liquid change mug-ROI → B-trigger VLM(1 frame) identify ingredient=olive-oil"
+    },
+    {
+      "step_id": 34,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Oil in mug — inferred from mix step 37 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — graph logic: step 37 starts once both 34 and 41 recognized",
+      "config_oneline": "dag: step-34 complete when step-37 recognized"
+    },
+    {
+      "step_id": 34,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag clearly wrong amount of olive oil (e.g. 2 tbsp vs 1 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM on triggered frame; can judge fill level if bottle is visible; gross violations (2x amount) detectable",
+      "config_oneline": "vlm B-trigger call inspect pour volume / spoon fill → flag gross over-pour"
+    },
+    {
+      "step_id": 34,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong oil (e.g. vegetable oil instead of olive oil)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM can read label or identify bottle type; color of oil is similar so label read is key",
+      "config_oneline": "vlm B-trigger call OCR/label on oil bottle → flag non-olive oil"
+    },
+    {
+      "step_id": 34,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag improper measuring technique (e.g. inverted tablespoon when pouring oil)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — spoon orientation is a fine visual detail requiring VLM; cv optical-flow can detect motion but not spoon orientation; periodic VLM during oil-add window",
+      "config_oneline": "vlm periodic(1 call) during oil-add window → flag spoon inversion technique error"
+    },
+
+    {
+      "step_id": 41,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adds milk to mug (one of 2 concurrent wet-add steps after stir)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — same pour/liquid detection as step 34; white color of milk distinguishable from yellow olive oil by HSV; B-trigger VLM to confirm milk",
+      "config_oneline": "cv HSV liquid change (white tones) mug-ROI → B-trigger VLM(1 frame) identify ingredient=milk"
+    },
+    {
+      "step_id": 41,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Milk in mug — inferred from mix step 37 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "dag: step-41 complete when step-37 recognized"
+    },
+    {
+      "step_id": 41,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag clearly wrong amount of milk (e.g. 4 tbsp vs 3 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM on triggered frame; spoon count or bottle-tilt duration gives gross estimate",
+      "config_oneline": "vlm B-trigger call inspect pour volume → flag gross wrong amount"
+    },
+    {
+      "step_id": 41,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong liquid (e.g. curd instead of milk)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — container label or texture (curd is lumpy/thick) is assessable by VLM on one frame",
+      "config_oneline": "vlm B-trigger call inspect container label / liquid consistency → flag non-milk"
+    },
+
+    {
+      "step_id": 37,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User mixes wet and dry contents into batter (reconvergence after both wet-adds)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu/motion",
+      "feasibility": "medium — optical-flow on mug-ROI detects vigorous mixing motion; IMU wrist-cadence also viable; B-trigger VLM to confirm batter formation",
+      "config_oneline": "cv optical-flow mug-ROI → B-trigger VLM(1 frame) confirm wet batter mixing"
+    },
+    {
+      "step_id": 37,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Mixing stops — inferred from next step (30, taking marinara sauce) starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "dag: step-37 complete when step-30 recognized"
+    },
+    {
+      "step_id": 37,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Flag clearly inadequate mixing (too brief, unmixed dry pockets visible)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — dry vs wet unmixed pockets require VLM to inspect batter appearance from above; no cheap acoustic/cv proxy; periodic VLM during mixing window",
+      "config_oneline": "vlm periodic(2s) during mix window → flag unmixed dry pockets or too-brief stir"
+    },
+
+    {
+      "step_id": 30,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User takes/measures ~1 tablespoon of marinara sauce",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — HSV detects red sauce container appearing / being handled; B-trigger VLM to confirm marinara vs other sauce",
+      "config_oneline": "cv HSV red-object appears in hand-ROI → B-trigger VLM(1 frame) confirm marinara sauce"
+    },
+    {
+      "step_id": 30,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Sauce taken — inferred from spreading step 31 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "dag: step-30 complete when step-31 recognized"
+    },
+    {
+      "step_id": 30,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag clearly wrong amount of marinara sauce (e.g. 2 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM on triggered frame can judge spoon fill; red sauce is visually distinct",
+      "config_oneline": "vlm B-trigger call inspect spoon fill → flag gross wrong sauce amount"
+    },
+    {
+      "step_id": 30,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong sauce (e.g. ketchup or salsa instead of marinara)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM can read container label or judge texture/color differences (ketchup is smoother/redder, salsa has chunks); one triggered frame is enough",
+      "config_oneline": "vlm B-trigger call inspect container label / sauce texture → flag wrong sauce type"
+    },
+
+    {
+      "step_id": 31,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User spreads marinara sauce across surface of batter in mug",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — optical-flow detects a spreading/smearing motion inside the mug; red HSV change on mug top surface; B-trigger VLM to confirm sauce is being spread not mixed in",
+      "config_oneline": "cv HSV red-spread on mug-top-ROI → B-trigger VLM(1 frame) confirm surface spread"
+    },
+    {
+      "step_id": 31,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Spreading done — inferred from cheese step 39 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "dag: step-31 complete when step-39 recognized"
+    },
+    {
+      "step_id": 31,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Flag mixing sauce into batter instead of spreading on surface, or spreading wrong sauce",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low — distinguishing surface-spread vs stir-in requires VLM top-down view of mug interior; motion alone (cv) cannot differentiate; continuous VLM during spread window",
+      "config_oneline": "vlm periodic(1 call) during sauce-spread window → flag stir-in vs surface spread"
+    },
+
+    {
+      "step_id": 39,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User sprinkles mozzarella cheese on top of sauce",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — white/yellow shredded cheese appearing on top of red sauce is a strong HSV change on mug-top ROI; B-trigger VLM to confirm mozzarella type",
+      "config_oneline": "cv HSV white/yellow on red mug-top-ROI → B-trigger VLM(1 frame) confirm mozzarella cheese"
+    },
+    {
+      "step_id": 39,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Cheese on top — inferred from herbs step 29 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "dag: step-39 complete when step-29 recognized"
+    },
+    {
+      "step_id": 39,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Flag clearly different amount of mozzarella (e.g. too little or too much)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM on triggered frame can assess cheese coverage; 'generous tablespoon' is a soft target so only gross violations flagged",
+      "config_oneline": "vlm B-trigger call inspect cheese coverage of mug top → flag gross under/over-cheese"
+    },
+    {
+      "step_id": 39,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong cheese (e.g. cheddar instead of mozzarella) or unclean spoon",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM can distinguish yellow cheddar shreds from white mozzarella by HSV; color difference is substantial",
+      "config_oneline": "vlm B-trigger call inspect cheese color/texture → flag non-mozzarella (orange/yellow = cheddar)"
+    },
+
+    {
+      "step_id": 29,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User sprinkles dried Italian herbs over top of mug",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — green/brown specks appearing on white cheese top is a HSV change on mug-top ROI; B-trigger VLM to confirm herbs vs other seasoning",
+      "config_oneline": "cv HSV green/brown specks on cheese top-ROI → B-trigger VLM(1 frame) confirm Italian herbs"
+    },
+    {
+      "step_id": 29,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Herbs added — inferred from microwave step 32 starting",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D1 cycle_start for step 32 will fire; that completion triggers step 29 done",
+      "config_oneline": "dag: step-29 complete when D1 cycle_start fires (step-32 starts)"
+    },
+    {
+      "step_id": 29,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flag wrong or missing herbs (not Italian dried herbs)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium — VLM on triggered frame; color/texture of herb specks; completely missing is detectable by cv (no specks); wrong type needs VLM",
+      "config_oneline": "vlm B-trigger call inspect herb presence / color → flag missing or wrong seasoning"
+    },
+
+    {
+      "step_id": 32,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User places mug in microwave and runs it; appliance is on and heating",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D1 microwave_cycle emits cycle_start within ~8s; camera can sleep entirely during the full microwave run",
+      "config_oneline": "D1 cycle_start (min_run_s=8, smoothing ~4s) → A-solve recognition; camera OFF"
+    },
+    {
+      "step_id": 32,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Microwave ends; mug removed; pizza risen, toppings bubbling — D1 end-beep",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "thermal_spot",
+      "feasibility": "high for D1 end-beep (cycle_end ~8s); thermal-spot could additionally confirm heat/doneness (cheese bubbling = temperature spike in mug), but D1 alone is sufficient for the completion event",
+      "config_oneline": "D1 cycle_end (end-beep association ~8s) → A-solve completion; optional thermal-spot for doneness confirm"
+    },
+    {
+      "step_id": 32,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Flag noticeably different duration (e.g. 1 min, 2 min, 3 min vs ~80s)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D6 timer anchored on D1 cycle_start; emits overtime/undertime against 80s target; pure graph logic once anchor is set; camera sleeps throughout",
+      "config_oneline": "D6 timer anchored on D1 cycle_start; target=80s; emits overtime if |elapsed-80|>threshold"
+    }
+  ],
+
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 36,
+        "stage": "mug-setup",
+        "camera": "on (low-res ROI hand detection)",
+        "audio": "none (D1 gated off until step 32)",
+        "vlm": "1 triggered call on cv detection",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": "28+33+35+40",
+        "stage": "dry-measure-and-add (4 concurrent)",
+        "camera": "on (low-res ROI HSV state-change per add event)",
+        "audio": "none — structurally silent",
+        "vlm": "1 triggered call per detected add event (~4 calls total, possibly concurrent)",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 38,
+        "stage": "dry-stir",
+        "camera": "on (optical-flow mug-ROI for stir motion)",
+        "audio": "none",
+        "vlm": "periodic ~2s during stir window (C-none for technique; B-trigger for recognition)",
+        "role": "C-none (technique) / B-trigger (recognition)"
+      },
+      {
+        "step_id": "34+41",
+        "stage": "wet-add (2 concurrent)",
+        "camera": "on (low-res ROI HSV liquid change)",
+        "audio": "none",
+        "vlm": "1 triggered call per detected add event (~2 calls)",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 37,
+        "stage": "wet-mix",
+        "camera": "on (optical-flow mug-ROI for mixing motion)",
+        "audio": "none",
+        "vlm": "periodic ~2s for technique check (C-none) + 1 triggered call for recognition",
+        "role": "C-none (technique) / B-trigger (recognition)"
+      },
+      {
+        "step_id": 30,
+        "stage": "take-marinara",
+        "camera": "on (HSV red object detection)",
+        "audio": "none",
+        "vlm": "1 triggered call",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 31,
+        "stage": "spread-sauce",
+        "camera": "on (HSV spread detection)",
+        "audio": "none",
+        "vlm": "1 triggered call + 1 periodic call for technique (C-none)",
+        "role": "C-none (technique) / B-trigger (recognition)"
+      },
+      {
+        "step_id": 39,
+        "stage": "add-cheese",
+        "camera": "on (HSV white on red)",
+        "audio": "none",
+        "vlm": "1 triggered call",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 29,
+        "stage": "add-herbs",
+        "camera": "on (HSV green specks)",
+        "audio": "none",
+        "vlm": "1 triggered call",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 32,
+        "stage": "microwave",
+        "camera": "OFF — camera can fully sleep during ~80s microwave run",
+        "audio": "D1 (cycle_start, cycle_end) + D6 (timer 80s target)",
+        "vlm": "none",
+        "role": "A-solve"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 16,
+      "B-trigger": 31,
+      "C-none": 6
+    },
+    "cost_estimate": "~80s camera-OFF during microwave step (D1+D6 only). During silent prep phases (~10 steps), camera runs at low duty cycle with cv state-change triggering. Full recipe: ~13 targeted VLM calls (one per add/recognition event) plus ~3-4 periodic VLM calls for technique checks. Baseline (periodic VLM every 10s over ~8min recipe) would be ~48 calls. Proposed: ~17 calls = ~65% VLM call reduction at roughly equal coverage. Microwave phase: 100% camera-off (1 of 14 steps = ~15% of step count).",
+    "honest_limits": "C-none slice is 10 of 57 claims (17.5%). These are all technique/fine-motion claims: hand vs utensil distinction during stir (steps 38 rec/check), sauce-stir-vs-spread technique (step 31 check), batter adequacy (step 37 check), oil-spoon orientation (step 34 technique check). Additionally, the baking soda vs baking powder identity confusion (steps 35 and 40 preparation checks) is LOW-feasibility even for VLM — the powders look identical and require container OCR which may fail on fast egocentric video. The thermal-spot speculative sensor (step 32 doneness) is not proven but is a natural fit. IMU for stir/mix (steps 38, 37) is speculative but mechanically plausible."
+  }
+}

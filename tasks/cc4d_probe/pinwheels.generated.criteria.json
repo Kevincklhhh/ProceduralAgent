@@ -1,0 +1,366 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/pinwheels.reminders.json) -- one per observed subtype per step -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). Recipe DAG is a linear chain (115->113->112->118->111->107->104->116->110->114) that forks at step 114 into two concurrently-eligible branches: discard-ends (103) and floss-slicing (106->117->105->108->102 loop->109). Step 102 appears three times in recipe order (16/17/18) and is collapsed to one node; first-occurrence preconditions [108] are used.",
+  "task": {
+    "task_id": "pinwheels",
+    "title": "Pinwheels",
+    "source": "tasks/cc4d/pinwheels.json"
+  },
+  "nodes": [
+    {
+      "step_id": 115,
+      "instruction": "Place 8-inch flour tortilla on cutting board",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (no preconditions), active from the start. The user is placing an 8-inch flour tortilla flat on the cutting board."
+      },
+      "completion": {
+        "claim": "No distinct end event of its own; the tortilla just rests on the board. Inferred from the next step beginning -- the user picking up the butter knife to scoop nut butter (step 113).",
+        "inferred_from": 113
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects a plain 8-inch flour tortilla placed on the cutting board; flag using a plate or other surface instead of the cutting board, or pre-toasting/heating the tortilla before use."
+        }
+      ]
+    },
+    {
+      "step_id": 113,
+      "instruction": "Use a butter knife to scoop nut butter from the jar",
+      "preconditions": [115],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is dipping a butter knife into the nut butter jar and scooping nut butter onto it."
+      },
+      "completion": {
+        "claim": "No distinct end event; scooping just stops. Inferred from the next step beginning -- the user spreading nut butter onto the tortilla (step 112).",
+        "inferred_from": 112
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for a butter knife and nut butter; flag using a different utensil (e.g., spoon or kitchen knife) or a different spread (e.g., regular butter instead of nut butter)."
+        }
+      ]
+    },
+    {
+      "step_id": 112,
+      "instruction": "Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges",
+      "preconditions": [113],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is spreading nut butter across the face of the tortilla with a butter knife."
+      },
+      "completion": {
+        "claim": "No distinct end event; spreading just stops. Inferred from the next step beginning -- the user wiping the knife clean with a paper towel (step 118).",
+        "inferred_from": 118
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe asks to spread nut butter leaving a 1/2-inch uncovered margin at the edges; flag spreading all the way to the edge with no gap, spreading unevenly, or spreading around or over jelly rather than directly on the tortilla."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects the nut butter applied with a butter knife; flag using a different utensil such as a spoon."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe expects an even, continuous coat of nut butter across the tortilla; flag failing to spread it properly, leaving discrete drops or clumps rather than an even layer."
+        }
+      ]
+    },
+    {
+      "step_id": 118,
+      "instruction": "Clean the knife by wiping it with a paper towel",
+      "preconditions": [112],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is wiping the knife clean with a paper towel."
+      },
+      "completion": {
+        "claim": "No distinct end event; wiping just stops. Inferred from the next step beginning -- the user scooping jelly from the jar (step 111).",
+        "inferred_from": 111
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects the butter knife cleaned with a paper towel; flag wiping a different utensil (e.g., kitchen knife or spoon) or not using a paper towel."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe asks for the knife to be wiped thoroughly clean; flag improper cleaning that leaves residue (e.g., paper towel not covering the underside of the blade)."
+        }
+      ]
+    },
+    {
+      "step_id": 111,
+      "instruction": "Use the knife to scoop jelly from the jar",
+      "preconditions": [118],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is dipping the knife into the jelly jar and scooping jelly onto it."
+      },
+      "completion": {
+        "claim": "No distinct end event; scooping just stops. Inferred from the next step beginning -- the user spreading jelly over the nut butter (step 107).",
+        "inferred_from": 107
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for the (clean) butter knife to scoop jelly; flag using a different or soiled utensil (e.g., spoon, kitchen knife, or a knife still dirty with nut butter)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects a clean scoop of jelly from the jar; flag spilling jelly or scooping sloppily while taking it from the jar."
+        }
+      ]
+    },
+    {
+      "step_id": 107,
+      "instruction": "Spread jelly over the nut butter",
+      "preconditions": [111],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is spreading jelly over the nut-butter-coated face of the tortilla."
+      },
+      "completion": {
+        "claim": "No distinct end event; spreading just stops. Inferred from the next step beginning -- the user wiping the knife clean with a paper towel (step 104).",
+        "inferred_from": 104
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe asks to spread jelly over the nut butter on the same side of the tortilla; flag spreading jelly on the wrong side, only at the boundary rather than over the full nut butter area, or failing to cover the nut butter completely."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects the butter knife used to spread jelly; flag using a different utensil such as a spoon."
+        }
+      ]
+    },
+    {
+      "step_id": 104,
+      "instruction": "Clean the knife by wiping with a paper towel",
+      "preconditions": [107],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is wiping the knife clean with a paper towel after spreading jelly."
+      },
+      "completion": {
+        "claim": "No distinct end event; wiping just stops. Inferred from the next step beginning -- the user rolling the tortilla into a log (step 116).",
+        "inferred_from": 116
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects the knife wiped clean with a paper towel; flag using a hand instead of a towel, leaving jelly visibly remaining on the knife, or cleaning a different utensil."
+        }
+      ]
+    },
+    {
+      "step_id": 116,
+      "instruction": "Roll the tortilla from one end to the other into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps, but not so tight that the filling leaks",
+      "preconditions": [104],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is rolling the filled tortilla from one end to the other into a log."
+      },
+      "completion": {
+        "claim": "Own observable end-state: a rolled tortilla log resting on the board, fully formed and ready to be secured with toothpicks.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe asks to roll tight enough to prevent gaps but not so tight that filling leaks; flag rolling so tightly that the filling (jelly or nut butter) leaks or spills out during rolling."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe specifies a log approximately 1.5 inches thick; flag a noticeably larger log (e.g., ~2.5 inches thick or described as a large log)."
+        }
+      ]
+    },
+    {
+      "step_id": 110,
+      "instruction": "Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart",
+      "preconditions": [116],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is inserting toothpicks along the rolled tortilla log to secure it."
+      },
+      "completion": {
+        "claim": "Own observable end-state: toothpicks are inserted along the log holding it closed.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for exactly 5 toothpicks inserted approximately 1 inch apart; flag a different count (e.g., 3 or 10) or toothpicks placed at irregular, non-even spacing rather than 1 inch apart."
+        }
+      ]
+    },
+    {
+      "step_id": 114,
+      "instruction": "Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll",
+      "preconditions": [110],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is trimming the ends off the secured tortilla roll with the butter knife."
+      },
+      "completion": {
+        "claim": "Own observable end-state: both ends of the roll are trimmed, leaving the central log with end pieces cut off.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects trimming with a butter knife; flag using a regular kitchen knife, a spoon, or fingers/hands to trim, or trimming the same end twice rather than each end once."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe asks to leave a 1/2-inch margin between the last toothpick and the cut end; flag leaving a significantly larger margin (e.g., 1 inch) or trimming too much off."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires cutting the ends cleanly with the knife; flag removing the ends by hand or otherwise not using the knife to cut."
+        }
+      ]
+    },
+    {
+      "step_id": 103,
+      "instruction": "Discard ends of the tortilla",
+      "preconditions": [114],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of two concurrently-eligible steps after trimming (shares preconditions [114] with sliding the floss, step 106) -- no order is imposed between them, so recognition must say which is active now: here, the user is discarding the trimmed-off tortilla ends."
+      },
+      "completion": {
+        "claim": "Own observable end-state: the trimmed end pieces have been removed or thrown away, leaving only the central log on the board.",
+        "inferred_from": null
+      },
+      "checks": []
+    },
+    {
+      "step_id": 106,
+      "instruction": "Slide floss under the tortilla, perpendicular to the length of the roll",
+      "preconditions": [114],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of two concurrently-eligible steps after trimming (shares preconditions [114] with discarding ends, step 103) -- no order is imposed between them, so recognition must say which is active now: here, the user is sliding a length of floss under the tortilla roll, oriented perpendicular to its length axis."
+      },
+      "completion": {
+        "claim": "No distinct end event; the floss just rests under the roll. Inferred from the next step beginning -- the user positioning the floss halfway between toothpicks (step 117).",
+        "inferred_from": 117
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe specifies the floss must run perpendicular to the length of the roll; flag sliding the floss parallel to the roll's length axis instead of perpendicular."
+        }
+      ]
+    },
+    {
+      "step_id": 117,
+      "instruction": "Place the floss halfway between toothpicks",
+      "preconditions": [106],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is positioning the floss so it sits halfway between two adjacent toothpicks along the roll."
+      },
+      "completion": {
+        "claim": "No distinct end event; the floss is just positioned. Inferred from the next step beginning -- the user crossing the floss ends over the top of the roll (step 105).",
+        "inferred_from": 105
+      },
+      "checks": []
+    },
+    {
+      "step_id": 105,
+      "instruction": "Cross the floss's two ends over the tortilla roll's top",
+      "preconditions": [117],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is bringing the two floss ends up and crossing them over the top of the tortilla roll."
+      },
+      "completion": {
+        "claim": "No distinct end event; the ends are just crossed. Inferred from the next step beginning -- the user pulling the floss ends to slice (step 108).",
+        "inferred_from": 108
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects the floss positioned so that each resulting pinwheel slice contains a securing toothpick; flag a crossing position that would produce a pinwheel slice with no toothpick in it."
+        }
+      ]
+    },
+    {
+      "step_id": 108,
+      "instruction": "pull the floss ends in opposite directions to slice",
+      "preconditions": [105],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is pulling the two crossed floss ends in opposite directions to cut through the tortilla roll."
+      },
+      "completion": {
+        "claim": "Own observable end-state: the floss has cut through the roll, producing one sliced pinwheel.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects floss to be used for slicing; flag using scissors or a knife to cut the pinwheel instead of pulling floss."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires pulling the floss ends with sufficient tension to slice cleanly through the roll; flag pulling without enough force so the floss does not cut through."
+        }
+      ]
+    },
+    {
+      "step_id": 102,
+      "instruction": "Continue slicing with floss to create 1 more pinwheel",
+      "preconditions": [108],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is repositioning and pulling the floss again to slice additional pinwheels from the remaining roll. This step loops (appears three times in recipe order 16/17/18); the first-occurrence preconditions [108] are used for this collapsed node."
+      },
+      "completion": {
+        "claim": "Own observable end-state: the roll has been sliced into all remaining pinwheels and no log section remains to slice. Inferred from the plating step beginning (step 109).",
+        "inferred_from": 109
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects floss to be used for all subsequent pinwheel slices; flag using a knife, scissors, or other cutting tool instead of floss for additional slices."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects uniform pinwheel rounds; flag cutting into irregular or non-round shapes."
+        }
+      ]
+    },
+    {
+      "step_id": 109,
+      "instruction": "Place the pinwheels on a plate",
+      "preconditions": [102],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is arranging the sliced pinwheels onto a plate for serving."
+      },
+      "completion": {
+        "claim": "Own observable end-state: all pinwheels are placed on the plate -- the procedure is complete.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for plating on a plate; flag using a different vessel such as a cup instead of a plate."
+        }
+      ]
+    }
+  ]
+}

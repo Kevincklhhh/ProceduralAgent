@@ -1,0 +1,124 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/tomatomozzarellasalad.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG is a linear prefix 125->122->119->120 then an unordered fork {123,124,126,127} that reconverges at 121.",
+  "task": {
+    "task_id": "tomatomozzarellasalad",
+    "title": "Tomatomozzarellasalad",
+    "source": "tasks/cc4d/tomatomozzarellasalad.json"
+  },
+  "nodes": [
+    {
+      "step_id": 125,
+      "instruction": "Rinse a tomato",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is rinsing a tomato under running water at the sink; this is the root step, active from the start." },
+      "completion": { "claim": "The tomato has been rinsed; rinsing has no distinct end signal of its own, so completion is inferred from the user moving on to drying the tomato.", "inferred_from": 122 },
+      "checks": [
+        { "reminder": "preparation", "claim": "[probe-added] The recipe calls for rinsing a (normal) tomato; flag if the wrong produce is used instead (e.g. cherry tomatoes in place of a normal tomato)." },
+        { "reminder": "measurement", "claim": "[probe-added] The recipe expects one tomato; flag a different count (e.g. two cherry tomatoes standing in for one normal tomato)." },
+        { "reminder": "temperature", "claim": "[probe-added] The tomato should be rinsed with cold/cool water; flag rinsing with hot water." }
+      ]
+    },
+    {
+      "step_id": 122,
+      "instruction": "gently dry it with a paper/tea towel",
+      "preconditions": [125],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is patting/drying the rinsed tomato with a paper or tea towel." },
+      "completion": { "claim": "The tomato has been dried; drying has no distinct end signal of its own, so completion is inferred from the user moving on to slicing the tomato.", "inferred_from": 119 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for drying with a paper/tea towel; flag using an unsuitable towel (e.g. a wet towel that cannot dry the tomato)." },
+        { "reminder": "technique", "claim": "[probe-added] The tomato should be dried gently but fully; flag failure to dry it completely." }
+      ]
+    },
+    {
+      "step_id": 119,
+      "instruction": "Slice one tomato into about 1/2 inch thick slices",
+      "preconditions": [122],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is slicing the tomato on a board with a knife into roughly half-inch slices." },
+      "completion": { "claim": "The tomato has been cut into a set of even ~1/2 inch slices sitting on the board; the resulting slices are the observable end-state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for about 1/2 inch thick slices; flag a markedly different thickness or size (e.g. ~1 inch slices, big chunks)." },
+        { "reminder": "technique", "claim": "[probe-added] The recipe expects clean, uniform slicing; flag chopping/cutting instead of slicing, or slices of non-uniform thickness." },
+        { "reminder": "preparation", "claim": "[probe-added] The tomato should be sliced on a clean surface; flag using a soiled chopping board." }
+      ]
+    },
+    {
+      "step_id": 120,
+      "instruction": "Place the thick slices of tomatoes on a platter, ensuring they only make a single layer",
+      "preconditions": [119],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is arranging the tomato slices onto a platter." },
+      "completion": { "claim": "The slices are laid out on the platter in a single layer; the arranged single layer on the platter is the observable end-state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The recipe expects the slices to be placed gently in a single layer; flag piling/double-layering, throwing the slices, or spilling them while placing." }
+      ]
+    },
+    {
+      "step_id": 123,
+      "instruction": "Season the tomato slices with salt",
+      "preconditions": [120],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is sprinkling salt over the tomato slices on the platter; this is one of four concurrently-eligible steps (123, 124, 126, 127) sharing precondition 120, so recognition must say which of them is active now -- no order is imposed among them." },
+      "completion": { "claim": "The tomato slices have been salted; seasoning has no distinct end signal of its own, so completion is inferred from the user moving on to the shared reconvergence step (drizzling olive oil).", "inferred_from": 121 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for seasoning with salt onto the slices on the platter; flag using the wrong seasoning (e.g. sugar/powdered sugar instead of salt) or seasoning the wrong surface (e.g. on the chopping board instead of the platter)." },
+        { "reminder": "technique", "claim": "[probe-added] Salt should be applied in a controlled, even manner; flag exaggerated or careless seasoning (e.g. salt-bae style)." }
+      ]
+    },
+    {
+      "step_id": 124,
+      "instruction": "Sprinkle mozzarella cheese on top of the tomato throughout the platter",
+      "preconditions": [120],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is sprinkling mozzarella cheese over the tomatoes on the platter; this is one of four concurrently-eligible steps (123, 124, 126, 127) sharing precondition 120, so recognition must say which of them is active now -- no order is imposed among them." },
+      "completion": { "claim": "Mozzarella has been sprinkled across the tomatoes; this has no distinct end signal of its own, so completion is inferred from the user moving on to the shared reconvergence step (drizzling olive oil).", "inferred_from": 121 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for mozzarella cheese sprinkled onto the platter; flag the wrong cheese (e.g. cheddar) or sprinkling the wrong surface (e.g. on the chopping board instead of the platter)." },
+        { "reminder": "technique", "claim": "[probe-added] The cheese should be sprinkled evenly close to the platter; flag pouring instead of sprinkling, sprinkling from too high, sprinkling only the boundary, or spilling the cheese." }
+      ]
+    },
+    {
+      "step_id": 126,
+      "instruction": "Season platter with 1/4 teaspoon black pepper",
+      "preconditions": [120],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is seasoning the platter with black pepper; this is one of four concurrently-eligible steps (123, 124, 126, 127) sharing precondition 120, so recognition must say which of them is active now -- no order is imposed among them." },
+      "completion": { "claim": "The platter has been seasoned with black pepper; this has no distinct end signal of its own, so completion is inferred from the user moving on to the shared reconvergence step (drizzling olive oil).", "inferred_from": 121 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 teaspoon of black pepper; flag a different amount (e.g. 1/8 teaspoon, 1/2 teaspoon, or an accidental large spill of pepper)." },
+        { "reminder": "preparation", "claim": "The recipe calls for seasoning a proper platter; flag using the wrong vessel (e.g. a lid instead of a plate) or spreading the pepper by hand." },
+        { "reminder": "technique", "claim": "[probe-added] The pepper should be applied in a controlled manner; flag spilling it while measuring or emptying the whole bottle onto the platter." }
+      ]
+    },
+    {
+      "step_id": 127,
+      "instruction": "Garnish platter with italian seasoning",
+      "preconditions": [120],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is garnishing the platter with italian seasoning; this is one of four concurrently-eligible steps (123, 124, 126, 127) sharing precondition 120, so recognition must say which of them is active now -- no order is imposed among them." },
+      "completion": { "claim": "The platter has been garnished with italian seasoning; this has no distinct end signal of its own, so completion is inferred from the user moving on to the shared reconvergence step (drizzling olive oil).", "inferred_from": 121 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for garnishing the platter with italian seasoning; flag garnishing the wrong surface (e.g. on the chopping board instead of the platter)." },
+        { "reminder": "technique", "claim": "[probe-added] The seasoning should be applied in a controlled manner; flag spilling some italian seasoning while garnishing." }
+      ]
+    },
+    {
+      "step_id": 121,
+      "instruction": "Add a drizzle of extra-virgin olive oil, about 1 tablespoon, over the entire platter",
+      "preconditions": [123, 124, 126, 127],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is drizzling olive oil over the entire seasoned and garnished platter; this is the reconvergence step, active only after the four fork steps (123, 124, 126, 127) have been done." },
+      "completion": { "claim": "About one tablespoon of extra-virgin olive oil has been drizzled over the whole platter, finishing the salad; this is the final step, so there is no successor to infer from.", "inferred_from": null },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for about 1 tablespoon of olive oil; flag a different amount (e.g. 2 teaspoons instead of 1 tablespoon)." },
+        { "reminder": "preparation", "claim": "The recipe calls for extra-virgin olive oil; flag the wrong liquid (e.g. vegetable oil, apple cider vinegar) or an extraneous added/heated oil." },
+        { "reminder": "technique", "claim": "[probe-added] The oil should be drizzled in a controlled manner over the platter; flag spilling the olive oil while drizzling." }
+      ]
+    }
+  ]
+}

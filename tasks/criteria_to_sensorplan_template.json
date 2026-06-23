@@ -1,0 +1,53 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "sensor_control_plan",
+  "description": "STAGE 2 of 2 (criteria -> sensor control plan). SAME node list as the stage-1 criteria (tasks/recipe_to_criteria_template.json): same `step_id` / `preconditions` / `duration_constraint_s`. The ONLY change is that each node's `recognition`, `completion`, and any `checks` have their three plain-text observers replaced by a {detector, detection_criteria} binding, and each node gets a `sensing_role`. The runtime drives the partial-order state machine over these nodes. Compiled from the stage-1 criteria + the detector catalog only (firewall-clean: no recording labels, GT timings, or mistake annotations).",
+
+  "_detectors": "Detector ids (authority: tasks/AUDIO_RUNTIME_LIBRARY.md): D1 microwave(cycle_start/cycle_end), D2 motor(motor_on/off), D3 cook_end, D4 cook_start, D5 water(water_on/off), D6 timer(duration/precondition), VLM, or 'none'.",
+
+  "_how_the_runtime_uses_it": [
+    "STEP RECOGNITION (T1), per tick t: completed = nodes whose `completion` detector has fired (released causally, latency <= 10 s); eligible = nodes whose `preconditions` are complete and that are not done. Among eligible nodes -- if a node has an audio detector (e.g. microwave -> D1) the detector settles it and the VLM SLEEPS (A-solve); the silent eligible nodes are the VLM's candidate set and the periodic VLM classifies WHICH is active (C-none); a D4-style onset can fire ONE confirming VLM call (B-trigger). The active node labels time t.",
+    "PROACTIVE REMINDERS (T2) ride on the same state: precondition/order + missing-step = a node recognized active while its `preconditions` are unmet (DAG state, A-solve, free); timing = D6 over the node's active interval vs `duration_constraint_s`; execution errors = the node's `checks`, run by the VLM gated to that step. Sensor-control payoff: the cheap reminders ride on free state; the VLM is duty-cycled to execution checks at the relevant node only."
+  ],
+
+  "task": {
+    "task_id": "FILL_TASK_ID",
+    "title": "FILL_TITLE",
+    "recipe_source": "tasks/cc4d/FILL.json",
+    "criteria_source": "tasks/cc4d/FILL.criteria.json",
+    "detector_catalog": "tasks/AUDIO_RUNTIME_LIBRARY.md"
+  },
+
+  "runtime_config": { "tick_s": 1.0 },
+  "vlm_policy": { "window_s": 10.0, "fps": 1.0, "period_s": 10.0 },
+
+  "nodes": [
+    {
+      "step_id": "FILL_STEP_ID",
+      "instruction": "FILL recipe text of this step",
+      "preconditions": ["FILL step_ids that must be complete; [] for a root"],
+      "duration_constraint_s": null,
+      "sensing_role": "A-solve | B-trigger | C-none",
+
+      "recognition": {
+        "detector": "FILL D1..D6 | VLM | none",
+        "detection_criteria": "FILL the event + timing that marks this step ACTIVE (e.g. 'D1.cycle_start'), or the VLM question for a silent step"
+      },
+
+      "completion": {
+        "detector": "FILL D1..D6 | VLM | timer | none",
+        "detection_criteria": "FILL the event that marks this step DONE (e.g. 'D1.cycle_end'); if silent, 'inferred from <successor> recognition' or a VLM/timer check",
+        "inferred_from": null
+      },
+
+      "checks": [
+        {
+          "_comment": "OPTIONAL (T2). Recipe-derived error hooks for this step; omit the whole list for T1-only.",
+          "reminder": "measurement | technique | preparation | temperature | timing",
+          "detector": "VLM | D6 | none",
+          "detection_criteria": "FILL how the sensor checks it (e.g. VLM: 'how many chocolate pieces are in the mug?'; D6: active duration vs duration_constraint_s)"
+        }
+      ]
+    }
+  ]
+}

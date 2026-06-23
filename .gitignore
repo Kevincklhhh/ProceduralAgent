@@ -9,3 +9,5 @@ data/
 detectors/probes/*.mp4
 # regenerable visualizer trace frames (dumped by --trace; ~500MB)
 experiments/**/frames/
+# downloadable model checkpoints (CLIP ViT-B-32, etc.; ~338MB)
+weights/

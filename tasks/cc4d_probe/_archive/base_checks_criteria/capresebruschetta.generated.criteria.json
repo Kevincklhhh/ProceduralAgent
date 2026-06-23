@@ -1,0 +1,153 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/capresebruschetta.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG: five unordered prep/add roots (342,343,346,347 -> combine; 344 -> brush) plus a parallel tomato chain (350->351->combine 348), reconverging at combine 348 and toast 352 into the final spoon-on-bread step 345.",
+  "task": {
+    "task_id": "capresebruschetta",
+    "title": "Capresebruschetta",
+    "source": "tasks/cc4d/capresebruschetta.json"
+  },
+  "nodes": [
+    {
+      "step_id": 342,
+      "instruction": "1/8 cup shredded mozzarella to a bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding shredded mozzarella into a bowl. Root step with no preconditions, so it is eligible from the start; it is one of several concurrently-eligible prep/add steps (342, 343, 344, 346, 347, 350) and recognition must say which one is active now -- no order is imposed among them." },
+      "completion": { "claim": "The mozzarella has been transferred into the bowl. An add step with no end signal of its own; inferred from the onset of the reconvergence step, combining the contents of the bowl.", "inferred_from": 348 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/8 cup of shredded mozzarella; flag a measurably different amount (e.g. 1/4 cup)." },
+        { "reminder": "preparation", "claim": "The recipe calls for shredded mozzarella added into a bowl using a measuring cup; flag the wrong container (a plate) or adding by hand instead of measuring." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling mozzarella while measuring or transferring it into the bowl." }
+      ]
+    },
+    {
+      "step_id": 343,
+      "instruction": "1/4 tsp salt to a bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding salt into a bowl. Root step with no preconditions, eligible from the start; one of several concurrently-eligible prep/add steps (342, 343, 344, 346, 347, 350) and recognition must say which is active now -- no order is imposed among them." },
+      "completion": { "claim": "The salt has been added into the bowl. An add step with no end signal of its own; inferred from the onset of the reconvergence step, combining the contents of the bowl.", "inferred_from": 348 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 tsp of salt; flag a measurably different amount (e.g. double)." },
+        { "reminder": "preparation", "claim": "The recipe calls for salt added into a bowl with a clean dry measuring spoon; flag the wrong container (a plate) or a wet/contaminated measuring spoon." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling salt while adding it to the bowl." }
+      ]
+    },
+    {
+      "step_id": 344,
+      "instruction": "Slice two 1/2 inch thick rounds from a baguette (slice slanted)",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is slicing rounds from a baguette with a knife. Root step with no preconditions, eligible from the start; one of several concurrently-eligible prep/add steps (342, 343, 344, 346, 347, 350) and recognition must say which is active now -- no order is imposed among them." },
+      "completion": { "claim": "Two slanted baguette rounds have been cut. A slicing step whose product is observable but which has no distinct end signal; inferred from the onset of its direct successor, brushing the slices with olive oil.", "inferred_from": 349 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for two 1/2-inch-thick rounds; flag a different count or thickness (e.g. three pieces, or four 1/4-inch rounds)." },
+        { "reminder": "technique", "claim": "The recipe calls for slanted slices into rounds; flag straight (non-slanted) cuts or cutting into wedges instead of rounds." },
+        { "reminder": "preparation", "claim": "The recipe calls for slicing a clean baguette with a knife; flag using the wrong food (a muffin), a soiled baguette, or the wrong tool (a peeler instead of a knife)." }
+      ]
+    },
+    {
+      "step_id": 346,
+      "instruction": "1/4 tsp pepper to a bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding pepper into a bowl. Root step with no preconditions, eligible from the start; one of several concurrently-eligible prep/add steps (342, 343, 344, 346, 347, 350) and recognition must say which is active now -- no order is imposed among them." },
+      "completion": { "claim": "The pepper has been added into the bowl. An add step with no end signal of its own; inferred from the onset of the reconvergence step, combining the contents of the bowl.", "inferred_from": 348 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 tsp of pepper; flag a measurably different amount (e.g. 1/2 tsp)." },
+        { "reminder": "preparation", "claim": "The recipe calls for pepper added into a bowl; flag the wrong container (a plate)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling pepper while opening the container or transferring it into the bowl." }
+      ]
+    },
+    {
+      "step_id": 347,
+      "instruction": "1/16 cup basil to a bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding basil into a bowl. Root step with no preconditions, eligible from the start; one of several concurrently-eligible prep/add steps (342, 343, 344, 346, 347, 350) and recognition must say which is active now -- no order is imposed among them." },
+      "completion": { "claim": "The basil has been added into the bowl. An add step with no end signal of its own; inferred from the onset of the reconvergence step, combining the contents of the bowl.", "inferred_from": 348 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/16 cup of basil; flag a measurably different amount (e.g. 1/8 or 1/4 cup)." },
+        { "reminder": "preparation", "claim": "The recipe calls for basil added into a bowl; flag the wrong herb (oregano instead of basil) or the wrong container (a plate)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling basil while measuring or dropping the measuring utensil while adding it to the bowl." }
+      ]
+    },
+    {
+      "step_id": 349,
+      "instruction": "Brush 2 slices of baguette with olive oil on both sides",
+      "preconditions": [344],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is brushing olive oil onto both sides of the two baguette slices. Becomes eligible once the baguette has been sliced (step 344)." },
+      "completion": { "claim": "Both sides of the two slices have been coated with olive oil. A brushing step with no distinct end signal of its own; inferred from the onset of its direct successor, toasting the slices.", "inferred_from": 352 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for brushing 2 slices on both sides; flag fewer slices or coating only one side." },
+        { "reminder": "technique", "claim": "The recipe calls for brushing the oil on; flag pouring, dipping, or applying oil directly instead of brushing." },
+        { "reminder": "preparation", "claim": "The recipe calls for olive oil applied with a brush; flag the wrong fat (vegetable oil, sesame oil, butter) or the wrong tool (spoon, knife, or hand instead of a brush)." }
+      ]
+    },
+    {
+      "step_id": 350,
+      "instruction": "Cut 1/4 cup of cherry tomatoes into halves",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is cutting cherry tomatoes into halves. Root step with no preconditions, eligible from the start; one of several concurrently-eligible prep/add steps (342, 343, 344, 346, 347, 350) and recognition must say which is active now -- no order is imposed among them." },
+      "completion": { "claim": "The cherry tomatoes have been cut into halves. A cutting step whose product is observable but which has no distinct end signal; inferred from the onset of its direct successor, adding the cut tomatoes to a bowl.", "inferred_from": 351 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 cup of cherry tomatoes; flag a measurably different amount (e.g. 1/2 cup)." },
+        { "reminder": "technique", "claim": "The recipe calls for cutting into halves; flag cutting into quarters or mincing instead of halving." },
+        { "reminder": "preparation", "claim": "The recipe calls for cherry tomatoes; flag using normal (non-cherry) tomatoes." }
+      ]
+    },
+    {
+      "step_id": 351,
+      "instruction": "In a bowl, add the cut cherry tomatoes",
+      "preconditions": [350],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding the cut cherry tomatoes into a bowl. Becomes eligible once the cherry tomatoes have been cut (step 350)." },
+      "completion": { "claim": "The cut cherry tomatoes have been transferred into the bowl. An add step with no end signal of its own; inferred from the onset of the reconvergence step, combining the contents of the bowl.", "inferred_from": 348 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for the cut cherry tomatoes added into a bowl; flag the wrong container (a plate)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling tomatoes outside the bowl while adding them." }
+      ]
+    },
+    {
+      "step_id": 348,
+      "instruction": "Combine the contents of the bowl",
+      "preconditions": [342, 343, 346, 347, 351],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is combining (mixing) the contents of the bowl. Becomes eligible only after all ingredients have been added: mozzarella (342), salt (343), pepper (346), basil (347), and the cut cherry tomatoes (351)." },
+      "completion": { "claim": "The bowl contents have been mixed together into a uniform mixture. A mixing step with no distinct end signal of its own; inferred from the onset of its direct successor, spooning the mixture onto the bread.", "inferred_from": 345 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for combining (mixing) the bowl contents; flag failing to mix thoroughly." },
+        { "reminder": "preparation", "claim": "The recipe calls for combining the contents of the bowl; flag combining the contents of a plate instead of the bowl." }
+      ]
+    },
+    {
+      "step_id": 352,
+      "instruction": "Toast both sides of the slices on the pan for 2 to 3 minutes until lightly charred and crispy and transfer the slices to a plate",
+      "preconditions": [349],
+      "duration_constraint_s": 180,
+      "recognition": { "claim": "The user is toasting both sides of the oiled baguette slices on the pan. Becomes eligible once the slices have been brushed with olive oil (step 349)." },
+      "completion": { "claim": "Both sides of the slices are lightly charred and crispy and the slices have been transferred to a plate. This step ends with its own observable event (toasted slices plated).", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for toasting about 2 to 3 minutes (~180s) until lightly charred and crispy; flag toasting noticeably too short (slices not charred) or too long." },
+        { "reminder": "technique", "claim": "The recipe calls for toasting both sides; flag toasting only one side." },
+        { "reminder": "temperature", "claim": "[probe-added] The recipe expects moderate heat to lightly char without scorching; flag toasting on heat too high (scorched) or too low." }
+      ]
+    },
+    {
+      "step_id": 345,
+      "instruction": "Spoon the mixture from the bowl onto the bread",
+      "preconditions": [348, 352],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is spooning the combined mixture from the bowl onto the toasted bread. Becomes eligible once both the mixture has been combined (step 348) and the slices have been toasted (step 352)." },
+      "completion": { "claim": "The mixture has been spooned onto the toasted bread, completing the dish. This is the terminal step; the plated bruschetta is its own observable end state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for spooning the mixture onto the bread; flag pouring the mixture directly from the bowl instead of spooning, or spilling it." },
+        { "reminder": "preparation", "claim": "The recipe calls for using a spoon to transfer the mixture; flag using hands or a fork instead of a spoon." }
+      ]
+    }
+  ]
+}

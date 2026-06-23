@@ -1,0 +1,1283 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "breakfastburritos",
+ "activity_id": 7,
+ "n_recordings": 16,
+ "n_error_recordings": 10,
+ "steps": [
+  {
+   "step_id": 77,
+   "order": 1,
+   "instruction": "Extract and add contents of an egg to a microwave-safe bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 77,
+       "description": "Not extracting egg correctly and adding shells to the bowl and remove them later",
+       "video_window": [
+        1.8,
+        54.3
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 77,
+       "description": "While breaking the egg leave tiny pieces of egg shell.",
+       "video_window": [
+        7.3,
+        75.4
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 77,
+       "description": "Not extracting egg correctly and adding shells to the bowl and remove them later",
+       "video_window": [
+        7.6,
+        68.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 77,
+       "description": "Using a mug instead of a bowl",
+       "video_window": [
+        28.6,
+        86.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 72,
+   "order": 2,
+   "instruction": "Whisk the egg",
+   "duration_constraint_s": null,
+   "preconditions": [
+    77
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "7_32",
+       "cc4d_step_id": 72,
+       "description": "Splash some egg outside the bowl while whisking",
+       "video_window": [
+        33.9,
+        61.9
+       ]
+      },
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 72,
+       "description": "Did not whisk the contents properly",
+       "video_window": [
+        344.4,
+        355.4
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 72,
+       "description": "Spilling the egg contents while mixing.",
+       "video_window": [
+        125.4,
+        171.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 72,
+       "description": "Step performed after microwaving the contents of the bowl",
+       "video_window": [
+        344.4,
+        355.4
+       ]
+      },
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 72,
+       "description": "Step performed after microwaving the contents of the bowl",
+       "video_window": [
+        387.6,
+        414.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 72,
+       "description": "Using a mug instead of a bowl",
+       "video_window": [
+        88.8,
+        115.2
+       ]
+      },
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 72,
+       "description": "Using spoon instead of whisk",
+       "video_window": [
+        387.6,
+        414.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 72,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 73,
+   "order": 3,
+   "instruction": "Microwave for 3 minutes, stirring in between",
+   "duration_constraint_s": 180,
+   "preconditions": [
+    72
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 9,
+     "n_recordings": 9,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 73,
+       "description": "1.5 minutes instead of 3 minutes",
+       "video_window": [
+        60.4,
+        162.7
+       ]
+      },
+      {
+       "recording_id": "7_30",
+       "cc4d_step_id": 73,
+       "description": "Microwave for 2 mins instead of 3 mins",
+       "video_window": [
+        78.1,
+        259.6
+       ]
+      },
+      {
+       "recording_id": "7_32",
+       "cc4d_step_id": 73,
+       "description": "Microwaved for 1.5 minutes instead of 3 minutes",
+       "video_window": [
+        64.6,
+        167.7
+       ]
+      },
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 73,
+       "description": "Microwave for 30 sec instead of 3 min",
+       "video_window": [
+        192.7,
+        239.1
+       ]
+      },
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 73,
+       "description": "Microwave for 2 mins instead of 3 mins",
+       "video_window": [
+        110.6,
+        270
+       ]
+      },
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 73,
+       "description": "Microwave 2 mins instead of 3 mins",
+       "video_window": [
+        116.1,
+        258.4
+       ]
+      },
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 73,
+       "description": "Microwave for 2 mins instead of 3 mins",
+       "video_window": [
+        195.7,
+        334.4
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 73,
+       "description": "Microwave for 2 min instead of 3 min.",
+       "video_window": [
+        177.1,
+        346.4
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 73,
+       "description": "Microwave for 30 sec instead of 3 min",
+       "video_window": [
+        419.1,
+        537.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 6,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 73,
+       "description": "Not stir in between",
+       "video_window": [
+        60.4,
+        162.7
+       ]
+      },
+      {
+       "recording_id": "7_32",
+       "cc4d_step_id": 73,
+       "description": "The bowl is not stirred in between microwaving",
+       "video_window": [
+        64.6,
+        167.7
+       ]
+      },
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 73,
+       "description": "Microwave without stirring in between",
+       "video_window": [
+        110.6,
+        270
+       ]
+      },
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 73,
+       "description": "Microwave without stirring in between",
+       "video_window": [
+        116.1,
+        258.4
+       ]
+      },
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 73,
+       "description": "Using a mug instead of a bowl",
+       "video_window": [
+        116.1,
+        258.4
+       ]
+      },
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 73,
+       "description": "Do not stir in between",
+       "video_window": [
+        195.7,
+        334.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 73,
+       "description": "Step performed after adding sauce and salsa to the bowl",
+       "video_window": [
+        192.7,
+        239.1
+       ]
+      },
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 73,
+       "description": "Step performed before whisking the egg",
+       "video_window": [
+        110.6,
+        270
+       ]
+      },
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 73,
+       "description": "Step performed before whisking and after adding sweet and sour sauce",
+       "video_window": [
+        195.7,
+        334.4
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 73,
+       "description": "Step performed after adding salsa and sweet and sour sauce",
+       "video_window": [
+        419.1,
+        537.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 74,
+   "order": 4,
+   "instruction": "Add 1/2 tbsp sweet and sour sauce to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    73
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 74,
+       "description": "1 tbsp instead of 1/2 tbsp",
+       "video_window": [
+        184.1,
+        216.7
+       ]
+      },
+      {
+       "recording_id": "7_30",
+       "cc4d_step_id": 74,
+       "description": "Add 1 tbsp instead of 1/2 tbsp",
+       "video_window": [
+        299.2,
+        327.2
+       ]
+      },
+      {
+       "recording_id": "7_32",
+       "cc4d_step_id": 74,
+       "description": "Add 1 tbsp instead of 1/2 tbsp of sweet and sour sauce",
+       "video_window": [
+        215.6,
+        279.7
+       ]
+      },
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 74,
+       "description": "Add 1/2 tsp instead of 1/2 tbsp to the bowl",
+       "video_window": [
+        122.3,
+        152.0
+       ]
+      },
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 74,
+       "description": "1 tbsp instead of 1/2 tbsp",
+       "video_window": [
+        271,
+        320.4
+       ]
+      },
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 74,
+       "description": "1 tbsp instead of 1/2 tbsp",
+       "video_window": [
+        259.3,
+        293.1
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 74,
+       "description": "Instead of tablespoon using the teaspoon.",
+       "video_window": [
+        467.4,
+        522.6
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 74,
+       "description": "Add 1/2 tsp instead of 1/2 tbsp to the bowl",
+       "video_window": [
+        119.3,
+        167.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 74,
+       "description": "Step performed before microwaving the egg for 3 minutes",
+       "video_window": [
+        122.3,
+        152.0
+       ]
+      },
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 74,
+       "description": "Step performed before whisking the egg",
+       "video_window": [
+        271,
+        320.4
+       ]
+      },
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 74,
+       "description": "Step performed before whisking and microwaving",
+       "video_window": [
+        92.9,
+        189.7
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 74,
+       "description": "Step performed after pouring the egg mixture on top of the tortilla.",
+       "video_window": [
+        467.4,
+        522.6
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 74,
+       "description": "Step performed before microwaving the contents of the bowl",
+       "video_window": [
+        119.3,
+        167.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 74,
+       "description": "Add minced garlic instead of sweet and sour sauce",
+       "video_window": [
+        271,
+        320.4
+       ]
+      },
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 74,
+       "description": "Placing the overflown contents back into the bowl to add sauce",
+       "video_window": [
+        271,
+        320.4
+       ]
+      },
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 74,
+       "description": "Using a mug instead of a bowl",
+       "video_window": [
+        259.3,
+        293.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 80,
+   "order": 5,
+   "instruction": "Add 1 tbsp salsa to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    73
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 80,
+       "description": "Step performed before microwaving the egg for 3 minutes",
+       "video_window": [
+        156.1,
+        187.4
+       ]
+      },
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 80,
+       "description": "Step performed before whisking the contents of the bowl",
+       "video_window": [
+        337.4,
+        386.5
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 80,
+       "description": "Step performed after rolling the tortilla.",
+       "video_window": [
+        626.4,
+        679.8
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 80,
+       "description": "Step performed before microwaving the contents of the bowl",
+       "video_window": [
+        174.0,
+        222.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 80,
+       "description": "Used soiled measuring spoon to add salsa",
+       "video_window": [
+        355.7,
+        387.6
+       ]
+      },
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 80,
+       "description": "Using unclean measuring spoon to add salsa",
+       "video_window": [
+        296.6,
+        326.7
+       ]
+      },
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 80,
+       "description": "Using a mug instead of a bowl",
+       "video_window": [
+        296.6,
+        326.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 80,
+       "description": "2 instead of 1 tbsp",
+       "video_window": [
+        216.7,
+        246.2
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 80,
+       "description": "Adding 2 tbsp instead of 1 tbsp.",
+       "video_window": [
+        626.4,
+        679.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_32",
+       "cc4d_step_id": 80,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 81,
+   "order": 6,
+   "instruction": "Place 8 inch tortilla on a cutting board",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 81,
+       "description": "Using a soiled tortilla",
+       "video_window": [
+        246.7,
+        298.5
+       ]
+      },
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 81,
+       "description": "Use plate instead of cutting board",
+       "video_window": [
+        260,
+        274
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 81,
+       "description": "use plate instead of cutting board",
+       "video_window": [
+        737,
+        749
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_30",
+       "cc4d_step_id": 81,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 82,
+   "order": 7,
+   "instruction": "Sprinkle oregano in the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    73
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "7_30",
+       "cc4d_step_id": 82,
+       "description": "Sprinkle basil instead of oregano",
+       "video_window": [
+        263.3,
+        281.1
+       ]
+      },
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 82,
+       "description": "Sprinkle basil instead of oregano",
+       "video_window": [
+        240.0,
+        255.2
+       ]
+      },
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 82,
+       "description": "Add cilantro instead of oregano",
+       "video_window": [
+        321.3,
+        344.2
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 82,
+       "description": "Sprinkle basil instead of oregano",
+       "video_window": [
+        651.9,
+        732.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 82,
+       "description": "Splash some oregano outside the bowl",
+       "video_window": [
+        164.6,
+        183.4
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 82,
+       "description": "Sprinking on the countertop also.",
+       "video_window": [
+        561.8,
+        602.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 82,
+       "description": "Step performed before whisking the egg",
+       "video_window": [
+        321.3,
+        344.2
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 82,
+       "description": "Step performed after rolling the tortilla.",
+       "video_window": [
+        561.8,
+        602.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 76,
+   "order": 8,
+   "instruction": "Mix the contents of the bowl well",
+   "duration_constraint_s": null,
+   "preconditions": [
+    74,
+    80,
+    82
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 76,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 76,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 76,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 76,
+       "description": "Step performed after pouring the egg mixture on top of the tortilla",
+       "video_window": [
+        426.9,
+        443.4
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 76,
+       "description": "Step performed after rolling the tortilla.",
+       "video_window": [
+        604.0,
+        616.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 76,
+       "description": "Using a mug instead of a bowl",
+       "video_window": [
+        351.8,
+        380.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 76,
+       "description": "Instead of mixing, whisking the contents of the bowl.",
+       "video_window": [
+        604.0,
+        616.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 79,
+   "order": 9,
+   "instruction": "Pour egg mixture on top of the tortilla",
+   "duration_constraint_s": null,
+   "preconditions": [
+    76,
+    81
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_38",
+       "cc4d_step_id": 79,
+       "description": "Step performed before mixing the contents of the bowl",
+       "video_window": [
+        387.6,
+        396.8
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 79,
+       "description": "Step performed before adding salsa, oregano and sweet and sour sauce.",
+       "video_window": [
+        347.2,
+        381.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_30",
+       "cc4d_step_id": 79,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 79,
+       "description": "Using a mug instead of a bowl",
+       "video_window": [
+        380.4,
+        407.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 75,
+   "order": 10,
+   "instruction": "Sprinkle 1 tbsp shredded cheddar cheese on top of the egg",
+   "duration_constraint_s": null,
+   "preconditions": [
+    79
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "7_24",
+       "cc4d_step_id": 75,
+       "description": "Spill some cheese.",
+       "video_window": [
+        660.9,
+        744.4
+       ]
+      },
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 75,
+       "description": "Using dirty spoon to scoop cheddar cheese",
+       "video_window": [
+        292.0,
+        324.4
+       ]
+      },
+      {
+       "recording_id": "7_44",
+       "cc4d_step_id": 75,
+       "description": "Using mozzarella cheese instead of cheddar cheese",
+       "video_window": [
+        414.6,
+        450.0
+       ]
+      },
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 75,
+       "description": "Using hands instead of spoon to remove cheese from the packet",
+       "video_window": [
+        504.4,
+        557.6
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 75,
+       "description": "Using dirty spoon to scoop cheddar cheese",
+       "video_window": [
+        779.9,
+        821.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "7_48",
+       "cc4d_step_id": 75,
+       "description": "1/2 tbsp instead of 1 tbsp",
+       "video_window": [
+        504.4,
+        557.6
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 75,
+       "description": "Instead of 1 tbsp use 1/2 tbsp.",
+       "video_window": [
+        387.3,
+        451.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_26",
+       "cc4d_step_id": 75,
+       "description": "Put the cheese beside the egg",
+       "video_window": [
+        317.8,
+        355.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_32",
+       "cc4d_step_id": 75,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 75,
+       "description": "Step performed before adding salsa, oregano and sweet and sour sauce.",
+       "video_window": [
+        387.3,
+        451.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 78,
+   "order": 11,
+   "instruction": "Roll the tortilla from one end to another into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps but not so tight that the filling leaks",
+   "duration_constraint_s": null,
+   "preconditions": [
+    75
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "7_35",
+       "cc4d_step_id": 78,
+       "description": "Roll improperly such that filling leaks",
+       "video_window": [
+        326.0,
+        355.9
+       ]
+      },
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 78,
+       "description": "Rolling it tighly and leak some contents thus breaking the tortilla.",
+       "video_window": [
+        529.9,
+        554.9
+       ]
+      },
+      {
+       "recording_id": "7_135",
+       "cc4d_step_id": 78,
+       "description": "Roll improperly such that filling leaks",
+       "video_window": [
+        824.7,
+        875.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_30",
+       "cc4d_step_id": 78,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "7_50",
+       "cc4d_step_id": 78,
+       "description": "Step performed after pouring the egg mixture on top of the tortilla.",
+       "video_window": [
+        529.9,
+        554.9
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

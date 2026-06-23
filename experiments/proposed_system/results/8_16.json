@@ -29,7 +29,7 @@
    "t_s": 0.0,
    "transition": "start",
    "step_or_block": "fill_milk",
-   "rule_id": "fill_start_source",
+   "rule_id": "fill_milk_start",
    "evidence": [],
    "confidence": 1.0
   },
@@ -37,7 +37,7 @@
    "t_s": 72.32,
    "transition": "complete",
    "step_or_block": "fill_milk",
-   "rule_id": "fill_done_next_anchor",
+   "rule_id": "fill_milk_done",
    "evidence": [
     "D1.cycle_start"
    ],
@@ -47,7 +47,7 @@
    "t_s": 72.32,
    "transition": "start",
    "step_or_block": "microwave_initial",
-   "rule_id": "mw1_start",
+   "rule_id": "microwave_initial_start",
    "evidence": [
     "D1.cycle_start"
    ],
@@ -57,7 +57,7 @@
    "t_s": 134.45,
    "transition": "complete",
    "step_or_block": "microwave_initial",
-   "rule_id": "mw1_done",
+   "rule_id": "microwave_initial_done",
    "evidence": [
     "D1.cycle_end"
    ],
@@ -67,7 +67,7 @@
    "t_s": 134.45,
    "transition": "start",
    "step_or_block": "quiet_middle",
-   "rule_id": "middle_start",
+   "rule_id": "quiet_middle_start",
    "evidence": [],
    "confidence": 1.0
   },
@@ -75,7 +75,7 @@
    "t_s": 387.2,
    "transition": "complete",
    "step_or_block": "quiet_middle",
-   "rule_id": "middle_done_next_anchor",
+   "rule_id": "quiet_middle_done",
    "evidence": [
     "D1.cycle_start"
    ],
@@ -85,7 +85,7 @@
    "t_s": 387.2,
    "transition": "start",
    "step_or_block": "heat_serve",
-   "rule_id": "heat_start",
+   "rule_id": "heat_serve_start",
    "evidence": [
     "D1.cycle_start"
    ],
@@ -95,7 +95,7 @@
    "t_s": 448.53,
    "transition": "complete",
    "step_or_block": "heat_serve",
-   "rule_id": "heat_done",
+   "rule_id": "heat_serve_done",
    "evidence": [
     "D1.cycle_end"
    ],
@@ -133,6 +133,6 @@
   "vlm_calls": 0,
   "frames_sent": 0,
   "vlm_latency_total_s": 0.0,
-  "compute_s": 1.09
+  "compute_s": 0.95
  }
 }

@@ -1,0 +1,843 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "tomatomozzarellasalad",
+ "activity_id": 12,
+ "n_recordings": 18,
+ "n_error_recordings": 7,
+ "steps": [
+  {
+   "step_id": 125,
+   "order": 1,
+   "instruction": "Rinse a tomato",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 125,
+       "description": "Do not rinse",
+       "video_window": [
+        11.7,
+        24.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 125,
+       "description": "use cherry tomato instead of normal tomato",
+       "video_window": [
+        11.7,
+        24.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 125,
+       "description": "use 2 cherry tomato instead of one normal tomato",
+       "video_window": [
+        11.7,
+        24.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_43",
+       "cc4d_step_id": 125,
+       "description": "Rinse with hot water",
+       "video_window": [
+        29.6,
+        43.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 122,
+   "order": 2,
+   "instruction": "gently dry it with a paper/tea towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    125
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_26",
+       "cc4d_step_id": 122,
+       "description": "Do not try the tomato completely",
+       "video_window": [
+        37.8,
+        46.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 122,
+       "description": "Dry it with a wet paper/tea towel",
+       "video_window": [
+        36.8,
+        58.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 119,
+   "order": 3,
+   "instruction": "Slice one tomato into about 1/2 inch thick slices",
+   "duration_constraint_s": null,
+   "preconditions": [
+    122
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "12_26",
+       "cc4d_step_id": 119,
+       "description": "Chop instead of slice",
+       "video_window": [
+        50.2,
+        120.9
+       ]
+      },
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 119,
+       "description": "Slicing improperly done. Slices are not of uniform thickness.",
+       "video_window": [
+        95.0,
+        125.9
+       ]
+      },
+      {
+       "recording_id": "12_43",
+       "cc4d_step_id": 119,
+       "description": "Cut tomato instead of slicing",
+       "video_window": [
+        78.5,
+        97.6
+       ]
+      },
+      {
+       "recording_id": "12_48",
+       "cc4d_step_id": 119,
+       "description": "Cut instead of slice",
+       "video_window": [
+        33.8,
+        45.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 119,
+       "description": "Slice into larger slices about 1 inch thick",
+       "video_window": [
+        75.8,
+        93.2
+       ]
+      },
+      {
+       "recording_id": "12_43",
+       "cc4d_step_id": 119,
+       "description": "Cut into big chunks",
+       "video_window": [
+        78.5,
+        97.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 119,
+       "description": "Use soiled chopping board for slicing tomato",
+       "video_window": [
+        95.0,
+        125.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 120,
+   "order": 4,
+   "instruction": "Place the thick slices of tomatoes on a platter, ensuring they only make a single layer",
+   "duration_constraint_s": null,
+   "preconditions": [
+    119
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "12_26",
+       "cc4d_step_id": 120,
+       "description": "Tomatoes are not placed in a single layer",
+       "video_window": [
+        140.1,
+        151.7
+       ]
+      },
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 120,
+       "description": "Make double layer instead of single layer",
+       "video_window": [
+        107.8,
+        126.1
+       ]
+      },
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 120,
+       "description": "Throwing tomato slices on platter instead of placing",
+       "video_window": [
+        380.2,
+        395.0
+       ]
+      },
+      {
+       "recording_id": "12_43",
+       "cc4d_step_id": 120,
+       "description": "Spill tomatoes while placing",
+       "video_window": [
+        143.7,
+        148.8
+       ]
+      },
+      {
+       "recording_id": "12_48",
+       "cc4d_step_id": 120,
+       "description": "Instead of a single layer, pile up the cut tomatoes",
+       "video_window": [
+        67.2,
+        83.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 120,
+       "description": "Step performed after seasoning and garnishing the platter",
+       "video_window": [
+        380.2,
+        395.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 123,
+   "order": 5,
+   "instruction": "Season the tomato slices with salt",
+   "duration_constraint_s": null,
+   "preconditions": [
+    120
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 123,
+       "description": "Season-Season the tomato slices with sugar instead of salt",
+       "video_window": [
+        147.7,
+        162.2
+       ]
+      },
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 123,
+       "description": "Season tomato slices with powdered sugar instead of salt",
+       "video_window": [
+        298.2,
+        308.7
+       ]
+      },
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 123,
+       "description": "Seasoned on chopping board instead of platter",
+       "video_window": [
+        298.2,
+        308.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 123,
+       "description": "Seasoning performed in salt bae style",
+       "video_window": [
+        298.2,
+        308.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 123,
+       "description": "Step performed before placing tomato slices on platter",
+       "video_window": [
+        298.2,
+        308.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_43",
+       "cc4d_step_id": 123,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 124,
+   "order": 6,
+   "instruction": "Sprinkle mozzarella cheese on top of the tomato throughout the platter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    120
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "12_26",
+       "cc4d_step_id": 124,
+       "description": "Poured the cheese instead of sprinkling it",
+       "video_window": [
+        179.1,
+        190.9
+       ]
+      },
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 124,
+       "description": "Sprinkle-Sprinkle cheddar cheese on boundary of the plater.",
+       "video_window": [
+        229.9,
+        256.1
+       ]
+      },
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 124,
+       "description": "Spill while sprinkling mozzarella cheese",
+       "video_window": [
+        255.5,
+        270.0
+       ]
+      },
+      {
+       "recording_id": "12_51",
+       "cc4d_step_id": 124,
+       "description": "Sprinkling from too high and spilling the cheese",
+       "video_window": [
+        204.2,
+        212.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 124,
+       "description": "Sprinkle on chopping board instead of platter",
+       "video_window": [
+        255.5,
+        270.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 124,
+       "description": "Step performed before placing tomato slices on platter",
+       "video_window": [
+        255.5,
+        270.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_43",
+       "cc4d_step_id": 124,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 126,
+   "order": 7,
+   "instruction": "Season platter with 1/4 teaspoon black pepper",
+   "duration_constraint_s": null,
+   "preconditions": [
+    120
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "12_26",
+       "cc4d_step_id": 126,
+       "description": "Add 1/8 teaspoon rather than 1/4 teaspoon",
+       "video_window": [
+        252.4,
+        265.4
+       ]
+      },
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 126,
+       "description": "Season-Season platter with 1/2 teaspoon black pepper",
+       "video_window": [
+        186.2,
+        200.7
+       ]
+      },
+      {
+       "recording_id": "12_48",
+       "cc4d_step_id": 126,
+       "description": "Accidentally spilled a lot of black pepper",
+       "video_window": [
+        117.4,
+        123.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 126,
+       "description": "Spilled while measuring black pepper",
+       "video_window": [
+        196.3,
+        241.7
+       ]
+      },
+      {
+       "recording_id": "12_51",
+       "cc4d_step_id": 126,
+       "description": "Spilled the whole bottle of black pepper on the platter",
+       "video_window": [
+        138.5,
+        143.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 126,
+       "description": "Took a lid instead of plate for platter",
+       "video_window": [
+        196.3,
+        241.7
+       ]
+      },
+      {
+       "recording_id": "12_51",
+       "cc4d_step_id": 126,
+       "description": "Used hands to clean and spread the black pepper",
+       "video_window": [
+        138.5,
+        143.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 126,
+       "description": "Step performed before placing tomato slices on platter",
+       "video_window": [
+        196.3,
+        241.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 127,
+   "order": 8,
+   "instruction": "Garnish platter with italian seasoning",
+   "duration_constraint_s": null,
+   "preconditions": [
+    120
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 127,
+       "description": "Garnishing on chopping board instead of platter",
+       "video_window": [
+        354.6,
+        362.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 127,
+       "description": "Step performed before placing tomato slices on platter",
+       "video_window": [
+        354.6,
+        362.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_43",
+       "cc4d_step_id": 127,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_51",
+       "cc4d_step_id": 127,
+       "description": "Spill some italian seasoning while garnishing",
+       "video_window": [
+        174.1,
+        180.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 121,
+   "order": 9,
+   "instruction": "Add a drizzle of extra-virgin olive oil, about 1 tablespoon, over the entire platter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    123,
+    124,
+    126,
+    127
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "12_6",
+       "cc4d_step_id": 121,
+       "description": "Didn't do the step of adding a extra-virgin olive oil.",
+       "video_window": [
+        332.4,
+        376.5
+       ]
+      },
+      {
+       "recording_id": "12_26",
+       "cc4d_step_id": 121,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "12_43",
+       "cc4d_step_id": 121,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 121,
+       "description": "Using vegetable oil instead of olive oil",
+       "video_window": [
+        314.8,
+        349.3
+       ]
+      },
+      {
+       "recording_id": "12_41",
+       "cc4d_step_id": 121,
+       "description": "Used apple cider vinegar instead of olive oil",
+       "video_window": [
+        428.0,
+        454.1
+       ]
+      },
+      {
+       "recording_id": "12_48",
+       "cc4d_step_id": 121,
+       "description": "Add one tablespoon of oil, then heat another tablespoon of oil in a pan and add it to the platter",
+       "video_window": [
+        187.9,
+        295.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_38",
+       "cc4d_step_id": 121,
+       "description": "Add 2 teaspoon instead of 1 tablespoon",
+       "video_window": [
+        314.8,
+        349.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "12_51",
+       "cc4d_step_id": 121,
+       "description": "Spilling the olive oil while drizzling",
+       "video_window": [
+        223.6,
+        231.4
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

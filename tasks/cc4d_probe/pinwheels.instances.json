@@ -1,0 +1,1603 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "pinwheels",
+ "activity_id": 10,
+ "n_recordings": 12,
+ "n_error_recordings": 8,
+ "steps": [
+  {
+   "step_id": 115,
+   "order": 1,
+   "instruction": "Place 8-inch flour tortilla on cutting board",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 115,
+       "description": "Use a plate instead of cutting board.",
+       "video_window": [
+        0,
+        25.5
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 115,
+       "description": "Toast tortilla on the pan before using it",
+       "video_window": [
+        0,
+        43.1
+       ]
+      },
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 115,
+       "description": "Use tortilla after heating it on pan for 1 minute",
+       "video_window": [
+        0,
+        187.8
+       ]
+      },
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 115,
+       "description": "place on unclean kitchen surface instead of cutting board",
+       "video_window": [
+        66.3,
+        94.3
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 115,
+       "description": "Placed on a plate instead of cutting board",
+       "video_window": [
+        2.5,
+        57.5
+       ]
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 115,
+       "description": "Use a plate instead of a cutting board",
+       "video_window": [
+        4.1,
+        24.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 115,
+       "description": "Step performed after placing tortilla on cutting board",
+       "video_window": [
+        66.3,
+        94.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 113,
+   "order": 2,
+   "instruction": "Use a butter knife to scoop nut butter from the jar",
+   "duration_constraint_s": null,
+   "preconditions": [
+    115
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 113,
+       "description": "Used a spoon instead of a butter knife",
+       "video_window": [
+        54.3,
+        71.8
+       ]
+      },
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 113,
+       "description": "Used a knife instead of butter knife",
+       "video_window": [
+        193.1,
+        222.5
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 113,
+       "description": "Use spoon instead of butter knife",
+       "video_window": [
+        95.5,
+        115.7
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 113,
+       "description": "Used normal butter instead of nut butter",
+       "video_window": [
+        214.3,
+        231.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 113,
+       "description": "Step performed before placing tortilla on cutting board",
+       "video_window": [
+        2.1,
+        65.2
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 113,
+       "description": "Step performed after spreading jelly",
+       "video_window": [
+        95.5,
+        115.7
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 113,
+       "description": "Step performed after applying jelly",
+       "video_window": [
+        214.3,
+        231.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 113,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 113,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 112,
+   "order": 3,
+   "instruction": "Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges",
+   "duration_constraint_s": null,
+   "preconditions": [
+    113
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 112,
+       "description": "Spreading the complete tortilla",
+       "video_window": [
+        222.9,
+        298.2
+       ]
+      },
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 112,
+       "description": "spread the butter without leaving any edge gap",
+       "video_window": [
+        95.4,
+        134.3
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 112,
+       "description": "Spreading around the jelly",
+       "video_window": [
+        118.4,
+        153.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 112,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 112,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 112,
+       "description": "Step performed after spreading jelly",
+       "video_window": [
+        118.4,
+        153.2
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 112,
+       "description": "Step performed after applying jelly",
+       "video_window": [
+        232.9,
+        252.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 112,
+       "description": "Used a spoon instead of a butter knife",
+       "video_window": [
+        73.9,
+        128.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 112,
+       "description": "Did not spread the butter properly, instead leave drops of butter on the tortilla",
+       "video_window": [
+        232.9,
+        252.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 118,
+   "order": 4,
+   "instruction": "Clean the knife by wiping it with a paper towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    112
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 118,
+       "description": "Use a kitchen knife instead of a buttering knife (might cut the tortilla)",
+       "video_window": [
+        34.6,
+        48.5
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 118,
+       "description": "Used a spoon instead of a knife",
+       "video_window": [
+        131.2,
+        152.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 118,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 118,
+       "description": "Step performed after correct order",
+       "video_window": [
+        357.3,
+        373.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 118,
+       "description": "Improper Cleaning of the knife with paper towel. paper towel did not cover down side of the knife.",
+       "video_window": [
+        260.7,
+        283.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 111,
+   "order": 5,
+   "instruction": "Use the knife to scoop jelly from the jar",
+   "duration_constraint_s": null,
+   "preconditions": [
+    118
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 111,
+       "description": "Using kitchen knife instead of buttering knife (might cut the tortilla)",
+       "video_window": [
+        53.6,
+        73.4
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 111,
+       "description": "Used a spoon instead of a butter knife",
+       "video_window": [
+        155.1,
+        187.3
+       ]
+      },
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 111,
+       "description": "Using soiled knife to scoop jelly",
+       "video_window": [
+        142.0,
+        182.6
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 111,
+       "description": "use spoon instead of knife",
+       "video_window": [
+        31.6,
+        59.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 111,
+       "description": "spill some out while scooping jelly",
+       "video_window": [
+        142.0,
+        182.6
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 111,
+       "description": "Did not scoop properly",
+       "video_window": [
+        66.5,
+        165.5
+       ]
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 111,
+       "description": "Spill some jelly while scooping",
+       "video_window": [
+        51.0,
+        86.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 111,
+       "description": "Step performed before correct order",
+       "video_window": [
+        142.0,
+        182.6
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 111,
+       "description": "Step performed before spreading nut butter",
+       "video_window": [
+        31.6,
+        59.2
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 111,
+       "description": "Step performed before applying nut butter",
+       "video_window": [
+        66.5,
+        165.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 107,
+   "order": 6,
+   "instruction": "Spread jelly over the nut butter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    111
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 107,
+       "description": "spread the jelly over the other side of the tortilla instead of spreading it on butter",
+       "video_window": [
+        191.1,
+        222.2
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 107,
+       "description": "Did not spread jelly completely over the nut butter",
+       "video_window": [
+        59.2,
+        74.0
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 107,
+       "description": "Spread on the boundary",
+       "video_window": [
+        174.2,
+        197.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 107,
+       "description": "Step performed before spreading nut butter",
+       "video_window": [
+        59.2,
+        74.0
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 107,
+       "description": "Step performed before applying nut butter",
+       "video_window": [
+        174.2,
+        197.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 107,
+       "description": "Used a spoon instead of a butter knife",
+       "video_window": [
+        182.3,
+        212.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 104,
+   "order": 7,
+   "instruction": "Clean the knife by wiping with a paper towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    107
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 104,
+       "description": "Used a spoon instead of a butter knife",
+       "video_window": [
+        213.2,
+        230.9
+       ]
+      },
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 104,
+       "description": "use hand instead of towel to clean",
+       "video_window": [
+        228.2,
+        258.3
+       ]
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 104,
+       "description": "Leave some jelly on the knife - unhyginic",
+       "video_window": [
+        107.3,
+        113.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 104,
+       "description": "Step performed before spreading nut butter",
+       "video_window": [
+        74.1,
+        94.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 116,
+   "order": 8,
+   "instruction": "Roll the tortilla from one end to the other into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps, but not so tight that the filling leaks",
+   "duration_constraint_s": null,
+   "preconditions": [
+    104
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "10_7",
+       "cc4d_step_id": 116,
+       "description": "Filling leaked",
+       "video_window": [
+        284.9,
+        300.6
+       ]
+      },
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 116,
+       "description": "Roll it tightly - The jelly spills out",
+       "video_window": [
+        121.3,
+        147.3
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 116,
+       "description": "Roll it tightly for the filling to leak",
+       "video_window": [
+        231.1,
+        250.9
+       ]
+      },
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 116,
+       "description": "Ensure filling leaks",
+       "video_window": [
+        426.4,
+        433.3
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 116,
+       "description": "Roll it tightly for the filling to leak",
+       "video_window": [
+        162.1,
+        185.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 116,
+       "description": "Log thickness is 2.5 inches",
+       "video_window": [
+        426.4,
+        433.3
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 116,
+       "description": "Roll into a large log",
+       "video_window": [
+        294.6,
+        306.5
+       ]
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 116,
+       "description": "Roll into a larger log shape",
+       "video_window": [
+        119.1,
+        142.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 110,
+   "order": 9,
+   "instruction": "Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart",
+   "duration_constraint_s": null,
+   "preconditions": [
+    116
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 110,
+       "description": "The toothpicks are inserted at random places (not 1 inch apart)",
+       "video_window": [
+        171.0,
+        207.7
+       ]
+      },
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 110,
+       "description": "use 10 toothpicks instead of 5",
+       "video_window": [
+        376.2,
+        462.6
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 110,
+       "description": "Used 3 toothpicks instead of 5",
+       "video_window": [
+        322.2,
+        345.2
+       ]
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 110,
+       "description": "use 3 instead of 5 toothpicks",
+       "video_window": [
+        144.1,
+        176.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 110,
+       "description": "Skip this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 110,
+       "description": "Step performed after correct order",
+       "video_window": [
+        308.2,
+        347.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 114,
+   "order": 10,
+   "instruction": "Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll",
+   "duration_constraint_s": null,
+   "preconditions": [
+    110
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 114,
+       "description": "Not able to trim the ends of the tortilla roll with the butter knife",
+       "video_window": [
+        214.1,
+        224.8
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 114,
+       "description": "Use a normal knife instead of butter knife",
+       "video_window": [
+        311.0,
+        337.6
+       ]
+      },
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 114,
+       "description": "Use a normal knife instead",
+       "video_window": [
+        527.2,
+        545.8
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 114,
+       "description": "use spoon and fingers of hand instead of butter knife to trim",
+       "video_window": [
+        263.4,
+        281.0
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 114,
+       "description": "Trim the same end twice",
+       "video_window": [
+        579.5,
+        611.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 114,
+       "description": "Step performed before correct order",
+       "video_window": [
+        323.3,
+        346.2
+       ]
+      },
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 114,
+       "description": "Step performed before adding toothpicks",
+       "video_window": [
+        263.4,
+        281.0
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 114,
+       "description": "Step performed after placing floss and slicing",
+       "video_window": [
+        579.5,
+        611.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 114,
+       "description": "Left 1 inch margin between the last toothpick and the end of the roll",
+       "video_window": [
+        311.0,
+        337.6
+       ]
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 114,
+       "description": "Trim too much",
+       "video_window": [
+        181.9,
+        198.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 114,
+       "description": "Trim-Trim the ends of the tortilla using hand",
+       "video_window": [
+        323.3,
+        346.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 103,
+   "order": 11,
+   "instruction": "Discard ends of the tortilla",
+   "duration_constraint_s": null,
+   "preconditions": [
+    114
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 103,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 106,
+   "order": 12,
+   "instruction": "Slide floss under the tortilla, perpendicular to the length of the roll",
+   "duration_constraint_s": null,
+   "preconditions": [
+    114
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 106,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 106,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 106,
+       "description": "Step performed before adding toothpicks and trimming",
+       "video_window": [
+        212.3,
+        237.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 106,
+       "description": "Slide floss under the tortilla, parallel to the length of the roll. Did parallel instead of perpendicular.",
+       "video_window": [
+        382.4,
+        412.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 117,
+   "order": 13,
+   "instruction": "Place the floss halfway between toothpicks",
+   "duration_constraint_s": null,
+   "preconditions": [
+    106
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 117,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 117,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 117,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 117,
+       "description": "Step performed before adding toothpicks and trimming",
+       "video_window": [
+        237.0,
+        238.1
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 117,
+       "description": "Step performed before trimming the edges",
+       "video_window": [
+        413.0,
+        423.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 105,
+   "order": 14,
+   "instruction": "Cross the floss's two ends over the tortilla roll's top",
+   "duration_constraint_s": null,
+   "preconditions": [
+    117
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 105,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 105,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 105,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 105,
+       "description": "Step performed before adding toothpicks and trimming",
+       "video_window": [
+        238.2,
+        249.0
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 105,
+       "description": "Step performed before trimming the edges",
+       "video_window": [
+        453.4,
+        466.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 105,
+       "description": "we are slicing in a way there is no toothpick in pin wheel",
+       "video_window": [
+        545.2,
+        561.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 108,
+   "order": 15,
+   "instruction": "pull the floss ends in opposite directions to slice",
+   "duration_constraint_s": null,
+   "preconditions": [
+    105
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 108,
+       "description": "Use a scissor instead of floss to cut pinwheels",
+       "video_window": [
+        235.4,
+        248.9
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 108,
+       "description": "Use knife instead of floss",
+       "video_window": [
+        360.3,
+        362.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_46",
+       "cc4d_step_id": 108,
+       "description": "Step performed before correct order",
+       "video_window": [
+        562.1,
+        568.5
+       ]
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 108,
+       "description": "Step performed before trimming the edges",
+       "video_window": [
+        467.2,
+        573.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 108,
+       "description": "Do not pull tightly",
+       "video_window": [
+        593,
+        598.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 108,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 102,
+   "order": 18,
+   "instruction": "Continue slicing with floss to create 1 more pinwheel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    102
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 12,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 102,
+       "description": "Use a scissor instead of floss",
+       "video_window": [
+        249,
+        254.3
+       ]
+      },
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 102,
+       "description": "Use a scissor instead of floss",
+       "video_window": [
+        255,
+        258
+       ]
+      },
+      {
+       "recording_id": "10_26",
+       "cc4d_step_id": 102,
+       "description": "Use a scissor instead of floss",
+       "video_window": [
+        259.0,
+        263.0
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 102,
+       "description": "Use knife instead of floss",
+       "video_window": [
+        362.9,
+        364.6
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 102,
+       "description": "Cut using knife",
+       "video_window": [
+        365.0,
+        371
+       ]
+      },
+      {
+       "recording_id": "10_31",
+       "cc4d_step_id": 102,
+       "description": "Cut using knife",
+       "video_window": [
+        374,
+        379
+       ]
+      },
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 102,
+       "description": "Use knife instead to slice",
+       "video_window": [
+        604,
+        606
+       ]
+      },
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 102,
+       "description": "Use knife instead to slice",
+       "video_window": [
+        612.5,
+        616
+       ]
+      },
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 102,
+       "description": "Use knife instead to slice",
+       "video_window": [
+        616,
+        618
+       ]
+      },
+      {
+       "recording_id": "10_42",
+       "cc4d_step_id": 102,
+       "description": "Use knife instead to slice",
+       "video_window": [
+        618,
+        620
+       ]
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 102,
+       "description": "Use a knife instead of floss",
+       "video_window": [
+        214,
+        218.1
+       ]
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 102,
+       "description": "Use a knife instead of floss",
+       "video_window": [
+        220,
+        223
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 4,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 102,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 102,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_48",
+       "cc4d_step_id": 102,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 102,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_50",
+       "cc4d_step_id": 102,
+       "description": "Cut into irregular shapes",
+       "video_window": [
+        214,
+        218.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 109,
+   "order": 19,
+   "instruction": "Place the pinwheels on a plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    102
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "10_47",
+       "cc4d_step_id": 109,
+       "description": "use a cup instead of a plate",
+       "video_window": [
+        435.4,
+        456.9
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

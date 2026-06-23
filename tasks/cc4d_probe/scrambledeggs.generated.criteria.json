@@ -1,0 +1,553 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/scrambledeggs.reminders.json) -- one per observed subtype -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG shape: 8 root nodes (preconditions=[]: 158, 161, 163, 164, 167, 169, 176, 177); sub-joins at 159 (whisk: requires 164+167+177) and 180 (mince: requires 176); all 8 roots + 159 + 180 reconverge at 173 (heat oil); two unordered forks after 173 (178+179, both require 173 only), three unordered forks after other nodes (160+162 both require 166; 168+175 both require 165); strictly linear from 170 onward; 23 distinct step_ids, no repeated ids.",
+  "task": {
+    "task_id": "scrambledeggs",
+    "title": "Scrambledeggs",
+    "source": "tasks/cc4d/scrambledeggs.json"
+  },
+  "nodes": [
+    {
+      "step_id": 158,
+      "instruction": "Chop 1 tsp cilantro",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (active from start). The user is chopping cilantro on a cutting board; one of several independent prep steps with no prerequisites."
+      },
+      "completion": {
+        "claim": "A small pile of chopped cilantro is set aside; chopping stops with no distinct end signal, so completion is inferred from step 173 (heat oil — the shared prep reconvergence) starting.",
+        "inferred_from": 173
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 tsp of cilantro; flag if a noticeably different amount is chopped (e.g. 1 tbsp instead of 1 tsp)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects fresh cilantro that is actually chopped before use; flag if cilantro is used without chopping or is visibly soiled."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for chopping cilantro with a knife; flag if the cilantro is torn by hand instead of cut."
+        }
+      ]
+    },
+    {
+      "step_id": 161,
+      "instruction": "Chop 1 green chilli",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (active from start). The user is chopping a green chilli on a cutting board; one of several independent prep steps with no prerequisites."
+      },
+      "completion": {
+        "claim": "The green chilli is chopped and set aside; chopping stops with no distinct end signal, so completion is inferred from step 173 (heat oil — the shared prep reconvergence) starting.",
+        "inferred_from": 173
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for chopping the chilli into separated pieces; flag if it is minced, left connected, or pieces are separated by hand rather than cut apart cleanly."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 green chilli; flag if a different quantity is used (e.g. 2 chillies or only half a chilli)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects the green chilli to be washed before use; flag if it is used without washing."
+        }
+      ]
+    },
+    {
+      "step_id": 163,
+      "instruction": "Chop 1/4 medium onion",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (active from start). The user is chopping a portion of onion on a cutting board; one of several independent prep steps with no prerequisites."
+      },
+      "completion": {
+        "claim": "Chopped onion is set aside; chopping stops with no distinct end signal, so completion is inferred from step 173 (heat oil — the shared prep reconvergence) starting.",
+        "inferred_from": 173
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for chopping the onion; flag if it is sliced or minced instead of chopped into small pieces."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/4 of a medium onion; flag if a noticeably different portion is used (e.g. half an onion)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires the onion to be peeled before chopping; flag if it is chopped without peeling."
+        }
+      ]
+    },
+    {
+      "step_id": 164,
+      "instruction": "add 1/3 tsp salt to the bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (active from start). The user is adding salt to the mixing bowl; one of several independent prep steps with no prerequisites."
+      },
+      "completion": {
+        "claim": "Salt is in the bowl; adding stops with no distinct end signal, so completion is inferred from step 159 (whisk the egg mixture — the earliest direct successor requiring this bowl ingredient) starting.",
+        "inferred_from": 159
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies adding salt to the bowl (not the pan); flag if salt is added to the pan or any container other than the bowl."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for carefully adding salt to the bowl; flag if salt spills outside the bowl while seasoning."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/3 tsp of salt; flag if a noticeably different amount is added (e.g. 1/3 tbsp instead of 1/3 tsp)."
+        }
+      ]
+    },
+    {
+      "step_id": 167,
+      "instruction": "Crack one egg in the bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (active from start). The user is cracking an egg into the mixing bowl; one of several independent prep steps with no prerequisites."
+      },
+      "completion": {
+        "claim": "The egg is cracked into the bowl; cracking stops with no distinct end signal, so completion is inferred from step 159 (whisk the egg mixture — the earliest direct successor requiring the egg) starting.",
+        "inferred_from": 159
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for cleanly cracking the egg into the bowl; flag if eggshell pieces fall into the bowl during cracking or the egg is thrown in rather than gently cracked."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for one egg; flag if more than one egg is cracked into the bowl (e.g. 2 eggs)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires the bowl to be free of shell debris after cracking; flag if eggshell remains are left in the bowl."
+        }
+      ]
+    },
+    {
+      "step_id": 169,
+      "instruction": "Chop 1/4 tomato",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (active from start). The user is chopping a portion of tomato on a cutting board; one of several independent prep steps with no prerequisites."
+      },
+      "completion": {
+        "claim": "Chopped tomato is set aside; chopping stops with no distinct end signal, so completion is inferred from step 173 (heat oil — the shared prep reconvergence) starting.",
+        "inferred_from": 173
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/4 of a tomato; flag if a noticeably different portion is used (e.g. 1/2, 1/8, or a whole tomato)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for chopping the tomato; flag if it is sliced instead of chopped into pieces."
+        }
+      ]
+    },
+    {
+      "step_id": 176,
+      "instruction": "Peel 2 garlic cloves",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (active from start). The user is removing the papery skin from garlic cloves; one of several independent prep steps with no prerequisites."
+      },
+      "completion": {
+        "claim": "Two garlic cloves are peeled; peeling stops with no distinct end signal, so completion is inferred from step 180 (mince peeled garlic — the direct successor requiring peeled cloves) starting.",
+        "inferred_from": 180
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires the garlic cloves to be fully peeled; flag if one or both cloves are only half-peeled or skin remains on the clove."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 2 garlic cloves; flag if a different number is peeled (e.g. only 1 clove or 3 cloves)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires all cloves to be peeled; flag if any clove is left entirely unpeeled before proceeding to mince."
+        }
+      ]
+    },
+    {
+      "step_id": 177,
+      "instruction": "add 1 tbsp milk to the bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step (active from start). The user is pouring milk into the mixing bowl; one of several independent prep steps with no prerequisites."
+      },
+      "completion": {
+        "claim": "Milk is in the bowl; pouring stops with no distinct end signal, so completion is inferred from step 159 (whisk the egg mixture — the earliest direct successor requiring this bowl ingredient) starting.",
+        "inferred_from": 159
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 tbsp of milk; flag if a noticeably different amount is added (e.g. 2 tbsp or only 1 tsp)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for pouring milk into the bowl without spilling; flag if milk spills outside the bowl during addition."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies adding milk to the bowl (not another container); flag if milk is added to a mug or any vessel other than the mixing bowl."
+        }
+      ]
+    },
+    {
+      "step_id": 159,
+      "instruction": "Whisk the egg mixture in the bowl",
+      "preconditions": [164, 167, 177],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is whisking the egg-salt-milk mixture in the bowl with a whisk or fork, eligible once the egg (167), salt (164), and milk (177) are all in the bowl."
+      },
+      "completion": {
+        "claim": "The mixture is uniformly beaten; whisking stops with no distinct end signal, so completion is inferred from step 173 (heat oil — the shared prep reconvergence) starting.",
+        "inferred_from": 173
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for whisking the mixture within the bowl; flag if the mixture spills outside the bowl while whisking."
+        }
+      ]
+    },
+    {
+      "step_id": 180,
+      "instruction": "Mince peeled garlic cloves",
+      "preconditions": [176],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is mincing the peeled garlic cloves into very fine pieces with a knife, eligible once the garlic has been peeled (step 176)."
+      },
+      "completion": {
+        "claim": "The garlic is finely minced and set aside; mincing stops with no distinct end signal, so completion is inferred from step 173 (heat oil — the shared prep reconvergence) starting.",
+        "inferred_from": 173
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for mincing the garlic cloves; flag if they are sliced, roughly chopped, or otherwise cut into larger pieces rather than finely minced."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The garlic to be minced should be the freshly peeled raw cloves; flag if already-cooked garlic is taken from the pan to mince instead."
+        }
+      ]
+    },
+    {
+      "step_id": 173,
+      "instruction": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat",
+      "preconditions": [158, 159, 161, 163, 169, 180],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding oil to the pan and setting the burner to medium heat, eligible once all prep steps (158, 159, 161, 163, 169, 180) are complete."
+      },
+      "completion": {
+        "claim": "The oil is hot and shimmering in the pan; heating stops with no distinct end signal, so completion is inferred from step 178 (add salt to the pan — the earliest direct successor in recipe order) starting.",
+        "inferred_from": 178
+      },
+      "checks": [
+        {
+          "reminder": "temperature",
+          "claim": "The recipe calls for medium heat; flag if the burner is set noticeably higher (e.g. high heat) or lower (e.g. low heat) than medium."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 2 tbsp of oil; flag if a noticeably different amount is used (e.g. 3 tbsp instead of 2 tbsp)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for adding oil to the pan without spilling; flag if oil is dropped or spilled outside the pan during addition."
+        }
+      ]
+    },
+    {
+      "step_id": 178,
+      "instruction": "add 1/3 tsp salt to the pan",
+      "preconditions": [173],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (178 and 179 both require only step 173); recognition must identify which is active now. The user is adding salt to the oiled pan."
+      },
+      "completion": {
+        "claim": "Salt is in the pan; adding stops with no distinct end signal, so completion is inferred from step 166 (saute onions — the earliest direct successor after this fork reconverges) starting.",
+        "inferred_from": 166
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/3 tsp of salt in the pan; flag if a noticeably different amount is added (e.g. 1/2 tsp or 1 tsp instead of 1/3 tsp)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for salt specifically; flag if a substitute such as sugar is added to the pan instead of salt."
+        }
+      ]
+    },
+    {
+      "step_id": 179,
+      "instruction": "add chopped onions to the pan",
+      "preconditions": [173],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (178 and 179 both require only step 173); recognition must identify which is active now. The user is adding the previously chopped onions to the pan."
+      },
+      "completion": {
+        "claim": "Onions are in the pan; adding stops with no distinct end signal, so completion is inferred from step 166 (saute onions — the earliest direct successor after this fork reconverges) starting.",
+        "inferred_from": 166
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for adding chopped onions to the pan; flag if sliced onions are used instead of chopped, or if onions are thrown and spill outside the pan."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for adding onions directly to the pan; flag if onions are transferred to an intermediate container (e.g. the bowl) before going into the pan."
+        }
+      ]
+    },
+    {
+      "step_id": 166,
+      "instruction": "Saute the onions on medium heat until they are soft and translucent",
+      "preconditions": [178, 179],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is sauteing the onions in the pan, eligible once salt (178) and onions (179) have both been added to the pan."
+      },
+      "completion": {
+        "claim": "The onions appear soft and translucent — an observable end state; inferred_from is null.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for sauteing until the onions are soft and translucent, which requires adequate cooking time; flag if the onions are removed from heat or passed over in a very short time before reaching that state."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe calls for medium heat during sauteing; flag if noticeably high or low-medium heat is used instead."
+        }
+      ]
+    },
+    {
+      "step_id": 160,
+      "instruction": "Add garlic to the pan",
+      "preconditions": [166],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (160 and 162 both require only step 166); recognition must identify which is active now. The user is adding the minced garlic to the pan."
+      },
+      "completion": {
+        "claim": "Garlic is in the pan; adding stops with no distinct end signal, so completion is inferred from step 165 (cook 1 minute — the earliest direct successor after this fork reconverges) starting.",
+        "inferred_from": 165
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for adding freshly minced raw garlic; flag if already-cooked garlic is added to the pan instead."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for adding garlic to the pan without spilling; flag if garlic spills outside the pan during addition."
+        }
+      ]
+    },
+    {
+      "step_id": 162,
+      "instruction": "Add chilli to the pan",
+      "preconditions": [166],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (160 and 162 both require only step 166); recognition must identify which is active now. The user is adding the chopped chilli to the pan."
+      },
+      "completion": {
+        "claim": "Chilli is in the pan; adding stops with no distinct end signal, so completion is inferred from step 165 (cook 1 minute — the earliest direct successor after this fork reconverges) starting.",
+        "inferred_from": 165
+      },
+      "checks": []
+    },
+    {
+      "step_id": 165,
+      "instruction": "Cook for 1 minute, mixing everything",
+      "preconditions": [160, 162],
+      "duration_constraint_s": 60,
+      "recognition": {
+        "claim": "The user is cooking and mixing the pan contents together, eligible once both garlic (160) and chilli (162) have been added to the pan."
+      },
+      "completion": {
+        "claim": "About a minute of cooking while mixing has elapsed; cooking stops with no distinct end signal, so completion is inferred from step 168 (add turmeric — the earliest direct successor in recipe order) starting.",
+        "inferred_from": 168
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for approximately 1 minute (60 s) of cooking; flag if the step runs noticeably shorter (e.g. ~30 s) or longer (e.g. 2–3 min) than that."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for mixing everything in the pan while cooking; flag if contents spill outside the pan during this step."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe implies continued medium heat during this cook step; flag if high heat is used instead."
+        }
+      ]
+    },
+    {
+      "step_id": 168,
+      "instruction": "Add 1/8 tsp of turmeric to the pan",
+      "preconditions": [165],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (168 and 175 both require only step 165); recognition must identify which is active now. The user is adding turmeric powder to the pan."
+      },
+      "completion": {
+        "claim": "Turmeric is in the pan; adding stops with no distinct end signal, so completion is inferred from step 170 (cook covered — the earliest direct successor after this fork reconverges) starting.",
+        "inferred_from": 170
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/8 tsp of turmeric; flag if a noticeably larger or different unit amount is added (e.g. 1/2 tsp, or 1/8 tbsp instead of 1/8 tsp)."
+        }
+      ]
+    },
+    {
+      "step_id": 175,
+      "instruction": "Add tomatoes to the pan",
+      "preconditions": [165],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible steps (168 and 175 both require only step 165); recognition must identify which is active now. The user is adding the chopped tomatoes to the pan."
+      },
+      "completion": {
+        "claim": "Tomatoes are in the pan; adding stops with no distinct end signal, so completion is inferred from step 170 (cook covered — the earliest direct successor after this fork reconverges) starting.",
+        "inferred_from": 170
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for adding tomatoes to the pan without spilling; flag if tomatoes spill outside the pan during addition."
+        }
+      ]
+    },
+    {
+      "step_id": 170,
+      "instruction": "Cook covered for 1 minute or until the tomatoes soften",
+      "preconditions": [168, 175],
+      "duration_constraint_s": 60,
+      "recognition": {
+        "claim": "The user has placed a lid on the pan and is cooking, eligible once turmeric (168) and tomatoes (175) have both been added."
+      },
+      "completion": {
+        "claim": "The tomatoes have softened and approximately 1 minute has elapsed — an observable end state (lid removed, tomatoes visibly soft); inferred_from is null.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for cooking covered approximately 1 minute (60 s); flag if the step runs noticeably shorter (e.g. ~30 s) or considerably longer (to the point of burning)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for cooking the pan covered with a lid; flag if the lid is not placed on the pan during this step."
+        }
+      ]
+    },
+    {
+      "step_id": 172,
+      "instruction": "Slowly pour the whisked eggs into the pan",
+      "preconditions": [170],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is tilting the bowl and gradually pouring the whisked egg mixture into the pan, eligible once the covered cook (step 170) is done."
+      },
+      "completion": {
+        "claim": "All whisked eggs are in the pan; pouring stops with no distinct end signal, so completion is inferred from step 171 (keep mixing with spatula — the direct successor) starting.",
+        "inferred_from": 171
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for slowly pouring the whisked eggs into the pan; flag if the eggs are poured quickly all at once rather than gradually and slowly."
+        }
+      ]
+    },
+    {
+      "step_id": 171,
+      "instruction": "Keep mixing with a spatula for 3 minutes or until the eggs are almost cooked",
+      "preconditions": [172],
+      "duration_constraint_s": 180,
+      "recognition": {
+        "claim": "The user is continuously stirring the egg mixture in the pan with a spatula, eligible once the eggs have been poured in (step 172)."
+      },
+      "completion": {
+        "claim": "The eggs are almost cooked and scrambled after approximately 3 minutes — an observable end state; inferred_from is null.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for approximately 3 minutes (180 s) of mixing; flag if the step ends noticeably earlier (e.g. ~1.5 min) or runs considerably longer."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for continuous mixing with a spatula to produce scrambled eggs; flag if mixing is insufficient and the eggs set into an omelette shape rather than loose scrambled curds."
+        }
+      ]
+    },
+    {
+      "step_id": 174,
+      "instruction": "Garnish with 1 tbsp chopped cilantro and serve",
+      "preconditions": [171],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is sprinkling chopped cilantro over the cooked scrambled eggs as a garnish before serving, eligible once the eggs are almost cooked (step 171)."
+      },
+      "completion": {
+        "claim": "The dish is garnished with cilantro and served — an observable end state; this is the terminal step; inferred_from is null.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe calls for garnishing the dish by placing cilantro on top; flag if cilantro is mixed into the dish rather than placed as a topping garnish."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "Garnishing should be the final act before serving; flag if the pan contents are stirred or mixed again after garnishing."
+        }
+      ]
+    }
+  ]
+}

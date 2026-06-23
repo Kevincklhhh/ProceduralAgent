@@ -1,0 +1,64 @@
+{
+  "recipe": "spicedhotchocolate",
+  "arm": "qwen",
+  "mode": "targeted",
+  "window": "oracle",
+  "n_recordings": 16,
+  "n_calls": 82,
+  "n_frames": 2492,
+  "wall_s": 2405.5,
+  "sample_fps": 1.0,
+  "max_frames": 32,
+  "neg_per_cell": 2,
+  "per_subtype": {
+    "measurement": {
+      "TP": 6,
+      "FN": 9,
+      "FP": 3,
+      "TN": 5,
+      "recall": 0.4,
+      "false_alarm_rate": 0.375
+    },
+    "preparation": {
+      "TP": 2,
+      "FN": 7,
+      "FP": 0,
+      "TN": 8,
+      "recall": 0.2222222222222222,
+      "false_alarm_rate": 0.0
+    },
+    "technique": {
+      "TP": 6,
+      "FN": 6,
+      "FP": 0,
+      "TN": 8,
+      "recall": 0.5,
+      "false_alarm_rate": 0.0
+    },
+    "temperature": {
+      "TP": 2,
+      "FN": 2,
+      "FP": 0,
+      "TN": 4,
+      "recall": 0.5,
+      "false_alarm_rate": 0.0
+    },
+    "timing": {
+      "TP": 6,
+      "FN": 4,
+      "FP": 0,
+      "TN": 4,
+      "recall": 0.6,
+      "false_alarm_rate": 0.0
+    }
+  },
+  "_caveats": "EASIEST upper bound: oracle step window + single named GT mistake to verify (heavy GT leak by design). Measures pure VLM perception, not deployable.",
+  "overall": {
+    "TP": 22,
+    "FN": 28,
+    "FP": 3,
+    "TN": 29,
+    "recall": 0.44,
+    "false_alarm_rate": 0.09375
+  }
+}

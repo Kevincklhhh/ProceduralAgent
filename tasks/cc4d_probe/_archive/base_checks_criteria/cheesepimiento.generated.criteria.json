@@ -1,0 +1,148 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/cheesepimiento.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG has three roots (316 add cheese, 320 add water, 321 chop pepper) converging through 318/323 into a 317 mix, then an unordered fork 314/315/319 reconverging at 324.",
+  "task": {
+    "task_id": "cheesepimiento",
+    "title": "Cheesepimiento",
+    "source": "tasks/cc4d/cheesepimiento.json"
+  },
+  "nodes": [
+    {
+      "step_id": 316,
+      "instruction": "Add 1/3 cup cheddar cheese to a microwave-safe cup",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding cheddar cheese into a microwave-safe cup. This is one of three concurrently-eligible root steps (add cheese 316, add water 320, chop pepper 321); recognition must say which is active now, as no order is imposed among them. Active from the start." },
+      "completion": { "claim": "Cheese has been added to the cup; this add has no end signal of its own, so it is inferred from the cheese-melting step starting.", "inferred_from": 323 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/3 cup of cheese; flag a different amount (e.g. 1/2 cup)." },
+        { "reminder": "preparation", "claim": "The recipe calls for cheddar cheese placed into a microwave-safe cup; flag a wrong ingredient (e.g. mozzarella) or a wrong vessel (e.g. a bowl instead of a cup)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag a spill while adding the cheese." }
+      ]
+    },
+    {
+      "step_id": 320,
+      "instruction": "Add 1 tablespoons of water to the bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding water into the bowl. This is one of three concurrently-eligible root steps (add cheese 316, add water 320, chop pepper 321); recognition must say which is active now, as no order is imposed among them. Active from the start." },
+      "completion": { "claim": "Water has been added to the bowl; this add has no end signal of its own, so it is inferred from the microwave step starting.", "inferred_from": 318 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 tablespoon of water; flag a different amount (e.g. 2 or 3 tablespoons)." }
+      ]
+    },
+    {
+      "step_id": 321,
+      "instruction": "Chop 1/4 red bell pepper into tiny bits",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is chopping red bell pepper into tiny bits. This is one of three concurrently-eligible root steps (add cheese 316, add water 320, chop pepper 321); recognition must say which is active now, as no order is imposed among them. Active from the start." },
+      "completion": { "claim": "The pepper has been chopped into tiny bits; this has no distinct end signal of its own, so it is inferred from the place-pepper step starting.", "inferred_from": 322 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 of a red bell pepper; flag a different amount." },
+        { "reminder": "preparation", "claim": "The recipe calls for red bell pepper, chopped (seeds removed) on a cutting board; flag a wrong pepper (e.g. green), seeds left in, or chopping on the counter instead of a cutting board." },
+        { "reminder": "technique", "claim": "The recipe calls for chopping into tiny bits; flag slicing instead of chopping or pieces left too large." }
+      ]
+    },
+    {
+      "step_id": 322,
+      "instruction": "Place the chopped pepper in the microwave-safe bowl",
+      "preconditions": [321],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is placing the chopped pepper into the microwave-safe bowl." },
+      "completion": { "claim": "The chopped pepper is in the bowl; this transfer has no end signal of its own, so it is inferred from the microwave step starting.", "inferred_from": 318 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for the pepper to go into the microwave-safe bowl; flag the pepper placed into a wrong vessel (e.g. a plate)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag a spill while placing the pepper, or the pepper piled to one side instead of spread across the base of the bowl." }
+      ]
+    },
+    {
+      "step_id": 318,
+      "instruction": "Microwave the bowl, covered, for 2 minutes",
+      "preconditions": [320, 322],
+      "duration_constraint_s": 120,
+      "recognition": { "claim": "The covered bowl is in the microwave running for about 2 minutes." },
+      "completion": { "claim": "The microwave finishes and stops after about 2 minutes -- the appliance stopping is its own observable end event.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for about 120 seconds; flag an undercook (e.g. only 30-60 seconds) or running noticeably beyond 120 seconds." },
+        { "reminder": "preparation", "claim": "The recipe calls for the bowl to be covered before microwaving; flag the bowl microwaved uncovered." }
+      ]
+    },
+    {
+      "step_id": 323,
+      "instruction": "Melt the cheese by microwaving cup for 30 sec. (Check after 30 seconds and microwave for 10 seconds more if needed)",
+      "preconditions": [316],
+      "duration_constraint_s": 30,
+      "recognition": { "claim": "The cup of cheese is in the microwave running to melt the cheese for about 30 seconds." },
+      "completion": { "claim": "The microwave stops after about 30 seconds and the cheese is melted -- the appliance stopping (and visibly melted cheese) is its own observable end event.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for about 30 seconds (plus up to 10 more if not melted); flag too short (e.g. 10 seconds, cheese not melted) or too long (e.g. 60 seconds)." },
+        { "reminder": "preparation", "claim": "The recipe calls for melting the cheese in the cup; flag the bowl microwaved instead of the cup." },
+        { "reminder": "temperature", "claim": "[probe-added] Flag the microwave set to a low heat/power setting instead of normal." }
+      ]
+    },
+    {
+      "step_id": 317,
+      "instruction": "Mix the cheese and red bell pepper in the bowl",
+      "preconditions": [318, 323],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is mixing the melted cheese and red bell pepper together in the bowl." },
+      "completion": { "claim": "The cheese and pepper are combined in the bowl; mixing has no distinct end signal of its own, so it is inferred from the next add step (butter) starting.", "inferred_from": 314 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for mixing the cheese and pepper together; flag a spill while mixing." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag mixing with bare hands instead of a utensil, or mixing in a wrong vessel (e.g. a plate)." }
+      ]
+    },
+    {
+      "step_id": 314,
+      "instruction": "add 1/2 tbsp softened butter to the bowl",
+      "preconditions": [317],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding softened butter into the bowl. This is one of three concurrently-eligible steps sharing precondition 317 (add butter 314, add salt 315, add pepper 319); recognition must say which is active now, as no order is imposed among them." },
+      "completion": { "claim": "Butter has been added to the bowl; this add has no end signal of its own, so it is inferred from the final mix step starting.", "inferred_from": 324 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/2 tablespoon of butter; flag a different amount (e.g. 1/4 or 1 tablespoon)." },
+        { "reminder": "preparation", "claim": "The recipe calls for softened butter added to the bowl; flag butter added with hands instead of a utensil." }
+      ]
+    },
+    {
+      "step_id": 315,
+      "instruction": "Add 1/4 teaspoon salt to the bowl",
+      "preconditions": [317],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding salt into the bowl. This is one of three concurrently-eligible steps sharing precondition 317 (add butter 314, add salt 315, add pepper 319); recognition must say which is active now, as no order is imposed among them." },
+      "completion": { "claim": "Salt has been added to the bowl; this add has no end signal of its own, so it is inferred from the final mix step starting.", "inferred_from": 324 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 teaspoon of salt; flag a different amount (e.g. 1/2 teaspoon)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag a spill while adding the salt." }
+      ]
+    },
+    {
+      "step_id": 319,
+      "instruction": "Add 1/4 teaspoon pepper to the bowl",
+      "preconditions": [317],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding pepper into the bowl. This is one of three concurrently-eligible steps sharing precondition 317 (add butter 314, add salt 315, add pepper 319); recognition must say which is active now, as no order is imposed among them." },
+      "completion": { "claim": "Pepper has been added to the bowl; this add has no end signal of its own, so it is inferred from the final mix step starting.", "inferred_from": 324 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 teaspoon of pepper; flag a different amount (e.g. 1/2 teaspoon)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag a spill while adding the pepper." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag the pepper added to a wrong/empty bowl rather than the bowl holding the ingredients." }
+      ]
+    },
+    {
+      "step_id": 324,
+      "instruction": "Mix all the ingredients of the bowl well",
+      "preconditions": [314, 315, 319],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is mixing all the ingredients in the bowl thoroughly." },
+      "completion": { "claim": "All ingredients are mixed together into a uniform mixture in the bowl; this is the terminal step.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for mixing all ingredients well; flag incomplete mixing where the cheese and pepper separate." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag mixing with bare hands instead of a utensil, or transferring ingredients to a plate to mix instead of the bowl." }
+      ]
+    }
+  ]
+}

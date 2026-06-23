@@ -1,0 +1,984 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "broccolistirfry",
+ "activity_id": 23,
+ "n_recordings": 16,
+ "n_error_recordings": 6,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 250,
+   "order": 1,
+   "instruction": "Add 1/8 cup soy sauce to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spill while adding",
+      "Spill soy sauce while measuring",
+      "spill extra into bowl while measuring 1/8 cup"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add-Add 1/2 cup soy sauce to the bowl",
+      "Add 1/4 cup instead of the 1/8 cup."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding bell pepper to the skillet",
+      "Step performed after whisking and setting aside the sauce."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 252,
+   "order": 2,
+   "instruction": "Add 1 tablespoon honey to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after pouring sauce to the skillet and cooking",
+      "Step performed after whisking and heating the pan"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while adding"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Added sweet and sour sauce instead of honey to the bowl"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add 1 teaspoon instead of 1 tablespoon."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 254,
+   "order": 3,
+   "instruction": "Add 1 teaspoon cornstarch to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill while adding",
+      "Spill while measuring the cornstarch"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after pouring sauce to the skillet and cooking",
+      "Step performed after cooking"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add 1/2 teaspoon cornstarch instead of 1 teaspoon."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 257,
+   "order": 4,
+   "instruction": "Peel 2 cloves of garlic",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Peel-Peel 2 cloves of garlic improperly",
+      "Did not peel the garlic correctly."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding bell pepper to the skillet"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 262,
+   "order": 5,
+   "instruction": "mince garlic",
+   "duration_constraint_s": null,
+   "preconditions": [
+    257
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding bell pepper to the skillet"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Mince one garlic finely and one garlic large pieces."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 255,
+   "order": 6,
+   "instruction": "Add 2 cloves minced garlic to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    262
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Added 2 cloves of garlic instead of 2 cloves minced garlic to the bowl"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding bell pepper to the skillet"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 267,
+   "order": 7,
+   "instruction": "Add 1/2 tablespoon minced ginger to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after pouring sauce to the skillet",
+      "Step performed after whisking and setting aside the sauce."
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add 1/2 teaspoon instead of 1/2 table spoon.",
+      "add approximately without measuring"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 268,
+   "order": 8,
+   "instruction": "Add 1/8 teaspoon black pepper to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add 1/4 tsp instead of 1/8 tsp.",
+      "add more than 1/8 tsp"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "add to skillet instead of bowl"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding bell pepper and pouring sauce to the skillet"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 269,
+   "order": 9,
+   "instruction": "Add 1/6 cup water the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill the water while adding",
+      "Spill the contents while pouring water."
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add 1/2 cup instead of 1/6 cup."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 260,
+   "order": 10,
+   "instruction": "Whisk the contents of bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    250,
+    252,
+    254,
+    255,
+    267,
+    268,
+    269
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill while whisking",
+      "Spill while whisking the bowl."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding all ingredients.",
+      "Step performed after heating the pan and before adding all ingredients"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "whisk with hand"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 251,
+   "order": 11,
+   "instruction": "Set aside the sauce mixture",
+   "duration_constraint_s": null,
+   "preconditions": [
+    260
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding bell pepper to the skillet",
+      "Step performed before adding all ingredients.",
+      "Step performed after heating the pan and before adding all ingredients"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 270,
+   "order": 12,
+   "instruction": "Take 2 cremini mushrooms",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": []
+  },
+  {
+   "step_id": 259,
+   "order": 13,
+   "instruction": "slice mushrooms",
+   "duration_constraint_s": null,
+   "preconditions": [
+    270
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding bell pepper and pouring sauce to the skillet",
+      "Step performed after pouring sauce to the skillet.",
+      "Step performed after heating the pan"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Did not remove the stem"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Instead of slicing the mushrooms chop the mushrooms."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 271,
+   "order": 14,
+   "instruction": "Take 1 bell pepper",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Take soiled bell pepper"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 263,
+   "order": 15,
+   "instruction": "slice 1/3 of the bell pepper",
+   "duration_constraint_s": null,
+   "preconditions": [
+    271
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Did not remove the seeds",
+      "Did not remove seeds of the bell pepper",
+      "Did not seed the bell pepper"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "chop 1/3 bell pepper instead of slice",
+      "slice incorrectly so that all slices are still attached on one end and not fully forming slices"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Instead of 1/3 using 1/2 bell pepper."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after pouring sauce to the skillet."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 273,
+   "order": 16,
+   "instruction": "Take 5 in number broccoli florets",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "take 4 instead of 5",
+      "Take only 4 broccoli florets instead of 5"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 266,
+   "order": 17,
+   "instruction": "Heat 2 tablespoons olive oil in a skillet over medium-high heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    251,
+    259,
+    263,
+    273
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding bell pepper and pouring sauce to the skillet",
+      "Step performed before adding all ingredients and whisking"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Heat-Heat 2 tablespoons olive oil in a skillet over high heat"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 258,
+   "order": 18,
+   "instruction": "add sliced mushrooms to the skillet",
+   "duration_constraint_s": null,
+   "preconditions": [
+    266
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding bell pepper and pouring sauce to the skillet",
+      "Step performed after pouring sauce to the skillet and before heating",
+      "Step performed before adding all ingredients to the sauce mixture"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 265,
+   "order": 19,
+   "instruction": "Add broccoli to the skillet",
+   "duration_constraint_s": null,
+   "preconditions": [
+    266
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding bell pepper and pouring sauce to the skillet",
+      "Step performed after pouring sauce to the skillet and before heating",
+      "Step performed before adding all ingredients to the sauce mixture"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 253,
+   "order": 20,
+   "instruction": "cook, stirring often, for 4 minutes. If the pan gets too hot on medium-high, turn the heat down to medium",
+   "duration_constraint_s": 240,
+   "preconditions": [
+    258,
+    265
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after pouring sauce to the skillet and before heating",
+      "Step performed before adding all ingredients to the sauce mixture"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Changing the heat down to low-high instead of medium. Need to set a temperature for this."
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "cook only for 20- 30 sec instead of 4 mins"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 261,
+   "order": 21,
+   "instruction": "Add bell pepper to the skillet",
+   "duration_constraint_s": null,
+   "preconditions": [
+    253
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Add bell pepper before cooking for 4 min",
+      "Step performed before cooking mushrooms and broccoli",
+      "Step performed after pouring sauce to the skillet and cooking",
+      "Step performed before adding all ingredients to the sauce mixture"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while adding"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Added whole bell pepper instead of sliced bell pepper"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 274,
+   "order": 22,
+   "instruction": "continue cooking, stirring often, for 2-3 minutes, until vegetables are crisp-tender",
+   "duration_constraint_s": 180,
+   "preconditions": [
+    261
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after pouring sauce to the skillet",
+      "Step performed before adding all ingredients to the sauce mixture"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while cooking/ stirring"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "cook only for 20- 30 sec instead of 4 mins"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 272,
+   "order": 23,
+   "instruction": "Whisk the sauce again to recombine the ingredients",
+   "duration_constraint_s": null,
+   "preconditions": [
+    274
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after pouring sauce to the skillet",
+      "Step performed after pouring sauce to the skillet and cooking",
+      "Step performed before adding all ingredients to the sauce mixture"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Whisking inside the skillet instead of the bowl.",
+      "use a spoon instead of whisker"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 256,
+   "order": 24,
+   "instruction": "Pour the sauce into the skillet",
+   "duration_constraint_s": null,
+   "preconditions": [
+    272
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before cooking mushrooms and broccoli",
+      "Step performed before adding all ingredients and heating the pan",
+      "Step performed before adding all ingredients to the sauce mixture"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Sauce is spilled while pouring."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 264,
+   "order": 25,
+   "instruction": "cook, stirring, for 1 minute until the sauce thickens",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    256
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Cook until it is burnt",
+      "cook for less than a minute than 1 minute."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after pouring sauce to the skillet and cooking",
+      "Step performed before adding all ingredients to the sauce mixture"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while stirring"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  }
+ ]
+}

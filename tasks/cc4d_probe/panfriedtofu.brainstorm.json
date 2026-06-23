@@ -1,0 +1,907 @@
+{
+  "recipe": "panfriedtofu",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "19 steps × 2 (recog+completion) + 30 checks = 68 total claims. No microwave/blender/water steps so D1/D2/D5 do not gate in. Active fry stages gate D3+D4. Three timed steps gate D6. Speculative sensors: thermal-spot on pan/burner for heat-setting and browning; monochrome OK for motion-only claims; low-res ROI for knob position and pan-area; IMU for pouring/drizzling gross motion.",
+  "claims": [
+    {
+      "step_id": 275,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is cutting tofu into ~1in cubes on a board",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "optical-flow + hand-in-ROI detects cutting motion -> 1 VLM call to confirm which of 3 root steps is active"
+    },
+    {
+      "step_id": 275,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tofu cut into cubes, knife set down",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "motion-stop on board ROI -> 1 VLM call to confirm cubes done and tool down"
+    },
+    {
+      "step_id": 275,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "cube size ~1in x 1in from 1/4 block",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low",
+      "config_oneline": "VLM periodic on board ROI; no cheap size-estimation sensor available"
+    },
+    {
+      "step_id": 275,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "tofu intact as cubes, not crumbling or sliced",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM call at completion to inspect shape integrity"
+    },
+    {
+      "step_id": 286,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is adding salt to the pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "hand-over-pan motion -> 1 VLM call to confirm salt (not oil) added"
+    },
+    {
+      "step_id": 286,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "salt added; completion inferred from heat-on (step 276)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 276 unlocked -> 286 declared complete; no sensor"
+    },
+    {
+      "step_id": 286,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 tsp salt, not a tablespoon-scale pour",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at recognition event; audio/cv cannot measure small-salt quantities"
+    },
+    {
+      "step_id": 286,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "salt added, not a different seasoning",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium",
+      "config_oneline": "cv hand-over-pan triggers 1 VLM call to confirm ingredient identity"
+    },
+    {
+      "step_id": 291,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is adding olive oil to non-stick pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "HSV state-change detects oil-add to pan -> 1 VLM call to confirm which root step"
+    },
+    {
+      "step_id": 291,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "oil added; completion inferred from heat-on (step 276)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 276 unlocked -> 291 declared complete; no sensor"
+    },
+    {
+      "step_id": 291,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 tbsp olive oil, not excess/spill",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low",
+      "config_oneline": "VLM at pour event; cv detects HSV change but cannot measure volume"
+    },
+    {
+      "step_id": 291,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "olive oil into non-stick pan, not a different oil or pan",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium",
+      "config_oneline": "cv pour motion triggers VLM to confirm oil type and pan type"
+    },
+    {
+      "step_id": 291,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "oil transferred cleanly, no drip outside pan",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "low",
+      "config_oneline": "VLM at pour completion; fine spill detection beyond cheap CV"
+    },
+    {
+      "step_id": 293,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is patting tofu dry with a towel",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "rapid small motion on tofu cluster -> 1 VLM call to confirm pat-dry action"
+    },
+    {
+      "step_id": 293,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tofu patted dry; completion inferred from tofu added to pan (step 279)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 279 unlocked -> 293 declared complete; no sensor"
+    },
+    {
+      "step_id": 293,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "towel used for drying, not a different material",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "texture/shape of cloth in hand ROI; 1 VLM call to confirm towel vs other"
+    },
+    {
+      "step_id": 293,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "gentle patting, cubes not squished or broken by pressing",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at completion; fine force assessment not possible from cheap sensors"
+    },
+    {
+      "step_id": 279,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is placing dried tofu cubes into the pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "objects entering pan ROI (motion + pan HSV state change) -> 1 VLM call"
+    },
+    {
+      "step_id": 279,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "all tofu in pan; completion inferred from heat-on (step 276)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 276 unlocked -> 279 declared complete; no sensor"
+    },
+    {
+      "step_id": 279,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "tofu transferred without dropping cubes outside pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "low-res pan-area ROI monitors for objects landing outside pan edge during transfer"
+    },
+    {
+      "step_id": 276,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user is turning burner to medium heat",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "hand-at-knob-ROI motion -> 1 VLM call to confirm heat-on action"
+    },
+    {
+      "step_id": 276,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "heat on; completion inferred from cooking step 292 beginning",
+      "modality": "audio",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high",
+      "config_oneline": "D4 cook_start sizzle candidate confirms heat-on and tofu cooking; thermal-spot could independently confirm pan warming"
+    },
+    {
+      "step_id": 276,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "medium heat, not clearly high or low",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "knob-ROI position estimate; thermal-spot on pan could infer heat level over time"
+    },
+    {
+      "step_id": 292,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "tofu cooking undisturbed in pan for browning",
+      "modality": "audio",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high",
+      "config_oneline": "D4 cook_start sizzle fires; 1 VLM call confirms tofu-in-pan cooking stage started"
+    },
+    {
+      "step_id": 292,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tofu lightly browned on bottom after ~5-6 min",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "D6 flags overtime at 360s as trigger; VLM confirms browning state; thermal-spot speculative for doneness-by-temp"
+    },
+    {
+      "step_id": 292,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "cooking ~360s; flag noticeably short or long",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 timer anchored on D4 cook_start_candidate emits overtime/undertime at 360s threshold"
+    },
+    {
+      "step_id": 280,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user briefly lifts pan off heat to reduce spitting",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "pan-lift motion in burner ROI (optical flow) -> 1 VLM call to confirm pan-off-heat"
+    },
+    {
+      "step_id": 280,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "pan briefly off heat; completion inferred from tofu flip (step 285)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 285 unlocked -> 280 declared complete; no sensor"
+    },
+    {
+      "step_id": 280,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "pan only briefly removed, not omitted or held away too long",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM periodic during brief gap; duration assessment needs timed VLM"
+    },
+    {
+      "step_id": 285,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user flipping tofu cubes in pan with tongs",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "repeated motion inside pan ROI -> 1 VLM call to confirm flip action"
+    },
+    {
+      "step_id": 285,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tofu flipped; completion inferred from heat returned (step 287)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 287 unlocked -> 285 declared complete; no sensor"
+    },
+    {
+      "step_id": 285,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "tongs used, not a spoon that might break tofu",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "utensil shape in hand ROI; 1 VLM call at flip recognition to confirm tongs"
+    },
+    {
+      "step_id": 285,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "clean flip without breaking or leaving pieces unturned",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at flip completion; fine technique / integrity assessment"
+    },
+    {
+      "step_id": 287,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user returning burner to medium heat after flip",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "hand-at-knob-ROI -> 1 VLM call to confirm heat-return action"
+    },
+    {
+      "step_id": 287,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "heat back to medium; inferred from 2nd cook stage (step 290) beginning",
+      "modality": "audio",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high",
+      "config_oneline": "D4 re-fires on pan return to heat (sizzle resumes); thermal-spot speculative confirm"
+    },
+    {
+      "step_id": 287,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "medium heat, not high (burns) or low",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "knob ROI position; thermal-spot on pan could confirm medium vs high"
+    },
+    {
+      "step_id": 290,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "tofu cooking in pan until brown (second cook stage)",
+      "modality": "audio",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high",
+      "config_oneline": "D4 sizzle re-onset -> 1 VLM call to confirm second cooking stage underway"
+    },
+    {
+      "step_id": 290,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tofu browned; own observable end-state",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "D3 cook_end fires when frying stops (pan lifted) -> triggers 1 VLM call to confirm brown color"
+    },
+    {
+      "step_id": 290,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "tofu stays in pan while cooking, no spill",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "pan-edge low-res ROI for object-outside-pan detection during cook stage"
+    },
+    {
+      "step_id": 282,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user again briefly lifts pan off heat",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "monochrome",
+      "feasibility": "high",
+      "config_oneline": "D3 cook_end fires when sizzle stops (pan off) -> 282 recognized without VLM"
+    },
+    {
+      "step_id": 282,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "pan off heat; completion inferred from soy sauce drizzle (step 277)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 277 or 278 unlocked -> 282 declared complete; no sensor"
+    },
+    {
+      "step_id": 282,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "pan removed briefly and safely, not omitted",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM call at D3 event to confirm pan was lifted (not just stopped frying for another reason)"
+    },
+    {
+      "step_id": 282,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "hot pan placed on heat-resistant surface",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "low",
+      "config_oneline": "VLM at D3 event; surface identification requires VLM; thermal-spot could flag surface warming"
+    },
+    {
+      "step_id": 277,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user drizzling soy sauce over tofu in pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "liquid pour into pan ROI (HSV liquid motion) -> 1 VLM call to confirm soy sauce vs sesame oil"
+    },
+    {
+      "step_id": 277,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "soy sauce drizzled; inferred from return to low heat (step 284)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 284 unlocked (both 277+278 done) -> 277 declared complete; no sensor"
+    },
+    {
+      "step_id": 277,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 tbsp soy sauce, not clearly more or less",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at pour event; volume cannot be measured by cheap sensor"
+    },
+    {
+      "step_id": 277,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "soy sauce, not a different sauce or liquid",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium",
+      "config_oneline": "cv liquid-pour triggers 1 VLM call to confirm soy sauce identity"
+    },
+    {
+      "step_id": 278,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user drizzling sesame oil over tofu in pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "liquid pour into pan ROI -> 1 VLM call to confirm sesame oil vs soy sauce"
+    },
+    {
+      "step_id": 278,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "sesame oil drizzled; inferred from return to low heat (step 284)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 284 unlocked (both 277+278 done) -> 278 declared complete; no sensor"
+    },
+    {
+      "step_id": 278,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 tbsp sesame oil, not two or a different amount",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at pour event; volume measurement beyond cheap sensors"
+    },
+    {
+      "step_id": 278,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "sesame oil, not a different oil",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "",
+      "feasibility": "medium",
+      "config_oneline": "cv pour motion triggers 1 VLM call to confirm sesame oil identity"
+    },
+    {
+      "step_id": 278,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "sesame oil drizzled cleanly; no utensil dropped into pan",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "",
+      "feasibility": "low",
+      "config_oneline": "VLM at pour event; fine drop/spill detection beyond cheap sensors"
+    },
+    {
+      "step_id": 284,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user setting burner to low heat",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "hand-at-knob-ROI -> 1 VLM call to confirm low-heat setting"
+    },
+    {
+      "step_id": 284,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "heat set to low; inferred from 2-min cook stage (step 289)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 289 starts -> 284 declared complete; no sensor"
+    },
+    {
+      "step_id": 284,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "low heat, not medium being used instead",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "knob-ROI position; thermal-spot on pan surface could confirm low vs medium heat level"
+    },
+    {
+      "step_id": 289,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "tofu cooking on low heat for 2 minutes",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high",
+      "config_oneline": "DAG: 284 complete -> 289 starts; low-heat fry is gentle/quiet so audio cannot confirm; dag-only recognition"
+    },
+    {
+      "step_id": 289,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "2 minutes of cooking elapsed; inferred from flip (step 281)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 timer anchored on 284 completion emits after 120s; flip step 281 serves as successor"
+    },
+    {
+      "step_id": 289,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "cooking ~120s; flag noticeably short or long",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 timer on step 289: overtime at >120s, undertime if flip 281 fires too early"
+    },
+    {
+      "step_id": 281,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user flipping tofu in pan (second flip)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "repeated motion inside pan ROI -> 1 VLM call to confirm second flip"
+    },
+    {
+      "step_id": 281,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tofu flipped; inferred from final cook stage (step 288)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 precondition: 288 starts -> 281 declared complete; no sensor"
+    },
+    {
+      "step_id": 281,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "all pieces flipped, no tofu or oil spilled",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "pan-area low-res ROI monitors for objects outside pan or significant spill during flip"
+    },
+    {
+      "step_id": 288,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "tofu cooking for ~2 min until colour darkens",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high",
+      "config_oneline": "DAG: 281 complete -> 288 starts; low-heat quiet cook, dag-only recognition"
+    },
+    {
+      "step_id": 288,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tofu colour darkened after ~2 min; own observable end-state",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "D6 overtime at 120s triggers 1 VLM call to confirm colour darkening; thermal could flag over-cooking"
+    },
+    {
+      "step_id": 288,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "cooking ~120s; flag shorter (undercooked) or longer (overcooked)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 timer on step 288: overtime/undertime relative to 120s from 281 completion"
+    },
+    {
+      "step_id": 283,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user transferring cooked tofu from pan to serving dish",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium",
+      "config_oneline": "pan-tilt / large motion toward dish -> 1 VLM call to confirm plating action"
+    },
+    {
+      "step_id": 283,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tofu plated on serving dish; own observable end-state",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "dish-ROI low-res state-change (objects on dish) triggers 1 VLM confirm plating done"
+    },
+    {
+      "step_id": 283,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "all tofu reaches dish; no spilling/dropping during transfer",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-ROI",
+      "feasibility": "medium",
+      "config_oneline": "floor/counter low-res ROI during transfer; object-drop detection (motion outside dish area)"
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 275,
+        "stage": "prep_root",
+        "camera": "partial (B-trigger)",
+        "audio": "none",
+        "vlm": "2 calls (size check periodic, technique check at completion)",
+        "role": "B-trigger / C-none"
+      },
+      {
+        "step_id": 286,
+        "stage": "prep_root",
+        "camera": "partial (B-trigger)",
+        "audio": "none",
+        "vlm": "2 calls (measurement C-none, ingredient B-trigger)",
+        "role": "B-trigger / C-none"
+      },
+      {
+        "step_id": 291,
+        "stage": "prep_root",
+        "camera": "partial (B-trigger)",
+        "audio": "none",
+        "vlm": "3 calls (measurement C-none, ingredient B-trigger, spill C-none)",
+        "role": "B-trigger / C-none"
+      },
+      {
+        "step_id": 293,
+        "stage": "prep_sequential",
+        "camera": "partial (B-trigger)",
+        "audio": "none",
+        "vlm": "2 calls (technique C-none, towel B-trigger)",
+        "role": "B-trigger / C-none"
+      },
+      {
+        "step_id": 279,
+        "stage": "prep_sequential",
+        "camera": "partial (B-trigger)",
+        "audio": "none",
+        "vlm": "1 call (recognition B-trigger)",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 276,
+        "stage": "heat_on",
+        "camera": "partial (B-trigger knob ROI)",
+        "audio": "D4 gates-in from here (fry stage begins)",
+        "vlm": "1 call (heat-on confirm)",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 292,
+        "stage": "cook_1_brown_bottom",
+        "camera": "OFF during undisturbed cook; wake at D6 overtime",
+        "audio": "D4 recognition + D3 end + D6 timer (360s)",
+        "vlm": "1 call at D6 overtime to confirm browning",
+        "role": "B-trigger (recog) / C-none (color completion)"
+      },
+      {
+        "step_id": 280,
+        "stage": "interlude_spitting",
+        "camera": "partial (B-trigger pan-lift)",
+        "audio": "D3 (cook_end fires on pan removal)",
+        "vlm": "1 call if technique check needed",
+        "role": "A-solve (recog via D3) / C-none (technique)"
+      },
+      {
+        "step_id": 285,
+        "stage": "flip_1",
+        "camera": "partial (B-trigger pan ROI)",
+        "audio": "none (transient excluded)",
+        "vlm": "2 calls (utensil B-trigger, technique C-none)",
+        "role": "B-trigger / C-none"
+      },
+      {
+        "step_id": 287,
+        "stage": "heat_return_medium",
+        "camera": "partial (knob ROI)",
+        "audio": "D4 re-fires on sizzle return",
+        "vlm": "1 call (heat-setting confirm)",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 290,
+        "stage": "cook_2_brown_all",
+        "camera": "low-res ROI (spill watch)",
+        "audio": "D4 recognition + D3 end",
+        "vlm": "1 call at D3 event (brown confirm)",
+        "role": "B-trigger (recog) / C-none (brown completion)"
+      },
+      {
+        "step_id": 282,
+        "stage": "interlude_spitting_2",
+        "camera": "OFF",
+        "audio": "D3 A-solves recognition (sizzle stops)",
+        "vlm": "1 call for technique/safety check if needed",
+        "role": "A-solve (recog) / C-none (safety)"
+      },
+      {
+        "step_id": 277,
+        "stage": "sauce_fork",
+        "camera": "partial (B-trigger pour)",
+        "audio": "none",
+        "vlm": "2 calls (identity B-trigger, measurement C-none)",
+        "role": "B-trigger / C-none"
+      },
+      {
+        "step_id": 278,
+        "stage": "sauce_fork",
+        "camera": "partial (B-trigger pour)",
+        "audio": "none",
+        "vlm": "3 calls (identity B-trigger, measurement C-none, technique C-none)",
+        "role": "B-trigger / C-none"
+      },
+      {
+        "step_id": 284,
+        "stage": "heat_low",
+        "camera": "partial (knob ROI)",
+        "audio": "none (low-heat; D4 not reliable at low heat)",
+        "vlm": "1 call (heat-setting confirm)",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 289,
+        "stage": "cook_3_low_2min",
+        "camera": "OFF (DAG + D6 timer only)",
+        "audio": "D6 timer (120s from 284 complete)",
+        "vlm": "0 calls (DAG/D6 A-solve both recog and timing)",
+        "role": "A-solve"
+      },
+      {
+        "step_id": 281,
+        "stage": "flip_2",
+        "camera": "partial (B-trigger pan ROI)",
+        "audio": "none",
+        "vlm": "1 call (flip confirm)",
+        "role": "B-trigger"
+      },
+      {
+        "step_id": 288,
+        "stage": "cook_4_low_2min_darken",
+        "camera": "OFF then wake at D6 overtime",
+        "audio": "D6 timer (120s from 281 complete)",
+        "vlm": "1 call at D6 overtime to confirm colour darkening",
+        "role": "A-solve (timing) / C-none (colour completion)"
+      },
+      {
+        "step_id": 283,
+        "stage": "plate",
+        "camera": "partial (B-trigger pan-tilt + dish ROI)",
+        "audio": "none",
+        "vlm": "1 call (plate confirm)",
+        "role": "B-trigger"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 20,
+      "B-trigger": 31,
+      "C-none": 17
+    },
+    "cost_estimate": "Camera fully OFF during 4 stages (289, 288 undisturbed portion, 292 undisturbed portion, 282 recognition). Active fry stages use D3+D4+D6 so VLM fires only at anchored events. ~25% of claims are C-none requiring periodic/continuous VLM. Rough duty-cycle estimate: camera active ~55% of recipe wall-time vs 100% for always-on VLM.",
+    "honest_limits": "C-none slice (17/68 = 25%) includes: all measurement checks (volume/size), fine technique checks (crumbling, squishing, spill precision, tool-drop), and color-doneness completions. Audio D1/D2/D5 contribute zero (no microwave/blender/water steps). D4 sizzle on low-heat stages (289, 288) is unreliable per library ('gentle or dry cooking' exclusion) so those stages fall to DAG only. Thermal-spot is speculative for heat-setting and browning-doneness but unvalidated. IMU excluded: drizzle/add motions are small-scale and pour detector is excluded from library."
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/microwavemugpizza.reminders.json) -- one per observed subtype -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG shape: 14 nodes; root step 36; unordered fork at 28/33/35/40 (all preconditions [36]); unordered fork at 34/41 (both preconditions [38]); linear topping/microwave spine 30->31->39->29->32; no repeated step_ids (no loop collapse needed).",
+  "task": {
+    "task_id": "microwavemugpizza",
+    "title": "Microwavemugpizza",
+    "source": "tasks/cc4d/microwavemugpizza.json"
+  },
+  "nodes": [
+    {
+      "step_id": 36,
+      "instruction": "Take a microwavable mug",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step -- active from the start. The user is selecting and picking up a microwavable mug."
+      },
+      "completion": {
+        "claim": "No distinct end signal of its own; it just stops once a mug is in hand. Inferred from the earliest measure-and-add step (28) beginning.",
+        "inferred_from": 28
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires a clean mug; flag if the mug used appears soiled or has not been cleaned before use."
+        }
+      ]
+    },
+    {
+      "step_id": 28,
+      "instruction": "Measure 1/8 teaspoon of salt and add it to the mug",
+      "preconditions": [36],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 4 concurrently-eligible measure-and-add steps (28, 33, 35, 40 all require only step 36); recognition must identify which is active now -- no order is imposed among them. The user is measuring salt and adding it to the mug."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the salt is in the mug. Inferred from the reconvergence stir step (38) beginning.",
+        "inferred_from": 38
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for exactly 1/8 teaspoon of salt; flag if the amount added appears to differ (e.g. 1/4 tsp or 1 tsp instead of 1/8 tsp)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects clean, dry measuring spoons; flag if soiled or wet measuring spoons are used, which could contaminate the salt."
+        }
+      ]
+    },
+    {
+      "step_id": 33,
+      "instruction": "Measure 4 tablespoons of flour and add it to the mug",
+      "preconditions": [36],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 4 concurrently-eligible measure-and-add steps (28, 33, 35, 40 all require only step 36); recognition must identify which is active now -- no order is imposed among them. The user is measuring flour and adding it to the mug."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the flour is in the mug. Inferred from the reconvergence stir step (38) beginning.",
+        "inferred_from": 38
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for exactly 4 tablespoons of flour; flag if the amount appears to differ (e.g. only 2 or 3 tablespoons, or as many as 5 tablespoons)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects flour to be transferred cleanly into the mug; flag if flour is spilled while measuring or adding it."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects clean, dry measuring spoons; flag if soiled or wet spoons are used, which could contaminate the flour."
+        }
+      ]
+    },
+    {
+      "step_id": 35,
+      "instruction": "Measure 1/16 teaspoon of baking soda and add it to the mug",
+      "preconditions": [36],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 4 concurrently-eligible measure-and-add steps (28, 33, 35, 40 all require only step 36); recognition must identify which is active now -- no order is imposed among them. The user is measuring baking soda and adding it to the mug."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the baking soda is in the mug. Inferred from the reconvergence stir step (38) beginning.",
+        "inferred_from": 38
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/16 teaspoon of baking soda; flag if the amount appears to differ significantly (e.g. a full teaspoon instead of 1/16 teaspoon)."
+        }
+      ]
+    },
+    {
+      "step_id": 40,
+      "instruction": "Measure 1/8 teaspoon of baking powder and add it to the mug",
+      "preconditions": [36],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 4 concurrently-eligible measure-and-add steps (28, 33, 35, 40 all require only step 36); recognition must identify which is active now -- no order is imposed among them. The user is measuring baking powder and adding it to the mug."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the baking powder is in the mug. Inferred from the reconvergence stir step (38) beginning.",
+        "inferred_from": 38
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for baking powder specifically; flag if baking soda is substituted instead, or if soiled measuring spoons are used that could contaminate the ingredient."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for exactly 1/8 teaspoon of baking powder; flag if the amount appears to differ (e.g. 1/4 teaspoon)."
+        }
+      ]
+    },
+    {
+      "step_id": 38,
+      "instruction": "Stir the contents in the mug well",
+      "preconditions": [28, 33, 35, 40],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is stirring the dry ingredients in the mug with a utensil. This step follows the reconvergence of all four measure-and-add steps."
+      },
+      "completion": {
+        "claim": "No end signal of its own; stirring just stops. Inferred from the earliest wet-add successor step (34, olive oil) beginning.",
+        "inferred_from": 34
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects the contents to be stirred without spillage; flag if contents spill out of the mug during stirring."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects a utensil to be used for stirring; flag if the user stirs with a bare hand instead of a utensil."
+        }
+      ]
+    },
+    {
+      "step_id": 34,
+      "instruction": "1 tablespoon of olive oil to the mug",
+      "preconditions": [38],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible wet-add steps (34 and 41 both require only step 38); recognition must identify which is active now -- no order is imposed between them. The user is adding olive oil to the mug."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the oil is in the mug. Inferred from the reconvergence mix step (37) beginning.",
+        "inferred_from": 37
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies olive oil; flag if a different oil (e.g. vegetable oil) is used instead."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects a tablespoon to be used right-side up to deliver a proper measure of oil; flag if the spoon is inverted or otherwise used in a way that does not deliver a level tablespoon."
+        }
+      ]
+    },
+    {
+      "step_id": 41,
+      "instruction": "Add in 3 tablespoons of milk to the mug",
+      "preconditions": [38],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of 2 concurrently-eligible wet-add steps (34 and 41 both require only step 38); recognition must identify which is active now -- no order is imposed between them. The user is adding milk to the mug."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the milk is in the mug. Inferred from the reconvergence mix step (37) beginning.",
+        "inferred_from": 37
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for exactly 3 tablespoons of milk; flag if the amount appears to differ (e.g. 4 tablespoons)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for milk; flag if a dairy substitute such as curd or yogurt is added instead."
+        }
+      ]
+    },
+    {
+      "step_id": 37,
+      "instruction": "Mix the contents of the mug thoroughly. (There might be some lumps, but that is ok.)",
+      "preconditions": [34, 41],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is mixing all wet and dry ingredients together in the mug into a batter. This step follows the reconvergence of both wet-add steps (34, 41)."
+      },
+      "completion": {
+        "claim": "No end signal of its own; mixing just stops once a batter is formed (some lumps are acceptable). Inferred from the marinara sauce step (30) beginning.",
+        "inferred_from": 30
+      },
+      "checks": []
+    },
+    {
+      "step_id": 30,
+      "instruction": "Take 1 tablespoon of marinara sauce",
+      "preconditions": [37],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is measuring out approximately 1 tablespoon of marinara sauce."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the sauce is taken. Inferred from the spread step (31) beginning.",
+        "inferred_from": 31
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 tablespoon of marinara sauce; flag if the amount taken appears to differ (e.g. 2 tablespoons)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies marinara sauce; flag if a different sauce (e.g. tomato ketchup or salsa) is used instead."
+        }
+      ]
+    },
+    {
+      "step_id": 31,
+      "instruction": "spread marinara sauce around the surface of the batter",
+      "preconditions": [30],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is spreading marinara sauce as a layer across the surface of the batter in the mug."
+      },
+      "completion": {
+        "claim": "No end signal of its own; spreading just stops once the batter surface is covered. Inferred from the cheese step (39) beginning.",
+        "inferred_from": 39
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires spreading the sauce as a layer on the batter surface, not mixing it in; flag if the sauce is stirred completely into the batter instead of spread on top, or applied only to the edges rather than the full surface."
+        }
+      ]
+    },
+    {
+      "step_id": 39,
+      "instruction": "Sprinkle 1 generous tablespoon of mozzarella cheese on top of the sauce",
+      "preconditions": [31],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is sprinkling mozzarella cheese on top of the marinara sauce."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the cheese is on top. Inferred from the herbs step (29) beginning.",
+        "inferred_from": 29
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies mozzarella cheese; flag if a different cheese variety (e.g. cheddar) is used, or if soiled measuring utensils are used that could contaminate the topping."
+        }
+      ]
+    },
+    {
+      "step_id": 29,
+      "instruction": "Sprinkle dried Italian herbs inside the mug",
+      "preconditions": [39],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is sprinkling dried Italian herbs over the cheese and sauce inside the mug."
+      },
+      "completion": {
+        "claim": "No end signal of its own; it just stops once the herbs are added. Inferred from the microwave step (32) beginning.",
+        "inferred_from": 32
+      },
+      "checks": []
+    },
+    {
+      "step_id": 32,
+      "instruction": "Microwave for 1 minute 20 seconds, or until it rises and the toppings are bubbling",
+      "preconditions": [29],
+      "duration_constraint_s": 60,
+      "recognition": {
+        "claim": "The user is placing the mug in the microwave and running it; the appliance is on and heating the mug pizza."
+      },
+      "completion": {
+        "claim": "Ends with its own observable event: the microwave cycle stops (beep and/or door opening), with the pizza risen and toppings bubbling.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for approximately 1 minute 20 seconds of microwaving; flag if the microwave is set or runs for a noticeably different duration (e.g. 1 minute, 2 minutes, or 3 minutes)."
+        }
+      ]
+    }
+  ]
+}

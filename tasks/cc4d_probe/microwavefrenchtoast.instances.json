@@ -1,0 +1,692 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "microwavefrenchtoast",
+ "activity_id": 9,
+ "n_recordings": 14,
+ "n_error_recordings": 5,
+ "steps": [
+  {
+   "step_id": 94,
+   "order": 1,
+   "instruction": "In a large mug, melt 1 tablespoon of softened butter in the microwave for about 30 seconds",
+   "duration_constraint_s": 30,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "9_8",
+       "cc4d_step_id": 94,
+       "description": "Bowl instead of mug",
+       "video_window": [
+        6.2,
+        72.7
+       ]
+      },
+      {
+       "recording_id": "9_36",
+       "cc4d_step_id": 94,
+       "description": "bowl instead of mug",
+       "video_window": [
+        3.8,
+        101.9
+       ]
+      },
+      {
+       "recording_id": "9_108",
+       "cc4d_step_id": 94,
+       "description": "Bowl instead of mug",
+       "video_window": [
+        4.8,
+        100.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 94,
+       "description": "Not enough 30 secs",
+       "video_window": [
+        35.7,
+        83.0
+       ]
+      },
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 94,
+       "description": "Microwaved for 60 seconds instead of 30 seconds",
+       "video_window": [
+        52.8,
+        167.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 94,
+       "description": "Added 1.5 tbsp butter",
+       "video_window": [
+        35.7,
+        83.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 94,
+       "description": "Step performed after adding vanilla extract",
+       "video_window": [
+        35.7,
+        83.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 98,
+   "order": 2,
+   "instruction": "Roll the butter around in the mug to coat it",
+   "duration_constraint_s": null,
+   "preconditions": [
+    94
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 98,
+       "description": "Just shake cup, not really coat it",
+       "video_window": [
+        84.5,
+        97.0
+       ]
+      },
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 98,
+       "description": "Splash some butter outside",
+       "video_window": [
+        166.3,
+        182.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 98,
+       "description": "Step performed after adding vanilla extract",
+       "video_window": [
+        84.5,
+        97.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 99,
+   "order": 3,
+   "instruction": "Cut or tear 1 slices of bread into bite-size pieces",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "9_8",
+       "cc4d_step_id": 99,
+       "description": "English Muffins instead of bread",
+       "video_window": [
+        303.4,
+        370.8
+       ]
+      },
+      {
+       "recording_id": "9_108",
+       "cc4d_step_id": 99,
+       "description": "English Muffins instead of bread",
+       "video_window": [
+        333.2,
+        396.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_36",
+       "cc4d_step_id": 99,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 99,
+       "description": "Step performed after microwaving for 90 secs",
+       "video_window": [
+        228.8,
+        255.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 99,
+       "description": "Not exact bite-size, larger",
+       "video_window": [
+        12.0,
+        50.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 101,
+   "order": 4,
+   "instruction": "In the mug, whisk one egg with a fork until well blended",
+   "duration_constraint_s": null,
+   "preconditions": [
+    98
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 101,
+       "description": "Use a tsp, not fork",
+       "video_window": [
+        106.6,
+        126.7
+       ]
+      },
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 101,
+       "description": "Spoon instead of fork",
+       "video_window": [
+        200.6,
+        260.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_36",
+       "cc4d_step_id": 101,
+       "description": "Whisk 2 eggs instead of 1 egg",
+       "video_window": [
+        137.3,
+        198.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 101,
+       "description": "Not whisked well",
+       "video_window": [
+        106.6,
+        126.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 101,
+       "description": "Step performed after adding vanilla extract",
+       "video_window": [
+        106.6,
+        126.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 95,
+   "order": 5,
+   "instruction": "Sprinkle 1/4 teaspoon cinnamon over the egg",
+   "duration_constraint_s": null,
+   "preconditions": [
+    101
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 95,
+       "description": "More than 1/4 tsp",
+       "video_window": [
+        189.6,
+        212.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 95,
+       "description": "Measure on top of mug to spill",
+       "video_window": [
+        189.6,
+        212.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 95,
+       "description": "Step performed after microwaving for 90 secs",
+       "video_window": [
+        189.6,
+        212.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 100,
+   "order": 6,
+   "instruction": "Add 1/4 teaspoon vanilla extract to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    101
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "9_36",
+       "cc4d_step_id": 100,
+       "description": "1 instead of 1/4 teaspoon",
+       "video_window": [
+        202.4,
+        230.3
+       ]
+      },
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 100,
+       "description": "1 tsp instead of 1/4",
+       "video_window": [
+        264.6,
+        307.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 100,
+       "description": "Step performed before adding butter and whisking",
+       "video_window": [
+        10.6,
+        34.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 93,
+   "order": 7,
+   "instruction": "stir the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    95,
+    100
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 93,
+       "description": "Step performed after microwaving for 90 secs",
+       "video_window": [
+        212.2,
+        227.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 93,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 92,
+   "order": 8,
+   "instruction": "add bread pieces to the egg mixture in the mug, pressing the bread down into the egg",
+   "duration_constraint_s": null,
+   "preconditions": [
+    93,
+    99
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "9_36",
+       "cc4d_step_id": 92,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 92,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 92,
+       "description": "Step performed after microwaving for 90 secs",
+       "video_window": [
+        242.4,
+        275.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 91,
+   "order": 9,
+   "instruction": "Microwave on high for 90 seconds until the egg is cooked through",
+   "duration_constraint_s": 90,
+   "preconditions": [
+    92
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "9_36",
+       "cc4d_step_id": 91,
+       "description": "Microwave for 45 seconds instead of 90 seconds",
+       "video_window": [
+        289.7,
+        375.8
+       ]
+      },
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 91,
+       "description": "Not enough 90 secs",
+       "video_window": [
+        127.7,
+        187.1
+       ]
+      },
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 91,
+       "description": "45 seconds instead of 90 seconds",
+       "video_window": [
+        363.7,
+        473.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "9_36",
+       "cc4d_step_id": 91,
+       "description": "Put microwave on medium instead of high",
+       "video_window": [
+        289.7,
+        375.8
+       ]
+      },
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 91,
+       "description": "Egg not well done",
+       "video_window": [
+        127.7,
+        187.1
+       ]
+      },
+      {
+       "recording_id": "9_47",
+       "cc4d_step_id": 91,
+       "description": "medium instead of high",
+       "video_window": [
+        363.7,
+        473.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "9_45",
+       "cc4d_step_id": 91,
+       "description": "Step performed before sprinkling cinnamon",
+       "video_window": [
+        127.7,
+        187.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 97,
+   "order": 10,
+   "instruction": "Put the mug's contents on a plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    91
+   ],
+   "observed_reminders": []
+  },
+  {
+   "step_id": 96,
+   "order": 11,
+   "instruction": "cut the contents on plate, and serve",
+   "duration_constraint_s": null,
+   "preconditions": [
+    97
+   ],
+   "observed_reminders": []
+  }
+ ],
+ "unmapped_step_ids": []
+}

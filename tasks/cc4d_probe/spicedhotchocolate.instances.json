@@ -1,0 +1,1021 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "spicedhotchocolate",
+ "activity_id": 8,
+ "n_recordings": 16,
+ "n_error_recordings": 10,
+ "steps": [
+  {
+   "step_id": 88,
+   "order": 1,
+   "instruction": "Fill a microwave-safe mug with skimmed milk",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "8_26",
+       "cc4d_step_id": 88,
+       "description": "Spill",
+       "video_window": [
+        2.0,
+        44.0
+       ]
+      },
+      {
+       "recording_id": "8_31",
+       "cc4d_step_id": 88,
+       "description": "Spilled while filling the milk",
+       "video_window": [
+        4.5,
+        45.4
+       ]
+      },
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 88,
+       "description": "Spill some while filling the mug.",
+       "video_window": [
+        7.6,
+        87.7
+       ]
+      },
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 88,
+       "description": "Spill milk while adding it to the plate",
+       "video_window": [
+        202.6,
+        261.7
+       ]
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 88,
+       "description": "spilling milk while filling the milk",
+       "video_window": [
+        7.2,
+        61.2
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 88,
+       "description": "Spill while filling the mug",
+       "video_window": [
+        4.5,
+        38.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "8_26",
+       "cc4d_step_id": 88,
+       "description": "Used whole milk",
+       "video_window": [
+        2.0,
+        44.0
+       ]
+      },
+      {
+       "recording_id": "8_30",
+       "cc4d_step_id": 88,
+       "description": "Using soiled mug without washing instead of a clean one.",
+       "video_window": [
+        0,
+        102.9
+       ]
+      },
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 88,
+       "description": "Filled whole milk instead of skimmed milk",
+       "video_window": [
+        3.7,
+        31.2
+       ]
+      },
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 88,
+       "description": "Fill only half the mug instead of filling it completely.",
+       "video_window": [
+        7.6,
+        87.7
+       ]
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 88,
+       "description": "Used expired milk for the recipe",
+       "video_window": [
+        7.2,
+        61.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 88,
+       "description": "Step performed after adding cinnamon, chocolate and microwaving",
+       "video_window": [
+        202.6,
+        261.7
+       ]
+      },
+      {
+       "recording_id": "8_50",
+       "cc4d_step_id": 88,
+       "description": "Step performed after adding sugar",
+       "video_window": [
+        69.3,
+        92.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 88,
+       "description": "Fill only half instead of full mug",
+       "video_window": [
+        3.7,
+        31.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 89,
+   "order": 2,
+   "instruction": "Microwave the contents of the mug for 1 minute",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    88
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "8_26",
+       "cc4d_step_id": 89,
+       "description": "Microwave the contents of the mug for 2 minutes",
+       "video_window": [
+        47.1,
+        177.8
+       ]
+      },
+      {
+       "recording_id": "8_31",
+       "cc4d_step_id": 89,
+       "description": "Microwave-Microwave the contents of the mug for 35 seconds. Started the timer from 7 minutes and stopped at 6:25.",
+       "video_window": [
+        48.0,
+        97.8
+       ]
+      },
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 89,
+       "description": "Microwave for 2 minutes instead of 1 minute",
+       "video_window": [
+        34.3,
+        171.0
+       ]
+      },
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 89,
+       "description": "Microwaving for 45 seconds.",
+       "video_window": [
+        148.7,
+        224.5
+       ]
+      },
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 89,
+       "description": "Microwave for 1.5 minutes rather than 1 minute. (Chocolate might burn)",
+       "video_window": [
+        95.0,
+        200.9
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 89,
+       "description": "Microwave the contents of the mug for 2 minutes",
+       "video_window": [
+        120.9,
+        254.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 89,
+       "description": "Step performed after adding sugar to the mug.",
+       "video_window": [
+        148.7,
+        224.5
+       ]
+      },
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 89,
+       "description": "Step performed adding milk",
+       "video_window": [
+        95.0,
+        200.9
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 89,
+       "description": "Step performed after adding cinnamon and sugar",
+       "video_window": [
+        120.9,
+        254.6
+       ]
+      },
+      {
+       "recording_id": "8_50",
+       "cc4d_step_id": 89,
+       "description": "Step performed after adding sugar",
+       "video_window": [
+        96.1,
+        159.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "8_30",
+       "cc4d_step_id": 89,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 89,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 89,
+       "description": "Set power level to 10% instead of 100%",
+       "video_window": [
+        34.3,
+        171.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 84,
+   "order": 3,
+   "instruction": "Add 1/5 teaspoon cinnamon to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    89
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "8_30",
+       "cc4d_step_id": 84,
+       "description": "Instead of 1/5 added 1/4 tsp of cinnamon.",
+       "video_window": [
+        125.5,
+        158.7
+       ]
+      },
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 84,
+       "description": "Adding 1/4 teaspoon instead of 1/5 teaspoon.",
+       "video_window": [
+        230.4,
+        286.8
+       ]
+      },
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 84,
+       "description": "Measure 1/4 tsp instead of 1/5 tsp",
+       "video_window": [
+        2.7,
+        60.6
+       ]
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 84,
+       "description": "use tablespoon in place of teaspoon",
+       "video_window": [
+        121.2,
+        160.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 84,
+       "description": "Added cumin instead of cinnamon",
+       "video_window": [
+        240.2,
+        258.3
+       ]
+      },
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 84,
+       "description": "Use a plate instead of a mug",
+       "video_window": [
+        2.7,
+        60.6
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 84,
+       "description": "Added cumin instead of cinnamon",
+       "video_window": [
+        62.0,
+        97.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "8_26",
+       "cc4d_step_id": 84,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "8_50",
+       "cc4d_step_id": 84,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 84,
+       "description": "Step performed before adding milk and microwaving",
+       "video_window": [
+        2.7,
+        60.6
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 84,
+       "description": "Step performed before microwaving",
+       "video_window": [
+        62.0,
+        97.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "8_31",
+       "cc4d_step_id": 84,
+       "description": "Add-Add 1/5 teaspoon cinnamon to the mug. Spilling happened while adding. Also first put 1/2 tsp first and then to make 1/5 remove the added cinnamon from top of milk. Incorrect way to add 1/5 tsp cinnamon.",
+       "video_window": [
+        99.8,
+        146.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 87,
+   "order": 4,
+   "instruction": "Add 1 teaspoon of white sugar to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    89
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "8_11",
+       "cc4d_step_id": 87,
+       "description": "Used tablespoon instead of teaspoon.",
+       "video_window": [
+        258.7,
+        310.4
+       ]
+      },
+      {
+       "recording_id": "8_30",
+       "cc4d_step_id": 87,
+       "description": "Add-Add 2 teaspoon of white sugar to the mug. Instead of 1 tsp add 2 tsp of sugar.",
+       "video_window": [
+        158.5,
+        195.2
+       ]
+      },
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 87,
+       "description": "Using tablespoon instead of teaspoon.",
+       "video_window": [
+        87.4,
+        145.4
+       ]
+      },
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 87,
+       "description": "Use a table spoon instead of a tea spoon",
+       "video_window": [
+        262.7,
+        288.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 87,
+       "description": "Step performed before microwaving the mug.",
+       "video_window": [
+        87.4,
+        145.4
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 87,
+       "description": "Step performed before microwaving",
+       "video_window": [
+        97.1,
+        114.1
+       ]
+      },
+      {
+       "recording_id": "8_50",
+       "cc4d_step_id": 87,
+       "description": "Step performed before adding milk and microwaving it",
+       "video_window": [
+        0.7,
+        69.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "8_31",
+       "cc4d_step_id": 87,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 87,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 87,
+       "description": "Add-Add 1 teaspoon of corn starch to the mug",
+       "video_window": [
+        200.4,
+        239.7
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 87,
+       "description": "Added salt instead of sugar",
+       "video_window": [
+        97.1,
+        114.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 90,
+   "order": 5,
+   "instruction": "Add 2 pieces of chocolate to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    89
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "8_26",
+       "cc4d_step_id": 90,
+       "description": "Added 4 pieces of chocolate to the mug",
+       "video_window": [
+        179.7,
+        219.5
+       ]
+      },
+      {
+       "recording_id": "8_30",
+       "cc4d_step_id": 90,
+       "description": "Add-Add 4 pieces of chocolate to the mug",
+       "video_window": [
+        104.3,
+        124.1
+       ]
+      },
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 90,
+       "description": "Add-Add 5 pieces of chocolate to the mug",
+       "video_window": [
+        171.4,
+        196.3
+       ]
+      },
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 90,
+       "description": "Adding only one piece instead of two.",
+       "video_window": [
+        300.0,
+        335.3
+       ]
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 90,
+       "description": "add more (5) pieces of choclate",
+       "video_window": [
+        67.0,
+        116.9
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 90,
+       "description": "Add 1 piece of chocolate to the mug",
+       "video_window": [
+        39.1,
+        62.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 90,
+       "description": "Step performed after mixing the contents of the mug.",
+       "video_window": [
+        300.0,
+        335.3
+       ]
+      },
+      {
+       "recording_id": "8_40",
+       "cc4d_step_id": 90,
+       "description": "Step performed before adding milk and microwaving",
+       "video_window": [
+        63.6,
+        90.2
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 90,
+       "description": "Step performed before microwaving",
+       "video_window": [
+        39.1,
+        62.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "8_31",
+       "cc4d_step_id": 90,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "8_50",
+       "cc4d_step_id": 90,
+       "description": "Spill while adding chocolate",
+       "video_window": [
+        163.3,
+        185.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 85,
+   "order": 6,
+   "instruction": "Mix the contents of the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    84,
+    87,
+    90
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "8_31",
+       "cc4d_step_id": 85,
+       "description": "Mix-Mix the contents of the mug. Not doing circular and slowly mixing the contents of mug. Instead did hastily and spilling the milk. Also motion was up-down and sideways instead of circular.",
+       "video_window": [
+        152.8,
+        170.7
+       ]
+      },
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 85,
+       "description": "Mix-Mix the contents of the mug with spilling",
+       "video_window": [
+        259.2,
+        294.5
+       ]
+      },
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 85,
+       "description": "Not mixing the contents of the mug thoroughly.",
+       "video_window": [
+        286.8,
+        297.3
+       ]
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 85,
+       "description": "Mix the contents of the mug by rotating motion of the cup and not mixing the contents properly",
+       "video_window": [
+        167.4,
+        186.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 85,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "8_50",
+       "cc4d_step_id": 85,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "8_35",
+       "cc4d_step_id": 85,
+       "description": "Step performed before adding chocolate to the mug.",
+       "video_window": [
+        286.8,
+        297.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 83,
+   "order": 7,
+   "instruction": "Heat the contents of the mug for 1 minute and serve",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    85
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "8_26",
+       "cc4d_step_id": 83,
+       "description": "Microwave on low and high power",
+       "video_window": [
+        322.0,
+        445.3
+       ]
+      },
+      {
+       "recording_id": "8_26",
+       "cc4d_step_id": 83,
+       "description": "Microwaved on high for 8 secs",
+       "video_window": [
+        322.0,
+        445.3
+       ]
+      },
+      {
+       "recording_id": "8_30",
+       "cc4d_step_id": 83,
+       "description": "Heat-Heat the contents of the mug for 2 minute and serve. On low heat",
+       "video_window": [
+        220.7,
+        368.3
+       ]
+      },
+      {
+       "recording_id": "8_45",
+       "cc4d_step_id": 83,
+       "description": "Used lower power than specified",
+       "video_window": [
+        260.2,
+        373.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "8_26",
+       "cc4d_step_id": 83,
+       "description": "Microwaved on high for 8 secs on high. And 1 minute on low power",
+       "video_window": [
+        322.0,
+        445.3
+       ]
+      },
+      {
+       "recording_id": "8_30",
+       "cc4d_step_id": 83,
+       "description": "Heat-Heat the contents of the mug for 2 minute and serve",
+       "video_window": [
+        220.7,
+        368.3
+       ]
+      },
+      {
+       "recording_id": "8_31",
+       "cc4d_step_id": 83,
+       "description": "Heat-Heat the contents of the mug for 40 seconds and serve it on glass plate cover. Also timing started from 10:30 and stopped at 9:50.",
+       "video_window": [
+        175.9,
+        233.2
+       ]
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 83,
+       "description": "Heat-Heat the contents of the mug for 2 minutes instead of 1 min",
+       "video_window": [
+        186.8,
+        343.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "8_31",
+       "cc4d_step_id": 83,
+       "description": "Heat-Heat the contents of the mug for 40 seconds and serve it on glass plate cover. Also timing started from 10:30 and stopped at 9:50.",
+       "video_window": [
+        175.9,
+        233.2
+       ]
+      },
+      {
+       "recording_id": "8_44",
+       "cc4d_step_id": 83,
+       "description": "Milk rose up and spilled from cup in the microwave due to more temperature and time",
+       "video_window": [
+        186.8,
+        343.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "8_33",
+       "cc4d_step_id": 83,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

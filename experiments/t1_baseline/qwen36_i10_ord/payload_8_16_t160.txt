@@ -1,0 +1,88 @@
+# VLM request payload — recording 8_16, call 16, t=160.0s
+# Endpoint: POST http://saltyfish.eecs.umich.edu:8000/v1/chat/completions
+# Outcome: deterministic ReadTimeout (hung at 120s, 180s no-json, and 240s). 10 frames spanning 150->160s.
+# Base64 image data truncated to first 64 chars; raw size noted inline.
+
+{
+  "model": "Qwen/Qwen3.6-27B",
+  "temperature": 0.0,
+  "max_tokens": 1200,
+  "response_format": {
+    "type": "json_object"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a proactive assistant for procedural cooking tasks, tracking the user's progress through real-time egocentric camera frames and procedural context. Based on these contexts, understand the user's actions and identify the current procedural step and its execution status. The frames are consecutive snapshots ending at the current moment.\n\nAlways commit to exactly ONE step_id from the guideline — the single most likely current step — even when uncertain. Never answer \"other\". If the user is between steps, choose the step they are transitioning into (or the one just finished) and reflect that in status.\n\nReturn JSON only, exactly this schema, no prose:\n{\"step_id\": <the single most likely step_id from the guideline>, \"status\": \"<Just start|In progress|About to finish|Step transition>\", \"evidence\": \"<short visual justification>\"}"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<55800 b64 chars, 40 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<59884 b64 chars, 43 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<63924 b64 chars, 46 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<63032 b64 chars, 46 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<62040 b64 chars, 45 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<63868 b64 chars, 46 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<64060 b64 chars, 46 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<63160 b64 chars, 46 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<62112 b64 chars, 45 KB raw>"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8L...<63592 b64 chars, 46 KB raw>"
+          }
+        },
+        {
+          "type": "text",
+          "text": "Guideline (recipe: Spicedhotchocolate). Steps in nominal order:\n  1. step_id=88: Fill a microwave-safe mug with skimmed milk\n  2. step_id=89: Microwave the contents of the mug for 1 minute\n  3. step_id=84: Add 1/5 teaspoon cinnamon to the mug\n  4. step_id=87: Add 1 teaspoon of white sugar to the mug\n  5. step_id=90: Add 2 pieces of chocolate to the mug\n  6. step_id=85: Mix the contents of the mug\n  7. step_id=83: Heat the contents of the mug for 1 minute and serve\n\nAlready completed (do NOT pick any of these again):\n  1. step_id=88: Fill a microwave-safe mug with skimmed milk\n  2. step_id=89: Microwave the contents of the mug for 1 minute\nThe recipe is strictly ordered: your step_id MUST be step 89 or a LATER step, never an earlier one.\n\nYour previous observations (your own recent predictions, most recent last):\n  t=110s: step_id=89 (In progress) — The microwave is actively running, as indicated by the countdown timer on the display (showing times like :34, :33, :32, :31, :30, :29, :28, :27, :26, :25). The user has already placed the mug inside and started the microwave, which corresponds to step 89: 'Microwave the contents of the mug for 1 minute'.\n  t=120s: step_id=89 (In progress) — The microwave is actively running, as indicated by the countdown timer on the display (showing times like :25, :24, :23, :22, :21, :20, :19, :18, :17, :16, :15, :14, :13, :12, :11, :10, :09, :08, :07, :06, :05, :04, :03, :02, :01). The user has already placed the mug inside and started the microwave, which corresponds to step 89: 'Microwave the contents of the mug for 1 minute'.\n  t=130s: step_id=89 (About to finish) — The microwave timer is counting down the final seconds (e.g., :05, :04, :03, :02, :01), indicating the 1-minute heating cycle is nearly complete.\n  t=140s: step_id=89 (Step transition) — The user has just finished the 1-minute microwave cycle (indicated by the 'End' display in earlier frames) and is now removing the heated mug of milk from the microwave. This marks the completion of step 89 and the transition to the next step (adding cinnamon).\n  t=150s: step_id=84 (Just start) — The user has just finished microwaving the milk (step 89) and is now opening a cupboard to retrieve an ingredient. The next step in the recipe is to add cinnamon (step 84). The user is reaching into the cupboard, likely to find the cinnamon or another spice, marking the beginning of the next procedural step.\n\nSensory Context: the images are the most recent frames. Identify the current step and status now."
+        }
+      ]
+    }
+  ]
+}

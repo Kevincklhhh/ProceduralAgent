@@ -1,0 +1,219 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/sautedmushrooms.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG is a mostly-linear prep+cook chain with three independent prep roots (206 mushrooms, 212 shallot, 176 garlic) reconverging at heat step 215, then a linear cook sequence; step_id 207 (cook 1 min) is a repeated (loop) step -- it recurs at recipe order 12 and 15 and has been collapsed to ONE node per CRITERIA_GENERATION_PROBING.md S2.1, using the first occurrence's preconditions [209] and duration_constraint_s 60, inferred_from the first-occurrence successor 217; its checks are the union of both occurrences (timing+technique recipe-grounded, preparation/burn [probe-added]). Representing repeated executions as distinct node instances is a known open limitation (docs/REMINDER_RUNTIME.md node re-entry/loops).",
+  "task": {
+    "task_id": "sautedmushrooms",
+    "title": "Sautedmushrooms",
+    "source": "tasks/cc4d/sautedmushrooms.json"
+  },
+  "nodes": [
+    {
+      "step_id": 206,
+      "instruction": "Rinse 3 mushrooms under cold water",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of three concurrently-eligible root steps (with shallot-chop 212 and garlic-peel 176): active from the start with no prerequisites. Recognition must say which root is active now -- here, the user holds mushrooms under running water at the sink; no order is imposed among the three roots." },
+      "completion": { "claim": "The mushrooms have been rinsed and the water is turned off; this step has no distinct end signal of its own, so it is inferred from the onset of patting the mushrooms dry.", "inferred_from": 205 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 3 mushrooms; flag if a different count (e.g. 2 or 4) is rinsed." },
+        { "reminder": "temperature", "claim": "The recipe specifies cold water; flag if the rinse uses hot water instead." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag if a mushroom is left visibly soiled (not actually cleaned by the rinse)." }
+      ]
+    },
+    {
+      "step_id": 205,
+      "instruction": "pat rinsed mushrooms dry with a paper towel",
+      "preconditions": [206],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is dabbing/patting the rinsed mushrooms with a paper towel to dry them." },
+      "completion": { "claim": "The mushrooms are dry and set down; no distinct end signal of its own, so inferred from the onset of pulling out the mushroom stems.", "inferred_from": 214 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe specifies a paper towel; flag if a cloth towel or other material is used instead." },
+        { "reminder": "technique", "claim": "[probe-added] The mushrooms should be patted gently; flag squeezing, crushing, or applying heavy pressure instead of patting." }
+      ]
+    },
+    {
+      "step_id": 212,
+      "instruction": "Chop 1 shallot",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of three concurrently-eligible root steps (with mushroom-rinse 206 and garlic-peel 176): active from the start with no prerequisites. Recognition must say which root is active now -- here, the user is chopping a shallot on the board; no order is imposed among the three roots." },
+      "completion": { "claim": "The shallot is fully chopped and set aside; no distinct end signal of its own, so inferred from the onset of the heat-oil step that consumes the prepped ingredients.", "inferred_from": 215 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 shallot; flag if a different amount (e.g. half a shallot) is chopped." },
+        { "reminder": "preparation", "claim": "The recipe specifies a shallot (peeled); flag a wrong ingredient (onion, scallion) or chopping it unpeeled / on an inappropriate surface." }
+      ]
+    },
+    {
+      "step_id": 214,
+      "instruction": "Pull out mushroom stems",
+      "preconditions": [205],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is removing/pulling the stems out of the dried mushrooms." },
+      "completion": { "claim": "The stems are removed from all mushrooms; no distinct end signal of its own, so inferred from the onset of slicing the mushrooms.", "inferred_from": 210 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] Each mushroom's stem should be fully removed; flag stems pulled only partially or left on one of the mushrooms." }
+      ]
+    },
+    {
+      "step_id": 210,
+      "instruction": "Slice the mushrooms",
+      "preconditions": [214],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is slicing the stemmed mushrooms into slices on the cutting board." },
+      "completion": { "claim": "The mushrooms are fully sliced and set aside; no distinct end signal of its own, so inferred from the onset of the heat-oil step that consumes the prepped ingredients.", "inferred_from": 215 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe says to slice; flag if the mushrooms are chopped or cut into pieces rather than sliced." }
+      ]
+    },
+    {
+      "step_id": 176,
+      "instruction": "Peel 2 garlic cloves",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of three concurrently-eligible root steps (with mushroom-rinse 206 and shallot-chop 212): active from the start with no prerequisites. Recognition must say which root is active now -- here, the user is peeling garlic cloves; no order is imposed among the three roots." },
+      "completion": { "claim": "The garlic cloves are peeled; no distinct end signal of its own, so inferred from the onset of mincing the garlic cloves.", "inferred_from": 211 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 2 garlic cloves; flag if a different count (e.g. only 1) is peeled." },
+        { "reminder": "preparation", "claim": "The recipe specifies garlic; flag a wrong ingredient (e.g. onion) used in place of garlic." },
+        { "reminder": "technique", "claim": "[probe-added] The cloves should be fully peeled; flag improperly or only partially peeled cloves." }
+      ]
+    },
+    {
+      "step_id": 211,
+      "instruction": "mince garlic cloves",
+      "preconditions": [176],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is mincing the peeled garlic cloves on the board." },
+      "completion": { "claim": "The garlic is fully minced and set aside; no distinct end signal of its own, so inferred from the onset of the heat-oil step that consumes the prepped ingredients.", "inferred_from": 215 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe specifies garlic minced (on a clean surface); flag a wrong ingredient (onion) or mincing on an inappropriate surface." },
+        { "reminder": "technique", "claim": "[probe-added] The garlic should be minced; flag if it is sliced or only coarsely chopped instead of minced." }
+      ]
+    },
+    {
+      "step_id": 215,
+      "instruction": "Heat 1 tbsp olive oil in a large skillet over medium-high heat",
+      "preconditions": [210, 211, 212],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user has placed a large skillet on the burner with olive oil and turned the heat on; the reconvergence point after all three prep branches (mushrooms, shallot, garlic) are done." },
+      "completion": { "claim": "The skillet and oil are hot; no distinct end signal of its own, so inferred from the onset of adding the mushrooms to the hot pan.", "inferred_from": 208 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 tbsp olive oil; flag a different amount (e.g. 2 tbsp, or a tsp used as the measure)." },
+        { "reminder": "temperature", "claim": "The recipe specifies medium-high heat; flag if a lower heat setting is used." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag if the pan is heated with no oil added (oil forgotten)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag oil spilled from the bottle into/around the pan when pouring." }
+      ]
+    },
+    {
+      "step_id": 208,
+      "instruction": "Once the pan is hot, add the mushrooms",
+      "preconditions": [215],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding the sliced mushrooms into the hot skillet." },
+      "completion": { "claim": "The mushrooms are in the pan; no distinct end signal of its own, so inferred from the onset of cooking/stirring the mushrooms.", "inferred_from": 213 },
+      "checks": [
+        { "reminder": "temperature", "claim": "The recipe requires the pan to be hot before adding; flag if mushrooms are added to a pan that is not yet hot." },
+        { "reminder": "timing", "claim": "[probe-added] Flag if the user does not wait long enough for the pan to heat before adding the mushrooms." },
+        { "reminder": "technique", "claim": "[probe-added] Flag mushrooms spilled while being added to the pan." }
+      ]
+    },
+    {
+      "step_id": 213,
+      "instruction": "cook for 3-5 minutes, stirring often, until mushrooms start to soften and brown",
+      "preconditions": [208],
+      "duration_constraint_s": 300,
+      "recognition": { "claim": "The user is cooking the mushrooms in the pan, stirring them often as they soften and brown." },
+      "completion": { "claim": "The mushrooms have softened and browned after roughly 3-5 minutes; no distinct end signal of its own, so inferred from the onset of adding the chopped shallot to the pan.", "inferred_from": 209 },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe says cook for 3-5 minutes (~300s); flag if cooking is noticeably shorter (undercooked) or longer than this window." },
+        { "reminder": "technique", "claim": "The recipe says to stir often and cook until the mushrooms soften and brown; flag insufficient stirring or stopping before they soften/brown." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag mushrooms burnt during this step (e.g. due to wrong utensils or excessive heat)." }
+      ]
+    },
+    {
+      "step_id": 209,
+      "instruction": "Add chopped shallot to the pan",
+      "preconditions": [213],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding the chopped shallot into the pan with the cooking mushrooms." },
+      "completion": { "claim": "The shallot is in the pan; no distinct end signal of its own, so inferred from the onset of cooking the pan for a minute.", "inferred_from": 207 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe expects properly chopped shallot only; flag adding unchopped/whole shallot or stray discarded vegetable scraps into the pan." },
+        { "reminder": "technique", "claim": "[probe-added] Flag shallot spilled while being added to the pan." }
+      ]
+    },
+    {
+      "step_id": 207,
+      "instruction": "cook the pan, often stirring, for 1 minute",
+      "preconditions": [209],
+      "duration_constraint_s": 60,
+      "recognition": { "claim": "The user is cooking the pan contents, stirring often, for about a minute. This step recurs in the recipe (run after the shallot add, and again after the vinegar+garlic adds); it is collapsed to a single node and recognized whenever a stirred one-minute cook is active." },
+      "completion": { "claim": "About one minute of stirred cooking has elapsed; no distinct end signal of its own, so inferred from the onset of the first-occurrence successor (adding the balsamic vinegar).", "inferred_from": 217 },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe says cook for 1 minute (~60s); flag if cooking is noticeably shorter or longer than a minute, or the heat is left on past it." },
+        { "reminder": "technique", "claim": "The recipe says to stir often for the minute; flag insufficient/incomplete stirring during this step." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag the pan running too hot and the contents burning during this step." }
+      ]
+    },
+    {
+      "step_id": 217,
+      "instruction": "1/4 tbsp balsamic vinegar to the pan",
+      "preconditions": [207],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding balsamic vinegar to the pan." },
+      "completion": { "claim": "The balsamic vinegar is in the pan; no distinct end signal of its own, so inferred from the onset of the next cook-for-1-minute step.", "inferred_from": 207 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 tbsp balsamic vinegar; flag a larger amount (e.g. 1/2 or 1 tbsp)." },
+        { "reminder": "preparation", "claim": "[probe-added] The recipe specifies balsamic vinegar; flag a wrong liquid (e.g. honey) added instead." },
+        { "reminder": "technique", "claim": "[probe-added] Flag balsamic vinegar spilled while being added to the pan." }
+      ]
+    },
+    {
+      "step_id": 218,
+      "instruction": "Add 2 cloves of minced garlic to the pan",
+      "preconditions": [207],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of two concurrently-eligible steps after the cook-for-a-minute step (with balsamic-vinegar 217): the user is adding the minced garlic to the pan. Recognition must say which is active now; no order is imposed between the two." },
+      "completion": { "claim": "The minced garlic is in the pan; no distinct end signal of its own, so inferred from the onset of the cook-for-1-minute step that follows both adds.", "inferred_from": 207 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 2 cloves of minced garlic; flag if a different count (e.g. 1 clove) is added." },
+        { "reminder": "preparation", "claim": "The recipe specifies minced garlic; flag a wrong ingredient (e.g. onion) added in its place." },
+        { "reminder": "technique", "claim": "[probe-added] Flag minced garlic spilled while being added to the pan." }
+      ]
+    },
+    {
+      "step_id": 219,
+      "instruction": "pepper on pan to taste",
+      "preconditions": [207],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of two concurrently-eligible seasoning steps (with salt 220): the user is seasoning the pan with pepper to taste. Recognition must say which is active now; no order is imposed between the two." },
+      "completion": { "claim": "Pepper has been added to the pan; no distinct end signal of its own, so inferred from the onset of transferring the contents to the serving dish.", "inferred_from": 216 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The pepper should be seasoned (sprinkled) onto the pan; flag pouring it on or spilling pepper outside the pan, or seasoning by hand instead of a spoon." }
+      ]
+    },
+    {
+      "step_id": 220,
+      "instruction": "Season pan with salt",
+      "preconditions": [207],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "One of two concurrently-eligible seasoning steps (with pepper 219): the user is seasoning the pan with salt. Recognition must say which is active now; no order is imposed between the two." },
+      "completion": { "claim": "Salt has been added to the pan; no distinct end signal of its own, so inferred from the onset of transferring the contents to the serving dish.", "inferred_from": 216 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The salt should be seasoned (sprinkled) onto the pan; flag pouring it on, sprinkling it outside the pan, or seasoning by hand instead of a spoon." }
+      ]
+    },
+    {
+      "step_id": 216,
+      "instruction": "Transfer the contents of the pan to a serving dish",
+      "preconditions": [219, 220],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is transferring the finished pan contents into a serving dish; the terminal step after both seasonings." },
+      "completion": { "claim": "The pan contents have been plated in the serving dish, leaving the pan empty; this is the terminal step with its own observable end state.", "inferred_from": null },
+      "checks": []
+    }
+  ]
+}

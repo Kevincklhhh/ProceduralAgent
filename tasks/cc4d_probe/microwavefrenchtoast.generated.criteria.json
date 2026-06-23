@@ -1,0 +1,230 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/microwavefrenchtoast.reminders.json) -- one per observed subtype -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG shape: two independent root nodes (94 melt-butter, 99 cut-bread, may run in any order); the butter/egg chain (94->98->101) and the bread chain reconverge at 92; steps 95 and 100 form an unordered fork (both share precondition [101]); the recipe has no repeated step_ids.",
+  "task": {
+    "task_id": "microwavefrenchtoast",
+    "title": "Microwavefrenchtoast",
+    "source": "tasks/cc4d/microwavefrenchtoast.json"
+  },
+  "nodes": [
+    {
+      "step_id": 94,
+      "instruction": "In a large mug, melt 1 tablespoon of softened butter in the microwave for about 30 seconds",
+      "preconditions": [],
+      "duration_constraint_s": 30,
+      "recognition": {
+        "claim": "Root step, active from the start of the recipe (concurrently eligible with step 99, cutting the bread). Recognition must say which of the two roots is active now; no order is imposed between them. The user is seen placing softened butter into a large mug and starting the microwave to melt it."
+      },
+      "completion": {
+        "claim": "The butter is melted and the microwave has stopped after about 30 seconds — an observable end event (microwave turning off / door opening).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires melting the butter in a large mug; flag if the user uses a bowl or any vessel other than a mug (observed: bowl instead of mug)."
+        },
+        {
+          "reminder": "timing",
+          "claim": "The recipe specifies about 30 seconds of microwave time; flag if the user runs the microwave for noticeably less (e.g. under 20 s) or more (e.g. 60 s) than 30 seconds."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 tablespoon of butter; flag if the user adds a visibly different amount (e.g. 1.5 tbsp)."
+        }
+      ]
+    },
+    {
+      "step_id": 98,
+      "instruction": "Roll the butter around in the mug to coat it",
+      "preconditions": [94],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is seen tilting and swirling the mug so the melted butter rolls around and coats the interior walls."
+      },
+      "completion": {
+        "claim": "The mug interior is coated with butter; this step has no distinct end signal and simply stops — inferred from the onset of the next step, whisking the egg in the mug (step 101).",
+        "inferred_from": 101
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires rolling the butter around to coat the mug interior; flag if the user merely shakes the cup without coating the sides, or if butter is splashed outside the mug."
+        }
+      ]
+    },
+    {
+      "step_id": 99,
+      "instruction": "Cut or tear 1 slices of bread into bite-size pieces",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "Root step, active from the start of the recipe (concurrently eligible with step 94, melting the butter). Recognition must say which of the two roots is active now; no order is imposed between them. The user is seen cutting or tearing a slice of bread into small pieces."
+      },
+      "completion": {
+        "claim": "One slice of bread is torn into bite-size pieces; this step has no distinct end signal and simply stops — inferred from the onset of step 92, adding the bread pieces to the egg mixture.",
+        "inferred_from": 92
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires regular sliced bread; flag if the user uses a different bread product (e.g. English muffins instead of bread)."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for bite-size pieces from 1 slice of bread; flag if the pieces are visibly too large to be bite-size."
+        }
+      ]
+    },
+    {
+      "step_id": 101,
+      "instruction": "In the mug, whisk one egg with a fork until well blended",
+      "preconditions": [98],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is seen cracking one egg directly into the mug and whisking it with a fork until the egg is well blended."
+      },
+      "completion": {
+        "claim": "The egg is whisked until well blended; this step has no distinct end signal and simply stops — inferred from the onset of the recipe-order-earliest direct successor, sprinkling cinnamon (step 95).",
+        "inferred_from": 95
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe specifies using a fork to whisk; flag if the user uses a different utensil (e.g. a teaspoon or spoon instead of a fork)."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for one egg; flag if the user cracks more than one egg into the mug (e.g. 2 eggs)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires whisking until the egg is well blended; flag if the user stops whisking while the egg still appears insufficiently mixed or incompletely blended."
+        }
+      ]
+    },
+    {
+      "step_id": 95,
+      "instruction": "Sprinkle 1/4 teaspoon cinnamon over the egg",
+      "preconditions": [101],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of two concurrently-eligible steps sharing precondition [101] (with step 100, adding vanilla extract); recognition must say which is active now. The user is seen sprinkling cinnamon over the whisked egg mixture in the mug."
+      },
+      "completion": {
+        "claim": "1/4 teaspoon of cinnamon has been sprinkled over the egg; this step has no distinct end signal and simply stops — inferred from the onset of the reconvergence step, stirring the mug (step 93).",
+        "inferred_from": 93
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/4 teaspoon of cinnamon; flag if the user adds a visibly larger amount (e.g. pouring freely rather than measuring 1/4 tsp)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe says to sprinkle cinnamon over the egg; flag if the user measures or pours the cinnamon in a way that spills it outside the mug (e.g. measuring directly over the open mug opening)."
+        }
+      ]
+    },
+    {
+      "step_id": 100,
+      "instruction": "Add 1/4 teaspoon vanilla extract to the mug",
+      "preconditions": [101],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "One of two concurrently-eligible steps sharing precondition [101] (with step 95, sprinkling cinnamon); recognition must say which is active now. The user is seen measuring and adding liquid vanilla extract to the mug."
+      },
+      "completion": {
+        "claim": "1/4 teaspoon of vanilla extract has been added to the mug; this step has no distinct end signal and simply stops — inferred from the onset of the reconvergence step, stirring the mug (step 93).",
+        "inferred_from": 93
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/4 teaspoon of vanilla extract; flag if the user adds a noticeably larger amount (e.g. 1 full teaspoon instead of 1/4 tsp)."
+        }
+      ]
+    },
+    {
+      "step_id": 93,
+      "instruction": "stir the mug",
+      "preconditions": [95, 100],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is seen stirring the contents of the mug after both cinnamon and vanilla extract have been added."
+      },
+      "completion": {
+        "claim": "The mug contents are stirred; this step has no distinct end signal and simply stops — inferred from the onset of step 92, adding bread pieces to the egg mixture.",
+        "inferred_from": 92
+      },
+      "checks": []
+    },
+    {
+      "step_id": 92,
+      "instruction": "add bread pieces to the egg mixture in the mug, pressing the bread down into the egg",
+      "preconditions": [93, 99],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is seen placing the bread pieces into the mug with the egg mixture and pressing them down so they absorb the egg."
+      },
+      "completion": {
+        "claim": "The bread pieces are submerged in the egg mixture; this step has no distinct end signal and simply stops — inferred from the onset of step 91, microwaving on high.",
+        "inferred_from": 91
+      },
+      "checks": []
+    },
+    {
+      "step_id": 91,
+      "instruction": "Microwave on high for 90 seconds until the egg is cooked through",
+      "preconditions": [92],
+      "duration_constraint_s": 90,
+      "recognition": {
+        "claim": "The user is seen placing the mug in the microwave and starting the final cook cycle."
+      },
+      "completion": {
+        "claim": "The egg is cooked through and the microwave has stopped after about 90 seconds — an observable end event (microwave turning off).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe specifies 90 seconds of microwave time; flag if the user runs it for noticeably less than 90 seconds (e.g. only 45 seconds)."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe requires the microwave to be set to high power; flag if the user selects a lower power level (e.g. medium instead of high)."
+        }
+      ]
+    },
+    {
+      "step_id": 97,
+      "instruction": "Put the mug's contents on a plate",
+      "preconditions": [91],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is seen tipping or spooning the cooked french toast contents from the mug onto a plate."
+      },
+      "completion": {
+        "claim": "The cooked contents are on a plate; this step has no distinct end signal and simply stops — inferred from the onset of step 96, cutting and serving.",
+        "inferred_from": 96
+      },
+      "checks": []
+    },
+    {
+      "step_id": 96,
+      "instruction": "cut the contents on plate, and serve",
+      "preconditions": [97],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is seen cutting the plated french toast pieces and serving them; this is the terminal step of the recipe."
+      },
+      "completion": {
+        "claim": "The contents are cut and the dish is served — an observable end state (the recipe is complete).",
+        "inferred_from": null
+      },
+      "checks": []
+    }
+  ]
+}

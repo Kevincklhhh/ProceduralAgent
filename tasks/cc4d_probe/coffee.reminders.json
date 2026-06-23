@@ -1,0 +1,652 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "coffee",
+ "activity_id": 5,
+ "n_recordings": 15,
+ "n_error_recordings": 7,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 62,
+   "order": 1,
+   "instruction": "Prepare the filter insert by folding the paper filter in half to create a semi-circle, and in half again to create a quarter-circle",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Took two filter papers instead of one.",
+      "roll the paper filter instead of folding it"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Do not prepare the filter"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding water to the filter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 65,
+   "order": 2,
+   "instruction": "Weigh the coffee beans (0.8oz-0.12 oz)",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Weigh-Weigh the coffee beans 0.4oz-0.6oz",
+      "Weighed 4oz instead of (0.8-0.12oz)",
+      "Weigh coffee beans for 1.4 oz which is more than prescribed weight",
+      "Weigh 4 oz instead of (0.8oz-0.12oz)",
+      "Weighing more than 0.12 Oz",
+      "Weigh-Weigh the coffee beans (0.6-0.7 oz) as coffee beans got spilled."
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spilling while transferring from packet to weighing scale"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 67,
+   "order": 3,
+   "instruction": "Grind the coffee beans until the coffee grounds are the consistency of coarse sand, about 20 seconds",
+   "duration_constraint_s": 20,
+   "preconditions": [
+    65
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Grinding for 40 seconds instead of 20 seconds",
+      "15 secs",
+      "10 instead of 20 seconds",
+      "Not grinding properly and grind for 10 seconds only.",
+      "coffee beans are not properly grinded and are like pebbles."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Grinding using stone mortar instead of coffee grinder"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "While transferring from weighing scale to coffee grinder spilling occurs."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 68,
+   "order": 4,
+   "instruction": "Measure 12 ounces of cold water",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Measure 16 instead of 12 ounces",
+      "Measure 8 instead of 12 ounces of water",
+      "Measuring less than 12 ounces."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Measure-Measure 12 ounces of milk instead of water",
+      "Used weighing scale instead of measuring jug for measuring water."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 69,
+   "order": 5,
+   "instruction": "Place the dripper on top of a coffee mug",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after placing the filter in the dripper",
+      "Step performed after placing the paper filter in the dripper",
+      "Step performed after placing filter in the dripper"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Place-Place the dripper on top of a bowl. Use bowl instead of coffee mug."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 60,
+   "order": 6,
+   "instruction": "Place the paper filter in the dripper",
+   "duration_constraint_s": null,
+   "preconditions": [
+    62,
+    69
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Did not place dripper on top of a coffee mug and did not prepare the filter",
+      "Step performed before placing the dripper on top of a coffee mug",
+      "Step performed before preparing the filter and placing dripper on top of a coffee mug"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "place the improperly folded filter paper in dripper",
+      "Not properly placing the paper filter."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Place-Place 3 paper filter in the dripper"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 59,
+   "order": 7,
+   "instruction": "spread open filter in dripper to create a cone",
+   "duration_constraint_s": null,
+   "preconditions": [
+    60
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "unsuccessful in creating cone with improperly folded filter paper",
+      "not forming cone shape after spread open",
+      "Did not spread it correctly",
+      "spread-spread open 3 filters in dripper to create 3 cones one on top of another without actually folding but just compressing. 3 Filters were just squashed and tried to make ice cream cone structure of filters. No folding was done."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before preparing the filter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 58,
+   "order": 8,
+   "instruction": "Transfer the grounds to the filter cone",
+   "duration_constraint_s": null,
+   "preconditions": [
+    59,
+    67
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spilling some grounds outside"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before preparing the filter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 70,
+   "order": 9,
+   "instruction": "transfer water to a kettle",
+   "duration_constraint_s": null,
+   "preconditions": [
+    68
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "transfer-transfer milk to a microwave safe bowl",
+      "transfer-transfer water to a mixer"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "spill some water while transferring water to a kettle",
+      "transfer-transfer water to a kettle, while spilling some water outside"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 64,
+   "order": 10,
+   "instruction": "Boil the water. (While the water is boiling, assemble the filter cone)",
+   "duration_constraint_s": null,
+   "preconditions": [
+    70
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Microwave the milk instead of boiling it in a kettle",
+      "Boil in a pan instead of kettle"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding water to the filter cone",
+      "Step performed after adding water to the filter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 71,
+   "order": 11,
+   "instruction": "Once the water has boiled, check the temperature of the water. (The water should be between 195-205 degrees Fahrenheit or between 91-96 degrees Celsius. If the water is too hot, let it cool briefly.)",
+   "duration_constraint_s": null,
+   "preconditions": [
+    64
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "The water temperature is wrong",
+      "Heating water to a very high temperature instead of prescribed temperature",
+      "Using less than the desired temperature.",
+      "Temperature of the water is not as expected"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding water to the filter cone",
+      "Step performed after adding water to the filter"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Check temperature in pan instead of kettle"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 57,
+   "order": 12,
+   "instruction": "Pour a small amount of water into the filter to wet the grounds",
+   "duration_constraint_s": null,
+   "preconditions": [
+    58,
+    71
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Pour-Pour a small amount of milk into the filter to wet the grounds",
+      "Pour from tap into the filter by using measuring cup to wet the grounds",
+      "Did not pour water from kettle into the filter."
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill while pouring milk into the filter to wet the grounds",
+      "Pour a big amount of water into the filter to wet the grounds"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before boiling the water",
+      "Step performed before boiling water and preparing the filter"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using large amount of water instead of small."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 56,
+   "order": 13,
+   "instruction": "Wait about 30 seconds for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.)",
+   "duration_constraint_s": 30,
+   "preconditions": [
+    57
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Wait-Wait about 1 minute for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.)",
+      "15 instead of 30 seconds",
+      "Waiting for less than 30 seconds."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before boiling the water",
+      "Step performed before boiling water and preparing the filter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 61,
+   "order": 14,
+   "instruction": "Slowly pour the rest of the water over the grounds in a circular motion. Do not overfill beyond the top of the paper filter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    56
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill while pouring the milk",
+      "Did not pour in circular motion",
+      "pour-In a single shot pour the complete water over the grounds. Overfilling beyond paper filter occurs"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before boiling the water",
+      "Step performed before boiling water and preparing the filter"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Pour milk instead of water"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 66,
+   "order": 15,
+   "instruction": "Let the coffee drain completely into the mug before removing the dripper",
+   "duration_constraint_s": null,
+   "preconditions": [
+    61
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Remove the dripper before all the water is drained into the mug",
+      "removing the dripper before the coffee drains completely."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before boiling the water",
+      "Step performed before boiling water and preparing the filter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 63,
+   "order": 16,
+   "instruction": "Discard the paper filter and coffee grounds",
+   "duration_constraint_s": null,
+   "preconditions": [
+    66
+   ],
+   "observed_reminders": []
+  }
+ ]
+}

@@ -1,0 +1,725 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "pinwheels",
+ "activity_id": 10,
+ "n_recordings": 12,
+ "n_error_recordings": 8,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 115,
+   "order": 1,
+   "instruction": "Place 8-inch flour tortilla on cutting board",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Use a plate instead of cutting board.",
+      "Toast tortilla on the pan before using it",
+      "Use tortilla after heating it on pan for 1 minute",
+      "place on unclean kitchen surface instead of cutting board",
+      "Placed on a plate instead of cutting board",
+      "Use a plate instead of a cutting board"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after placing tortilla on cutting board"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 113,
+   "order": 2,
+   "instruction": "Use a butter knife to scoop nut butter from the jar",
+   "duration_constraint_s": null,
+   "preconditions": [
+    115
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Used a spoon instead of a butter knife",
+      "Used a knife instead of butter knife",
+      "Use spoon instead of butter knife",
+      "Used normal butter instead of nut butter"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before placing tortilla on cutting board",
+      "Step performed after spreading jelly",
+      "Step performed after applying jelly"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 112,
+   "order": 3,
+   "instruction": "Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges",
+   "duration_constraint_s": null,
+   "preconditions": [
+    113
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spreading the complete tortilla",
+      "spread the butter without leaving any edge gap",
+      "Spreading around the jelly"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after spreading jelly",
+      "Step performed after applying jelly"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Used a spoon instead of a butter knife"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Did not spread the butter properly, instead leave drops of butter on the tortilla"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 118,
+   "order": 4,
+   "instruction": "Clean the knife by wiping it with a paper towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    112
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use a kitchen knife instead of a buttering knife (might cut the tortilla)",
+      "Used a spoon instead of a knife"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after correct order"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Improper Cleaning of the knife with paper towel. paper towel did not cover down side of the knife."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 111,
+   "order": 5,
+   "instruction": "Use the knife to scoop jelly from the jar",
+   "duration_constraint_s": null,
+   "preconditions": [
+    118
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Using kitchen knife instead of buttering knife (might cut the tortilla)",
+      "Used a spoon instead of a butter knife",
+      "Using soiled knife to scoop jelly",
+      "use spoon instead of knife"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "spill some out while scooping jelly",
+      "Did not scoop properly",
+      "Spill some jelly while scooping"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before correct order",
+      "Step performed before spreading nut butter",
+      "Step performed before applying nut butter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 107,
+   "order": 6,
+   "instruction": "Spread jelly over the nut butter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    111
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "spread the jelly over the other side of the tortilla instead of spreading it on butter",
+      "Did not spread jelly completely over the nut butter",
+      "Spread on the boundary"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before spreading nut butter",
+      "Step performed before applying nut butter"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Used a spoon instead of a butter knife"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 104,
+   "order": 7,
+   "instruction": "Clean the knife by wiping with a paper towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    107
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Used a spoon instead of a butter knife",
+      "use hand instead of towel to clean",
+      "Leave some jelly on the knife - unhyginic"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before spreading nut butter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 116,
+   "order": 8,
+   "instruction": "Roll the tortilla from one end to the other into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps, but not so tight that the filling leaks",
+   "duration_constraint_s": null,
+   "preconditions": [
+    104
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Filling leaked",
+      "Roll it tightly - The jelly spills out",
+      "Roll it tightly for the filling to leak",
+      "Ensure filling leaks"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Log thickness is 2.5 inches",
+      "Roll into a large log",
+      "Roll into a larger log shape"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 110,
+   "order": 9,
+   "instruction": "Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart",
+   "duration_constraint_s": null,
+   "preconditions": [
+    116
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "The toothpicks are inserted at random places (not 1 inch apart)",
+      "use 10 toothpicks instead of 5",
+      "Used 3 toothpicks instead of 5",
+      "use 3 instead of 5 toothpicks"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skip this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after correct order"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 114,
+   "order": 10,
+   "instruction": "Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll",
+   "duration_constraint_s": null,
+   "preconditions": [
+    110
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Not able to trim the ends of the tortilla roll with the butter knife",
+      "Use a normal knife instead of butter knife",
+      "Use a normal knife instead",
+      "use spoon and fingers of hand instead of butter knife to trim",
+      "Trim the same end twice"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before correct order",
+      "Step performed before adding toothpicks",
+      "Step performed after placing floss and slicing"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Left 1 inch margin between the last toothpick and the end of the roll",
+      "Trim too much"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Trim-Trim the ends of the tortilla using hand"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 103,
+   "order": 11,
+   "instruction": "Discard ends of the tortilla",
+   "duration_constraint_s": null,
+   "preconditions": [
+    114
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 106,
+   "order": 12,
+   "instruction": "Slide floss under the tortilla, perpendicular to the length of the roll",
+   "duration_constraint_s": null,
+   "preconditions": [
+    114
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before adding toothpicks and trimming"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Slide floss under the tortilla, parallel to the length of the roll. Did parallel instead of perpendicular."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 117,
+   "order": 13,
+   "instruction": "Place the floss halfway between toothpicks",
+   "duration_constraint_s": null,
+   "preconditions": [
+    106
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding toothpicks and trimming",
+      "Step performed before trimming the edges"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 105,
+   "order": 14,
+   "instruction": "Cross the floss's two ends over the tortilla roll's top",
+   "duration_constraint_s": null,
+   "preconditions": [
+    117
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding toothpicks and trimming",
+      "Step performed before trimming the edges"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "we are slicing in a way there is no toothpick in pin wheel"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 108,
+   "order": 15,
+   "instruction": "pull the floss ends in opposite directions to slice",
+   "duration_constraint_s": null,
+   "preconditions": [
+    105
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use a scissor instead of floss to cut pinwheels",
+      "Use knife instead of floss"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before correct order",
+      "Step performed before trimming the edges"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Do not pull tightly"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 102,
+   "order": 18,
+   "instruction": "Continue slicing with floss to create 1 more pinwheel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    102
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 12,
+     "n_recordings": 4,
+     "descriptions": [
+      "Use a scissor instead of floss",
+      "Use knife instead of floss",
+      "Cut using knife",
+      "Use knife instead to slice",
+      "Use a knife instead of floss"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 4,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Cut into irregular shapes"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 109,
+   "order": 19,
+   "instruction": "Place the pinwheels on a plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    102
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "use a cup instead of a plate"
+     ]
+    }
+   ]
+  }
+ ]
+}

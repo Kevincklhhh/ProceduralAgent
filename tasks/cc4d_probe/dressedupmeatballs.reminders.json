@@ -1,0 +1,619 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "dressedupmeatballs",
+ "activity_id": 2,
+ "n_recordings": 16,
+ "n_error_recordings": 10,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 14,
+   "order": 1,
+   "instruction": "Peel 1 garlic clove",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Not properly peeling the garlic clove.",
+      "Peel-Peel garlic clove improperly",
+      "Peeled the garlic improperly"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Peeled 2 instead of 1 garlic clove"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 16,
+   "order": 2,
+   "instruction": "Cut 1/8 garlic clove",
+   "duration_constraint_s": null,
+   "preconditions": [
+    14
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Using 1/2 garlic instead of 1/8 garlic.",
+      "Use 1/2 garlic clove",
+      "Cut 1/2 garlic clove instead of 1/8 garlic clove.",
+      "Cut 1 garlic clove",
+      "Cut 1/2 garlic clove",
+      "Cut 1/2 instead of 1/8 garlic clove"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Slice garlic clove"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 17,
+   "order": 3,
+   "instruction": "Peel one medium onion",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Not properly peeling the onion.",
+      "Peel improperly",
+      "Peel-Peel one medium onion improperly"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 21,
+   "order": 4,
+   "instruction": "Place 5 meatballs in a Microwave-safe plate",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Using 6 meatballs instead of 5 meatballs.",
+      "Place only 4 instead of 5.",
+      "Pouring many balls, more than 5",
+      "Placing 6 meatballs instead of 5.",
+      "3 meatballs instead of 5 meatballs"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Place meat balls after the sauces are poured and topped with vegetables"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using bowl instead of plate"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 22,
+   "order": 5,
+   "instruction": "Cut 1/4 medium carrot into short, thin strips",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Cutting into long instead of short.",
+      "Cutting the carrot into long and thick strips.",
+      "Not thin",
+      "Instead of short thin strips cutting it into long irregular strips.",
+      "slice horizontally carrot instead of cut into short, thin strips",
+      "Carrot is not cut into thin strips"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Not taking the 1/4 medium carrot.",
+      "use 1/2 medium carrot instead of 1/4 medium carrot",
+      "Took a large carrot instead of a medium carrot"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 23,
+   "order": 6,
+   "instruction": "Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Mixing 1/2 cup instead of 1/4 cup sweet and sour sauce and 1 teaspoon of soy sauce instead of 1/2 teaspoon.",
+      "Using 1 teaspoon instead of 1/2 teaspoon.",
+      "Mix-Mix 1/2 cup sweet-and-sour sauce and 1/2 cup soy sauce in a small bowl",
+      "1/2 tablespoon soy sauce instead of 1/2 tsp soy sauce"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill soy sauce while measuring."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "1/2 tsp used is soiled"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Preparing the mixture after microwaving the meatballs"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 26,
+   "order": 7,
+   "instruction": "Mince 1/8 garlic clove",
+   "duration_constraint_s": null,
+   "preconditions": [
+    16
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Using 1/2 garlic clove instead of 1/8.",
+      "Almost 1/4 garlic cloves",
+      "Mince 1 garlic clove"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Likely chopping",
+      "Chop instead of mince"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 27,
+   "order": 8,
+   "instruction": "Cut onion into two pieces",
+   "duration_constraint_s": null,
+   "preconditions": [
+    17
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Cutting into 4 pieces instead of two.",
+      "cut into 4 pieces"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "cut-Cut onion into two pieces one large and one small"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 19,
+   "order": 9,
+   "instruction": "Slice 1/8 medium onion",
+   "duration_constraint_s": null,
+   "preconditions": [
+    27
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Instead of slicing chopping the onion.",
+      "Chop instead of slice",
+      "chop instead of slice"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Slicing 1/4 onion instead of 1/8 onion.",
+      "Using 1/4 medium onion instead of 1/8.",
+      "Chop 1/2 onion instead of 1/8th"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 24,
+   "order": 10,
+   "instruction": "Top the plate with the carrots, onion, garlic and 1/4 tsp pepper powder",
+   "duration_constraint_s": null,
+   "preconditions": [
+    19,
+    21,
+    22,
+    26
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before adding meat balls",
+      "Adding pepper powder after pouring sauces on the plate",
+      "Top meatballs after microwaving",
+      "Topping after microwaving",
+      "Step performed after microwaving meatballs and pouring the sauces"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "using 1/2 tsp instead of 1/4 tsp.",
+      "Seasoning pepper on top, no measuring",
+      "Using the 1/2 tsp instead of 1/4 tsp."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Put extra 1/4 tsp pepper to the bowl"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Seasoning pepper on top, no measuring"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 15,
+   "order": 11,
+   "instruction": "Pour the sauces over the meatballs",
+   "duration_constraint_s": null,
+   "preconditions": [
+    23,
+    24
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Pouring sauces before placing meatballs",
+      "Step performed after microwaving and stirring",
+      "Step performed after microwaving the meatballs and before topping vegetables"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Instead of pouring sauces over meatballs, put the meatballs into the sauces.",
+      "Dropping one meatball from the plate while pouring the sauces"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill some while pouring the sauces."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 20,
+   "order": 14,
+   "instruction": "Microwave the plate, covered, on high for 1.5 minutes",
+   "duration_constraint_s": 300,
+   "preconditions": [
+    18
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 12,
+     "n_recordings": 8,
+     "descriptions": [
+      "Microwave the plate, covered, on high for 5 minutes instead of 1.5 minutes",
+      "Using 1 minute instead of 1.5 minutes.",
+      "1 min",
+      "Instead of 1.5 minutes only 3 minutes.",
+      "Microwave for 3 minutes instead of 1.5 minutes",
+      "Microwave for 2 mins instead of 1.5 mins",
+      "Microwave for 1 min instead of 1.5 mins",
+      "Microwave for 3 min instead of 1.5 minutes",
+      "Microwaving for 1 minute instead of 1.5 minutes"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 4,
+     "descriptions": [
+      "Microwave the plate uncovered without covering it.",
+      "Not covered the plate.",
+      "Not using the microwave cover to cover the contents.",
+      "Microwave without covering the plate"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "descriptions": [
+      "Microwave before adding vegetables and sauces",
+      "Step performed before correct order",
+      "Microwave empty bowl without meatballs, sauces and vegetables",
+      "Microwaving before adding vegatables and sauces"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Instead of high power level we microwave on a medium power level.",
+      "Instead of high using medium power level.",
+      "Microwave on medium instead of high"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 18,
+   "order": 15,
+   "instruction": "Stir the contents in the microwave with a spoon",
+   "duration_constraint_s": null,
+   "preconditions": [
+    20
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Stirring before adding sauces",
+      "Stirring the contents without adding meatballs, sauces and vegetables",
+      "Stirring before adding vegetables and sauces"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using a fork instead of a spoon."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 25,
+   "order": 16,
+   "instruction": "Microwave for 1 more minute",
+   "duration_constraint_s": null,
+   "preconditions": [
+    18
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "descriptions": [
+      "Microwave for more than a minute.",
+      "Microwave-Microwave for 2 minutes instead of 1 min",
+      "Microwave for 1.5 mins instead of 1 min"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,305 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/microwaveeggsandwich.reminders.json) -- one per observed subtype -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG has two root steps (step_id 3 coat the cup, step_id 12 cut the muffin) running independently and reconverging at step_id 2 (place the egg over the lettuce, preconditions [9,10]); the remaining chain is 3→1→4→11→8→6→5→10 and 12→9, then 2→7. No repeated step_ids; no loops.",
+  "task": {
+    "task_id": "microwaveeggsandwich",
+    "title": "Microwaveeggsandwich",
+    "source": "tasks/cc4d/microwaveeggsandwich.json"
+  },
+  "nodes": [
+    {
+      "step_id": 3,
+      "instruction": "Coat a 6-oz. ramekin cup with cooking spray",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "This is a root step (no preconditions) active from the start. It is one of two concurrently-eligible root steps (the other is step 12, cutting the muffin); recognition must say which is happening now. The user is coating the interior of a 6-oz ramekin cup with cooking spray."
+      },
+      "completion": {
+        "claim": "The ramekin cup interior is coated with cooking spray. No distinct end event of its own (spray-and-set); inferred from onset of step 1 (egg is poured into the cup).",
+        "inferred_from": 1
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for a 6-oz ramekin cup coated with cooking spray; flag using a different vessel (e.g., a large bowl, a mug) or using regular oil instead of cooking spray."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe specifies a 6-oz ramekin cup; flag using a visibly larger or wrong-sized container in place of the 6-oz cup."
+        }
+      ]
+    },
+    {
+      "step_id": 1,
+      "instruction": "Pour 1 egg into the ramekin cup",
+      "preconditions": [3],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is cracking and pouring exactly 1 egg into the ramekin cup."
+      },
+      "completion": {
+        "claim": "One egg is in the ramekin cup. No distinct end event of its own (pour/add); inferred from onset of step 4 (ramekin cup is placed in the microwave).",
+        "inferred_from": 4
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for exactly 1 egg; flag a different count (e.g., 2 eggs cracked into the cup)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects the egg to be cracked cleanly into the cup; flag mishandled cracking such as the egg spilling on the counter or floor, or shell fragments left in the cup."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for pouring the egg into the ramekin cup; flag using a different vessel (e.g., a large bowl or non-ramekin cup) instead."
+        }
+      ]
+    },
+    {
+      "step_id": 4,
+      "instruction": "Microwave the ramekin cup uncovered on high for 30 seconds",
+      "preconditions": [1],
+      "duration_constraint_s": 30,
+      "recognition": {
+        "claim": "The user has placed the uncovered ramekin cup in the microwave and started it on high power."
+      },
+      "completion": {
+        "claim": "The microwave stops after the 30-second cycle, signaling the end of this step. Own observable event: the microwave beeps/stops and the door is opened.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for 30 seconds; flag a noticeably different duration (observed deviations include 10 s, 15 s, 20 s, 60 s, and over 1 minute)."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe requires high power; flag the microwave set to medium or low power instead of high."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires microwaving the cup uncovered; flag if the contents spill out of the cup inside the microwave during this step."
+        }
+      ]
+    },
+    {
+      "step_id": 11,
+      "instruction": "stir the ramekin cup",
+      "preconditions": [4],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is stirring the partially-cooked egg in the ramekin cup."
+      },
+      "completion": {
+        "claim": "The egg in the cup has been stirred. No distinct end event of its own (stir); inferred from onset of step 8 (cup returned to the microwave for the second cook cycle).",
+        "inferred_from": 8
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects the egg to be stirred properly in the cup; flag stirring too rapidly or leaving the yolk unmixed."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe expects stirring with an appropriate utensil; flag using an improper utensil such as a knife to stir the egg."
+        }
+      ]
+    },
+    {
+      "step_id": 8,
+      "instruction": "Continue to Microwave for 15-30 more seconds or until the egg is almost set",
+      "preconditions": [11],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user has placed the ramekin cup back in the microwave for a second cook cycle, targeting 15-30 seconds or until the egg is almost set."
+      },
+      "completion": {
+        "claim": "The microwave stops and the egg appears almost set. Own observable event: the microwave beeps/stops and the door is opened.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for 15-30 seconds or until the egg is almost set; flag a run noticeably shorter than 15 seconds or substantially longer than 30 seconds (e.g., 1 minute) without confirming doneness."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires checking whether the egg is almost set before stopping; flag if the user does not check egg doneness and stops after a fixed short time without assessing the egg."
+        }
+      ]
+    },
+    {
+      "step_id": 6,
+      "instruction": "Top cup with 1 tablespoon of salsa",
+      "preconditions": [8],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding salsa on top of the egg in the ramekin cup."
+      },
+      "completion": {
+        "claim": "Salsa has been added to the top of the egg in the cup. No distinct end event of its own (add); inferred from onset of step 5 (cheese is sprinkled on the cup).",
+        "inferred_from": 5
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 tablespoon of salsa; flag a noticeably different amount (e.g., 1 teaspoon, 1/2 tablespoon, 2 tablespoons, or 3 tablespoons)."
+        },
+        {
+          "reminder": "timing",
+          "claim": "The recipe pins the salsa quantity as a parameter; flag if the amount added deviates from 1 tablespoon in a way annotated as a timing/parameter violation (observed: 2 tablespoons)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires salsa to be added to the ramekin cup; flag if the salsa is added to a different container (e.g., a separate cheese bowl) instead of the ramekin."
+        }
+      ]
+    },
+    {
+      "step_id": 5,
+      "instruction": "sprinkle 1 tablespoon of cheese on cup",
+      "preconditions": [6],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is sprinkling cheese onto the top of the ramekin cup contents."
+      },
+      "completion": {
+        "claim": "Cheese has been sprinkled on the cup. No distinct end event of its own (add); inferred from onset of step 10 (cup placed in the microwave to melt the cheese).",
+        "inferred_from": 10
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 tablespoon of cheese; flag an unmeasured amount or a different quantity (e.g., 2 tablespoons)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects cheese to be sprinkled on the cup; flag if the cheese is poured directly rather than sprinkled, or is placed on the muffin instead of in the cup."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for cheese; flag if a wrong ingredient (e.g., butter) is used instead of cheese."
+        }
+      ]
+    },
+    {
+      "step_id": 10,
+      "instruction": "Microwave just until cheese melts, about 10 seconds",
+      "preconditions": [5],
+      "duration_constraint_s": 10,
+      "recognition": {
+        "claim": "The user has placed the ramekin cup back in the microwave and started it briefly to melt the cheese, targeting approximately 10 seconds."
+      },
+      "completion": {
+        "claim": "The microwave stops and the cheese is visibly melted. Own observable event: the microwave beeps/stops and the door is opened.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for about 10 seconds just until the cheese melts; flag a noticeably longer run (e.g., 20 or 30 seconds or more) or stopping before the cheese fully melts."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires the cheese to be on the ramekin cup for this microwave step; flag if the cheese was placed in a separate bowl, causing this step to operate on the wrong vessel."
+        }
+      ]
+    },
+    {
+      "step_id": 12,
+      "instruction": "Cut the English muffin into two pieces with a knife",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "This is a root step (no preconditions) active from the start. It is one of two concurrently-eligible root steps (the other is step 3, coating the cup); recognition must say which is happening now. The user is cutting the English muffin into two pieces using a knife."
+      },
+      "completion": {
+        "claim": "The English muffin has been cut into two pieces. No distinct end event of its own; inferred from onset of step 9 (lettuce is placed on the bottom piece).",
+        "inferred_from": 9
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe calls for cutting with a knife; flag if the user tears or splits the muffin by hand instead of using a knife."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects the muffin to be cut into two even halves; flag if the cut produces more than two pieces or two clearly uneven pieces."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe specifies exactly two pieces; flag if the muffin is cut into three or more pieces instead of two halves."
+        }
+      ]
+    },
+    {
+      "step_id": 9,
+      "instruction": "Line the bottom piece of the English muffin with lettuce",
+      "preconditions": [12],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is placing lettuce on the bottom piece of the English muffin."
+      },
+      "completion": {
+        "claim": "Lettuce is placed on the bottom muffin piece. No distinct end event of its own (add); inferred from onset of step 2 (egg is placed over the lettuce), which is the reconvergence point.",
+        "inferred_from": 2
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe specifies lining the bottom piece with lettuce; flag if the lettuce is placed on the top piece instead of the bottom."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for lining the bottom piece only; flag if lettuce is placed on both pieces of the muffin instead of just the bottom one."
+        }
+      ]
+    },
+    {
+      "step_id": 2,
+      "instruction": "Place the egg from the cup over the lettuce",
+      "preconditions": [9, 10],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is transferring the cooked egg from the ramekin cup and placing it over the lettuce on the bottom muffin piece. This is the reconvergence step where the egg/cup chain (step 10) and the muffin chain (step 9) join."
+      },
+      "completion": {
+        "claim": "The egg has been placed over the lettuce on the bottom muffin piece. No distinct end event of its own; inferred from onset of step 7 (the muffin top is replaced).",
+        "inferred_from": 7
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires placing the egg over the lettuce on the bottom muffin piece; flag if the egg is placed on the other piece of the English muffin instead of over the lettuce."
+        }
+      ]
+    },
+    {
+      "step_id": 7,
+      "instruction": "replace the top of the English muffin",
+      "preconditions": [2],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is placing the top piece of the English muffin back on top to close the assembled sandwich."
+      },
+      "completion": {
+        "claim": "The top piece of the English muffin is placed on the sandwich and the sandwich is complete. This is the final step; own observable event: the closed sandwich is set down.",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe expects the muffin top to be placed right-side up on the sandwich; flag if the top is placed flipped upside down or if the bottom piece is used as the top."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The recipe requires the original top piece to close the sandwich; flag if the wrong piece (e.g., the lettuce-lined bottom piece) is placed on top."
+        }
+      ]
+    }
+  ]
+}

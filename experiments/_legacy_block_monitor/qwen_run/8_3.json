@@ -1,0 +1,158 @@
+{
+ "recording": "8_3",
+ "task_id": "spicedhotchocolate",
+ "arm": "proposed_system",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 72.32
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 72.32,
+   "end_s": 135.41
+  },
+  {
+   "stage": "quiet_middle",
+   "start_s": 135.41,
+   "end_s": 144.0
+  },
+  {
+   "stage": "add_cinnamon",
+   "start_s": 144.0,
+   "end_s": 154.0
+  },
+  {
+   "stage": "add_chocolate",
+   "start_s": 154.0,
+   "end_s": 174.0
+  },
+  {
+   "stage": "add_cinnamon",
+   "start_s": 174.0,
+   "end_s": 194.0
+  },
+  {
+   "stage": "add_sugar",
+   "start_s": 194.0,
+   "end_s": 344.19
+  },
+  {
+   "stage": "heat_serve",
+   "start_s": 344.19,
+   "end_s": 421.97
+  }
+ ],
+ "transition_trace": [
+  {
+   "t_s": 0.0,
+   "transition": "start",
+   "step_or_block": "fill_milk",
+   "rule_id": "fill_start_source",
+   "evidence": [],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 72.32,
+   "transition": "complete",
+   "step_or_block": "fill_milk",
+   "rule_id": "fill_done_next_anchor",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 72.32,
+   "transition": "start",
+   "step_or_block": "microwave_initial",
+   "rule_id": "mw1_start",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 135.41,
+   "transition": "complete",
+   "step_or_block": "microwave_initial",
+   "rule_id": "mw1_done",
+   "evidence": [
+    "D1.cycle_end"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 135.41,
+   "transition": "start",
+   "step_or_block": "quiet_middle",
+   "rule_id": "middle_start",
+   "evidence": [],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 344.19,
+   "transition": "complete",
+   "step_or_block": "quiet_middle",
+   "rule_id": "middle_done_next_anchor",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 344.19,
+   "transition": "start",
+   "step_or_block": "heat_serve",
+   "rule_id": "heat_start",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 409.23,
+   "transition": "complete",
+   "step_or_block": "heat_serve",
+   "rule_id": "heat_done",
+   "evidence": [
+    "D1.cycle_end"
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "sensor_events": [
+  {
+   "t_s": 72.32,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 135.41,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 344.19,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0
+  },
+  {
+   "t_s": 409.23,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0
+  }
+ ],
+ "cost": {
+  "audio_on_s": 421.97,
+  "vlm_calls": 6,
+  "frames_sent": 60,
+  "vlm_latency_total_s": 128.68,
+  "compute_s": 0.87
+ }
+}

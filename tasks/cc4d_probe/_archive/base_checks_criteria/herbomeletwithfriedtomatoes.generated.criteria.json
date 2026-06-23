@@ -1,0 +1,197 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/herbomeletwithfriedtomatoes.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG is two parallel prep chains (egg-mixture: 239/237->242/249->248; tomato: 247->246) that reconverge at 235 (heat oil), then a strict linear cook/plate tail 240->244->236->241->238->245->243.",
+  "task": {
+    "task_id": "herbomeletwithfriedtomatoes",
+    "title": "Herbomeletwithfriedtomatoes",
+    "source": "tasks/cc4d/herbomeletwithfriedtomatoes.json"
+  },
+  "nodes": [
+    {
+      "step_id": 237,
+      "instruction": "Chop 2 tbsp cilantro",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is chopping cilantro on a board with a knife. This is a root step (no preconditions): one of several prep steps eligible from the start; recognition must say chopping cilantro is the activity active now." },
+      "completion": { "claim": "The cilantro is fully chopped and the user stops chopping. No distinct end signal of its own; inferred from the chopped cilantro being added to the bowl.", "inferred_from": 242 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 2 tbsp of cilantro; flag if a different amount is chopped (e.g. only 1 tbsp) or if no measurement is taken at all." },
+        { "reminder": "preparation", "claim": "The recipe calls for cilantro that is measured and chopped; flag if the cilantro is not measured or the wrong herb is prepared." },
+        { "reminder": "technique", "claim": "The recipe calls for chopping the cilantro with a knife; flag if it is torn or broken into pieces by hand rather than chopped." }
+      ]
+    },
+    {
+      "step_id": 239,
+      "instruction": "crack one egg in a bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is cracking an egg over a bowl. This is a root step (no preconditions): one of several prep steps eligible from the start; recognition must say cracking the egg is the activity active now." },
+      "completion": { "claim": "The egg is cracked and its contents are in the bowl, shell discarded. No distinct end signal of its own; inferred from the beating of the bowl contents.", "inferred_from": 248 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for one egg; flag if a different number of eggs is cracked." },
+        { "reminder": "preparation", "claim": "The recipe calls for the egg to be cracked directly into the bowl; flag if it is handled improperly (e.g. scooped from another surface into the bowl)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag a poor cracking technique that leaves shell fragments in the bowl or splashes egg outside it." }
+      ]
+    },
+    {
+      "step_id": 242,
+      "instruction": "add the chopped cilantro to the bowl",
+      "preconditions": [237],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is transferring the chopped cilantro into the bowl. Active once the cilantro has been chopped (step 237)." },
+      "completion": { "claim": "All the chopped cilantro is in the bowl. No distinct end signal of its own; inferred from the beating of the bowl contents.", "inferred_from": 248 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for the previously chopped cilantro to be added to the bowl; flag if a different or unprepared ingredient is added." }
+      ]
+    },
+    {
+      "step_id": 247,
+      "instruction": "Take a tomato",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is picking up a tomato. This is a root step (no preconditions): one of several prep steps eligible from the start; recognition must say taking the tomato is the activity active now." },
+      "completion": { "claim": "The user is holding a tomato ready to cut. No distinct end signal of its own; inferred from the tomato being cut into two pieces.", "inferred_from": 246 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for one tomato; flag if a different quantity (e.g. two tomatoes, or only half a tomato) is taken." },
+        { "reminder": "preparation", "claim": "The recipe calls for a regular tomato; flag if the wrong produce is used (e.g. a cherry tomato instead of a tomato)." }
+      ]
+    },
+    {
+      "step_id": 246,
+      "instruction": "Cut tomato into two pieces",
+      "preconditions": [247],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is cutting the tomato on a board. Active once a tomato has been taken (step 247)." },
+      "completion": { "claim": "The tomato is cut into two pieces. No distinct end signal of its own; inferred from the oil being heated in the pan.", "inferred_from": 235 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for the tomato to be cut into two pieces; flag if a different number of pieces results." },
+        { "reminder": "technique", "claim": "The recipe calls for cutting into two halves; flag if it is instead chopped into many or small pieces." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag if the wrong produce is being cut (e.g. a cherry tomato instead of a tomato)." }
+      ]
+    },
+    {
+      "step_id": 249,
+      "instruction": "1/2 tsp ground black pepper to the bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding ground black pepper to the bowl. This is a root step (no preconditions): one of several prep steps eligible from the start; recognition must say adding the pepper is the activity active now." },
+      "completion": { "claim": "The pepper is in the bowl. No distinct end signal of its own; inferred from the beating of the bowl contents.", "inferred_from": 248 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/2 tsp of ground black pepper; flag if a different amount is added or it is poured in without measuring." },
+        { "reminder": "preparation", "claim": "The recipe calls for ground black pepper added to the bowl; flag if the wrong seasoning is used." },
+        { "reminder": "technique", "claim": "[probe-added] Flag a sloppy transfer from the shaker that overshoots the measure or spills pepper outside the bowl." }
+      ]
+    },
+    {
+      "step_id": 248,
+      "instruction": "Beat the contents of the bowl",
+      "preconditions": [239, 242, 249],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is beating the contents of the bowl with a utensil. Active once the egg, cilantro and pepper are all in the bowl (steps 239, 242, 249)." },
+      "completion": { "claim": "The bowl contents are evenly beaten into a uniform egg mixture. No distinct end signal of its own; inferred from the oil being heated in the pan.", "inferred_from": 235 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for the contents to be beaten; flag if the action is too slow, merely swirled/rotated, or otherwise fails to beat the mixture." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag if an improper implement is used to beat (e.g. fingers instead of a whisk/fork)." }
+      ]
+    },
+    {
+      "step_id": 235,
+      "instruction": "Heat 1 tbsp oil in a non-stick frying pan",
+      "preconditions": [246, 248],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding oil to a frying pan on the stove and heating it. Active once the tomato is cut and the egg mixture is beaten (steps 246, 248)." },
+      "completion": { "claim": "The oil is hot in the pan, ready to cook. No distinct end signal of its own; inferred from the tomatoes being cooked in the pan.", "inferred_from": 240 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 tbsp of oil; flag if noticeably more oil is added." },
+        { "reminder": "preparation", "claim": "The recipe calls for a clean non-stick frying pan; flag if a wrong vessel (e.g. a wok, an oversized pan) or a soiled pan is used." },
+        { "reminder": "temperature", "claim": "The recipe calls for the oil to be heated; flag if the pan is not put on heat / the oil is not heated before cooking." },
+        { "reminder": "technique", "claim": "[probe-added] Flag if oil is spilled onto or around the pan while measuring/pouring it." }
+      ]
+    },
+    {
+      "step_id": 240,
+      "instruction": "cook the tomatoes cut-side down until they start to soften and colour",
+      "preconditions": [235],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The tomato halves are in the hot pan cut-side down, cooking. Active once the oil has been heated (step 235)." },
+      "completion": { "claim": "The tomatoes have softened and taken on colour, an observable end-state of this step.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for cooking until the tomatoes start to soften and colour; flag if they are removed too early/undercooked before softening and colouring." },
+        { "reminder": "preparation", "claim": "The recipe calls for the prepared tomato halves to be cooked; flag if the wrong produce is cooked or cooked items are placed on an improper surface." },
+        { "reminder": "technique", "claim": "The recipe calls for the tomatoes to be placed cut-side down in the pan; flag if they are not oriented cut-side down." }
+      ]
+    },
+    {
+      "step_id": 244,
+      "instruction": "Scoop the tomatoes from the pan",
+      "preconditions": [240],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is scooping the cooked tomatoes out of the pan with a utensil. Active once the tomatoes are cooked (step 240)." },
+      "completion": { "claim": "The cooked tomatoes are removed from the pan. No distinct end signal of its own; inferred from the tomatoes being put on the serving plate.", "inferred_from": 236 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for scooping the tomatoes out; flag if they are instead poured out of the pan." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag if an improper implement is used to scoop, or the tomatoes are placed onto an improper surface (e.g. the cutting board)." }
+      ]
+    },
+    {
+      "step_id": 236,
+      "instruction": "put tomatoes on a serving plate",
+      "preconditions": [244],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is placing the cooked tomatoes onto a serving plate. Active once the tomatoes are scooped from the pan (step 244)." },
+      "completion": { "claim": "The tomatoes are resting on the serving plate, an observable end-state of this step.", "inferred_from": null },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for a serving plate; flag if the tomatoes are placed in the wrong vessel (e.g. a bowl)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag if the tomatoes are mishandled (e.g. poured back into the pan instead of placed on the plate)." }
+      ]
+    },
+    {
+      "step_id": 241,
+      "instruction": "Pour the egg mixture into the pan",
+      "preconditions": [236],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is pouring the beaten egg mixture from the bowl into the hot pan. Active once the tomatoes are on the serving plate (step 236)." },
+      "completion": { "claim": "The egg mixture is in the pan. No distinct end signal of its own; inferred from the gentle stirring of the egg.", "inferred_from": 238 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for pouring the egg mixture into the pan; flag if part of the egg is poured outside the pan." }
+      ]
+    },
+    {
+      "step_id": 238,
+      "instruction": "stir gently with a wooden spoon so the egg that sets on the base of the pan moves to enable the uncooked egg to flow into the space",
+      "preconditions": [241],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is gently stirring the cooking egg with a wooden spoon, moving set egg so uncooked egg flows in. Active once the egg mixture is poured into the pan (step 241)." },
+      "completion": { "claim": "The egg is mostly set with the stirring action ongoing. No distinct end signal of its own; inferred from the user stopping stirring as it nearly cooks.", "inferred_from": 245 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for gentle stirring that moves set egg so uncooked egg flows in; flag if it is stirred too rapidly/roughly or stirred incorrectly so the egg cooks unevenly." },
+        { "reminder": "preparation", "claim": "The recipe calls for a wooden spoon; flag if a wrong implement (e.g. metal spoon, spatula) is used." }
+      ]
+    },
+    {
+      "step_id": 245,
+      "instruction": "Stop stirring when it's nearly cooked to allow it to set into an omelette",
+      "preconditions": [238],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user has stopped stirring and is letting the nearly-cooked egg set undisturbed. Active once gentle stirring has been performed (step 238)." },
+      "completion": { "claim": "The egg has set into an intact omelette, an observable end-state of this step.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for stopping stirring when the egg is nearly cooked; flag if stirring stops too early or continues too long." },
+        { "reminder": "technique", "claim": "The recipe calls for letting the egg set into a single omelette; flag if continued stirring breaks it into small pieces rather than a set omelette." }
+      ]
+    },
+    {
+      "step_id": 243,
+      "instruction": "Transfer omelette to the plate and serve with the tomatoes",
+      "preconditions": [245],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is transferring the finished omelette onto the plate alongside the tomatoes. Active once the omelette has set (step 245)." },
+      "completion": { "claim": "The omelette is plated and served with the tomatoes, the observable end-state of the recipe.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for transferring the omelette intact onto the plate and serving it with the tomatoes; flag if it is mishandled or not plated with the tomatoes." }
+      ]
+    }
+  ]
+}

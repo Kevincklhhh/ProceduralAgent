@@ -1,0 +1,678 @@
+{
+  "recipe": "capresebruschetta",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "52 total claims: 11 recognition + 11 completion + 30 checks. This recipe has NO microwave, NO blender, NO tap water, NO sauté/boil steps. Only step 352 (pan-toast) has any audio candidate (D4 oil-sizzle onset, D3 cook_end) but the library explicitly excludes gentle/dry toast as inaudible. D6 can A-solve the 180s timing check once a cv-based anchor fires. Everything else is silent add/prep -> C-none or cv B-trigger.",
+  "claims": [
+    {
+      "step_id": 342,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding shredded mozzarella into a bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — ingredient identity (mozzarella vs other white cheese) requires VLM; cv HSV detects an add happened but cannot confirm ingredient",
+      "config_oneline": "periodic VLM at ~2fps; no audio gate available (silent add)"
+    },
+    {
+      "step_id": 342,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Mozzarella has been transferred into bowl (inferred from step 348)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG logic: step 348 onset implies all 5 ingredient steps done; no sensor needed",
+      "config_oneline": "D6/DAG: emit completion when step 348 recognition fires"
+    },
+    {
+      "step_id": 342,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/8 cup mozzarella — flag measurably different amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — one targeted VLM frame at the measuring-cup moment; cv HSV can detect the add event as trigger",
+      "config_oneline": "cv HSV state-change (bowl ROI) -> fire 1 VLM frame for quantity check"
+    },
+    {
+      "step_id": 342,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Bowl + measuring cup used; flag plate or adding by hand",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — container shape (plate vs bowl) might be cv-decidable at low-res; tool identity (cup vs hand) needs VLM",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for container+tool check"
+    },
+    {
+      "step_id": 342,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spilling mozzarella while measuring or transferring",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — spill is a spatial event needing scene understanding; cv cannot distinguish spill from intended spread",
+      "config_oneline": "periodic VLM monitoring during the add window"
+    },
+    {
+      "step_id": 343,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding salt into a bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — salt is visually nearly invisible; ingredient identity requires VLM with scene context",
+      "config_oneline": "periodic VLM at ~2fps; no audio gate (silent add)"
+    },
+    {
+      "step_id": 343,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Salt has been added into bowl (inferred from step 348)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step 348 onset implies all 5 ingredient steps done",
+      "config_oneline": "D6/DAG: emit completion when step 348 recognition fires"
+    },
+    {
+      "step_id": 343,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 tsp salt — flag measurably different amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — measuring spoon size distinguishable at close-up; cv motion trigger -> 1 VLM frame",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for spoon-size check"
+    },
+    {
+      "step_id": 343,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Clean dry measuring spoon + bowl; flag wet/contaminated spoon or plate",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — cleanliness/contamination state of spoon requires fine visual inspection -> VLM; container check is easier",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for tool+container check"
+    },
+    {
+      "step_id": 343,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spilling salt while adding",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — salt spill is nearly invisible; VLM with context required",
+      "config_oneline": "periodic VLM during the add window"
+    },
+    {
+      "step_id": 344,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is slicing rounds from a baguette with a knife",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — knife motion burst (optical-flow) reliably detects cutting action; triggers 1 VLM call to confirm baguette+slant",
+      "config_oneline": "cv optical-flow motion-burst (knife region) -> 1 VLM frame to confirm bread+knife"
+    },
+    {
+      "step_id": 344,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Two slanted baguette rounds have been cut (inferred from step 349 onset)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step 349 recognition implies 344 complete",
+      "config_oneline": "D6/DAG: emit completion when step 349 recognition fires"
+    },
+    {
+      "step_id": 344,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Two 1/2-inch-thick rounds — flag different count or thickness",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — count (2 pieces) and thickness requires VLM close-up; cv motion trigger fires it",
+      "config_oneline": "cv motion-burst trigger -> 1 VLM frame for count+thickness"
+    },
+    {
+      "step_id": 344,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Slanted slices; flag straight cuts or wedges",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium-low — cut angle is a subtle spatial property; needs VLM scene understanding not just motion; monochrome sufficient for shape",
+      "config_oneline": "periodic VLM during slicing window; monochrome frame acceptable"
+    },
+    {
+      "step_id": 344,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Clean baguette + knife; flag wrong food or wrong tool",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — ingredient+tool identity VLM; cv motion trigger fires it",
+      "config_oneline": "cv motion-burst trigger -> 1 VLM frame for food+tool identity"
+    },
+    {
+      "step_id": 346,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding pepper into a bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — pepper vs other spices requires VLM; silent add",
+      "config_oneline": "periodic VLM at ~2fps; no audio gate"
+    },
+    {
+      "step_id": 346,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Pepper has been added into bowl (inferred from step 348)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step 348 onset implies all 5 ingredient steps done",
+      "config_oneline": "D6/DAG: emit completion when step 348 recognition fires"
+    },
+    {
+      "step_id": 346,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 tsp pepper — flag measurably different amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — spoon size check via VLM at trigger moment",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for spoon-size check"
+    },
+    {
+      "step_id": 346,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Bowl used; flag plate",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — container shape (bowl vs plate) may be cv-detectable at low-res but VLM safer for reliability",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for container check"
+    },
+    {
+      "step_id": 346,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spilling pepper while opening container or transferring",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — spill detection requires scene-level understanding",
+      "config_oneline": "periodic VLM during add window"
+    },
+    {
+      "step_id": 347,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding basil into a bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — herb identity (basil vs oregano) requires VLM; color is a weak cue but not sufficient alone",
+      "config_oneline": "periodic VLM at ~2fps; no audio gate"
+    },
+    {
+      "step_id": 347,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Basil has been added into bowl (inferred from step 348)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step 348 onset implies all 5 ingredient steps done",
+      "config_oneline": "D6/DAG: emit completion when step 348 recognition fires"
+    },
+    {
+      "step_id": 347,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/16 cup basil — flag measurably different amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — measuring cup size check; cv motion trigger -> VLM",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for quantity check"
+    },
+    {
+      "step_id": 347,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Basil added; flag wrong herb (oregano) or wrong container (plate)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — herb identity is the hard part (VLM needed); container easily checked in same frame",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for herb+container identity"
+    },
+    {
+      "step_id": 347,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spilling basil or dropping measuring utensil",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — spill/drop requires scene understanding",
+      "config_oneline": "periodic VLM during add window"
+    },
+    {
+      "step_id": 349,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is brushing olive oil onto both sides of baguette slices",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — repetitive brush-stroke motion (optical-flow over bread surface) detectable; triggers 1 VLM for oil+brush confirmation",
+      "config_oneline": "cv optical-flow brush-stroke pattern -> 1 VLM frame for oil+tool confirm"
+    },
+    {
+      "step_id": 349,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Both sides of 2 slices oiled (inferred from step 352 onset)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step 352 recognition implies 349 complete",
+      "config_oneline": "D6/DAG: emit completion when step 352 recognition fires"
+    },
+    {
+      "step_id": 349,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Both sides of 2 slices oiled; flag fewer slices or one side only",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — side-flip detection needs VLM; count may be cv-detectable",
+      "config_oneline": "cv motion trigger after flip motion -> 1 VLM frame for side+count check"
+    },
+    {
+      "step_id": 349,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Oil applied by brushing; flag pouring/dipping/hand-applying",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — distinguishing brush stroke from pour or dip requires fine technique reading -> VLM",
+      "config_oneline": "periodic VLM during brushing window"
+    },
+    {
+      "step_id": 349,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Olive oil + brush tool; flag wrong fat or wrong tool (spoon/knife/hand)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — tool+ingredient identity requires VLM; cv motion trigger fires it",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for oil+tool identity"
+    },
+    {
+      "step_id": 350,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is cutting cherry tomatoes into halves",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — knife motion burst detectable via optical-flow; triggers VLM for tomato+halving confirmation",
+      "config_oneline": "cv optical-flow motion-burst (knife/cutting-board region) -> 1 VLM frame"
+    },
+    {
+      "step_id": 350,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Cherry tomatoes cut into halves (inferred from step 351 onset)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step 351 recognition implies 350 complete",
+      "config_oneline": "D6/DAG: emit completion when step 351 recognition fires"
+    },
+    {
+      "step_id": 350,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 cup cherry tomatoes; flag measurably different amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — volume estimate in measuring cup needs VLM; cv motion trigger fires it",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for quantity check"
+    },
+    {
+      "step_id": 350,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Cut into halves; flag quarters or mincing",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium-low — cut result (half vs quarter pieces) visible post-cut but needs VLM to distinguish; monochrome ok for shape",
+      "config_oneline": "periodic VLM post-cut to check piece size"
+    },
+    {
+      "step_id": 350,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Cherry tomatoes (not regular tomatoes); flag wrong tomato type",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — tomato size/type distinguishable in low-res crop (cherry vs large tomato); cv trigger -> VLM",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for tomato-type identity"
+    },
+    {
+      "step_id": 351,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is adding cut cherry tomatoes into a bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — confirming it is the pre-cut tomatoes going into the bowl (not other ingredient) needs VLM; silent add after cut step",
+      "config_oneline": "periodic VLM; cv HSV may detect color-change in bowl (red tomatoes appear) as weak trigger"
+    },
+    {
+      "step_id": 351,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Cut tomatoes transferred into bowl (inferred from step 348)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step 348 recognition implies 351 complete",
+      "config_oneline": "D6/DAG: emit completion when step 348 recognition fires"
+    },
+    {
+      "step_id": 351,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Cut tomatoes into bowl; flag wrong container (plate)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — container shape detectable; cv color-change (red in bowl) -> 1 VLM frame",
+      "config_oneline": "cv HSV color-change trigger (red in bowl ROI) -> 1 VLM frame for container check"
+    },
+    {
+      "step_id": 351,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spilling tomatoes outside bowl while adding",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — spill requires scene-level spatial check; VLM only",
+      "config_oneline": "periodic VLM during add window"
+    },
+    {
+      "step_id": 348,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is combining/mixing contents of the bowl",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — stirring/mixing generates optical-flow in bowl ROI; detectable as motion burst; triggers 1 VLM for confirmation",
+      "config_oneline": "cv optical-flow (bowl ROI) sustained motion -> 1 VLM frame to confirm mixing"
+    },
+    {
+      "step_id": 348,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Bowl contents mixed into uniform mixture (inferred from step 345)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG: step 345 recognition implies 348 complete",
+      "config_oneline": "D6/DAG: emit completion when step 345 recognition fires"
+    },
+    {
+      "step_id": 348,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Mixing thoroughly; flag not mixing thoroughly",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — 'thorough' is a qualitative judgment needing VLM; cv can detect mixing motion but not completeness",
+      "config_oneline": "periodic VLM during mixing window to assess thoroughness"
+    },
+    {
+      "step_id": 348,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Combining in bowl; flag combining on plate instead",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — bowl vs plate shape is distinguishable at low-res in a ROI crop; cv can decide without VLM",
+      "config_oneline": "cv low-res-ROI shape-classifier (bowl vs plate) before mixing starts"
+    },
+    {
+      "step_id": 352,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is toasting oiled baguette slices on a pan",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — pan placement detectable via cv (bread silhouette appears in pan ROI); initial oil sizzle D4 would help but library marks toast as 'gentle/dry=inaudible'; thermal-spot could detect pan heating; cv triggers VLM",
+      "config_oneline": "cv motion (pan ROI: bread placed) OR thermal-spot threshold -> 1 VLM frame to confirm toast start"
+    },
+    {
+      "step_id": 352,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Both sides lightly charred and crispy; slices transferred to plate",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium — plate transfer is a motion event detectable by cv (pan->plate motion); charring may show color change; thermal-spot could detect heat drop at removal; triggers 1 VLM for done-state confirmation",
+      "config_oneline": "cv motion (pan region empties) -> 1 VLM frame to confirm char+crispy; thermal-spot drop confirms removal"
+    },
+    {
+      "step_id": 352,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Toast ~2-3 min (180s); flag too short or too long",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high — D6 timer anchored on cv recognition event (bread placed on pan); pure logic, 180s countdown; thermal-spot could provide independent heat-on/off anchor",
+      "config_oneline": "D6: start timer when step 352 recognition fires; emit overtime at 180s+margin"
+    },
+    {
+      "step_id": 352,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Toast both sides; flag toasting only one side",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "low — side flip is a visual/spatial event; cv could detect a gross flip motion but confirming 'both sides toasted' needs VLM; thermal-spot could see even heating both times",
+      "config_oneline": "periodic VLM during toasting window to detect flip + check both sides"
+    },
+    {
+      "step_id": 352,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "[probe-added] Moderate heat; flag too-high (scorched) or too-low heat",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "low for vlm (audio cannot infer heat level on gentle toast); thermal-spot is STRONG speculative candidate to A-solve heat-level check",
+      "config_oneline": "C-none with vlm periodic; thermal-spot could A-solve if stove-surface sensor available"
+    },
+    {
+      "step_id": 345,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is spooning combined mixture from bowl onto toasted bread",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — spooning motion (bowl->bread transfer) generates optical-flow; cv detects motion event and triggers VLM to confirm correct target",
+      "config_oneline": "cv optical-flow (bowl to bread transfer region) -> 1 VLM frame to confirm spoon+target"
+    },
+    {
+      "step_id": 345,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Mixture spooned onto toasted bread; dish complete (terminal step, own observable end state)",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium-high — plated bruschetta (bowl contents visually gone, bread topped with mixture) is a gross appearance change detectable by cv; no VLM needed for terminal completion",
+      "config_oneline": "cv HSV/appearance change (bread ROI gains topping color) -> emit completion"
+    },
+    {
+      "step_id": 345,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Spoon used, no spilling; flag pouring from bowl or spilling",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "monochrome",
+      "feasibility": "low — pour vs spoon distinction + spill detection needs VLM scene understanding",
+      "config_oneline": "periodic VLM during transfer window"
+    },
+    {
+      "step_id": 345,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Spoon used; flag hands or fork instead",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — tool identity (spoon vs fork vs hand) is VLM-level; cv motion trigger fires it",
+      "config_oneline": "cv motion trigger -> 1 VLM frame for tool identity check"
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 342,
+        "stage": "add mozzarella",
+        "camera": "periodic low-res + 1 triggered frame",
+        "audio": "none (D1/D2/D3/D4/D5 not applicable)",
+        "vlm": "continuous periodic + 2 triggered",
+        "role": "C-none (recognition); B-trigger (measurement, preparation checks)"
+      },
+      {
+        "step_id": 343,
+        "stage": "add salt",
+        "camera": "periodic low-res + 1 triggered frame",
+        "audio": "none",
+        "vlm": "continuous periodic + 2 triggered",
+        "role": "C-none (recognition); B-trigger (measurement, preparation checks)"
+      },
+      {
+        "step_id": 344,
+        "stage": "slice baguette",
+        "camera": "optical-flow burst + triggered + periodic",
+        "audio": "none (transient chop excluded by library)",
+        "vlm": "1 triggered (recognition) + 2 triggered (measurement, preparation) + 1 periodic (technique)",
+        "role": "B-trigger (recognition, measurement, preparation); C-none (technique)"
+      },
+      {
+        "step_id": 346,
+        "stage": "add pepper",
+        "camera": "periodic low-res + 1 triggered frame",
+        "audio": "none",
+        "vlm": "continuous periodic + 2 triggered",
+        "role": "C-none (recognition); B-trigger (measurement, preparation)"
+      },
+      {
+        "step_id": 347,
+        "stage": "add basil",
+        "camera": "periodic low-res + 1 triggered frame",
+        "audio": "none",
+        "vlm": "continuous periodic + 2 triggered",
+        "role": "C-none (recognition); B-trigger (measurement, preparation)"
+      },
+      {
+        "step_id": 349,
+        "stage": "brush olive oil on slices",
+        "camera": "optical-flow brush-stroke + triggered",
+        "audio": "none",
+        "vlm": "1 triggered (recognition) + 2 triggered (measurement, preparation) + 1 periodic (technique)",
+        "role": "B-trigger (recognition, measurement, preparation); C-none (technique)"
+      },
+      {
+        "step_id": 350,
+        "stage": "cut cherry tomatoes",
+        "camera": "optical-flow motion burst + triggered + periodic",
+        "audio": "none (chop transient excluded)",
+        "vlm": "1 triggered (recognition) + 2 triggered (measurement, preparation) + 1 periodic (technique)",
+        "role": "B-trigger (recognition, measurement, preparation); C-none (technique)"
+      },
+      {
+        "step_id": 351,
+        "stage": "add tomatoes to bowl",
+        "camera": "periodic + HSV color trigger",
+        "audio": "none",
+        "vlm": "periodic + 1 triggered (preparation); C-none (technique)",
+        "role": "C-none (recognition, technique); B-trigger (preparation)"
+      },
+      {
+        "step_id": 348,
+        "stage": "combine bowl contents",
+        "camera": "optical-flow sustained motion (bowl ROI) + low-res shape",
+        "audio": "none",
+        "vlm": "1 triggered (recognition) + periodic (technique)",
+        "role": "B-trigger (recognition); A-solve (preparation via cv); C-none (technique)"
+      },
+      {
+        "step_id": 352,
+        "stage": "toast on pan 2-3 min",
+        "camera": "cv pan-ROI motion + periodic",
+        "audio": "D6 timer anchored on cv recognition; D4 sizzle possible but marked unreliable for gentle toast",
+        "vlm": "1 triggered (recognition) + 1 triggered (completion) + periodic (technique, temperature)",
+        "role": "B-trigger (recognition, completion); A-solve (timing via D6); C-none (technique, temperature)"
+      },
+      {
+        "step_id": 345,
+        "stage": "spoon mixture onto bread",
+        "camera": "optical-flow bowl->bread + HSV appearance change",
+        "audio": "none",
+        "vlm": "1 triggered (recognition) + 1 triggered (preparation); A-solve (completion via cv); C-none (technique)",
+        "role": "B-trigger (recognition, preparation); A-solve (completion via cv); C-none (technique)"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 14,
+      "B-trigger": 23,
+      "C-none": 15
+    },
+    "cost_estimate": "~85% of always-on-VLM compute saved during DAG-A-solve completions; B-trigger steps spend camera only on motion events + 1 VLM call each; C-none steps (15/52 = 29%) require periodic VLM — these are the irreducible cost and dominate because all recognition of silent spice/herb/cheese adds is VLM-only. Effective VLM duty cycle ~35-40% versus always-on, assuming ~4s active per C-none step at 2fps vs full-recipe ~60s.",
+    "honest_limits": "No audio detectors bind to any step in this recipe: no microwave, no blender, no tap water, no fry/saute/boil. Pan-toasting is dry/gentle and the library explicitly marks gentle toast as inaudible. D4 sizzle from olive oil is plausible but not validated for this use-case and should NOT be bound without validation. D6 timer for step 352 is valid but requires a non-audio anchor (cv recognition). The 5 silent ingredient-add recognition claims (steps 342, 343, 346, 347, and 351) are all C-none because ingredient identity (salt vs pepper, basil vs oregano, mozzarella vs other white) cannot be resolved by audio or cheap CV. All 5 technique-spill checks (probe-added) are C-none. The temperature check on step 352 is C-none for audio/cv; thermal-spot is speculative and unvalidated. Effective sensor savings come mostly from DAG-completion A-solves (11 completions, 8 via DAG) and B-trigger measurement/preparation checks replacing continuous VLM with single targeted frames."
+  }
+}

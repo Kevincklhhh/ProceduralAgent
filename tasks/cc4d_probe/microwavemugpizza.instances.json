@@ -1,0 +1,1091 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "microwavemugpizza",
+ "activity_id": 3,
+ "n_recordings": 13,
+ "n_error_recordings": 8,
+ "steps": [
+  {
+   "step_id": 36,
+   "order": 1,
+   "instruction": "Take a microwavable mug",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 36,
+       "description": "Use a soiled mug",
+       "video_window": [
+        10.1,
+        19.4
+       ]
+      },
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 36,
+       "description": "Take a soiled mug without cleaning it",
+       "video_window": [
+        6.0,
+        24.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 28,
+   "order": 2,
+   "instruction": "Measure 1/8 teaspoon of salt and add it to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    36
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 28,
+       "description": "Step performed after adding milk and olive oil",
+       "video_window": [
+        383.7,
+        433.9
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 28,
+       "description": "Step performed after adding cheese",
+       "video_window": [
+        169.6,
+        187.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 28,
+       "description": "add 1 tsp instead of 1/8 tsp",
+       "video_window": [
+        183.6,
+        208.4
+       ]
+      },
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 28,
+       "description": "add-Measure 1/4 teaspoon of salt and add it to the mug",
+       "video_window": [
+        150.6,
+        162.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 28,
+       "description": "Not using dried and cleaned measuring spoons (might contaminate the ingredients)",
+       "video_window": [
+        169.6,
+        187.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 33,
+   "order": 3,
+   "instruction": "Measure 4 tablespoons of flour and add it to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    36
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 33,
+       "description": "add only 3 tablespoons instead of 4 tablespoons",
+       "video_window": [
+        107.8,
+        174.5
+       ]
+      },
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 33,
+       "description": "add only 2 tbsp of flours instead of 4 tbsp of flour.",
+       "video_window": [
+        144.1,
+        174.3
+       ]
+      },
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 33,
+       "description": "add-Measure 5 tablespoons of flour and add it to the mug",
+       "video_window": [
+        61.7,
+        117.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_34",
+       "cc4d_step_id": 33,
+       "description": "Step performed after adding milk and olive oil to the mug",
+       "video_window": [
+        337.1,
+        407.8
+       ]
+      },
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 33,
+       "description": "Step performed after adding oil to the mug",
+       "video_window": [
+        107.8,
+        174.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 33,
+       "description": "spill while adding and add only 2 tbsp instead of 4tbsp",
+       "video_window": [
+        144.1,
+        174.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 33,
+       "description": "Not using dried and cleaned measuring spoons (might contaminate the ingredients)",
+       "video_window": [
+        69.8,
+        102.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 35,
+   "order": 4,
+   "instruction": "Measure 1/16 teaspoon of baking soda and add it to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    36
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 35,
+       "description": "Step performed after adding milk and olive oil",
+       "video_window": [
+        528.9,
+        560.9
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 35,
+       "description": "Step performed after correct order",
+       "video_window": [
+        335.7,
+        350.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 35,
+       "description": "add-Measure 1 teaspoon of baking soda and add it to the mug instead of 1/16 teaspoon",
+       "video_window": [
+        22.1,
+        74.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 40,
+   "order": 5,
+   "instruction": "Measure 1/8 teaspoon of baking powder and add it to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    36
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 40,
+       "description": "add baking soda instead of baking powder",
+       "video_window": [
+        180.9,
+        248.5
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 40,
+       "description": "Using soiled measuring spoons (might contaminate the ingredients)",
+       "video_window": [
+        35.3,
+        60.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 40,
+       "description": "Step performed after adding oil to the mug",
+       "video_window": [
+        180.9,
+        248.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 40,
+       "description": "add-Measure 1/4 teaspoon of baking powder and add it to the mug",
+       "video_window": [
+        27.1,
+        45.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 38,
+   "order": 6,
+   "instruction": "Stir the contents in the mug well",
+   "duration_constraint_s": null,
+   "preconditions": [
+    28,
+    33,
+    35,
+    40
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "3_34",
+       "cc4d_step_id": 38,
+       "description": "Step performed before adding ingredients to the mug",
+       "video_window": [
+        72.5,
+        85.9
+       ]
+      },
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 38,
+       "description": "Step performed after adding oil to the mug and before adding salt",
+       "video_window": [
+        254.9,
+        296.0
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 38,
+       "description": "Step performed after adding cheese",
+       "video_window": [
+        191.4,
+        203.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 38,
+       "description": "spill some out",
+       "video_window": [
+        254.9,
+        296.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 38,
+       "description": "use hand instead of utensil to stir",
+       "video_window": [
+        208.4,
+        229.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 34,
+   "order": 7,
+   "instruction": "1 tablespoon of olive oil to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    38
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "3_34",
+       "cc4d_step_id": 34,
+       "description": "Step performed before adding flour to the mug",
+       "video_window": [
+        172.5,
+        205.6
+       ]
+      },
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 34,
+       "description": "Step performed before adding flour, baking powder, salt, and baking soda",
+       "video_window": [
+        58.5,
+        89.5
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 34,
+       "description": "Step performed after adding cheese and before adding baking soda",
+       "video_window": [
+        245.5,
+        263.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 34,
+       "description": "Add vegetable oil instead of olive oil",
+       "video_window": [
+        58.5,
+        89.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 34,
+       "description": "invert tablespoon and use it",
+       "video_window": [
+        231.2,
+        254.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 41,
+   "order": 8,
+   "instruction": "Add in 3 tablespoons of milk to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    38
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "3_34",
+       "cc4d_step_id": 41,
+       "description": "Step performed before adding flour to the mug",
+       "video_window": [
+        215.2,
+        256.7
+       ]
+      },
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 41,
+       "description": "Step performed before adding salt",
+       "video_window": [
+        300.6,
+        380.0
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 41,
+       "description": "Step performed after adding cheese and before adding baking soda",
+       "video_window": [
+        208.9,
+        233.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 41,
+       "description": "4 tbsp instead of 3 tbsp",
+       "video_window": [
+        300.6,
+        380.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 41,
+       "description": "Add-Add in 3 tablespoons of curd to the mug",
+       "video_window": [
+        308.7,
+        351.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 37,
+   "order": 9,
+   "instruction": "Mix the contents of the mug thoroughly. (There might be some lumps, but that is ok.)",
+   "duration_constraint_s": null,
+   "preconditions": [
+    34,
+    41
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "3_34",
+       "cc4d_step_id": 37,
+       "description": "Step performed before adding flour to the mug",
+       "video_window": [
+        257.8,
+        280.3
+       ]
+      },
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 37,
+       "description": "Step performed before adding baking soda",
+       "video_window": [
+        436.7,
+        524.4
+       ]
+      },
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 37,
+       "description": "Step performed after sprinkling cheese",
+       "video_window": [
+        519.4,
+        538.2
+       ]
+      },
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 37,
+       "description": "Step performed after sprinkling cheese and herbs",
+       "video_window": [
+        547.3,
+        594.0
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 37,
+       "description": "Step performed after adding cheese and before adding baking soda",
+       "video_window": [
+        269.0,
+        286.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_14",
+       "cc4d_step_id": 37,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 30,
+   "order": 10,
+   "instruction": "Take 1 tablespoon of marinara sauce",
+   "duration_constraint_s": null,
+   "preconditions": [
+    37
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 30,
+       "description": "Take 2 tablespoons instead of 1 tablespoon",
+       "video_window": [
+        576,
+        607
+       ]
+      },
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 30,
+       "description": "Take 2 tablespoons instead of 1 tablespoon",
+       "video_window": [
+        611,
+        613
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 30,
+       "description": "Take-Take 1 tablespoon of tomato ketchup",
+       "video_window": [
+        424.6,
+        459.2
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 30,
+       "description": "Use salsa sauce instead of marinara sauce",
+       "video_window": [
+        291.7,
+        312.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 30,
+       "description": "Step performed after adding cheese and before adding baking soda",
+       "video_window": [
+        291.7,
+        312.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 31,
+   "order": 11,
+   "instruction": "spread marinara sauce around the surface of the batter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    30
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 31,
+       "description": "Step performed after adding italian herbs",
+       "video_window": [
+        436.3,
+        448.4
+       ]
+      },
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 31,
+       "description": "Step performed after sprinkling dried italian herbs",
+       "video_window": [
+        457.7,
+        469.8
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 31,
+       "description": "Step performed after adding cheese and before adding baking soda",
+       "video_window": [
+        324.4,
+        330.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 31,
+       "description": "Mix the marinara sauce completely instead of spreading",
+       "video_window": [
+        436.3,
+        448.4
+       ]
+      },
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 31,
+       "description": "spread-spread tomato ketchup on the edge of batter",
+       "video_window": [
+        457.7,
+        469.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_34",
+       "cc4d_step_id": 31,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 39,
+   "order": 12,
+   "instruction": "Sprinkle 1 generous tablespoon of mozzarella cheese on top of the sauce",
+   "duration_constraint_s": null,
+   "preconditions": [
+    31
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 39,
+       "description": "Step performed before mixing the contents of the mug",
+       "video_window": [
+        508.9,
+        541.3
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 39,
+       "description": "Step performed before adding milk and olive oil",
+       "video_window": [
+        118.6,
+        153.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 39,
+       "description": "Not using dried and cleaned measuring spoons (might contaminate the ingredients)",
+       "video_window": [
+        118.6,
+        153.0
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 39,
+       "description": "Use cheddar cheese instead of mozzarella cheese",
+       "video_window": [
+        118.6,
+        153.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 29,
+   "order": 13,
+   "instruction": "Sprinkle dried Italian herbs inside the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    39
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_22",
+       "cc4d_step_id": 29,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "3_34",
+       "cc4d_step_id": 29,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 29,
+       "description": "Step performed before mixing the contents of the mug and spreading sauce",
+       "video_window": [
+        322.4,
+        350.5
+       ]
+      },
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 29,
+       "description": "Step performed before mixing and spreading marinara sauce",
+       "video_window": [
+        356.1,
+        383.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 32,
+   "order": 14,
+   "instruction": "Microwave for 1 minute 20 seconds, or until it rises and the toppings are bubbling",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    29
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "3_36",
+       "cc4d_step_id": 32,
+       "description": "Microwave for 3 minutes instead of 1 minute 20 seconds",
+       "video_window": [
+        716.2,
+        944.6
+       ]
+      },
+      {
+       "recording_id": "3_46",
+       "cc4d_step_id": 32,
+       "description": "Microvawe for 2 mins instead of 1 min 20 secs",
+       "video_window": [
+        536.9,
+        680.3
+       ]
+      },
+      {
+       "recording_id": "3_49",
+       "cc4d_step_id": 32,
+       "description": "Microwave-Microwave for 2 minutes, or until it rises and the toppings are bubbling",
+       "video_window": [
+        616.6,
+        765.6
+       ]
+      },
+      {
+       "recording_id": "3_50",
+       "cc4d_step_id": 32,
+       "description": "Microwaving it for 1 minute instead of 1 minute 20 seconds",
+       "video_window": [
+        372.4,
+        444.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_12",
+       "cc4d_step_id": 32,
+       "description": "Rose above the brim",
+       "video_window": [
+        516.7,
+        646.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "3_34",
+       "cc4d_step_id": 32,
+       "description": "Step performed before correct order",
+       "video_window": [
+        474.1,
+        574.7
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

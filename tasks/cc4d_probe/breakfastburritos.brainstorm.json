@@ -1,0 +1,574 @@
+{
+  "recipe": "breakfastburritos",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "11 steps x (1 rec + 1 comp) + 22 checks = 44 total claims. Only one appliance step (73, microwave) admits audio detectors D1+D6; all other steps are silent manual ops. DAG has two roots (77, 81) and an unordered fork at 74/80/82 reconverging at 76.",
+  "claims": [
+    {
+      "step_id": 77,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user cracking egg into microwave-safe bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — cracking motion is fast and silent; cv state-change (yolk appears in bowl) possible as weak trigger but identity of vessel still needs VLM",
+      "config_oneline": "periodic VLM; cv HSV-change (yellow appears in bowl) may compress VLM interval"
+    },
+    {
+      "step_id": 77,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "egg contents in bowl; inferred from onset of whisking (step 72)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — completion is defined by successor step 72 starting; DAG logic fires once VLM confirms step 72 recognition",
+      "config_oneline": "DAG: mark 77 complete when step 72 recognized"
+    },
+    {
+      "step_id": 77,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "wrong vessel — mug instead of bowl",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv can detect vessel shape (round/wide vs tall/narrow) at thumbnail res as trigger; VLM confirms identity",
+      "config_oneline": "cv shape-gate ROI → 1 VLM call if vessel aspect ratio anomalous"
+    },
+    {
+      "step_id": 77,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] shell fragments in bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — shell fragments are small, close-up fine detail; VLM only",
+      "config_oneline": "single full-res ROI VLM call after cracking motion detected"
+    },
+    {
+      "step_id": 72,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user whisking egg in bowl",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium — wrist IMU detects rapid repetitive oscillation of whisking; cv optical-flow also sees bowl motion; either fires VLM to confirm",
+      "config_oneline": "cv optical-flow burst in bowl ROI OR imu oscillation → 1 VLM call to confirm whisk"
+    },
+    {
+      "step_id": 72,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "egg whisked; inferred from microwave start (step 73)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D1 cycle_start event anchors microwave onset; DAG closes step 72",
+      "config_oneline": "DAG: mark 72 complete on D1 cycle_start"
+    },
+    {
+      "step_id": 72,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "under-whisked or egg spilled outside bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — 'uniform yellow' adequacy is fine visual; spill check needs pan context; VLM only",
+      "config_oneline": "periodic VLM during whisk window; one confirmatory frame after motion stops"
+    },
+    {
+      "step_id": 72,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] wrong tool (spoon vs whisk) or wrong vessel",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv can detect whether a thin rod (whisk) or flat paddle (spoon) is held; low-res silhouette may suffice as trigger",
+      "config_oneline": "cv silhouette shape of hand-held tool ROI → VLM if not whisk-like"
+    },
+    {
+      "step_id": 73,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user microwaving bowl of egg and stirring partway through",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D1 cycle_start confirmed; camera can sleep for the 180 s run; the mid-cook stir-interrupt (door open/close + bowl motion) is a C-none detail but not required for recognition",
+      "config_oneline": "D1: bind to step 73; cycle_start → A-solve recognition; camera OFF during run"
+    },
+    {
+      "step_id": 73,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "microwave stops; its own end-beep is observable",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D1 cycle_end (end-beep) authoritative; latency ≤ 8 s",
+      "config_oneline": "D1: cycle_end → A-solve completion; camera stays OFF"
+    },
+    {
+      "step_id": 73,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "microwave cook time noticeably shorter or longer than 180 s",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — D6 timer anchored on D1 cycle_start + cycle_end gives exact duration; emits overtime/undertime with no camera",
+      "config_oneline": "D6: duration_constraint_s=180; anchor D1 cycle_start/cycle_end; emit overtime/undertime"
+    },
+    {
+      "step_id": 73,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "failed to stir partway through (and wrong vessel)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — door-open event (D1 interrupt in cycle) could gate-in a single VLM call to verify stirring occurred; vessel check bundled",
+      "config_oneline": "D1 door-open candidate mid-cycle → 1 VLM call to confirm stir; if no door-open event, escalate to periodic VLM near 90 s mark"
+    },
+    {
+      "step_id": 74,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "adding sweet and sour sauce into bowl (one of three concurrent eligible steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — ingredient identity (sweet and sour sauce vs salsa vs oregano) requires color + label; silent add; cv can detect motion-to-bowl but not which ingredient",
+      "config_oneline": "periodic VLM after D1 cycle_end; camera wakes for fork block 74/80/82"
+    },
+    {
+      "step_id": 74,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "sauce in bowl; inferred from onset of mixing (step 76)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG marks 74 done once all three fork branches (74/80/82) recognized and step 76 starts; pure graph logic",
+      "config_oneline": "DAG: mark 74 complete when step 76 recognized (all fork preconditions met)"
+    },
+    {
+      "step_id": 74,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "wrong amount of sauce (e.g. 1 tbsp instead of 1/2 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv can detect spoon/measuring-utensil in hand as trigger; VLM judges quantity and label; audio cannot count",
+      "config_oneline": "cv motion-to-bowl event → 1 VLM call for quantity + ingredient check"
+    },
+    {
+      "step_id": 74,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "wrong ingredient (garlic instead of sauce) or wrong vessel",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — same trigger as measurement check above; bundle both into one VLM call",
+      "config_oneline": "cv motion-to-bowl → 1 VLM call (ingredient + amount + vessel, bundled with measurement check)"
+    },
+    {
+      "step_id": 80,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "adding salsa into bowl (one of three concurrent eligible steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — salsa vs sauce identity requires VLM; silent pour; cv detects add motion but not ingredient",
+      "config_oneline": "periodic VLM during fork block; camera already awake from D1 cycle_end"
+    },
+    {
+      "step_id": 80,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "salsa in bowl; inferred from onset of mixing (step 76)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — same DAG convergence on step 76",
+      "config_oneline": "DAG: mark 80 complete when step 76 recognized"
+    },
+    {
+      "step_id": 80,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "wrong amount of salsa (e.g. 2 tbsp instead of 1 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv pour/motion trigger → VLM quantity check",
+      "config_oneline": "cv motion-to-bowl → 1 VLM call for salsa quantity"
+    },
+    {
+      "step_id": 80,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "wrong vessel or soiled/unclean measuring spoon",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low-medium — VLM can check vessel; soiled spoon is close-up fine detail; bundle with measurement trigger",
+      "config_oneline": "bundle with measurement B-trigger VLM call"
+    },
+    {
+      "step_id": 81,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "placing 8-inch tortilla on cutting board (root step, parallel to 77)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "monochrome",
+      "feasibility": "medium — cv HSV/color-change detects white/cream disc appearing on board surface; monochrome detects shape; triggers VLM to confirm tortilla vs other flat item",
+      "config_oneline": "cv state-change (light disc appears on board ROI) → 1 VLM call to confirm tortilla"
+    },
+    {
+      "step_id": 81,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tortilla resting on cutting board — observable placed end-state",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "monochrome",
+      "feasibility": "high — once cv state-change fires and VLM confirms (from recognition trigger), completion is settled by same frame; no separate sensor needed",
+      "config_oneline": "cv: tortilla-present in board ROI confirms completion; same call as recognition B-trigger"
+    },
+    {
+      "step_id": 81,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "wrong tortilla size (not 8 inch)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — size relative to board or hand span; VLM can estimate; triggered by cv place-event",
+      "config_oneline": "same cv trigger as recognition → VLM checks diameter estimate"
+    },
+    {
+      "step_id": 81,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "wrong surface (plate instead of cutting board) or soiled tortilla",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — surface material (wood/plastic vs ceramic plate) detectable via cv texture; bundle with recognition VLM",
+      "config_oneline": "bundle surface + soil check into same recognition VLM call"
+    },
+    {
+      "step_id": 82,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "sprinkling oregano into bowl (one of three concurrent eligible steps)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — oregano identity requires VLM (green flakes vs other dried herbs look similar); silent sprinkle",
+      "config_oneline": "periodic VLM during fork block; camera already awake"
+    },
+    {
+      "step_id": 82,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "oregano in bowl; inferred from onset of mixing (step 76)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG convergence on step 76",
+      "config_oneline": "DAG: mark 82 complete when step 76 recognized"
+    },
+    {
+      "step_id": 82,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "wrong herb (basil or cilantro instead of oregano)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — dried herb identity is subtle visual; VLM required; cv cannot distinguish dried basil from oregano at thumbnail res",
+      "config_oneline": "periodic VLM during fork block; VLM inspects herb jar/label or flake color"
+    },
+    {
+      "step_id": 82,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] oregano sprinkled outside bowl onto countertop",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv can detect scattered green pixels outside bowl ROI as anomaly; triggers VLM to confirm spill",
+      "config_oneline": "cv color-scatter outside bowl ROI → 1 VLM call to confirm spill"
+    },
+    {
+      "step_id": 76,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "user mixing contents of bowl well",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium — cv optical-flow in bowl ROI detects circular stirring motion; wrist IMU circular motion also candidate; triggers VLM to confirm mixing (not whisking)",
+      "config_oneline": "cv optical-flow (circular motion in bowl ROI) OR imu circular motion → 1 VLM call to confirm step 76"
+    },
+    {
+      "step_id": 76,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "bowl contents well mixed; inferred from onset of pouring (step 79)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG marks 76 complete when step 79 recognized",
+      "config_oneline": "DAG: mark 76 complete when step 79 recognized"
+    },
+    {
+      "step_id": 76,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "inadequate mixing or wrong motion (whisking instead of mixing)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — 'well mixed' adequacy is a fine visual judgment; tool motion type requires VLM",
+      "config_oneline": "VLM inspects bowl contents uniformity at end of mixing window"
+    },
+    {
+      "step_id": 76,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] mixing in wrong vessel (mug instead of bowl)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — vessel shape detectable by cv (aspect ratio) as trigger; VLM confirms",
+      "config_oneline": "cv vessel-shape ROI → VLM if vessel aspect ratio anomalous (same trigger as step 77 vessel check)"
+    },
+    {
+      "step_id": 79,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "pouring egg mixture from bowl onto tortilla",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium — cv detects tilt/pour motion of bowl (optical-flow large displacement) OR imu detects gross tilt; triggers VLM to confirm pour direction and source",
+      "config_oneline": "cv bowl-tilt optical-flow OR imu tilt → 1 VLM call to confirm step 79"
+    },
+    {
+      "step_id": 79,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "egg mixture on tortilla; inferred from onset of sprinkling cheese (step 75)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG marks 79 complete when step 75 recognized",
+      "config_oneline": "DAG: mark 79 complete when step 75 recognized"
+    },
+    {
+      "step_id": 79,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] wrong source vessel (mug instead of bowl)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — same B-trigger VLM call for recognition bundles this check",
+      "config_oneline": "bundle with step 79 recognition VLM call; VLM checks source vessel"
+    },
+    {
+      "step_id": 75,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "sprinkling shredded cheddar cheese on top of egg",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — cheese identity (cheddar vs mozzarella) requires color+texture VLM; silent sprinkle",
+      "config_oneline": "periodic VLM; cv detects white/yellow scatter motion as soft trigger"
+    },
+    {
+      "step_id": 75,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "cheese on egg; inferred from onset of rolling (step 78)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high — DAG marks 75 complete when step 78 recognized",
+      "config_oneline": "DAG: mark 75 complete when step 78 recognized"
+    },
+    {
+      "step_id": 75,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "wrong amount of cheese (e.g. 1/2 tbsp instead of 1 tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv detects sprinkle motion as trigger; VLM estimates quantity from coverage area",
+      "config_oneline": "cv scatter-motion on tortilla ROI → 1 VLM call for quantity estimate"
+    },
+    {
+      "step_id": 75,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "wrong cheese (mozzarella), dirty spoon, hands used, or spilled cheese",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — cheese type identity + tool + spill detail requires full VLM frame; bundle with recognition but cannot reduce to cheap sensor alone",
+      "config_oneline": "VLM call from recognition already covers this; schedule same periodic VLM"
+    },
+    {
+      "step_id": 75,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] cheese placed beside egg rather than on top",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium — cv can detect whether scatter pixels fall in the egg-covered region vs outside; anomaly triggers VLM",
+      "config_oneline": "cv scatter-location vs egg ROI → 1 VLM call if scatter outside expected region"
+    },
+    {
+      "step_id": 78,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "rolling tortilla from one end to other into log shape",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium — cv detects rolling motion (tortilla shape changing from flat to cylindrical); imu detects gross hand rolling motion; triggers VLM to confirm burrito shape",
+      "config_oneline": "cv shape-change on tortilla ROI (flat→cylinder) → 1 VLM call to confirm rolling step"
+    },
+    {
+      "step_id": 78,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "tortilla rolled into finished log-shaped burrito — observable end-state; final step",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "monochrome",
+      "feasibility": "high — cv can detect cylindrical shape settled (no more motion) as completion signal; monochrome sufficient for shape detection",
+      "config_oneline": "cv: cylindrical shape stable in tortilla ROI → A-solve completion (no VLM needed if shape clear)"
+    },
+    {
+      "step_id": 78,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "improper rolling — filling leaks or tortilla breaks",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — leaking or cracking is fine visual detail; VLM required; cv can detect large spill but not subtle leak",
+      "config_oneline": "VLM call at end of rolling motion; inspect for leaks/breaks"
+    },
+    {
+      "step_id": 78,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "wrong roll thickness — not ~1.5 inches",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low — diameter estimation requires reference scale; VLM can estimate relative to hand or cutting board but this is a fine judgment; low-res ROI may suffice for gross outliers",
+      "config_oneline": "VLM call at completion; inspect log diameter vs reference"
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 77,
+        "stage": "crack egg",
+        "camera": "ON (periodic low-res)",
+        "audio": "none",
+        "vlm": "periodic",
+        "role": "C-none (recognition) / A-solve (completion via DAG)"
+      },
+      {
+        "step_id": 72,
+        "stage": "whisk egg",
+        "camera": "ON (optical-flow trigger)",
+        "audio": "none",
+        "vlm": "B-trigger (1 call on motion burst)",
+        "role": "B-trigger recognition / A-solve completion (D1 anchor)"
+      },
+      {
+        "step_id": 73,
+        "stage": "microwave 3 min",
+        "camera": "OFF",
+        "audio": "D1 + D6",
+        "vlm": "B-trigger only if stir-check needed (1 call at door-open)",
+        "role": "A-solve recognition + completion + timing; B-trigger stir-check"
+      },
+      {
+        "step_id": 81,
+        "stage": "place tortilla (parallel root)",
+        "camera": "ON (cv state-change)",
+        "audio": "none",
+        "vlm": "B-trigger (1 call on disc-appear event)",
+        "role": "B-trigger recognition + A-solve completion"
+      },
+      {
+        "step_id": "74/80/82",
+        "stage": "add sauce/salsa/oregano (unordered fork)",
+        "camera": "ON (periodic VLM after D1 cycle_end)",
+        "audio": "none",
+        "vlm": "C-none periodic (recognition) + B-trigger per add-event (measurement checks)",
+        "role": "C-none recognition / DAG completion / B-trigger checks"
+      },
+      {
+        "step_id": 76,
+        "stage": "mix bowl contents",
+        "camera": "ON (optical-flow trigger)",
+        "audio": "none",
+        "vlm": "B-trigger (1 call on circular motion) + C-none technique check",
+        "role": "B-trigger recognition / A-solve completion (DAG)"
+      },
+      {
+        "step_id": 79,
+        "stage": "pour egg mixture onto tortilla",
+        "camera": "ON (cv tilt trigger)",
+        "audio": "none",
+        "vlm": "B-trigger (1 call on bowl-tilt event)",
+        "role": "B-trigger recognition / A-solve completion (DAG)"
+      },
+      {
+        "step_id": 75,
+        "stage": "sprinkle cheese",
+        "camera": "ON (periodic)",
+        "audio": "none",
+        "vlm": "C-none periodic + B-trigger measurement",
+        "role": "C-none recognition / A-solve completion (DAG)"
+      },
+      {
+        "step_id": 78,
+        "stage": "roll burrito",
+        "camera": "ON (cv shape-change trigger)",
+        "audio": "none",
+        "vlm": "B-trigger recognition + C-none technique/measurement checks",
+        "role": "B-trigger recognition / A-solve completion (cv shape)"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 14,
+      "B-trigger": 15,
+      "C-none": 15
+    },
+    "cost_estimate": "Camera fully OFF only during step 73 (microwave, ~180 s). All other steps require camera on. VLM load: ~3 periodic calls per silent step + 1 targeted call per B-trigger event. Estimated VLM duty: ~30% of always-on baseline given B-trigger compression of checks into single calls and DAG completion resolution.",
+    "honest_limits": "Step 73 is the only stage where audio alone (D1+D6) handles recognition+completion+timing — camera fully off for ~180 s. The unordered fork (74/80/82) cannot be resolved by audio or CV alone because ingredient identity (sauce vs salsa vs oregano) is visually subtle and requires VLM; these three steps are the core C-none slice (~6 recognition + technique/preparation claims). Shell-fragment (77 technique), herb identity (82 preparation), rolling quality (78 technique), and cheese placement detail (75 preparation) are also C-none — fine visual judgments with no cheap proxy. The stir-during-microwave check (73 preparation) degrades to periodic VLM if no door-open acoustic interrupt is detected. IMU is speculative for pour/stir/mix detection and not proven on CC4D."
+  }
+}

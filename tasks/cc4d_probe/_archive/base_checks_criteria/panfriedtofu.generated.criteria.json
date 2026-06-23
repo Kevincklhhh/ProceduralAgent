@@ -1,0 +1,232 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/panfriedtofu.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG is a near-linear chain with two parallel roots (cut/salt/oil unordered before pat-dry/heat) and a soy/sesame fork reconverging at the low-heat finish.",
+  "task": {
+    "task_id": "panfriedtofu",
+    "title": "Panfriedtofu",
+    "source": "tasks/cc4d/panfriedtofu.json"
+  },
+  "nodes": [
+    {
+      "step_id": 275,
+      "instruction": "Cut 1/4 block or 3 ounces of fresh tofu into large cubes (about 1 in x 1 in)",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "Active from the start; the user is cutting fresh tofu into large (~1 in) cubes on a board. One of three concurrently-eligible root steps (cut tofu, add salt, add oil) -- recognition must say which is happening now; no order is imposed among them." },
+      "completion": { "claim": "The tofu has been cut into roughly 1-inch cubes and the knife is set down; its own observable end-state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for large ~1 in x 1 in cubes from a 1/4 block (3 oz); flag cubes cut much smaller or much larger than that." },
+        { "reminder": "technique", "claim": "[probe-added] The tofu should stay in intact large cubes; flag it crumbling, being sliced rather than cubed, or cut into non-cube shapes." }
+      ]
+    },
+    {
+      "step_id": 286,
+      "instruction": "add 1/4 tsp salt to the pan",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "Active from the start; the user is adding salt to the pan. One of three concurrently-eligible root steps (cut tofu, add salt, add oil) -- recognition must say which is happening now; no order is imposed among them." },
+      "completion": { "claim": "The salt has been added; this is a brief add with no distinct end signal of its own, so completion is inferred from the heat being turned on.", "inferred_from": 276 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 tsp of salt; flag a clearly different amount, e.g. a tablespoon used in place of a teaspoon." },
+        { "reminder": "preparation", "claim": "The recipe calls for salt specifically; flag a different seasoning or material being added." }
+      ]
+    },
+    {
+      "step_id": 291,
+      "instruction": "Add 1 tablespoon of olive oil to a non-stick pan",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "Active from the start; the user is adding olive oil to a non-stick pan. One of three concurrently-eligible root steps (cut tofu, add salt, add oil) -- recognition must say which is happening now; no order is imposed among them." },
+      "completion": { "claim": "The oil has been added to the pan; this is a brief add with no distinct end signal of its own, so completion is inferred from the heat being turned on.", "inferred_from": 276 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 tablespoon of olive oil; flag an unmeasured pour or a clearly different amount (e.g. extra oil from spilling)." },
+        { "reminder": "preparation", "claim": "The recipe calls for olive oil into a non-stick pan; flag a different oil or a different pan." },
+        { "reminder": "technique", "claim": "[probe-added] Oil should be transferred cleanly into the pan; flag dripping or dropping oil outside the pan while measuring or adding it." }
+      ]
+    },
+    {
+      "step_id": 293,
+      "instruction": "pat tofu dry with a towel",
+      "preconditions": [275],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is patting the cut tofu cubes dry with a towel." },
+      "completion": { "claim": "The tofu has been patted dry; a brief action with no distinct end signal of its own, so completion is inferred from the dried cubes being added to the pan.", "inferred_from": 279 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for drying with a towel; flag a different drying material or no towel used." },
+        { "reminder": "technique", "claim": "The tofu should be patted gently to dry it; flag pressing or patting so hard that the cubes are squished or broken." }
+      ]
+    },
+    {
+      "step_id": 279,
+      "instruction": "add the tofu cubes to the pan",
+      "preconditions": [293],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is placing the dried tofu cubes into the pan." },
+      "completion": { "claim": "All tofu cubes are in the pan; a brief transfer with no distinct end signal of its own, so completion is inferred from the heat being turned on.", "inferred_from": 276 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The tofu cubes should be transferred into the pan without loss; flag dropping cubes outside the pan while adding them." }
+      ]
+    },
+    {
+      "step_id": 276,
+      "instruction": "Turn on the heat to medium",
+      "preconditions": [279, 286, 291],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is turning the burner on to a medium heat setting under the pan." },
+      "completion": { "claim": "The burner is set to medium; turning on the heat has no distinct end signal of its own, so completion is inferred from the cooking step beginning.", "inferred_from": 292 },
+      "checks": [
+        { "reminder": "temperature", "claim": "The recipe calls for medium heat; flag a clearly higher or lower setting than medium." }
+      ]
+    },
+    {
+      "step_id": 292,
+      "instruction": "Cook 5 to 6 minutes until tofu cubes are lightly browned on the bottom",
+      "preconditions": [276],
+      "duration_constraint_s": 360,
+      "recognition": { "claim": "The tofu cubes are cooking undisturbed in the pan to brown on the bottom." },
+      "completion": { "claim": "The tofu cubes are lightly browned on the bottom after about 5-6 minutes; its own observable end-state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for cooking about 5-6 minutes (~360s); flag cooking noticeably shorter (undercooked) or longer than that." }
+      ]
+    },
+    {
+      "step_id": 280,
+      "instruction": "Briefly remove the pan from the heat to reduce spitting",
+      "preconditions": [292],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is briefly lifting the pan off the heat to reduce spitting." },
+      "completion": { "claim": "The pan has been briefly taken off the heat; a brief action with no distinct end signal of its own, so completion is inferred from the tofu being flipped.", "inferred_from": 285 },
+      "checks": [
+        { "reminder": "technique", "claim": "The pan should only be removed briefly to reduce spitting; flag failing to remove it or removing it for an inappropriate manner/duration." }
+      ]
+    },
+    {
+      "step_id": 285,
+      "instruction": "Flip the tofu with tongs",
+      "preconditions": [280],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is flipping the tofu cubes in the pan using tongs." },
+      "completion": { "claim": "The tofu cubes have been flipped; a brief action with no distinct end signal of its own, so completion is inferred from the heat being returned to medium.", "inferred_from": 287 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe calls for flipping with tongs; flag a different utensil (e.g. a spoon) that may break the tofu cubes." },
+        { "reminder": "technique", "claim": "The tofu should be flipped cleanly; flag rough flipping that breaks cubes or leaves pieces unturned." }
+      ]
+    },
+    {
+      "step_id": 287,
+      "instruction": "Return the heat to medium",
+      "preconditions": [285],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is returning the burner to a medium heat setting." },
+      "completion": { "claim": "The heat is back to medium; adjusting the heat has no distinct end signal of its own, so completion is inferred from the next cooking step beginning.", "inferred_from": 290 },
+      "checks": [
+        { "reminder": "temperature", "claim": "The recipe calls for returning to medium heat; flag a higher setting that could burn the tofu, or a clearly lower one." }
+      ]
+    },
+    {
+      "step_id": 290,
+      "instruction": "cook until tofu turns brown",
+      "preconditions": [287],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The tofu cubes are cooking in the pan until they turn brown." },
+      "completion": { "claim": "The tofu cubes have turned brown; its own observable end-state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The tofu should stay in the pan while cooking; flag spilling or knocking cubes out, e.g. while checking for browning." }
+      ]
+    },
+    {
+      "step_id": 282,
+      "instruction": "Briefly remove from the heat again",
+      "preconditions": [290],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is again briefly lifting the pan off the heat." },
+      "completion": { "claim": "The pan has been briefly taken off the heat; a brief action with no distinct end signal of its own, so completion is inferred from the soy sauce being drizzled on (recipe-order-earliest successor).", "inferred_from": 277 },
+      "checks": [
+        { "reminder": "technique", "claim": "The pan should be removed briefly and safely; flag failing to remove it or removing it for an inappropriate manner." },
+        { "reminder": "preparation", "claim": "[probe-added] The removed pan should be set on a heat-resistant surface; flag placing the hot pan on a surface that is not heat-resistant." }
+      ]
+    },
+    {
+      "step_id": 277,
+      "instruction": "drizzle 1 tablespoon soy sauce (watch for spitting) on the pan",
+      "preconditions": [282],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is drizzling soy sauce over the tofu in the pan. One of two concurrently-eligible steps with sesame oil (both gated on 282) -- recognition must say which is happening now; no order is imposed among them." },
+      "completion": { "claim": "The soy sauce has been drizzled on; a brief add with no distinct end signal of its own, so completion is inferred from the heat being returned to low (the shared reconvergence step).", "inferred_from": 284 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 tablespoon of soy sauce; flag a clearly different amount." },
+        { "reminder": "preparation", "claim": "The recipe calls for soy sauce specifically; flag a different sauce or liquid being drizzled." }
+      ]
+    },
+    {
+      "step_id": 278,
+      "instruction": "drizzle with the 1 tablespoons sesame oil on the pan",
+      "preconditions": [282],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is drizzling sesame oil over the tofu in the pan. One of two concurrently-eligible steps with soy sauce (both gated on 282) -- recognition must say which is happening now; no order is imposed among them." },
+      "completion": { "claim": "The sesame oil has been drizzled on; a brief add with no distinct end signal of its own, so completion is inferred from the heat being returned to low (the shared reconvergence step).", "inferred_from": 284 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 tablespoon of sesame oil; flag a clearly different amount, e.g. two tablespoons instead of one." },
+        { "reminder": "preparation", "claim": "The recipe calls for sesame oil specifically; flag a different oil being drizzled." },
+        { "reminder": "technique", "claim": "[probe-added] The sesame oil should be drizzled cleanly; flag dropping the measuring utensil into the pan while drizzling." }
+      ]
+    },
+    {
+      "step_id": 284,
+      "instruction": "Return to low heat",
+      "preconditions": [277, 278],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is setting the burner to a low heat setting." },
+      "completion": { "claim": "The heat is set to low; adjusting the heat has no distinct end signal of its own, so completion is inferred from the next cooking step beginning.", "inferred_from": 289 },
+      "checks": [
+        { "reminder": "temperature", "claim": "The recipe calls for low heat; flag a higher setting such as medium being used instead of low." }
+      ]
+    },
+    {
+      "step_id": 289,
+      "instruction": "cook pan for 2 minutes",
+      "preconditions": [284],
+      "duration_constraint_s": 120,
+      "recognition": { "claim": "The tofu is cooking in the pan on low heat for about 2 minutes." },
+      "completion": { "claim": "About 2 minutes of cooking have elapsed; timed cooking with no distinct end signal of its own, so completion is inferred from the tofu being flipped.", "inferred_from": 281 },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for cooking about 2 minutes (~120s); flag cooking noticeably shorter (undercooked) or longer than that." }
+      ]
+    },
+    {
+      "step_id": 281,
+      "instruction": "flip tofu on the pan",
+      "preconditions": [289],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is flipping the tofu cubes in the pan." },
+      "completion": { "claim": "The tofu cubes have been flipped; a brief action with no distinct end signal of its own, so completion is inferred from the final cooking step beginning.", "inferred_from": 288 },
+      "checks": [
+        { "reminder": "technique", "claim": "All tofu pieces should be flipped without loss; flag leaving some pieces unflipped or spilling tofu/oil while flipping." }
+      ]
+    },
+    {
+      "step_id": 288,
+      "instruction": "cook pan for 2 minutes until the colour is darkened",
+      "preconditions": [281],
+      "duration_constraint_s": 120,
+      "recognition": { "claim": "The tofu is cooking in the pan for about 2 minutes until its colour darkens." },
+      "completion": { "claim": "The tofu colour has darkened after about 2 minutes; its own observable end-state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for cooking about 2 minutes (~120s) until darkened; flag cooking noticeably shorter or longer (overcooked)." }
+      ]
+    },
+    {
+      "step_id": 283,
+      "instruction": "Transfer to a serving dish",
+      "preconditions": [288],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is transferring the cooked tofu from the pan to a serving dish." },
+      "completion": { "claim": "The tofu has been plated onto the serving dish; its own observable end-state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] All cooked tofu should reach the serving dish; flag spilling or dropping pieces during the transfer." }
+      ]
+    }
+  ]
+}

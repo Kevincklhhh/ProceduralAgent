@@ -1,0 +1,216 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/spicytunaavocadowraps.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG: four root prep forks (mayo, lettuce, avocado, tuna-can) feed a mix reconvergence (331), then seasoning, then a linear assemble->top->roll->secure tail.",
+  "task": {
+    "task_id": "spicytunaavocadowraps",
+    "title": "Spicytunaavocadowraps",
+    "source": "tasks/cc4d/spicytunaavocadowraps.json"
+  },
+  "nodes": [
+    {
+      "step_id": 327,
+      "instruction": "1/4 cup mayonnaise to the bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding mayonnaise into the bowl; active from the start, one of four concurrently-eligible root prep steps (mayo, lettuce, avocado, tuna-can) with no order imposed among them, so recognition must say which is active now." },
+      "completion": { "claim": "The mayonnaise has been added to the bowl; this step just stops with no end signal of its own, inferred from the onset of the mix step that consumes the bowl contents.", "inferred_from": 331 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 cup of mayonnaise; flag a different amount (e.g. 1/2 cup or a not-fully-filled measure)." },
+        { "reminder": "preparation", "claim": "The mayonnaise should go into the bowl; flag using the wrong container (e.g. a mug instead of the bowl)." }
+      ]
+    },
+    {
+      "step_id": 329,
+      "instruction": "Lay out 2 large lettuce leaves",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is laying out lettuce leaves on the work surface; active from the start, one of four concurrently-eligible root prep steps with no order imposed, so recognition must say which is active now." },
+      "completion": { "claim": "Two large lettuce leaves are laid out flat; this step just stops, inferred from the onset of placing avocado slices on the leaves.", "inferred_from": 325 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 2 leaves; flag a different count." },
+        { "reminder": "preparation", "claim": "The leaves should be large (and washed); flag small or unwashed lettuce leaves." }
+      ]
+    },
+    {
+      "step_id": 335,
+      "instruction": "Take 1 ripe avocado",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is picking up an avocado; active from the start, one of four concurrently-eligible root prep steps with no order imposed, so recognition must say which is active now." },
+      "completion": { "claim": "One ripe avocado is in hand; this step just stops, inferred from the onset of cutting the avocado into slices.", "inferred_from": 341 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 avocado; flag a different count." },
+        { "reminder": "preparation", "claim": "The avocado should be ripe; flag taking an unripe avocado." }
+      ]
+    },
+    {
+      "step_id": 336,
+      "instruction": "Open a can of tuna",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is opening a can of tuna; active from the start, one of four concurrently-eligible root prep steps with no order imposed, so recognition must say which is active now." },
+      "completion": { "claim": "The tuna can is opened (lid off / accessible); the opened can is its own observable end state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "preparation", "claim": "A can of tuna should be opened with a can opener; flag not opening the can or opening it with the wrong tool (e.g. a knife)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag a spill while opening the can." }
+      ]
+    },
+    {
+      "step_id": 328,
+      "instruction": "drain excess water from can",
+      "preconditions": [336],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is draining the liquid out of the opened tuna can." },
+      "completion": { "claim": "The excess water has been drained from the can; this step just stops, inferred from the onset of adding the drained tuna to the bowl.", "inferred_from": 334 },
+      "checks": [
+        { "reminder": "technique", "claim": "The water must be drained completely; flag leaving water behind / draining only partially." },
+        { "reminder": "preparation", "claim": "The can must be opened before draining; flag draining without fully opening the can or draining incompletely." }
+      ]
+    },
+    {
+      "step_id": 334,
+      "instruction": "Add 1 can drained tuna to the bowl",
+      "preconditions": [328],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is emptying the drained tuna from the can into the bowl." },
+      "completion": { "claim": "One can of drained tuna is in the bowl; this step just stops, inferred from the onset of the mix step that consumes the bowl contents.", "inferred_from": 331 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 full can of tuna; flag a different amount (e.g. half a can)." },
+        { "reminder": "preparation", "claim": "The tuna should go into the bowl; flag using the wrong container (e.g. a mug)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling tuna while adding, or dropping the can in unopened." }
+      ]
+    },
+    {
+      "step_id": 339,
+      "instruction": "1 tsp Sriracha sauce to the bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding Sriracha sauce into the bowl; active from the start, one of the concurrently-eligible root prep steps with no order imposed, so recognition must say which is active now." },
+      "completion": { "claim": "The Sriracha has been added to the bowl; this step just stops, inferred from the onset of the mix step that consumes the bowl contents.", "inferred_from": 331 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 tsp of Sriracha; flag a different amount or unit (e.g. 2 tsp, 1/2 tsp, or a tablespoon)." },
+        { "reminder": "preparation", "claim": "The Sriracha should go into the bowl; flag using the wrong container (e.g. a mug)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling the sauce while measuring or squeezing it out." }
+      ]
+    },
+    {
+      "step_id": 340,
+      "instruction": "Chop 1 scallion",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is chopping a scallion; active from the start, one of the concurrently-eligible root prep steps with no order imposed, so recognition must say which is active now." },
+      "completion": { "claim": "One scallion has been chopped; the chopped scallion is its own observable end state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1 scallion; flag a different count (e.g. 2 scallions or a whole bunch)." },
+        { "reminder": "technique", "claim": "The scallion should be chopped; flag the wrong cut manner (e.g. mincing instead of chopping, or only cutting part of it)." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag not using a cutting board to chop." }
+      ]
+    },
+    {
+      "step_id": 333,
+      "instruction": "add chopped scallion to the bowl",
+      "preconditions": [340],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is adding the chopped scallion into the bowl." },
+      "completion": { "claim": "The chopped scallion is in the bowl; this step just stops, inferred from the onset of the mix step that consumes the bowl contents.", "inferred_from": 331 },
+      "checks": [
+        { "reminder": "preparation", "claim": "Chopped scallion should go into the bowl; flag using the wrong container (e.g. a mug) or adding whole/unchopped scallion." },
+        { "reminder": "technique", "claim": "[probe-added] Flag spilling or dropping scallion outside the bowl while adding." }
+      ]
+    },
+    {
+      "step_id": 331,
+      "instruction": "Mix the contents of the bowl",
+      "preconditions": [327, 333, 334, 339],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is mixing/stirring the combined contents of the bowl." },
+      "completion": { "claim": "The bowl contents are mixed into a uniform tuna mixture; this step just stops, inferred from the onset of seasoning the bowl with pepper (the recipe-order-earliest direct successor).", "inferred_from": 326 },
+      "checks": [
+        { "reminder": "technique", "claim": "The contents should be mixed cleanly within the bowl; flag spilling contents outside while mixing." },
+        { "reminder": "preparation", "claim": "[probe-added] Flag mixing in the wrong container (e.g. a mug instead of the bowl)." }
+      ]
+    },
+    {
+      "step_id": 326,
+      "instruction": "season 1/4 tsp pepper on the bowl",
+      "preconditions": [331],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is seasoning the bowl with pepper." },
+      "completion": { "claim": "1/4 tsp pepper has been seasoned onto the bowl contents; this step just stops, inferred from the onset of topping the lettuce leaves with the tuna mixture.", "inferred_from": 332 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 tsp of pepper; flag a different amount (e.g. 1/2 tsp)." },
+        { "reminder": "preparation", "claim": "Pepper should be seasoned on the bowl; flag the wrong seasoning (e.g. turmeric) or the wrong container (e.g. a mug)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag pouring instead of sprinkling/seasoning." }
+      ]
+    },
+    {
+      "step_id": 338,
+      "instruction": "Season bowl with 1/4 tsp salt",
+      "preconditions": [331],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is seasoning the bowl with salt." },
+      "completion": { "claim": "1/4 tsp salt has been seasoned onto the bowl contents; this step just stops, inferred from the onset of topping the lettuce leaves with the tuna mixture.", "inferred_from": 332 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 tsp of salt; flag a different amount or unit (e.g. 1/2 tsp, 1 tsp, or a tablespoon)." },
+        { "reminder": "preparation", "claim": "Salt should be seasoned on the bowl; flag using the wrong container (e.g. a mug)." },
+        { "reminder": "technique", "claim": "[probe-added] Flag pouring instead of sprinkling/seasoning." }
+      ]
+    },
+    {
+      "step_id": 341,
+      "instruction": "cut avocado into thin slices",
+      "preconditions": [335],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is cutting the avocado into slices." },
+      "completion": { "claim": "The avocado is cut into thin slices; the sliced avocado is its own observable end state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "The avocado should be sliced (peeled, cleanly); flag chopping instead of slicing, cutting with the skin on, or irregular shapes." },
+        { "reminder": "measurement", "claim": "The slices should be thin; flag thick slices." }
+      ]
+    },
+    {
+      "step_id": 325,
+      "instruction": "place avocado slices on each leaf",
+      "preconditions": [329, 341],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is placing avocado slices onto the lettuce leaves." },
+      "completion": { "claim": "Avocado slices are placed on each leaf; this step just stops, inferred from the onset of topping the leaves with the tuna mixture.", "inferred_from": 332 },
+      "checks": [
+        { "reminder": "measurement", "claim": "Slices should be placed on each (both) leaves; flag placing on only one leaf." }
+      ]
+    },
+    {
+      "step_id": 332,
+      "instruction": "top lettuce leaves with the tuna mixture",
+      "preconditions": [325, 326, 338],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is spooning the tuna mixture on top of the lettuce leaves." },
+      "completion": { "claim": "The lettuce leaves are topped with the tuna mixture; this step just stops, inferred from the onset of rolling up the wraps.", "inferred_from": 330 },
+      "checks": [
+        { "reminder": "preparation", "claim": "Top with the prepared, well-drained tuna mixture on washed leaves; flag topping with undrained tuna (soggy leaves), tuna straight from the can, or unwashed leaves." }
+      ]
+    },
+    {
+      "step_id": 330,
+      "instruction": "Roll up the lettuce wraps",
+      "preconditions": [332],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is rolling up the topped lettuce leaves into wraps." },
+      "completion": { "claim": "The lettuce leaves are rolled up into wraps; the rolled wrap is its own observable end state.", "inferred_from": null },
+      "checks": [
+        { "reminder": "technique", "claim": "The leaves should be rolled tightly so the filling stays inside; flag rolling improperly, merely folding, or spilling contents while rolling." }
+      ]
+    },
+    {
+      "step_id": 337,
+      "instruction": "secure the wrap with a toothpick",
+      "preconditions": [330],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is inserting a toothpick to secure the rolled wrap." },
+      "completion": { "claim": "The wrap is secured with a toothpick; the inserted toothpick is its own observable end state and the recipe is complete.", "inferred_from": null },
+      "checks": []
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "description": "STAGE 1 of 2 (recipe -> criteria). The recipe DAG becomes a flat LIST OF NODES, one per step. Each node carries its `preconditions` (the partial order), how to RECOGNIZE it is happening now, and how to tell it is COMPLETE. There is NO linear chain and NO procedure_start: roots are nodes with empty preconditions; endpoints are nodes that are no one's precondition. Concurrently-eligible nodes (e.g. the three hot-chocolate adds, each requiring only the microwave) form an EMERGENT unordered group -- no order is imposed among them. CHANNEL-BLIND: each recognition/completion/check carries ONLY a plain-language `claim` -- what must be true. How to SENSE it (which detector, the executable prompt/event) is NOT decided here; that is added in STAGE 2 (tasks/criteria_to_sensorplan_template.json), which is the proposed system's job. The optional per-node reminder hooks (`duration_constraint_s`, `checks`) leave a slot for proactive reminders (T2); omit them for pure step recognition (T1).",
+
+  "_how_it_is_used": [
+    "STEP RECOGNITION (T1), online, per tick t over video up to t: completed = nodes whose `completion` has fired; eligible = nodes whose `preconditions` are all complete and that are not complete yet; the CURRENT step is the eligible node whose `recognition` fires. Correct under ANY valid order the user takes through the DAG.",
+    "PROACTIVE REMINDERS (T2) ride on the SAME state: precondition/order + missing-step = a node recognized active while its `preconditions` are unmet (pure DAG state, NOT authored as a check); timing = the node's active interval vs `duration_constraint_s`; execution errors = the per-node `checks`. All are recipe-derived (firewall-clean: never built from error/Qualcomm ground truth). See docs/REMINDER_RUNTIME.md."
+  ],
+
+  "task": {
+    "task_id": "FILL_TASK_ID",
+    "title": "FILL_TITLE",
+    "source": "FILL_RECIPE_TASK_JSON"
+  },
+
+  "nodes": [
+    {
+      "step_id": "FILL_STEP_ID",
+      "instruction": "FILL recipe text of this step",
+      "preconditions": ["FILL step_ids that must be COMPLETE before this can start; [] for a root"],
+      "duration_constraint_s": null,
+
+      "recognition": {
+        "claim": "FILL what proves this step is happening NOW, in plain words"
+      },
+
+      "completion": {
+        "claim": "FILL what proves this step is FINISHED (its end-state), in plain words. If it has no own end signal, say so (e.g. 'inferred from <successor> starting').",
+        "inferred_from": null
+      },
+
+      "checks": [
+        {
+          "_comment": "OPTIONAL (T2). One entry per anticipated, RECIPE-STATED error for this step. Do NOT author order/missing_step here -- those are emitted from DAG state by the runtime, not per-node checks. Omit the whole list for T1-only.",
+          "reminder": "measurement | technique | preparation | temperature | timing",
+          "claim": "FILL what the recipe expects (e.g. '2 pieces of chocolate'); a deviation is the reminder"
+        }
+      ]
+    }
+  ]
+}

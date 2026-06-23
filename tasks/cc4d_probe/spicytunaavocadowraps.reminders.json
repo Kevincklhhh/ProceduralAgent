@@ -1,0 +1,802 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "spicytunaavocadowraps",
+ "activity_id": 28,
+ "n_recordings": 18,
+ "n_error_recordings": 11,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 327,
+   "order": 1,
+   "instruction": "1/4 cup mayonnaise to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Add-1 cup mayonnaise to the bowl",
+      "1/2 instead of 1/4 cup",
+      "Add 1/2 cup instead of 1/4 cup",
+      "Add 1/2 instead if 1/4 cup mayonnaise to the bowl",
+      "Using 1/2 cup instead of 1/4 cup and don't fill the cup completely."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Did not add mayonnaise to the bowl",
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use mug cup instead of bowl"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after topping lettuce leaves with the tuna mixture"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 329,
+   "order": 2,
+   "instruction": "Lay out 2 large lettuce leaves",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "roll the lettuce leaves together",
+      "Didn't wash the lettuce leaves and the leaves are not large.",
+      "Using the unwashed lettuce leaves"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Take small lettuce leaves."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after placing avocado slices on the leaf"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 335,
+   "order": 3,
+   "instruction": "Take 1 ripe avocado",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Taking a non-ripen avocado instead of ripen avocado."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 336,
+   "order": 4,
+   "instruction": "Open a can of tuna",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Didn't open the can of Tuna.",
+      "Not opening the can using a can opener but with a knife"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while opening the can of tuna."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 328,
+   "order": 5,
+   "instruction": "drain excess water from can",
+   "duration_constraint_s": null,
+   "preconditions": [
+    336
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Did not drain the excess water completely",
+      "Didn't drain the excess water as the can is not opened.",
+      "Not draining the tuna can completely",
+      "Remain some water",
+      "Did not drain complete water from the can"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Do not drain water completely instead leave some water remaining",
+      "Not draining the excess water and leaving some water behind."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 334,
+   "order": 6,
+   "instruction": "Add 1 can drained tuna to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    328
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Dropping the tuna can to the bowl without opening it.",
+      "Spill some tuna while adding."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add to a mug instead of a bowl"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add 1/2 can instead of 1 can tuna."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 339,
+   "order": 7,
+   "instruction": "1 tsp Sriracha sauce to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Addition of more than 1 tsp Sriracha sauce",
+      "Add 2 tsp instead of 1 tsp Sriracha sauce to the bowl",
+      "Using tablespoon instead of teaspoon.",
+      "Add instead of 1 tsp add 1/2 tsp Sriracha sauce."
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Press the sauce more to spill it",
+      "Spilled while measuring the sauce."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use mug cup instead of bowl",
+      "Add to a mug instead of a bowl"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 340,
+   "order": 8,
+   "instruction": "Chop 1 scallion",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Chop-Chop 1 bunch of scallions",
+      "Chop 2 scallions instead of 1"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "mince instead of chop",
+      "cut 1/2 scallion instead of chop"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Not using cutting board to chop scallions"
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after correct order"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding tuna mixture to the leaves."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 333,
+   "order": 9,
+   "instruction": "add chopped scallion to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    340
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Drop the chopped scallions while adding to the bowl",
+      "Spill some scallion outside"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use mug cup instead of bowl",
+      "Add full scallion instead of chopped scallion"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 331,
+   "order": 10,
+   "instruction": "Mix the contents of the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    327,
+    333,
+    334,
+    339
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spill some contents outside",
+      "While mixing spilling some of the contents.",
+      "Spill while mixing the contents."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use mug cup instead of bowl"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before chopping scallions"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 326,
+   "order": 11,
+   "instruction": "season 1/4 tsp pepper on the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    331
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use mug cup instead of bowl",
+      "Season with 1/2 tsp turmeric on the bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Pour instead of season"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using 1/2 tsp instead of 1/4 tsp."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding tuna mixture to the leaves."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 338,
+   "order": 12,
+   "instruction": "Season bowl with 1/4 tsp salt",
+   "duration_constraint_s": null,
+   "preconditions": [
+    331
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Season 1 tsp instead of 1/4 tsp",
+      "Season the bowl with 1/2 tsp salt instead of 1/4th tsp salt",
+      "1/2 tsp salt instead of 1/4 tsp",
+      "Using 1/2 tbsp instead of 1/4 tsp salt."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after topping lettuce leaves with the tuna mixture and before adding mayonnaise to the bowl.",
+      "Step performed after adding tuna mixture to the leaves."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use mug cup instead of bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Pour instead of season"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 341,
+   "order": 13,
+   "instruction": "cut avocado into thin slices",
+   "duration_constraint_s": null,
+   "preconditions": [
+    335
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Chop avocado with skin instead of cutting it",
+      "chop instead of slice",
+      "Cut into irregular shapes instead of slices"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Cut into thick slices instead of thin slices",
+      "Instead of thin slices cutting into thick slices.",
+      "Cutting into thick slices contrary to cutting into thin slices."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 325,
+   "order": 14,
+   "instruction": "place avocado slices on each leaf",
+   "duration_constraint_s": null,
+   "preconditions": [
+    329,
+    341
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Just put on one leaf",
+      "place on just one leaf",
+      "place on only one leaf",
+      "place only on one leaf."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after topping the lettuce leaves with the tuna mixture",
+      "Step performed before laying out the lettuce leaves",
+      "Step performed after adding tuna mixture to lettuce leaves",
+      "Step performed after adding tuna mixture to the leaves."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 332,
+   "order": 15,
+   "instruction": "top lettuce leaves with the tuna mixture",
+   "duration_constraint_s": null,
+   "preconditions": [
+    325,
+    326,
+    338
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Top the lettuce leaves with the tuna from the can",
+      "Topping with tuna not drained completely leads to soggy lettuce leaves",
+      "Using the unwashed lettuce leaves"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before placing avocado slices on each leaf and before adding salt to the bowl.",
+      "Step performed before placing avocado slices on lettuce leaves",
+      "Step performed before placing avocado slices on the leaves and adding salt and pepper."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 330,
+   "order": 16,
+   "instruction": "Roll up the lettuce wraps",
+   "duration_constraint_s": null,
+   "preconditions": [
+    332
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 7,
+     "n_recordings": 6,
+     "descriptions": [
+      "Didn't roll properly and spilled.",
+      "Roll up so that inside contents spill outside",
+      "Didn't properly roll the leaves.",
+      "Did not roll it, just folded the lettuce wraps",
+      "Spill something outside while rolling the lettuce wraps",
+      "Not rolling properly and spill some contents.",
+      "Rolling the lettuce wraps in a wrong way."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before adding the tuna to the bowl."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 337,
+   "order": 17,
+   "instruction": "secure the wrap with a toothpick",
+   "duration_constraint_s": null,
+   "preconditions": [
+    330
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  }
+ ]
+}

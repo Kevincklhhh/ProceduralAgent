@@ -1,0 +1,181 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/dressedupmeatballs.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). DAG: several independent prep roots (peel garlic, peel onion, place meatballs, cut carrot, mix sauce) that converge at 'top the plate' (24) then 'pour sauces' (15), followed by a linear microwave->stir->microwave->stir->microwave cycle (step_ids 20 and 18 recur in that cycle).",
+  "task": {
+    "task_id": "dressedupmeatballs",
+    "title": "Dressedupmeatballs",
+    "source": "tasks/cc4d/dressedupmeatballs.json"
+  },
+  "nodes": [
+    {
+      "step_id": 14,
+      "instruction": "Peel 1 garlic clove",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "A root step, active from the start: the user is peeling a garlic clove (removing the papery skin from a single clove)." },
+      "completion": { "claim": "The garlic clove is fully peeled and bare; no distinct end signal of its own, inferred from the cutting of the garlic beginning.", "inferred_from": 16 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for exactly 1 garlic clove; flag if a different count (e.g. 2 cloves) is peeled." },
+        { "reminder": "technique", "claim": "[probe-added] The clove should be cleanly and fully peeled; flag improper or incomplete peeling that leaves skin on." }
+      ]
+    },
+    {
+      "step_id": 16,
+      "instruction": "Cut 1/8 garlic clove",
+      "preconditions": [14],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is cutting off a 1/8 portion of the peeled garlic clove." },
+      "completion": { "claim": "A 1/8 piece of garlic has been cut; no distinct end signal of its own, inferred from the mincing of the garlic beginning.", "inferred_from": 26 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/8 of a garlic clove; flag if a larger fraction (e.g. 1/2 or a whole clove) is cut." },
+        { "reminder": "technique", "claim": "[probe-added] The garlic should be cut as specified; flag using the wrong cutting action (e.g. slicing) for this step." }
+      ]
+    },
+    {
+      "step_id": 17,
+      "instruction": "Peel one medium onion",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "A root step, active from the start: the user is peeling a medium onion (removing the outer dry skin)." },
+      "completion": { "claim": "The onion is fully peeled and bare; no distinct end signal of its own, inferred from the cutting of the onion into two pieces beginning.", "inferred_from": 27 },
+      "checks": [
+        { "reminder": "preparation", "claim": "The recipe specifies one medium onion; flag if the wrong onion (e.g. wrong size) is used." },
+        { "reminder": "technique", "claim": "[probe-added] The onion should be cleanly and fully peeled; flag improper or incomplete peeling that leaves skin on." }
+      ]
+    },
+    {
+      "step_id": 21,
+      "instruction": "Place 5 meatballs in a Microwave-safe plate",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "A root step, active from the start: the user is placing meatballs into a microwave-safe plate." },
+      "completion": { "claim": "Five meatballs are sitting in the plate; no distinct end signal of its own, inferred from the topping of the plate beginning.", "inferred_from": 24 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for exactly 5 meatballs; flag if a different count (e.g. 3, 4, or 6) is placed." },
+        { "reminder": "preparation", "claim": "The recipe specifies a microwave-safe plate; flag if a different vessel (e.g. a bowl) is used." }
+      ]
+    },
+    {
+      "step_id": 22,
+      "instruction": "Cut 1/4 medium carrot into short, thin strips",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "A root step, active from the start: the user is cutting a portion of carrot into short, thin strips." },
+      "completion": { "claim": "Short, thin carrot strips are ready; no distinct end signal of its own, inferred from the topping of the plate beginning.", "inferred_from": 24 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 of a medium carrot; flag if too much carrot or the wrong carrot size (e.g. large) is used." },
+        { "reminder": "technique", "claim": "The strips should be short and thin; flag long, thick, or irregular cuts or slicing instead of strips." }
+      ]
+    },
+    {
+      "step_id": 23,
+      "instruction": "Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "A root step, active from the start: the user is combining sweet-and-sour sauce and soy sauce in a small bowl." },
+      "completion": { "claim": "The two sauces are mixed in the small bowl; no distinct end signal of its own, inferred from the pouring of the sauces over the meatballs beginning.", "inferred_from": 15 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce; flag wrong amounts of either (e.g. 1/2 cup, 1 teaspoon, or 1/2 tablespoon)." },
+        { "reminder": "preparation", "claim": "The recipe specifies sweet-and-sour sauce and soy sauce mixed in a small bowl; flag a wrong or soiled ingredient/utensil." },
+        { "reminder": "technique", "claim": "[probe-added] The sauces should be measured and mixed cleanly; flag spilling sauce while measuring or mixing." }
+      ]
+    },
+    {
+      "step_id": 26,
+      "instruction": "Mince 1/8 garlic clove",
+      "preconditions": [16],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is mincing the cut 1/8 garlic into fine pieces." },
+      "completion": { "claim": "The garlic is minced fine; no distinct end signal of its own, inferred from the topping of the plate beginning.", "inferred_from": 24 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/8 of a garlic clove; flag if a larger amount (e.g. 1/4, 1/2, or a whole clove) is minced." },
+        { "reminder": "technique", "claim": "The garlic should be minced (cut very fine); flag merely chopping it coarsely instead." }
+      ]
+    },
+    {
+      "step_id": 27,
+      "instruction": "Cut onion into two pieces",
+      "preconditions": [17],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is cutting the peeled onion into two pieces." },
+      "completion": { "claim": "The onion is in two pieces; no distinct end signal of its own, inferred from the slicing of the onion beginning.", "inferred_from": 19 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for two pieces; flag if the onion is cut into a different number (e.g. 4 pieces)." },
+        { "reminder": "technique", "claim": "[probe-added] The onion should be cut into two comparable pieces; flag uneven cuts (e.g. one large and one small)." }
+      ]
+    },
+    {
+      "step_id": 19,
+      "instruction": "Slice 1/8 medium onion",
+      "preconditions": [27],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is slicing a 1/8 portion of the medium onion." },
+      "completion": { "claim": "1/8 of the onion is sliced; no distinct end signal of its own, inferred from the topping of the plate beginning.", "inferred_from": 24 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/8 of a medium onion; flag if a larger portion (e.g. 1/4 or 1/2) is used." },
+        { "reminder": "technique", "claim": "The onion should be sliced; flag chopping it instead of slicing." }
+      ]
+    },
+    {
+      "step_id": 24,
+      "instruction": "Top the plate with the carrots, onion, garlic and 1/4 tsp pepper powder",
+      "preconditions": [19, 21, 22, 26],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is topping the meatball plate with the prepared carrots, onion, garlic, and pepper powder." },
+      "completion": { "claim": "The plate is topped with all the vegetables, garlic, and pepper; no distinct end signal of its own, inferred from the pouring of the sauces over the meatballs beginning.", "inferred_from": 15 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for 1/4 tsp pepper powder; flag a wrong amount (e.g. 1/2 tsp) or seasoning by eye without measuring." },
+        { "reminder": "preparation", "claim": "The plate should be topped with the carrots, onion, garlic, and pepper powder; flag adding the wrong items or extra pepper to the wrong vessel." },
+        { "reminder": "technique", "claim": "[probe-added] The pepper should be measured before topping; flag seasoning pepper directly on top without measuring." }
+      ]
+    },
+    {
+      "step_id": 15,
+      "instruction": "Pour the sauces over the meatballs",
+      "preconditions": [23, 24],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is pouring the mixed sauces over the meatballs on the plate." },
+      "completion": { "claim": "The sauces coat the meatballs; no distinct end signal of its own, inferred from the microwaving of the plate beginning.", "inferred_from": 20 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The sauces should be poured over the meatballs cleanly; flag putting meatballs into the sauce instead, spilling sauce, or dropping a meatball." }
+      ]
+    },
+    {
+      "step_id": 20,
+      "instruction": "Microwave the plate, covered, on high for 1.5 minutes",
+      "preconditions": [15],
+      "duration_constraint_s": 300,
+      "recognition": { "claim": "The user is microwaving the covered plate on high." },
+      "completion": { "claim": "The microwave stops after the cook; its own observable end is the appliance turning off.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for about 1.5 minutes; flag if this step runs noticeably longer or shorter (e.g. 1, 2, 3, or 5 minutes)." },
+        { "reminder": "temperature", "claim": "The recipe calls for high power; flag if a lower power level (e.g. medium) is used." },
+        { "reminder": "preparation", "claim": "[probe-added] The plate should be covered before microwaving; flag microwaving it uncovered." }
+      ]
+    },
+    {
+      "step_id": 18,
+      "instruction": "Stir the contents in the microwave with a spoon",
+      "preconditions": [20],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is stirring the microwaved contents with a spoon." },
+      "completion": { "claim": "The contents are stirred; no distinct end signal of its own, inferred from the next microwaving beginning.", "inferred_from": 20 },
+      "checks": [
+        { "reminder": "preparation", "claim": "[probe-added] The recipe specifies stirring with a spoon; flag using the wrong utensil (e.g. a fork)." }
+      ]
+    },
+    {
+      "step_id": 25,
+      "instruction": "Microwave for 1 more minute",
+      "preconditions": [18],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is microwaving the plate for one additional minute." },
+      "completion": { "claim": "The microwave stops after the final minute; its own observable end is the appliance turning off.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe calls for about 1 more minute; flag if this step runs noticeably longer or shorter (e.g. 1.5 or 2 minutes)." }
+      ]
+    }
+  ]
+}

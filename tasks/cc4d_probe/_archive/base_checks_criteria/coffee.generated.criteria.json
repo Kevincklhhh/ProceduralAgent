@@ -1,0 +1,198 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). Base checks are recipe-text-anticipated; checks tagged [probe-added] come from the observed error space (tasks/cc4d_probe/coffee.reminders.json) and are NOT firewall-clean -- do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). The DAG has four independent roots (62, 65, 68, 69) that converge through filter-cone assembly (60->59->58) and a parallel water/boil branch (70->64->71), reconverging at the first pour (57) then proceeding linearly to discard (63).",
+  "task": {
+    "task_id": "coffee",
+    "title": "Coffee",
+    "source": "tasks/cc4d/coffee.json"
+  },
+  "nodes": [
+    {
+      "step_id": 62,
+      "instruction": "Prepare the filter insert by folding the paper filter in half to create a semi-circle, and in half again to create a quarter-circle",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is folding a paper filter in half and then in half again to form a quarter-circle. This is a root step, eligible from the start, and one of four concurrently-eligible roots (62, 65, 68, 69); recognition must say which root is active now (no order is imposed among them)." },
+      "completion": { "claim": "The filter has been folded twice into a quarter-circle and is set aside; the fold has no distinct end signal of its own, so completion is inferred from the user starting to place the paper filter in the dripper.", "inferred_from": 60 },
+      "checks": [
+        { "reminder": "preparation", "claim": "[probe-added] The recipe calls for a single paper filter folded (not rolled) into a quarter-circle; flag using more than one filter or rolling/mis-shaping it instead of folding." },
+        { "reminder": "technique", "claim": "[probe-added] The recipe requires the filter to actually be prepared; flag skipping the preparation or folding it improperly." }
+      ]
+    },
+    {
+      "step_id": 65,
+      "instruction": "Weigh the coffee beans (0.8oz-0.12 oz)",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is placing coffee beans on a scale to weigh them. This is a root step, eligible from the start, and one of four concurrently-eligible roots (62, 65, 68, 69); recognition must say which root is active now (no order is imposed among them)." },
+      "completion": { "claim": "The beans have been weighed to the target amount and the reading is taken; weighing just stops with no distinct end signal of its own, so completion is inferred from the user starting to grind the beans.", "inferred_from": 67 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe pins the bean weight to roughly 0.8-0.12 oz; flag a weight outside that range (e.g. too much)." },
+        { "reminder": "technique", "claim": "[probe-added] The recipe expects the beans to reach the scale cleanly; flag spilling beans while transferring from packet to scale." }
+      ]
+    },
+    {
+      "step_id": 67,
+      "instruction": "Grind the coffee beans until the coffee grounds are the consistency of coarse sand, about 20 seconds",
+      "preconditions": [65],
+      "duration_constraint_s": 20,
+      "recognition": { "claim": "The user is operating a coffee grinder to grind the weighed beans toward a coarse-sand consistency." },
+      "completion": { "claim": "Grinding stops with the grounds at a coarse-sand consistency; grinding just ends with no distinct end signal of its own, so completion is inferred from the user starting to transfer the grounds to the filter cone.", "inferred_from": 58 },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe says about 20 seconds for grinding; flag grinding noticeably longer or shorter than that." },
+        { "reminder": "preparation", "claim": "[probe-added] The recipe expects a coffee grinder to be used; flag grinding with an improvised tool such as a stone mortar." },
+        { "reminder": "technique", "claim": "[probe-added] The recipe expects the grounds to reach a coarse-sand consistency without loss; flag under-grinding to pebble-like grounds or spilling while transferring to the grinder." }
+      ]
+    },
+    {
+      "step_id": 68,
+      "instruction": "Measure 12 ounces of cold water",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is measuring out cold water to a target volume. This is a root step, eligible from the start, and one of four concurrently-eligible roots (62, 65, 68, 69); recognition must say which root is active now (no order is imposed among them)." },
+      "completion": { "claim": "The user has measured 12 ounces of cold water; measuring just stops with no distinct end signal of its own, so completion is inferred from the user starting to transfer the water to a kettle.", "inferred_from": 70 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe pins the amount at 12 ounces; flag measuring more or less than 12 ounces." },
+        { "reminder": "preparation", "claim": "[probe-added] The recipe calls for cold water measured with a measuring jug; flag using milk instead of water or using a weighing scale instead of a measuring jug." }
+      ]
+    },
+    {
+      "step_id": 69,
+      "instruction": "Place the dripper on top of a coffee mug",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is setting the dripper on top of a coffee mug. This is a root step, eligible from the start, and one of four concurrently-eligible roots (62, 65, 68, 69); recognition must say which root is active now (no order is imposed among them)." },
+      "completion": { "claim": "The dripper is resting on top of the coffee mug; placement just stops with no distinct end signal of its own, so completion is inferred from the user starting to place the paper filter in the dripper.", "inferred_from": 60 },
+      "checks": [
+        { "reminder": "preparation", "claim": "[probe-added] The recipe specifies a coffee mug under the dripper; flag using a different vessel such as a bowl." }
+      ]
+    },
+    {
+      "step_id": 60,
+      "instruction": "Place the paper filter in the dripper",
+      "preconditions": [62, 69],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is placing the folded paper filter into the dripper." },
+      "completion": { "claim": "The paper filter is seated in the dripper; placement just stops with no distinct end signal of its own, so completion is inferred from the user starting to spread the filter open into a cone.", "inferred_from": 59 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The recipe expects the filter to be seated properly in the dripper; flag placing an improperly folded filter or not seating it correctly." },
+        { "reminder": "measurement", "claim": "[probe-added] The recipe calls for a single paper filter in the dripper; flag placing more than one filter." }
+      ]
+    },
+    {
+      "step_id": 59,
+      "instruction": "spread open filter in dripper to create a cone",
+      "preconditions": [60],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is spreading the seated paper filter open to form a cone inside the dripper." },
+      "completion": { "claim": "The filter is opened into a cone shape; the spread just stops with no distinct end signal of its own, so completion is inferred from the user starting to transfer the grounds to the filter cone.", "inferred_from": 58 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The recipe requires the filter to be spread into a proper cone; flag failing to form the cone shape or spreading it incorrectly." }
+      ]
+    },
+    {
+      "step_id": 58,
+      "instruction": "Transfer the grounds to the filter cone",
+      "preconditions": [59, 67],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is transferring the ground coffee into the filter cone." },
+      "completion": { "claim": "The grounds are in the filter cone; the transfer just stops with no distinct end signal of its own, so completion is inferred from the user starting to pour a small amount of water to wet the grounds.", "inferred_from": 57 },
+      "checks": [
+        { "reminder": "technique", "claim": "[probe-added] The recipe expects the grounds to land in the cone without loss; flag spilling grounds outside the filter." }
+      ]
+    },
+    {
+      "step_id": 70,
+      "instruction": "transfer water to a kettle",
+      "preconditions": [68],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is pouring the measured water into a kettle." },
+      "completion": { "claim": "The water is in the kettle; the transfer just stops with no distinct end signal of its own, so completion is inferred from the user starting to boil the water.", "inferred_from": 64 },
+      "checks": [
+        { "reminder": "preparation", "claim": "[probe-added] The recipe calls for water transferred to a kettle; flag transferring milk instead of water or transferring into the wrong vessel such as a mixer." },
+        { "reminder": "technique", "claim": "[probe-added] The recipe expects the water to reach the kettle without loss; flag spilling water during the transfer." }
+      ]
+    },
+    {
+      "step_id": 64,
+      "instruction": "Boil the water. (While the water is boiling, assemble the filter cone)",
+      "preconditions": [70],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is heating the kettle to bring the water to a boil." },
+      "completion": { "claim": "The water has reached a boil in the kettle; boiling has its own observable end state (the water boils), so completion is inferred from that event.", "inferred_from": null },
+      "checks": [
+        { "reminder": "preparation", "claim": "[probe-added] The recipe calls for boiling water in a kettle; flag boiling in a pan or microwaving milk instead of boiling water in a kettle." }
+      ]
+    },
+    {
+      "step_id": 71,
+      "instruction": "Once the water has boiled, check the temperature of the water. (The water should be between 195-205 degrees Fahrenheit or between 91-96 degrees Celsius. If the water is too hot, let it cool briefly.)",
+      "preconditions": [64],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is checking the temperature of the boiled water (and letting it cool briefly if too hot)." },
+      "completion": { "claim": "The water temperature has been checked and is within the 195-205 F / 91-96 C range; the check just stops with no distinct end signal of its own, so completion is inferred from the user starting to pour a small amount of water to wet the grounds.", "inferred_from": 57 },
+      "checks": [
+        { "reminder": "temperature", "claim": "The recipe pins the water to 195-205 F (91-96 C); flag water that is too hot or too cold relative to that range." },
+        { "reminder": "preparation", "claim": "[probe-added] The recipe expects the temperature to be checked on the kettle water; flag checking temperature in the wrong vessel such as a pan." }
+      ]
+    },
+    {
+      "step_id": 57,
+      "instruction": "Pour a small amount of water into the filter to wet the grounds",
+      "preconditions": [58, 71],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is pouring a small amount of water from the kettle into the filter to wet the grounds." },
+      "completion": { "claim": "The grounds have been wetted with a small pour of water; the pour just stops with no distinct end signal of its own, so completion is inferred from the user starting to wait for the coffee to bloom.", "inferred_from": 56 },
+      "checks": [
+        { "reminder": "measurement", "claim": "The recipe calls for only a small amount of water; flag pouring a large amount instead of a small one." },
+        { "reminder": "preparation", "claim": "[probe-added] The recipe calls for water poured from the kettle; flag pouring milk, pouring from the tap, or not pouring water onto the grounds at all." },
+        { "reminder": "technique", "claim": "[probe-added] The recipe expects a controlled small pour to wet the grounds; flag spilling while pouring." }
+      ]
+    },
+    {
+      "step_id": 56,
+      "instruction": "Wait about 30 seconds for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.)",
+      "preconditions": [57],
+      "duration_constraint_s": 30,
+      "recognition": { "claim": "The user is waiting while the wetted grounds bloom, with small bubbles or foam visible on the surface." },
+      "completion": { "claim": "About 30 seconds of bloom have elapsed and the foaming subsides; the wait just stops with no distinct end signal of its own, so completion is inferred from the user starting to slowly pour the rest of the water.", "inferred_from": 61 },
+      "checks": [
+        { "reminder": "timing", "claim": "The recipe says to wait about 30 seconds for the bloom; flag waiting noticeably longer or shorter than that." }
+      ]
+    },
+    {
+      "step_id": 61,
+      "instruction": "Slowly pour the rest of the water over the grounds in a circular motion. Do not overfill beyond the top of the paper filter",
+      "preconditions": [56],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is slowly pouring the remaining water over the grounds in a circular motion, keeping the level below the top of the paper filter." },
+      "completion": { "claim": "The rest of the water has been poured over the grounds; the pour just stops with no distinct end signal of its own, so completion is inferred from the user starting to let the coffee drain into the mug.", "inferred_from": 66 },
+      "checks": [
+        { "reminder": "technique", "claim": "The recipe calls for a slow circular pour without overfilling beyond the top of the paper filter; flag pouring all at once, not using a circular motion, overfilling, or spilling." },
+        { "reminder": "preparation", "claim": "[probe-added] The recipe calls for pouring water over the grounds; flag pouring milk instead of water." }
+      ]
+    },
+    {
+      "step_id": 66,
+      "instruction": "Let the coffee drain completely into the mug before removing the dripper",
+      "preconditions": [61],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is letting the brewed coffee drain through the filter into the mug before lifting the dripper." },
+      "completion": { "claim": "All the coffee has drained into the mug and the dripper is then removed; draining has its own observable end state (the dripper stops dripping and is lifted), so completion is inferred from that event.", "inferred_from": null },
+      "checks": [
+        { "reminder": "timing", "claim": "[probe-added] The recipe requires waiting until the coffee has drained completely before removing the dripper; flag removing the dripper before draining finishes." }
+      ]
+    },
+    {
+      "step_id": 63,
+      "instruction": "Discard the paper filter and coffee grounds",
+      "preconditions": [66],
+      "duration_constraint_s": null,
+      "recognition": { "claim": "The user is removing the spent paper filter and grounds and discarding them." },
+      "completion": { "claim": "The paper filter and used grounds have been discarded; this is the final step and ends with its own observable event (the filter and grounds are thrown away), so completion is inferred from that event.", "inferred_from": null },
+      "checks": []
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+ "recording": "8_3",
+ "task_id": "spicedhotchocolate",
+ "arm": "sensorplan_qwen",
+ "stage_intervals": [
+  {
+   "stage": "fill_milk",
+   "start_s": 0.0,
+   "end_s": 72.3
+  },
+  {
+   "stage": "microwave_initial",
+   "start_s": 72.3,
+   "end_s": 135.4
+  },
+  {
+   "stage": "add_cinnamon",
+   "start_s": 135.4,
+   "end_s": 155.4
+  },
+  {
+   "stage": "add_chocolate",
+   "start_s": 155.4,
+   "end_s": 295.4
+  },
+  {
+   "stage": "mix",
+   "start_s": 295.4,
+   "end_s": 335.4
+  },
+  {
+   "stage": "heat_serve",
+   "start_s": 344.2,
+   "end_s": 409.2
+  }
+ ],
+ "transition_trace": [
+  {
+   "t_s": 0.0,
+   "transition": "start",
+   "step_or_block": "fill_milk",
+   "evidence": [
+    "procedure_start (t=0)"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 72.3,
+   "transition": "start",
+   "step_or_block": "microwave_initial",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 135.4,
+   "transition": "start",
+   "step_or_block": "add_cinnamon",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 155.4,
+   "transition": "start",
+   "step_or_block": "add_chocolate",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 295.4,
+   "transition": "start",
+   "step_or_block": "mix",
+   "evidence": [
+    "VLM"
+   ],
+   "confidence": 1.0
+  },
+  {
+   "t_s": 344.2,
+   "transition": "start",
+   "step_or_block": "heat_serve",
+   "evidence": [
+    "D1.cycle_start"
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "sensor_events": [
+  {
+   "t_s": 72.32,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0,
+   "release_t": 80.32
+  },
+  {
+   "t_s": 135.41,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0,
+   "release_t": 143.41
+  },
+  {
+   "t_s": 344.19,
+   "primitive": "D1",
+   "event": "cycle_start",
+   "confidence": 1.0,
+   "release_t": 352.19
+  },
+  {
+   "t_s": 409.23,
+   "primitive": "D1",
+   "event": "cycle_end",
+   "confidence": 1.0,
+   "release_t": 417.23
+  }
+ ],
+ "cost": {
+  "audio_on_s": 421.97,
+  "vlm_calls": 20,
+  "frames_sent": 200,
+  "vlm_latency_total_s": 232.56,
+  "compute_s": 1.09
+ },
+ "events": [],
+ "escalation_requests": [],
+ "_meta": {
+  "degraded": null,
+  "vlm_mode": "qwen",
+  "interval_s": 10.0,
+  "anchors": {
+   "A": 72.3,
+   "B": 135.4,
+   "C": 344.2,
+   "D": 409.2
+  }
+ }
+}

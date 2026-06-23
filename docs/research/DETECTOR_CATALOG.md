@@ -10,7 +10,7 @@
 This table is the **one authoritative list** of detector primitives, their tier, validation
 status, and measured cost. It consolidates what used to be triplicated across
 `DETECTOR_FEASIBILITY.md` (probe evidence), `AUDIO_LIBRARY.md` (EPIC-SOUNDS design rationale),
-and `SENSOR_GRAPH_COMPILER_PROMPT.md` (the Box-3 prompt vocabulary). **If any of those
+and the Box-3 predictor docs (`../../tasks/PROCEDURE_MONITOR_COMPILER.md`). **If any of those
 disagree with this table, this table wins.** Each of those docs now references this file
 and keeps only its own role (evidence / rationale / prompt).
 
@@ -82,5 +82,3 @@ discrimination; `impulse_single` standalone; `friction_flatness` (folded into A7
   always-on bank only.
 - The ±33% timing tolerance is a **detector parameter** here, never ground truth (firewall;
   see `PIPELINE_THREE_BOXES.md`).
-- Suspension note: the suspended GT classes (order, temperature-power-level) do **not** change
-  this catalog — detectors are unaffected; Box 2 simply does not score those classes.

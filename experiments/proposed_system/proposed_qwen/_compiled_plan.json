@@ -1,0 +1,342 @@
+{
+ "task": {
+  "task_id": "spicedhotchocolate",
+  "title": "Spiced Hot Chocolate",
+  "recipe_source": "tasks/cc4d/spicedhotchocolate.json",
+  "criteria_source": "tasks/cc4d/spicedhotchocolate.criteria.json",
+  "detector_catalog": "tasks/AUDIO_RUNTIME_LIBRARY.md"
+ },
+ "vlm_policy": {
+  "window_s": 10.0,
+  "fps": 1.0,
+  "period_s": 10.0
+ },
+ "graph": {
+  "steps": [
+   {
+    "step_id": "fill_milk",
+    "order": 1,
+    "instruction": "Fill a microwave-safe mug with skimmed milk",
+    "requires": [],
+    "sensing_role": "A-solve",
+    "duration_constraint_s": null,
+    "monitor": {
+     "mode": "foreground",
+     "primitives": [
+      "D1"
+     ]
+    },
+    "start_when": [
+     {
+      "rule_id": "fill_milk_start",
+      "cond": {
+       "type": "eligible"
+      },
+      "state_update": [
+       {
+        "op": "set_state",
+        "step": "fill_milk",
+        "to": "active"
+       },
+       {
+        "op": "set_foreground",
+        "step": "fill_milk"
+       }
+      ]
+     }
+    ],
+    "complete_when": [
+     {
+      "rule_id": "fill_milk_done",
+      "cond": {
+       "type": "any",
+       "of": [
+        {
+         "type": "next_anchor",
+         "primitive": "D1",
+         "event": "cycle_start",
+         "after": "fill_milk.start"
+        },
+        {
+         "type": "elapsed",
+         "step": "fill_milk",
+         "max_s": 120,
+         "fires_at": "max"
+        }
+       ]
+      },
+      "state_update": [
+       {
+        "op": "set_state",
+        "step": "fill_milk",
+        "to": "complete"
+       },
+       {
+        "op": "open",
+        "steps": [
+         "microwave_initial"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "step_id": "microwave_initial",
+    "order": 2,
+    "instruction": "Microwave the contents of the mug for 1 minute",
+    "requires": [
+     "fill_milk"
+    ],
+    "sensing_role": "A-solve",
+    "duration_constraint_s": 60,
+    "monitor": {
+     "mode": "foreground",
+     "primitives": [
+      "D1",
+      "D6"
+     ]
+    },
+    "start_when": [
+     {
+      "rule_id": "microwave_initial_start",
+      "cond": {
+       "type": "sensor_event",
+       "primitive": "D1",
+       "event": "cycle_start",
+       "after": "fill_milk.start"
+      },
+      "state_update": [
+       {
+        "op": "set_state",
+        "step": "microwave_initial",
+        "to": "active"
+       },
+       {
+        "op": "set_foreground",
+        "step": "microwave_initial"
+       }
+      ]
+     }
+    ],
+    "complete_when": [
+     {
+      "rule_id": "microwave_initial_done",
+      "cond": {
+       "type": "any",
+       "of": [
+        {
+         "type": "sensor_event",
+         "primitive": "D1",
+         "event": "cycle_end",
+         "after": "microwave_initial.start"
+        },
+        {
+         "type": "elapsed",
+         "step": "microwave_initial",
+         "max_s": 90,
+         "fires_at": "max"
+        }
+       ]
+      },
+      "state_update": [
+       {
+        "op": "set_state",
+        "step": "microwave_initial",
+        "to": "complete"
+       },
+       {
+        "op": "open",
+        "steps": [
+         "quiet_middle"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "step_id": "heat_serve",
+    "order": 4,
+    "instruction": "Heat the contents of the mug for 1 minute and serve",
+    "requires": [
+     "quiet_middle"
+    ],
+    "sensing_role": "A-solve",
+    "duration_constraint_s": 60,
+    "monitor": {
+     "mode": "foreground",
+     "primitives": [
+      "D1",
+      "D6"
+     ]
+    },
+    "start_when": [
+     {
+      "rule_id": "heat_serve_start",
+      "cond": {
+       "type": "sensor_event",
+       "primitive": "D1",
+       "event": "cycle_start",
+       "after": "quiet_middle.start"
+      },
+      "state_update": [
+       {
+        "op": "set_state",
+        "step": "heat_serve",
+        "to": "active"
+       },
+       {
+        "op": "set_foreground",
+        "step": "heat_serve"
+       }
+      ]
+     }
+    ],
+    "complete_when": [
+     {
+      "rule_id": "heat_serve_done",
+      "cond": {
+       "type": "any",
+       "of": [
+        {
+         "type": "sensor_event",
+         "primitive": "D1",
+         "event": "cycle_end",
+         "after": "heat_serve.start"
+        },
+        {
+         "type": "elapsed",
+         "step": "heat_serve",
+         "max_s": 90,
+         "fires_at": "max"
+        }
+       ]
+      },
+      "state_update": [
+       {
+        "op": "set_state",
+        "step": "heat_serve",
+        "to": "complete"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "step_blocks": [
+   {
+    "block_id": "quiet_middle",
+    "order": 3,
+    "members": [
+     {
+      "step_id": "add_cinnamon",
+      "instruction": "Add 1/5 teaspoon cinnamon to the mug"
+     },
+     {
+      "step_id": "add_sugar",
+      "instruction": "Add 1 teaspoon of white sugar to the mug"
+     },
+     {
+      "step_id": "add_chocolate",
+      "instruction": "Add 2 pieces of chocolate to the mug"
+     },
+     {
+      "step_id": "mix",
+      "instruction": "Mix the contents of the mug"
+     }
+    ],
+    "requires": [
+     "microwave_initial"
+    ],
+    "sensing_role": "C-none",
+    "monitor": {
+     "mode": "block",
+     "primitives": [
+      "VLM"
+     ]
+    },
+    "vlm": {
+     "poll": true,
+     "question": "Which add/mix step is the user doing now?"
+    },
+    "start_when": [
+     {
+      "rule_id": "quiet_middle_start",
+      "cond": {
+       "type": "eligible"
+      },
+      "state_update": [
+       {
+        "op": "set_state",
+        "step": "quiet_middle",
+        "to": "active"
+       },
+       {
+        "op": "set_foreground",
+        "step": "quiet_middle"
+       }
+      ]
+     }
+    ],
+    "complete_when": [
+     {
+      "rule_id": "quiet_middle_done",
+      "cond": {
+       "type": "any",
+       "of": [
+        {
+         "type": "next_anchor",
+         "primitive": "D1",
+         "event": "cycle_start",
+         "after": "quiet_middle.start"
+        },
+        {
+         "type": "elapsed",
+         "step": "quiet_middle",
+         "max_s": 300,
+         "fires_at": "max"
+        }
+       ]
+      },
+      "state_update": [
+       {
+        "op": "mark_members",
+        "block": "quiet_middle",
+        "rest": "unknown"
+       },
+       {
+        "op": "set_state",
+        "step": "quiet_middle",
+        "to": "complete"
+       },
+       {
+        "op": "open",
+        "steps": [
+         "heat_serve"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "edges": [
+   {
+    "from": "fill_milk",
+    "to": "microwave_initial",
+    "relation": "precedes"
+   },
+   {
+    "from": "microwave_initial",
+    "to": "quiet_middle",
+    "relation": "precedes"
+   },
+   {
+    "from": "quiet_middle",
+    "to": "heat_serve",
+    "relation": "precedes"
+   }
+  ]
+ }
+}

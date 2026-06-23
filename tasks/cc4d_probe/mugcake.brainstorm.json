@@ -1,0 +1,979 @@
+{
+  "recipe": "mugcake",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "20 steps x (recognition + completion) + 41 checks = 81 total claims. Audio landscape: only D1 (microwave step 312) and D6 (timing/DAG) gate in. No frying, no tap, no blender. ~48% of CC4D steps are structurally silent; mugcake exceeds that fraction -- all dry/wet additions and hand-prep steps are silent. Whisking is excluded per library (transient clink: material-blind, cannot localize).",
+  "claims": [
+
+    {
+      "step_id": 297,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is measuring sugar and adding it to the mixing bowl (one of four concurrent dry-add root steps; must disambiguate which one)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- disambiguating sugar from salt/baking-powder by appearance requires color + ingredient container identity; a thumbnail ROI reduces frames sent but still needs VLM",
+      "config_oneline": "periodic VLM at ~2 fps; ROI crop on mixing-bowl area"
+    },
+    {
+      "step_id": 297,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Sugar tipped into bowl; completion inferred from onset of whisk step 308",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG graph logic: once 308 starts, all four dry-adds (297/299/304/310) are marked complete",
+      "config_oneline": "DAG-edge: complete_297 := start(308)"
+    },
+    {
+      "step_id": 297,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1.5 tbsp sugar -- flag noticeably different amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv HSV can detect THAT an add happened (state-change); cannot count tbsp; one targeted VLM call on the add event",
+      "config_oneline": "cv HSV state-change B-triggers one VLM ROI frame at pour moment"
+    },
+    {
+      "step_id": 297,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "White sugar with clean instrument in mixing bowl -- flag wrong ingredient or wrong container",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- ingredient identity (sugar vs salt vs brown sugar) and container identity require VLM; no cheap shortcut",
+      "config_oneline": "periodic VLM; container-identity check on recognition frame"
+    },
+    {
+      "step_id": 297,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spilling sugar while measuring or transferring",
+      "modality": "cv",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- spill detection needs spatial context and is not reliably caught by cheap cv alone; VLM call on the step frame is more reliable",
+      "config_oneline": "VLM on the same periodic frame; cv motion outlier as weak corroborator only"
+    },
+
+    {
+      "step_id": 299,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is measuring flour and adding it to mixing bowl (concurrent dry-add root; must disambiguate)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- flour is white powder similar to sugar; container label and measuring gesture require VLM",
+      "config_oneline": "periodic VLM at ~2 fps; ROI on bowl + hand area"
+    },
+    {
+      "step_id": 299,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Flour added to bowl; inferred from onset of whisk step 308",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- same DAG-edge as 297",
+      "config_oneline": "DAG-edge: complete_299 := start(308)"
+    },
+    {
+      "step_id": 299,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "2 tbsp flour -- flag different amount or wrong unit (tsp vs tbsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv HSV can detect add event; amount discrimination (tbsp vs tsp) needs VLM",
+      "config_oneline": "cv HSV B-triggers one VLM call at pour event"
+    },
+    {
+      "step_id": 299,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Flour with clean instrument in mixing bowl -- flag soiled spoon or wrong container",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- cleanliness and container identity require VLM",
+      "config_oneline": "VLM on periodic frame"
+    },
+    {
+      "step_id": 299,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Flag spilling flour outside bowl or dropping box",
+      "modality": "cv",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- spill and drop detection needs VLM for reliable classification",
+      "config_oneline": "VLM on periodic frame; cv motion as weak signal"
+    },
+
+    {
+      "step_id": 303,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User placing paper cupcake liner inside the mug (concurrent root step)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- paper liner vs other objects requires VLM identity; silent action",
+      "config_oneline": "periodic VLM at ~2 fps; ROI on mug area"
+    },
+    {
+      "step_id": 303,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Paper liner seated in mug; inferred from onset of set-aside step 301",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_303 := start(301)",
+      "config_oneline": "DAG-edge: complete_303 := start(301)"
+    },
+    {
+      "step_id": 303,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Paper cupcake liner in correct mug -- flag tissue paper or wrong-shaped mug",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- liner vs tissue paper identity requires VLM",
+      "config_oneline": "VLM on recognition frame"
+    },
+    {
+      "step_id": 303,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Liner covers mug bottom fully -- flag folded/misplaced liner",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- liner seating quality needs visual inspection; VLM with ROI crop on mug interior",
+      "config_oneline": "VLM single call after liner placement"
+    },
+
+    {
+      "step_id": 301,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User is setting the lined mug aside out of working area",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- motion/optical-flow can detect the mug being moved to a side zone; confirm with one VLM call or treat as A-solve if region-of-interest transition is reliable",
+      "config_oneline": "cv optical-flow or hand-in-ROI B-triggers VLM confirm; alternatively cv A-solve if zone-exit reliable"
+    },
+    {
+      "step_id": 301,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Lined mug set aside; inferred from onset of pour-batter step 307",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_301 := start(307)",
+      "config_oneline": "DAG-edge: complete_301 := start(307)"
+    },
+
+    {
+      "step_id": 304,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User measuring baking powder and adding to bowl (concurrent dry-add root; must disambiguate)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- baking powder looks like flour/sugar; container label identity requires VLM",
+      "config_oneline": "periodic VLM at ~2 fps; ROI on bowl + hand"
+    },
+    {
+      "step_id": 304,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Baking powder added to bowl; inferred from onset of whisk step 308",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_304 := start(308)",
+      "config_oneline": "DAG-edge: complete_304 := start(308)"
+    },
+    {
+      "step_id": 304,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 tsp baking powder -- flag 1/2 tsp or noticeably more",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv detects add event; tsp size discrimination needs VLM",
+      "config_oneline": "cv HSV B-triggers VLM at add event"
+    },
+    {
+      "step_id": 304,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Baking powder not soda, in mixing bowl -- flag baking soda or wrong container",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- baking powder vs baking soda identity requires container label reading (OCR or VLM)",
+      "config_oneline": "VLM on recognition frame; OCR on container label if feasible"
+    },
+    {
+      "step_id": 304,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Clean transfer -- flag spilling powder or dropping instrument into bowl",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- spill/drop requires VLM for reliable detection",
+      "config_oneline": "VLM on periodic frame"
+    },
+
+    {
+      "step_id": 310,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding a pinch of salt to mixing bowl (concurrent dry-add root; must disambiguate)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- pinch of salt vs sugar vs other white powder; requires VLM identity",
+      "config_oneline": "periodic VLM at ~2 fps"
+    },
+    {
+      "step_id": 310,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Pinch of salt added; inferred from onset of whisk step 308",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_310 := start(308)",
+      "config_oneline": "DAG-edge: complete_310 := start(308)"
+    },
+    {
+      "step_id": 310,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "Pinch of salt -- flag measured teaspoon or noticeably more",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- amount of a pinch vs teaspoon is a subtle visual judgment; VLM needed; no audio correlate",
+      "config_oneline": "VLM on recognition frame"
+    },
+    {
+      "step_id": 310,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Plain salt not sugar/seasoned-salt, in mixing bowl -- flag wrong ingredient or container",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- salt vs sugar visually identical at a pinch; container identity needed (VLM/OCR)",
+      "config_oneline": "VLM on recognition frame"
+    },
+    {
+      "step_id": 310,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Clean pinch transfer -- flag dropping or spilling salt",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- spill detection requires VLM",
+      "config_oneline": "VLM on periodic frame"
+    },
+
+    {
+      "step_id": 308,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User whisking dry ingredients in bowl to combine (reconvergence after all four dry-adds)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium -- cv optical-flow can detect whisk motion in bowl ROI; IMU on wrist would detect stirring/circular gross motion and could B-trigger a VLM confirm; whisk clink excluded from audio library",
+      "config_oneline": "cv optical-flow in bowl ROI B-triggers VLM confirm; IMU gross-motion as speculative A-solve candidate"
+    },
+    {
+      "step_id": 308,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Dry mixture combined, whisking stops; inferred from onset of water-add step 296",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_308 := start(296|300|313) (first wet-add begins)",
+      "config_oneline": "DAG-edge: complete_308 := start(296 OR 300 OR 313)"
+    },
+    {
+      "step_id": 308,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Whisk to combine -- flag stirring with spoon or bare hands instead of whisk",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- utensil identity (whisk vs spoon vs bare hands) requires VLM",
+      "config_oneline": "VLM on recognition frame for utensil check"
+    },
+
+    {
+      "step_id": 296,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding water to bowl (one of three concurrent wet-adds after 308; must disambiguate)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- water vs oil vs vanilla in small amounts; visual distinction needs VLM; D5 water-flow not applicable (tbsp measurement, not a tap flow event)",
+      "config_oneline": "periodic VLM at ~2 fps"
+    },
+    {
+      "step_id": 296,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Water added to bowl; inferred from onset of batter-whisk step 294",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_296 := start(294)",
+      "config_oneline": "DAG-edge: complete_296|300|313 := start(294)"
+    },
+    {
+      "step_id": 296,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "2 tbsp water -- flag different amount or wrong unit",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv detects pour event; quantity discrimination needs VLM",
+      "config_oneline": "cv motion/HSV B-triggers VLM at pour event"
+    },
+    {
+      "step_id": 296,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Water not milk, in mixing bowl -- flag milk substitution or wrong container",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- water vs milk visual distinction is subtle (both clear/white liquid in tbsp quantities); VLM needed",
+      "config_oneline": "VLM on recognition frame"
+    },
+
+    {
+      "step_id": 300,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User measuring vegetable oil and adding to bowl (concurrent wet-add; must disambiguate)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- oil vs water vs vanilla visually; VLM needed",
+      "config_oneline": "periodic VLM at ~2 fps"
+    },
+    {
+      "step_id": 300,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Oil added to bowl; inferred from onset of batter-whisk step 294",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- shared DAG-edge with 296/313: complete_300 := start(294)",
+      "config_oneline": "DAG-edge: complete_300 := start(294)"
+    },
+    {
+      "step_id": 300,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "2 tsp vegetable oil -- flag different amount or wrong unit (tbsp instead of tsp)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv detects pour; unit discrimination needs VLM",
+      "config_oneline": "cv motion B-triggers VLM at pour event"
+    },
+    {
+      "step_id": 300,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Vegetable oil not olive oil or other substitute -- flag wrong oil",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- oil variety identification requires container label/VLM",
+      "config_oneline": "VLM on recognition frame"
+    },
+    {
+      "step_id": 300,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Pour oil cleanly -- flag dropping bottle or spilling onto counter",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- spill/drop detection requires VLM",
+      "config_oneline": "VLM on periodic frame"
+    },
+
+    {
+      "step_id": 313,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adding vanilla extract to bowl (concurrent wet-add; must disambiguate)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- vanilla extract in small amounts; container identity needed; VLM",
+      "config_oneline": "periodic VLM at ~2 fps"
+    },
+    {
+      "step_id": 313,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Vanilla extract added; inferred from onset of batter-whisk step 294",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- shared DAG-edge: complete_313 := start(294)",
+      "config_oneline": "DAG-edge: complete_313 := start(294)"
+    },
+    {
+      "step_id": 313,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 tsp vanilla extract -- flag 1/2 tsp or different amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv detects pour; amount needs VLM",
+      "config_oneline": "cv motion B-triggers VLM at pour event"
+    },
+    {
+      "step_id": 313,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Vanilla extract in mixing bowl not mug -- flag wrong container",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- target container identity needs VLM",
+      "config_oneline": "VLM on recognition frame"
+    },
+    {
+      "step_id": 313,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Clean transfer -- flag spilling vanilla extract",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- spill detection requires VLM",
+      "config_oneline": "VLM on periodic frame"
+    },
+
+    {
+      "step_id": 294,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User whisking batter to lump-free consistency (reconvergence after all three wet-adds)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium -- cv optical-flow detects whisk motion; IMU could detect gross stirring; both B-trigger one VLM call to confirm lump-free state",
+      "config_oneline": "cv optical-flow in bowl ROI B-triggers VLM confirm"
+    },
+    {
+      "step_id": 294,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Batter smooth and lump-free, whisking stops; inferred from onset of pour-batter step 307",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_294 := start(307)",
+      "config_oneline": "DAG-edge: complete_294 := start(307)"
+    },
+    {
+      "step_id": 294,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Whisk with actual whisk until no lumps -- flag spoon/hands or stopping early with lumps",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- utensil identity + batter texture (lumpy vs smooth) requires VLM close-up",
+      "config_oneline": "VLM called at end of whisk motion (after cv detects motion stop)"
+    },
+    {
+      "step_id": 294,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Mixing in clean bowl with clean utensils -- flag mug instead of bowl or unclean instruments",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- cleanliness and container identity require VLM",
+      "config_oneline": "VLM on recognition frame"
+    },
+
+    {
+      "step_id": 307,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User pouring batter from bowl into prepared mug",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium -- cv optical-flow / pour motion detectable; IMU can detect pouring tilt gesture; B-triggers one VLM call to confirm correct target container",
+      "config_oneline": "cv motion/pour-tilt B-triggers VLM confirm; IMU speculative A-solve for pour gesture"
+    },
+    {
+      "step_id": 307,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Batter transferred to mug; inferred from onset of microwave step 312",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_307 := start(312); D1 cycle_start of 312 provides the anchor",
+      "config_oneline": "DAG-edge: complete_307 := cycle_start(D1)"
+    },
+    {
+      "step_id": 307,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Batter poured not transferred by hand -- flag hand-transfer",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- hand vs pour vessel distinction needs VLM",
+      "config_oneline": "VLM on recognition frame"
+    },
+    {
+      "step_id": 307,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Batter should be smooth before pouring -- flag lumpy batter poured",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- batter texture requires VLM close-up",
+      "config_oneline": "VLM on pour-moment frame"
+    },
+
+    {
+      "step_id": 312,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Mug with batter in microwave running on high power, followed by toothpick doneness check",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high -- D1 cycle_start confirms microwave running; thermal-spot on appliance exterior is speculative corroborator for power level",
+      "config_oneline": "D1: cycle_start within 8s confirms step 312; camera OFF during microwave run"
+    },
+    {
+      "step_id": 312,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Microwave stopped and toothpick check passes -- D1 end-beep is authoritative",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high -- D1 cycle_end + end-beep is the authoritative completion signal; thermal-spot speculative for burn detection",
+      "config_oneline": "D1: cycle_end (end-beep) marks step 312 complete; camera stays OFF"
+    },
+    {
+      "step_id": 312,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "About 60s on high power -- flag run noticeably beyond 60s (e.g. 90s or extra full minute)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- D6 timer anchored on D1 cycle_start measures duration; emits overtime event if >~75s threshold",
+      "config_oneline": "D6: overtime_threshold=75s anchored on D1.cycle_start; emits reminder without camera"
+    },
+    {
+      "step_id": 312,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "High power -- flag run long enough to reach burnt state (over-cooking)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high (audio) / medium (thermal) -- D6+D1 duration covers the primary check; thermal-spot on mug exterior after cycle could speculatively detect over-heat; audio alone sufficient for the timing proxy of 'too long'",
+      "config_oneline": "D6 overtime + D1 cycle_end; thermal-spot speculative secondary signal"
+    },
+
+    {
+      "step_id": 309,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User inverting mug to release cake onto a plate",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium -- cv motion / mug-flip gesture detectable with optical-flow; IMU on wrist detects inversion gesture; B-triggers one VLM call to confirm plate landing",
+      "config_oneline": "cv motion/flip gesture B-triggers VLM confirm; IMU speculative A-solve"
+    },
+    {
+      "step_id": 309,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Cake released onto plate -- observable end event; VLM call confirms",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv detects mug returned to upright; VLM confirms cake-on-plate",
+      "config_oneline": "cv B-triggers one VLM frame after mug-flip motion stops"
+    },
+    {
+      "step_id": 309,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Inverting onto plate not bowl -- flag bowl instead of plate or scraping instead of inverting",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- plate vs bowl identity and inversion vs scraping method requires VLM",
+      "config_oneline": "VLM on the B-trigger frame at completion"
+    },
+
+    {
+      "step_id": 305,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "Cake being left to cool, not handled",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high -- after step 309 completes, DAG enters 305; no-handling inferred from absence of motion; thermal-spot could speculatively track temperature drop to mark when cool",
+      "config_oneline": "DAG: enter_305 := complete(309); no-motion / no-interaction as passive confirmation"
+    },
+    {
+      "step_id": 305,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Cake no longer hot to touch -- needs temperature proxy",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium -- no audio signal for cool-down; DAG can use a fixed wait (e.g. 5 min post-microwave end) as a proxy; thermal-spot is the speculative cheapener to measure actual surface temp; without thermal, VLM or user-prompt needed",
+      "config_oneline": "D6 fixed-duration timer post D1.cycle_end (e.g. 300s proxy); thermal-spot speculative A-solve for true temp check"
+    },
+    {
+      "step_id": 305,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "[probe-added] Cool until not hot to touch -- flag proceeding with no real cooling time",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium -- D6 minimum-elapsed-time gate post D1.cycle_end; thermal-spot speculative for direct temp detection",
+      "config_oneline": "D6: min_cool_time anchored on D1.cycle_end; emits undertime if next step begins too soon"
+    },
+
+    {
+      "step_id": 295,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User carefully removing paper liner from cooled cake",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv can detect hand-to-plate fine motion; B-triggers VLM confirm for liner removal",
+      "config_oneline": "cv hand-in-ROI B-triggers VLM confirm"
+    },
+    {
+      "step_id": 295,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Paper liner removed; inferred from onset of frosting-scoop step 298",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_295 := start(298)",
+      "config_oneline": "DAG-edge: complete_295 := start(298)"
+    },
+
+    {
+      "step_id": 298,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User scooping chocolate frosting into zip-top bag",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- frosting identity (chocolate vs other) and bag identity require VLM; silent action",
+      "config_oneline": "periodic VLM at ~2 fps"
+    },
+    {
+      "step_id": 298,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Four spoonfuls in zip-top bag; inferred from onset of seal step 311",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_298 := start(311)",
+      "config_oneline": "DAG-edge: complete_298 := start(311)"
+    },
+    {
+      "step_id": 298,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "4 spoonfuls of frosting -- flag noticeably fewer (1-2 spoonfuls)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- counting spoonfuls requires VLM; no audio correlate; cv cannot count",
+      "config_oneline": "VLM periodic during frosting-scoop step; count spoonfuls"
+    },
+    {
+      "step_id": 298,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Chocolate frosting in zip-top bag -- flag cocoa powder/pieces or plain polythene bag",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- frosting vs cocoa powder identity and bag type identity require VLM",
+      "config_oneline": "VLM on recognition frame"
+    },
+    {
+      "step_id": 298,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Frosting scooped with spoon not by hand -- flag hand-transfer",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- hand vs spoon distinction requires VLM",
+      "config_oneline": "VLM on recognition frame"
+    },
+
+    {
+      "step_id": 311,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User sealing zip-top bag and pressing out air",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv can detect hands manipulating the bag top (sealing gesture); B-triggers VLM confirm for air-removal quality",
+      "config_oneline": "cv hand-motion B-triggers VLM confirm"
+    },
+    {
+      "step_id": 311,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Bag sealed with air removed; inferred from onset of cut-corner step 306",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_311 := start(306)",
+      "config_oneline": "DAG-edge: complete_311 := start(306)"
+    },
+    {
+      "step_id": 311,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Seal bag removing air -- flag sealing without removing air",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- air-removal quality requires VLM inspection of bag shape",
+      "config_oneline": "VLM called after sealing gesture detected"
+    },
+
+    {
+      "step_id": 306,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User cutting corner of bag with scissors to make ~1/4 inch piping opening",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- cv can detect scissors tool appearance and snip motion; audio: scissor snip is a transient excluded from library; B-triggers VLM to confirm opening size",
+      "config_oneline": "cv scissors-motion B-triggers VLM confirm for opening size"
+    },
+    {
+      "step_id": 306,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Small ~1/4 inch opening cut in corner; inferred from onset of squeeze-frosting step 302",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high -- DAG-edge: complete_306 := start(302)",
+      "config_oneline": "DAG-edge: complete_306 := start(302)"
+    },
+    {
+      "step_id": 306,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "~1/4 inch opening -- flag noticeably bigger hole",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- opening size measurement requires VLM close-up inspection",
+      "config_oneline": "VLM on post-cut frame"
+    },
+    {
+      "step_id": 306,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Scissors to cut -- flag using knife instead",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- scissors vs knife tool identity requires VLM",
+      "config_oneline": "VLM on recognition frame for tool identity"
+    },
+    {
+      "step_id": 306,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Only small corner cut -- flag cutting bag in half or major damage",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- extent of cut requires VLM spatial judgment",
+      "config_oneline": "VLM on post-cut frame"
+    },
+
+    {
+      "step_id": 302,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User squeezing bag to apply frosting dollops in circle around cake base on plate",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium -- cv can detect squeezing/piping motion; IMU could detect hand squeeze gesture; B-triggers VLM to verify dollop pattern",
+      "config_oneline": "cv hand-squeeze motion B-triggers VLM confirm for dollop pattern"
+    },
+    {
+      "step_id": 302,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Small frosting dollops in circle around cake base -- observable final end-state",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium -- VLM called once at end of piping motion to confirm final dollop pattern; no cheaper sensor can verify circular arrangement",
+      "config_oneline": "cv detects piping-motion stop; one VLM call to confirm completion pattern"
+    },
+    {
+      "step_id": 302,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Small dollops in circle -- flag piping in square or one big circle or wrong pattern",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- frosting pattern assessment requires VLM spatial judgment",
+      "config_oneline": "VLM on completion frame for pattern check"
+    },
+    {
+      "step_id": 302,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "[probe-added] Frosting on plate around cake not bowl -- flag bowl instead of plate",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low -- plate vs bowl identity at final step requires VLM",
+      "config_oneline": "VLM on completion frame"
+    }
+  ],
+
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 297, "stage": "dry-add-sugar", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic+B-trigger", "role": "C-none/B-trigger"
+      },
+      {
+        "step_id": 299, "stage": "dry-add-flour", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic+B-trigger", "role": "C-none/B-trigger"
+      },
+      {
+        "step_id": 303, "stage": "liner-place", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic", "role": "C-none"
+      },
+      {
+        "step_id": 301, "stage": "mug-set-aside", "camera": "cv-motion", "audio": "none", "vlm": "B-trigger", "role": "B-trigger"
+      },
+      {
+        "step_id": 304, "stage": "dry-add-baking-powder", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic+B-trigger", "role": "C-none/B-trigger"
+      },
+      {
+        "step_id": 310, "stage": "dry-add-salt", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic", "role": "C-none"
+      },
+      {
+        "step_id": 308, "stage": "whisk-dry", "camera": "cv-optflow", "audio": "none", "vlm": "B-trigger", "role": "B-trigger"
+      },
+      {
+        "step_id": 296, "stage": "wet-add-water", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic+B-trigger", "role": "C-none/B-trigger"
+      },
+      {
+        "step_id": 300, "stage": "wet-add-oil", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic+B-trigger", "role": "C-none/B-trigger"
+      },
+      {
+        "step_id": 313, "stage": "wet-add-vanilla", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic+B-trigger", "role": "C-none/B-trigger"
+      },
+      {
+        "step_id": 294, "stage": "whisk-batter", "camera": "cv-optflow", "audio": "none", "vlm": "B-trigger", "role": "B-trigger"
+      },
+      {
+        "step_id": 307, "stage": "pour-batter", "camera": "cv-motion", "audio": "none", "vlm": "B-trigger", "role": "B-trigger"
+      },
+      {
+        "step_id": 312, "stage": "microwave-60s", "camera": "OFF", "audio": "D1+D6", "vlm": "none", "role": "A-solve"
+      },
+      {
+        "step_id": 309, "stage": "invert-cake", "camera": "cv-motion", "audio": "none", "vlm": "B-trigger", "role": "B-trigger"
+      },
+      {
+        "step_id": 305, "stage": "cool-cake", "camera": "OFF", "audio": "D6(timer)", "vlm": "none", "role": "A-solve(DAG/D6)"
+      },
+      {
+        "step_id": 295, "stage": "remove-liner", "camera": "cv-motion", "audio": "none", "vlm": "B-trigger", "role": "B-trigger"
+      },
+      {
+        "step_id": 298, "stage": "scoop-frosting", "camera": "periodic-vlm", "audio": "none", "vlm": "periodic", "role": "C-none"
+      },
+      {
+        "step_id": 311, "stage": "seal-bag", "camera": "cv-motion", "audio": "none", "vlm": "B-trigger", "role": "B-trigger"
+      },
+      {
+        "step_id": 306, "stage": "cut-corner", "camera": "cv-motion", "audio": "none", "vlm": "B-trigger", "role": "B-trigger"
+      },
+      {
+        "step_id": 302, "stage": "pipe-frosting", "camera": "cv-motion", "audio": "none", "vlm": "B-trigger+C-none", "role": "B-trigger/C-none"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 26,
+      "B-trigger": 21,
+      "C-none": 34
+    },
+    "cost_estimate": "Only 1 step (312) allows camera fully OFF with audio-only (D1+D6). Step 305 (cooling) is camera-OFF with D6 timer proxy. All other steps need camera. ~42% of claims are C-none (continuous VLM). B-trigger reduces VLM from continuous to one targeted call on ~26% of claims. The recipe is predominantly silent add/measure steps -- the hardest class for sensor control. The one microwave step is the only large win. Thermal-spot is the most promising speculative cheapener (cool-down detection, burn-proxy).",
+    "honest_limits": "Mugcake is a worst-case recipe for sensor control: 18 of 20 steps are structurally silent (add/measure/whisk/pour/frost). D1 gates in for only 1 step (312). D6 helps timing on 312 and 305. D2/D3/D4/D5 do not gate in (no frying, no tap flow, no blender). The four concurrent dry-add root steps (297/299/304/310) and three concurrent wet-add steps (296/300/313) require disambiguation that only VLM can provide. The C-none fraction (~42%) reflects the recipe's structural silence honestly."
+  }
+}

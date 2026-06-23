@@ -1,0 +1,895 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "sautedmushrooms",
+ "activity_id": 20,
+ "n_recordings": 14,
+ "n_error_recordings": 8,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 206,
+   "order": 1,
+   "instruction": "Rinse 3 mushrooms under cold water",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Took only 2 mushrooms",
+      "use 2 mushrooms instead of 3",
+      "Rinse only 2 mushrooms instead of 3 mushrooms.",
+      "Take 4 mushrooms instead of 3"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after heating the pan"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use hot water also to rinse"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using 1 soiled mushroom"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 205,
+   "order": 2,
+   "instruction": "pat rinsed mushrooms dry with a paper towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    206
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after adding balsamic vinegar to the pan"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "squeeze mushrooms instead of patting",
+      "Apply more pressure while patting rinsed mushrooms.",
+      "Crush the mushrooms rather than patting them dry"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use cloth towel to pat instead of paper towel",
+      "Use cloth instead of paper towel"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 212,
+   "order": 3,
+   "instruction": "Chop 1 shallot",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 4,
+     "descriptions": [
+      "Use scallion instead of shallot",
+      "chop shallot without peeling it",
+      "Use onion instead of shallot",
+      "Chop on paper towel",
+      "Did not peel the shallot"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after adding balsamic vinegar to the pan"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Chopped 1/2 onion instead of 1 shallot",
+      "Instead of 1 shallot using only half shallot."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 214,
+   "order": 4,
+   "instruction": "Pull out mushroom stems",
+   "duration_constraint_s": null,
+   "preconditions": [
+    205
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Pull only half stem out for one of the mushrooms",
+      "Leave stem of one of the mushrooms",
+      "Leaving stem to one of the mushroom.",
+      "Pull out the stems partially"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after adding balsamic vinegar to the pan"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 210,
+   "order": 5,
+   "instruction": "Slice the mushrooms",
+   "duration_constraint_s": null,
+   "preconditions": [
+    214
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "chop instead of slice",
+      "Chop mushrooms instead of slicing",
+      "Chop the mushrooms",
+      "Cut instead of slicing the mushrooms.",
+      "Instead of slicing, chopping the mushrooms.",
+      "Chop instead of slice"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after heating the pan"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 176,
+   "order": 6,
+   "instruction": "Peel 2 garlic cloves",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Peel garlic cloves improperly",
+      "Peel garlic cloves partially instead of fully",
+      "Improperly peel the garlic cloves.",
+      "Not completely peeling the garlic cloves."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after heating the pan",
+      "Step performed after heating the contents of the pan"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Use 1 garlic clove",
+      "Peel onion instead of 2 garlic cloves",
+      "Take only one garlic clove, rather than two"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use onions instead of garlic"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 211,
+   "order": 7,
+   "instruction": "mince garlic cloves",
+   "duration_constraint_s": null,
+   "preconditions": [
+    176
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "descriptions": [
+      "Step performed after cooking the mushrooms",
+      "Step performed after heating the pan",
+      "Step performed after heating the contents of the pan",
+      "Step performed after cooking mushrooms",
+      "Step performed after cooking the mushrooms.",
+      "Step performed after cooking the pan and adding balsamic vinegar"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Slice garlic cloves",
+      "Instead of mincing the garlic cloves only chopping."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use onions instead of garlic",
+      "Mince on paper towel"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 215,
+   "order": 8,
+   "instruction": "Heat 1 tbsp olive oil in a large skillet over medium-high heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    210,
+    211,
+    212
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "descriptions": [
+      "Step performed before preparing the ingredients",
+      "Step performed after heating the pan"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "heat set to low heat instead of medium-high heat",
+      "use low heat instead of high heat",
+      "Used lower heat",
+      "Setting it to low-medium heat instead of medium-high heat."
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add 2 tbsp oil instead of 1 tbsp",
+      "Use a tsp rather than a tbsp"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Heat pan only, and forget to add oil"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "accidentally spill some oil from bottle into pan"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 208,
+   "order": 9,
+   "instruction": "Once the pan is hot, add the mushrooms",
+   "duration_constraint_s": null,
+   "preconditions": [
+    215
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed before mincing the garlic",
+      "add oil now",
+      "Step performed before preparing the ingredients",
+      "Step performed after adding balsamic vinegar to the pan",
+      "Step performed before correct order",
+      "Step performed after adding the minced garlic"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "dont wait for pan to be hot and spill while adding to pan",
+      "Not waiting enough for pan to be hot enough and added the mushrooms even if the pan is not heated enough.",
+      "Do not wait for the pan to become hot"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while adding mushrooms to the pan"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Do not wait for the pan to become hot"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 213,
+   "order": 10,
+   "instruction": "cook for 3-5 minutes, stirring often, until mushrooms start to soften and brown",
+   "duration_constraint_s": 300,
+   "preconditions": [
+    208
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed before mincing the garlic",
+      "Step performed before preparing the ingredients",
+      "Step performed after adding balsamic vinegar to the pan",
+      "Step performed after seasoning the pan"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "cook for 6 mins instead of 3-5 mins and dont wait till mushrooms are soft and brown",
+      "Cook for one minute",
+      "Undercook the mushroom",
+      "Cooking for less than 2 minutes instead of 3-5 minutes and not making the mushrooms to turn brown.",
+      "cook only for less than 2 mins"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "dont wait until mushrooms start to soften and brown",
+      "Didn't cook properly the mushrooms to turn brown."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Burnt because of different type of utensils"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 209,
+   "order": 11,
+   "instruction": "Add chopped shallot to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    213
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Step performed after adding minced garlic to the pan",
+      "Step performed before preparing the ingredients",
+      "Step performed after adding balsamic vinegar to the pan",
+      "Step performed after adding minced garlic and cooking for a minute.",
+      "Step performed after seasoning the pan"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "spill while adding scallion to the pan",
+      "Spill while adding chopped shallot to the pan"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "add all the discarded vegetable cuts along with shoot on paper towel",
+      "add whole shallot without chopping to the pan"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 217,
+   "order": 13,
+   "instruction": "1/4 tbsp balsamic vinegar to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    207
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "add 1 tbsp balsamic vinegar instead of 1/4 tbsp",
+      "Add 1/2 tbsp instead of 1/4 tbsp balsamic vinegar",
+      "Take 1 tbsp rather than 1/4"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before cooking mushrooms",
+      "Step performed before preparing the ingredients and cooking shallot"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add honey instead of balsamic vinegar"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill some balsamic vinegar"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 218,
+   "order": 14,
+   "instruction": "Add 2 cloves of minced garlic to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    207
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed before adding chopped scallion to the pan",
+      "Step performed before adding shallot to the pan",
+      "Step performed before correct order",
+      "Step performed before preparing the ingredients and cooking shallot"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add 1 clove of sliced garlic due to previous step errors"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use onions instead of garlic"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "While adding the minced garlic spill some of them."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 207,
+   "order": 15,
+   "instruction": "cook the pan, often stirring, for 1 minute",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    217,
+    218
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 5,
+     "descriptions": [
+      "Step performed before adding chopped scallion to the pan",
+      "Step performed before preparing the ingredients",
+      "Step performed after seasoning pepper",
+      "Step performed before adding shallot to the pan",
+      "Step performed before preparing the ingredients and cooking shallot"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 4,
+     "descriptions": [
+      "cook for 2 mins instead of 1 min",
+      "Cooked for 2.5 minutes instead of 1 minute",
+      "Cooked for more than 4 minutes",
+      "Cooked for 1.5 minutes instead of 1 minute, forgot to turn off the heat after the alarm",
+      "Didn't stir properly for 1 minute and stopped at 45 seconds.",
+      "Instead of 1 minute cooking only for 15 seconds."
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Pan too hot, burnt"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 219,
+   "order": 16,
+   "instruction": "pepper on pan to taste",
+   "duration_constraint_s": null,
+   "preconditions": [
+    207
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "spill some pepper outside",
+      "Pour instead of season"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before cooking for a minute",
+      "Step performed before preparing the ingredients and cooking shallot"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Seasoning using hand instead of a spoon."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 220,
+   "order": 17,
+   "instruction": "Season pan with salt",
+   "duration_constraint_s": null,
+   "preconditions": [
+    207
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Pour instead of season the salt",
+      "Sprinkling the salt out of the pan."
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before preparing the ingredients",
+      "Step performed before cooking shallot"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use hand to season the pan instead of using a spoon"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 216,
+   "order": 18,
+   "instruction": "Transfer the contents of the pan to a serving dish",
+   "duration_constraint_s": null,
+   "preconditions": [
+    219,
+    220
+   ],
+   "observed_reminders": []
+  }
+ ]
+}

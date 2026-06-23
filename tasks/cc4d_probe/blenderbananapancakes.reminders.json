@@ -1,0 +1,703 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "blenderbananapancakes",
+ "activity_id": 21,
+ "n_recordings": 19,
+ "n_error_recordings": 12,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 221,
+   "order": 1,
+   "instruction": "1/2 tsp baking powder to a blender",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Using Tbsp instead of tsp.",
+      "Add-1 tbsp baking powder instead of 1/2 tsp to a blender"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spilling the powder onto hands while adding it to the blender"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 225,
+   "order": 2,
+   "instruction": "Add 1 banana to a blender",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Instead of full banana adding half.",
+      "Add half banana instead of 1 banana"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 229,
+   "order": 3,
+   "instruction": "1 egg to a blender",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Dropping egg shell while adding to blender",
+      "Spill while adding egg to a blender and dropping egg shell into blender",
+      "Cracking the egg improperly such that some part of the egg shell falls into the blender",
+      "Crack egg such that it falls into the blender"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after doing everything.",
+      "Step performed after blitzing"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add 2 eggs instead of  1 egg"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using a soiled and broken egg."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 232,
+   "order": 4,
+   "instruction": "1 heaped tbsp flour to a blender",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Not a heaped tbsp flour.",
+      "Add 1 flattened tbsp of flour to a blender instead of heaped tbsp",
+      "Adding without a heap instead of heaped tbsp."
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill some flour outside while adding to blender",
+      "Dropping flour while adding heaped measuring utensil into the blender"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after blending it once"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 227,
+   "order": 5,
+   "instruction": "blitz the blender for 20 seconds",
+   "duration_constraint_s": 20,
+   "preconditions": [
+    221,
+    225,
+    229,
+    232
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "40 instead of 20 seconds",
+      "Blitzing the blender for more than 20 seconds.",
+      "30 secs",
+      "Blend the contents improperly for 30 seconds",
+      "blitz for 25 secs instead of 20 secs"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate and before adding egg.",
+      "Step performed before adding flour to the blender",
+      "Step performed before adding egg"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 223,
+   "order": 6,
+   "instruction": "Melt a small knob of butter in a non-stick frying pan over low-medium heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    227
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Used high heat instead of low-medium heat",
+      "used medium heat instead of low-medium heat"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Melt a spoon of butter instead of small knob of butter in a non-stick frying pan",
+      "Use a tablespoon of butter instead of a small knob"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate and before adding egg.",
+      "Step performed after flipping pancakes"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using a steel pan instead of a non-stick pan."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 231,
+   "order": 7,
+   "instruction": "Pour three little puddles straight from the blender into the frying pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    223
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Poured on large puddle instead of three little puddles",
+      "Pour one puddle instead of three little puddles straight from the blender into the frying pan",
+      "Pour one large puddle instead of little puddles"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate and before adding egg.",
+      "Step performed after adding maple syrup on plate",
+      "Step performed before melting butter in pan"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spooned the content instead of pouring.",
+      "Spooning the batter into the pan instead of pouring",
+      "Spooning instead of pouring"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Not using a proper frying pan."
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Drop the blender"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 226,
+   "order": 8,
+   "instruction": "Cook for 1 min or until the tops start to bubble",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    231
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Did not cook for required time.",
+      "Cook for 2 mins instead of 1 min"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate and before adding egg.",
+      "Step performed after adding maple syrup on plate"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Not cooking until required state is reached"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Cook on high for 1 minute"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 228,
+   "order": 9,
+   "instruction": "Flip the pancakes with a fork or a fish slice spatula",
+   "duration_constraint_s": null,
+   "preconditions": [
+    226
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "descriptions": [
+      "Didn't flip the pancakes properly.",
+      "Did not flip the entire pancake, but only a part of it",
+      "Did not flip entire pancake but only half of it.",
+      "Did not flip the entire puddle at once",
+      "Not flipping entire pancake at once",
+      "Flipped a pancake outside the pan instead of inside.",
+      "Did not flip the entire pancake"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Not using a fork or a fish slice spatula to flip the pancakes",
+      "Not using fish slice spatula resulting in making a large ball",
+      "Not using a fork or a fish slice spatula",
+      "Flipped without using fork or spatula"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate and before adding egg.",
+      "Step performed after adding maple syrup on plate",
+      "Step performed melting butter in pan"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 230,
+   "order": 10,
+   "instruction": "cook for 20-30 seconds more",
+   "duration_constraint_s": 30,
+   "preconditions": [
+    228
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "10 instead of 20-30 seconds",
+      "Cook on high for 1 minute",
+      "cook for more than 20 seconds"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Did not turn off the stove after 30 seconds"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate and before adding egg.",
+      "Step performed after adding maple syrup on plate"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Cook on high for 1 minute"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 233,
+   "order": 11,
+   "instruction": "Chop 1 strawberry",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Teared strawberries with hands instead of chopping them with a knife",
+      "mince instead of chopping 1 strawberry",
+      "Slice instead of chop",
+      "Cut instead of chopping a strawberry"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Chopping two strawberries instead of one.",
+      "Use 2 strawberry instead of 1"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use soiled strawberry."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 234,
+   "order": 12,
+   "instruction": "Transfer to a plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    230
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate",
+      "Step performed after adding maple syrup to the plate and before adding egg.",
+      "Step performed after adding maple syrup on plate"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Bowl instead of plate",
+      "Use bowl instead plate"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 222,
+   "order": 13,
+   "instruction": "Serve the pancakes with chopped strawberries",
+   "duration_constraint_s": null,
+   "preconditions": [
+    233,
+    234
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spilled while adding strawberries to the plate",
+      "Did not add all the chopped strawberries."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding maple syrup to the plate and before adding egg.",
+      "Step performed after adding maple syrup on plate"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 224,
+   "order": 14,
+   "instruction": "splash maple syrup on plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    222
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Spill the maple syrup while splashing on plate.",
+      "Spill some maple syrup.",
+      "Pour instead of splash maple syrup on plate",
+      "Drop while adding maple syrup into the plate"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before adding strawberries to the plate",
+      "Step performed before making pancakes",
+      "Step performed before making pan cakes"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Using siracha sauce instead of maple syrup."
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  }
+ ]
+}

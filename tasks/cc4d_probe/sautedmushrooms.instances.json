@@ -1,0 +1,2235 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "sautedmushrooms",
+ "activity_id": 20,
+ "n_recordings": 14,
+ "n_error_recordings": 8,
+ "steps": [
+  {
+   "step_id": 206,
+   "order": 1,
+   "instruction": "Rinse 3 mushrooms under cold water",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_25",
+       "cc4d_step_id": 206,
+       "description": "Took only 2 mushrooms",
+       "video_window": [
+        102.8,
+        131.3
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 206,
+       "description": "use 2 mushrooms instead of 3",
+       "video_window": [
+        1.5,
+        49.1
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 206,
+       "description": "Rinse only 2 mushrooms instead of 3 mushrooms.",
+       "video_window": [
+        260.7,
+        306.5
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 206,
+       "description": "Take 4 mushrooms instead of 3",
+       "video_window": [
+        1.7,
+        69.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 206,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        77.9,
+        158.2
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 206,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        140.8,
+        163.0
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 206,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        260.7,
+        306.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 206,
+       "description": "Use hot water also to rinse",
+       "video_window": [
+        77.9,
+        158.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 206,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 206,
+       "description": "Using 1 soiled mushroom",
+       "video_window": [
+        260.7,
+        306.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 205,
+   "order": 2,
+   "instruction": "pat rinsed mushrooms dry with a paper towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    206
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 205,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        195.7,
+        224.9
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 205,
+       "description": "Step performed after adding balsamic vinegar to the pan",
+       "video_window": [
+        200.6,
+        218.5
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 205,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        315.0,
+        349.1
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 205,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        170.7,
+        201.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 205,
+       "description": "squeeze mushrooms instead of patting",
+       "video_window": [
+        118.9,
+        154.7
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 205,
+       "description": "Apply more pressure while patting rinsed mushrooms.",
+       "video_window": [
+        315.0,
+        349.1
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 205,
+       "description": "Crush the mushrooms rather than patting them dry",
+       "video_window": [
+        170.7,
+        201.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 205,
+       "description": "Use cloth towel to pat instead of paper towel",
+       "video_window": [
+        195.7,
+        224.9
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 205,
+       "description": "Use cloth instead of paper towel",
+       "video_window": [
+        59.6,
+        81.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 205,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 212,
+   "order": 3,
+   "instruction": "Chop 1 shallot",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 212,
+       "description": "Use scallion instead of shallot",
+       "video_window": [
+        266.8,
+        338.4
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 212,
+       "description": "chop shallot without peeling it",
+       "video_window": [
+        235.9,
+        415.0
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 212,
+       "description": "Use onion instead of shallot",
+       "video_window": [
+        323.6,
+        540.1
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 212,
+       "description": "Chop on paper towel",
+       "video_window": [
+        236.6,
+        290.7
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 212,
+       "description": "Did not peel the shallot",
+       "video_window": [
+        236.6,
+        290.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 212,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        266.8,
+        338.4
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 212,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        235.9,
+        415.0
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 212,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        323.6,
+        540.1
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 212,
+       "description": "Step performed after adding balsamic vinegar to the pan",
+       "video_window": [
+        236.6,
+        290.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 212,
+       "description": "Chopped 1/2 onion instead of 1 shallot",
+       "video_window": [
+        323.6,
+        540.1
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 212,
+       "description": "Instead of 1 shallot using only half shallot.",
+       "video_window": [
+        6.7,
+        194
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 212,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 214,
+   "order": 4,
+   "instruction": "Pull out mushroom stems",
+   "duration_constraint_s": null,
+   "preconditions": [
+    205
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 214,
+       "description": "Pull only half stem out for one of the mushrooms",
+       "video_window": [
+        225.1,
+        254.5
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 214,
+       "description": "Leave stem of one of the mushrooms",
+       "video_window": [
+        219,
+        231.5
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 214,
+       "description": "Leaving stem to one of the mushroom.",
+       "video_window": [
+        483.7,
+        497.5
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 214,
+       "description": "Pull out the stems partially",
+       "video_window": [
+        205.9,
+        230.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 214,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        225.1,
+        254.5
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 214,
+       "description": "Step performed after adding balsamic vinegar to the pan",
+       "video_window": [
+        219,
+        231.5
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 214,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        483.7,
+        497.5
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 214,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        205.9,
+        230.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 214,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 210,
+   "order": 5,
+   "instruction": "Slice the mushrooms",
+   "duration_constraint_s": null,
+   "preconditions": [
+    214
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 210,
+       "description": "chop instead of slice",
+       "video_window": [
+        345.4,
+        452.8
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 210,
+       "description": "Chop mushrooms instead of slicing",
+       "video_window": [
+        425.4,
+        570.8
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 210,
+       "description": "Chop the mushrooms",
+       "video_window": [
+        171.8,
+        272.2
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 210,
+       "description": "Cut instead of slicing the mushrooms.",
+       "video_window": [
+        96.5,
+        111.7
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 210,
+       "description": "Instead of slicing, chopping the mushrooms.",
+       "video_window": [
+        502.6,
+        595.0
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 210,
+       "description": "Chop instead of slice",
+       "video_window": [
+        260.4,
+        354.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 210,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        345.4,
+        452.8
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 210,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        425.4,
+        570.8
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 210,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        502.6,
+        595.0
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 210,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        260.4,
+        354.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 210,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 176,
+   "order": 6,
+   "instruction": "Peel 2 garlic cloves",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 176,
+       "description": "Peel garlic cloves improperly",
+       "video_window": [
+        163.3,
+        194.5
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 176,
+       "description": "Peel garlic cloves partially instead of fully",
+       "video_window": [
+        55.8,
+        116.0
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 176,
+       "description": "Improperly peel the garlic cloves.",
+       "video_window": [
+        12.4,
+        79.6
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 176,
+       "description": "Not completely peeling the garlic cloves.",
+       "video_window": [
+        360.7,
+        477.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 176,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        163.3,
+        194.5
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 176,
+       "description": "Step performed after heating the contents of the pan",
+       "video_window": [
+        740.6,
+        817.6
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 176,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        360.7,
+        477.0
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 176,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        234.9,
+        257.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 176,
+       "description": "Use 1 garlic clove",
+       "video_window": [
+        740.6,
+        817.6
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 176,
+       "description": "Peel onion instead of 2 garlic cloves",
+       "video_window": [
+        0.6,
+        35.0
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 176,
+       "description": "Take only one garlic clove, rather than two",
+       "video_window": [
+        234.9,
+        257.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 176,
+       "description": "Use onions instead of garlic",
+       "video_window": [
+        0.6,
+        35.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 211,
+   "order": 7,
+   "instruction": "mince garlic cloves",
+   "duration_constraint_s": null,
+   "preconditions": [
+    176
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 211,
+       "description": "Step performed after cooking the mushrooms",
+       "video_window": [
+        715.0,
+        797.8
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 211,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        575.1,
+        665.1
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 211,
+       "description": "Step performed after heating the contents of the pan",
+       "video_window": [
+        915.2,
+        947.6
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 211,
+       "description": "Step performed after cooking mushrooms",
+       "video_window": [
+        442.2,
+        465.2
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 211,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        86.7,
+        131.0
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 211,
+       "description": "Step performed after cooking the mushrooms.",
+       "video_window": [
+        907.6,
+        1020.2
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 211,
+       "description": "Step performed after cooking the pan and adding balsamic vinegar",
+       "video_window": [
+        465.9,
+        488.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 211,
+       "description": "Slice garlic cloves",
+       "video_window": [
+        915.2,
+        947.6
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 211,
+       "description": "Instead of mincing the garlic cloves only chopping.",
+       "video_window": [
+        907.6,
+        1020.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 211,
+       "description": "Use onions instead of garlic",
+       "video_window": [
+        86.7,
+        131.0
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 211,
+       "description": "Mince on paper towel",
+       "video_window": [
+        86.7,
+        131.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 215,
+   "order": 8,
+   "instruction": "Heat 1 tbsp olive oil in a large skillet over medium-high heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    210,
+    211,
+    212
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 215,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        4.3,
+        75.7
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 215,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        185.6,
+        229.6
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 215,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        280.1,
+        320.0
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 215,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        185.1,
+        219.0
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 215,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        36.8,
+        178.6
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 215,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        200.2,
+        609.6
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 215,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        72.9,
+        165.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 215,
+       "description": "heat set to low heat instead of medium-high heat",
+       "video_window": [
+        4.3,
+        75.7
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 215,
+       "description": "use low heat instead of high heat",
+       "video_window": [
+        185.6,
+        229.6
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 215,
+       "description": "Used lower heat",
+       "video_window": [
+        280.1,
+        320.0
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 215,
+       "description": "Setting it to low-medium heat instead of medium-high heat.",
+       "video_window": [
+        200.2,
+        609.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 215,
+       "description": "Add 2 tbsp oil instead of 1 tbsp",
+       "video_window": [
+        4.3,
+        75.7
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 215,
+       "description": "Use a tsp rather than a tbsp",
+       "video_window": [
+        72.9,
+        165.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 215,
+       "description": "Heat pan only, and forget to add oil",
+       "video_window": [
+        280.1,
+        320.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 215,
+       "description": "accidentally spill some oil from bottle into pan",
+       "video_window": [
+        72.9,
+        165.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 208,
+   "order": 9,
+   "instruction": "Once the pan is hot, add the mushrooms",
+   "duration_constraint_s": null,
+   "preconditions": [
+    215
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 208,
+       "description": "Step performed before mincing the garlic",
+       "video_window": [
+        455.5,
+        470.9
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 208,
+       "description": "add oil now",
+       "video_window": [
+        540.1,
+        605.9
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 208,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        540.1,
+        605.9
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 208,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        227.3,
+        233.9
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 208,
+       "description": "Step performed after adding balsamic vinegar to the pan",
+       "video_window": [
+        322.3,
+        329
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 208,
+       "description": "Step performed before correct order",
+       "video_window": [
+        610.2,
+        637.3
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 208,
+       "description": "Step performed after adding the minced garlic",
+       "video_window": [
+        555.3,
+        573.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 208,
+       "description": "dont wait for pan to be hot and spill while adding to pan",
+       "video_window": [
+        455.5,
+        470.9
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 208,
+       "description": "Not waiting enough for pan to be hot enough and added the mushrooms even if the pan is not heated enough.",
+       "video_window": [
+        227.3,
+        233.9
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 208,
+       "description": "Do not wait for the pan to become hot",
+       "video_window": [
+        555.3,
+        573.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 208,
+       "description": "Spill while adding mushrooms to the pan",
+       "video_window": [
+        455.5,
+        470.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 208,
+       "description": "Do not wait for the pan to become hot",
+       "video_window": [
+        555.3,
+        573.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 213,
+   "order": 10,
+   "instruction": "cook for 3-5 minutes, stirring often, until mushrooms start to soften and brown",
+   "duration_constraint_s": 300,
+   "preconditions": [
+    208
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 213,
+       "description": "Step performed before mincing the garlic",
+       "video_window": [
+        485.7,
+        800
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 213,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        607.8,
+        699.7
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 213,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        235.0,
+        402.6
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 213,
+       "description": "Step performed after adding balsamic vinegar to the pan",
+       "video_window": [
+        339.2,
+        410
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 213,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        638.3,
+        848.5
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 213,
+       "description": "Step performed after seasoning the pan",
+       "video_window": [
+        606.4,
+        715.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 213,
+       "description": "cook for 6 mins instead of 3-5 mins and dont wait till mushrooms are soft and brown",
+       "video_window": [
+        485.7,
+        800
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 213,
+       "description": "Cook for one minute",
+       "video_window": [
+        607.8,
+        699.7
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 213,
+       "description": "Undercook the mushroom",
+       "video_window": [
+        339.2,
+        410
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 213,
+       "description": "Cooking for less than 2 minutes instead of 3-5 minutes and not making the mushrooms to turn brown.",
+       "video_window": [
+        638.3,
+        848.5
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 213,
+       "description": "cook only for less than 2 mins",
+       "video_window": [
+        606.4,
+        715.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 213,
+       "description": "dont wait until mushrooms start to soften and brown",
+       "video_window": [
+        607.8,
+        699.7
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 213,
+       "description": "Didn't cook properly the mushrooms to turn brown.",
+       "video_window": [
+        235.0,
+        402.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_25",
+       "cc4d_step_id": 213,
+       "description": "Burnt because of different type of utensils",
+       "video_window": [
+        670.9,
+        780.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 209,
+   "order": 11,
+   "instruction": "Add chopped shallot to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    213
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 209,
+       "description": "Step performed after adding minced garlic to the pan",
+       "video_window": [
+        908.4,
+        924.4
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 209,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        700.4,
+        735.5
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 209,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        402.9,
+        417.2
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 209,
+       "description": "Step performed after adding balsamic vinegar to the pan",
+       "video_window": [
+        401,
+        411.7
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 209,
+       "description": "Step performed after adding minced garlic and cooking for a minute.",
+       "video_window": [
+        1079.0,
+        1095.2
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 209,
+       "description": "Step performed after seasoning the pan",
+       "video_window": [
+        595.3,
+        606.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 209,
+       "description": "spill while adding scallion to the pan",
+       "video_window": [
+        908.4,
+        924.4
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 209,
+       "description": "Spill while adding chopped shallot to the pan",
+       "video_window": [
+        700.4,
+        735.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 209,
+       "description": "add all the discarded vegetable cuts along with shoot on paper towel",
+       "video_window": [
+        401,
+        411.7
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 209,
+       "description": "add whole shallot without chopping to the pan",
+       "video_window": [
+        595.3,
+        606.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 209,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 217,
+   "order": 13,
+   "instruction": "1/4 tbsp balsamic vinegar to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    207
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 217,
+       "description": "add 1 tbsp balsamic vinegar instead of 1/4 tbsp",
+       "video_window": [
+        1006.9,
+        1049.9
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 217,
+       "description": "Add 1/2 tbsp instead of 1/4 tbsp balsamic vinegar",
+       "video_window": [
+        982.2,
+        1049.9
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 217,
+       "description": "Take 1 tbsp rather than 1/4",
+       "video_window": [
+        441.1,
+        460.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 217,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 217,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 217,
+       "description": "Step performed before cooking mushrooms",
+       "video_window": [
+        167.9,
+        192.0
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 217,
+       "description": "Step performed before preparing the ingredients and cooking shallot",
+       "video_window": [
+        441.1,
+        460.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 217,
+       "description": "Add honey instead of balsamic vinegar",
+       "video_window": [
+        982.2,
+        1049.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 217,
+       "description": "Spill some balsamic vinegar",
+       "video_window": [
+        441.1,
+        460.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 218,
+   "order": 14,
+   "instruction": "Add 2 cloves of minced garlic to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    207
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 218,
+       "description": "Step performed before adding chopped scallion to the pan",
+       "video_window": [
+        875.4,
+        885.2
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 218,
+       "description": "Step performed before adding shallot to the pan",
+       "video_window": [
+        294.5,
+        316.5
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 218,
+       "description": "Step performed before correct order",
+       "video_window": [
+        1021.8,
+        1040.5
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 218,
+       "description": "Step performed before preparing the ingredients and cooking shallot",
+       "video_window": [
+        492.3,
+        503.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 218,
+       "description": "Add 1 clove of sliced garlic due to previous step errors",
+       "video_window": [
+        953.5,
+        960.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 218,
+       "description": "Use onions instead of garlic",
+       "video_window": [
+        294.5,
+        316.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 218,
+       "description": "While adding the minced garlic spill some of them.",
+       "video_window": [
+        1021.8,
+        1040.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 207,
+   "order": 15,
+   "instruction": "cook the pan, often stirring, for 1 minute",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    217,
+    218
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "20_26",
+       "cc4d_step_id": 207,
+       "description": "Step performed before adding chopped scallion to the pan",
+       "video_window": [
+        800,
+        870
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 207,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        418,
+        488
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 207,
+       "description": "Step performed after seasoning pepper",
+       "video_window": [
+        517.5,
+        570.8
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 207,
+       "description": "Step performed before adding shallot to the pan",
+       "video_window": [
+        1043.4,
+        1078.1
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 207,
+       "description": "Step performed before preparing the ingredients and cooking shallot",
+       "video_window": [
+        371,
+        432
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 207,
+       "description": "Step performed before preparing the ingredients and cooking shallot",
+       "video_window": [
+        504.1,
+        529.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 207,
+       "description": "cook for 2 mins instead of 1 min",
+       "video_window": [
+        885,
+        1005
+       ]
+      },
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 207,
+       "description": "Cooked for 2.5 minutes instead of 1 minute",
+       "video_window": [
+        1071.0,
+        1215
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 207,
+       "description": "Cooked for more than 4 minutes",
+       "video_window": [
+        700,
+        1050
+       ]
+      },
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 207,
+       "description": "Cooked for 1.5 minutes instead of 1 minute, forgot to turn off the heat after the alarm",
+       "video_window": [
+        1050.6,
+        1142
+       ]
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 207,
+       "description": "Didn't stir properly for 1 minute and stopped at 45 seconds.",
+       "video_window": [
+        542.5,
+        602.6
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 207,
+       "description": "Instead of 1 minute cooking only for 15 seconds.",
+       "video_window": [
+        1043.4,
+        1078.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_25",
+       "cc4d_step_id": 207,
+       "description": "Pan too hot, burnt",
+       "video_window": [
+        795,
+        855
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 219,
+   "order": 16,
+   "instruction": "pepper on pan to taste",
+   "duration_constraint_s": null,
+   "preconditions": [
+    207
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 219,
+       "description": "spill some pepper outside",
+       "video_window": [
+        1166.3,
+        1185.2
+       ]
+      },
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 219,
+       "description": "Pour instead of season",
+       "video_window": [
+        505.2,
+        517.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 219,
+       "description": "Step performed before cooking for a minute",
+       "video_window": [
+        505.2,
+        517.4
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 219,
+       "description": "Step performed before preparing the ingredients and cooking shallot",
+       "video_window": [
+        530.7,
+        544.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 219,
+       "description": "Seasoning using hand instead of a spoon.",
+       "video_window": [
+        1103.1,
+        1123.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 220,
+   "order": 17,
+   "instruction": "Season pan with salt",
+   "duration_constraint_s": null,
+   "preconditions": [
+    207
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_32",
+       "cc4d_step_id": 220,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "20_39",
+       "cc4d_step_id": 220,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_44",
+       "cc4d_step_id": 220,
+       "description": "Pour instead of season the salt",
+       "video_window": [
+        571.7,
+        581.8
+       ]
+      },
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 220,
+       "description": "Sprinkling the salt out of the pan.",
+       "video_window": [
+        833.2,
+        848.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "20_47",
+       "cc4d_step_id": 220,
+       "description": "Step performed before preparing the ingredients",
+       "video_window": [
+        833.2,
+        848.9
+       ]
+      },
+      {
+       "recording_id": "20_48",
+       "cc4d_step_id": 220,
+       "description": "Step performed before cooking shallot",
+       "video_window": [
+        546.5,
+        553.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "20_29",
+       "cc4d_step_id": 220,
+       "description": "Use hand to season the pan instead of using a spoon",
+       "video_window": [
+        1146.4,
+        1164.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 216,
+   "order": 18,
+   "instruction": "Transfer the contents of the pan to a serving dish",
+   "duration_constraint_s": null,
+   "preconditions": [
+    219,
+    220
+   ],
+   "observed_reminders": []
+  }
+ ],
+ "unmapped_step_ids": []
+}

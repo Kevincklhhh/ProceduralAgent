@@ -1,0 +1,424 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "procedure_criteria",
+  "_mode": "PROBING_FIREWALL_RELAXED",
+  "_provenance": "Stage-1 probing mode (firewall relaxed). recognition/completion are recipe-only (firewall-clean); ALL checks are probe-derived from the observed error space (tasks/cc4d_probe/tomatochutney.reminders.json) -- one per observed subtype -- and are NOT firewall-clean, so do not score these criteria as a clean predictor result. order/missing_step are runtime-emitted (not authored). Recipe DAG: two root nodes (145 peel-garlic, 149 take-tomato) running in parallel; garlic chain 145->140 and tomato chain 149->155->150 reconverge at heat-oil 154; two small unordered forks from 154 (mustard 139 and cumin 141, reconverge at 152) and from 157 (tomato-puree 142 and salt 146, reconverge at 144); terminal linear chain 144->153->143->156.",
+  "task": {
+    "task_id": "tomatochutney",
+    "title": "Tomatochutney",
+    "source": "tasks/cc4d/tomatochutney.json"
+  },
+  "nodes": [
+    {
+      "step_id": 145,
+      "instruction": "Peel 4 large garlic cloves",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is peeling garlic cloves at a prep surface. Root step (no preconditions): eligible from the start, concurrently with the other root Take 1 tomato (149) -- recognition must say which is active now; no order is imposed between them."
+      },
+      "completion": {
+        "claim": "All garlic cloves are peeled and skins set aside; no distinct end signal of its own, so inferred from the onset of mincing the garlic.",
+        "inferred_from": 140
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 4 large garlic cloves; flag if a different count (e.g. only 2) or noticeably small cloves are peeled."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The cloves should be peeled cleanly; flag if cloves are broken or the skin is left on / not properly removed."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "Each clove should be fully peeled before proceeding; flag if a clove is only partially peeled."
+        }
+      ]
+    },
+    {
+      "step_id": 140,
+      "instruction": "mince the garlic",
+      "preconditions": [145],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is mincing the peeled garlic into fine pieces with a knife."
+      },
+      "completion": {
+        "claim": "The garlic is minced into fine pieces; no distinct end signal of its own, so inferred from the onset of heating oil in the pan.",
+        "inferred_from": 154
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The garlic should be minced (chopped fine), not sliced, roughly cut, or crushed; flag if a different cutting technique is used instead of mincing."
+        },
+        {
+          "reminder": "measurement",
+          "claim": "All 4 garlic cloves should be minced; flag if only a subset (e.g. 2 cloves) is minced."
+        }
+      ]
+    },
+    {
+      "step_id": 149,
+      "instruction": "Take 1 tomato",
+      "preconditions": [],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is picking up or selecting a tomato. Root step (no preconditions): eligible from the start, concurrently with the other root Peel 4 large garlic cloves (145) -- recognition must say which is active now; no order is imposed between them."
+      },
+      "completion": {
+        "claim": "One tomato is in hand and ready for chopping; no distinct end signal of its own, so inferred from the onset of chopping the tomato.",
+        "inferred_from": 155
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1 tomato; flag if 2 or more tomatoes are taken."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The tomato should be clean before use; flag if a soiled tomato is used without washing it."
+        }
+      ]
+    },
+    {
+      "step_id": 155,
+      "instruction": "Chop tomato roughly (anysize chunks are fine)",
+      "preconditions": [149],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is roughly chopping the tomato into chunks on a cutting board."
+      },
+      "completion": {
+        "claim": "The tomato is chopped into rough chunks; no distinct end signal of its own, so inferred from the onset of pureeing the tomatoes.",
+        "inferred_from": 150
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The tomato should be chopped into rough chunks; flag if it is sliced thinly or crushed rather than chopped."
+        }
+      ]
+    },
+    {
+      "step_id": 150,
+      "instruction": "puree tomatoes without any water in a blender/mixer",
+      "preconditions": [155],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is blending the chopped tomato into a smooth puree in a blender or mixer."
+      },
+      "completion": {
+        "claim": "The tomato is fully pureed; no distinct end signal of its own, so inferred from the onset of heating oil in the pan.",
+        "inferred_from": 154
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The recipe requires pureeing tomatoes without any water; flag if water is added to the blender, water is spilled in, or the tomatoes are left as chunks instead of being pureed."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "The puree should be smooth and water-free; flag if blending is insufficient and chunks remain, or extra liquid is added."
+        },
+        {
+          "reminder": "timing",
+          "claim": "The tomatoes should be blended until fully pureed before proceeding; flag if blending is cut short so the tomatoes are not correctly pureed."
+        }
+      ]
+    },
+    {
+      "step_id": 154,
+      "instruction": "Heat 3 tbsp oil in a pan over medium heat",
+      "preconditions": [140, 150],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding oil to a pan and placing it on the stove over medium heat. This is the reconvergence node where the garlic-prep and tomato-prep chains meet."
+      },
+      "completion": {
+        "claim": "The oil is hot in the pan; no distinct end signal of its own, so inferred from the onset of adding mustard seeds to the pan (earliest direct successor by recipe order).",
+        "inferred_from": 139
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 3 tbsp of oil; flag if a noticeably different amount or wrong unit is used (e.g. 1-2 tsp, 4-5 tbsp, or 1/2 tbsp) or if a spill causes extra oil to be added."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The oil should be heated over medium heat; flag if low or high heat is used instead of medium."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The oil should be poured cleanly into the pan; flag if oil is spilled while adding to the pan."
+        }
+      ]
+    },
+    {
+      "step_id": 139,
+      "instruction": "Add 1/4 tsp mustard to the pan",
+      "preconditions": [154],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is measuring and adding mustard seeds to the hot pan. This is one of 2 concurrently-eligible spice-add steps (139 mustard and 141 cumin seeds both require only step 154 as precondition); recognition must say which is active now; no order is imposed between them."
+      },
+      "completion": {
+        "claim": "The mustard seeds have been added to the pan; no distinct end signal of its own, so inferred from the onset of adding minced garlic when seeds sizzle.",
+        "inferred_from": 152
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/4 tsp of mustard seeds; flag if a larger unit or noticeably more is used (e.g. 1/4 tbsp instead of 1/4 tsp, or an excess amount)."
+        },
+        {
+          "reminder": "preparation",
+          "claim": "Mustard seeds should be added to the pan; flag if the wrong ingredient is added instead (e.g. red chili flakes) or seeds are spilled before reaching the pan."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The mustard seeds should be scooped and added cleanly; flag if seeds are spilled out while scooping or transferring to the pan."
+        }
+      ]
+    },
+    {
+      "step_id": 141,
+      "instruction": "1/2 tsp cumin seeds to the pan",
+      "preconditions": [154],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is measuring and adding cumin seeds to the hot pan. This is one of 2 concurrently-eligible spice-add steps (141 cumin seeds and 139 mustard both require only step 154 as precondition); recognition must say which is active now; no order is imposed between them."
+      },
+      "completion": {
+        "claim": "The cumin seeds have been added to the pan; no distinct end signal of its own, so inferred from the onset of adding minced garlic when seeds sizzle.",
+        "inferred_from": 152
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The cumin seeds should be added cleanly to the pan; flag if seeds are spilled out while adding."
+        }
+      ]
+    },
+    {
+      "step_id": 152,
+      "instruction": "When mustard and cumin seeds begin to sizzle, add minced garlic",
+      "preconditions": [139, 141],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is adding minced garlic to the pan at the moment when the mustard and cumin seeds begin to sizzle."
+      },
+      "completion": {
+        "claim": "The minced garlic has been added to the pan; no distinct end signal of its own, so inferred from the onset of lowering the heat.",
+        "inferred_from": 151
+      },
+      "checks": [
+        {
+          "reminder": "temperature",
+          "claim": "Garlic should be added when seeds just begin to sizzle, not after they have burnt; flag if the mustard seeds are burnt from cooking too long before garlic is added."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The garlic should be added cleanly to the pan; flag if garlic is spilled while being added."
+        },
+        {
+          "reminder": "timing",
+          "claim": "Garlic should be added at the right moment when seeds begin to sizzle; flag if added while seeds are already burnt or overcooked."
+        }
+      ]
+    },
+    {
+      "step_id": 151,
+      "instruction": "Lower the heat",
+      "preconditions": [152],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is turning the stove burner down to reduce the heat after adding garlic."
+      },
+      "completion": {
+        "claim": "The heat is lowered; no distinct end signal of its own, so inferred from the onset of sauteing the garlic.",
+        "inferred_from": 148
+      },
+      "checks": [
+        {
+          "reminder": "temperature",
+          "claim": "The heat should be lowered (reduced to low); flag if the heat is increased instead (set to high) or turned off entirely rather than lowered."
+        }
+      ]
+    },
+    {
+      "step_id": 148,
+      "instruction": "Saute the garlic for 2-3 minutes",
+      "preconditions": [151],
+      "duration_constraint_s": 180,
+      "recognition": {
+        "claim": "The user is sauteing the minced garlic in the pan over lowered heat, stirring as needed."
+      },
+      "completion": {
+        "claim": "The garlic has sauteed for about 2-3 minutes and turned fragrant/golden; inferred from the onset of adding red chili powder.",
+        "inferred_from": 147
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for sauteing garlic for 2-3 minutes (~180s); flag if the garlic is sauteed for only about 1 minute or noticeably less than the required duration."
+        }
+      ]
+    },
+    {
+      "step_id": 147,
+      "instruction": "Add 2 tbsp red chili powder to the pan",
+      "preconditions": [148],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is measuring and adding red chili powder to the pan."
+      },
+      "completion": {
+        "claim": "The red chili powder has been added; no distinct end signal of its own, so inferred from the onset of mixing the pan contents.",
+        "inferred_from": 157
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 2 tbsp of red chili powder; flag if a noticeably different amount is added (e.g. 4 tbsp, or less than 2 tbsp)."
+        }
+      ]
+    },
+    {
+      "step_id": 157,
+      "instruction": "mix well contents of the pan",
+      "preconditions": [147],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is stirring the pan to mix its contents (garlic and chili powder) well together."
+      },
+      "completion": {
+        "claim": "The pan contents are well mixed; no distinct end signal of its own, so inferred from the onset of adding tomato puree to the pan (earliest direct successor by recipe order).",
+        "inferred_from": 142
+      },
+      "checks": []
+    },
+    {
+      "step_id": 142,
+      "instruction": "Add tomato puree to the pan",
+      "preconditions": [157],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is pouring the tomato puree into the pan. This is one of 2 concurrently-eligible add steps (142 tomato puree and 146 salt both require only step 157 as precondition); recognition must say which is active now; no order is imposed between them."
+      },
+      "completion": {
+        "claim": "The tomato puree has been added to the pan; no distinct end signal of its own, so inferred from the onset of mixing the puree with pan contents.",
+        "inferred_from": 144
+      },
+      "checks": [
+        {
+          "reminder": "preparation",
+          "claim": "The puree should be added cleanly to the pan; flag if some puree is spilled out while adding."
+        }
+      ]
+    },
+    {
+      "step_id": 146,
+      "instruction": "1/2 tsp salt to the pan",
+      "preconditions": [157],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is measuring and adding salt to the pan. This is one of 2 concurrently-eligible add steps (146 salt and 142 tomato puree both require only step 157 as precondition); recognition must say which is active now; no order is imposed between them."
+      },
+      "completion": {
+        "claim": "The salt has been added to the pan; no distinct end signal of its own, so inferred from the onset of mixing the puree with pan contents.",
+        "inferred_from": 144
+      },
+      "checks": [
+        {
+          "reminder": "measurement",
+          "claim": "The recipe calls for 1/2 tsp of salt; flag if a different amount or wrong unit is used (e.g. 1 tsp or 1/2 cup instead of 1/2 tsp)."
+        },
+        {
+          "reminder": "technique",
+          "claim": "The salt should be measured before adding to the pan; flag if salt is poured freehand without measuring, risking an excessive or unknown amount."
+        }
+      ]
+    },
+    {
+      "step_id": 144,
+      "instruction": "Mix well tomato puree with contents in the pan",
+      "preconditions": [142, 146],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is thoroughly stirring the tomato puree, salt, and existing pan contents together."
+      },
+      "completion": {
+        "claim": "The puree is well combined with the pan contents; no distinct end signal of its own, so inferred from the onset of simmering the mixture.",
+        "inferred_from": 153
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The mixture should be stirred cleanly without spilling; flag if contents are spilled out of the pan while mixing."
+        },
+        {
+          "reminder": "timing",
+          "claim": "The mixture should be mixed until fully combined before proceeding to simmer; flag if mixing is cut short leaving tomatoes visibly uncooked or unincorporated."
+        }
+      ]
+    },
+    {
+      "step_id": 153,
+      "instruction": "Allow the mixture to simmer over low heat for 5 minutes or until the mixture becomes thick",
+      "preconditions": [144],
+      "duration_constraint_s": 300,
+      "recognition": {
+        "claim": "The mixture is left on low heat to simmer and thicken in the pan."
+      },
+      "completion": {
+        "claim": "The mixture has simmered for about 5 minutes (~300s) and become thick; inferred from the onset of taking the pan off the heat.",
+        "inferred_from": 143
+      },
+      "checks": [
+        {
+          "reminder": "timing",
+          "claim": "The recipe calls for simmering 5 minutes (~300s) or until the mixture thickens; flag if cooking is stopped after only 1-2 minutes before the mixture has thickened."
+        },
+        {
+          "reminder": "temperature",
+          "claim": "The recipe specifies simmering over low heat; flag if high heat is used instead of low."
+        }
+      ]
+    },
+    {
+      "step_id": 143,
+      "instruction": "Take the pan off the heat",
+      "preconditions": [153],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is removing the pan from the burner or turning off the stove."
+      },
+      "completion": {
+        "claim": "The pan is visibly off the heat source (moved off the burner or burner turned off); own observable end event.",
+        "inferred_from": null
+      },
+      "checks": []
+    },
+    {
+      "step_id": 156,
+      "instruction": "Transfer it to a serving bowl",
+      "preconditions": [143],
+      "duration_constraint_s": null,
+      "recognition": {
+        "claim": "The user is pouring or scooping the finished chutney from the pan into a serving bowl. This is the terminal step."
+      },
+      "completion": {
+        "claim": "The chutney is in the serving bowl; own observable end event (dish is plated).",
+        "inferred_from": null
+      },
+      "checks": [
+        {
+          "reminder": "technique",
+          "claim": "The chutney should be transferred cleanly to the serving bowl; flag if chutney is spilled during the transfer."
+        }
+      ]
+    }
+  ]
+}

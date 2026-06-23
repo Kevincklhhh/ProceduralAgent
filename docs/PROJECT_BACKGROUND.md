@@ -1,6 +1,6 @@
 # Project Background: Vision, Dataset, and Constraints
 
-> 🧭 Merges the former `PROJECT_MEMORY.md` (vision/North Star) and `STARTING_POINT.md` (2026-06-10 design study), keeping the durable "why" and the still-valid dataset/infra facts. **Current execution is the three boxes** (`PIPELINE_THREE_BOXES.md`); the baseline suite, metrics, annotation protocol, and stage schema from the old design study now live in `REMINDER_EVALUATION.md` (Box 2), `FAMILY_A_CC4D_AUGMENTATION.md` (Box 1), and `SENSOR_GRAPH_COMPILER_PROMPT.md` (Box 3). Superseded ideas (ThermalKitchens pivot, B0–B4 framing, hand-annotated windows) are dropped here and preserved in git history.
+> 🧭 Merges the former `PROJECT_MEMORY.md` (vision/North Star) and `STARTING_POINT.md` (2026-06-10 design study), keeping the durable "why" and the still-valid dataset/infra facts. **Current execution is the three boxes** (`PIPELINE_THREE_BOXES.md`); the baseline suite, metrics, annotation protocol, and stage schema from the old design study now live in `REMINDER_EVALUATION.md` (Box 2), `FAMILY_A_CC4D_AUGMENTATION.md` (Box 1), and the Box-3 predictor docs (two-stage templates + `tasks/PROCEDURE_MONITOR_COMPILER.md` + `REMINDER_RUNTIME.md`). Superseded ideas (ThermalKitchens pivot, B0–B4 framing, hand-annotated windows) are dropped here and preserved in git history.
 
 ## 1. Vision / North Star
 
@@ -19,6 +19,20 @@ Why procedural tasks: they give the same structure that makes coding agents work
 - Interaction-burden evaluation: measure unnecessary interruptions, missed/late interventions separately.
 - System-resource evaluation: latency, power, model-call count, sensing duty cycle — measured separately from interaction burden.
 - Real online behavior under bounded latency and partial evidence; robustness to imperfect plans.
+
+## 2a. I/O & cost contract (the sensor-control ledger; salvaged from TASK_DEFINITION 2026-06-20)
+
+The thesis is measured in cost at equal coverage, so every arm reports the same ledger. These
+are the durable knobs and the cost fields; the per-call VLM request/response schema now lives
+in code (`eval/proposed_vlm_arm.py`, `eval/baseline_t1_step.py`), not in a doc.
+
+- **Sensing knobs:** RGB fps, audio sampling rate / bitrate, VLM `window_s` + `fps` (frames per
+  call), tick_s. Set per arm in the plan's `vlm_policy` / `runtime_config`.
+- **Cost log (per recording, every arm):** `vlm_calls`, `frames_sent`, `vlm_latency_total_s`,
+  `compute_s`, `audio_on_s` — emitted by `eval/proposed_runtime.py` under `cost`. This is what a
+  cheap-detector plan must beat at equal Box-2 quality.
+- **Quality is scored separately** (Box 2): the cost ledger is never traded against coverage in
+  a single number — Pareto only (see risk 2 below).
 
 ## 3. Dataset decision (verified 2026-06-10, still in force)
 

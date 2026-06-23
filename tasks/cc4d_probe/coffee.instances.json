@@ -1,0 +1,1312 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "coffee",
+ "activity_id": 5,
+ "n_recordings": 15,
+ "n_error_recordings": 7,
+ "steps": [
+  {
+   "step_id": 62,
+   "order": 1,
+   "instruction": "Prepare the filter insert by folding the paper filter in half to create a semi-circle, and in half again to create a quarter-circle",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_15",
+       "cc4d_step_id": 62,
+       "description": "Took two filter papers instead of one.",
+       "video_window": [
+        77.4,
+        133.4
+       ]
+      },
+      {
+       "recording_id": "5_37",
+       "cc4d_step_id": 62,
+       "description": "roll the paper filter instead of folding it",
+       "video_window": [
+        277,
+        322
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 62,
+       "description": "Do not prepare the filter",
+       "video_window": [
+        146.2,
+        185.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 62,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 62,
+       "description": "Step performed after adding water to the filter",
+       "video_window": [
+        973.3,
+        982.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 65,
+   "order": 2,
+   "instruction": "Weigh the coffee beans (0.8oz-0.12 oz)",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 65,
+       "description": "Weigh-Weigh the coffee beans 0.4oz-0.6oz",
+       "video_window": [
+        476.1,
+        571.9
+       ]
+      },
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 65,
+       "description": "Weighed 4oz instead of (0.8-0.12oz)",
+       "video_window": [
+        56.8,
+        147.7
+       ]
+      },
+      {
+       "recording_id": "5_35",
+       "cc4d_step_id": 65,
+       "description": "Weigh coffee beans for 1.4 oz which is more than prescribed weight",
+       "video_window": [
+        64.1,
+        162.2
+       ]
+      },
+      {
+       "recording_id": "5_37",
+       "cc4d_step_id": 65,
+       "description": "Weigh 4 oz instead of (0.8oz-0.12oz)",
+       "video_window": [
+        144.1,
+        267.8
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 65,
+       "description": "Weighing more than 0.12 Oz",
+       "video_window": [
+        5.4,
+        76.5
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 65,
+       "description": "Weigh-Weigh the coffee beans (0.6-0.7 oz) as coffee beans got spilled.",
+       "video_window": [
+        5.2,
+        105.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 65,
+       "description": "Spilling while transferring from packet to weighing scale",
+       "video_window": [
+        5.2,
+        105.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 67,
+   "order": 3,
+   "instruction": "Grind the coffee beans until the coffee grounds are the consistency of coarse sand, about 20 seconds",
+   "duration_constraint_s": 20,
+   "preconditions": [
+    65
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 67,
+       "description": "Grinding for 40 seconds instead of 20 seconds",
+       "video_window": [
+        583.3,
+        805.8
+       ]
+      },
+      {
+       "recording_id": "5_35",
+       "cc4d_step_id": 67,
+       "description": "15 secs",
+       "video_window": [
+        370.0,
+        416.3
+       ]
+      },
+      {
+       "recording_id": "5_37",
+       "cc4d_step_id": 67,
+       "description": "10 instead of 20 seconds",
+       "video_window": [
+        348.2,
+        383.3
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 67,
+       "description": "Not grinding properly and grind for 10 seconds only.",
+       "video_window": [
+        187.8,
+        264.2
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 67,
+       "description": "coffee beans are not properly grinded and are like pebbles.",
+       "video_window": [
+        330.2,
+        371.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 67,
+       "description": "Grinding using stone mortar instead of coffee grinder",
+       "video_window": [
+        583.3,
+        805.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 67,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 67,
+       "description": "While transferring from weighing scale to coffee grinder spilling occurs.",
+       "video_window": [
+        330.2,
+        371.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 68,
+   "order": 4,
+   "instruction": "Measure 12 ounces of cold water",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 68,
+       "description": "Measure 16 instead of 12 ounces",
+       "video_window": [
+        4.3,
+        26.6
+       ]
+      },
+      {
+       "recording_id": "5_37",
+       "cc4d_step_id": 68,
+       "description": "Measure 8 instead of 12 ounces of water",
+       "video_window": [
+        41.3,
+        82.2
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 68,
+       "description": "Measuring less than 12 ounces.",
+       "video_window": [
+        482.5,
+        500.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 68,
+       "description": "Measure-Measure 12 ounces of milk instead of water",
+       "video_window": [
+        4.3,
+        98.1
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 68,
+       "description": "Used weighing scale instead of measuring jug for measuring water.",
+       "video_window": [
+        464.7,
+        576.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 69,
+   "order": 5,
+   "instruction": "Place the dripper on top of a coffee mug",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "5_35",
+       "cc4d_step_id": 69,
+       "description": "Step performed after placing the filter in the dripper",
+       "video_window": [
+        663.1,
+        669.5
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 69,
+       "description": "Step performed after placing the paper filter in the dripper",
+       "video_window": [
+        145.4,
+        159.9
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 69,
+       "description": "Step performed after placing filter in the dripper",
+       "video_window": [
+        192.4,
+        207.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 69,
+       "description": "Place-Place the dripper on top of a bowl. Use bowl instead of coffee mug.",
+       "video_window": [
+        192.4,
+        207.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 60,
+   "order": 6,
+   "instruction": "Place the paper filter in the dripper",
+   "duration_constraint_s": null,
+   "preconditions": [
+    62,
+    69
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "5_35",
+       "cc4d_step_id": 60,
+       "description": "Did not place dripper on top of a coffee mug and did not prepare the filter",
+       "video_window": [
+        326.1,
+        346
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 60,
+       "description": "Step performed before placing the dripper on top of a coffee mug",
+       "video_window": [
+        128.6,
+        144.0
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 60,
+       "description": "Step performed before preparing the filter and placing dripper on top of a coffee mug",
+       "video_window": [
+        110.5,
+        154.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 60,
+       "description": "place the improperly folded filter paper in dripper",
+       "video_window": [
+        413.2,
+        426.8
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 60,
+       "description": "Not properly placing the paper filter.",
+       "video_window": [
+        128.6,
+        144.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 60,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 60,
+       "description": "Place-Place 3 paper filter in the dripper",
+       "video_window": [
+        110.5,
+        154.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 59,
+   "order": 7,
+   "instruction": "spread open filter in dripper to create a cone",
+   "duration_constraint_s": null,
+   "preconditions": [
+    60
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 59,
+       "description": "unsuccessful in creating cone with improperly folded filter paper",
+       "video_window": [
+        440.7,
+        455.0
+       ]
+      },
+      {
+       "recording_id": "5_35",
+       "cc4d_step_id": 59,
+       "description": "not forming cone shape after spread open",
+       "video_window": [
+        346,
+        360
+       ]
+      },
+      {
+       "recording_id": "5_37",
+       "cc4d_step_id": 59,
+       "description": "Did not spread it correctly",
+       "video_window": [
+        413.2,
+        431.2
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 59,
+       "description": "spread-spread open 3 filters in dripper to create 3 cones one on top of another without actually folding but just compressing. 3 Filters were just squashed and tried to make ice cream cone structure of filters. No folding was done.",
+       "video_window": [
+        216.2,
+        326.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 59,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 59,
+       "description": "Step performed before preparing the filter",
+       "video_window": [
+        216.2,
+        326.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 58,
+   "order": 8,
+   "instruction": "Transfer the grounds to the filter cone",
+   "duration_constraint_s": null,
+   "preconditions": [
+    59,
+    67
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_37",
+       "cc4d_step_id": 58,
+       "description": "Spilling some grounds outside",
+       "video_window": [
+        445.5,
+        486.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 58,
+       "description": "Step performed before preparing the filter",
+       "video_window": [
+        388.1,
+        441.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 70,
+   "order": 9,
+   "instruction": "transfer water to a kettle",
+   "duration_constraint_s": null,
+   "preconditions": [
+    68
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 70,
+       "description": "transfer-transfer milk to a microwave safe bowl",
+       "video_window": [
+        107.6,
+        121.4
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 70,
+       "description": "transfer-transfer water to a mixer",
+       "video_window": [
+        584.6,
+        661.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 70,
+       "description": "spill some water while transferring water to a kettle",
+       "video_window": [
+        26.8,
+        54.8
+       ]
+      },
+      {
+       "recording_id": "5_37",
+       "cc4d_step_id": 70,
+       "description": "transfer-transfer water to a kettle, while spilling some water outside",
+       "video_window": [
+        92.2,
+        122.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 64,
+   "order": 10,
+   "instruction": "Boil the water. (While the water is boiling, assemble the filter cone)",
+   "duration_constraint_s": null,
+   "preconditions": [
+    70
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 64,
+       "description": "Microwave the milk instead of boiling it in a kettle",
+       "video_window": [
+        239.1,
+        400.2
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 64,
+       "description": "Boil in a pan instead of kettle",
+       "video_window": [
+        813.3,
+        936.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 64,
+       "description": "Step performed after adding water to the filter cone",
+       "video_window": [
+        501.1,
+        624.5
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 64,
+       "description": "Step performed after adding water to the filter",
+       "video_window": [
+        813.3,
+        936.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 71,
+   "order": 11,
+   "instruction": "Once the water has boiled, check the temperature of the water. (The water should be between 195-205 degrees Fahrenheit or between 91-96 degrees Celsius. If the water is too hot, let it cool briefly.)",
+   "duration_constraint_s": null,
+   "preconditions": [
+    64
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 71,
+       "description": "The water temperature is wrong",
+       "video_window": [
+        207.1,
+        226.3
+       ]
+      },
+      {
+       "recording_id": "5_35",
+       "cc4d_step_id": 71,
+       "description": "Heating water to a very high temperature instead of prescribed temperature",
+       "video_window": [
+        595,
+        622.8
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 71,
+       "description": "Using less than the desired temperature.",
+       "video_window": [
+        558.7,
+        652.8
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 71,
+       "description": "Temperature of the water is not as expected",
+       "video_window": [
+        938.8,
+        969.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 71,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "5_37",
+       "cc4d_step_id": 71,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 71,
+       "description": "Step performed after adding water to the filter cone",
+       "video_window": [
+        558.7,
+        652.8
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 71,
+       "description": "Step performed after adding water to the filter",
+       "video_window": [
+        938.8,
+        969.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 71,
+       "description": "Check temperature in pan instead of kettle",
+       "video_window": [
+        938.8,
+        969.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 57,
+   "order": 12,
+   "instruction": "Pour a small amount of water into the filter to wet the grounds",
+   "duration_constraint_s": null,
+   "preconditions": [
+    58,
+    71
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 57,
+       "description": "Pour-Pour a small amount of milk into the filter to wet the grounds",
+       "video_window": [
+        853.1,
+        874.8
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 57,
+       "description": "Pour from tap into the filter by using measuring cup to wet the grounds",
+       "video_window": [
+        714.0,
+        728.3
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 57,
+       "description": "Did not pour water from kettle into the filter.",
+       "video_window": [
+        714.0,
+        728.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 57,
+       "description": "Spill while pouring milk into the filter to wet the grounds",
+       "video_window": [
+        853.1,
+        874.8
+       ]
+      },
+      {
+       "recording_id": "5_35",
+       "cc4d_step_id": 57,
+       "description": "Pour a big amount of water into the filter to wet the grounds",
+       "video_window": [
+        684.6,
+        700.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 57,
+       "description": "Step performed before boiling the water",
+       "video_window": [
+        396.4,
+        434.7
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 57,
+       "description": "Step performed before boiling water and preparing the filter",
+       "video_window": [
+        714.0,
+        728.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 57,
+       "description": "Using large amount of water instead of small.",
+       "video_window": [
+        396.4,
+        434.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 56,
+   "order": 13,
+   "instruction": "Wait about 30 seconds for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.)",
+   "duration_constraint_s": 30,
+   "preconditions": [
+    57
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 56,
+       "description": "Wait-Wait about 1 minute for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.)",
+       "video_window": [
+        875.0,
+        974.5
+       ]
+      },
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 56,
+       "description": "15 instead of 30 seconds",
+       "video_window": [
+        280.9,
+        294.3
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 56,
+       "description": "Waiting for less than 30 seconds.",
+       "video_window": [
+        436.6,
+        457.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 56,
+       "description": "Step performed before boiling the water",
+       "video_window": [
+        436.6,
+        457.4
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 56,
+       "description": "Step performed before boiling water and preparing the filter",
+       "video_window": [
+        730.5,
+        760.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 61,
+   "order": 14,
+   "instruction": "Slowly pour the rest of the water over the grounds in a circular motion. Do not overfill beyond the top of the paper filter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    56
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 61,
+       "description": "Spill while pouring the milk",
+       "video_window": [
+        975.1,
+        1017.2
+       ]
+      },
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 61,
+       "description": "Did not pour in circular motion",
+       "video_window": [
+        975.1,
+        1017.2
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 61,
+       "description": "pour-In a single shot pour the complete water over the grounds. Overfilling beyond paper filter occurs",
+       "video_window": [
+        761.8,
+        780.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 61,
+       "description": "Step performed before boiling the water",
+       "video_window": [
+        458.2,
+        481.6
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 61,
+       "description": "Step performed before boiling water and preparing the filter",
+       "video_window": [
+        761.8,
+        780.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_27",
+       "cc4d_step_id": 61,
+       "description": "Pour milk instead of water",
+       "video_window": [
+        975.1,
+        1017.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "5_35",
+       "cc4d_step_id": 61,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 66,
+   "order": 15,
+   "instruction": "Let the coffee drain completely into the mug before removing the dripper",
+   "duration_constraint_s": null,
+   "preconditions": [
+    61
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_28",
+       "cc4d_step_id": 66,
+       "description": "Remove the dripper before all the water is drained into the mug",
+       "video_window": [
+        332.0,
+        340.9
+       ]
+      },
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 66,
+       "description": "removing the dripper before the coffee drains completely.",
+       "video_window": [
+        482,
+        655
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "5_42",
+       "cc4d_step_id": 66,
+       "description": "Step performed before boiling the water",
+       "video_window": [
+        482,
+        655
+       ]
+      },
+      {
+       "recording_id": "5_44",
+       "cc4d_step_id": 66,
+       "description": "Step performed before boiling water and preparing the filter",
+       "video_window": [
+        781.0,
+        856.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 63,
+   "order": 16,
+   "instruction": "Discard the paper filter and coffee grounds",
+   "duration_constraint_s": null,
+   "preconditions": [
+    66
+   ],
+   "observed_reminders": []
+  }
+ ],
+ "unmapped_step_ids": []
+}

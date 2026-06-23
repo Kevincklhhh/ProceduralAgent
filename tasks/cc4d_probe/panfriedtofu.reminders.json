@@ -1,0 +1,620 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "panfriedtofu",
+ "activity_id": 25,
+ "n_recordings": 15,
+ "n_error_recordings": 8,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 275,
+   "order": 1,
+   "instruction": "Cut 1/4 block or 3 ounces of fresh tofu into large cubes (about 1 in x 1 in)",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Tofucrumbled instead of staying in cubes",
+      "Cut tofu into pyramid shapes instead of large cubes",
+      "Sliced the cubes instead of cutting into cubes"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Cut into small cubes rather than big cubes",
+      "Cut into very large cubes"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 286,
+   "order": 2,
+   "instruction": "add 1/4 tsp salt to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Use a tbsp instead of a tsp"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after heating tofu and flipping it"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 291,
+   "order": 3,
+   "instruction": "Add 1 tablespoon of olive oil to a non-stick pan",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Dropping some oil from the tablespoon while adding it to the pan",
+      "Drop while measuring olive oil to add it to the pan"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add more oil to the pan as a result of spilling",
+      "Don't measure the olive oil"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 293,
+   "order": 4,
+   "instruction": "pat tofu dry with a towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    275
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Squish the tofu by patting it hard"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 279,
+   "order": 5,
+   "instruction": "add the tofu cubes to the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    293
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Drop a few tofu cubes while adding"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 276,
+   "order": 6,
+   "instruction": "Turn on the heat to medium",
+   "duration_constraint_s": null,
+   "preconditions": [
+    279,
+    286,
+    291
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before adding salt to the pan"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 292,
+   "order": 7,
+   "instruction": "Cook 5 to 6 minutes until tofu cubes are lightly browned on the bottom",
+   "duration_constraint_s": 360,
+   "preconditions": [
+    276
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Cook 2 to 3 minutes instead of 5 to 6 minutes",
+      "Under cook - The tofu cubes will not be cooked enough"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before adding salt to the pan"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 280,
+   "order": 8,
+   "instruction": "Briefly remove the pan from the heat to reduce spitting",
+   "duration_constraint_s": null,
+   "preconditions": [
+    292
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Did this after next step",
+      "This step is performed after flipping the tofu",
+      "Step performed before correct order"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 285,
+   "order": 9,
+   "instruction": "Flip the tofu with tongs",
+   "duration_constraint_s": null,
+   "preconditions": [
+    280
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Performed before previous step",
+      "This step is performed before removing the pan from heat",
+      "Step performed before adding salt",
+      "Step performed after correct order"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use a spoon - might break the tofu cubes"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 287,
+   "order": 10,
+   "instruction": "Return the heat to medium",
+   "duration_constraint_s": null,
+   "preconditions": [
+    285
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding salt",
+      "Step performed after correct order"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "This might burn the tofu"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 290,
+   "order": 11,
+   "instruction": "cook until tofu turns brown",
+   "duration_constraint_s": null,
+   "preconditions": [
+    287
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding salt",
+      "Step performed after correct order"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spilled one out while checking if it's browned"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 282,
+   "order": 12,
+   "instruction": "Briefly remove from the heat again",
+   "duration_constraint_s": null,
+   "preconditions": [
+    290
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding salt",
+      "Step performed before correct order"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Placing it on a surface which is non-heat resistant"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 277,
+   "order": 13,
+   "instruction": "drizzle 1 tablespoon soy sauce (watch for spitting) on the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    282
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding salt",
+      "Step performed before correct order"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 278,
+   "order": 14,
+   "instruction": "drizzle with the 1 tablespoons sesame oil on the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    282
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before adding salt",
+      "Step performed after correct order",
+      "Step performed before correct order"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "drizzle two tbsp rather than 1 tbsp"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Dropping the measuring utensil on the pan while drizzling oil"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 284,
+   "order": 15,
+   "instruction": "Return to low heat",
+   "duration_constraint_s": null,
+   "preconditions": [
+    277,
+    278
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before adding salt",
+      "Step performed after correct order",
+      "Step performed before correct order"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use medium heat instead of low heat"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 289,
+   "order": 16,
+   "instruction": "cook pan for 2 minutes",
+   "duration_constraint_s": 120,
+   "preconditions": [
+    284
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Cooked for 1.5 minutes",
+      "Left to cook for only 1 minute",
+      "Under-cook"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before adding salt",
+      "Step performed before correct order"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 281,
+   "order": 17,
+   "instruction": "flip tofu on the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    289
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 1,
+     "descriptions": [
+      "Do not flip all the tofu pieces",
+      "Spilled some tofu pieces and oil while flipping"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before correct order"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 288,
+   "order": 18,
+   "instruction": "cook pan for 2 minutes until the colour is darkened",
+   "duration_constraint_s": 120,
+   "preconditions": [
+    281
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Over cook the tofu"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 283,
+   "order": 19,
+   "instruction": "Transfer to a serving dish",
+   "duration_constraint_s": null,
+   "preconditions": [
+    288
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill some cooked tofu pieces"
+     ]
+    }
+   ]
+  }
+ ]
+}

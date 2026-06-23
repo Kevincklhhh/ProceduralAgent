@@ -1,0 +1,1872 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "herbomeletwithfriedtomatoes",
+ "activity_id": 22,
+ "n_recordings": 17,
+ "n_error_recordings": 11,
+ "steps": [
+  {
+   "step_id": 237,
+   "order": 1,
+   "instruction": "Chop 2 tbsp cilantro",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 237,
+       "description": "Chop 1 tbsp cilantro",
+       "video_window": [
+        34.9,
+        90.6
+       ]
+      },
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 237,
+       "description": "No measurements used",
+       "video_window": [
+        92.3,
+        141.7
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 237,
+       "description": "1 instead of 2 tbsp",
+       "video_window": [
+        650.9,
+        710.9
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 237,
+       "description": "1 instead of 2 tbsp",
+       "video_window": [
+        26.2,
+        72.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_2",
+       "cc4d_step_id": 237,
+       "description": "Didn't measure the Cilantro.",
+       "video_window": [
+        74.3,
+        139.7
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 237,
+       "description": "Did not chop the cilantro using knofe but made into pieces using hands",
+       "video_window": [
+        12.7,
+        128.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 237,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        92.3,
+        141.7
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 237,
+       "description": "Step performed after cooking tomatoes in the pan",
+       "video_window": [
+        650.9,
+        710.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 237,
+       "description": "not really chop, just cut into pieces",
+       "video_window": [
+        29.9,
+        121.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 239,
+   "order": 2,
+   "instruction": "crack one egg in a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 239,
+       "description": "Step performed after cooking the tomatoes",
+       "video_window": [
+        348.4,
+        369.2
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 239,
+       "description": "Step performed after cooking the tomatoes",
+       "video_window": [
+        193.3,
+        220.1
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 239,
+       "description": "Step performed after transferring tomatoes to the plate",
+       "video_window": [
+        347.0,
+        359.8
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 239,
+       "description": "Step performed after cooking tomatoes",
+       "video_window": [
+        529.4,
+        619.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 239,
+       "description": "splashing some part of the egg",
+       "video_window": [
+        52.2,
+        100.4
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 239,
+       "description": "egg shells are in the bowl",
+       "video_window": [
+        347.0,
+        359.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 239,
+       "description": "Using hand to scoop the liquid from the cutting board and placing it in the bowl",
+       "video_window": [
+        52.2,
+        100.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 242,
+   "order": 3,
+   "instruction": "add the chopped cilantro to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    237
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 242,
+       "description": "Step performed after cooking the tomatoes",
+       "video_window": [
+        371.0,
+        384.0
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 242,
+       "description": "Step performed after preparing tomatoes",
+       "video_window": [
+        530.0,
+        543.4
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 242,
+       "description": "Step performed after cooking the tomatoes",
+       "video_window": [
+        371.2,
+        394.0
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 242,
+       "description": "Step performed after cooking tomatoes in the pan",
+       "video_window": [
+        710.1,
+        731.9
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 242,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        250.5,
+        264.3
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 242,
+       "description": "Step performed after cooking the tomatoes",
+       "video_window": [
+        286.2,
+        295.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 242,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 242,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 247,
+   "order": 4,
+   "instruction": "Take a tomato",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 247,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        274.8,
+        319.8
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 247,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        112.7,
+        134.1
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 247,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        338.3,
+        372.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 247,
+       "description": "Half tomato only",
+       "video_window": [
+        96.2,
+        105.2
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 247,
+       "description": "two instead of one tomato",
+       "video_window": [
+        4.4,
+        19.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 247,
+       "description": "Using a cherry tomato instead of a Tomato.",
+       "video_window": [
+        112.7,
+        134.1
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 247,
+       "description": "Using a cherry tomato instead of a tomato.",
+       "video_window": [
+        338.3,
+        372.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 246,
+   "order": 5,
+   "instruction": "Cut tomato into two pieces",
+   "duration_constraint_s": null,
+   "preconditions": [
+    247
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 246,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        318.6,
+        328.2
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 246,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        135.0,
+        145.9
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 246,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        285.0,
+        318.5
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 246,
+       "description": "Step performed before correct order",
+       "video_window": [
+        77.7,
+        93.7
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 246,
+       "description": "Step performed before correct order",
+       "video_window": [
+        121.7,
+        140.4
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 246,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        373.0,
+        380.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 246,
+       "description": "Chop tomato into many pieces",
+       "video_window": [
+        104.1,
+        139.5
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 246,
+       "description": "Cut some small pieces, not two pieces",
+       "video_window": [
+        285.0,
+        318.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 246,
+       "description": "Using a cherry tomato instead of a tomato.",
+       "video_window": [
+        135.0,
+        145.9
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 246,
+       "description": "Using a cherry tomato instead of a tomato.",
+       "video_window": [
+        373.0,
+        380.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 249,
+   "order": 6,
+   "instruction": "1/2 tsp ground black pepper to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 249,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        144.0,
+        167.1
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 249,
+       "description": "Step performed after preparing tomatoes",
+       "video_window": [
+        573.0,
+        593.4
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 249,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        333.2,
+        379.2
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 249,
+       "description": "Step performed after correct order",
+       "video_window": [
+        155.0,
+        174.6
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 249,
+       "description": "Step performed after transferring tomatoes to the plate",
+       "video_window": [
+        367.7,
+        399.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 249,
+       "description": "No measurements used, pour directly",
+       "video_window": [
+        144.0,
+        167.1
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 249,
+       "description": "2 instead of 1/2",
+       "video_window": [
+        333.2,
+        379.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 249,
+       "description": "Adding more pepper due improper transfer from the shaker to the measuring utensil",
+       "video_window": [
+        80.4,
+        105.0
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 249,
+       "description": "Splash some pepper outside",
+       "video_window": [
+        155.0,
+        174.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 249,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 248,
+   "order": 7,
+   "instruction": "Beat the contents of the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    239,
+    242,
+    249
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 248,
+       "description": "Step performed after cooking the tomatoes",
+       "video_window": [
+        394,
+        422
+       ]
+      },
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 248,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        357.0,
+        387.6
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 248,
+       "description": "Step performed after cooking the tomatoes and before adding cilantro to the bowl",
+       "video_window": [
+        253.0,
+        306.7
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 248,
+       "description": "Step performed before adding cilantro to the bowl",
+       "video_window": [
+        377.6,
+        399.4
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 248,
+       "description": "Step performed after heating the pan",
+       "video_window": [
+        265.2,
+        288.3
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 248,
+       "description": "Step performed after cooking the tomatoes and before adding cilantro, egg and pepper",
+       "video_window": [
+        294.5,
+        307.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 248,
+       "description": "spilled egg mixture while beating swiflty",
+       "video_window": [
+        357.0,
+        387.6
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 248,
+       "description": "very slow stir",
+       "video_window": [
+        377.6,
+        399.4
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 248,
+       "description": "Slowly stir the contents",
+       "video_window": [
+        265.2,
+        288.3
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 248,
+       "description": "Instead of beating the contents the bowl is just rotated in a circle",
+       "video_window": [
+        294.5,
+        307.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 248,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 248,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 248,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 248,
+       "description": "Using hand finger to beat the contents...",
+       "video_window": [
+        294.5,
+        307.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 235,
+   "order": 8,
+   "instruction": "Heat 1 tbsp oil in a non-stick frying pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    246,
+    248
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 235,
+       "description": "Step performed before beating the egg mixture",
+       "video_window": [
+        58.6,
+        83.1
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 235,
+       "description": "Step performed before egg mixture is ready",
+       "video_window": [
+        260.4,
+        318.1
+       ]
+      },
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 235,
+       "description": "Step performed before beating the egg mixture",
+       "video_window": [
+        216.0,
+        262.8
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 235,
+       "description": "Step performed before beating the egg mixture",
+       "video_window": [
+        87.3,
+        111.3
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 235,
+       "description": "Step performed before preparing the egg mixture",
+       "video_window": [
+        211.8,
+        244.5
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 235,
+       "description": "Step performed before making the egg mixture",
+       "video_window": [
+        206.1,
+        244.8
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 235,
+       "description": "Step performed before preparing egg mixture",
+       "video_window": [
+        141.9,
+        163.5
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 235,
+       "description": "Step performed before preparing egg mixture",
+       "video_window": [
+        273.8,
+        325.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 235,
+       "description": "Chinese wok, not a pan",
+       "video_window": [
+        58.6,
+        83.1
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 235,
+       "description": "Not using a proper frying pan.",
+       "video_window": [
+        87.3,
+        111.3
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 235,
+       "description": "Using soiled pan",
+       "video_window": [
+        141.9,
+        163.5
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 235,
+       "description": "Using a big frying pan.",
+       "video_window": [
+        273.8,
+        325.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 235,
+       "description": "Too much oil, not 1 tbsp",
+       "video_window": [
+        58.6,
+        83.1
+       ]
+      },
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 235,
+       "description": "Add more oil due to spillage",
+       "video_window": [
+        216.0,
+        262.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 235,
+       "description": "Spilling oil onto the pan while measuring 1 tbsp from the bottle",
+       "video_window": [
+        216.0,
+        262.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 235,
+       "description": "not heat the oil",
+       "video_window": [
+        211.8,
+        244.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 240,
+   "order": 9,
+   "instruction": "cook the tomatoes cut-side down until they start to soften and colour",
+   "duration_constraint_s": null,
+   "preconditions": [
+    235
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 240,
+       "description": "Step performed before beating the egg mixture",
+       "video_window": [
+        171.2,
+        300.4
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 240,
+       "description": "Step performed before egg mixture is ready",
+       "video_window": [
+        367.4,
+        501.2
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 240,
+       "description": "Step performed before beating the egg mixture",
+       "video_window": [
+        146.0,
+        333.2
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 240,
+       "description": "Step performed before adding cilantro to the bowl",
+       "video_window": [
+        518.6,
+        585.5
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 240,
+       "description": "Step performed before preparing egg mixture",
+       "video_window": [
+        175.7,
+        245.9
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 240,
+       "description": "Step performed before preparing egg mixture",
+       "video_window": [
+        392.3,
+        679.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 240,
+       "description": "Undercook, without waiting for them to start to soften and color",
+       "video_window": [
+        331.9,
+        374.1
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 240,
+       "description": "Didn't cook the tomatoes until they soften and change in colour.",
+       "video_window": [
+        367.4,
+        501.2
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 240,
+       "description": "just cook a little time",
+       "video_window": [
+        518.6,
+        585.5
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 240,
+       "description": "cook the tomatoes in a short time",
+       "video_window": [
+        287.9,
+        311.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 240,
+       "description": "Scooping and placing cooked items on the cutting board",
+       "video_window": [
+        367.4,
+        501.2
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 240,
+       "description": "Using a cherry tomato instead of a tomato.",
+       "video_window": [
+        146.0,
+        333.2
+       ]
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 240,
+       "description": "Using a cherry tomato instead of a tomato.",
+       "video_window": [
+        392.3,
+        679.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 244,
+   "order": 10,
+   "instruction": "Scoop the tomatoes from the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    240
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 7,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 244,
+       "description": "Step performed before beating the egg mixture",
+       "video_window": [
+        309.2,
+        330.4
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 244,
+       "description": "Step performed before egg mixture is ready",
+       "video_window": [
+        501,
+        510
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 244,
+       "description": "Step performed before egg mixture is ready",
+       "video_window": [
+        544,
+        551
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 244,
+       "description": "Step performed before adding cilantro to the bowl",
+       "video_window": [
+        335.1,
+        356.2
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 244,
+       "description": "Step performed before adding cilantro to the bowl",
+       "video_window": [
+        608.9,
+        631.5
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 244,
+       "description": "Step performed after pouring the egg mixture",
+       "video_window": [
+        372.3,
+        381.1
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 244,
+       "description": "Step performed before preparing egg mixture",
+       "video_window": [
+        318.1,
+        324.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 244,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 244,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 244,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 244,
+       "description": "Scooping and placing cooked items on the cutting board",
+       "video_window": [
+        501,
+        510
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 244,
+       "description": "Scooping and placing cooked items on the cutting board",
+       "video_window": [
+        544,
+        551
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 244,
+       "description": "Not using a proper item for scooping.",
+       "video_window": [
+        335.1,
+        356.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 244,
+       "description": "more like pour them out",
+       "video_window": [
+        318.1,
+        324.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 236,
+   "order": 11,
+   "instruction": "put tomatoes on a serving plate",
+   "duration_constraint_s": null,
+   "preconditions": [
+    244
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 236,
+       "description": "Step performed before beating the egg mixture",
+       "video_window": [
+        389.0,
+        394
+       ]
+      },
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 236,
+       "description": "Step performed after putting the omelette on the plate",
+       "video_window": [
+        570,
+        578
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 236,
+       "description": "Step performed before adding cilantro to the bowl",
+       "video_window": [
+        352.4,
+        360.1
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 236,
+       "description": "Step performed before adding cilantro to the bowl",
+       "video_window": [
+        593.3,
+        636.9
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 236,
+       "description": "Step performed after pouring the egg mixture",
+       "video_window": [
+        379.4,
+        384.7
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 236,
+       "description": "Step performed before preparing egg mixture",
+       "video_window": [
+        323.0,
+        330.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 236,
+       "description": "Pour the tomatoes into the pan instead of putting them",
+       "video_window": [
+        387.0,
+        398.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 236,
+       "description": "bowl instead of plate",
+       "video_window": [
+        379.4,
+        384.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 236,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 241,
+   "order": 12,
+   "instruction": "Pour the egg mixture into the pan",
+   "duration_constraint_s": null,
+   "preconditions": [
+    236
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 241,
+       "description": "Step performed before putting tomatoes on the plate",
+       "video_window": [
+        431.4,
+        443.4
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 241,
+       "description": "Step performed before adding cilantro to the bowl and after heating the pan",
+       "video_window": [
+        475.0,
+        518.6
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 241,
+       "description": "Step performed before scooping the tomatoes",
+       "video_window": [
+        311.4,
+        318.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 241,
+       "description": "Pour some part of the egg outside the pan",
+       "video_window": [
+        475.0,
+        518.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 241,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 238,
+   "order": 13,
+   "instruction": "stir gently with a wooden spoon so the egg that sets on the base of the pan moves to enable the uncooked egg to flow into the space",
+   "duration_constraint_s": null,
+   "preconditions": [
+    241
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "22_2",
+       "cc4d_step_id": 238,
+       "description": "The egg cooked so fast and.not able to stir properly.",
+       "video_window": [
+        860.4,
+        967.4
+       ]
+      },
+      {
+       "recording_id": "22_10",
+       "cc4d_step_id": 238,
+       "description": "Stirred gently such that uncooked egg is transferred to the sides of the pan",
+       "video_window": [
+        1035.0,
+        1207.8
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 238,
+       "description": "Stir action is not proper and the egg not cooked evenly.",
+       "video_window": [
+        632.8,
+        711.6
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 238,
+       "description": "Stirring action is not correct",
+       "video_window": [
+        432.2,
+        522.7
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 238,
+       "description": "stir rapidly",
+       "video_window": [
+        731.1,
+        757.6
+       ]
+      },
+      {
+       "recording_id": "22_40",
+       "cc4d_step_id": 238,
+       "description": "stir rapidly instead of gently",
+       "video_window": [
+        387.4,
+        406.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 238,
+       "description": "Used steel spoon instead of wooden spoon",
+       "video_window": [
+        446.1,
+        524.3
+       ]
+      },
+      {
+       "recording_id": "22_30",
+       "cc4d_step_id": 238,
+       "description": "Using metal spatula instead of wooden ladle",
+       "video_window": [
+        435,
+        450
+       ]
+      },
+      {
+       "recording_id": "22_37",
+       "cc4d_step_id": 238,
+       "description": "Using wooden spatula instead of a spoon and not properly stirring the contents.",
+       "video_window": [
+        432.2,
+        522.7
+       ]
+      },
+      {
+       "recording_id": "22_38",
+       "cc4d_step_id": 238,
+       "description": "Stir after cooking is done",
+       "video_window": [
+        731.1,
+        757.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 238,
+       "description": "Step performed before putting tomatoes on the plate",
+       "video_window": [
+        446,
+        526
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 238,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 245,
+   "order": 14,
+   "instruction": "Stop stirring when it's nearly cooked to allow it to set into an omelette",
+   "duration_constraint_s": null,
+   "preconditions": [
+    238
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "22_26",
+       "cc4d_step_id": 245,
+       "description": "set into small pieces instead of an omelette",
+       "video_window": [
+        519.8,
+        533.3
+       ]
+      },
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 245,
+       "description": "Stop stirring before the egg set into an omelette.",
+       "video_window": [
+        710.2,
+        717.9
+       ]
+      },
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 245,
+       "description": "Did not stop stirring when its nearly cooked thus making it into smaller pieces",
+       "video_window": [
+        529.2,
+        541.8
+       ]
+      },
+      {
+       "recording_id": "22_41",
+       "cc4d_step_id": 245,
+       "description": "not an exact omelette",
+       "video_window": [
+        484.5,
+        489.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 245,
+       "description": "Step performed before putting tomatoes on the plate",
+       "video_window": [
+        529.2,
+        541.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 245,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 243,
+   "order": 15,
+   "instruction": "Transfer omelette to the plate and serve with the tomatoes",
+   "duration_constraint_s": null,
+   "preconditions": [
+    245
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "22_31",
+       "cc4d_step_id": 243,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "22_137",
+       "cc4d_step_id": 243,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "22_32",
+       "cc4d_step_id": 243,
+       "description": "Step performed before putting tomatoes on the plate",
+       "video_window": [
+        544.2,
+        585.6
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

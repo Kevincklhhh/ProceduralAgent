@@ -1,0 +1,1216 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "buttercorncup",
+ "activity_id": 13,
+ "n_recordings": 14,
+ "n_error_recordings": 9,
+ "steps": [
+  {
+   "step_id": 129,
+   "order": 1,
+   "instruction": "Measure 2 cups of frozen corn",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 129,
+       "description": "Added 3 cups instead of 2 cups",
+       "video_window": [
+        21.6,
+        84.0
+       ]
+      },
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 129,
+       "description": "Measured 1 cup instead of 2 cups",
+       "video_window": [
+        29.6,
+        39.4
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 129,
+       "description": "Measure 3 cups instead of 2",
+       "video_window": [
+        43.4,
+        73.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 129,
+       "description": "Spilling the corn while measuring",
+       "video_window": [
+        136.6,
+        166.1
+       ]
+      },
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 129,
+       "description": "spill the corn while adding it to seive",
+       "video_window": [
+        88.0,
+        124.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 129,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 131,
+   "order": 2,
+   "instruction": "Extract lime juice from 1/3 lime",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 131,
+       "description": "Step performed before microwave for 3 minutes",
+       "video_window": [
+        455.6,
+        495.6
+       ]
+      },
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 131,
+       "description": "Step performed before microwaving",
+       "video_window": [
+        578.4,
+        601.6
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 131,
+       "description": "Step performed after adding salt and before stirring",
+       "video_window": [
+        674.5,
+        684.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_12",
+       "cc4d_step_id": 131,
+       "description": "missing step",
+       "video_window": null
+      },
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 131,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 131,
+       "description": "Spill while extracting",
+       "video_window": [
+        432.3,
+        449.9
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 131,
+       "description": "Spill some lime juice",
+       "video_window": [
+        674.5,
+        684.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 131,
+       "description": "directly extract lime juice to the bowl. so next step becomes obselete",
+       "video_window": [
+        455.6,
+        495.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 131,
+       "description": "Performed both steps together extraction and addition",
+       "video_window": [
+        578.4,
+        601.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 137,
+   "order": 3,
+   "instruction": "Thaw the frozen corn by putting it in a sieve and running it under cold water",
+   "duration_constraint_s": null,
+   "preconditions": [
+    129
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 137,
+       "description": "Spill while rinsing",
+       "video_window": [
+        41.5,
+        73.7
+       ]
+      },
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 137,
+       "description": "Spilling while thawing",
+       "video_window": [
+        188.6,
+        225.9
+       ]
+      },
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 137,
+       "description": "spill some corn in sink while thawing",
+       "video_window": [
+        126.9,
+        212.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 137,
+       "description": "Used hot water instead of cold water",
+       "video_window": [
+        95.7,
+        133.5
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 137,
+       "description": "Thaw under hot water",
+       "video_window": [
+        94.7,
+        144.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 137,
+       "description": "Do not use sieve. Use cup and hand as lid.",
+       "video_window": [
+        188.6,
+        225.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 137,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 132,
+   "order": 4,
+   "instruction": "Add the corn into a microwave-safe bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    137
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 132,
+       "description": "Spill while adding",
+       "video_window": [
+        92.9,
+        102.1
+       ]
+      },
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 132,
+       "description": "Spill while adding the corn to the bowl",
+       "video_window": [
+        87.8,
+        94.6
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 132,
+       "description": "Spilling while adding corn to a microwave-safe bowl",
+       "video_window": [
+        146.0,
+        162.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 132,
+       "description": "Step performed before correct order",
+       "video_window": [
+        232.5,
+        245.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 133,
+   "order": 5,
+   "instruction": "Microwave the corn for 2 minutes",
+   "duration_constraint_s": 120,
+   "preconditions": [
+    132
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 133,
+       "description": "Microwaved only for 30 secs",
+       "video_window": [
+        182.8,
+        218.2
+       ]
+      },
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 133,
+       "description": "Microwave-Microwave the corn. Timer started from 20 minutes and stopped at 16:16. Did for 3:44 minutes.",
+       "video_window": [
+        264.2,
+        500.6
+       ]
+      },
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 133,
+       "description": "Microwave for 3 minutes",
+       "video_window": [
+        220.9,
+        411.3
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 133,
+       "description": "Microwave for 1 minute 30 seconds",
+       "video_window": [
+        168.8,
+        270.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 133,
+       "description": "Did not use gloves while removing from microwave",
+       "video_window": [
+        264.2,
+        500.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 133,
+       "description": "Microwave on low power instead of high power",
+       "video_window": [
+        220.9,
+        411.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 133,
+       "description": "Step performed after adding pepper powder",
+       "video_window": [
+        220.9,
+        411.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 130,
+   "order": 6,
+   "instruction": "1 teaspoon of pepper powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    133
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 130,
+       "description": "Spill while adding",
+       "video_window": [
+        231.2,
+        238.6
+       ]
+      },
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 130,
+       "description": "spilled some pepper into corn bowl while measuring leading to adding extra pepper",
+       "video_window": [
+        436.1,
+        444.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 130,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 130,
+       "description": "used oregano instead of pepper powder",
+       "video_window": [
+        563.3,
+        580.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 130,
+       "description": "Step performed before microwaving the corn",
+       "video_window": [
+        132.3,
+        139.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 138,
+   "order": 7,
+   "instruction": "Add 1 teaspoon of softened butter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    133
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 138,
+       "description": "Added garlic butter instead of plain butter",
+       "video_window": [
+        292.7,
+        310.4
+       ]
+      },
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 138,
+       "description": "Used hands to add butter",
+       "video_window": [
+        292.7,
+        310.4
+       ]
+      },
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 138,
+       "description": "Add-Add 1 teaspoon of vegetable oil instead of butter",
+       "video_window": [
+        588.3,
+        598.9
+       ]
+      },
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 138,
+       "description": "Use unsoftened butter",
+       "video_window": [
+        476.7,
+        481.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 138,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 138,
+       "description": "Step performed after adding lime juice",
+       "video_window": [
+        571.8,
+        605.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 135,
+   "order": 8,
+   "instruction": "then stir the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    130,
+    138
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 135,
+       "description": "Do not stir enough",
+       "video_window": [
+        248.3,
+        257.1
+       ]
+      },
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 135,
+       "description": "Spill while stirring",
+       "video_window": [
+        332.4,
+        345.0
+       ]
+      },
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 135,
+       "description": "spill while stirring",
+       "video_window": [
+        512.2,
+        533.5
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 135,
+       "description": "Do not stir enough",
+       "video_window": [
+        692.7,
+        710.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 135,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 135,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 135,
+       "description": "Step performed after adding lime juice",
+       "video_window": [
+        613.8,
+        648.1
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 135,
+       "description": "Step performed after adding salt and microwaving",
+       "video_window": [
+        692.7,
+        710.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 134,
+   "order": 9,
+   "instruction": "Microwave the corn for 3 more minutes",
+   "duration_constraint_s": null,
+   "preconditions": [
+    135
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "13_24",
+       "cc4d_step_id": 134,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 134,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 134,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 134,
+       "description": "Step performed after adding lime juice",
+       "video_window": [
+        654.7,
+        841.3
+       ]
+      },
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 134,
+       "description": "Step performed before correct order",
+       "video_window": [
+        617.8,
+        746.0
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 134,
+       "description": "Step performed after adding salt and before stirring",
+       "video_window": [
+        427.6,
+        619.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 134,
+       "description": "Microwave the corn for 2 more minutes rather than 3 mins",
+       "video_window": [
+        263.7,
+        394.1
+       ]
+      },
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 134,
+       "description": "stopped the microwave at 2 mins only",
+       "video_window": [
+        617.8,
+        746.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_12",
+       "cc4d_step_id": 134,
+       "description": "Spilled the corn",
+       "video_window": [
+        507.5,
+        514.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 128,
+   "order": 10,
+   "instruction": "add lime juice to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    131,
+    134
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 128,
+       "description": "Step performed before microwave for 3 minutes",
+       "video_window": [
+        455.6,
+        495.7
+       ]
+      },
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 128,
+       "description": "Step performed before microwaving",
+       "video_window": [
+        578.2,
+        601.8
+       ]
+      },
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 128,
+       "description": "Step performed after adding salt and before stirring",
+       "video_window": [
+        675.2,
+        684.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_12",
+       "cc4d_step_id": 128,
+       "description": "missing step",
+       "video_window": null
+      },
+      {
+       "recording_id": "13_38",
+       "cc4d_step_id": 128,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 128,
+       "description": "Spill while adding",
+       "video_window": [
+        463.9,
+        469
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 128,
+       "description": "this step is included into the above step",
+       "video_window": [
+        455.6,
+        495.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 128,
+       "description": "Performed both steps together extraction and addition",
+       "video_window": [
+        578.2,
+        601.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 136,
+   "order": 11,
+   "instruction": "Add 1 teaspoon salt to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    134
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_12",
+       "cc4d_step_id": 136,
+       "description": "missing step",
+       "video_window": null
+      },
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 136,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 136,
+       "description": "Add-Add 1 teaspoon sugar to the bowl instead of salt",
+       "video_window": [
+        646.7,
+        653.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 136,
+       "description": "spill some salt while adding",
+       "video_window": [
+        553.9,
+        561.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 136,
+       "description": "Add 1.5 tsp",
+       "video_window": [
+        390.5,
+        410.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "13_45",
+       "cc4d_step_id": 136,
+       "description": "Step performed before microwaving",
+       "video_window": [
+        390.5,
+        410.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 76,
+   "order": 12,
+   "instruction": "Mix the contents of the bowl well",
+   "duration_constraint_s": null,
+   "preconditions": [
+    128,
+    136
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "13_31",
+       "cc4d_step_id": 76,
+       "description": "Mix for very little time",
+       "video_window": [
+        453.9,
+        465.9
+       ]
+      },
+      {
+       "recording_id": "13_32",
+       "cc4d_step_id": 76,
+       "description": "Spill while  mixing",
+       "video_window": [
+        469.0,
+        478.6
+       ]
+      },
+      {
+       "recording_id": "13_36",
+       "cc4d_step_id": 76,
+       "description": "Mix-Mix the contents of the bowl without circular motion and just pressing the spoon up and down.",
+       "video_window": [
+        674.5,
+        703.0
+       ]
+      },
+      {
+       "recording_id": "13_41",
+       "cc4d_step_id": 76,
+       "description": "spilled some corn while mixing",
+       "video_window": [
+        882.5,
+        901.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "13_12",
+       "cc4d_step_id": 76,
+       "description": "missing step",
+       "video_window": null
+      },
+      {
+       "recording_id": "13_44",
+       "cc4d_step_id": 76,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

@@ -173,6 +173,7 @@ async function loadVideo(videoId) {
 
   const resp = await fetch(`${API}/api/timeline/${encodeURIComponent(videoId)}`);
   state.timeline = resp.ok ? await resp.json() : null;
+  state._propKey = {};   // proposed stage -> CC4D color-key cache (per recording)
 
   const bresp = await fetch(`${API}/api/baseline/${encodeURIComponent(videoId)}`);
   state.baseline = bresp.ok ? await bresp.json() : { arms: [] };
@@ -288,6 +289,33 @@ function matchStepId(text, gtSteps) {
   return bestScore >= 0.5 ? best : null;
 }
 
+// Proposed-monitor stages are keyed by monitor stage names (fill_milk,
+// add_cinnamon, ...), but GT and Baseline color by numeric CC4D step_id. Resolve
+// a stage name to the CC4D step_id it represents so the Proposed lane shares the
+// unified palette with the matching GT/Baseline lane. Prefer an explicit cc4d
+// mapping from the compiled plan; otherwise token-match the unit instruction
+// against the performed GT steps (same heuristic as the Qualcomm layer). Blocks
+// (e.g. quiet_middle) span several CC4D steps, so they keep their own key and
+// land on a distinct color. Cached per recording (reset on timeline load).
+function proposedColorKey(stageId) {
+  const k = String(stageId);
+  const cache = state._propKey || (state._propKey = {});
+  if (k in cache) return cache[k];
+  const u = planUnitById(stageId);
+  let key = k;
+  if (u && u.kind !== 'block') {
+    const explicit = (u.cc4d != null) ? u.cc4d : u.cc4d_step_id;
+    if (explicit != null) {
+      key = String(explicit);
+    } else if (u.instruction) {
+      const mid = matchStepId(u.instruction, state.timeline?.gt?.steps);
+      if (mid) key = mid;
+    }
+  }
+  cache[k] = key;
+  return key;
+}
+
 // Baseline arm selector (one entry per experiments/t1_baseline/<arm>/ with a
 // result for this recording). Hides the whole VLM-context panel if none.
 function populateArmSelect() {
@@ -319,7 +347,7 @@ function planUnitById(id) {
   // (role, primitives, sleep, requires/produces) so the schedule + panel resolve it.
   for (const u of units) {
     const m = (u.members || []).find(mm => mm.id === id);
-    if (m) return { id, kind: 'member', parent: u.id, members: [],
+    if (m) return { id, kind: 'member', parent: u.id, members: [], cc4d: m.cc4d,
       requires: u.requires, produces: u.produces, sensing_role: u.sensing_role,
       primitives: u.primitives, sleep: u.sleep, instruction: m.instruction };
   }
@@ -411,7 +439,7 @@ function renderMonitorTracks() {
     const { track, lane } = makeTrack(`Proposed: stages (${arm.arm})`);
     for (const iv of arm.stage_intervals || []) {
       lane.appendChild(makeSegment(iv.start_s, iv.end_s, stepLabel(iv.stage),
-        colorFor(String(iv.stage)),
+        colorFor(proposedColorKey(iv.stage)),
         `${iv.stage}\n${fmtTime(iv.start_s)} – ${fmtTime(iv.end_s)}`, 'pred'));
     }
     els.tracks.appendChild(track);
@@ -455,7 +483,7 @@ function updateMonitorContext(t) {
 
   if (u) {
     els.monState.innerHTML =
-      `<div><b style="color:${colorFor(String(uid))}">${escapeHtml(stepLabel(uid))}</b> ` +
+      `<div><b style="color:${colorFor(proposedColorKey(uid))}">${escapeHtml(stepLabel(uid))}</b> ` +
       `<span class="role">${escapeHtml(u.sensing_role || '')}</span></div>` +
       `<div class="muted">requires: ${escapeHtml(u.requires.join(', ') || '—')} · ` +
       `produces: ${escapeHtml(u.produces.join(', ') || '—')}</div>` +
@@ -489,7 +517,7 @@ function updateMonitorContext(t) {
     const v = poll.verdict;
     els.monPoll.innerHTML =
       `<b>VLM poll @${fmtTime(poll.t)}</b> · ${poll.n_frames} frames · ${poll.latency_s}s · ` +
-      (v ? `<span style="color:${colorFor(String(v.step_id))}">${escapeHtml(stepLabel(v.step_id))}</span> ` +
+      (v ? `<span style="color:${colorFor(proposedColorKey(v.step_id))}">${escapeHtml(stepLabel(v.step_id))}</span> ` +
            `(${escapeHtml(v.status || '?')})<div class="muted">${escapeHtml(v.evidence || '')}</div>`
          : '<span class="muted">no member match</span>');
   } else {

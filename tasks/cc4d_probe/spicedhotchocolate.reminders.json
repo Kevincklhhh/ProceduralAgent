@@ -1,0 +1,413 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "spicedhotchocolate",
+ "activity_id": 8,
+ "n_recordings": 16,
+ "n_error_recordings": 10,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 88,
+   "order": 1,
+   "instruction": "Fill a microwave-safe mug with skimmed milk",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Spill",
+      "Spilled while filling the milk",
+      "Spill some while filling the mug.",
+      "Spill milk while adding it to the plate",
+      "spilling milk while filling the milk",
+      "Spill while filling the mug"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Used whole milk",
+      "Using soiled mug without washing instead of a clean one.",
+      "Filled whole milk instead of skimmed milk",
+      "Fill only half the mug instead of filling it completely.",
+      "Used expired milk for the recipe"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after adding cinnamon, chocolate and microwaving",
+      "Step performed after adding sugar"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Fill only half instead of full mug"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 89,
+   "order": 2,
+   "instruction": "Microwave the contents of the mug for 1 minute",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    88
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Microwave the contents of the mug for 2 minutes",
+      "Microwave-Microwave the contents of the mug for 35 seconds. Started the timer from 7 minutes and stopped at 6:25.",
+      "Microwave for 2 minutes instead of 1 minute",
+      "Microwaving for 45 seconds.",
+      "Microwave for 1.5 minutes rather than 1 minute. (Chocolate might burn)"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Step performed after adding sugar to the mug.",
+      "Step performed adding milk",
+      "Step performed after adding cinnamon and sugar",
+      "Step performed after adding sugar"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Set power level to 10% instead of 100%"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 84,
+   "order": 3,
+   "instruction": "Add 1/5 teaspoon cinnamon to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    89
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Instead of 1/5 added 1/4 tsp of cinnamon.",
+      "Adding 1/4 teaspoon instead of 1/5 teaspoon.",
+      "Measure 1/4 tsp instead of 1/5 tsp",
+      "use tablespoon in place of teaspoon"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Added cumin instead of cinnamon",
+      "Use a plate instead of a mug"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before adding milk and microwaving",
+      "Step performed before microwaving"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add-Add 1/5 teaspoon cinnamon to the mug. Spilling happened while adding. Also first put 1/2 tsp first and then to make 1/5 remove the added cinnamon from top of milk. Incorrect way to add 1/5 tsp cinnamon."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 87,
+   "order": 4,
+   "instruction": "Add 1 teaspoon of white sugar to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    89
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Used tablespoon instead of teaspoon.",
+      "Add-Add 2 teaspoon of white sugar to the mug. Instead of 1 tsp add 2 tsp of sugar.",
+      "Using tablespoon instead of teaspoon.",
+      "Use a table spoon instead of a tea spoon"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before microwaving the mug.",
+      "Step performed before microwaving",
+      "Step performed before adding milk and microwaving it"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add-Add 1 teaspoon of corn starch to the mug",
+      "Added salt instead of sugar"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 90,
+   "order": 5,
+   "instruction": "Add 2 pieces of chocolate to the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    89
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Added 4 pieces of chocolate to the mug",
+      "Add-Add 4 pieces of chocolate to the mug",
+      "Add-Add 5 pieces of chocolate to the mug",
+      "Adding only one piece instead of two.",
+      "add more (5) pieces of choclate",
+      "Add 1 piece of chocolate to the mug"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed after mixing the contents of the mug.",
+      "Step performed before adding milk and microwaving",
+      "Step performed before microwaving"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while adding chocolate"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 85,
+   "order": 6,
+   "instruction": "Mix the contents of the mug",
+   "duration_constraint_s": null,
+   "preconditions": [
+    84,
+    87,
+    90
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Mix-Mix the contents of the mug. Not doing circular and slowly mixing the contents of mug. Instead did hastily and spilling the milk. Also motion was up-down and sideways instead of circular.",
+      "Mix-Mix the contents of the mug with spilling",
+      "Not mixing the contents of the mug thoroughly.",
+      "Mix the contents of the mug by rotating motion of the cup and not mixing the contents properly"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before adding chocolate to the mug."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 83,
+   "order": 7,
+   "instruction": "Heat the contents of the mug for 1 minute and serve",
+   "duration_constraint_s": 60,
+   "preconditions": [
+    85
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "descriptions": [
+      "Microwave on low and high power",
+      "Microwaved on high for 8 secs",
+      "Heat-Heat the contents of the mug for 2 minute and serve. On low heat",
+      "Used lower power than specified"
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Microwaved on high for 8 secs on high. And 1 minute on low power",
+      "Heat-Heat the contents of the mug for 2 minute and serve",
+      "Heat-Heat the contents of the mug for 40 seconds and serve it on glass plate cover. Also timing started from 10:30 and stopped at 9:50.",
+      "Heat-Heat the contents of the mug for 2 minutes instead of 1 min"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Heat-Heat the contents of the mug for 40 seconds and serve it on glass plate cover. Also timing started from 10:30 and stopped at 9:50.",
+      "Milk rose up and spilled from cup in the microwave due to more temperature and time"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1442 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "cucumberraita",
+ "activity_id": 17,
+ "n_recordings": 20,
+ "n_error_recordings": 8,
+ "steps": [
+  {
+   "step_id": 183,
+   "order": 1,
+   "instruction": "In a mixing bowl, whisk 1 cup of chilled curd until smooth. Use fresh homemade or packaged curd",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 183,
+       "description": "Step performed after adding ingredients to the bowl",
+       "video_window": [
+        130.2,
+        177.8
+       ]
+      },
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 183,
+       "description": "Performed after whisking curd in the bowl",
+       "video_window": [
+        270.8,
+        352.4
+       ]
+      },
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 183,
+       "description": "Step performed after adding ingredients to the bowl",
+       "video_window": [
+        293.1,
+        390.0
+       ]
+      },
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 183,
+       "description": "Step performed after whisking curd in the bowl",
+       "video_window": [
+        241.2,
+        357.3
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 183,
+       "description": "Step performed after adding ingredients to the bowl",
+       "video_window": [
+        651.2,
+        729.7
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 183,
+       "description": "Step performed after ingredients to the bowl",
+       "video_window": [
+        302.9,
+        406.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 183,
+       "description": "Used coffee mug instead of mixing bowl",
+       "video_window": [
+        78.2,
+        206.1
+       ]
+      },
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 183,
+       "description": "Did not whisk just added curd",
+       "video_window": [
+        130.2,
+        177.8
+       ]
+      },
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 183,
+       "description": "Added to a separate bowl instead of same bowl",
+       "video_window": [
+        270.8,
+        352.4
+       ]
+      },
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 183,
+       "description": "use flavoured fruit yogurt instead of curd",
+       "video_window": [
+        241.2,
+        357.3
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 183,
+       "description": "Did not whisk, just added the curd",
+       "video_window": [
+        651.2,
+        729.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 183,
+       "description": "add less than 1 cup",
+       "video_window": [
+        130.2,
+        177.8
+       ]
+      },
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 183,
+       "description": "Whisk 1/2 cup instead of 1 cup of chilled curd until smooth.",
+       "video_window": [
+        270.8,
+        352.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_28",
+       "cc4d_step_id": 183,
+       "description": "Did not whisk the curd completely",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 183,
+       "description": "Whisking not done properly. Instead of moving hand in circular motion. Used hands by just pushing up and down the curd.",
+       "video_window": [
+        78.2,
+        206.1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 181,
+   "order": 2,
+   "instruction": "1/4 teaspoon of red chilli powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 181,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        251.1,
+        279.5
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 181,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        177.9,
+        210.8
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 181,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        11.2,
+        88.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 181,
+       "description": "added approximate quantity instead of measuring",
+       "video_window": [
+        276.7,
+        289.8
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 181,
+       "description": "Added tablespoon instead of teaspoon",
+       "video_window": [
+        11.2,
+        88.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 181,
+       "description": "Added to curd bowl instead of the original bowl",
+       "video_window": [
+        541.6,
+        584.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 181,
+       "description": "Spill some outside while adding red chilli powder",
+       "video_window": [
+        177.9,
+        210.8
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 184,
+   "order": 3,
+   "instruction": "1/4 teaspoon salt to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 184,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        64.0,
+        98.5
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 184,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        609.3,
+        633.3
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 184,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        258.7,
+        287.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 184,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 184,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 184,
+       "description": "Add-1/2 teaspoon salt to the bowl.",
+       "video_window": [
+        465.6,
+        534.6
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 184,
+       "description": "Add 1 teaspoon instead of 1/4 teaspoon",
+       "video_window": [
+        258.7,
+        287.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 184,
+       "description": "Added to curd bowl instead of the original bowl",
+       "video_window": [
+        465.6,
+        534.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 184,
+       "description": "spill while adding",
+       "video_window": [
+        609.3,
+        633.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 187,
+   "order": 4,
+   "instruction": "add 1 tablespoon of chopped cilantro leaves to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 187,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        4.8,
+        82.0
+       ]
+      },
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 187,
+       "description": "Performed before whisking curd in the bowl",
+       "video_window": [
+        102.7,
+        194.8
+       ]
+      },
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 187,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        125.3,
+        220.4
+       ]
+      },
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 187,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        163.9,
+        224.3
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 187,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        289.3,
+        453.1
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 187,
+       "description": "Step performed after combining all the ingredients in the bowl",
+       "video_window": [
+        487.1,
+        595.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_28",
+       "cc4d_step_id": 187,
+       "description": "Made into pieces using hand instead of chopping.",
+       "video_window": [
+        319.7,
+        360.7
+       ]
+      },
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 187,
+       "description": "Used peeler instead of knife to chop cilantro leaves. Did not remove stems of cilantro leaves.",
+       "video_window": [
+        255.9,
+        322.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 187,
+       "description": "added approximate quantity, did not measure",
+       "video_window": [
+        4.8,
+        82.0
+       ]
+      },
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 187,
+       "description": "add-add 2 tablespoons instead of 1 tablespoon of chopped cilantro",
+       "video_window": [
+        102.7,
+        194.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 187,
+       "description": "add scallions instead of cilantro",
+       "video_window": [
+        125.3,
+        220.4
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 188,
+   "order": 5,
+   "instruction": "Add 1 teaspoon of cumin powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 188,
+       "description": "Performed before whisking curd in the bowl",
+       "video_window": [
+        29.5,
+        96.4
+       ]
+      },
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 188,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        17.1,
+        80.9
+       ]
+      },
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 188,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        109.0,
+        149.5
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 188,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        83.0,
+        153.3
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 188,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        157.1,
+        181.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 188,
+       "description": "Added Cinnamon powder instead of cumin powder",
+       "video_window": [
+        474.1,
+        511.8
+       ]
+      },
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 188,
+       "description": "Add raw cumin seeds instead of cumin powder",
+       "video_window": [
+        297.7,
+        345.8
+       ]
+      },
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 188,
+       "description": "add cumin seed instead of powder",
+       "video_window": [
+        109.0,
+        149.5
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 188,
+       "description": "add turmeric instead of cumin powder",
+       "video_window": [
+        157.1,
+        181.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_28",
+       "cc4d_step_id": 188,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 188,
+       "description": "spill some cumin powder",
+       "video_window": [
+        17.1,
+        80.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 188,
+       "description": "add 2 teaspoons instead of 1 teaspoon",
+       "video_window": [
+        83.0,
+        153.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 189,
+   "order": 6,
+   "instruction": "Rinse 1 medium sized cucumber",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 189,
+       "description": "Used zucchini instead of cucumber",
+       "video_window": [
+        7.8,
+        72.5
+       ]
+      },
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 189,
+       "description": "Use zucchini instead of cucumber",
+       "video_window": [
+        229.8,
+        243.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 189,
+       "description": "Rinsed only half of the zucchini. Did not rinse the other half.",
+       "video_window": [
+        7.8,
+        72.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 189,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 182,
+   "order": 7,
+   "instruction": "peel the cucumber",
+   "duration_constraint_s": null,
+   "preconditions": [
+    189
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 182,
+       "description": "Skin not removed properly",
+       "video_window": [
+        323.4,
+        427.2
+       ]
+      },
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 182,
+       "description": "peel the cucumber incompletely",
+       "video_window": [
+        192.1,
+        270.2
+       ]
+      },
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 182,
+       "description": "Did not peel the cucumber properly with peeler",
+       "video_window": [
+        359.4,
+        459.3
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 182,
+       "description": "peel the cucumber improperly. or half peeled",
+       "video_window": [
+        227.3,
+        274.4
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 182,
+       "description": "donot peel the cucumber properly",
+       "video_window": [
+        182.8,
+        211.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 4,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 182,
+       "description": "Peeled using fork instead of peeler",
+       "video_window": [
+        323.4,
+        427.2
+       ]
+      },
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 182,
+       "description": "Used zucchini instead of cucumber",
+       "video_window": [
+        323.4,
+        427.2
+       ]
+      },
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 182,
+       "description": "used grater instead of peeler",
+       "video_window": [
+        192.1,
+        270.2
+       ]
+      },
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 182,
+       "description": "Peeled using knife instead of peeler first and then knife",
+       "video_window": [
+        359.4,
+        459.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "17_28",
+       "cc4d_step_id": 182,
+       "description": "Didn't peel the cucumber just cut the ends.",
+       "video_window": null
+      },
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 182,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 182,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 185,
+   "order": 8,
+   "instruction": "chop or grate the cucumber",
+   "duration_constraint_s": null,
+   "preconditions": [
+    182
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "17_28",
+       "cc4d_step_id": 185,
+       "description": "Didn't properly chopped the cucumber.",
+       "video_window": [
+        376.4,
+        383.9
+       ]
+      },
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 185,
+       "description": "Used blunt knife instead of sharp knife to chop cucumber. Chopping action is not proper.",
+       "video_window": [
+        567.9,
+        624.1
+       ]
+      },
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 185,
+       "description": "slice the cucumber into discs",
+       "video_window": [
+        39.4,
+        58.0
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 185,
+       "description": "slice instead of chop or grate",
+       "video_window": [
+        532.3,
+        572.7
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 185,
+       "description": "cut cucumber into thin strips instead of chop/ grate",
+       "video_window": [
+        602.6,
+        658.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 185,
+       "description": "Used zucchini instead of cucumber",
+       "video_window": [
+        567.9,
+        624.1
+       ]
+      },
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 185,
+       "description": "Cut with scissor instead of chopping",
+       "video_window": [
+        364.6,
+        412.5
+       ]
+      },
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 185,
+       "description": "Use zucchini instead of cucumber",
+       "video_window": [
+        391.1,
+        473.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 185,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_40",
+       "cc4d_step_id": 185,
+       "description": "use zucchini instead of cucumber and chop or grate only half zucchini instead of full",
+       "video_window": [
+        391.1,
+        473.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 185,
+       "description": "Step performed after combining all the ingredients in the bowl",
+       "video_window": [
+        602.6,
+        658.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 190,
+   "order": 9,
+   "instruction": "Add the chopped or grated cucumber to the whisked curd",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183,
+    185
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 190,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        581.7,
+        602.6
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 190,
+       "description": "Step performed after combining all the ingredients in the bowl",
+       "video_window": [
+        661.3,
+        682.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 190,
+       "description": "Directly transferring the entire cutting board and not the chopped zucchini. Spilling happens. kitchen platform became messy.",
+       "video_window": [
+        676.7,
+        693.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 190,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 190,
+       "description": "Added non-chopped cucumber to the bowl",
+       "video_window": [
+        649,
+        656
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 191,
+   "order": 10,
+   "instruction": "1/2 teaspoon of chaat masala powder to the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    183
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 191,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        85.4,
+        115.1
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 191,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        462.8,
+        524.1
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 191,
+       "description": "Step performed before whisking curd in the bowl",
+       "video_window": [
+        215.2,
+        252.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 191,
+       "description": "Spilled while transferring chaat masala powder from packet to bowl",
+       "video_window": [
+        631.9,
+        670.3
+       ]
+      },
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 191,
+       "description": "spill while adding",
+       "video_window": [
+        85.4,
+        115.1
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 191,
+       "description": "Measured 1 tsp instead of 1/2 tsp.",
+       "video_window": [
+        85.4,
+        115.1
+       ]
+      },
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 191,
+       "description": "Add-1 teaspoon of chaat masala powder to the bowl",
+       "video_window": [
+        585,
+        616
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 191,
+       "description": "Added to curd bowl instead of the original bowl",
+       "video_window": [
+        585,
+        616
+       ]
+      },
+      {
+       "recording_id": "17_43",
+       "cc4d_step_id": 191,
+       "description": "add garam masala instead of chaat masala",
+       "video_window": [
+        368.5,
+        434.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 186,
+   "order": 11,
+   "instruction": "Combine all the ingredients in the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    181,
+    184,
+    187,
+    188,
+    190,
+    191
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 186,
+       "description": "Did not combine all the ingredients properly. Did not mix the ingredients",
+       "video_window": [
+        699.4,
+        726.5
+       ]
+      },
+      {
+       "recording_id": "17_45",
+       "cc4d_step_id": 186,
+       "description": "spill some ingredients out while combining",
+       "video_window": [
+        740.9,
+        767.1
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 186,
+       "description": "Spilling while combining in the bowl",
+       "video_window": [
+        407.9,
+        467.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_28",
+       "cc4d_step_id": 186,
+       "description": "Did not combine all the ingredients in the bowl, just rotated the bowl in a circular motion.",
+       "video_window": [
+        393.2,
+        400.6
+       ]
+      },
+      {
+       "recording_id": "17_29",
+       "cc4d_step_id": 186,
+       "description": "Used knife instead of spoon to combine the ingredients",
+       "video_window": [
+        699.4,
+        726.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "17_37",
+       "cc4d_step_id": 186,
+       "description": "Step performed before adding cucumber",
+       "video_window": [
+        620,
+        635
+       ]
+      },
+      {
+       "recording_id": "17_49",
+       "cc4d_step_id": 186,
+       "description": "Step performed before adding all the ingredients in the bowl",
+       "video_window": [
+        407.9,
+        467.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "17_36",
+       "cc4d_step_id": 186,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

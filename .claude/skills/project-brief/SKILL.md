@@ -23,9 +23,9 @@ Headline must read "sensor scheduling at X% of always-on-VLM energy/latency at e
 Before you call a task finished, deliver a wrap-up that a non-specialist on this project could follow:
 
 1. **Plain language first.** Lead with what you did / found in ordinary words and why it matters to the goal in §1. No wall of identifiers.
-2. **Define every piece of jargon on first use** — inline, one clause. This includes our own terms: *window, reactive vs. preventive, the firewall, A-solve/B-trigger/C-none, mechanical-only, suspended vs. excluded, decision point, G-Mean F1, STS*. If a term isn't worth defining, it isn't worth using.
+2. **Define every piece of jargon on first use** — inline, one clause. This includes our own terms: *window, reactive vs. preventive, the firewall, A-solve/B-trigger/C-none, mechanical-only, excluded-by-design, decision point, G-Mean F1, STS*. If a term isn't worth defining, it isn't worth using.
 3. **Ground claims in what actually ran.** State what you executed and verified vs. what you only reasoned about. Quote real numbers/outputs, not expected ones. If a step was skipped or failed, say so plainly.
-4. **Be honest about limits.** Name the fraction that doesn't work (e.g. the C-none slice, suspended classes, un-run steps) rather than rounding up to "done."
+4. **Be honest about limits.** Name the fraction that doesn't work (e.g. the C-none slice, low-recall classes like temperature power-level, un-run steps) rather than rounding up to "done."
 5. **Use a concrete example** when explaining a derivation or result (a real recording id, a real event), the way `data/cc4d_family_a/8_45.json` makes the GT tangible.
 6. **Offer the next decision, not a survey.** End with a recommendation or a single focused question, not an exhaustive menu.
 

@@ -1,0 +1,568 @@
+{
+  "recipe": "microwavefrenchtoast",
+  "_kind": "detector_and_control_brainstorm",
+  "_note": "DAG: two roots (94 butter-melt, 99 cut-bread) concurrent; chain 94->98->101->{95,100}->93->92->91->97->96. Two microwave steps: 94 (30s) and 91 (90s). All other steps are silent manual prep.",
+  "claims": [
+    {
+      "step_id": 94,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User puts butter in mug and starts microwave (concurrent root with step 99)",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "high",
+      "config_oneline": "D1 cycle_start at t: confirms microwave on; DAG marks 94 active (root, no preconditions). Camera can sleep. Low-res ROI to mug optional to confirm container."
+    },
+    {
+      "step_id": 94,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Butter melted; microwave stopped after ~30s",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high",
+      "config_oneline": "D1 cycle_end: end-beep emits cycle_end with duration. D6 checks duration ~30s. Camera OFF during microwave run. Thermal spot could confirm butter is liquid (speculative)."
+    },
+    {
+      "step_id": 94,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 tablespoon of butter — flag wrong amount",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: D1 cycle_start fires one VLM call on a single low-res mug frame to eyeball butter amount before lid closes. VLM cannot measure tbsp precisely but can flag gross excess/deficit."
+    },
+    {
+      "step_id": 94,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Softened butter in a large mug — flag wrong container or ingredient",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "high",
+      "config_oneline": "B-trigger: before D1 fires (user is placing butter), one VLM call on mug crop to confirm container=mug and ingredient=butter vs. margarine/oil. Low-res ROI sufficient."
+    },
+    {
+      "step_id": 94,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Microwave ~30s — flag noticeably shorter or longer",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 emits overtime/undertime anchored on D1 cycle_start and cycle_end with duration_constraint_s=30. Pure graph-timer logic, no camera needed."
+    },
+    {
+      "step_id": 98,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User tilts/swirls mug to coat interior with butter",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "imu",
+      "feasibility": "medium",
+      "config_oneline": "C-none: silent fine-motor gesture (tilting/swirling mug). No audio signature. IMU on wrist could detect rolling/tilting motion — speculative but plausible for gross orientation change."
+    },
+    {
+      "step_id": 98,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Mug interior coated; inferred from onset of step 101 (whisking egg)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG: 98 completes when 101 begins. No direct sensor needed; successor recognition triggers completion retroactively. Pure graph logic."
+    },
+    {
+      "step_id": 98,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Rolling butter to coat — flag failure to coat or splashing",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "imu",
+      "feasibility": "low",
+      "config_oneline": "C-none: coating coverage is a visual fine-detail check. IMU detects swirl motion but cannot confirm coating evenness. Needs VLM on one frame of mug interior."
+    },
+    {
+      "step_id": 99,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User cuts/tears bread into bite-size pieces (concurrent root with step 94)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "imu",
+      "feasibility": "medium",
+      "config_oneline": "C-none: cutting/tearing is acoustically weak and variable (transient train excluded). DAG marks 99 eligible (root) but no audio A-solve. cv motion-on-cutting-board could B-trigger, but VLM confirms. IMU could detect chopping gross motion (speculative)."
+    },
+    {
+      "step_id": 99,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Bread sliced into pieces; inferred from onset of step 92 (add bread to egg)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG: 99 completes when 92 begins. Pure graph logic; no sensor needed."
+    },
+    {
+      "step_id": 99,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1 slice cut into bite-size pieces — flag different slice count or oversized pieces",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "C-none: counting pieces and judging size requires VLM. cv cannot count reliably. Low-res ROI of cutting board may suffice for a one-shot VLM frame check."
+    },
+    {
+      "step_id": 99,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Bread ingredient — flag wrong ingredient (e.g. English muffin)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: DAG marks 99 eligible at start; fire one VLM call early on a single frame of the cutting surface to confirm bread vs. other ingredient. Low-res ROI sufficient for identity."
+    },
+    {
+      "step_id": 101,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User cracks egg into mug and whisks with fork",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: HSV color change in mug ROI (yellow egg appears) triggers one VLM call to confirm egg-cracking. IMU could detect rapid back-and-forth whisking motion (speculative B-trigger)."
+    },
+    {
+      "step_id": 101,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Egg whisked until well-blended; inferred from onset of step 95 (cinnamon) or 100 (vanilla)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG: 101 completes when 95 or 100 begins. Pure graph logic."
+    },
+    {
+      "step_id": 101,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "One egg — flag different number of eggs",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "high",
+      "config_oneline": "B-trigger: cv color-change triggers VLM on one mug frame to count eggs cracked. Low-res ROI mug crop is sufficient."
+    },
+    {
+      "step_id": 101,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Whisk with fork — flag wrong utensil (spoon, teaspoon)",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "high",
+      "config_oneline": "B-trigger: cv motion-in-mug ROI triggers one VLM call; VLM identifies fork vs. spoon in hand. Low-res ROI, single frame."
+    },
+    {
+      "step_id": 101,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Whisk until well blended — flag under-whisked egg",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "C-none: 'well blended' is a fine visual quality judgment. Requires VLM frame at end of whisking. Low-res mug ROI may not have enough detail; full-res single frame preferred."
+    },
+    {
+      "step_id": 95,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User sprinkles cinnamon over egg (concurrent with step 100, vanilla)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: HSV color change in mug ROI (brown specks appear) triggers one VLM call to confirm cinnamon vs. vanilla addition. DAG context disambiguates which concurrent branch is active."
+    },
+    {
+      "step_id": 95,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Cinnamon sprinkled; inferred from onset of step 93 (stir)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG: both 95 and 100 must complete before 93 starts. Pure graph logic."
+    },
+    {
+      "step_id": 95,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 tsp cinnamon — flag noticeably different amount",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low",
+      "config_oneline": "C-none: 1/4 tsp is a tiny amount; audio/cv cannot measure it. VLM can only flag gross excess (heavy dusting) — inherently imprecise. Low-res ROI of mug top."
+    },
+    {
+      "step_id": 95,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Cinnamon ingredient — flag wrong spice",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: cv color-change in mug fires VLM; VLM reads spice container label or color hue (brown=cinnamon vs. white=sugar). Single frame, low-res ROI."
+    },
+    {
+      "step_id": 95,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "[probe-added] Spilling cinnamon from open mug during measuring/sprinkling",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low",
+      "config_oneline": "C-none: spill detection on a countertop requires VLM or wide-angle cv with baseline subtraction. Speculative low-res ROI of counter area. Probe-added check; low detection confidence."
+    },
+    {
+      "step_id": 100,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adds vanilla extract to mug (concurrent with step 95, cinnamon)",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: hand-in-mug-ROI motion triggers one VLM call to confirm vanilla bottle use vs. cinnamon spice jar. DAG knows both 95 and 100 are concurrently eligible after 101."
+    },
+    {
+      "step_id": 100,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Vanilla added; inferred from onset of step 93 (stir)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG: both 95 and 100 must complete before 93. Pure graph logic."
+    },
+    {
+      "step_id": 100,
+      "kind": "check:measurement",
+      "subtype": "measurement",
+      "claim_short": "1/4 tsp vanilla extract — flag noticeably different amount (e.g. 1 tsp)",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "low",
+      "config_oneline": "C-none: liquid volume in a small bottle is unobservable by audio/cv. VLM on a single pour frame can only flag gross over-pour. Low-res ROI of mug top."
+    },
+    {
+      "step_id": 100,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Vanilla extract ingredient — flag wrong flavoring",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "high",
+      "config_oneline": "B-trigger: hand-in-mug motion triggers VLM; VLM reads bottle label or color (clear=vanilla vs. other). Single low-res frame."
+    },
+    {
+      "step_id": 93,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User stirs mug to combine egg, cinnamon, vanilla",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: cv motion in mug ROI (fork/spoon circling) triggers one VLM call to confirm stirring. IMU wrist motion (rapid circular) could be an A-solve if wearable available."
+    },
+    {
+      "step_id": 93,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Contents stirred and combined; inferred from onset of step 92 (add bread)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG: 93 completes when 92 begins. Pure graph logic."
+    },
+    {
+      "step_id": 93,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Stirring mug to combine — flag inadequate stirring",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "C-none: adequacy of mixing is a visual judgment (uniform color/texture). VLM on one mug frame after motion stops. Low-res ROI of mug top."
+    },
+    {
+      "step_id": 92,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User adds bread pieces to egg mixture and presses them down",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: HSV/occupancy change in mug ROI (solid pieces appear) triggers one VLM call. VLM confirms bread placement and pressing action."
+    },
+    {
+      "step_id": 92,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Bread submerged in egg; inferred from onset of step 91 (microwave cook)",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "DAG: 92 completes when 91 begins (D1 cycle_start for the 90s cook). Pure graph logic."
+    },
+    {
+      "step_id": 92,
+      "kind": "check:preparation",
+      "subtype": "preparation",
+      "claim_short": "Adding correct bread pieces to egg — flag missing or wrong material",
+      "modality": "vlm",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: cv mug occupancy change triggers VLM to confirm bread (not something else) being added. Single low-res mug ROI frame."
+    },
+    {
+      "step_id": 92,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Pressing bread into egg — flag failure to press bread into mixture",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "C-none: 'pressing down' is a fine motion judgment — is bread submerged or floating? Requires VLM on a mug-top frame. Low-res ROI of mug interior."
+    },
+    {
+      "step_id": 91,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User microwaves on high for 90s to cook egg-soaked bread",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D1 cycle_start: microwave hum onset confirms step 91. Camera can sleep. DAG validates precondition 92 complete."
+    },
+    {
+      "step_id": 91,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Egg cooked through; microwave stopped after ~90s",
+      "modality": "audio",
+      "role": "A-solve",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "high",
+      "config_oneline": "D1 cycle_end: end-beep with duration. D6 checks ~90s. Camera OFF during full microwave run. Thermal spot could verify food is hot/cooked (speculative)."
+    },
+    {
+      "step_id": 91,
+      "kind": "check:timing",
+      "subtype": "timing",
+      "claim_short": "Microwave ~90s — flag noticeably shorter or longer time",
+      "modality": "dag",
+      "role": "A-solve",
+      "speculative_sensor": "",
+      "feasibility": "high",
+      "config_oneline": "D6 anchored on D1 cycle_start/cycle_end with duration_constraint_s=90. Emits overtime/undertime. No camera needed."
+    },
+    {
+      "step_id": 91,
+      "kind": "check:temperature",
+      "subtype": "temperature",
+      "claim_short": "Microwave on high power — flag lower power setting or undercooked egg",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "thermal-spot",
+      "feasibility": "medium",
+      "config_oneline": "C-none: power level is set on microwave panel (not audible). Undercooked egg requires visual check after cooking. Thermal spot could detect food temperature post-cook. VLM needed for panel reading or visual doneness."
+    },
+    {
+      "step_id": 97,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User turns mug contents out onto a plate",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: cv occupancy change in plate ROI (food appears) or mug tilt motion triggers one VLM call to confirm plating action. Low-res wide-angle frame."
+    },
+    {
+      "step_id": 97,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Contents plated; observable end-state (food on plate)",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "high",
+      "config_oneline": "cv: plate-ROI occupancy detects food presence (before=empty, after=food). Low-res diff sufficient. No VLM needed if plate was known empty beforehand."
+    },
+    {
+      "step_id": 96,
+      "kind": "recognition",
+      "subtype": null,
+      "claim_short": "User cuts plated contents and serves — terminal step",
+      "modality": "cv",
+      "role": "B-trigger",
+      "speculative_sensor": "imu",
+      "feasibility": "medium",
+      "config_oneline": "B-trigger: cv motion on plate ROI (knife movement) triggers one VLM call to confirm cutting action. IMU detects downward chopping strokes (speculative)."
+    },
+    {
+      "step_id": 96,
+      "kind": "completion",
+      "subtype": null,
+      "claim_short": "Contents cut and served; observable end-state",
+      "modality": "cv",
+      "role": "A-solve",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "cv: plate-ROI state change (food cut into pieces visible). Low-res ROI diff from pre-cut state. Terminal step — completion marks recipe done."
+    },
+    {
+      "step_id": 96,
+      "kind": "check:technique",
+      "subtype": "technique",
+      "claim_short": "Cutting and serving — flag failure to cut or serve",
+      "modality": "vlm",
+      "role": "C-none",
+      "speculative_sensor": "low-res-roi",
+      "feasibility": "medium",
+      "config_oneline": "C-none: 'failure to cut' requires visual confirmation the food is cut. VLM on one plate frame. Low-res ROI of plate is likely sufficient."
+    }
+  ],
+  "recipe_schedule": {
+    "by_stage": [
+      {
+        "step_id": 94,
+        "stage": "butter-melt (microwave 30s)",
+        "camera": "OFF during microwave run; one pre-run B-trigger frame for measurement/prep checks",
+        "audio": "D1 cycle_start + cycle_end; D6 timer 30s",
+        "vlm": "B-trigger: 1 call pre-run (container+amount check)",
+        "role": "A-solve (recognition+completion); B-trigger (measurement+preparation checks); DAG (timing check)"
+      },
+      {
+        "step_id": 98,
+        "stage": "coat mug with butter",
+        "camera": "ON periodic (silent fine-motor step)",
+        "audio": "none",
+        "vlm": "C-none: periodic VLM for recognition; one frame for technique check",
+        "role": "C-none (recognition+technique); DAG (completion)"
+      },
+      {
+        "step_id": 99,
+        "stage": "cut/tear bread (concurrent root)",
+        "camera": "ON periodic (silent manual step)",
+        "audio": "none (transient train excluded)",
+        "vlm": "C-none: periodic VLM for recognition+measurement; B-trigger: 1 call early for ingredient identity",
+        "role": "C-none (recognition+measurement); B-trigger (preparation check); DAG (completion)"
+      },
+      {
+        "step_id": 101,
+        "stage": "whisk egg with fork",
+        "camera": "ON - cv watches mug ROI for color change",
+        "audio": "none",
+        "vlm": "B-trigger: cv color change fires VLM for recognition+measurement+preparation; C-none for technique",
+        "role": "B-trigger (recognition+measurement+preparation); C-none (technique); DAG (completion)"
+      },
+      {
+        "step_id": 95,
+        "stage": "sprinkle cinnamon (concurrent with 100)",
+        "camera": "ON - cv watches mug ROI for HSV change",
+        "audio": "none",
+        "vlm": "B-trigger: color change fires VLM for recognition+preparation; C-none for measurement+technique-spill",
+        "role": "B-trigger (recognition+preparation); C-none (measurement+technique); DAG (completion)"
+      },
+      {
+        "step_id": 100,
+        "stage": "add vanilla extract (concurrent with 95)",
+        "camera": "ON - cv watches mug ROI for hand+bottle motion",
+        "audio": "none",
+        "vlm": "B-trigger: hand-in-ROI motion fires VLM for recognition+preparation; C-none for measurement",
+        "role": "B-trigger (recognition+preparation); C-none (measurement); DAG (completion)"
+      },
+      {
+        "step_id": 93,
+        "stage": "stir mug to combine",
+        "camera": "ON - cv watches mug ROI for utensil motion",
+        "audio": "none",
+        "vlm": "B-trigger: motion fires VLM for recognition; C-none for technique (adequacy)",
+        "role": "B-trigger (recognition); C-none (technique); DAG (completion)"
+      },
+      {
+        "step_id": 92,
+        "stage": "add bread to egg + press",
+        "camera": "ON - cv watches mug occupancy",
+        "audio": "none",
+        "vlm": "B-trigger: occupancy change fires VLM for recognition+preparation; C-none for technique (pressing)",
+        "role": "B-trigger (recognition+preparation); C-none (technique); DAG (completion)"
+      },
+      {
+        "step_id": 91,
+        "stage": "microwave cook 90s",
+        "camera": "OFF during microwave run",
+        "audio": "D1 cycle_start + cycle_end; D6 timer 90s",
+        "vlm": "C-none: temperature/power check needs VLM after cooking ends (one frame)",
+        "role": "A-solve (recognition+completion+timing); C-none (temperature/power check)"
+      },
+      {
+        "step_id": 97,
+        "stage": "plate contents",
+        "camera": "ON - cv watches plate ROI for occupancy",
+        "audio": "none",
+        "vlm": "B-trigger: tilt motion fires VLM for recognition; cv alone for completion",
+        "role": "B-trigger (recognition); A-solve cv (completion)"
+      },
+      {
+        "step_id": 96,
+        "stage": "cut and serve (terminal)",
+        "camera": "ON - cv watches plate ROI",
+        "audio": "none",
+        "vlm": "B-trigger: plate motion fires VLM for recognition; C-none for technique; cv for completion",
+        "role": "B-trigger (recognition); C-none (technique); A-solve cv (completion)"
+      }
+    ],
+    "role_mix": {
+      "A-solve": 15,
+      "B-trigger": 15,
+      "C-none": 12
+    },
+    "cost_estimate": "Camera is OFF for both microwave steps (94: ~30s, 91: ~90s total ~2 min of always-on-VLM avoided). During the ~8 silent manual steps camera is ON but VLM fires only on cheap sensor triggers (cv color/motion/occupancy changes), not continuously. Estimated VLM calls: ~12-15 targeted calls vs. continuous periodic VLM at e.g. 0.1 Hz for 8+ min = ~48+ calls. Rough duty-cycle: ~25-30% of always-on-VLM energy.",
+    "honest_limits": "C-none slice (10 claims, ~24%): technique fine-detail checks (coating evenness, whisking quality, pressing adequacy, stirring adequacy, cinnamon spill, cutting confirmation) and small-amount measurements (1/4 tsp cinnamon, 1/4 tsp vanilla, power-level panel) have no cheap audio/cv solve. The microwave power-level check (step 91 temperature claim) is C-none because panel state is silent and not color-distinctive enough for cheap cv. The concurrent-root disambiguation (step 94 vs 99 recognition) relies on audio D1 for 94 but cv/VLM for 99 — if both start truly simultaneously, the camera cannot be fully off until D1 fires."
+  }
+}

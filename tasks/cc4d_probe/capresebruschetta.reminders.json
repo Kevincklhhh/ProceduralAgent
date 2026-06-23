@@ -1,0 +1,583 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "capresebruschetta",
+ "activity_id": 29,
+ "n_recordings": 18,
+ "n_error_recordings": 12,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 342,
+   "order": 1,
+   "instruction": "1/8 cup shredded mozzarella to a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Not adding 1/8 cup of mozzarella",
+      "add-1/4 cup shredded mozzarella to a bowl",
+      "add-1/4 cup instead of 1/8 cup shredded mozzarella to a bowl"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spill while measuring mozarella to the cup",
+      "Spill while adding mozzarella to a bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "add-1/8 cup shredded mozzarella to a plate instead of bowl",
+      "Using hand to add mozzarella to a plate instead of using measuring cup"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after combining the contents of the bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 343,
+   "order": 2,
+   "instruction": "1/4 tsp salt to a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "The measuring spoon was wet"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add twice the amount of salt"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill while adding salt to the plate"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after spooning the mixture on the bread"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 344,
+   "order": 3,
+   "instruction": "Slice two 1/2 inch thick rounds from a baguette (slice slanted)",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 8,
+     "n_recordings": 8,
+     "descriptions": [
+      "Cut it straight instead of slanted cuts",
+      "Cut straight instead of slanted",
+      "Not slicing slanted",
+      "Slice both vertically and horizontally",
+      "Do not slice the baguette slanted",
+      "Slice into wedges instead of rounds",
+      "Do not slice slanted"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Using muffin instead of baguette",
+      "Using peeler instead of knife to slice",
+      "Using soiled baguette"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Making into 3 pieces instead of 2 slices",
+      "Slice-Slice four 1/4 inch thick rounds from a baguette (slice slanted)."
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 346,
+   "order": 4,
+   "instruction": "1/4 tsp pepper to a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "add-1/4 tsp pepper to plate instead of a bowl",
+      "add-1/4 tsp pepper to a plate."
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Unable to open the container and replaced with other pepper powder container. Spilled while transferring",
+      "Spill while adding pepper to a bowl"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after combining"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "add-1/2 tsp pepper to a bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 347,
+   "order": 5,
+   "instruction": "1/16 cup basil to a bowl",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spill while measuring basil to the cup",
+      "Spill while measuring oregano",
+      "Dropping the measuring utensil while adding basil to the bowl"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Add 1/8 cup basil instead of 1/16 cup",
+      "add-1/8 cup basil to a bowl",
+      "Added 1/4 cup basil instead of 1/16 cup basil"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Add 1/8 cup basil to a plate instead of bowl",
+      "add-1/16 cup oregano to a plate instead of basil to bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 349,
+   "order": 6,
+   "instruction": "Brush 2 slices of baguette with olive oil on both sides",
+   "duration_constraint_s": null,
+   "preconditions": [
+    344
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "descriptions": [
+      "Used a wooden spoon instead of a brush",
+      "Used the wrong utelsil, brushed the oil with knife instead of brush",
+      "Using hand to apply olive oil instead of using brush",
+      "Brush using softened butter instead of olive oil",
+      "Using vegetable oil instead of olive oil",
+      "Use spoon instead of brush to apply olive oil",
+      "Used sesame oil instead of olive oil"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Pour olive ol instead of brushing",
+      "Directly applying oil instead of using brush",
+      "Dip baguette in olive oil instead of brushing",
+      "Instead of brushing the slices with oil pouring oil onto brush and the slices then perform brushing action"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed after toasting",
+      "Step performed after toasting the bread"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 350,
+   "order": 7,
+   "instruction": "Cut 1/4 cup of cherry tomatoes into halves",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Spill while taking tomatoes to cut into halves",
+      "cut cherry tomatoes in to 4 parts instead of halves",
+      "mince 1/4 cup of cherry tomatoes instead of cutting into halves"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Cut-Cut 1/4 cup of normal tomatoes into halves",
+      "Using normal tomatoes instead of cherry tomatoes"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Cut-Cut 1/2 cup of cherry tomatoes into halves"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 351,
+   "order": 8,
+   "instruction": "In a bowl, add the cut cherry tomatoes",
+   "duration_constraint_s": null,
+   "preconditions": [
+    350
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add to a plate instead of cherry tomatoes"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill some tomatoes outside while adding in the bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 348,
+   "order": 9,
+   "instruction": "Combine the contents of the bowl",
+   "duration_constraint_s": null,
+   "preconditions": [
+    342,
+    343,
+    346,
+    347,
+    351
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Step performed before adding salt to the bowl",
+      "Step performed before adding cheese to the bowl",
+      "Step performed after spooning the mixture on the bread"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill the mixture while combining the contents of the bowl"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Combine the contents of the plate instead of the bowl"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 352,
+   "order": 10,
+   "instruction": "Toast both sides of the slices on the pan for 2 to 3 minutes until lightly charred and crispy and transfer the slices to a plate",
+   "duration_constraint_s": 180,
+   "preconditions": [
+    349
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "descriptions": [
+      "Toast for 1 minute instead of 2 or 3 minutes",
+      "Toast but do not until charred and crispy",
+      "Toasting for more than 3 minutes",
+      "Toast-Toast both sides of the slices on the pan for 30 seconds",
+      "Toasted for 1 minute instead of 2 to 3 minutes",
+      "toast for only 1/2 min and there baugette slices are not charred"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Toast on high temperature to make it scorched",
+      "Toasted on low heat"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Step performed before brushing with olive oil",
+      "Step performed before brushing the bread with olive oil"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 345,
+   "order": 11,
+   "instruction": "Spoon the mixture from the bowl onto the bread",
+   "duration_constraint_s": null,
+   "preconditions": [
+    348,
+    352
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Pour the mixture from the bowl completely instead of spooning it",
+      "Pouring the mixture instead of spooning",
+      "Did not use spoon but poured mixture directly from the bowl onto the bread",
+      "Spill while spooning the mixture from bowl onto the bread",
+      "spill some out while placing mixture on the bread"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Used hands to add mixture instead of spoon",
+      "Using fork instead of spoon",
+      "Use fork instead of a spoon"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before adding salt and combining the contents of the bowl"
+     ]
+    }
+   ]
+  }
+ ]
+}

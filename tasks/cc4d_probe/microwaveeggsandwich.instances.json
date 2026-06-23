@@ -1,0 +1,1694 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "FULL RECORD (provenance). Authored from observed CC4D error annotations (Box-1 input), NOT recipe text alone. Each observed error is one `instances` entry pointing back to its source (recording_id, cc4d_step_id, video_window). The criteria-authoring agent reads the slim companion <recipe>.reminders.json, not this file. For authoring/analysis only; do NOT feed into firewall-clean Box-3 evaluation.",
+ "recipe": "microwaveeggsandwich",
+ "activity_id": 1,
+ "n_recordings": 18,
+ "n_error_recordings": 13,
+ "steps": [
+  {
+   "step_id": 3,
+   "order": 1,
+   "instruction": "Coat a 6-oz. ramekin cup with cooking spray",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "1_28",
+       "cc4d_step_id": 3,
+       "description": "Coat a bowl than ramekin cup with cooking spray",
+       "video_window": [
+        43.8,
+        72.5
+       ]
+      },
+      {
+       "recording_id": "1_33",
+       "cc4d_step_id": 3,
+       "description": "Coating a large bowl instead of 6-oz ramekin cup",
+       "video_window": [
+        8.6,
+        70.5
+       ]
+      },
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 3,
+       "description": "Take a big cup instead of a 6 Oz ramekin cup.",
+       "video_window": [
+        2.5,
+        52.3
+       ]
+      },
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 3,
+       "description": "use mug instead of ramekin cup",
+       "video_window": [
+        2.4,
+        47.2
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 3,
+       "description": "use regular oil instead of cooking spray",
+       "video_window": [
+        137.2,
+        147.7
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 3,
+       "description": "Bowl instead of ramekin cup",
+       "video_window": [
+        2.1,
+        31.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "1_30",
+       "cc4d_step_id": 3,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "1_32",
+       "cc4d_step_id": 3,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "1_34",
+       "cc4d_step_id": 3,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 3,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 3,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 3,
+       "description": "Step performed after adding egg, microwaving and stirring",
+       "video_window": [
+        137.2,
+        147.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 3,
+       "description": "Take a big cup instead of a 6 Oz ramekin cup.",
+       "video_window": [
+        9.6,
+        48.2
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 1,
+   "order": 2,
+   "instruction": "Pour 1 egg into the ramekin cup",
+   "duration_constraint_s": null,
+   "preconditions": [
+    3
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "1_32",
+       "cc4d_step_id": 1,
+       "description": "2 instead of 1 egg",
+       "video_window": [
+        4.2,
+        41.0
+       ]
+      },
+      {
+       "recording_id": "1_33",
+       "cc4d_step_id": 1,
+       "description": "Cracking another egg thus making a measurement error",
+       "video_window": [
+        79.6,
+        255.7
+       ]
+      },
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 1,
+       "description": "Add 2 eggs instead of 1 egg.",
+       "video_window": [
+        53.1,
+        145.2
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 1,
+       "description": "2 instead of 1 egg",
+       "video_window": [
+        12.1,
+        58.4
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 1,
+       "description": "Add 2 eggs instead of 1 egg.",
+       "video_window": [
+        49.8,
+        150.8
+       ]
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 1,
+       "description": "2 instead of 1 egg",
+       "video_window": [
+        18.1,
+        64.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 1,
+       "description": "Step performed before correct order",
+       "video_window": [
+        56.1,
+        90.9
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 1,
+       "description": "Step performed before coating with cooking spray",
+       "video_window": [
+        0.1,
+        31.9
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 1,
+       "description": "Step performed after adding and melting cheese to the cup",
+       "video_window": [
+        160.5,
+        183.6
+       ]
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 1,
+       "description": "Step performed before correct order",
+       "video_window": [
+        18.1,
+        64.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "1_28",
+       "cc4d_step_id": 1,
+       "description": "Cracking the egg inappropriately",
+       "video_window": [
+        73.2,
+        103.8
+       ]
+      },
+      {
+       "recording_id": "1_33",
+       "cc4d_step_id": 1,
+       "description": "Accidentally, cracked an egg such that it spills on the kitchen top and floor and clean it",
+       "video_window": [
+        79.6,
+        255.7
+       ]
+      },
+      {
+       "recording_id": "1_34",
+       "cc4d_step_id": 1,
+       "description": "Cracked egg with shell and did not clear it",
+       "video_window": [
+        1.4,
+        31.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "1_30",
+       "cc4d_step_id": 1,
+       "description": "large cup instead of ramekin cup",
+       "video_window": [
+        3.2,
+        45.3
+       ]
+      },
+      {
+       "recording_id": "1_32",
+       "cc4d_step_id": 1,
+       "description": "Bowl instead of cup",
+       "video_window": [
+        4.2,
+        41.0
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 1,
+       "description": "bowl instead of ramekin cup",
+       "video_window": [
+        0.1,
+        31.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 4,
+   "order": 3,
+   "instruction": "Microwave the ramekin cup uncovered on high for 30 seconds",
+   "duration_constraint_s": 30,
+   "preconditions": [
+    1
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 6,
+     "n_recordings": 6,
+     "instances": [
+      {
+       "recording_id": "1_30",
+       "cc4d_step_id": 4,
+       "description": "Microwaved for 10 secs instead of 30 seconds",
+       "video_window": [
+        96.9,
+        122.5
+       ]
+      },
+      {
+       "recording_id": "1_32",
+       "cc4d_step_id": 4,
+       "description": "15 instead of 30 seconds",
+       "video_window": [
+        79.5,
+        111
+       ]
+      },
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 4,
+       "description": "20 secs",
+       "video_window": [
+        94.8,
+        183.1
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 4,
+       "description": "60 instead of 30 seconds",
+       "video_window": [
+        33.3,
+        122.1
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 4,
+       "description": "15 seconds instead of 30 seconds",
+       "video_window": [
+        190.1,
+        218.2
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 4,
+       "description": "Microwave for 1 minute 10 seconds",
+       "video_window": [
+        561.9,
+        744.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 4,
+       "description": "Microwave set on power level low instead of high",
+       "video_window": [
+        94.8,
+        183.1
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 4,
+       "description": "medium instead of high",
+       "video_window": [
+        33.3,
+        122.1
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 4,
+       "description": "medium instead of high",
+       "video_window": [
+        61,
+        112
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 4,
+       "description": "Temperature is set to medium instead of high",
+       "video_window": [
+        190.1,
+        218.2
+       ]
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 4,
+       "description": "Set microwave to medium temperature instead of high",
+       "video_window": [
+        80.8,
+        185.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 4,
+       "description": "Step performed before coating with cooking spray",
+       "video_window": [
+        33.3,
+        122.1
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 4,
+       "description": "Step performed before correct order",
+       "video_window": [
+        61,
+        112
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 4,
+       "description": "Step performed after adding and melting cheese to the cup",
+       "video_window": [
+        190.1,
+        218.2
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 4,
+       "description": "Step performed after adding cheese",
+       "video_window": [
+        561.9,
+        744.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_10",
+       "cc4d_step_id": 4,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "1_28",
+       "cc4d_step_id": 4,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 4,
+       "description": "The material in microwave is spilled out",
+       "video_window": [
+        561.9,
+        744.7
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 11,
+   "order": 4,
+   "instruction": "stir the ramekin cup",
+   "duration_constraint_s": null,
+   "preconditions": [
+    4
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_32",
+       "cc4d_step_id": 11,
+       "description": "stir too rapidly",
+       "video_window": [
+        98.9,
+        127.2
+       ]
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 11,
+       "description": "Egg is not stirred properly leaving yolk unmixed and did not stir properly",
+       "video_window": [
+        189.7,
+        226.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 11,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 11,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 11,
+       "description": "Step performed before coating with cooking spray",
+       "video_window": [
+        62.1,
+        136.7
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 11,
+       "description": "Step performed after adding and melting cheese to the cup",
+       "video_window": [
+        218.3,
+        231.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_34",
+       "cc4d_step_id": 11,
+       "description": "Stirring with knife",
+       "video_window": [
+        150.4,
+        161.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 8,
+   "order": 5,
+   "instruction": "Continue to Microwave for 15-30 more seconds or until the egg is almost set",
+   "duration_constraint_s": null,
+   "preconditions": [
+    11
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "1_28",
+       "cc4d_step_id": 8,
+       "description": "Microwave on high for 1 min",
+       "video_window": [
+        155.0,
+        229.4
+       ]
+      },
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 8,
+       "description": "Microwave for less than 15 seconds.",
+       "video_window": [
+        286.9,
+        321.9
+       ]
+      },
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 8,
+       "description": "10 seconds",
+       "video_window": [
+        393.1,
+        430.4
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 8,
+       "description": "Microwave for less than 15 seconds.",
+       "video_window": [
+        380.0,
+        413.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 8,
+       "description": "Step performed after adding cheese to the cup",
+       "video_window": [
+        286.9,
+        321.9
+       ]
+      },
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 8,
+       "description": "Step performed after adding salsa to the bowl",
+       "video_window": [
+        393.1,
+        430.4
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 8,
+       "description": "Step performed after adding cheese and before initial stirring",
+       "video_window": [
+        380.0,
+        413.7
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_30",
+       "cc4d_step_id": 8,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 8,
+       "description": "Not checking if the egg is set or not and microwaving for only 30 seconds",
+       "video_window": [
+        229.0,
+        274.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 6,
+   "order": 6,
+   "instruction": "Top cup with 1 tablespoon of salsa",
+   "duration_constraint_s": null,
+   "preconditions": [
+    8
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 9,
+     "n_recordings": 9,
+     "instances": [
+      {
+       "recording_id": "1_28",
+       "cc4d_step_id": 6,
+       "description": "Top the cup with 1 teaspoon of salsa",
+       "video_window": [
+        190.0,
+        260.8
+       ]
+      },
+      {
+       "recording_id": "1_30",
+       "cc4d_step_id": 6,
+       "description": "1/2  tablespoon of salsa",
+       "video_window": [
+        197.1,
+        252.8
+       ]
+      },
+      {
+       "recording_id": "1_32",
+       "cc4d_step_id": 6,
+       "description": "2 instead of 1 tablespoon",
+       "video_window": [
+        174.2,
+        218.2
+       ]
+      },
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 6,
+       "description": "Add 3 Tbsp of salsa instead of 1 Tbsp",
+       "video_window": [
+        322.9,
+        365.8
+       ]
+      },
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 6,
+       "description": "2 tablespoon instead of 1 tbsp salsa",
+       "video_window": [
+        185.7,
+        255.0
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 6,
+       "description": "2 instead of 1 tablespoon",
+       "video_window": [
+        246.3,
+        291.0
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 6,
+       "description": "1 instead of 2 tablespoon",
+       "video_window": [
+        335.7,
+        387.3
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 6,
+       "description": "2 instead of 1 tablespoon",
+       "video_window": [
+        282.3,
+        315.5
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 6,
+       "description": "Add 3 Tbsp of salsa instead of 1 Tbsp",
+       "video_window": [
+        422,
+        469.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 6,
+       "description": "Step performed before microwaving completely for the egg to set",
+       "video_window": [
+        322.9,
+        365.8
+       ]
+      },
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 6,
+       "description": "Step performed before microwaving completely until egg is almost set",
+       "video_window": [
+        185.7,
+        255.0
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 6,
+       "description": "Step performed after microwaving to melt the cheese",
+       "video_window": [
+        335.7,
+        387.3
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 6,
+       "description": "Step performed after adding and melting cheese",
+       "video_window": [
+        282.3,
+        315.5
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 6,
+       "description": "Step performed after adding cheese and before microwaving enough to set the egg",
+       "video_window": [
+        422,
+        469.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_33",
+       "cc4d_step_id": 6,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 6,
+       "description": "Top cup with 2 tablespoons of salsa",
+       "video_window": [
+        540.0,
+        566.0
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 6,
+       "description": "Add salsa to the cheese bowl instead of ramekin bowl",
+       "video_window": [
+        540.0,
+        566.0
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 5,
+   "order": 7,
+   "instruction": "sprinkle 1 tablespoon of cheese on cup",
+   "duration_constraint_s": null,
+   "preconditions": [
+    6
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "1_34",
+       "cc4d_step_id": 5,
+       "description": "Sprinkled cheese on top of the cup without measuring it",
+       "video_window": [
+        255.9,
+        286.4
+       ]
+      },
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 5,
+       "description": "Instead of 1 Tbsp add 2 Tbsp of cheese.",
+       "video_window": [
+        151.3,
+        221.4
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 5,
+       "description": "2 tbsp instead of 1 tablespoon",
+       "video_window": [
+        246.4,
+        317.2
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 5,
+       "description": "Instead of 1 Tbsp add 2 Tbsp of cheese.",
+       "video_window": [
+        159.1,
+        255.9
+       ]
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 5,
+       "description": "2 instead of 1tablespoon",
+       "video_window": [
+        387.9,
+        459.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "instances": [
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 5,
+       "description": "Step performed before microwaving the egg",
+       "video_window": [
+        151.3,
+        221.4
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 5,
+       "description": "Step performed before adding salsa",
+       "video_window": [
+        246.4,
+        317.2
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 5,
+       "description": "Step performed before adding and microwaving egg and adding salsa to it",
+       "video_window": [
+        36.8,
+        74.6
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 5,
+       "description": "Step performed before microwaving and adding salsa",
+       "video_window": [
+        159.1,
+        255.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_30",
+       "cc4d_step_id": 5,
+       "description": "pour directly",
+       "video_window": [
+        253.5,
+        314.8
+       ]
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 5,
+       "description": "cheese is sprinkled on muffin and not in cup",
+       "video_window": [
+        387.9,
+        459.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 5,
+       "description": "Added butter instead of cheese on cup",
+       "video_window": [
+        36.8,
+        74.6
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 10,
+   "order": 8,
+   "instruction": "Microwave just until cheese melts, about 10 seconds",
+   "duration_constraint_s": 10,
+   "preconditions": [
+    5
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "timing",
+     "class": "parameter_violation",
+     "tag": "Timing Error",
+     "n_occurrences": 7,
+     "n_recordings": 7,
+     "instances": [
+      {
+       "recording_id": "1_28",
+       "cc4d_step_id": 10,
+       "description": "Microwave for 30 sec",
+       "video_window": [
+        330.2,
+        400.8
+       ]
+      },
+      {
+       "recording_id": "1_30",
+       "cc4d_step_id": 10,
+       "description": "Until egg is solid",
+       "video_window": [
+        315.3,
+        445.0
+       ]
+      },
+      {
+       "recording_id": "1_34",
+       "cc4d_step_id": 10,
+       "description": "Did not wait for cheese to melt",
+       "video_window": [
+        287.3,
+        315.9
+       ]
+      },
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 10,
+       "description": "Microwave more than 30 seconds.",
+       "video_window": [
+        368.8,
+        452.1
+       ]
+      },
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 10,
+       "description": "Microwaved for 30 seconds instead of 10 seconds",
+       "video_window": [
+        481.3,
+        586.7
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 10,
+       "description": "20 instead of 10 seconds",
+       "video_window": [
+        326.8,
+        365.6
+       ]
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 10,
+       "description": "Microwave it for 20 seconds",
+       "video_window": [
+        479.3,
+        537.9
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 10,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 10,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 10,
+       "description": "Step performed before adding salsa",
+       "video_window": [
+        326.8,
+        365.6
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 10,
+       "description": "Step performed before adding egg and salsa to it",
+       "video_window": [
+        75.1,
+        101.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 10,
+       "description": "Add cheese to another bowl",
+       "video_window": [
+        479.3,
+        537.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 12,
+   "order": 9,
+   "instruction": "Cut the English muffin into two pieces with a knife",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "instances": [
+      {
+       "recording_id": "1_28",
+       "cc4d_step_id": 12,
+       "description": "Cut the muffin into two pieces with hand",
+       "video_window": [
+        4.1,
+        40.4
+       ]
+      },
+      {
+       "recording_id": "1_32",
+       "cc4d_step_id": 12,
+       "description": "hand instead of knife",
+       "video_window": [
+        44.6,
+        72.0
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 12,
+       "description": "hands instead of knife",
+       "video_window": [
+        149.2,
+        202.3
+       ]
+      },
+      {
+       "recording_id": "1_43",
+       "cc4d_step_id": 12,
+       "description": "Using hand instead of knife",
+       "video_window": [
+        141.0,
+        163.4
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 12,
+       "description": "hands instead of a knife",
+       "video_window": [
+        99.9,
+        147.6
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "1_33",
+       "cc4d_step_id": 12,
+       "description": "Cut the muffin improperly such that it results into 3 pieces",
+       "video_window": [
+        278.6,
+        337.1
+       ]
+      },
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 12,
+       "description": "Cutting into two uneven pieces.",
+       "video_window": [
+        237.2,
+        285.1
+       ]
+      },
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 12,
+       "description": "Cutting into two uneven pieces.",
+       "video_window": [
+        262.3,
+        373.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_33",
+       "cc4d_step_id": 12,
+       "description": "Cut the muffin improperly such that it results into 3 pieces",
+       "video_window": [
+        278.6,
+        337.1
+       ]
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 12,
+       "description": "Cut the muffin into multiple pieces instead of two halves",
+       "video_window": [
+        229.6,
+        272.4
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 12,
+       "description": "Step performed after correct order",
+       "video_window": [
+        149.2,
+        202.3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 9,
+   "order": 10,
+   "instruction": "Line the bottom piece of the English muffin with lettuce",
+   "duration_constraint_s": null,
+   "preconditions": [
+    12
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_37",
+       "cc4d_step_id": 9,
+       "description": "Step performed after correct order",
+       "video_window": [
+        326.2,
+        365.8
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 9,
+       "description": "Step performed after correct order",
+       "video_window": [
+        202.5,
+        228.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_34",
+       "cc4d_step_id": 9,
+       "description": "The top piece",
+       "video_window": [
+        201.0,
+        217.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 9,
+       "description": "two pieces instead of bottom piece",
+       "video_window": [
+        316.3,
+        346.9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 2,
+   "order": 11,
+   "instruction": "Place the egg from the cup over the lettuce",
+   "duration_constraint_s": null,
+   "preconditions": [
+    9,
+    10
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "instances": [
+      {
+       "recording_id": "1_32",
+       "cc4d_step_id": 2,
+       "description": "Remove already present lettuce, place egg and then place lettuce on top of the egg",
+       "video_window": [
+        328.9,
+        350.7
+       ]
+      },
+      {
+       "recording_id": "1_42",
+       "cc4d_step_id": 2,
+       "description": "Removing the placed lettuce on one piece of the muffin and placing egg on it and then lining it with lettuce.",
+       "video_window": [
+        355.5,
+        377.4
+       ]
+      },
+      {
+       "recording_id": "1_49",
+       "cc4d_step_id": 2,
+       "description": "Removing the placed lettuce on one piece of the muffin and placing egg on it and then lining it with lettuce.",
+       "video_window": [
+        355.0,
+        369.3
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 2,
+       "description": "Place the egg on other piece of English muffin instead of lettuce.",
+       "video_window": [
+        472.5,
+        483.5
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 2,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 7,
+   "order": 12,
+   "instruction": "replace the top of the English muffin",
+   "duration_constraint_s": null,
+   "preconditions": [
+    2
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_30",
+       "cc4d_step_id": 7,
+       "description": "flipped top muffin",
+       "video_window": [
+        453.8,
+        460.3
+       ]
+      },
+      {
+       "recording_id": "1_34",
+       "cc4d_step_id": 7,
+       "description": "Replace with the bottom piece",
+       "video_window": [
+        333.7,
+        335.8
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "instances": [
+      {
+       "recording_id": "1_136",
+       "cc4d_step_id": 7,
+       "description": "Skipped this step",
+       "video_window": null
+      },
+      {
+       "recording_id": "1_143",
+       "cc4d_step_id": 7,
+       "description": "Skipped this step",
+       "video_window": null
+      }
+     ]
+    },
+    {
+     "subtype": "other",
+     "class": "other",
+     "tag": "Other",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_33",
+       "cc4d_step_id": 7,
+       "description": "add and replace - add contents of the bowl to the lettuce and replace the top of the English muffin",
+       "video_window": [
+        606.9,
+        631.2
+       ]
+      }
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "instances": [
+      {
+       "recording_id": "1_36",
+       "cc4d_step_id": 7,
+       "description": "Place the other English muffin piece with lettuce on top of the egg.",
+       "video_window": [
+        483.5,
+        488.8
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unmapped_step_ids": []
+}

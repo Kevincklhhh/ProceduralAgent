@@ -1,0 +1,441 @@
+{
+ "_mode": "PROBING_FIREWALL_RELAXED",
+ "_note": "AGENT-FACING slim view for criteria authoring (see tasks/CRITERIA_GENERATION_PROBING.md). Per step: observed reminder subtypes, counts, and unique example descriptions. The full per-instance record (recording_id, cc4d_step_id, video_window) is the companion <recipe>.instances.json -- kept for traceability, not needed to author.",
+ "recipe": "tomatomozzarellasalad",
+ "activity_id": 12,
+ "n_recordings": 18,
+ "n_error_recordings": 7,
+ "unmapped_step_ids": [],
+ "steps": [
+  {
+   "step_id": 125,
+   "order": 1,
+   "instruction": "Rinse a tomato",
+   "duration_constraint_s": null,
+   "preconditions": [],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Do not rinse"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "use cherry tomato instead of normal tomato"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "use 2 cherry tomato instead of one normal tomato"
+     ]
+    },
+    {
+     "subtype": "temperature",
+     "class": "execution_error",
+     "tag": "Temperature Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Rinse with hot water"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 122,
+   "order": 2,
+   "instruction": "gently dry it with a paper/tea towel",
+   "duration_constraint_s": null,
+   "preconditions": [
+    125
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Do not try the tomato completely"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Dry it with a wet paper/tea towel"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 119,
+   "order": 3,
+   "instruction": "Slice one tomato into about 1/2 inch thick slices",
+   "duration_constraint_s": null,
+   "preconditions": [
+    122
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Chop instead of slice",
+      "Slicing improperly done. Slices are not of uniform thickness.",
+      "Cut tomato instead of slicing",
+      "Cut instead of slice"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Slice into larger slices about 1 inch thick",
+      "Cut into big chunks"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Use soiled chopping board for slicing tomato"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 120,
+   "order": 4,
+   "instruction": "Place the thick slices of tomatoes on a platter, ensuring they only make a single layer",
+   "duration_constraint_s": null,
+   "preconditions": [
+    119
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 5,
+     "n_recordings": 5,
+     "descriptions": [
+      "Tomatoes are not placed in a single layer",
+      "Make double layer instead of single layer",
+      "Throwing tomato slices on platter instead of placing",
+      "Spill tomatoes while placing",
+      "Instead of a single layer, pile up the cut tomatoes"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed after seasoning and garnishing the platter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 123,
+   "order": 5,
+   "instruction": "Season the tomato slices with salt",
+   "duration_constraint_s": null,
+   "preconditions": [
+    120
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 2,
+     "descriptions": [
+      "Season-Season the tomato slices with sugar instead of salt",
+      "Season tomato slices with powdered sugar instead of salt",
+      "Seasoned on chopping board instead of platter"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Seasoning performed in salt bae style"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before placing tomato slices on platter"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 124,
+   "order": 6,
+   "instruction": "Sprinkle mozzarella cheese on top of the tomato throughout the platter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    120
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 4,
+     "n_recordings": 4,
+     "descriptions": [
+      "Poured the cheese instead of sprinkling it",
+      "Sprinkle-Sprinkle cheddar cheese on boundary of the plater.",
+      "Spill while sprinkling mozzarella cheese",
+      "Sprinkling from too high and spilling the cheese"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Sprinkle on chopping board instead of platter"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before placing tomato slices on platter"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 126,
+   "order": 7,
+   "instruction": "Season platter with 1/4 teaspoon black pepper",
+   "duration_constraint_s": null,
+   "preconditions": [
+    120
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Add 1/8 teaspoon rather than 1/4 teaspoon",
+      "Season-Season platter with 1/2 teaspoon black pepper",
+      "Accidentally spilled a lot of black pepper"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Spilled while measuring black pepper",
+      "Spilled the whole bottle of black pepper on the platter"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 2,
+     "n_recordings": 2,
+     "descriptions": [
+      "Took a lid instead of plate for platter",
+      "Used hands to clean and spread the black pepper"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before placing tomato slices on platter"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 127,
+   "order": 8,
+   "instruction": "Garnish platter with italian seasoning",
+   "duration_constraint_s": null,
+   "preconditions": [
+    120
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Garnishing on chopping board instead of platter"
+     ]
+    },
+    {
+     "subtype": "order",
+     "class": "precondition_violation",
+     "tag": "Order Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Step performed before placing tomato slices on platter"
+     ]
+    },
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spill some italian seasoning while garnishing"
+     ]
+    }
+   ]
+  },
+  {
+   "step_id": 121,
+   "order": 9,
+   "instruction": "Add a drizzle of extra-virgin olive oil, about 1 tablespoon, over the entire platter",
+   "duration_constraint_s": null,
+   "preconditions": [
+    123,
+    124,
+    126,
+    127
+   ],
+   "observed_reminders": [
+    {
+     "subtype": "missing_step",
+     "class": "precondition_violation",
+     "tag": "Missing Step",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Didn't do the step of adding a extra-virgin olive oil.",
+      "Skipped this step"
+     ]
+    },
+    {
+     "subtype": "preparation",
+     "class": "execution_error",
+     "tag": "Preparation Error",
+     "n_occurrences": 3,
+     "n_recordings": 3,
+     "descriptions": [
+      "Using vegetable oil instead of olive oil",
+      "Used apple cider vinegar instead of olive oil",
+      "Add one tablespoon of oil, then heat another tablespoon of oil in a pan and add it to the platter"
+     ]
+    },
+    {
+     "subtype": "measurement",
+     "class": "execution_error",
+     "tag": "Measurement Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Add 2 teaspoon instead of 1 tablespoon"
+     ]
+    },
+    {
+     "subtype": "technique",
+     "class": "execution_error",
+     "tag": "Technique Error",
+     "n_occurrences": 1,
+     "n_recordings": 1,
+     "descriptions": [
+      "Spilling the olive oil while drizzling"
+     ]
+    }
+   ]
+  }
+ ]
+}
