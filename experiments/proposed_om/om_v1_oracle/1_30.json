@@ -1,0 +1,83 @@
+{
+ "recording": "1_30",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 1,
+   "start_s": 3.2,
+   "end_s": 45.3
+  },
+  {
+   "stage": 12,
+   "start_s": 50.0,
+   "end_s": 87.0
+  },
+  {
+   "stage": 4,
+   "start_s": 96.9,
+   "end_s": 122.5
+  },
+  {
+   "stage": 9,
+   "start_s": 129.9,
+   "end_s": 159.4
+  },
+  {
+   "stage": 11,
+   "start_s": 165.1,
+   "end_s": 194.3
+  },
+  {
+   "stage": 6,
+   "start_s": 197.1,
+   "end_s": 252.8
+  },
+  {
+   "stage": 5,
+   "start_s": 253.5,
+   "end_s": 314.8
+  },
+  {
+   "stage": 10,
+   "start_s": 315.3,
+   "end_s": 445.0
+  },
+  {
+   "stage": 2,
+   "start_s": 445.5,
+   "end_s": 453.7
+  },
+  {
+   "stage": 7,
+   "start_s": 453.8,
+   "end_s": 460.3
+  }
+ ],
+ "events": [
+  {
+   "t": 3.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 1,
+   "message": "You skipped Coat -Coat a 6-oz. ramekin cup with cooking spray; it is needed before Pour 1 egg into the ramekin cup."
+  },
+  {
+   "t": 197.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 6,
+   "message": "You skipped Microwave -Continue to Microwave for 15-30 more seconds or until the egg is almost set; it is needed before Top -Top cup with 1 tablespoon of salsa."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

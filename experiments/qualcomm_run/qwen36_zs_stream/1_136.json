@@ -1,0 +1,71 @@
+{
+ "recording": "1_136",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 3,
+   "start_s": 0.0,
+   "end_s": 45.0
+  },
+  {
+   "stage": 1,
+   "start_s": 45.0,
+   "end_s": 115.0
+  },
+  {
+   "stage": 4,
+   "start_s": 115.0,
+   "end_s": 630.0
+  },
+  {
+   "stage": 11,
+   "start_s": 630.0,
+   "end_s": 792.6
+  }
+ ],
+ "events": [
+  {
+   "t": 20.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a large mug instead of the specified 6-oz ramekin cup.",
+   "step_id": 3
+  },
+  {
+   "t": 50.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a blue shaker bottle instead of cracking an egg into the ramekin cup.",
+   "step_id": 1
+  },
+  {
+   "t": 280.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently opening a package of bread, but the instruction is to microwave a ramekin cup. You have not started the correct step.",
+   "step_id": 4
+  },
+  {
+   "t": 640.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are holding the ramekin with your hand instead of using a utensil to stir the egg. Please use a fork or spoon to mix the ingredients properly.",
+   "step_id": 11
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 198,
+  "frames_sent": 790,
+  "vlm_latency_total_s": 289.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 321.5
+ }
+}

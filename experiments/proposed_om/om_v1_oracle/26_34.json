@@ -1,0 +1,122 @@
+{
+ "recording": "26_34",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 297,
+   "start_s": 0.0,
+   "end_s": 88.0
+  },
+  {
+   "stage": 304,
+   "start_s": 100.8,
+   "end_s": 152.5
+  },
+  {
+   "stage": 310,
+   "start_s": 158.5,
+   "end_s": 174.7
+  },
+  {
+   "stage": 308,
+   "start_s": 179.4,
+   "end_s": 206.4
+  },
+  {
+   "stage": 313,
+   "start_s": 215.0,
+   "end_s": 253.3
+  },
+  {
+   "stage": 300,
+   "start_s": 266.4,
+   "end_s": 311.4
+  },
+  {
+   "stage": 296,
+   "start_s": 312.4,
+   "end_s": 359.4
+  },
+  {
+   "stage": 294,
+   "start_s": 363.4,
+   "end_s": 405.0
+  },
+  {
+   "stage": 307,
+   "start_s": 411.1,
+   "end_s": 452.3
+  },
+  {
+   "stage": 312,
+   "start_s": 453.0,
+   "end_s": 586.0
+  },
+  {
+   "stage": 309,
+   "start_s": 589.1,
+   "end_s": 656.3
+  },
+  {
+   "stage": 305,
+   "start_s": 653.0,
+   "end_s": 801.0
+  },
+  {
+   "stage": 298,
+   "start_s": 673.8,
+   "end_s": 775.9
+  },
+  {
+   "stage": 306,
+   "start_s": 781.0,
+   "end_s": 797.8
+  },
+  {
+   "stage": 302,
+   "start_s": 801.1,
+   "end_s": 821.3
+  }
+ ],
+ "events": [
+  {
+   "t": 179.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 308,
+   "message": "You skipped Measure and add-Measure and add 2 tbsp flour to the mixing bowl; it is needed before Whisk to combine mixture of flour, sugar and baking powder in the bowl."
+  },
+  {
+   "t": 411.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 307,
+   "message": "You skipped Set aside the lined mug and Place the paper cupcake liner inside the mug; they are needed before Pour batter into prepared mug."
+  },
+  {
+   "t": 673.8,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 298,
+   "message": "You skipped remove-then carefully remove the paper liner; it is needed before Scoop-While the cake is cooling, prepare to pipe the frosting. Scoop 4 spoonfuls of chocolate frosting into a zip-top bag."
+  },
+  {
+   "t": 781.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 306,
+   "message": "You skipped seal zip top bag, removing as much air as possible; it is needed before cut-Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

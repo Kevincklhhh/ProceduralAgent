@@ -1,0 +1,143 @@
+{
+ "recording": "23_6",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 273,
+   "start_s": 5.5,
+   "end_s": 110.9
+  },
+  {
+   "stage": 269,
+   "start_s": 126.2,
+   "end_s": 190.7
+  },
+  {
+   "stage": 268,
+   "start_s": 198.9,
+   "end_s": 246.9
+  },
+  {
+   "stage": 252,
+   "start_s": 257.9,
+   "end_s": 353.9
+  },
+  {
+   "stage": 254,
+   "start_s": 367.7,
+   "end_s": 410.2
+  },
+  {
+   "stage": 267,
+   "start_s": 418.4,
+   "end_s": 448.6
+  },
+  {
+   "stage": 257,
+   "start_s": 529.5,
+   "end_s": 718.8
+  },
+  {
+   "stage": 270,
+   "start_s": 743.5,
+   "end_s": 797.0
+  },
+  {
+   "stage": 259,
+   "start_s": 795.7,
+   "end_s": 847.8
+  },
+  {
+   "stage": 271,
+   "start_s": 847.8,
+   "end_s": 869.7
+  },
+  {
+   "stage": 250,
+   "start_s": 880.7,
+   "end_s": 935.6
+  },
+  {
+   "stage": 262,
+   "start_s": 943.8,
+   "end_s": 1087.8
+  },
+  {
+   "stage": 263,
+   "start_s": 1089.2,
+   "end_s": 1222.3
+  },
+  {
+   "stage": 255,
+   "start_s": 1236.0,
+   "end_s": 1281.3
+  },
+  {
+   "stage": 260,
+   "start_s": 1286.7,
+   "end_s": 1360.8
+  },
+  {
+   "stage": 251,
+   "start_s": 1369.1,
+   "end_s": 1378.7
+  },
+  {
+   "stage": 266,
+   "start_s": 1386.9,
+   "end_s": 1499.4
+  },
+  {
+   "stage": 258,
+   "start_s": 1502.1,
+   "end_s": 1528.2
+  },
+  {
+   "stage": 265,
+   "start_s": 1536.4,
+   "end_s": 1557.0
+  },
+  {
+   "stage": 253,
+   "start_s": 1569.3,
+   "end_s": 1820.4
+  },
+  {
+   "stage": 261,
+   "start_s": 1827.2,
+   "end_s": 1846.4
+  },
+  {
+   "stage": 274,
+   "start_s": 1851.9,
+   "end_s": 2015.2
+  },
+  {
+   "stage": 272,
+   "start_s": 1972.6,
+   "end_s": 1997.3
+  },
+  {
+   "stage": 256,
+   "start_s": 2015.2,
+   "end_s": 2033.0
+  },
+  {
+   "stage": 264,
+   "start_s": 2038.5,
+   "end_s": 2160.6
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

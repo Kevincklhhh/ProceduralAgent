@@ -1,0 +1,598 @@
+{
+ "recording": "13_32",
+ "arm": "qwen36_zs_turn",
+ "stage_intervals": [
+  {
+   "stage": 137,
+   "start_s": 0.0,
+   "end_s": 95.0
+  },
+  {
+   "stage": 132,
+   "start_s": 95.0,
+   "end_s": 130.0
+  },
+  {
+   "stage": 133,
+   "start_s": 130.0,
+   "end_s": 295.0
+  },
+  {
+   "stage": 138,
+   "start_s": 295.0,
+   "end_s": 335.0
+  },
+  {
+   "stage": 135,
+   "start_s": 335.0,
+   "end_s": 375.0
+  },
+  {
+   "stage": 136,
+   "start_s": 375.0,
+   "end_s": 435.0
+  },
+  {
+   "stage": 131,
+   "start_s": 435.0,
+   "end_s": 465.0
+  },
+  {
+   "stage": 128,
+   "start_s": 465.0,
+   "end_s": 470.0
+  },
+  {
+   "stage": 76,
+   "start_s": 470.0,
+   "end_s": 483.1
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a solid bowl instead of a sieve, which prevents the water from draining and means you are soaking the corn rather than rinsing it as instructed.",
+   "step_id": 137
+  },
+  {
+   "t": 100.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You spilled corn into the sink while transferring it from the sieve to the bowl.",
+   "step_id": 132
+  },
+  {
+   "t": 340.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are spilling the corn out of the bowl onto the counter while stirring. Please try to keep the contents inside the bowl.",
+   "step_id": 135
+  },
+  {
+   "t": 375.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You have spilled a significant amount of salt on the countertop while trying to add it to the bowl.",
+   "step_id": 136
+  },
+  {
+   "t": 435.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are squeezing the lime directly into the yellow bowl. The instructions specify that you should extract the juice as a separate step before adding it to the bowl later.",
+   "step_id": 131
+  },
+  {
+   "t": 470.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You have spilled a significant amount of corn onto the counter while transferring it. Please clean up the mess and ensure you mix the contents in the bowl thoroughly without spilling.",
+   "step_id": 76
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 43,
+  "frames_sent": 250,
+  "vlm_latency_total_s": 111.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 121.0,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 45.0,
+   "kind": "mistake",
+   "step_id": 137,
+   "win_start": 40.0,
+   "win_end": 45.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 50.0,
+   "kind": "mistake",
+   "step_id": 137,
+   "win_start": 45.0,
+   "win_end": 50.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 55.0,
+   "kind": "mistake",
+   "step_id": 137,
+   "win_start": 50.0,
+   "win_end": 55.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 60.0,
+   "kind": "mistake",
+   "step_id": 137,
+   "win_start": 55.0,
+   "win_end": 60.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 95.0,
+   "kind": "mistake",
+   "step_id": 132,
+   "win_start": 90.0,
+   "win_end": 95.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 100.0,
+   "kind": "mistake",
+   "step_id": 132,
+   "win_start": 95.0,
+   "win_end": 100.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 130.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 125.0,
+   "win_end": 130.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 135.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 130.0,
+   "win_end": 135.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 140.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 135.0,
+   "win_end": 140.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 145.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 140.0,
+   "win_end": 145.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 150.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 145.0,
+   "win_end": 150.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 155.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 150.0,
+   "win_end": 155.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 160.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 155.0,
+   "win_end": 160.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 165.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 160.0,
+   "win_end": 165.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 170.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 165.0,
+   "win_end": 170.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 175.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 170.0,
+   "win_end": 175.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 180.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 175.0,
+   "win_end": 180.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 185.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 180.0,
+   "win_end": 185.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 190.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 185.0,
+   "win_end": 190.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 195.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 190.0,
+   "win_end": 195.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 200.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 195.0,
+   "win_end": 200.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 205.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 200.0,
+   "win_end": 205.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 210.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 205.0,
+   "win_end": 210.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 215.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 210.0,
+   "win_end": 215.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 220.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 215.0,
+   "win_end": 220.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 225.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 220.0,
+   "win_end": 225.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 230.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 225.0,
+   "win_end": 230.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 235.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 230.0,
+   "win_end": 235.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 240.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 235.0,
+   "win_end": 240.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 245.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 240.0,
+   "win_end": 245.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 250.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 245.0,
+   "win_end": 250.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 255.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 250.0,
+   "win_end": 255.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 260.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 255.0,
+   "win_end": 260.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 295.0,
+   "kind": "mistake",
+   "step_id": 138,
+   "win_start": 290.0,
+   "win_end": 295.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 300.0,
+   "kind": "mistake",
+   "step_id": 138,
+   "win_start": 295.0,
+   "win_end": 300.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 305.0,
+   "kind": "mistake",
+   "step_id": 138,
+   "win_start": 300.0,
+   "win_end": 305.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 310.0,
+   "kind": "mistake",
+   "step_id": 138,
+   "win_start": 305.0,
+   "win_end": 310.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 335.0,
+   "kind": "mistake",
+   "step_id": 135,
+   "win_start": 330.0,
+   "win_end": 335.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 340.0,
+   "kind": "mistake",
+   "step_id": 135,
+   "win_start": 335.0,
+   "win_end": 340.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 375.0,
+   "kind": "mistake",
+   "step_id": 136,
+   "win_start": 370.0,
+   "win_end": 375.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 435.0,
+   "kind": "mistake",
+   "step_id": 131,
+   "win_start": 430.0,
+   "win_end": 435.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 465.0,
+   "kind": "mistake",
+   "step_id": 128,
+   "win_start": 460.0,
+   "win_end": 465.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 470.0,
+   "kind": "mistake",
+   "step_id": 76,
+   "win_start": 465.0,
+   "win_end": 470.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  }
+ ]
+}

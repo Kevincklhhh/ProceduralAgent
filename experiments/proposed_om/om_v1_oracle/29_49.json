@@ -1,0 +1,81 @@
+{
+ "recording": "29_49",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 346,
+   "start_s": 5.8,
+   "end_s": 74.9
+  },
+  {
+   "stage": 344,
+   "start_s": 93.4,
+   "end_s": 129.8
+  },
+  {
+   "stage": 342,
+   "start_s": 132.8,
+   "end_s": 188.7
+  },
+  {
+   "stage": 350,
+   "start_s": 190.1,
+   "end_s": 415.8
+  },
+  {
+   "stage": 351,
+   "start_s": 419.7,
+   "end_s": 447.4
+  },
+  {
+   "stage": 347,
+   "start_s": 460.0,
+   "end_s": 514.5
+  },
+  {
+   "stage": 349,
+   "start_s": 520.8,
+   "end_s": 561.7
+  },
+  {
+   "stage": 352,
+   "start_s": 562.6,
+   "end_s": 687.1
+  },
+  {
+   "stage": 345,
+   "start_s": 687.6,
+   "end_s": 726.0
+  },
+  {
+   "stage": 343,
+   "start_s": 726.5,
+   "end_s": 755.7
+  },
+  {
+   "stage": 348,
+   "start_s": 756.2,
+   "end_s": 770.8
+  }
+ ],
+ "events": [
+  {
+   "t": 687.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 345,
+   "message": "Spoon the mixture from the bowl onto the bread was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

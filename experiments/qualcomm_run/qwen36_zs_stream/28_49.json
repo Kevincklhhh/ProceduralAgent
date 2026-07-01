@@ -1,0 +1,76 @@
+{
+ "recording": "28_49",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 327,
+   "start_s": 0.0,
+   "end_s": 260.0
+  },
+  {
+   "stage": 329,
+   "start_s": 260.0,
+   "end_s": 435.0
+  },
+  {
+   "stage": 335,
+   "start_s": 435.0,
+   "end_s": 745.0
+  },
+  {
+   "stage": 336,
+   "start_s": 745.0,
+   "end_s": 865.0
+  },
+  {
+   "stage": 328,
+   "start_s": 865.0,
+   "end_s": 1148.8
+  }
+ ],
+ "events": [
+  {
+   "t": 50.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are holding a can of tuna, but the instruction requires you to add mayonnaise to the bowl.",
+   "step_id": 327
+  },
+  {
+   "t": 265.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently pouring a liquid from a bottle into a bowl, which does not match the instruction to lay out 2 large lettuce leaves. Please stop and locate the lettuce leaves to proceed with the correct step.",
+   "step_id": 329
+  },
+  {
+   "t": 440.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently handling lettuce, but the instruction requires you to take a ripe avocado. Please switch to the correct ingredient.",
+   "step_id": 335
+  },
+  {
+   "t": 750.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently cutting an avocado with a knife, but the instruction is to open a can of tuna. Please locate the can of tuna and a can opener to proceed with the correct task.",
+   "step_id": 336
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 298,
+  "frames_sent": 1145,
+  "vlm_latency_total_s": 436.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 481.0
+ }
+}

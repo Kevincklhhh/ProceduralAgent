@@ -1,0 +1,74 @@
+{
+ "recording": "15_41",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 145,
+   "start_s": 0.0,
+   "end_s": 455.0
+  },
+  {
+   "stage": 140,
+   "start_s": 455.0,
+   "end_s": 460.0
+  },
+  {
+   "stage": 149,
+   "start_s": 460.0,
+   "end_s": 560.0
+  },
+  {
+   "stage": 155,
+   "start_s": 560.0,
+   "end_s": 620.0
+  },
+  {
+   "stage": 150,
+   "start_s": 620.0,
+   "end_s": 665.0
+  },
+  {
+   "stage": 154,
+   "start_s": 665.0,
+   "end_s": 1092.8
+  }
+ ],
+ "events": [
+  {
+   "t": 260.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently pouring oil into a pan, but the instruction is to peel 4 large garlic cloves. Please stop and begin peeling the garlic.",
+   "step_id": 145
+  },
+  {
+   "t": 640.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently washing the blender jar under the tap, which means water is being added to the container. The instructions specifically require pureeing the tomatoes without any water.",
+   "step_id": 150
+  },
+  {
+   "t": 670.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently preparing tomatoes in a blender, but the instruction is to heat oil in a pan. You have not yet started the required step.",
+   "step_id": 154
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 305,
+  "frames_sent": 1090,
+  "vlm_latency_total_s": 448.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 487.2
+ }
+}

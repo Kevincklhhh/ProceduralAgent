@@ -1,0 +1,123 @@
+{
+ "recording": "26_39",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 304,
+   "start_s": 3.0,
+   "end_s": 60.0
+  },
+  {
+   "stage": 297,
+   "start_s": 61.4,
+   "end_s": 108.8
+  },
+  {
+   "stage": 299,
+   "start_s": 109.3,
+   "end_s": 138.9
+  },
+  {
+   "stage": 303,
+   "start_s": 139.6,
+   "end_s": 169.7
+  },
+  {
+   "stage": 310,
+   "start_s": 173.7,
+   "end_s": 185.6
+  },
+  {
+   "stage": 308,
+   "start_s": 188.6,
+   "end_s": 207.0
+  },
+  {
+   "stage": 301,
+   "start_s": 209.7,
+   "end_s": 216.9
+  },
+  {
+   "stage": 300,
+   "start_s": 220.0,
+   "end_s": 243.8
+  },
+  {
+   "stage": 313,
+   "start_s": 244.8,
+   "end_s": 271.1
+  },
+  {
+   "stage": 294,
+   "start_s": 275.7,
+   "end_s": 302.2
+  },
+  {
+   "stage": 307,
+   "start_s": 301.7,
+   "end_s": 312.5
+  },
+  {
+   "stage": 312,
+   "start_s": 325.5,
+   "end_s": 491.0
+  },
+  {
+   "stage": 309,
+   "start_s": 494.5,
+   "end_s": 516.5
+  },
+  {
+   "stage": 305,
+   "start_s": 517.3,
+   "end_s": 566.9
+  },
+  {
+   "stage": 295,
+   "start_s": 567.9,
+   "end_s": 573.4
+  },
+  {
+   "stage": 298,
+   "start_s": 574.5,
+   "end_s": 641.4
+  },
+  {
+   "stage": 306,
+   "start_s": 642.2,
+   "end_s": 654.3
+  },
+  {
+   "stage": 302,
+   "start_s": 656.4,
+   "end_s": 698.4
+  }
+ ],
+ "events": [
+  {
+   "t": 275.7,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 294,
+   "message": "You skipped Measure and add-2 tbsp water to the bowl; it is needed before Whisk batter until no lumps remain."
+  },
+  {
+   "t": 642.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 306,
+   "message": "You skipped seal zip top bag, removing as much air as possible; it is needed before cut-Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

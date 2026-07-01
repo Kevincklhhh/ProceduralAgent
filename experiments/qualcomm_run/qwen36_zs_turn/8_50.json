@@ -1,0 +1,340 @@
+{
+ "recording": "8_50",
+ "arm": "qwen36_zs_turn",
+ "stage_intervals": [
+  {
+   "stage": 87,
+   "start_s": 0.0,
+   "end_s": 70.0
+  },
+  {
+   "stage": 88,
+   "start_s": 70.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": 89,
+   "start_s": 100.0,
+   "end_s": 165.0
+  },
+  {
+   "stage": 90,
+   "start_s": 165.0,
+   "end_s": 190.0
+  },
+  {
+   "stage": 83,
+   "start_s": 190.0,
+   "end_s": 263.5
+  }
+ ],
+ "events": [
+  {
+   "t": 55.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You used a tablespoon instead of a teaspoon, which is three times the amount called for in the recipe.",
+   "step_id": 87
+  },
+  {
+   "t": 85.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You have only filled the mug about halfway; the instruction calls for filling the mug. Please continue pouring until it is full.",
+   "step_id": 88
+  },
+  {
+   "t": 100.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "Yes. You set the microwave timer to 1 minute and 15 seconds, which is longer than the 1 minute specified in the instructions.",
+   "step_id": 89
+  },
+  {
+   "t": 195.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "Yes. You set the microwave timer to 2 minutes, but the instructions specify heating for only 1 minute.",
+   "step_id": 83
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 23,
+  "frames_sent": 240,
+  "vlm_latency_total_s": 74.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 83.5,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 5.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 0.0,
+   "win_end": 5.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 10.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 5.0,
+   "win_end": 10.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 15.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 10.0,
+   "win_end": 15.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 20.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 15.0,
+   "win_end": 20.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 25.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 20.0,
+   "win_end": 25.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 30.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 25.0,
+   "win_end": 30.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 35.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 30.0,
+   "win_end": 35.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 40.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 35.0,
+   "win_end": 40.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 45.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 40.0,
+   "win_end": 45.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 50.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 45.0,
+   "win_end": 50.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 55.0,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 50.0,
+   "win_end": 55.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "measurement"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 70.0,
+   "kind": "mistake",
+   "step_id": 88,
+   "win_start": 65.0,
+   "win_end": 70.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 75.0,
+   "kind": "mistake",
+   "step_id": 88,
+   "win_start": 70.0,
+   "win_end": 75.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 80.0,
+   "kind": "mistake",
+   "step_id": 88,
+   "win_start": 75.0,
+   "win_end": 80.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 85.0,
+   "kind": "mistake",
+   "step_id": 88,
+   "win_start": 80.0,
+   "win_end": 85.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 100.0,
+   "kind": "mistake",
+   "step_id": 89,
+   "win_start": 95.0,
+   "win_end": 100.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 165.0,
+   "kind": "mistake",
+   "step_id": 90,
+   "win_start": 160.0,
+   "win_end": 165.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 170.0,
+   "kind": "mistake",
+   "step_id": 90,
+   "win_start": 165.0,
+   "win_end": 170.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 175.0,
+   "kind": "mistake",
+   "step_id": 90,
+   "win_start": 170.0,
+   "win_end": 175.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 180.0,
+   "kind": "mistake",
+   "step_id": 90,
+   "win_start": 175.0,
+   "win_end": 180.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 185.0,
+   "kind": "mistake",
+   "step_id": 90,
+   "win_start": 180.0,
+   "win_end": 185.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 190.0,
+   "kind": "mistake",
+   "step_id": 83,
+   "win_start": 185.0,
+   "win_end": 190.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 195.0,
+   "kind": "mistake",
+   "step_id": 83,
+   "win_start": 190.0,
+   "win_end": 195.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  }
+ ]
+}

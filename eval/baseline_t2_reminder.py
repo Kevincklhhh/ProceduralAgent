@@ -34,7 +34,7 @@ import baseline_t1_step as t1  # Qwen, sample_frames_1fps, safe_json
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STEP_ANN = os.path.join(BASE, "data/cc4d/annotations/annotation_json/step_annotations.json")
-FAMILY_A = os.path.join(BASE, "data/cc4d_family_a")
+FAMILY_A = os.path.join(BASE, "data/cc4d_proactive")
 CHECK_SUBS = {"measurement", "technique", "preparation", "timing", "temperature"}
 STRUCTURAL = {"order", "missing_step"}
 
@@ -72,11 +72,12 @@ def load_gt(rid):
         return None
     d = json.load(open(f))
     gt = set()
-    for e in d.get("events", []):
-        cls, sub = e.get("cls"), e.get("subtype")
-        if cls in ("execution_error", "parameter_violation") and sub not in STRUCTURAL and sub in CHECK_SUBS:
-            if e.get("anchor_step") is not None:
-                gt.add((e["anchor_step"], sub))
+    # cc4d_proactive schema: flat `reminders` (execution mistakes only; order/missing already
+    # excluded upstream). subtype is the scored key; anchor_step ties it to the step window.
+    for e in d.get("reminders", d.get("events", [])):
+        sub = e.get("subtype")
+        if sub not in STRUCTURAL and sub in CHECK_SUBS and e.get("anchor_step") is not None:
+            gt.add((e["anchor_step"], sub))
     return gt
 
 
@@ -181,11 +182,96 @@ def run_targeted(args, criteria, spans, recs, out_dir):
     print(f"\nwrote {out_dir}/summary.json + calls.jsonl")
 
 
+SYS_BINARY = ("You are a cooking-procedure monitor. You are shown frames from ONE step of a recipe. "
+              "Decide whether the person made ANY mistake while performing this step (e.g. wrong "
+              "ingredient/container, wrong amount, poor technique/spill, wrong timing, wrong "
+              "heat/power). Be conservative: only say mistake if you see evidence. Reply with a "
+              'single JSON object {"is_mistake": true|false, "evidence": "<short>"}.')
+
+
+def run_binary(args, criteria, spans, recs, out_dir):
+    """Head-to-head control for `targeted`: generic 'is there ANY error in this step?' (no specific
+    mistake named, no leak), one call per (rid,step), scored at STEP level. Uses the EXACT (rid,step)
+    units the targeted run covered so only the QUESTION differs. Also reports the targeted run's
+    step-level numbers (OR over its per-subtype calls) for a direct same-unit comparison."""
+    tgt = os.path.join(BASE, "experiments/baseline_t2", f"{args.recipe}_qwen_targeted", "calls.jsonl")
+    if not os.path.exists(tgt):
+        raise SystemExit(f"need the targeted run first: {tgt} missing")
+    tcalls = json.load(open(tgt))
+    units = {}  # (rid,sid) -> {gt, tgt_pred}
+    for c in tcalls:
+        k = (c["rid"], c["step_id"])
+        u = units.setdefault(k, {"gt": False, "tgt_pred": False})
+        u["gt"] = u["gt"] or c["is_positive"]
+        u["tgt_pred"] = u["tgt_pred"] or c["pred_mistake"]
+
+    client = t1.Qwen() if args.vlm == "qwen" else None
+    if client:
+        t1.SYSTEM_PROMPT = SYS_BINARY
+    calls = []
+    n_frames = 0
+    t0all = time.time()
+    caps = {}
+    for (rid, sid), u in units.items():
+        vid = os.path.join(args.video_dir, rid + ".mp4")
+        if not os.path.exists(vid):
+            continue
+        if rid not in caps:
+            caps[rid] = cv2.VideoCapture(vid)
+        cap = caps[rid]
+        fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+        start, end = spans[rid][sid]
+        jpegs = t1.sample_frames_1fps(cap, fps, t_end=end, interval=max(0.5, end - start),
+                                      max_frames=args.max_frames, sample_fps=args.sample_fps)
+        n_frames += len(jpegs)
+        prompt = (f"STEP: {criteria[sid]['instruction']}\n\n"
+                  'Did the person make ANY mistake while performing this step? '
+                  'Reply {"is_mistake": bool, "evidence": str}.')
+        if client:
+            t1c = time.time()
+            try:
+                obj = t1.safe_json(client.call(jpegs, prompt)) or {}
+            except Exception:
+                obj = {}
+            lat = time.time() - t1c
+        else:
+            obj = {"is_mistake": u["gt"]}; lat = 0.0
+        flag = bool(obj.get("is_mistake", False))
+        calls.append({"rid": rid, "step_id": sid, "gt": u["gt"], "binary_pred": flag,
+                      "targeted_pred": u["tgt_pred"], "n_frames": len(jpegs), "latency_s": round(lat, 2)})
+    for c in caps.values():
+        c.release()
+
+    def score(pred_key):
+        TP = sum(1 for c in calls if c["gt"] and c[pred_key])
+        FN = sum(1 for c in calls if c["gt"] and not c[pred_key])
+        FP = sum(1 for c in calls if not c["gt"] and c[pred_key])
+        TN = sum(1 for c in calls if not c["gt"] and not c[pred_key])
+        rec = TP / (TP + FN) if (TP + FN) else None
+        far = FP / (FP + TN) if (FP + TN) else None
+        prec = TP / (TP + FP) if (TP + FP) else None
+        f1 = (2 * prec * rec / (prec + rec)) if (prec and rec) else None
+        return {"TP": TP, "FN": FN, "FP": FP, "TN": TN, "recall": rec, "false_alarm_rate": far,
+                "precision": prec, "f1": f1}
+
+    summary = {"recipe": args.recipe, "arm": args.vlm, "mode": "binary_vs_targeted_steplevel",
+               "n_step_units": len(calls), "n_pos": sum(c["gt"] for c in calls),
+               "n_binary_calls": len(calls), "n_frames": n_frames, "wall_s": round(time.time() - t0all, 1),
+               "binary_generic": score("binary_pred"), "targeted_named": score("targeted_pred"),
+               "_note": "same (rid,step) units + same oracle windows; binary = 'any error?' (1 call/step, "
+               "no leak); targeted = OR of per-subtype named calls (from the targeted run, ~k calls/step). "
+               "Only the QUESTION differs; targeted spends more calls."}
+    json.dump(calls, open(os.path.join(out_dir, "calls.jsonl"), "w"), indent=1)
+    json.dump(summary, open(os.path.join(out_dir, "summary.json"), "w"), indent=2)
+    print(json.dumps(summary, indent=2))
+    print(f"\nwrote {out_dir}/summary.json + calls.jsonl")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--recipe", default="spicedhotchocolate")
     ap.add_argument("--vlm", choices=["qwen", "mock"], default="mock")
-    ap.add_argument("--mode", choices=["survey", "targeted"], default="survey")
+    ap.add_argument("--mode", choices=["survey", "targeted", "binary"], default="survey")
     ap.add_argument("--window", choices=["oracle"], default="oracle")
     ap.add_argument("--video-dir", default=os.path.join(BASE, "data/videos_360p"))
     ap.add_argument("--sample-fps", type=float, default=0.5)
@@ -202,6 +288,8 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     if args.mode == "targeted":
         return run_targeted(args, criteria, spans, recs, out_dir)
+    if args.mode == "binary":
+        return run_binary(args, criteria, spans, recs, out_dir)
     client = t1.Qwen() if args.vlm == "qwen" else None
     # patch system prompt for the call
     if client:

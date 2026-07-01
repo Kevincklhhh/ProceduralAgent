@@ -1,0 +1,108 @@
+{
+ "recording": "4_30",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 61.6,
+   "end_s": 112.4
+  },
+  {
+   "stage": 51,
+   "start_s": 123.1,
+   "end_s": 164.3
+  },
+  {
+   "stage": 44,
+   "start_s": 182.8,
+   "end_s": 197.0
+  },
+  {
+   "stage": 47,
+   "start_s": 241.5,
+   "end_s": 259.0
+  },
+  {
+   "stage": 46,
+   "start_s": 264.2,
+   "end_s": 320.7
+  },
+  {
+   "stage": 54,
+   "start_s": 333.3,
+   "end_s": 355.0
+  },
+  {
+   "stage": 52,
+   "start_s": 360.8,
+   "end_s": 365.1
+  },
+  {
+   "stage": 55,
+   "start_s": 384.5,
+   "end_s": 402.7
+  },
+  {
+   "stage": 45,
+   "start_s": 420.0,
+   "end_s": 444.0
+  },
+  {
+   "stage": 49,
+   "start_s": 444.2,
+   "end_s": 451.1
+  },
+  {
+   "stage": 45,
+   "start_s": 454.6,
+   "end_s": 580.9
+  },
+  {
+   "stage": 53,
+   "start_s": 624.1,
+   "end_s": 637.1
+  },
+  {
+   "stage": 48,
+   "start_s": 641.1,
+   "end_s": 709.6
+  },
+  {
+   "stage": 42,
+   "start_s": 731.1,
+   "end_s": 738.3
+  },
+  {
+   "stage": 43,
+   "start_s": 741.5,
+   "end_s": 780.1
+  }
+ ],
+ "events": [
+  {
+   "t": 420.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 45,
+   "message": "Microwave the ramen for 4 minutes was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 731.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 42,
+   "message": "You skipped Add basil to the bowl; it is needed before Mix in the flavour packet to the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

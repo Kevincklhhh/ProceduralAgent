@@ -1,0 +1,35 @@
+{
+ "recording": "28_50",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 327,
+   "start_s": 0.0,
+   "end_s": 761.1
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a can opener on a sealed can, but the instruction requires adding mayonnaise to a bowl. Please open the mayonnaise container and measure 1/4 cup into a bowl instead.",
+   "step_id": 327
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 164,
+  "frames_sent": 760,
+  "vlm_latency_total_s": 220.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 249.2
+ }
+}

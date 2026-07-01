@@ -1,0 +1,113 @@
+{
+ "recording": "28_49",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 336,
+   "start_s": 12.2,
+   "end_s": 147.5
+  },
+  {
+   "stage": 327,
+   "start_s": 175.2,
+   "end_s": 316.0
+  },
+  {
+   "stage": 335,
+   "start_s": 334.9,
+   "end_s": 351.5
+  },
+  {
+   "stage": 329,
+   "start_s": 353.7,
+   "end_s": 465.7
+  },
+  {
+   "stage": 340,
+   "start_s": 503.0,
+   "end_s": 547.0
+  },
+  {
+   "stage": 333,
+   "start_s": 555.0,
+   "end_s": 566.6
+  },
+  {
+   "stage": 339,
+   "start_s": 566.6,
+   "end_s": 607.7
+  },
+  {
+   "stage": 334,
+   "start_s": 633.2,
+   "end_s": 675.3
+  },
+  {
+   "stage": 331,
+   "start_s": 703.0,
+   "end_s": 733.0
+  },
+  {
+   "stage": 341,
+   "start_s": 738.5,
+   "end_s": 856.1
+  },
+  {
+   "stage": 340,
+   "start_s": 870.5,
+   "end_s": 921.5
+  },
+  {
+   "stage": 325,
+   "start_s": 931.5,
+   "end_s": 961.4
+  },
+  {
+   "stage": 326,
+   "start_s": 995.8,
+   "end_s": 1016.9
+  },
+  {
+   "stage": 332,
+   "start_s": 1033.5,
+   "end_s": 1066.8
+  },
+  {
+   "stage": 330,
+   "start_s": 1067.9,
+   "end_s": 1095.6
+  },
+  {
+   "stage": 337,
+   "start_s": 1097.8,
+   "end_s": 1133.3
+  }
+ ],
+ "events": [
+  {
+   "t": 633.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 334,
+   "message": "You skipped drain excess water from can; it is needed before Add 1 can drained tuna to the bowl."
+  },
+  {
+   "t": 1033.5,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 332,
+   "message": "You skipped Season bowl with 1/4 tsp salt; it is needed before top lettuce leaves with the tuna mixture."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

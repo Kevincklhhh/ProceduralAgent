@@ -1,0 +1,142 @@
+{
+ "recording": "16_44",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 173,
+   "start_s": 3.3,
+   "end_s": 87.6
+  },
+  {
+   "stage": 176,
+   "start_s": 93.2,
+   "end_s": 179.1
+  },
+  {
+   "stage": 169,
+   "start_s": 182.4,
+   "end_s": 242.8
+  },
+  {
+   "stage": 178,
+   "start_s": 245.6,
+   "end_s": 273.9
+  },
+  {
+   "stage": 158,
+   "start_s": 282.2,
+   "end_s": 327.1
+  },
+  {
+   "stage": 180,
+   "start_s": 331.0,
+   "end_s": 369.2
+  },
+  {
+   "stage": 167,
+   "start_s": 382.0,
+   "end_s": 444.1
+  },
+  {
+   "stage": 177,
+   "start_s": 446.8,
+   "end_s": 482.3
+  },
+  {
+   "stage": 161,
+   "start_s": 483.4,
+   "end_s": 522.2
+  },
+  {
+   "stage": 160,
+   "start_s": 526.7,
+   "end_s": 534.3
+  },
+  {
+   "stage": 163,
+   "start_s": 540.5,
+   "end_s": 628.1
+  },
+  {
+   "stage": 162,
+   "start_s": 634.8,
+   "end_s": 640.3
+  },
+  {
+   "stage": 165,
+   "start_s": 646.4,
+   "end_s": 738.4
+  },
+  {
+   "stage": 159,
+   "start_s": 744.5,
+   "end_s": 771.7
+  },
+  {
+   "stage": 179,
+   "start_s": 772.8,
+   "end_s": 788.3
+  },
+  {
+   "stage": 166,
+   "start_s": 789.4,
+   "end_s": 900.9
+  },
+  {
+   "stage": 172,
+   "start_s": 903.1,
+   "end_s": 909.7
+  },
+  {
+   "stage": 171,
+   "start_s": 906.4,
+   "end_s": 1076.0
+  },
+  {
+   "stage": 174,
+   "start_s": 1076.1,
+   "end_s": 1097.1
+  }
+ ],
+ "events": [
+  {
+   "t": 3.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 173,
+   "message": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 526.7,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 160,
+   "message": "Add garlic to the pan was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 744.5,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 159,
+   "message": "You skipped add 1/3 tsp salt to the bowl; it is needed before Whisk the egg mixture in the bowl."
+  },
+  {
+   "t": 903.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 172,
+   "message": "You skipped Add 1/8 tsp of turmeric to the pan, Cook covered for 1 minute or until the tomatoes soften, and Add tomatoes to the pan; they are needed before pour-Slowly pour the whisked eggs into the pan."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

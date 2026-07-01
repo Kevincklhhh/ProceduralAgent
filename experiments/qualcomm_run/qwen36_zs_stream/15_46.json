@@ -1,0 +1,35 @@
+{
+ "recording": "15_46",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 145,
+   "start_s": 0.0,
+   "end_s": 1191.3
+  }
+ ],
+ "events": [
+  {
+   "t": 140.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently pouring oil into a pan, but the instruction is to peel 4 large garlic cloves. You have not yet started peeling the garlic.",
+   "step_id": 145
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 266,
+  "frames_sent": 1190,
+  "vlm_latency_total_s": 352.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 400.8
+ }
+}

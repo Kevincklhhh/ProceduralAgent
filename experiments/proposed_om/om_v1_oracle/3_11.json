@@ -1,0 +1,96 @@
+{
+ "recording": "3_11",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 4.6,
+   "end_s": 11.1
+  },
+  {
+   "stage": 35,
+   "start_s": 14.7,
+   "end_s": 85.6
+  },
+  {
+   "stage": 33,
+   "start_s": 90.2,
+   "end_s": 122.4
+  },
+  {
+   "stage": 28,
+   "start_s": 130.2,
+   "end_s": 164.7
+  },
+  {
+   "stage": 38,
+   "start_s": 169.5,
+   "end_s": 177.8
+  },
+  {
+   "stage": 40,
+   "start_s": 184.6,
+   "end_s": 197.1
+  },
+  {
+   "stage": 41,
+   "start_s": 223.3,
+   "end_s": 259.9
+  },
+  {
+   "stage": 34,
+   "start_s": 263.7,
+   "end_s": 286.1
+  },
+  {
+   "stage": 37,
+   "start_s": 293.7,
+   "end_s": 359.8
+  },
+  {
+   "stage": 30,
+   "start_s": 367.8,
+   "end_s": 405.2
+  },
+  {
+   "stage": 31,
+   "start_s": 407.6,
+   "end_s": 432.6
+  },
+  {
+   "stage": 39,
+   "start_s": 443.8,
+   "end_s": 475.7
+  },
+  {
+   "stage": 29,
+   "start_s": 478.0,
+   "end_s": 489.7
+  },
+  {
+   "stage": 32,
+   "start_s": 494.1,
+   "end_s": 594.3
+  }
+ ],
+ "events": [
+  {
+   "t": 169.5,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 38,
+   "message": "Stir the contents in the mug well was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

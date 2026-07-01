@@ -1,0 +1,1002 @@
+{
+ "recording": "20_19",
+ "arm": "qwen36_zs_turn_cs_w12",
+ "stage_intervals": [
+  {
+   "stage": 206,
+   "start_s": 0.0,
+   "end_s": 65.0
+  },
+  {
+   "stage": 205,
+   "start_s": 65.0,
+   "end_s": 110.0
+  },
+  {
+   "stage": 214,
+   "start_s": 110.0,
+   "end_s": 190.0
+  },
+  {
+   "stage": 210,
+   "start_s": 190.0,
+   "end_s": 295.0
+  },
+  {
+   "stage": 176,
+   "start_s": 295.0,
+   "end_s": 375.0
+  },
+  {
+   "stage": 212,
+   "start_s": 375.0,
+   "end_s": 560.0
+  },
+  {
+   "stage": 211,
+   "start_s": 560.0,
+   "end_s": 690.0
+  },
+  {
+   "stage": 215,
+   "start_s": 690.0,
+   "end_s": 775.0
+  },
+  {
+   "stage": 208,
+   "start_s": 775.0,
+   "end_s": 825.0
+  },
+  {
+   "stage": 213,
+   "start_s": 825.0,
+   "end_s": 1110.0
+  },
+  {
+   "stage": 209,
+   "start_s": 1110.0,
+   "end_s": 1125.0
+  },
+  {
+   "stage": 207,
+   "start_s": 1125.0,
+   "end_s": 1185.0
+  },
+  {
+   "stage": 217,
+   "start_s": 1185.0,
+   "end_s": 1240.0
+  },
+  {
+   "stage": 218,
+   "start_s": 1240.0,
+   "end_s": 1250.0
+  },
+  {
+   "stage": 207,
+   "start_s": 1250.0,
+   "end_s": 1280.0
+  },
+  {
+   "stage": 219,
+   "start_s": 1280.0,
+   "end_s": 1290.0
+  },
+  {
+   "stage": 220,
+   "start_s": 1290.0,
+   "end_s": 1315.0
+  },
+  {
+   "stage": 216,
+   "start_s": 1315.0,
+   "end_s": 1338.4
+  }
+ ],
+ "events": [
+  {
+   "t": 30.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 3 mushrooms; flag if a different count (e.g. 2 or 4) is rinsed (observed: 2 mushrooms rinsed in 4 recordings, 4 mushrooms in 1).",
+   "step_id": 206,
+   "choice": 1,
+   "raw": "Based on the visual evidence in the frames:\n1.  **Count:** T"
+  },
+  {
+   "t": 30.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "The recipe specifies cold water for rinsing; flag if the rinse uses hot or warm water instead (observed: hot water used in 1 recording).",
+   "step_id": 206,
+   "choice": 2,
+   "raw": "Based on the visual evidence in the frames:\n1.  **Count:** T"
+  },
+  {
+   "t": 30.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects mushrooms to be properly cleaned by the rinse; flag if a visibly soiled mushroom is included rather than cleaned (observed: soiled mushroom used in 1 recording).",
+   "step_id": 206,
+   "choice": 3,
+   "raw": "Based on the visual evidence in the frames:\n1.  **Count:** T"
+  },
+  {
+   "t": 75.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for gentle patting motions; flag if the user squeezes, crushes, or applies excessive pressure instead of patting (observed: squeezing mushrooms, crushing them, applying more pressure in 3 recordings).",
+   "step_id": 205,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 110.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires fully pulling out all mushroom stems; flag if any stem is only partially removed or left in a mushroom cap (observed: partial stem removal, one mushroom's stem left in place in 4 recordings).",
+   "step_id": 214,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 295.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires fully peeling the garlic cloves; flag if any clove is only partially peeled or peeled improperly, leaving significant skin attached (observed: partial or improper peeling in 4 recordings).",
+   "step_id": 176,
+   "choice": 1,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 1 (Partial/Impro"
+  },
+  {
+   "t": 295.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 2 garlic cloves; flag if a different count (e.g. only 1) is peeled, or if an onion is peeled instead (observed: 1 clove used in 2 recordings, onion peeled in 1).",
+   "step_id": 176,
+   "choice": 2,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 1 (Partial/Impro"
+  },
+  {
+   "t": 380.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe specifies a shallot peeled before chopping; flag if a wrong ingredient (onion, scallion) is used, or if the shallot is chopped unpeeled, or if it is chopped on an inappropriate surface (observed: scallion and onion substitutions, unpeeled shallot, chopping on paper towel in multiple recor",
+   "step_id": 212,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 565.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for mincing (very fine cuts); flag if the user only slices or roughly chops the cloves instead of mincing them (observed: slicing instead of mincing, rough chopping in 2 recordings).",
+   "step_id": 211,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 695.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "The recipe specifies medium-high heat; flag if a lower heat setting (low, or low-medium) is used on the burner (observed: low or low-medium heat set in 4 recordings).",
+   "step_id": 215,
+   "choice": 1,
+   "raw": "Based on the visual evidence in the frames:\n1.  **Mistake 1 "
+  },
+  {
+   "t": 695.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1 tbsp olive oil; flag if a different amount is used, such as 2 tbsp or a tsp instead of a tbsp (observed: 2 tbsp used, tsp used in 2 recordings).",
+   "step_id": 215,
+   "choice": 2,
+   "raw": "Based on the visual evidence in the frames:\n1.  **Mistake 1 "
+  },
+  {
+   "t": 695.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires oil to be added to the pan before heating; flag if the pan is heated without any oil (observed: pan heated with no oil added in 1 recording).",
+   "step_id": 215,
+   "choice": 3,
+   "raw": "Based on the visual evidence in the frames:\n1.  **Mistake 1 "
+  },
+  {
+   "t": 805.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe says to add mushrooms once the pan is hot \u2014 implying waiting for adequate heat before adding; flag if mushrooms are added before the pan has had time to heat (observed: adding to insufficiently hot pan in 3 recordings).",
+   "step_id": 208,
+   "choice": 1,
+   "raw": "1,3"
+  },
+  {
+   "t": 805.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "The recipe requires the pan to be hot at the moment mushrooms are added; flag if the pan is visibly not yet at cooking temperature when mushrooms go in (observed: adding to unheated or cold pan in 1 recording).",
+   "step_id": 208,
+   "choice": 3,
+   "raw": "1,3"
+  },
+  {
+   "t": 825.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe specifies 3-5 minutes (duration_constraint_s=300); flag if cooking is noticeably shorter (e.g. under 2 minutes) or substantially longer (e.g. 6+ minutes) than this window (observed: cooking for ~1 minute, under 2 minutes, or 6 minutes in multiple recordings).",
+   "step_id": 213,
+   "choice": 1,
+   "raw": "Based on the visual evidence provided in the frames:\n\n1.  **"
+  },
+  {
+   "t": 825.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects appropriate cookware for saut\u00e9ing; flag if the utensil or pan type causes the mushrooms to burn rather than saut\u00e9 (observed: mushrooms burnt due to wrong utensil type in 1 recording).",
+   "step_id": 213,
+   "choice": 3,
+   "raw": "Based on the visual evidence provided in the frames:\n\n1.  **"
+  },
+  {
+   "t": 1125.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for exactly 1 minute of cooking with stirring (duration_constraint_s=60); flag if cooking runs substantially shorter (e.g. 15-45 seconds) or substantially longer (e.g. 1.5-4+ minutes) than 1 minute (observed: 15 seconds, 45 seconds, 1.5 minutes, 2 minutes, 2.5 minutes, 4+ minutes ac",
+   "step_id": 207,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 1210.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/4 tbsp balsamic vinegar; flag if a larger amount is poured (e.g. 1/2 tbsp or 1 tbsp) (observed: 1/2 tbsp and 1 tbsp used in 3 recordings).",
+   "step_id": 217,
+   "choice": 1,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 1 (Amount):** Th"
+  },
+  {
+   "t": 1210.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe specifies balsamic vinegar; flag if a different liquid (e.g. honey) is added to the pan in its place (observed: honey used instead of balsamic vinegar in 1 recording).",
+   "step_id": 217,
+   "choice": 2,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 1 (Amount):** Th"
+  },
+  {
+   "t": 1285.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects pepper to be seasoned (sprinkled) onto the pan contents; flag if pepper is poured in bulk rather than seasoned, or if it is spilled outside the pan (observed: pouring instead of seasoning, spilling pepper outside pan in 2 recordings).",
+   "step_id": 219,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 1290.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects salt to be seasoned (sprinkled) onto the pan contents; flag if salt is poured in excess or sprinkled so it lands outside the pan (observed: pouring instead of sprinkling, salt sprinkled outside the pan in 2 recordings).",
+   "step_id": 220,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 60,
+  "frames_sent": 2868,
+  "vlm_latency_total_s": 361.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 12.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 573.1,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 5.0,
+   "kind": "mistake",
+   "step_id": 206,
+   "win_start": 0.0,
+   "win_end": 5.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 10.0,
+   "kind": "mistake",
+   "step_id": 206,
+   "win_start": 0.0,
+   "win_end": 10.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 15.0,
+   "kind": "mistake",
+   "step_id": 206,
+   "win_start": 3.0,
+   "win_end": 15.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 20.0,
+   "kind": "mistake",
+   "step_id": 206,
+   "win_start": 8.0,
+   "win_end": 20.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 25.0,
+   "kind": "mistake",
+   "step_id": 206,
+   "win_start": 13.0,
+   "win_end": 25.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 30.0,
+   "kind": "mistake",
+   "step_id": 206,
+   "win_start": 18.0,
+   "win_end": 30.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "measurement",
+    "temperature",
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 65.0,
+   "kind": "mistake",
+   "step_id": 205,
+   "win_start": 53.0,
+   "win_end": 65.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 70.0,
+   "kind": "mistake",
+   "step_id": 205,
+   "win_start": 58.0,
+   "win_end": 70.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 75.0,
+   "kind": "mistake",
+   "step_id": 205,
+   "win_start": 63.0,
+   "win_end": 75.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 110.0,
+   "kind": "mistake",
+   "step_id": 214,
+   "win_start": 98.0,
+   "win_end": 110.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 190.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 178.0,
+   "win_end": 190.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 195.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 183.0,
+   "win_end": 195.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 200.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 188.0,
+   "win_end": 200.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 205.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 193.0,
+   "win_end": 205.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 210.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 198.0,
+   "win_end": 210.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 215.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 203.0,
+   "win_end": 215.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 220.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 208.0,
+   "win_end": 220.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 225.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 213.0,
+   "win_end": 225.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 230.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 218.0,
+   "win_end": 230.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 235.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 223.0,
+   "win_end": 235.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 240.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 228.0,
+   "win_end": 240.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 245.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 233.0,
+   "win_end": 245.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 250.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 238.0,
+   "win_end": 250.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 255.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 243.0,
+   "win_end": 255.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 260.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 248.0,
+   "win_end": 260.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 265.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 253.0,
+   "win_end": 265.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 270.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 258.0,
+   "win_end": 270.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 275.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 263.0,
+   "win_end": 275.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 280.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 268.0,
+   "win_end": 280.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 285.0,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 273.0,
+   "win_end": 285.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 295.0,
+   "kind": "mistake",
+   "step_id": 176,
+   "win_start": 283.0,
+   "win_end": 295.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique",
+    "measurement"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 375.0,
+   "kind": "mistake",
+   "step_id": 212,
+   "win_start": 363.0,
+   "win_end": 375.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 380.0,
+   "kind": "mistake",
+   "step_id": 212,
+   "win_start": 368.0,
+   "win_end": 380.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 560.0,
+   "kind": "mistake",
+   "step_id": 211,
+   "win_start": 548.0,
+   "win_end": 560.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 565.0,
+   "kind": "mistake",
+   "step_id": 211,
+   "win_start": 553.0,
+   "win_end": 565.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 690.0,
+   "kind": "mistake",
+   "step_id": 215,
+   "win_start": 678.0,
+   "win_end": 690.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 695.0,
+   "kind": "mistake",
+   "step_id": 215,
+   "win_start": 683.0,
+   "win_end": 695.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "temperature",
+    "measurement",
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 775.0,
+   "kind": "mistake",
+   "step_id": 208,
+   "win_start": 763.0,
+   "win_end": 775.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 780.0,
+   "kind": "mistake",
+   "step_id": 208,
+   "win_start": 768.0,
+   "win_end": 780.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 785.0,
+   "kind": "mistake",
+   "step_id": 208,
+   "win_start": 773.0,
+   "win_end": 785.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 790.0,
+   "kind": "mistake",
+   "step_id": 208,
+   "win_start": 778.0,
+   "win_end": 790.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 795.0,
+   "kind": "mistake",
+   "step_id": 208,
+   "win_start": 783.0,
+   "win_end": 795.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 800.0,
+   "kind": "mistake",
+   "step_id": 208,
+   "win_start": 788.0,
+   "win_end": 800.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 805.0,
+   "kind": "mistake",
+   "step_id": 208,
+   "win_start": 793.0,
+   "win_end": 805.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "timing",
+    "temperature"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 825.0,
+   "kind": "mistake",
+   "step_id": 213,
+   "win_start": 813.0,
+   "win_end": 825.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "timing",
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 1110.0,
+   "kind": "mistake",
+   "step_id": 209,
+   "win_start": 1098.0,
+   "win_end": 1110.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1115.0,
+   "kind": "mistake",
+   "step_id": 209,
+   "win_start": 1103.0,
+   "win_end": 1115.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1120.0,
+   "kind": "mistake",
+   "step_id": 209,
+   "win_start": 1108.0,
+   "win_end": 1120.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1125.0,
+   "kind": "mistake",
+   "step_id": 207,
+   "win_start": 1113.0,
+   "win_end": 1125.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 1185.0,
+   "kind": "mistake",
+   "step_id": 217,
+   "win_start": 1173.0,
+   "win_end": 1185.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1190.0,
+   "kind": "mistake",
+   "step_id": 217,
+   "win_start": 1178.0,
+   "win_end": 1190.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1195.0,
+   "kind": "mistake",
+   "step_id": 217,
+   "win_start": 1183.0,
+   "win_end": 1195.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1200.0,
+   "kind": "mistake",
+   "step_id": 217,
+   "win_start": 1188.0,
+   "win_end": 1200.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1205.0,
+   "kind": "mistake",
+   "step_id": 217,
+   "win_start": 1193.0,
+   "win_end": 1205.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1210.0,
+   "kind": "mistake",
+   "step_id": 217,
+   "win_start": 1198.0,
+   "win_end": 1210.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "measurement",
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 1240.0,
+   "kind": "mistake",
+   "step_id": 218,
+   "win_start": 1228.0,
+   "win_end": 1240.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1245.0,
+   "kind": "mistake",
+   "step_id": 218,
+   "win_start": 1233.0,
+   "win_end": 1245.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1280.0,
+   "kind": "mistake",
+   "step_id": 219,
+   "win_start": 1268.0,
+   "win_end": 1280.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1285.0,
+   "kind": "mistake",
+   "step_id": 219,
+   "win_start": 1273.0,
+   "win_end": 1285.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 1290.0,
+   "kind": "mistake",
+   "step_id": 220,
+   "win_start": 1278.0,
+   "win_end": 1290.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  }
+ ]
+}

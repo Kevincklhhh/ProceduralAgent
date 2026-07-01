@@ -315,6 +315,105 @@ main {
   border-color: #6a6b75;
 }
 
+/* ---- T1 / T2 split view ---- */
+
+#t1t2-view {
+  display: flex;
+  gap: 14px;
+  padding: 14px 18px;
+  align-items: flex-start;
+}
+
+#t1t2-left { flex: 1; min-width: 0; }
+
+#player2 {
+  width: 100%;
+  max-height: 42vh;
+  background: #000;
+  border-radius: 6px;
+}
+
+#t1t2-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0 170px;
+  font-size: 11px;
+  color: #b8b8c2;
+}
+
+#t1t2-controls .control-label {
+  color: #6f7079;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#t1-section, #t2-section {
+  margin-top: 12px;
+  background: #26272e;
+  border: 1px solid #3a3b44;
+  border-radius: 6px;
+  padding: 8px 10px 12px;
+}
+
+#t1-section h3, #t2-section h3 {
+  font-size: 12px;
+  margin: 2px 0 10px;
+  color: #cfd2da;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#t1-axis, #t2-axis {
+  position: relative;
+  height: 18px;
+  margin-left: 170px;
+  font-size: 10px;
+  color: #8a8a95;
+}
+
+#t2-side {
+  width: 380px;
+  flex-shrink: 0;
+  background: #26272e;
+  border: 1px solid #3a3b44;
+  border-radius: 6px;
+  padding: 12px 14px;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+}
+
+#t2-side h3 {
+  font-size: 12px;
+  margin: 14px 0 6px;
+  color: #9a9aa5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#t2-side h3:first-child { margin-top: 0; }
+
+.rem-item {
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  margin-bottom: 4px;
+  background: #2c2d35;
+  border-left: 3px solid #8a8a95;
+}
+
+.rem-item .rem-head { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+
+.rem-tag {
+  display: inline-block;
+  color: #fff;
+  border-radius: 3px;
+  padding: 0 5px;
+  font-size: 10px;
+}
+
+.segment.reminder-gt { opacity: 0.9; }
+
 /* ---- Task JSON view ---- */
 
 #json-view {
@@ -536,6 +635,19 @@ main {
   min-width: 6px; background: #e5484d; text-align: center; padding: 0;
   font-size: 11px; line-height: 22px;
 }
+/* A VLM call = faint context-window band + a crisp tick at the decision moment.
+   The bands tile/overlap on ungated arms (near-continuous coverage) but stay faint so the
+   call-moment ticks remain legible. Red marks a call that fired a mistake. */
+.segment.vlm-window {
+  top: 9px; bottom: 9px; opacity: 0.13; border-radius: 1px; background: #5b6472;
+}
+.segment.vlm-window.fired { opacity: 0.26; background: #e5484d; }
+.segment.vlm-window:hover { opacity: 0.5; }
+.segment.vlm-moment {
+  min-width: 3px; top: 4px; bottom: 4px; opacity: 0.8; padding: 0; border-radius: 1px;
+}
+.segment.vlm-moment.fired { min-width: 4px; opacity: 1; }
+.segment.vlm-moment:hover { opacity: 1; outline: 1px solid #fff; }
 
 #monitor-context {
   margin-top: 10px; padding: 10px; background: #15171c;

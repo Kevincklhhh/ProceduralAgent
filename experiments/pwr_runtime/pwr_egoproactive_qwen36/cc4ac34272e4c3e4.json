@@ -1,0 +1,105 @@
+{
+ "stage_intervals": [
+  {
+   "stage": 1,
+   "start_s": 0.0,
+   "end_s": 2.0
+  },
+  {
+   "stage": 2,
+   "start_s": 2.0,
+   "end_s": 4.8
+  },
+  {
+   "stage": 3,
+   "start_s": 4.8,
+   "end_s": 29.1
+  }
+ ],
+ "events": [
+  {
+   "t": 2.0,
+   "class": "none",
+   "subtype": "none",
+   "id": "none",
+   "message": "Great, you've opened the Play Store. Now tap your profile icon in the top right corner, then select 'Manage apps & device' to check for updates."
+  },
+  {
+   "t": 4.8,
+   "class": "none",
+   "subtype": "none",
+   "id": "none",
+   "message": "Perfect, you're in the right place. Now tap 'Update all' or the individual update buttons next to the apps you want to update."
+  }
+ ],
+ "interventions": [
+  {
+   "t_s": 2.0,
+   "type": "step_complete",
+   "step_id": 1,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Great, you've opened the Play Store. Now tap your profile icon in the top right corner, then select 'Manage apps & device' to check for updates.",
+   "evidence": "The user has successfully unlocked the phone and opened the Play Store app, completing step 1."
+  },
+  {
+   "t_s": 4.8,
+   "type": "step_complete",
+   "step_id": 2,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Perfect, you're in the right place. Now tap 'Update all' or the individual update buttons next to the apps you want to update.",
+   "evidence": "The 'Manage apps & device' screen is visible, showing the list of available updates, indicating step 2 is complete."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 9,
+  "duplex_calls": 7,
+  "planner_calls": 2,
+  "frames_sent": 75,
+  "vlm_latency_total_s": 313.35,
+  "duplex_latency_s": 225.9,
+  "planner_latency_s": 87.45,
+  "compute_s": 0.0
+ },
+ "replication_manifest": {
+  "arm": "pwr_egoproactive_qwen36",
+  "claim": "PWR-style framework implementation; not an exact reproduction of unreleased trained checkpoints.",
+  "paper_mapping": [
+   "duplex interaction model receives cached plan and plan-anchored visual clips",
+   "planner is invoked only when duplex emits interrupt",
+   "planner receives only the most recent visual clip plus cached plan",
+   "plan state stores completed/current/remaining steps and visual cues"
+  ],
+  "approximations": [
+   "zero-shot Qwen or mock backend replaces the unreleased trained PWR models",
+   "visual cues are heuristic unless the planner backend refreshes them",
+   "CC4D replay has no live user utterances, so reactive turns are not simulated",
+   "tick can be set to 0.5s for the paper's 2 fps decision cadence, but sparse ticks are practical for Qwen replay"
+  ],
+  "params": {
+   "tick_s": 0.5,
+   "clip_window_s": 8.0,
+   "frames_per_clip": 4,
+   "max_clips": 4
+  }
+ },
+ "_meta": {
+  "model": "Qwen/Qwen3.6-27B",
+  "evaluated_s": 29.1,
+  "video_duration_s": 29.1,
+  "raw_video_duration_s": 146.13,
+  "parse_failures": 0,
+  "task_id": "cc4ac34272e4c3e4",
+  "final_plan": "Task: How to update your phone apps\nProcedural plan:\n- [completed] step_id=1: Unlock your phone and tap the Play Store (or App Store) icon.\n- [completed] step_id=2: Tap your profile or menu icon, then pick \u201cManage apps & device\u201d to check for updates.\n- [current] step_id=3: Tap \u201cUpdate all\u201d or individual update buttons to grab the latest app versions.\n- [remaining] step_id=4: Swipe through pending updates\u2014tap any app (like AT&T ActiveArmor) to peek at its details if you\u2019d like!\n- [remaining] step_id=5: Hang tight\u2014watch those progress bars shrink as each app installs and the update count drops!\n\nCurrent-step complete cues:\n- The 'Update all' button is visible and tapped, or individual 'Update' buttons next to apps are tapped.\n- The screen shows 'Updating' or progress bars for apps.\n\nCurrent-step incomplete cues:\n- The user is still on the 'Manage apps & device' screen without tapping any update buttons.\n- The user is scrolling through the list of apps without initiating an update.",
+  "plan_update_times": [
+   0.0,
+   2.0,
+   4.8
+  ],
+  "trace": true
+ },
+ "recording": "cc4ac34272e4c3e4",
+ "arm": "pwr_egoproactive_qwen36"
+}

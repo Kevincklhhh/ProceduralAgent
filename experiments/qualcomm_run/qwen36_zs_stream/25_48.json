@@ -1,0 +1,59 @@
+{
+ "recording": "25_48",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 0.0,
+   "end_s": 45.0
+  },
+  {
+   "stage": 286,
+   "start_s": 45.0,
+   "end_s": 125.0
+  },
+  {
+   "stage": 291,
+   "start_s": 125.0,
+   "end_s": 767.6
+  }
+ ],
+ "events": [
+  {
+   "t": 40.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are using a pre-packaged, crumbled tofu product instead of a fresh block of tofu. The recipe requires you to cut a solid block into large cubes, but the tofu in your container is already broken into small, irregular pieces.",
+   "step_id": 275
+  },
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently cutting a block of cheese on a cutting board, but the instruction is to add salt to the pan. You are using the wrong ingredient and tool for this step.",
+   "step_id": 286
+  },
+  {
+   "t": 130.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are using a white powder (likely salt or sugar) instead of olive oil.",
+   "step_id": 291
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 165,
+  "frames_sent": 765,
+  "vlm_latency_total_s": 235.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 263.8
+ }
+}

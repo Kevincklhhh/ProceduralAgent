@@ -1,0 +1,127 @@
+[1/384] 10_16 (pinwheels) mode=streaming
+  t=  45.0 step 115 MISTAKE [preparation]: Yes. You are using paper towels instead of a flour tortilla. Please place an 8-i
+  t=  50.0 step 115 COMPLETE -> advance
+  t=  65.0 step 113 MISTAKE [preparation]: Yes. You are using a kitchen knife instead of a butter knife.
+  t= 105.0 step 113 COMPLETE -> advance
+  t= 190.0 step 112 COMPLETE -> advance
+  t= 205.0 step 118 COMPLETE -> advance
+  t= 210.0 step 111 MISTAKE [preparation]: Yes. You are using a knife that is still dirty with nut butter to scoop the jell
+  t= 250.0 step 111 COMPLETE -> advance
+  t= 260.0 step 107 MISTAKE [preparation]: Yes. You are using a spoon to scoop the jelly, but the instructions specify usin
+    -> 4 mistakes, 227 calls, 358.7s
+[2/384] 10_26 (pinwheels) mode=streaming
+  t=  10.0 step 115 MISTAKE [preparation]: Yes. You are using a plate instead of a cutting board.
+  t=  55.0 step 115 COMPLETE -> advance
+  t=  60.0 step 113 MISTAKE [preparation]: Yes. You are using an orange plastic knife instead of the butter knife specified
+    -> 2 mistakes, 86 calls, 132.6s
+[3/384] 10_31 (pinwheels) mode=streaming
+  t=  10.0 step 115 MISTAKE [preparation]: Yes. You are placing the tortilla on the stovetop instead of the cutting board.
+  t=  40.0 step 115 COMPLETE -> advance
+  t=  70.0 step 113 COMPLETE -> advance
+  t=  75.0 step 112 MISTAKE [technique]: Yes. You are using a spoon to spread the nut butter, but the instructions specif
+  t= 125.0 step 112 COMPLETE -> advance
+  t= 140.0 step 118 MISTAKE [preparation]: Yes. You are wiping a spoon instead of the butter knife.
+  t= 145.0 step 118 COMPLETE -> advance
+  t= 150.0 step 111 MISTAKE [preparation]: Yes. You are using a spoon instead of the butter knife to scoop the jelly.
+    -> 4 mistakes, 92 calls, 151.4s
+[4/384] 10_42 (pinwheels) mode=streaming
+  t=   5.0 step 115 MISTAKE [preparation]: Yes. You are currently at the stove with a pot, but the instruction is to place 
+  t=  65.0 step 115 COMPLETE -> advance
+  t=  70.0 step 113 MISTAKE [preparation]: Yes. You are currently handling tortillas and a pot on the stove, but the instru
+  t= 220.0 step 113 COMPLETE -> advance
+  t= 295.0 step 112 COMPLETE -> advance
+  t= 310.0 step 118 COMPLETE -> advance
+  t= 315.0 step 111 MISTAKE [preparation]: Yes. You are using a red spatula instead of the butter knife specified in the in
+  t= 365.0 step 111 COMPLETE -> advance
+  t= 385.0 step 107 COMPLETE -> advance
+  t= 395.0 step 104 COMPLETE -> advance
+  t= 440.0 step 116 COMPLETE -> advance
+  t= 625.0 step 110 MISTAKE [measurement]: Yes. You are using a knife to cut the food instead of securing it with toothpick
+    -> 4 mistakes, 217 calls, 365.2s
+[5/384] 10_6 (pinwheels) mode=streaming
+  t=  15.0 step 115 COMPLETE -> advance
+  t= 160.0 step 113 MISTAKE [preparation]: Yes. You are currently peeling a vegetable on a cutting board, but the instructi
+    -> 1 mistakes, 96 calls, 160.5s
+[6/384] 10_7 (pinwheels) mode=streaming
+  t=  45.0 step 115 COMPLETE -> advance
+  t=  60.0 step 113 MISTAKE [preparation]: Yes. You are currently opening the dishwasher, but the instruction requires you 
+    -> 1 mistakes, 138 calls, 214.8s
+[7/384] 12_10 (tomatomozzarellasalad) mode=streaming
+  t=  25.0 step 125 COMPLETE -> advance
+  t=  55.0 step 122 COMPLETE -> advance
+  t= 105.0 step 119 COMPLETE -> advance
+  t= 135.0 step 120 COMPLETE -> advance
+  t= 150.0 step 123 MISTAKE [preparation]: Yes. You are using a pepper grinder instead of salt to season the tomatoes.
+  t= 160.0 step 123 COMPLETE -> advance
+  t= 215.0 step 124 MISTAKE [preparation]: Yes. You are currently washing dishes in the sink instead of sprinkling mozzarel
+  t= 315.0 step 124 COMPLETE -> advance
+  t= 350.0 step 126 MISTAKE [technique]: Yes. You are currently holding a bottle of olive oil, but the instruction requir
+    -> 3 mistakes, 122 calls, 207.9s
+[8/384] 12_12 (tomatomozzarellasalad) mode=streaming
+  t=  40.0 step 125 COMPLETE -> advance
+  t=  50.0 step 122 COMPLETE -> advance
+  t= 155.0 step 119 COMPLETE -> advance
+  t= 200.0 step 120 COMPLETE -> advance
+  t= 260.0 step 123 COMPLETE -> advance
+  t= 280.0 step 124 MISTAKE [preparation]: Yes. You are using a spice shaker, which appears to contain a dry seasoning like
+  t= 400.0 step 124 COMPLETE -> advance
+  t= 425.0 step 126 MISTAKE [measurement]: Yes. You are using a large canister to pour the seasoning, which makes it imposs
+    -> 2 mistakes, 162 calls, 272.2s
+[9/384] 12_13 (tomatomozzarellasalad) mode=streaming
+  t=  35.0 step 125 COMPLETE -> advance
+  t=  45.0 step 122 COMPLETE -> advance
+  t= 130.0 step 119 COMPLETE -> advance
+  t= 145.0 step 120 MISTAKE [technique]: Yes. You are currently taking a platter out of the dishwasher, but the instructi
+  t= 185.0 step 120 COMPLETE -> advance
+  t= 275.0 step 123 MISTAKE [preparation]: Yes. You are using a bag of mozzarella cheese instead of salt to season the toma
+  t= 350.0 step 123 COMPLETE -> advance
+  t= 375.0 step 124 MISTAKE [preparation]: Yes. You are using a jar of dried herbs or spices instead of mozzarella cheese. 
+  t= 440.0 step 124 COMPLETE -> advance
+  t= 470.0 step 126 MISTAKE [technique]: Yes. You are holding a bottle of cooking oil, but the instruction requires you t
+    -> 4 mistakes, 160 calls, 274.1s
+[10/384] 12_2 (tomatomozzarellasalad) mode=streaming
+  t=  30.0 step 125 COMPLETE -> advance
+  t=  55.0 step 122 COMPLETE -> advance
+  t= 115.0 step 119 COMPLETE -> advance
+  t= 160.0 step 120 COMPLETE -> advance
+  t= 200.0 step 123 MISTAKE [preparation]: Yes. You are holding a bag of shredded cheese instead of salt. Please use salt t
+  t= 255.0 step 123 COMPLETE -> advance
+  t= 260.0 step 124 MISTAKE [technique]: Yes. You are using a measuring spoon to sprinkle salt from the shaker, not the m
+  t= 305.0 step 124 COMPLETE -> advance
+  t= 310.0 step 126 MISTAKE [preparation]: Yes. You are using a spoon to scoop cheese from a bag and sprinkle it on the pla
+  t= 355.0 step 126 COMPLETE -> advance
+  t= 395.0 step 127 MISTAKE [preparation]: Yes. You are pouring oil from a bottle instead of applying Italian seasoning. Pl
+  t= 405.0 step 127 COMPLETE -> advance
+    -> 4 mistakes, 135 calls, 240.3s
+[11/384] 12_26 (tomatomozzarellasalad) mode=streaming
+  t=  25.0 step 125 COMPLETE -> advance
+  t=  45.0 step 122 COMPLETE -> advance
+  t=  90.0 step 119 MISTAKE [technique]: Yes. You are dicing the tomato into small cubes instead of slicing it into 1/2 i
+  t= 150.0 step 119 COMPLETE -> advance
+  t= 190.0 step 120 COMPLETE -> advance
+  t= 220.0 step 123 MISTAKE [preparation]: Yes. You are using iodized coffee creamer instead of salt. Please use salt to se
+  t= 225.0 step 123 COMPLETE -> advance
+  t= 235.0 step 124 MISTAKE [preparation]: Yes. You are using a spice shaker to sprinkle seasoning instead of applying mozz
+  t= 265.0 step 124 COMPLETE -> advance
+  t= 280.0 step 126 MISTAKE [technique]: Yes. You are currently washing a cutting board and knife in the sink, but the in
+    -> 4 mistakes, 99 calls, 177.0s
+[12/384] 12_38 (tomatomozzarellasalad) mode=streaming
+  t=  15.0 step 125 MISTAKE [preparation]: Yes. The recipe calls for a normal tomato, but you are using cherry tomatoes.
+    -> 1 mistakes, 74 calls, 110.5s
+[13/384] 12_41 (tomatomozzarellasalad) mode=streaming
+  t=  50.0 step 125 COMPLETE -> advance
+  t=  75.0 step 122 COMPLETE -> advance
+  t=  85.0 step 119 MISTAKE [preparation]: Yes. You are using a soiled cutting board that already has chopped vegetables on
+  t= 145.0 step 119 COMPLETE -> advance
+  t= 200.0 step 120 MISTAKE [technique]: Yes. You are currently handling a spice shaker and a measuring spoon, but the in
+    -> 2 mistakes, 120 calls, 198.7s
+[14/384] 12_5 (tomatomozzarellasalad) mode=streaming
+  t=  15.0 step 125 MISTAKE [preparation]: Yes. The recipe calls for a normal tomato, but you are using cherry tomatoes.
+  t=  30.0 step 125 COMPLETE -> advance
+  t=  40.0 step 122 COMPLETE -> advance
+  t=  90.0 step 119 COMPLETE -> advance
+  t= 145.0 step 120 COMPLETE -> advance
+  t= 160.0 step 123 MISTAKE [preparation]: Yes. You are using shredded cheese instead of salt to season the tomatoes.
+  t= 225.0 step 123 COMPLETE -> advance
+  t= 235.0 step 124 COMPLETE -> advance
+  t= 245.0 step 126 MISTAKE [measurement]: Yes. You are using salt instead of black pepper. The white granular substance in

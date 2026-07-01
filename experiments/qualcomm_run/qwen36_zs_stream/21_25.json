@@ -1,0 +1,59 @@
+{
+ "recording": "21_25",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 221,
+   "start_s": 0.0,
+   "end_s": 145.0
+  },
+  {
+   "stage": 225,
+   "start_s": 145.0,
+   "end_s": 305.0
+  },
+  {
+   "stage": 229,
+   "start_s": 305.0,
+   "end_s": 848.0
+  }
+ ],
+ "events": [
+  {
+   "t": 90.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently peeling a banana, but the instruction is to add 1/2 tsp of baking powder to the blender. Please set the banana aside and measure the baking powder.",
+   "step_id": 221
+  },
+  {
+   "t": 195.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently cutting a strawberry, but the instruction is to add a banana to the blender.",
+   "step_id": 225
+  },
+  {
+   "t": 410.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently melting butter in a frying pan on the stove, but the instruction is to put an egg into a blender. You are using the wrong equipment and cooking method for this step.",
+   "step_id": 229
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 218,
+  "frames_sent": 845,
+  "vlm_latency_total_s": 318.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 352.1
+ }
+}

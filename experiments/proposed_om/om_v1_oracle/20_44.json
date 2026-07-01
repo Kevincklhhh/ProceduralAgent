@@ -1,0 +1,118 @@
+{
+ "recording": "20_44",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 176,
+   "start_s": 0.6,
+   "end_s": 35.0
+  },
+  {
+   "stage": 215,
+   "start_s": 36.8,
+   "end_s": 178.6
+  },
+  {
+   "stage": 211,
+   "start_s": 86.7,
+   "end_s": 131.0
+  },
+  {
+   "stage": 206,
+   "start_s": 140.8,
+   "end_s": 163.0
+  },
+  {
+   "stage": 217,
+   "start_s": 167.9,
+   "end_s": 192.0
+  },
+  {
+   "stage": 205,
+   "start_s": 200.6,
+   "end_s": 218.5
+  },
+  {
+   "stage": 214,
+   "start_s": 219.0,
+   "end_s": 231.5
+  },
+  {
+   "stage": 212,
+   "start_s": 236.6,
+   "end_s": 290.7
+  },
+  {
+   "stage": 218,
+   "start_s": 294.5,
+   "end_s": 316.5
+  },
+  {
+   "stage": 208,
+   "start_s": 322.3,
+   "end_s": 329.0
+  },
+  {
+   "stage": 213,
+   "start_s": 339.2,
+   "end_s": 410.0
+  },
+  {
+   "stage": 209,
+   "start_s": 401.0,
+   "end_s": 411.7
+  },
+  {
+   "stage": 207,
+   "start_s": 411.0,
+   "end_s": 502.0
+  },
+  {
+   "stage": 219,
+   "start_s": 505.2,
+   "end_s": 517.4
+  },
+  {
+   "stage": 207,
+   "start_s": 517.5,
+   "end_s": 570.8
+  },
+  {
+   "stage": 220,
+   "start_s": 571.7,
+   "end_s": 581.8
+  },
+  {
+   "stage": 216,
+   "start_s": 582.7,
+   "end_s": 606.2
+  }
+ ],
+ "events": [
+  {
+   "t": 36.8,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 215,
+   "message": "Heat 1 tbsp olive oil in a large skillet over medium-high heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 36.8,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 215,
+   "message": "You skipped Slice the mushrooms; it is needed before Heat 1 tbsp olive oil in a large skillet over medium-high heat."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

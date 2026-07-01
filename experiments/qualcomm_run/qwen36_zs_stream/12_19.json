@@ -1,0 +1,65 @@
+{
+ "recording": "12_19",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 125,
+   "start_s": 0.0,
+   "end_s": 30.0
+  },
+  {
+   "stage": 122,
+   "start_s": 30.0,
+   "end_s": 35.0
+  },
+  {
+   "stage": 119,
+   "start_s": 35.0,
+   "end_s": 115.0
+  },
+  {
+   "stage": 120,
+   "start_s": 115.0,
+   "end_s": 155.0
+  },
+  {
+   "stage": 123,
+   "start_s": 155.0,
+   "end_s": 260.0
+  },
+  {
+   "stage": 124,
+   "start_s": 260.0,
+   "end_s": 375.0
+  },
+  {
+   "stage": 126,
+   "start_s": 375.0,
+   "end_s": 379.4
+  }
+ ],
+ "events": [
+  {
+   "t": 275.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently handling a bowl of measuring cups instead of sprinkling mozzarella cheese on the tomatoes. Please proceed with the instruction to sprinkle the cheese.",
+   "step_id": 124
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 125,
+  "frames_sent": 375,
+  "vlm_latency_total_s": 189.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 205.2
+ }
+}

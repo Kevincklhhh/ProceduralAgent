@@ -1,0 +1,83 @@
+{
+ "recording": "18_8",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 203,
+   "start_s": 0.9,
+   "end_s": 228.6
+  },
+  {
+   "stage": 200,
+   "start_s": 243.9,
+   "end_s": 329.1
+  },
+  {
+   "stage": 196,
+   "start_s": 333.6,
+   "end_s": 344.5
+  },
+  {
+   "stage": 204,
+   "start_s": 345.7,
+   "end_s": 448.4
+  },
+  {
+   "stage": 199,
+   "start_s": 451.8,
+   "end_s": 527.7
+  },
+  {
+   "stage": 202,
+   "start_s": 529.9,
+   "end_s": 674.2
+  },
+  {
+   "stage": 201,
+   "start_s": 675.5,
+   "end_s": 697.7
+  },
+  {
+   "stage": 193,
+   "start_s": 732.5,
+   "end_s": 796.2
+  },
+  {
+   "stage": 194,
+   "start_s": 820.4,
+   "end_s": 841.9
+  },
+  {
+   "stage": 198,
+   "start_s": 842.4,
+   "end_s": 868.0
+  },
+  {
+   "stage": 192,
+   "start_s": 871.5,
+   "end_s": 1041.9
+  },
+  {
+   "stage": 197,
+   "start_s": 1042.9,
+   "end_s": 1046.3
+  },
+  {
+   "stage": 195,
+   "start_s": 1051.8,
+   "end_s": 1101.2
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

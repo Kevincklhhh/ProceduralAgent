@@ -1,0 +1,188 @@
+{
+ "recording": "4_44",
+ "arm": "gpt54_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 47,
+   "start_s": 20.6,
+   "end_s": 30.0
+  },
+  {
+   "stage": 14,
+   "start_s": 30.0,
+   "end_s": 34.3
+  },
+  {
+   "stage": 46,
+   "start_s": 55.9,
+   "end_s": 71.1
+  },
+  {
+   "stage": 44,
+   "start_s": 94.2,
+   "end_s": 101.5
+  },
+  {
+   "stage": 52,
+   "start_s": 108.1,
+   "end_s": 131.7
+  },
+  {
+   "stage": 14,
+   "start_s": 140.0,
+   "end_s": 158.0
+  },
+  {
+   "stage": 51,
+   "start_s": 157.2,
+   "end_s": 169.4
+  },
+  {
+   "stage": 54,
+   "start_s": 180.2,
+   "end_s": 195.7
+  },
+  {
+   "stage": 55,
+   "start_s": 222.9,
+   "end_s": 226.7
+  },
+  {
+   "stage": 49,
+   "start_s": 242.8,
+   "end_s": 248.3
+  },
+  {
+   "stage": 45,
+   "start_s": 252.3,
+   "end_s": 443.2
+  },
+  {
+   "stage": 50,
+   "start_s": 456.1,
+   "end_s": 460.2
+  },
+  {
+   "stage": 48,
+   "start_s": 509.1,
+   "end_s": 541.5
+  },
+  {
+   "stage": 53,
+   "start_s": 564.3,
+   "end_s": 573.4
+  },
+  {
+   "stage": 42,
+   "start_s": 585.6,
+   "end_s": 590.4
+  },
+  {
+   "stage": 43,
+   "start_s": 597.4,
+   "end_s": 604.2
+  }
+ ],
+ "events": [
+  {
+   "t": 226.4,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires adding enough water so the noodles are fully covered; flag if the amount poured is clearly too little, leaving the noodles exposed (observed: added only a little amount that does not cover the noodles with water).",
+   "step_id": 55,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 442.8,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for 4 minutes (240 s) of microwaving; flag if the microwave is set for a substantially different duration \u2014 e.g. 16 seconds, 1 minute, 2 minutes, or 3 minutes instead of 4 (observed: microwave run for 16 s, 1 min, 2 min, 2.5 min, or 3 min instead of 4 min).",
+   "step_id": 45,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 29.6,
+   "kind": "mistake",
+   "step_id": 47,
+   "win_start": 0.0,
+   "win_end": 59.6,
+   "n_frames": 32,
+   "latency_s": 2.4,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 226.4,
+   "kind": "mistake",
+   "step_id": 55,
+   "win_start": 196.4,
+   "win_end": 256.4,
+   "n_frames": 32,
+   "latency_s": 2.3,
+   "fired": [
+    "technique"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 442.8,
+   "kind": "mistake",
+   "step_id": 45,
+   "win_start": 412.8,
+   "win_end": 472.8,
+   "n_frames": 32,
+   "latency_s": 2.5,
+   "fired": [
+    "timing"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 541.1,
+   "kind": "mistake",
+   "step_id": 48,
+   "win_start": 511.1,
+   "win_end": 571.1,
+   "n_frames": 32,
+   "latency_s": 3.4,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 603.9,
+   "kind": "mistake",
+   "step_id": 43,
+   "win_start": 573.9,
+   "win_end": 608.4,
+   "n_frames": 31,
+   "latency_s": 2.6,
+   "fired": [],
+   "answer": "0"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 5,
+  "frames_sent": 159,
+  "vlm_latency_total_s": 13.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "backend": "gpt54",
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 24.8
+ }
+}

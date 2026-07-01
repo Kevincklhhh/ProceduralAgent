@@ -1,0 +1,52 @@
+{
+ "recording": "3_49",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 0.0,
+   "end_s": 5.0
+  },
+  {
+   "stage": 28,
+   "start_s": 5.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": 33,
+   "start_s": 160.0,
+   "end_s": 779.9
+  }
+ ],
+ "events": [
+  {
+   "t": 70.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are using a bag of flour instead of salt. Please use the correct ingredient.",
+   "step_id": 28
+  },
+  {
+   "t": 175.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are using a wet spoon to measure the flour, which can cause the flour to clump and lead to inaccurate measurements.",
+   "step_id": 33
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 171,
+  "frames_sent": 775,
+  "vlm_latency_total_s": 230.3,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 262.6
+ }
+}

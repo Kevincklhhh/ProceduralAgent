@@ -1,0 +1,691 @@
+{
+ "recording": "27_4",
+ "arm": "qwen36_zs_turn",
+ "stage_intervals": [
+  {
+   "stage": 320,
+   "start_s": 0.0,
+   "end_s": 85.0
+  },
+  {
+   "stage": 316,
+   "start_s": 85.0,
+   "end_s": 125.0
+  },
+  {
+   "stage": 321,
+   "start_s": 125.0,
+   "end_s": 225.0
+  },
+  {
+   "stage": 323,
+   "start_s": 225.0,
+   "end_s": 270.0
+  },
+  {
+   "stage": 322,
+   "start_s": 270.0,
+   "end_s": 300.0
+  },
+  {
+   "stage": 318,
+   "start_s": 300.0,
+   "end_s": 480.0
+  },
+  {
+   "stage": 317,
+   "start_s": 480.0,
+   "end_s": 545.0
+  },
+  {
+   "stage": 315,
+   "start_s": 545.0,
+   "end_s": 560.0
+  },
+  {
+   "stage": 314,
+   "start_s": 560.0,
+   "end_s": 590.0
+  },
+  {
+   "stage": 319,
+   "start_s": 590.0,
+   "end_s": 620.0
+  },
+  {
+   "stage": 324,
+   "start_s": 620.0,
+   "end_s": 644.7
+  }
+ ],
+ "events": [
+  {
+   "t": 150.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are putting the bell pepper away in the refrigerator instead of chopping it into tiny bits as instructed.",
+   "step_id": 321
+  },
+  {
+   "t": 320.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently washing a cutting board and knife in the sink, but the instruction is to microwave a covered bowl. You have not started the correct task.",
+   "step_id": 318
+  },
+  {
+   "t": 570.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using your bare hands to handle the butter; please use a utensil to add it to the bowl.",
+   "step_id": 314
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 53,
+  "frames_sent": 465,
+  "vlm_latency_total_s": 107.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 127.4,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 35.0,
+   "kind": "mistake",
+   "step_id": 320,
+   "win_start": 30.0,
+   "win_end": 35.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 40.0,
+   "kind": "mistake",
+   "step_id": 320,
+   "win_start": 35.0,
+   "win_end": 40.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 85.0,
+   "kind": "mistake",
+   "step_id": 316,
+   "win_start": 80.0,
+   "win_end": 85.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 90.0,
+   "kind": "mistake",
+   "step_id": 316,
+   "win_start": 85.0,
+   "win_end": 90.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 95.0,
+   "kind": "mistake",
+   "step_id": 316,
+   "win_start": 90.0,
+   "win_end": 95.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 100.0,
+   "kind": "mistake",
+   "step_id": 316,
+   "win_start": 95.0,
+   "win_end": 100.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 105.0,
+   "kind": "mistake",
+   "step_id": 316,
+   "win_start": 100.0,
+   "win_end": 105.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 125.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 120.0,
+   "win_end": 125.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 130.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 125.0,
+   "win_end": 130.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 135.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 130.0,
+   "win_end": 135.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 140.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 135.0,
+   "win_end": 140.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 145.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 140.0,
+   "win_end": 145.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 150.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 145.0,
+   "win_end": 150.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 225.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 220.0,
+   "win_end": 225.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 230.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 225.0,
+   "win_end": 230.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 235.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 230.0,
+   "win_end": 235.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 240.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 235.0,
+   "win_end": 240.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 245.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 240.0,
+   "win_end": 245.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 250.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 245.0,
+   "win_end": 250.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 255.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 250.0,
+   "win_end": 255.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 260.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 255.0,
+   "win_end": 260.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 270.0,
+   "kind": "mistake",
+   "step_id": 322,
+   "win_start": 265.0,
+   "win_end": 270.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 275.0,
+   "kind": "mistake",
+   "step_id": 322,
+   "win_start": 270.0,
+   "win_end": 275.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 300.0,
+   "kind": "mistake",
+   "step_id": 318,
+   "win_start": 295.0,
+   "win_end": 300.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 305.0,
+   "kind": "mistake",
+   "step_id": 318,
+   "win_start": 300.0,
+   "win_end": 305.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 310.0,
+   "kind": "mistake",
+   "step_id": 318,
+   "win_start": 305.0,
+   "win_end": 310.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 315.0,
+   "kind": "mistake",
+   "step_id": 318,
+   "win_start": 310.0,
+   "win_end": 315.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 320.0,
+   "kind": "mistake",
+   "step_id": 318,
+   "win_start": 315.0,
+   "win_end": 320.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 480.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 475.0,
+   "win_end": 480.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 485.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 480.0,
+   "win_end": 485.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 490.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 485.0,
+   "win_end": 490.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 495.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 490.0,
+   "win_end": 495.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 500.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 495.0,
+   "win_end": 500.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 505.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 500.0,
+   "win_end": 505.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 510.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 505.0,
+   "win_end": 510.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 515.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 510.0,
+   "win_end": 515.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 520.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 515.0,
+   "win_end": 520.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 545.0,
+   "kind": "mistake",
+   "step_id": 315,
+   "win_start": 540.0,
+   "win_end": 545.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 550.0,
+   "kind": "mistake",
+   "step_id": 315,
+   "win_start": 545.0,
+   "win_end": 550.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 560.0,
+   "kind": "mistake",
+   "step_id": 314,
+   "win_start": 555.0,
+   "win_end": 560.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 565.0,
+   "kind": "mistake",
+   "step_id": 314,
+   "win_start": 560.0,
+   "win_end": 565.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 570.0,
+   "kind": "mistake",
+   "step_id": 314,
+   "win_start": 565.0,
+   "win_end": 570.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 590.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 585.0,
+   "win_end": 590.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 595.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 590.0,
+   "win_end": 595.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 600.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 595.0,
+   "win_end": 600.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 605.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 600.0,
+   "win_end": 605.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 610.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 605.0,
+   "win_end": 610.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 615.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 610.0,
+   "win_end": 615.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 620.0,
+   "kind": "mistake",
+   "step_id": 324,
+   "win_start": 615.0,
+   "win_end": 620.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 625.0,
+   "kind": "mistake",
+   "step_id": 324,
+   "win_start": 620.0,
+   "win_end": 625.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 630.0,
+   "kind": "mistake",
+   "step_id": 324,
+   "win_start": 625.0,
+   "win_end": 630.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 635.0,
+   "kind": "mistake",
+   "step_id": 324,
+   "win_start": 630.0,
+   "win_end": 635.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 640.0,
+   "kind": "mistake",
+   "step_id": 324,
+   "win_start": 635.0,
+   "win_end": 640.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  }
+ ]
+}

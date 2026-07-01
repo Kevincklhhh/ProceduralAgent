@@ -1,0 +1,138 @@
+{
+  "recording": "8_26",
+  "step_id": 90,
+  "model": "Qwen3.5-27B-FP8",
+  "decode": "constrained-3way{yes,no,uncertain}",
+  "class_ids": {
+    "yes": [
+      7179,
+      9175,
+      9405,
+      9542,
+      13602
+    ],
+    "no": [
+      874,
+      2083,
+      2233,
+      2665,
+      8725
+    ],
+    "uncertain": [
+      1299,
+      27837,
+      33955,
+      61568
+    ]
+  },
+  "windows": {
+    "short": {
+      "win": [
+        201.2,
+        206.2,
+        5
+      ],
+      "L": 1176,
+      "k": 1139,
+      "free_argmax_token": "The",
+      "free_argmax_id": 760,
+      "constrained_answer_full": "no",
+      "scores_full": {
+        "yes": 8.6875,
+        "no": 9.375,
+        "uncertain": 3.453125
+      },
+      "constrained_answer_cached": "no",
+      "scores_cached": {
+        "yes": 8.9375,
+        "no": 9.4375,
+        "uncertain": 3.296875
+      },
+      "cached_eq_full_answer": true,
+      "cached_eq_full_logits_bitexact": false,
+      "cached_vs_full_max_abs_logit_diff": 2.15625
+    },
+    "medium": {
+      "win": [
+        196.2,
+        206.2,
+        10
+      ],
+      "L": 2286,
+      "k": 2249,
+      "free_argmax_token": "The",
+      "free_argmax_id": 760,
+      "constrained_answer_full": "no",
+      "scores_full": {
+        "yes": 7.5,
+        "no": 8.1875,
+        "uncertain": 3.234375
+      },
+      "constrained_answer_cached": "no",
+      "scores_cached": {
+        "yes": 7.8125,
+        "no": 9.3125,
+        "uncertain": 3.203125
+      },
+      "cached_eq_full_answer": true,
+      "cached_eq_full_logits_bitexact": false,
+      "cached_vs_full_max_abs_logit_diff": 1.9375
+    },
+    "long": {
+      "win": [
+        186.2,
+        206.2,
+        20
+      ],
+      "L": 4506,
+      "k": 4469,
+      "free_argmax_token": "The",
+      "free_argmax_id": 760,
+      "constrained_answer_full": "no",
+      "scores_full": {
+        "yes": 8.625,
+        "no": 9.375,
+        "uncertain": 4.0
+      },
+      "constrained_answer_cached": "no",
+      "scores_cached": {
+        "yes": 7.75,
+        "no": 9.0625,
+        "uncertain": 4.34375
+      },
+      "cached_eq_full_answer": true,
+      "cached_eq_full_logits_bitexact": false,
+      "cached_vs_full_max_abs_logit_diff": 2.15625
+    }
+  },
+  "neg_control": {
+    "correct_win": [
+      186.2,
+      206.2,
+      20
+    ],
+    "alt_win": [
+      30.0,
+      50.0,
+      20
+    ],
+    "answer_correct_evidence": "no",
+    "scores_correct": {
+      "yes": 7.75,
+      "no": 9.0625,
+      "uncertain": 4.34375
+    },
+    "answer_alt_evidence": "no",
+    "scores_alt": {
+      "yes": 8.375,
+      "no": 9.5625,
+      "uncertain": 4.90625
+    },
+    "answer_if_reusing_stale_cache": "no",
+    "fp8_noise_floor_max_abs_logit_diff": 0.0,
+    "correct_vs_alt_max_abs_logit_diff": 3.890625,
+    "signal_over_noise": null,
+    "evidence_changes_argmax_answer": false,
+    "stale_eq_correct_bitexact": false
+  }
+}

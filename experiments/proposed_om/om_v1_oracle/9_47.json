@@ -1,0 +1,71 @@
+{
+ "recording": "9_47",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 99,
+   "start_s": 12.0,
+   "end_s": 50.4
+  },
+  {
+   "stage": 94,
+   "start_s": 52.8,
+   "end_s": 167.9
+  },
+  {
+   "stage": 98,
+   "start_s": 166.3,
+   "end_s": 182.3
+  },
+  {
+   "stage": 101,
+   "start_s": 200.6,
+   "end_s": 260.6
+  },
+  {
+   "stage": 100,
+   "start_s": 264.6,
+   "end_s": 307.0
+  },
+  {
+   "stage": 95,
+   "start_s": 308.6,
+   "end_s": 362.9
+  },
+  {
+   "stage": 91,
+   "start_s": 363.7,
+   "end_s": 473.2
+  },
+  {
+   "stage": 97,
+   "start_s": 474.8,
+   "end_s": 490.0
+  },
+  {
+   "stage": 96,
+   "start_s": 488.4,
+   "end_s": 500.4
+  }
+ ],
+ "events": [
+  {
+   "t": 363.7,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 91,
+   "message": "You skipped add bread pieces to the egg mixture in the mug, pressing the bread down into the egg and stir the mug; they are needed before Microwave on high for 90 seconds until the egg is cooked through."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

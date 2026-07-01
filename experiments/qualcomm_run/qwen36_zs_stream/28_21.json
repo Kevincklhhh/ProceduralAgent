@@ -1,0 +1,62 @@
+{
+ "recording": "28_21",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 327,
+   "start_s": 0.0,
+   "end_s": 175.0
+  },
+  {
+   "stage": 329,
+   "start_s": 175.0,
+   "end_s": 290.0
+  },
+  {
+   "stage": 335,
+   "start_s": 290.0,
+   "end_s": 585.0
+  },
+  {
+   "stage": 336,
+   "start_s": 585.0,
+   "end_s": 590.0
+  },
+  {
+   "stage": 328,
+   "start_s": 590.0,
+   "end_s": 949.8
+  }
+ ],
+ "events": [
+  {
+   "t": 35.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently opening a can on the cutting board, but the instruction is to add 1/4 cup of mayonnaise to a bowl. Please ensure you are using the correct ingredient and measuring it into a bowl as requested.",
+   "step_id": 327
+  },
+  {
+   "t": 300.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. The instruction asks for a ripe avocado, but you are currently handling and washing lettuce.",
+   "step_id": 335
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 291,
+  "frames_sent": 945,
+  "vlm_latency_total_s": 429.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 468.3
+ }
+}

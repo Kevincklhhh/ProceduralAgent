@@ -1,0 +1,130 @@
+{
+ "recording": "10_46",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 113,
+   "start_s": 2.1,
+   "end_s": 65.2
+  },
+  {
+   "stage": 115,
+   "start_s": 66.3,
+   "end_s": 94.3
+  },
+  {
+   "stage": 112,
+   "start_s": 95.4,
+   "end_s": 134.3
+  },
+  {
+   "stage": 111,
+   "start_s": 142.0,
+   "end_s": 182.6
+  },
+  {
+   "stage": 107,
+   "start_s": 191.1,
+   "end_s": 222.2
+  },
+  {
+   "stage": 104,
+   "start_s": 228.2,
+   "end_s": 258.3
+  },
+  {
+   "stage": 116,
+   "start_s": 266.6,
+   "end_s": 312.2
+  },
+  {
+   "stage": 114,
+   "start_s": 323.3,
+   "end_s": 346.2
+  },
+  {
+   "stage": 110,
+   "start_s": 376.2,
+   "end_s": 462.6
+  },
+  {
+   "stage": 106,
+   "start_s": 530.0,
+   "end_s": 531.5
+  },
+  {
+   "stage": 117,
+   "start_s": 531.5,
+   "end_s": 534.0
+  },
+  {
+   "stage": 105,
+   "start_s": 545.2,
+   "end_s": 561.3
+  },
+  {
+   "stage": 108,
+   "start_s": 562.1,
+   "end_s": 568.5
+  },
+  {
+   "stage": 102,
+   "start_s": 568.0,
+   "end_s": 594.0
+  },
+  {
+   "stage": 102,
+   "start_s": 605.4,
+   "end_s": 619.9
+  },
+  {
+   "stage": 102,
+   "start_s": 620.0,
+   "end_s": 627.0
+  },
+  {
+   "stage": 109,
+   "start_s": 632.9,
+   "end_s": 665.7
+  },
+  {
+   "stage": 103,
+   "start_s": 667.3,
+   "end_s": 687.3
+  }
+ ],
+ "events": [
+  {
+   "t": 2.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 113,
+   "message": "scoop-Use a butter knife to scoop nut butter from the jar was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 142.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 111,
+   "message": "You skipped Clean the knife by wiping it with a paper towel; it is needed before scoop-Use the knife to scoop jelly from the jar."
+  },
+  {
+   "t": 323.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 114,
+   "message": "Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

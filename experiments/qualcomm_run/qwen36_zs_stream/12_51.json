@@ -1,0 +1,79 @@
+{
+ "recording": "12_51",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 125,
+   "start_s": 0.0,
+   "end_s": 20.0
+  },
+  {
+   "stage": 122,
+   "start_s": 20.0,
+   "end_s": 30.0
+  },
+  {
+   "stage": 119,
+   "start_s": 30.0,
+   "end_s": 75.0
+  },
+  {
+   "stage": 120,
+   "start_s": 75.0,
+   "end_s": 110.0
+  },
+  {
+   "stage": 123,
+   "start_s": 110.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": 124,
+   "start_s": 160.0,
+   "end_s": 210.0
+  },
+  {
+   "stage": 126,
+   "start_s": 210.0,
+   "end_s": 239.5
+  }
+ ],
+ "events": [
+  {
+   "t": 145.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using dried herbs instead of salt to season the tomatoes.",
+   "step_id": 123
+  },
+  {
+   "t": 175.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently holding a spice jar and sprinkling seasoning onto the tomatoes, but the instruction specifically asks you to sprinkle mozzarella cheese. Please switch to the mozzarella cheese to complete the step.",
+   "step_id": 124
+  },
+  {
+   "t": 225.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are pouring oil into the measuring spoon instead of black pepper.",
+   "step_id": 126
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 78,
+  "frames_sent": 235,
+  "vlm_latency_total_s": 128.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 138.8
+ }
+}

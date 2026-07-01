@@ -1,0 +1,201 @@
+{
+  "model": "Qwen3.5-27B-FP8",
+  "checkpoints": [
+    1,
+    32,
+    96,
+    256,
+    512,
+    768,
+    1024,
+    1280,
+    1536,
+    2048
+  ],
+  "trials": 3,
+  "windows": {
+    "short": {
+      "L": 1176,
+      "win": [
+        201.2,
+        206.2,
+        5
+      ],
+      "prefill_ms": 478.0,
+      "by_N": {
+        "1": {
+          "decode_ms": 0.1,
+          "total_trigger_ms": 478.1,
+          "marginal_ms_per_tok": 0.11
+        },
+        "32": {
+          "decode_ms": 3075.4,
+          "total_trigger_ms": 3553.4,
+          "marginal_ms_per_tok": 99.2
+        },
+        "96": {
+          "decode_ms": 9534.2,
+          "total_trigger_ms": 10012.1,
+          "marginal_ms_per_tok": 100.92
+        },
+        "256": {
+          "decode_ms": 25562.0,
+          "total_trigger_ms": 26039.9,
+          "marginal_ms_per_tok": 100.17
+        },
+        "512": {
+          "decode_ms": 51278.5,
+          "total_trigger_ms": 51756.4,
+          "marginal_ms_per_tok": 100.46
+        },
+        "768": {
+          "decode_ms": 77233.3,
+          "total_trigger_ms": 77711.2,
+          "marginal_ms_per_tok": 101.39
+        },
+        "1024": {
+          "decode_ms": 102817.8,
+          "total_trigger_ms": 103295.8,
+          "marginal_ms_per_tok": 99.94
+        },
+        "1280": {
+          "decode_ms": 128306.0,
+          "total_trigger_ms": 128784.0,
+          "marginal_ms_per_tok": 99.56
+        },
+        "1536": {
+          "decode_ms": 153925.3,
+          "total_trigger_ms": 154403.3,
+          "marginal_ms_per_tok": 100.08
+        },
+        "2048": {
+          "decode_ms": 205777.2,
+          "total_trigger_ms": 206255.1,
+          "marginal_ms_per_tok": 101.27
+        }
+      }
+    },
+    "medium": {
+      "L": 2286,
+      "win": [
+        196.2,
+        206.2,
+        10
+      ],
+      "prefill_ms": 907.9,
+      "by_N": {
+        "1": {
+          "decode_ms": 0.1,
+          "total_trigger_ms": 908.0,
+          "marginal_ms_per_tok": 0.1
+        },
+        "32": {
+          "decode_ms": 3152.4,
+          "total_trigger_ms": 4060.3,
+          "marginal_ms_per_tok": 101.69
+        },
+        "96": {
+          "decode_ms": 9583.3,
+          "total_trigger_ms": 10491.2,
+          "marginal_ms_per_tok": 100.48
+        },
+        "256": {
+          "decode_ms": 25774.6,
+          "total_trigger_ms": 26682.5,
+          "marginal_ms_per_tok": 101.2
+        },
+        "512": {
+          "decode_ms": 51491.3,
+          "total_trigger_ms": 52399.2,
+          "marginal_ms_per_tok": 100.46
+        },
+        "768": {
+          "decode_ms": 77278.5,
+          "total_trigger_ms": 78186.4,
+          "marginal_ms_per_tok": 100.73
+        },
+        "1024": {
+          "decode_ms": 103131.9,
+          "total_trigger_ms": 104039.8,
+          "marginal_ms_per_tok": 100.99
+        },
+        "1280": {
+          "decode_ms": 128999.5,
+          "total_trigger_ms": 129907.4,
+          "marginal_ms_per_tok": 101.05
+        },
+        "1536": {
+          "decode_ms": 154769.9,
+          "total_trigger_ms": 155677.9,
+          "marginal_ms_per_tok": 100.67
+        },
+        "2048": {
+          "decode_ms": 206250.3,
+          "total_trigger_ms": 207158.3,
+          "marginal_ms_per_tok": 100.55
+        }
+      }
+    },
+    "long": {
+      "L": 4506,
+      "win": [
+        186.2,
+        206.2,
+        20
+      ],
+      "prefill_ms": 1905.9,
+      "by_N": {
+        "1": {
+          "decode_ms": 0.1,
+          "total_trigger_ms": 1906.0,
+          "marginal_ms_per_tok": 0.1
+        },
+        "32": {
+          "decode_ms": 3106.8,
+          "total_trigger_ms": 5012.6,
+          "marginal_ms_per_tok": 100.22
+        },
+        "96": {
+          "decode_ms": 9474.4,
+          "total_trigger_ms": 11380.3,
+          "marginal_ms_per_tok": 99.49
+        },
+        "256": {
+          "decode_ms": 25245.5,
+          "total_trigger_ms": 27151.4,
+          "marginal_ms_per_tok": 98.57
+        },
+        "512": {
+          "decode_ms": 50679.6,
+          "total_trigger_ms": 52585.5,
+          "marginal_ms_per_tok": 99.35
+        },
+        "768": {
+          "decode_ms": 75978.2,
+          "total_trigger_ms": 77884.0,
+          "marginal_ms_per_tok": 98.82
+        },
+        "1024": {
+          "decode_ms": 101113.0,
+          "total_trigger_ms": 103018.8,
+          "marginal_ms_per_tok": 98.18
+        },
+        "1280": {
+          "decode_ms": 126279.8,
+          "total_trigger_ms": 128185.6,
+          "marginal_ms_per_tok": 98.31
+        },
+        "1536": {
+          "decode_ms": 151650.3,
+          "total_trigger_ms": 153556.1,
+          "marginal_ms_per_tok": 99.1
+        },
+        "2048": {
+          "decode_ms": 202784.5,
+          "total_trigger_ms": 204690.3,
+          "marginal_ms_per_tok": 99.87
+        }
+      }
+    }
+  }
+}

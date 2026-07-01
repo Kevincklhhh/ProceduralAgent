@@ -1,0 +1,141 @@
+{
+ "recording": "16_20",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 167,
+   "start_s": 20.5,
+   "end_s": 64.0
+  },
+  {
+   "stage": 169,
+   "start_s": 72.9,
+   "end_s": 156.0
+  },
+  {
+   "stage": 177,
+   "start_s": 167.5,
+   "end_s": 204.6
+  },
+  {
+   "stage": 176,
+   "start_s": 212.3,
+   "end_s": 321.0
+  },
+  {
+   "stage": 161,
+   "start_s": 351.7,
+   "end_s": 391.3
+  },
+  {
+   "stage": 164,
+   "start_s": 418.2,
+   "end_s": 498.7
+  },
+  {
+   "stage": 180,
+   "start_s": 507.7,
+   "end_s": 570.3
+  },
+  {
+   "stage": 159,
+   "start_s": 581.9,
+   "end_s": 611.3
+  },
+  {
+   "stage": 158,
+   "start_s": 620.2,
+   "end_s": 760.9
+  },
+  {
+   "stage": 173,
+   "start_s": 939.9,
+   "end_s": 1007.7
+  },
+  {
+   "stage": 178,
+   "start_s": 1016.6,
+   "end_s": 1042.2
+  },
+  {
+   "stage": 179,
+   "start_s": 1046.0,
+   "end_s": 1057.0
+  },
+  {
+   "stage": 163,
+   "start_s": 1047.5,
+   "end_s": 1057.2
+  },
+  {
+   "stage": 166,
+   "start_s": 1070.0,
+   "end_s": 1370.0
+  },
+  {
+   "stage": 162,
+   "start_s": 1370.2,
+   "end_s": 1378.0
+  },
+  {
+   "stage": 160,
+   "start_s": 1378.2,
+   "end_s": 1396.1
+  },
+  {
+   "stage": 165,
+   "start_s": 1399.8,
+   "end_s": 1472.1
+  },
+  {
+   "stage": 175,
+   "start_s": 1472.5,
+   "end_s": 1482.6
+  },
+  {
+   "stage": 168,
+   "start_s": 1501.3,
+   "end_s": 1549.5
+  },
+  {
+   "stage": 170,
+   "start_s": 1550.0,
+   "end_s": 1644.4
+  },
+  {
+   "stage": 172,
+   "start_s": 1653.4,
+   "end_s": 1674.4
+  },
+  {
+   "stage": 171,
+   "start_s": 1680.8,
+   "end_s": 1872.3
+  },
+  {
+   "stage": 174,
+   "start_s": 1899.8,
+   "end_s": 1917.1
+  }
+ ],
+ "events": [
+  {
+   "t": 939.9,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 173,
+   "message": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

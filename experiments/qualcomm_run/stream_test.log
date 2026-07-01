@@ -1,0 +1,618 @@
+[1/109] 10_18 (pinwheels) mode=streaming
+  t=  35.0 step 115 COMPLETE -> advance
+  t=  65.0 step 113 MISTAKE [preparation]: Yes. You are using a kitchen knife instead of a butter knife.
+  t=  80.0 step 113 COMPLETE -> advance
+  t= 120.0 step 112 COMPLETE -> advance
+  t= 135.0 step 118 COMPLETE -> advance
+  t= 140.0 step 111 MISTAKE [preparation]: Yes. You are using a knife that is still dirty with nut butter to scoop the jell
+  t= 160.0 step 111 COMPLETE -> advance
+  t= 165.0 step 107 COMPLETE -> advance
+  t= 170.0 step 104 MISTAKE [preparation]: Yes. You are using your hand to wipe the knife instead of a paper towel.
+  t= 190.0 step 104 COMPLETE -> advance
+  t= 230.0 step 116 COMPLETE -> advance
+  t= 415.0 step 110 COMPLETE -> advance
+  t= 425.0 step 114 MISTAKE [technique]: Yes. You are using your hands to tear off the ends of the roll instead of using 
+    -> 4 mistakes, 192 calls, 318.9s
+[2/109] 10_24 (pinwheels) mode=streaming
+  t=  60.0 step 115 COMPLETE -> advance
+  t= 410.0 step 113 MISTAKE [preparation]: Yes. You are using a kitchen knife instead of a butter knife.
+    -> 1 mistakes, 218 calls, 342.8s
+[3/109] 10_47 (pinwheels) mode=streaming
+  t=  20.0 step 115 COMPLETE -> advance
+  t=  50.0 step 113 MISTAKE [preparation]: Yes. You are using a spoon instead of a butter knife to scoop the nut butter.
+  t= 110.0 step 113 COMPLETE -> advance
+  t= 115.0 step 112 MISTAKE [preparation]: Yes. You are using a spoon to apply the nut butter, but the instructions specify
+  t= 160.0 step 112 COMPLETE -> advance
+  t= 165.0 step 118 MISTAKE [technique]: Yes. You are not cleaning a knife; you are currently handling a tortilla on the 
+    -> 3 mistakes, 103 calls, 168.4s
+[4/109] 10_48 (pinwheels) mode=streaming
+  t=  30.0 step 115 MISTAKE [preparation]: Yes. You are using a plate instead of a cutting board. Please place the tortilla
+    -> 1 mistakes, 135 calls, 200.9s
+[5/109] 10_50 already done, skip
+[6/109] 12_119 (tomatomozzarellasalad) mode=streaming
+  t=  20.0 step 125 MISTAKE [preparation]: Yes. The recipe calls for rinsing a normal tomato, but you are using cherry toma
+  t=  30.0 step 125 COMPLETE -> advance
+  t=  70.0 step 122 COMPLETE -> advance
+  t= 115.0 step 119 COMPLETE -> advance
+  t= 145.0 step 120 COMPLETE -> advance
+  t= 345.0 step 123 MISTAKE [preparation]: Yes. You are currently handling a bottle of oil, but the instruction is to seaso
+    -> 2 mistakes, 152 calls, 250.8s
+[7/109] 12_17 already done, skip
+[8/109] 12_19 (tomatomozzarellasalad) mode=streaming
+  t=  30.0 step 125 COMPLETE -> advance
+  t=  35.0 step 122 COMPLETE -> advance
+  t= 115.0 step 119 COMPLETE -> advance
+  t= 155.0 step 120 COMPLETE -> advance
+  t= 260.0 step 123 COMPLETE -> advance
+  t= 275.0 step 124 MISTAKE [preparation]: Yes. You are currently handling a bowl of measuring cups instead of sprinkling m
+  t= 375.0 step 124 COMPLETE -> advance
+    -> 1 mistakes, 125 calls, 205.2s
+[9/109] 12_48 (tomatomozzarellasalad) mode=streaming
+  t= 115.0 step 125 MISTAKE [temperature]: Yes. You are currently handling a container of grains and a measuring spoon, but
+    -> 1 mistakes, 83 calls, 137.9s
+[10/109] 12_51 already done, skip
+[11/109] 13_20 (buttercorncup) mode=streaming
+  t=  95.0 step 129 MISTAKE [technique]: Yes. You spilled the corn on the floor while taking it out of the bag.
+    -> 1 mistakes, 214 calls, 318.9s
+[12/109] 13_41 (buttercorncup) mode=streaming
+  t=  15.0 step 129 MISTAKE [measurement]: Yes. You are currently handling a red measuring cup, but you have not yet measur
+    -> 1 mistakes, 185 calls, 273.8s
+[13/109] 13_44 (buttercorncup) mode=streaming
+  t=  95.0 step 129 MISTAKE [technique]: Yes. You are using a 1-cup measuring cup, but the recipe requires 2 cups of corn
+    -> 1 mistakes, 172 calls, 267.7s
+[14/109] 13_45 (buttercorncup) mode=streaming
+  t= 155.0 step 129 COMPLETE -> advance
+  t= 220.0 step 131 MISTAKE [preparation]: Yes. You are washing the colander instead of extracting lime juice. Please stop 
+  t= 255.0 step 131 COMPLETE -> advance
+  t= 260.0 step 137 MISTAKE [preparation]: Yes. You are not using a sieve to thaw the corn as instructed; you are rinsing i
+    -> 2 mistakes, 189 calls, 299.2s
+[15/109] 15_18 (tomatochutney) mode=streaming
+  t= 360.0 step 145 MISTAKE [measurement]: Yes. You are currently washing a tomato, but the instruction is to peel 4 large 
+  t= 365.0 step 145 COMPLETE -> advance
+  t= 410.0 step 140 MISTAKE [technique]: Yes. You are currently cutting a tomato, but the instruction is to mince the gar
+  t= 505.0 step 140 COMPLETE -> advance
+  t= 635.0 step 149 COMPLETE -> advance
+  t= 640.0 step 155 COMPLETE -> advance
+  t= 740.0 step 150 COMPLETE -> advance
+  t= 795.0 step 154 MISTAKE [temperature]: Yes. You are pouring the oil into a white bowl instead of the pan.
+    -> 3 mistakes, 481 calls, 754.4s
+[16/109] 15_41 (tomatochutney) mode=streaming
+  t= 260.0 step 145 MISTAKE [measurement]: Yes. You are currently pouring oil into a pan, but the instruction is to peel 4 
+  t= 455.0 step 145 COMPLETE -> advance
+  t= 460.0 step 140 COMPLETE -> advance
+  t= 560.0 step 149 COMPLETE -> advance
+  t= 620.0 step 155 COMPLETE -> advance
+  t= 640.0 step 150 MISTAKE [technique]: Yes. You are currently washing the blender jar under the tap, which means water 
+  t= 665.0 step 150 COMPLETE -> advance
+  t= 670.0 step 154 MISTAKE [measurement]: Yes. You are currently preparing tomatoes in a blender, but the instruction is t
+    -> 3 mistakes, 305 calls, 487.2s
+[17/109] 15_46 (tomatochutney) mode=streaming
+  t= 140.0 step 145 MISTAKE [measurement]: Yes. You are currently pouring oil into a pan, but the instruction is to peel 4 
+    -> 1 mistakes, 266 calls, 400.8s
+[18/109] 16_20 (scrambledeggs) mode=streaming
+  t=  40.0 step 158 MISTAKE [preparation]: Yes. You are currently handling eggs, but the instruction is to chop cilantro. P
+  t= 745.0 step 158 COMPLETE -> advance
+  t= 785.0 step 161 MISTAKE [preparation]: Yes. You are currently peeling a red onion, but the instruction is to chop a gre
+    -> 2 mistakes, 402 calls, 594.2s
+[19/109] 16_23 (scrambledeggs) mode=streaming
+  t=  30.0 step 158 COMPLETE -> advance
+  t=  35.0 step 161 COMPLETE -> advance
+  t= 250.0 step 163 MISTAKE [technique]: Yes. You are currently chopping a tomato, but the instruction is to chop 1/4 of 
+  t= 460.0 step 163 COMPLETE -> advance
+  t= 485.0 step 164 MISTAKE [preparation]: Yes. You are currently holding the salt container over a trash bin instead of th
+    -> 2 mistakes, 311 calls, 477.7s
+[20/109] 16_42 (scrambledeggs) mode=streaming
+  t=  40.0 step 158 MISTAKE [preparation]: Yes. You are currently peeling a red onion, but the instruction is to chop cilan
+  t= 470.0 step 158 COMPLETE -> advance
+  t= 485.0 step 161 COMPLETE -> advance
+  t= 515.0 step 163 MISTAKE [technique]: Yes. The onions in the pan appear to be sliced into wedges rather than chopped i
+    -> 2 mistakes, 206 calls, 316.6s
+[21/109] 16_44 (scrambledeggs) mode=streaming
+  t=  55.0 step 158 MISTAKE [preparation]: Yes. You are currently pouring oil into the pan, but the instruction is to chop 
+  t= 320.0 step 158 COMPLETE -> advance
+  t= 325.0 step 161 COMPLETE -> advance
+  t= 590.0 step 163 COMPLETE -> advance
+  t= 655.0 step 164 MISTAKE [preparation]: Yes. You are adding the salt to the pan on the stove, but the instructions speci
+    -> 2 mistakes, 298 calls, 466.6s
+[22/109] 17_20 (cucumberraita) mode=streaming
+  t=  45.0 step 183 MISTAKE [technique]: Yes. You are using a spatula to push and fold the curd instead of whisking it wi
+  t=  95.0 step 183 COMPLETE -> advance
+  t= 260.0 step 181 MISTAKE [measurement]: Yes. You are currently chopping green herbs, but the instruction is to add 1/4 t
+  t= 435.0 step 181 COMPLETE -> advance
+  t= 455.0 step 184 MISTAKE [measurement]: Yes. You are currently peeling a cucumber, but the instruction is to add 1/4 tea
+    -> 3 mistakes, 186 calls, 309.2s
+[23/109] 17_21 (cucumberraita) mode=streaming
+  t=  10.0 step 183 MISTAKE [preparation]: Yes. You are currently taking vegetables out of the refrigerator, but the instru
+  t=  85.0 step 183 COMPLETE -> advance
+  t= 165.0 step 181 COMPLETE -> advance
+  t= 200.0 step 184 MISTAKE [measurement]: Yes. You are currently peeling a cucumber, but the instruction is to add 1/4 tea
+    -> 2 mistakes, 183 calls, 291.2s
+[24/109] 17_23 (cucumberraita) mode=streaming
+  t=  60.0 step 183 MISTAKE [preparation]: Yes. You are using a red measuring cup instead of a mixing bowl, and you are not
+  t= 180.0 step 183 COMPLETE -> advance
+  t= 290.0 step 181 MISTAKE [preparation]: Yes. You are currently opening the dishwasher, which is not part of the instruct
+  t= 785.0 step 181 COMPLETE -> advance
+  t= 840.0 step 184 MISTAKE [measurement]: Yes. You are currently washing a grater in the sink, but the instruction is to a
+  t= 915.0 step 184 COMPLETE -> advance
+  t= 920.0 step 187 MISTAKE [technique]: Yes. You are using a red measuring spoon to scoop a white powder from a containe
+    -> 4 mistakes, 238 calls, 396.4s
+[25/109] 17_43 (cucumberraita) mode=streaming
+  t=  45.0 step 183 MISTAKE [preparation]: Yes. You are currently cutting a cucumber, but the instruction is to whisk 1 cup
+  t= 330.0 step 183 COMPLETE -> advance
+  t= 335.0 step 181 MISTAKE [preparation]: Yes. You are adding the ingredient to the separate bowl in your hand instead of 
+  t= 490.0 step 181 COMPLETE -> advance
+    -> 2 mistakes, 124 calls, 200.1s
+[26/109] 17_45 (cucumberraita) mode=streaming
+  t=  15.0 step 183 MISTAKE [preparation]: Yes. You are currently taking a cucumber out of the refrigerator, but the instru
+  t= 715.0 step 183 COMPLETE -> advance
+    -> 1 mistakes, 168 calls, 259.3s
+[27/109] 17_49 (cucumberraita) mode=streaming
+  t=  20.0 step 183 MISTAKE [preparation]: Yes. You are currently washing the mixing bowl with water. The instruction requi
+  t= 415.0 step 183 COMPLETE -> advance
+  t= 495.0 step 181 MISTAKE [technique]: Yes. You are currently handling a bunch of fresh cilantro, but the instruction r
+    -> 2 mistakes, 156 calls, 249.3s
+[28/109] 18_101 (zoodles) mode=streaming
+  t=  10.0 step 200 COMPLETE -> advance
+  t=  20.0 step 203 MISTAKE [technique]: Yes. You are using a knife to peel garlic, but the instruction requires you to s
+  t= 535.0 step 203 COMPLETE -> advance
+  t= 545.0 step 196 MISTAKE [temperature]: Yes. You are currently using a spiralizer on a cutting board, but the instructio
+  t= 585.0 step 196 COMPLETE -> advance
+  t= 600.0 step 204 MISTAKE [temperature]: Yes. You are currently using a vegetable spiralizer on a cutting board, which is
+    -> 3 mistakes, 173 calls, 280.9s
+[29/109] 18_19 (zoodles) mode=streaming
+  t=  10.0 step 200 MISTAKE [measurement]: Yes. You are currently taking a tray out of the dishwasher, which is not part of
+  t= 235.0 step 200 COMPLETE -> advance
+  t= 245.0 step 203 COMPLETE -> advance
+  t= 320.0 step 196 MISTAKE [temperature]: Yes. You are currently washing a garlic clove at the sink, but the instruction i
+  t= 590.0 step 196 COMPLETE -> advance
+  t= 610.0 step 204 COMPLETE -> advance
+  t= 650.0 step 199 MISTAKE [technique]: Yes. You are adding salt to the pan instead of minced garlic.
+    -> 3 mistakes, 205 calls, 322.7s
+[30/109] 18_24 (zoodles) mode=streaming
+  t=  35.0 step 200 COMPLETE -> advance
+  t=  40.0 step 203 MISTAKE [technique]: Yes. You are peeling a clove of garlic, but the instruction requires you to spir
+  t= 215.0 step 203 COMPLETE -> advance
+  t= 220.0 step 196 MISTAKE [temperature]: Yes. You are currently preparing zucchini noodles instead of heating a large pan
+  t= 310.0 step 196 COMPLETE -> advance
+  t= 350.0 step 204 MISTAKE [measurement]: Yes. You are using a teaspoon to measure the butter, but the recipe calls for 1 
+  t= 620.0 step 204 COMPLETE -> advance
+  t= 650.0 step 199 COMPLETE -> advance
+  t= 775.0 step 202 MISTAKE [technique]: Yes. You are currently measuring ingredients at the sink, but the instruction is
+    -> 4 mistakes, 260 calls, 415.1s
+[31/109] 18_45 (zoodles) mode=streaming
+  t= 510.0 step 200 MISTAKE [technique]: Yes. You are currently peeling a cucumber, but the instruction requires you to p
+    -> 1 mistakes, 304 calls, 478.2s
+[32/109] 18_49 (zoodles) mode=streaming
+  t=  45.0 step 200 MISTAKE [technique]: Yes. You are peeling more than one clove of garlic; the instruction specifies pe
+  t=1045.0 step 200 COMPLETE -> advance
+  t=1075.0 step 203 MISTAKE [technique]: Yes. You are currently washing a cup in the sink, but the instruction requires y
+  t=1080.0 step 203 COMPLETE -> advance
+  t=1185.0 step 196 MISTAKE [temperature]: Yes. You are currently washing your hands at the sink, but the instruction is to
+  t=1350.0 step 196 COMPLETE -> advance
+  t=1425.0 step 204 MISTAKE [measurement]: Yes. You are using a teaspoon to measure the butter, but the recipe calls for 1 
+    -> 4 mistakes, 355 calls, 556.2s
+[33/109] 1_136 (microwaveeggsandwich) mode=streaming
+  t=  20.0 step 3 MISTAKE [preparation]: Yes. You are using a large mug instead of the specified 6-oz ramekin cup.
+  t=  45.0 step 3 COMPLETE -> advance
+  t=  50.0 step 1 MISTAKE [preparation]: Yes. You are using a blue shaker bottle instead of cracking an egg into the rame
+  t= 115.0 step 1 COMPLETE -> advance
+  t= 280.0 step 4 MISTAKE [preparation]: Yes. You are currently opening a package of bread, but the instruction is to mic
+  t= 630.0 step 4 COMPLETE -> advance
+  t= 640.0 step 11 MISTAKE [preparation]: Yes. You are holding the ramekin with your hand instead of using a utensil to st
+    -> 4 mistakes, 198 calls, 321.5s
+[34/109] 1_143 (microwaveeggsandwich) mode=streaming
+  t=  45.0 step 3 MISTAKE [preparation]: Yes. You are currently handling eggs and a cardboard box, but the instruction re
+    -> 1 mistakes, 137 calls, 208.1s
+[35/109] 1_25 (microwaveeggsandwich) mode=streaming
+  t=  30.0 step 3 COMPLETE -> advance
+  t=  35.0 step 1 MISTAKE [preparation]: Yes. You are using a bottle of liquid egg substitute instead of cracking a whole
+  t=  65.0 step 1 COMPLETE -> advance
+  t=  95.0 step 4 MISTAKE [temperature]: Yes. You set the microwave timer to 3 minutes (180 seconds) instead of the requi
+  t= 105.0 step 4 COMPLETE -> advance
+  t= 110.0 step 11 MISTAKE [preparation]: Yes. You are currently operating the microwave, but the instruction is to stir t
+  t= 155.0 step 11 COMPLETE -> advance
+  t= 365.0 step 8 MISTAKE [timing]: Yes. You are currently retrieving a package of lettuce from the refrigerator, wh
+    -> 4 mistakes, 176 calls, 299.3s
+[36/109] 1_43 already done, skip
+[37/109] 1_49 already done, skip
+[38/109] 20_19 (sautedmushrooms) mode=streaming
+  t=  40.0 step 206 COMPLETE -> advance
+  t=  45.0 step 205 MISTAKE [preparation]: Yes. You are currently rinsing the mushrooms under the tap, but the instruction 
+  t=  75.0 step 205 COMPLETE -> advance
+  t=  80.0 step 212 MISTAKE [preparation]: Yes. You are using mushrooms instead of a shallot. Please substitute the correct
+  t= 615.0 step 212 COMPLETE -> advance
+  t=1115.0 step 214 MISTAKE [technique]: Yes. You have left the stems on the mushrooms; please pull them out completely b
+    -> 3 mistakes, 376 calls, 595.2s
+[39/109] 20_22 (sautedmushrooms) mode=streaming
+  t=  20.0 step 206 MISTAKE [temperature]: Yes. You are currently pouring oil into a pan, but the instruction is to rinse 3
+  t= 150.0 step 206 COMPLETE -> advance
+  t= 155.0 step 205 MISTAKE [preparation]: Yes. You are using a cloth towel to dry the mushrooms, but the instructions spec
+  t= 165.0 step 205 COMPLETE -> advance
+  t= 175.0 step 212 MISTAKE [preparation]: Yes. You are chopping the shallot on a paper towel inside a colander. Please use
+    -> 3 mistakes, 220 calls, 362.5s
+[40/109] 20_44 (sautedmushrooms) mode=streaming
+  t=  25.0 step 206 MISTAKE [preparation]: Yes. The instruction is to rinse mushrooms, but you are currently handling an on
+    -> 1 mistakes, 129 calls, 191.7s
+[41/109] 20_47 (sautedmushrooms) mode=streaming
+  t=  35.0 step 206 MISTAKE [temperature]: Yes. You are holding a container of shallots, but the instruction is to rinse mu
+    -> 1 mistakes, 240 calls, 353.4s
+[42/109] 20_48 (sautedmushrooms) mode=streaming
+  t=  50.0 step 206 MISTAKE [measurement]: Yes. You are rinsing 4 mushrooms, but the recipe calls for 3.
+  t=  65.0 step 206 COMPLETE -> advance
+  t=  95.0 step 205 MISTAKE [preparation]: Yes. You are using a cloth towel instead of a paper towel to dry the mushrooms.
+  t= 180.0 step 205 COMPLETE -> advance
+  t= 185.0 step 212 MISTAKE [preparation]: Yes. You are currently drying mushrooms, but the instruction is to chop a shallo
+  t= 325.0 step 212 COMPLETE -> advance
+    -> 3 mistakes, 294 calls, 477.8s
+[43/109] 21_103 (blenderbananapancakes) mode=streaming
+  t=  45.0 step 221 MISTAKE [technique]: Yes. You are currently peeling a banana, but the instruction is to add 1/2 tsp o
+  t= 170.0 step 221 COMPLETE -> advance
+  t= 225.0 step 225 MISTAKE [measurement]: Yes. You are currently holding a spoon with a white powder, but the instruction 
+    -> 2 mistakes, 205 calls, 317.9s
+[44/109] 21_24 (blenderbananapancakes) mode=streaming
+  t=  90.0 step 221 MISTAKE [measurement]: Yes. You are currently peeling a banana and adding it to the blender, but the in
+    -> 1 mistakes, 177 calls, 272.1s
+[45/109] 21_25 (blenderbananapancakes) mode=streaming
+  t=  90.0 step 221 MISTAKE [technique]: Yes. You are currently peeling a banana, but the instruction is to add 1/2 tsp o
+  t= 145.0 step 221 COMPLETE -> advance
+  t= 195.0 step 225 MISTAKE [measurement]: Yes. You are currently cutting a strawberry, but the instruction is to add a ban
+  t= 305.0 step 225 COMPLETE -> advance
+  t= 410.0 step 229 MISTAKE [preparation]: Yes. You are currently melting butter in a frying pan on the stove, but the inst
+    -> 3 mistakes, 218 calls, 352.1s
+[46/109] 21_47 (blenderbananapancakes) mode=streaming
+  t=  60.0 step 221 MISTAKE [technique]: Yes. You are currently peeling a banana, but the instruction is to add 1/2 tsp o
+    -> 1 mistakes, 162 calls, 245.9s
+[47/109] 21_50 (blenderbananapancakes) mode=streaming
+  t=  40.0 step 221 MISTAKE [measurement]: Yes. You are holding a bag of all-purpose flour, but the instruction calls for b
+  t= 100.0 step 221 COMPLETE -> advance
+  t= 175.0 step 225 COMPLETE -> advance
+  t= 275.0 step 229 MISTAKE [technique]: Yes. You are adding a creamy substance from a container, not an egg.
+  t= 335.0 step 229 COMPLETE -> advance
+  t= 340.0 step 232 MISTAKE [technique]: Yes. You are adding an egg to the blender, but the instruction calls for 1 heape
+    -> 3 mistakes, 209 calls, 329.1s
+[48/109] 22_137 (herbomeletwithfriedtomatoes) mode=streaming
+  t=  15.0 step 237 MISTAKE [preparation]: Yes. You are currently handling measuring spoons and kitchen utensils, but you h
+  t= 215.0 step 237 COMPLETE -> advance
+  t= 245.0 step 239 MISTAKE [technique]: Yes. You are currently opening a package of butter instead of cracking an egg. P
+  t= 605.0 step 239 COMPLETE -> advance
+  t= 610.0 step 242 MISTAKE [technique]: Yes. You are currently cracking an egg into a bowl, but the instruction is to ad
+    -> 3 mistakes, 150 calls, 243.9s
+[49/109] 22_21 (herbomeletwithfriedtomatoes) mode=streaming
+  t=  15.0 step 237 MISTAKE [preparation]: Yes. You are currently taking a tomato out of a bag, but the instruction is to c
+  t=  95.0 step 237 COMPLETE -> advance
+  t= 265.0 step 239 MISTAKE [technique]: Yes. You are currently scooping a substance from a container with a spoon, which
+  t= 310.0 step 239 COMPLETE -> advance
+  t= 335.0 step 242 MISTAKE [technique]: Yes. You are currently washing a spoon at the sink, but the instruction is to ad
+    -> 3 mistakes, 184 calls, 296.6s
+[50/109] 22_24 (herbomeletwithfriedtomatoes) mode=streaming
+  t=  35.0 step 237 MISTAKE [preparation]: Yes. You are tearing the cilantro by hand instead of chopping it with a knife as
+  t= 205.0 step 237 COMPLETE -> advance
+  t= 235.0 step 239 MISTAKE [technique]: Yes. You are washing a tomato in the sink, but the instruction is to crack an eg
+  t= 355.0 step 239 COMPLETE -> advance
+  t= 360.0 step 242 COMPLETE -> advance
+  t= 375.0 step 247 COMPLETE -> advance
+  t= 380.0 step 246 COMPLETE -> advance
+  t= 580.0 step 249 MISTAKE [measurement]: Yes. You are using scissors to cut the handle of a frying pan, which is not part
+    -> 3 mistakes, 449 calls, 683.6s
+[51/109] 22_40 already done, skip
+[52/109] 22_41 (herbomeletwithfriedtomatoes) mode=streaming
+  t=  45.0 step 237 MISTAKE [preparation]: Yes. You are tearing the cilantro by hand instead of chopping it with a knife as
+  t=  80.0 step 237 COMPLETE -> advance
+  t= 100.0 step 239 MISTAKE [technique]: Yes. You are currently handling vegetables in a refrigerator, which does not ali
+  t= 355.0 step 239 COMPLETE -> advance
+  t= 360.0 step 242 COMPLETE -> advance
+    -> 2 mistakes, 143 calls, 233.4s
+[53/109] 23_19 (broccolistirfry) mode=streaming
+  t=  15.0 step 250 MISTAKE [technique]: Yes. You are currently handling a bag of frozen broccoli, but the instruction is
+    -> 1 mistakes, 363 calls, 529.2s
+[54/109] 23_23 (broccolistirfry) mode=streaming
+  t=  10.0 step 250 MISTAKE [technique]: Yes. You are currently handling a bag of broccoli florets, but the instruction i
+  t= 510.0 step 250 COMPLETE -> advance
+  t= 515.0 step 252 MISTAKE [technique]: Yes. You are using a bottle of soy sauce instead of honey.
+    -> 2 mistakes, 336 calls, 495.8s
+[55/109] 23_39 (broccolistirfry) mode=streaming
+  t=  35.0 step 250 MISTAKE [technique]: Yes. You are currently handling garlic cloves, but the instruction is to add soy
+    -> 1 mistakes, 319 calls, 469.6s
+[56/109] 23_41 (broccolistirfry) mode=streaming
+  t=  25.0 step 250 MISTAKE [technique]: Yes. You are holding a bag of broccoli florets, but the instruction is to add so
+  t= 345.0 step 250 COMPLETE -> advance
+  t= 400.0 step 252 MISTAKE [technique]: Yes. You are adding sweet and sour sauce instead of honey.
+  t= 625.0 step 252 COMPLETE -> advance
+  t= 800.0 step 254 MISTAKE [technique]: Yes. You are using baking powder instead of cornstarch.
+    -> 3 mistakes, 218 calls, 346.1s
+[57/109] 25_109 (panfriedtofu) mode=streaming
+  t= 215.0 step 275 COMPLETE -> advance
+  t= 470.0 step 286 MISTAKE [measurement]: Yes. You are pouring oil into the pan, but the instruction is to add salt.
+    -> 1 mistakes, 518 calls, 774.8s
+[58/109] 25_41 (panfriedtofu) mode=streaming
+  t=  50.0 step 275 MISTAKE [technique]: Yes. You are cutting the tofu into triangles instead of cubes. Please adjust you
+  t=  60.0 step 275 COMPLETE -> advance
+  t=  65.0 step 286 MISTAKE [measurement]: Yes. You are currently handling paper towels and cheese on a cutting board, but 
+    -> 2 mistakes, 214 calls, 326.7s
+[59/109] 25_42 (panfriedtofu) mode=streaming
+  t= 185.0 step 275 COMPLETE -> advance
+  t= 945.0 step 286 MISTAKE [measurement]: Yes. You are pouring oil into the pan instead of adding salt.
+    -> 1 mistakes, 425 calls, 678.6s
+[60/109] 25_48 (panfriedtofu) mode=streaming
+  t=  40.0 step 275 MISTAKE [technique]: Yes. You are using a pre-packaged, crumbled tofu product instead of a fresh bloc
+  t=  45.0 step 275 COMPLETE -> advance
+  t=  60.0 step 286 MISTAKE [measurement]: Yes. You are currently cutting a block of cheese on a cutting board, but the ins
+  t= 125.0 step 286 COMPLETE -> advance
+  t= 130.0 step 291 MISTAKE [technique]: Yes. You are using a white powder (likely salt or sugar) instead of olive oil.
+    -> 3 mistakes, 165 calls, 263.8s
+[61/109] 25_9 (panfriedtofu) mode=streaming
+  t= 155.0 step 275 COMPLETE -> advance
+  t= 240.0 step 286 MISTAKE [measurement]: Yes. You are adding oil to the pan, but the instruction is to add salt.
+    -> 1 mistakes, 258 calls, 393.9s
+[62/109] 26_136 (mugcake) mode=streaming
+  t=  10.0 step 297 MISTAKE [preparation]: Yes. You are currently taking items out of the dishwasher, but the instruction r
+  t= 125.0 step 297 COMPLETE -> advance
+  t= 170.0 step 299 MISTAKE [preparation]: Yes. You are using a teaspoon instead of a tablespoon to measure the flour.
+    -> 2 mistakes, 147 calls, 227.5s
+[63/109] 26_20 (mugcake) mode=streaming
+  t=  10.0 step 297 MISTAKE [preparation]: Yes. You are adding the sugar to a mug instead of the mixing bowl.
+  t= 100.0 step 297 COMPLETE -> advance
+  t= 290.0 step 299 MISTAKE [preparation]: Yes. You are using a teaspoon instead of a tablespoon to measure the flour.
+    -> 2 mistakes, 252 calls, 380.2s
+[64/109] 26_22 (mugcake) mode=streaming
+  t=  65.0 step 297 MISTAKE [preparation]: Yes. You are adding the sugar to a mug on the stovetop instead of the mixing bow
+  t= 385.0 step 297 COMPLETE -> advance
+  t= 460.0 step 299 MISTAKE [preparation]: Yes. You are using a teaspoon instead of a tablespoon to measure the flour.
+    -> 2 mistakes, 292 calls, 433.2s
+[65/109] 26_46 (mugcake) mode=streaming
+  t=  15.0 step 297 MISTAKE [preparation]: Yes. You are adding the sugar to a mug instead of the mixing bowl.
+    -> 1 mistakes, 159 calls, 233.8s
+[66/109] 27_17 (cheesepimiento) mode=streaming
+  t=  60.0 step 316 MISTAKE [preparation]: Yes. You are adding the cheese to a small bowl instead of the microwave-safe cup
+  t=  75.0 step 316 COMPLETE -> advance
+  t= 120.0 step 320 MISTAKE [measurement]: Yes. You are currently washing a tomato in the sink, but the instruction is to a
+    -> 2 mistakes, 205 calls, 315.2s
+[67/109] 27_18 (cheesepimiento) mode=streaming
+  t=  20.0 step 316 MISTAKE [preparation]: Yes. You are currently handling a red bell pepper, but the instruction requires 
+  t= 430.0 step 316 COMPLETE -> advance
+  t= 715.0 step 320 MISTAKE [measurement]: Yes. You are currently using a knife to scrape a yellow substance (which appears
+    -> 2 mistakes, 239 calls, 383.2s
+[68/109] 27_38 (cheesepimiento) mode=streaming
+  t=  85.0 step 316 MISTAKE [preparation]: Yes. You are retrieving a red bell pepper from the refrigerator, but the instruc
+    -> 1 mistakes, 133 calls, 210.5s
+[69/109] 27_45 (cheesepimiento) mode=streaming
+  t= 145.0 step 316 MISTAKE [preparation]: Yes. You are currently washing a red bell pepper, but the instruction is to add 
+  t= 215.0 step 316 COMPLETE -> advance
+  t= 995.0 step 320 COMPLETE -> advance
+  t=1000.0 step 321 COMPLETE -> advance
+  t=1005.0 step 322 MISTAKE [preparation]: Yes. You are placing the chopped pepper into a plate instead of a microwave-safe
+    -> 2 mistakes, 388 calls, 632.3s
+[70/109] 27_49 (cheesepimiento) mode=streaming
+  t=  50.0 step 316 MISTAKE [preparation]: Yes. You are using a measuring spoon instead of a measuring cup, which makes it 
+    -> 1 mistakes, 116 calls, 183.3s
+[71/109] 28_21 (spicytunaavocadowraps) mode=streaming
+  t=  35.0 step 327 MISTAKE [measurement]: Yes. You are currently opening a can on the cutting board, but the instruction i
+  t= 175.0 step 327 COMPLETE -> advance
+  t= 290.0 step 329 COMPLETE -> advance
+  t= 300.0 step 335 MISTAKE [preparation]: Yes. The instruction asks for a ripe avocado, but you are currently handling and
+  t= 585.0 step 335 COMPLETE -> advance
+  t= 590.0 step 336 COMPLETE -> advance
+    -> 2 mistakes, 291 calls, 468.3s
+[72/109] 28_24 (spicytunaavocadowraps) mode=streaming
+  t=  35.0 step 327 MISTAKE [preparation]: Yes. You are currently retrieving vegetables from the refrigerator, but the inst
+  t= 700.0 step 327 COMPLETE -> advance
+  t= 720.0 step 329 COMPLETE -> advance
+  t= 795.0 step 335 COMPLETE -> advance
+  t= 800.0 step 336 COMPLETE -> advance
+    -> 1 mistakes, 292 calls, 456.7s
+[73/109] 28_45 (spicytunaavocadowraps) mode=streaming
+  t=  60.0 step 327 MISTAKE [preparation]: Yes. You are using a tub of cream cheese instead of mayonnaise.
+  t= 590.0 step 327 COMPLETE -> advance
+  t= 595.0 step 329 MISTAKE [measurement]: Yes. You are currently measuring a white substance into a bowl, but the instruct
+  t= 810.0 step 329 COMPLETE -> advance
+    -> 2 mistakes, 185 calls, 282.4s
+[74/109] 28_49 (spicytunaavocadowraps) mode=streaming
+  t=  50.0 step 327 MISTAKE [preparation]: Yes. You are holding a can of tuna, but the instruction requires you to add mayo
+  t= 260.0 step 327 COMPLETE -> advance
+  t= 265.0 step 329 MISTAKE [measurement]: Yes. You are currently pouring a liquid from a bottle into a bowl, which does no
+  t= 435.0 step 329 COMPLETE -> advance
+  t= 440.0 step 335 MISTAKE [preparation]: Yes. You are currently handling lettuce, but the instruction requires you to tak
+  t= 745.0 step 335 COMPLETE -> advance
+  t= 750.0 step 336 MISTAKE [preparation]: Yes. You are currently cutting an avocado with a knife, but the instruction is t
+  t= 865.0 step 336 COMPLETE -> advance
+    -> 4 mistakes, 298 calls, 481.0s
+[75/109] 28_50 (spicytunaavocadowraps) mode=streaming
+  t=  60.0 step 327 MISTAKE [preparation]: Yes. You are using a can opener on a sealed can, but the instruction requires ad
+    -> 1 mistakes, 164 calls, 249.2s
+[76/109] 29_129 (capresebruschetta) mode=streaming
+  t=  10.0 step 342 MISTAKE [preparation]: Yes. You are using a plate instead of a bowl.
+  t= 305.0 step 342 COMPLETE -> advance
+  t= 385.0 step 343 MISTAKE [preparation]: Yes. You used a wet measuring spoon to add the salt.
+    -> 2 mistakes, 203 calls, 302.5s
+[77/109] 29_19 (capresebruschetta) mode=streaming
+  t=  15.0 step 342 MISTAKE [technique]: Yes. You are holding a package of bread, but the instruction requires you to add
+  t= 545.0 step 342 COMPLETE -> advance
+  t= 550.0 step 343 MISTAKE [technique]: Yes. You spilled some salt on the counter while adding it to the bowl.
+    -> 2 mistakes, 213 calls, 316.2s
+[78/109] 29_22 (capresebruschetta) mode=streaming
+  t=  35.0 step 342 MISTAKE [preparation]: Yes. You added the mozzarella by hand instead of using a measuring cup.
+  t= 290.0 step 342 COMPLETE -> advance
+  t= 420.0 step 343 MISTAKE [preparation]: Yes. You are using a wet measuring spoon to add the salt. Please use a clean, dr
+    -> 2 mistakes, 291 calls, 438.0s
+[79/109] 29_48 (capresebruschetta) mode=streaming
+  t=  60.0 step 342 MISTAKE [preparation]: Yes. You are using a measuring cup to handle tomatoes, but the instruction requi
+  t= 360.0 step 342 COMPLETE -> advance
+  t= 365.0 step 343 MISTAKE [preparation]: Yes. You used a wet measuring spoon to add the salt.
+    -> 2 mistakes, 128 calls, 199.6s
+[80/109] 29_49 (capresebruschetta) mode=streaming
+  t=  15.0 step 342 MISTAKE [preparation]: Yes. You are using a plate instead of a bowl.
+  t= 175.0 step 342 COMPLETE -> advance
+  t= 225.0 step 343 MISTAKE [preparation]: Yes. The measuring spoon you are using is wet, which can cause the salt to clump
+  t= 750.0 step 343 COMPLETE -> advance
+  t= 755.0 step 344 MISTAKE [preparation]: Yes. You are currently adding salt to a bowl, but the instruction requires you t
+    -> 3 mistakes, 169 calls, 264.1s
+[81/109] 2_19 (dressedupmeatballs) mode=streaming
+  t=  15.0 step 14 MISTAKE [technique]: Yes. You are peeling a red onion, but the instruction is to peel 1 garlic clove.
+  t= 275.0 step 14 COMPLETE -> advance
+  t= 295.0 step 16 MISTAKE [technique]: Yes. You are currently cutting a red onion, but the instruction is to cut a garl
+  t= 740.0 step 16 COMPLETE -> advance
+  t= 765.0 step 17 MISTAKE [technique]: Yes. You are currently using the microwave to heat strawberries, which does not 
+    -> 3 mistakes, 232 calls, 354.5s
+[82/109] 2_22 (dressedupmeatballs) mode=streaming
+  t=  20.0 step 14 MISTAKE [measurement]: Yes. You are currently handling a package of carrots, but the instruction is to 
+  t= 130.0 step 14 COMPLETE -> advance
+  t= 185.0 step 16 COMPLETE -> advance
+  t= 200.0 step 17 MISTAKE [technique]: Yes. You are peeling the onion over an open trash bin, which is unsanitary and r
+  t= 225.0 step 17 COMPLETE -> advance
+  t= 230.0 step 21 MISTAKE [preparation]: Yes. You are currently peeling an onion, but the instruction is to place 5 meatb
+  t= 520.0 step 21 COMPLETE -> advance
+  t= 525.0 step 22 COMPLETE -> advance
+  t= 615.0 step 23 MISTAKE [measurement]: Yes. You are pouring the sauce mixture directly onto the plate with the meat and
+    -> 4 mistakes, 255 calls, 408.9s
+[83/109] 2_46 (dressedupmeatballs) mode=streaming
+  t=  25.0 step 14 MISTAKE [technique]: Yes. You are peeling an onion instead of a garlic clove.
+  t=  75.0 step 14 COMPLETE -> advance
+  t= 345.0 step 16 MISTAKE [technique]: Yes. You are currently cutting a carrot, but the instruction is to cut 1/8 of a 
+    -> 2 mistakes, 193 calls, 307.9s
+[84/109] 2_47 (dressedupmeatballs) mode=streaming
+  t=  30.0 step 14 COMPLETE -> advance
+  t= 130.0 step 16 MISTAKE [measurement]: Yes. You are currently handling a red onion, but the instruction is to cut a gar
+    -> 1 mistakes, 237 calls, 358.1s
+[85/109] 3_18 (microwavemugpizza) mode=streaming
+  t=  15.0 step 36 COMPLETE -> advance
+  t= 110.0 step 28 MISTAKE [preparation]: Yes. You are currently drying your hands with a paper towel, but the instruction
+    -> 1 mistakes, 211 calls, 323.1s
+[86/109] 3_46 (microwavemugpizza) mode=streaming
+  t=  15.0 step 36 COMPLETE -> advance
+  t=  70.0 step 28 MISTAKE [measurement]: Yes. You are reaching for a box of baking soda instead of salt. Please use salt 
+  t= 120.0 step 28 COMPLETE -> advance
+  t= 160.0 step 33 MISTAKE [technique]: Yes. You spilled flour on the counter while transferring it from the spoon to th
+    -> 2 mistakes, 159 calls, 244.2s
+[87/109] 3_49 (microwavemugpizza) mode=streaming
+  t=   5.0 step 36 COMPLETE -> advance
+  t=  70.0 step 28 MISTAKE [measurement]: Yes. You are using a bag of flour instead of salt. Please use the correct ingred
+  t= 160.0 step 28 COMPLETE -> advance
+  t= 175.0 step 33 MISTAKE [technique]: Yes. You are using a wet spoon to measure the flour, which can cause the flour t
+    -> 2 mistakes, 171 calls, 262.6s
+[88/109] 3_50 (microwavemugpizza) mode=streaming
+  t=  10.0 step 36 COMPLETE -> advance
+  t= 225.0 step 28 MISTAKE [measurement]: Yes. You are using a 1/4 teaspoon measuring spoon, which is twice the amount cal
+    -> 1 mistakes, 134 calls, 217.7s
+[89/109] 4_122 (ramen) mode=streaming
+  t=  65.0 step 44 COMPLETE -> advance
+  t=  75.0 step 47 MISTAKE [technique]: Yes. You are not peeling the onion; you are handling a block of noodles. Please 
+  t= 240.0 step 47 COMPLETE -> advance
+  t= 350.0 step 46 MISTAKE [technique]: Yes. You are chopping the onion into small pieces instead of slicing it into rin
+  t= 395.0 step 46 COMPLETE -> advance
+  t= 835.0 step 14 MISTAKE [measurement]: Yes. You are currently handling green leafy herbs instead of garlic. Please loca
+    -> 3 mistakes, 344 calls, 552.0s
+[90/109] 4_24 (ramen) mode=streaming
+  t= 100.0 step 44 MISTAKE [technique]: Yes. You are currently peeling an onion, but the instruction is to remove noodle
+  t= 530.0 step 44 COMPLETE -> advance
+  t= 535.0 step 47 COMPLETE -> advance
+  t= 600.0 step 46 COMPLETE -> advance
+  t= 860.0 step 14 MISTAKE [measurement]: Yes. You are currently preparing cilantro, but the instruction is to peel 1 garl
+    -> 2 mistakes, 324 calls, 509.1s
+[91/109] 4_43 (ramen) mode=streaming
+  t= 235.0 step 44 COMPLETE -> advance
+  t= 250.0 step 47 MISTAKE [technique]: Yes. You are currently holding a block of instant noodles and opening a dishwash
+  t= 750.0 step 47 COMPLETE -> advance
+    -> 1 mistakes, 221 calls, 350.5s
+[92/109] 4_44 (ramen) mode=streaming
+  t= 100.0 step 44 COMPLETE -> advance
+  t= 140.0 step 47 COMPLETE -> advance
+  t= 165.0 step 46 MISTAKE [technique]: Yes. You are chopping the onion into small pieces instead of slicing it into rin
+  t= 175.0 step 46 COMPLETE -> advance
+  t= 535.0 step 14 MISTAKE [measurement]: Yes. You are currently handling a bag of leafy greens, but the instruction is to
+    -> 2 mistakes, 224 calls, 369.2s
+[93/109] 5_19 (coffee) mode=streaming
+  t=  45.0 step 62 MISTAKE [technique]: Yes. You are currently handling a package of pasta, but the instruction requires
+  t=  55.0 step 62 COMPLETE -> advance
+  t= 145.0 step 65 COMPLETE -> advance
+  t= 220.0 step 67 MISTAKE [preparation]: Yes. You are pouring water into the coffee grinder instead of coffee beans.
+    -> 2 mistakes, 205 calls, 321.7s
+[94/109] 5_22 (coffee) mode=streaming
+  t= 105.0 step 62 MISTAKE [preparation]: Yes. You are currently handling a bag of coffee beans instead of a paper filter.
+  t= 170.0 step 62 COMPLETE -> advance
+  t= 370.0 step 65 MISTAKE [measurement]: Yes. You are currently preparing dough on a cutting board, which does not match 
+    -> 2 mistakes, 248 calls, 391.0s
+[95/109] 5_24 (coffee) mode=streaming
+  t=  90.0 step 62 COMPLETE -> advance
+  t=  95.0 step 65 MISTAKE [technique]: Yes. You are currently folding a paper filter, but the instruction is to weigh c
+  t= 165.0 step 65 COMPLETE -> advance
+  t= 265.0 step 67 MISTAKE [preparation]: Yes. You are not using a coffee grinder as instructed; you are manually tearing 
+  t= 580.0 step 67 COMPLETE -> advance
+  t= 585.0 step 68 MISTAKE [preparation]: Yes. You are using a weighing scale to measure the water, but the instructions r
+    -> 3 mistakes, 213 calls, 338.5s
+[96/109] 5_42 (coffee) mode=streaming
+  t=  45.0 step 62 MISTAKE [preparation]: Yes. You are currently handling a bag of coffee beans and a scale, but the instr
+  t= 110.0 step 62 COMPLETE -> advance
+  t= 160.0 step 65 COMPLETE -> advance
+  t= 170.0 step 67 MISTAKE [preparation]: Yes. You are not following the instruction to grind the coffee beans. Instead of
+    -> 2 mistakes, 155 calls, 243.8s
+[97/109] 5_44 (coffee) mode=streaming
+  t= 220.0 step 62 COMPLETE -> advance
+  t= 225.0 step 65 MISTAKE [measurement]: Yes. You are currently handling a piece of dough, but the instruction requires y
+    -> 1 mistakes, 248 calls, 380.3s
+[98/109] 7_135 (breakfastburritos) mode=streaming
+  t=  45.0 step 77 COMPLETE -> advance
+  t=  50.0 step 72 MISTAKE [technique]: Yes. You are currently cracking the egg into the bowl, which is a preparation st
+  t=  85.0 step 72 COMPLETE -> advance
+  t= 195.0 step 73 MISTAKE [preparation]: Yes. You are using a mug instead of a bowl, which is not recommended for this re
+    -> 2 mistakes, 216 calls, 332.6s
+[99/109] 7_18 (breakfastburritos) mode=streaming
+  t=  40.0 step 77 COMPLETE -> advance
+  t=  60.0 step 72 MISTAKE [technique]: Yes. You are currently opening a package of flour tortillas, but the instruction
+  t= 105.0 step 72 COMPLETE -> advance
+  t= 170.0 step 73 MISTAKE [preparation]: Yes. The instruction is to microwave a mixture, but you are currently pressing d
+    -> 2 mistakes, 145 calls, 233.2s
+[100/109] 7_19 (breakfastburritos) mode=streaming
+  t=  85.0 step 77 MISTAKE [preparation]: Yes. You are currently cleaning the counter with paper towels instead of crackin
+  t= 100.0 step 77 COMPLETE -> advance
+  t= 105.0 step 72 COMPLETE -> advance
+  t= 160.0 step 73 MISTAKE [preparation]: Yes. You are currently washing dishes in the sink, but the instruction requires 
+    -> 2 mistakes, 192 calls, 302.0s
+[101/109] 7_50 (breakfastburritos) mode=streaming
+  t=  60.0 step 77 COMPLETE -> advance
+  t=  70.0 step 72 MISTAKE [technique]: Yes. You have not yet started whisking the egg. Please use a whisk to beat the e
+  t= 140.0 step 72 COMPLETE -> advance
+  t= 190.0 step 73 MISTAKE [preparation]: Yes. You set the microwave timer to 30 seconds instead of the required 3 minutes
+    -> 2 mistakes, 160 calls, 247.0s
+[102/109] 8_20 (spicedhotchocolate) mode=streaming
+  t=  45.0 step 88 MISTAKE [preparation]: Yes. The recipe calls for skimmed milk, but you are using whole milk.
+  t=  65.0 step 88 COMPLETE -> advance
+  t= 130.0 step 89 MISTAKE [timing]: Yes. The microwave is set to 2 minutes (120 seconds), but the instruction specif
+  t= 505.0 step 89 COMPLETE -> advance
+    -> 2 mistakes, 155 calls, 249.5s
+[103/109] 8_25 (spicedhotchocolate) mode=streaming
+  t=  30.0 step 88 MISTAKE [preparation]: Yes. You are using whole milk instead of the skimmed milk called for in the inst
+    -> 1 mistakes, 94 calls, 156.1s
+[104/109] 8_45 already done, skip
+[105/109] 8_50 already done, skip
+[106/109] 9_108 (microwavefrenchtoast) mode=streaming
+  t=   5.0 step 94 MISTAKE [preparation]: Yes. You are using a bowl instead of a large mug as specified in the instruction
+  t= 140.0 step 94 COMPLETE -> advance
+  t= 180.0 step 98 COMPLETE -> advance
+  t= 290.0 step 99 MISTAKE [preparation]: Yes. You are using English muffins instead of regular sliced bread.
+  t= 380.0 step 99 COMPLETE -> advance
+  t= 400.0 step 101 MISTAKE [preparation]: Yes. You are using a spoon to whisk the egg, but the instructions specify using 
+    -> 3 mistakes, 154 calls, 244.2s
+[107/109] 9_22 (microwavefrenchtoast) mode=streaming
+  t=  60.0 step 94 MISTAKE [preparation]: Yes. The instructions require you to melt butter in a large mug, but you are cur
+  t= 235.0 step 94 COMPLETE -> advance
+  t= 240.0 step 98 COMPLETE -> advance
+  t= 290.0 step 99 MISTAKE [measurement]: Yes. You are currently handling eggs, but the instruction is to cut or tear a sl
+  t= 370.0 step 99 COMPLETE -> advance
+  t= 375.0 step 101 MISTAKE [preparation]: Yes. You are using a spoon to whisk the egg, but the instructions specify using 
+  t= 550.0 step 101 COMPLETE -> advance
+  t= 700.0 step 95 MISTAKE [technique]: Yes. You are currently washing dishes in the sink, but the instruction is to spr
+    -> 4 mistakes, 224 calls, 365.3s
+[108/109] 9_24 (microwavefrenchtoast) mode=streaming
+  t=   5.0 step 94 MISTAKE [preparation]: Yes. You are using a bowl instead of a large mug to melt the butter.
+  t= 140.0 step 94 COMPLETE -> advance
+  t= 145.0 step 98 MISTAKE [technique]: Yes. You are currently interacting with the microwave, but the instruction requi
+  t= 190.0 step 98 COMPLETE -> advance
+  t= 220.0 step 99 MISTAKE [preparation]: Yes. You are using English muffins instead of regular sliced bread.
+  t= 285.0 step 99 COMPLETE -> advance
+  t= 355.0 step 101 COMPLETE -> advance
+  t= 700.0 step 95 MISTAKE [technique]: Yes. You are currently using a knife to cut the food item, but the instruction i
+    -> 4 mistakes, 236 calls, 394.9s
+[109/109] 9_25 (microwavefrenchtoast) mode=streaming
+  t=  25.0 step 94 MISTAKE [preparation]: Yes. The instructions specify using a large mug, but you are using a bowl.
+    -> 1 mistakes, 175 calls, 259.5s
+wrote -> /home/kailaic/NeuroTrace/ProceduralAgent/experiments/qualcomm_run/qwen36_zs_stream  (109 done, 0 failed)

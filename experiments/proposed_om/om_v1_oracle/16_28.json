@@ -1,0 +1,145 @@
+{
+ "recording": "16_28",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 163,
+   "start_s": 3.3,
+   "end_s": 142.0
+  },
+  {
+   "stage": 169,
+   "start_s": 146.7,
+   "end_s": 177.8
+  },
+  {
+   "stage": 173,
+   "start_s": 192.5,
+   "end_s": 271.6
+  },
+  {
+   "stage": 179,
+   "start_s": 306.0,
+   "end_s": 326.7
+  },
+  {
+   "stage": 178,
+   "start_s": 335.4,
+   "end_s": 377.4
+  },
+  {
+   "stage": 158,
+   "start_s": 390.5,
+   "end_s": 427.0
+  },
+  {
+   "stage": 175,
+   "start_s": 441.2,
+   "end_s": 463.0
+  },
+  {
+   "stage": 161,
+   "start_s": 477.7,
+   "end_s": 550.8
+  },
+  {
+   "stage": 168,
+   "start_s": 559.5,
+   "end_s": 605.1
+  },
+  {
+   "stage": 167,
+   "start_s": 613.0,
+   "end_s": 658.8
+  },
+  {
+   "stage": 164,
+   "start_s": 672.4,
+   "end_s": 711.2
+  },
+  {
+   "stage": 177,
+   "start_s": 731.3,
+   "end_s": 763.5
+  },
+  {
+   "stage": 166,
+   "start_s": 770.1,
+   "end_s": 797.9
+  },
+  {
+   "stage": 176,
+   "start_s": 811.5,
+   "end_s": 902.6
+  },
+  {
+   "stage": 180,
+   "start_s": 903.2,
+   "end_s": 911.3
+  },
+  {
+   "stage": 160,
+   "start_s": 911.3,
+   "end_s": 914.6
+  },
+  {
+   "stage": 165,
+   "start_s": 915.7,
+   "end_s": 962.0
+  },
+  {
+   "stage": 170,
+   "start_s": 963.7,
+   "end_s": 1011.1
+  },
+  {
+   "stage": 159,
+   "start_s": 981.1,
+   "end_s": 1010.6
+  },
+  {
+   "stage": 172,
+   "start_s": 1012.7,
+   "end_s": 1016.0
+  },
+  {
+   "stage": 171,
+   "start_s": 1023.6,
+   "end_s": 1092.9
+  }
+ ],
+ "events": [
+  {
+   "t": 192.5,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 173,
+   "message": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 441.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 175,
+   "message": "Add tomatoes to the pan was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 915.7,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 165,
+   "message": "You skipped Add chilli to the pan; it is needed before Cook for 1 minute, mixing everything."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "recording": "22_40",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 237,
+   "start_s": 0.0,
+   "end_s": 55.0
+  },
+  {
+   "stage": 239,
+   "start_s": 55.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": 242,
+   "start_s": 120.0,
+   "end_s": 260.0
+  },
+  {
+   "stage": 247,
+   "start_s": 260.0,
+   "end_s": 380.0
+  },
+  {
+   "stage": 246,
+   "start_s": 380.0,
+   "end_s": 390.0
+  },
+  {
+   "stage": 249,
+   "start_s": 390.0,
+   "end_s": 453.6
+  }
+ ],
+ "events": [
+  {
+   "t": 10.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently handling a bag of tomatoes, but the instruction is to chop cilantro. Please retrieve the cilantro to begin the task.",
+   "step_id": 237
+  },
+  {
+   "t": 125.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently cracking an egg into the bowl, but the instruction is to add the chopped cilantro. Please stop cracking the egg and add the cilantro instead.",
+   "step_id": 242
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 141,
+  "frames_sent": 450,
+  "vlm_latency_total_s": 217.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 239.2
+ }
+}

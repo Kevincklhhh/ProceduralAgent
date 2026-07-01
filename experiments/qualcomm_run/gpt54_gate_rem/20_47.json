@@ -1,0 +1,378 @@
+{
+ "recording": "20_47",
+ "arm": "gpt54_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 212,
+   "start_s": 6.7,
+   "end_s": 194.0
+  },
+  {
+   "stage": 215,
+   "start_s": 200.2,
+   "end_s": 609.6
+  },
+  {
+   "stage": 206,
+   "start_s": 260.7,
+   "end_s": 306.5
+  },
+  {
+   "stage": 205,
+   "start_s": 315.0,
+   "end_s": 349.1
+  },
+  {
+   "stage": 176,
+   "start_s": 360.7,
+   "end_s": 477.0
+  },
+  {
+   "stage": 214,
+   "start_s": 483.7,
+   "end_s": 497.5
+  },
+  {
+   "stage": 210,
+   "start_s": 502.6,
+   "end_s": 595.0
+  },
+  {
+   "stage": 208,
+   "start_s": 610.2,
+   "end_s": 637.3
+  },
+  {
+   "stage": 213,
+   "start_s": 638.3,
+   "end_s": 848.5
+  },
+  {
+   "stage": 220,
+   "start_s": 833.2,
+   "end_s": 848.9
+  },
+  {
+   "stage": 207,
+   "start_s": 849.0,
+   "end_s": 900.0
+  },
+  {
+   "stage": 211,
+   "start_s": 907.6,
+   "end_s": 1020.2
+  },
+  {
+   "stage": 218,
+   "start_s": 1021.8,
+   "end_s": 1040.5
+  },
+  {
+   "stage": 207,
+   "start_s": 1043.4,
+   "end_s": 1078.1
+  },
+  {
+   "stage": 209,
+   "start_s": 1079.0,
+   "end_s": 1095.2
+  },
+  {
+   "stage": 219,
+   "start_s": 1103.1,
+   "end_s": 1123.8
+  },
+  {
+   "stage": 216,
+   "start_s": 1139.3,
+   "end_s": 1162.1
+  }
+ ],
+ "events": [
+  {
+   "t": 259.1,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "The recipe specifies medium-high heat; flag if a lower heat setting (low, or low-medium) is used on the burner (observed: low or low-medium heat set in 4 recordings).",
+   "step_id": 215,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 306.2,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 3 mushrooms; flag if a different count (e.g. 2 or 4) is rinsed (observed: 2 mushrooms rinsed in 4 recordings, 4 mushrooms in 1).",
+   "step_id": 206,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 327.5,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for gentle patting motions; flag if the user squeezes, crushes, or applies excessive pressure instead of patting (observed: squeezing mushrooms, crushing them, applying more pressure in 3 recordings).",
+   "step_id": 205,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 497.2,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires fully pulling out all mushroom stems; flag if any stem is only partially removed or left in a mushroom cap (observed: partial stem removal, one mushroom's stem left in place in 4 recordings).",
+   "step_id": 214,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 521.6,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe says to slice the mushrooms; flag if the user chops or dices them rather than producing slices (observed: chopping instead of slicing in 6 recordings).",
+   "step_id": 210,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 848.3,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe specifies 3-5 minutes (duration_constraint_s=300); flag if cooking is noticeably shorter (e.g. under 2 minutes) or substantially longer (e.g. 6+ minutes) than this window (observed: cooking for ~1 minute, under 2 minutes, or 6 minutes in multiple recordings).",
+   "step_id": 213,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 848.3,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires stirring often and continuing until mushrooms visibly soften and brown; flag if the user stops cooking before mushrooms reach a soft, browned appearance (observed: stopping early before browning in 2 recordings).",
+   "step_id": 213,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 848.5,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects salt to be seasoned (sprinkled) onto the pan contents; flag if salt is poured in excess or sprinkled so it lands outside the pan (observed: pouring instead of sprinkling, salt sprinkled outside the pan in 2 recordings).",
+   "step_id": 220,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 848.5,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects salt to be applied using an appropriate utensil; flag if salt is applied by hand instead of a shaker or spoon (observed: using hand to season instead of spoon in 1 recording).",
+   "step_id": 220,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 1077.9,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for exactly 1 minute of cooking with stirring (duration_constraint_s=60); flag if cooking runs substantially shorter (e.g. 15-45 seconds) or substantially longer (e.g. 1.5-4+ minutes) than 1 minute (observed: 15 seconds, 45 seconds, 1.5 minutes, 2 minutes, 2.5 minutes, 4+ minutes ac",
+   "step_id": 207,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 1115.1,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects pepper to be applied using an appropriate utensil; flag if pepper is applied by hand instead of a shaker or spoon (observed: seasoning by hand instead of spoon in 1 recording).",
+   "step_id": 219,
+   "choice": 2,
+   "raw": "2"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 193.7,
+   "kind": "mistake",
+   "step_id": 212,
+   "win_start": 163.7,
+   "win_end": 223.7,
+   "n_frames": 32,
+   "latency_s": 3.2,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 259.1,
+   "kind": "mistake",
+   "step_id": 215,
+   "win_start": 229.1,
+   "win_end": 289.1,
+   "n_frames": 32,
+   "latency_s": 3.0,
+   "fired": [
+    "temperature"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 306.2,
+   "kind": "mistake",
+   "step_id": 206,
+   "win_start": 276.2,
+   "win_end": 336.2,
+   "n_frames": 32,
+   "latency_s": 2.5,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 327.5,
+   "kind": "mistake",
+   "step_id": 205,
+   "win_start": 297.5,
+   "win_end": 357.5,
+   "n_frames": 32,
+   "latency_s": 2.9,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 476.7,
+   "kind": "mistake",
+   "step_id": 176,
+   "win_start": 446.7,
+   "win_end": 506.7,
+   "n_frames": 32,
+   "latency_s": 3.0,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 497.2,
+   "kind": "mistake",
+   "step_id": 214,
+   "win_start": 467.2,
+   "win_end": 527.2,
+   "n_frames": 32,
+   "latency_s": 2.8,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 521.6,
+   "kind": "mistake",
+   "step_id": 210,
+   "win_start": 491.6,
+   "win_end": 551.6,
+   "n_frames": 32,
+   "latency_s": 2.7,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 848.3,
+   "kind": "mistake",
+   "step_id": 213,
+   "win_start": 818.3,
+   "win_end": 878.3,
+   "n_frames": 32,
+   "latency_s": 2.7,
+   "fired": [
+    "timing",
+    "technique"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 848.5,
+   "kind": "mistake",
+   "step_id": 220,
+   "win_start": 818.5,
+   "win_end": 878.5,
+   "n_frames": 32,
+   "latency_s": 2.4,
+   "fired": [
+    "technique",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 958.6,
+   "kind": "mistake",
+   "step_id": 211,
+   "win_start": 928.6,
+   "win_end": 988.6,
+   "n_frames": 32,
+   "latency_s": 2.6,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 1034.8,
+   "kind": "mistake",
+   "step_id": 218,
+   "win_start": 1004.8,
+   "win_end": 1064.8,
+   "n_frames": 32,
+   "latency_s": 2.3,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 1077.9,
+   "kind": "mistake",
+   "step_id": 207,
+   "win_start": 1047.9,
+   "win_end": 1107.9,
+   "n_frames": 32,
+   "latency_s": 2.7,
+   "fired": [
+    "timing"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 1115.1,
+   "kind": "mistake",
+   "step_id": 219,
+   "win_start": 1085.1,
+   "win_end": 1145.1,
+   "n_frames": 32,
+   "latency_s": 2.3,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 13,
+  "frames_sent": 416,
+  "vlm_latency_total_s": 35.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "backend": "gpt54",
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 67.0
+ }
+}

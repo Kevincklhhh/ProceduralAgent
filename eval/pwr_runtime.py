@@ -723,7 +723,7 @@ def run_one(video, task, caller, args, rid=None, trace_dir=None, verbose=True):
     frame_count = cap.get(cv2.CAP_PROP_FRAME_COUNT)
     duration = frame_count / fps
     raw_video_duration = duration
-    if isinstance(caller.backend, EgoProactiveGoldBackend) and task.get("duration_in_sec"):
+    if task.get("egoproactive_decision_points") and task.get("duration_in_sec"):
         duration = float(task["duration_in_sec"])
         fps = frame_count / duration if duration > 0 else fps
     end_t = min(duration, args.max_seconds) if args.max_seconds else duration
@@ -740,7 +740,7 @@ def run_one(video, task, caller, args, rid=None, trace_dir=None, verbose=True):
 
     tick_times = None
     tick_i = 0
-    if isinstance(caller.backend, EgoProactiveGoldBackend) and task.get("egoproactive_decision_points"):
+    if task.get("egoproactive_decision_points"):
         tick_times = [float(dp["interval_s"][0]) for dp in task["egoproactive_decision_points"]
                       if float(dp["interval_s"][0]) <= end_t + 1e-6]
     t = tick_times[0] if tick_times else 0.0

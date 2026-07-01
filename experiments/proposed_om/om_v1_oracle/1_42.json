@@ -1,0 +1,86 @@
+{
+ "recording": "1_42",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 1,
+   "start_s": 0.1,
+   "end_s": 31.9
+  },
+  {
+   "stage": 4,
+   "start_s": 33.3,
+   "end_s": 122.1
+  },
+  {
+   "stage": 11,
+   "start_s": 62.1,
+   "end_s": 136.7
+  },
+  {
+   "stage": 3,
+   "start_s": 137.2,
+   "end_s": 147.7
+  },
+  {
+   "stage": 12,
+   "start_s": 149.2,
+   "end_s": 202.3
+  },
+  {
+   "stage": 9,
+   "start_s": 202.5,
+   "end_s": 228.5
+  },
+  {
+   "stage": 8,
+   "start_s": 229.0,
+   "end_s": 274.5
+  },
+  {
+   "stage": 6,
+   "start_s": 246.3,
+   "end_s": 291.0
+  },
+  {
+   "stage": 5,
+   "start_s": 292.9,
+   "end_s": 320.9
+  },
+  {
+   "stage": 10,
+   "start_s": 321.5,
+   "end_s": 354.8
+  },
+  {
+   "stage": 2,
+   "start_s": 355.5,
+   "end_s": 377.4
+  },
+  {
+   "stage": 7,
+   "start_s": 378.3,
+   "end_s": 383.7
+  }
+ ],
+ "events": [
+  {
+   "t": 0.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 1,
+   "message": "Pour 1 egg into the ramekin cup was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

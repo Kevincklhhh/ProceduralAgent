@@ -1,0 +1,35 @@
+{
+ "recording": "23_39",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 250,
+   "start_s": 0.0,
+   "end_s": 1563.1
+  }
+ ],
+ "events": [
+  {
+   "t": 35.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently handling garlic cloves, but the instruction is to add soy sauce. Please set the garlic aside and measure 1/8 cup of soy sauce to add to the bowl.",
+   "step_id": 250
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 319,
+  "frames_sent": 1560,
+  "vlm_latency_total_s": 409.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 469.6
+ }
+}

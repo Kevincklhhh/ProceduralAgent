@@ -1,0 +1,100 @@
+{
+ "recording": "18_41",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 196,
+   "start_s": 4.3,
+   "end_s": 10.8
+  },
+  {
+   "stage": 200,
+   "start_s": 13.2,
+   "end_s": 57.0
+  },
+  {
+   "stage": 203,
+   "start_s": 65.3,
+   "end_s": 212.9
+  },
+  {
+   "stage": 204,
+   "start_s": 218.3,
+   "end_s": 285.1
+  },
+  {
+   "stage": 199,
+   "start_s": 288.2,
+   "end_s": 325.7
+  },
+  {
+   "stage": 194,
+   "start_s": 327.8,
+   "end_s": 338.4
+  },
+  {
+   "stage": 193,
+   "start_s": 338.9,
+   "end_s": 399.9
+  },
+  {
+   "stage": 201,
+   "start_s": 401.5,
+   "end_s": 408.6
+  },
+  {
+   "stage": 198,
+   "start_s": 410.8,
+   "end_s": 424.6
+  },
+  {
+   "stage": 192,
+   "start_s": 480.0,
+   "end_s": 585.7
+  },
+  {
+   "stage": 195,
+   "start_s": 586.1,
+   "end_s": 592.0
+  },
+  {
+   "stage": 197,
+   "start_s": 594.3,
+   "end_s": 599.5
+  }
+ ],
+ "events": [
+  {
+   "t": 4.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 196,
+   "message": "Heat a large pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 327.8,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 194,
+   "message": "You skipped Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic; it is needed before season-pepper to taste."
+  },
+  {
+   "t": 586.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 195,
+   "message": "Top with more parmesan if desired was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -11,7 +11,7 @@ and **precondition/order** (scored straight off the CC4D Order tag — one event
 step, 789 total, no benign/harmful adjudication; see `PIPELINE_THREE_BOXES.md`). Temperature
 is fully scored (the power-level subset uses a step-start anchor, 2026-06-21) — **no suspended
 classes**; safety and next-step guidance are excluded.
-See `FAMILY_A_CC4D_AUGMENTATION.md` for derivation. **2,409 scored events total.**
+See `PROACTIVE_REMINDER_GT.md` for the current GT derivation. **2,409 scored events total.**
 
 ## Protocol (frozen)
 

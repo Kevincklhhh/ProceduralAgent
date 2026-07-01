@@ -1,0 +1,58 @@
+{
+ "recording": "8_50",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 87,
+   "start_s": 0.7,
+   "end_s": 69.3
+  },
+  {
+   "stage": 88,
+   "start_s": 69.3,
+   "end_s": 92.3
+  },
+  {
+   "stage": 89,
+   "start_s": 96.1,
+   "end_s": 159.8
+  },
+  {
+   "stage": 90,
+   "start_s": 163.3,
+   "end_s": 185.9
+  },
+  {
+   "stage": 83,
+   "start_s": 186.4,
+   "end_s": 251.7
+  }
+ ],
+ "events": [
+  {
+   "t": 0.7,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 87,
+   "message": "Add 1 teaspoon of white sugar to the mug was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 186.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 83,
+   "message": "You skipped Add 1/5 teaspoon cinnamon to the mug and Mix the contents of the mug; they are needed before Heat the contents of the mug for 1 minute and serve."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

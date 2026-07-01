@@ -1,0 +1,108 @@
+{
+ "recording": "5_35",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 62,
+   "start_s": 13.1,
+   "end_s": 56.7
+  },
+  {
+   "stage": 65,
+   "start_s": 64.1,
+   "end_s": 162.2
+  },
+  {
+   "stage": 68,
+   "start_s": 275.0,
+   "end_s": 293.0
+  },
+  {
+   "stage": 70,
+   "start_s": 293.0,
+   "end_s": 305.0
+  },
+  {
+   "stage": 60,
+   "start_s": 326.1,
+   "end_s": 346.0
+  },
+  {
+   "stage": 59,
+   "start_s": 346.0,
+   "end_s": 360.0
+  },
+  {
+   "stage": 67,
+   "start_s": 370.0,
+   "end_s": 416.3
+  },
+  {
+   "stage": 64,
+   "start_s": 427.3,
+   "end_s": 595.8
+  },
+  {
+   "stage": 71,
+   "start_s": 595.0,
+   "end_s": 622.8
+  },
+  {
+   "stage": 58,
+   "start_s": 609.8,
+   "end_s": 679.2
+  },
+  {
+   "stage": 69,
+   "start_s": 663.1,
+   "end_s": 669.5
+  },
+  {
+   "stage": 57,
+   "start_s": 684.6,
+   "end_s": 700.8
+  },
+  {
+   "stage": 56,
+   "start_s": 700.7,
+   "end_s": 730.5
+  },
+  {
+   "stage": 66,
+   "start_s": 730.5,
+   "end_s": 791.3
+  },
+  {
+   "stage": 63,
+   "start_s": 797.1,
+   "end_s": 832.5
+  }
+ ],
+ "events": [
+  {
+   "t": 326.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 60,
+   "message": "Place the paper filter in the dripper was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 730.5,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 66,
+   "message": "You skipped pour-Slowly pour the rest of the water over the grounds in a circular motion. Do not overfill beyond the top of the paper filter; it is needed before drain-Let the coffee drain completely into the mug before removing the dripper."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

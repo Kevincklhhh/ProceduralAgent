@@ -29,7 +29,7 @@ const els = {
   layerGt: document.getElementById('layer-gt'),
   layerBaseline: document.getElementById('layer-baseline'),
   layerProposed: document.getElementById('layer-proposed'),
-  layerReference: document.getElementById('layer-reference'),
+  layerQualcomm: document.getElementById('layer-qualcomm'),
   axis: document.getElementById('time-axis'),
   tracks: document.getElementById('tracks'),
   taskTitle: document.getElementById('task-title'),
@@ -49,6 +49,18 @@ const els = {
   monState: document.getElementById('mon-state'),
   monWhy: document.getElementById('mon-why'),
   monPoll: document.getElementById('mon-poll'),
+  // T1 / T2 split view
+  t1t2View: document.getElementById('t1t2-view'),
+  player2: document.getElementById('player2'),
+  qcArmSelect: document.getElementById('qc-arm-select'),
+  qcArmMeta: document.getElementById('qc-arm-meta'),
+  t2ShowQualcomm: document.getElementById('t2-show-qualcomm'),
+  t1Axis: document.getElementById('t1-axis'),
+  t1Tracks: document.getElementById('t1-tracks'),
+  t2Axis: document.getElementById('t2-axis'),
+  t2Tracks: document.getElementById('t2-tracks'),
+  t2GtList: document.getElementById('t2-gt-list'),
+  t2PredList: document.getElementById('t2-pred-list'),
 };
 
 let state = {
@@ -63,7 +75,9 @@ let state = {
   armIdx: 0,        // selected baseline arm
   monitor: null,    // /api/monitor response {plan, arms:[...]}
   monArmIdx: 0,     // selected monitor arm
-  timelineLayers: { gt: true, baseline: true, proposed: true, reference: false },
+  qualcrun: null,   // /api/qualcrun response {arms:[...]} (turn/stream T1+T2 predictions)
+  qcArmIdx: 0,      // selected qualcrun arm
+  timelineLayers: { gt: true, baseline: true, proposed: true, qualcomm: false },
   replaying: false, // virtual-clock replay (when no video is driving the playhead)
   virtualT: 0,
   replayTimer: null,
@@ -98,6 +112,7 @@ async function init() {
   els.recipeSelect.addEventListener('change', () => populateVideoSelect());
   els.errorsOnly.addEventListener('change', () => populateVideoSelect());
   els.select.addEventListener('change', () => loadVideo(els.select.value));
+  els.t2ShowQualcomm?.addEventListener('change', () => renderT1T2());
 
   populateVideoSelect();
 }
@@ -107,7 +122,7 @@ function setupTimelineLayerControls() {
     ['gt', els.layerGt],
     ['baseline', els.layerBaseline],
     ['proposed', els.layerProposed],
-    ['reference', els.layerReference],
+    ['qualcomm', els.layerQualcomm],
   ];
   for (const [key, input] of pairs) {
     if (!input) continue;
@@ -186,6 +201,16 @@ async function loadVideo(videoId) {
   stopReplay();
   populateMonArmSelect();
 
+  // T1/T2 view: same video in its own player + the turn/stream Qualcomm run.
+  els.player2.src = els.player.src;
+  const qresp = await fetch(`${API}/api/qualcrun/${encodeURIComponent(videoId)}`);
+  state.qualcrun = qresp.ok ? await qresp.json() : { arms: [] };
+  // Default to a turn-based arm when present (the wired-in result of interest).
+  const qarms = state.qualcrun.arms || [];
+  const turnIdx = qarms.findIndex(a => /turn/.test(a.arm));
+  state.qcArmIdx = turnIdx >= 0 ? turnIdx : 0;
+  populateQcArmSelect();
+
   const m = state.timeline?.meta;
   const bits = [fmtTime(video.duration), `[${video.source}]`];
   if (m) {
@@ -197,6 +222,7 @@ async function loadVideo(videoId) {
   assignColors();
   renderTimeline();
   renderSidePanel();
+  renderT1T2();
 }
 
 function escapeAttr(s) {
@@ -574,12 +600,16 @@ function switchView(view) {
   }
   els.videoView.hidden = view !== 'video';
   els.jsonView.hidden = view !== 'json';
-  const showVideoCtrls = view === 'video';
+  els.t1t2View.hidden = view !== 't1t2';
+  // The recording picker is shared by the Videos and T1/T2 views.
+  const showVideoCtrls = view === 'video' || view === 't1t2';
   els.select.hidden = !showVideoCtrls;
   els.meta.hidden = !showVideoCtrls;
   els.recipeSelect.hidden = !showVideoCtrls;
   document.getElementById('errors-only-label').hidden = !showVideoCtrls;
   if (view !== 'video') els.player.pause?.();
+  if (view !== 't1t2') els.player2.pause?.();
+  if (view === 't1t2') renderT1T2();
 }
 
 async function loadTaskFiles() {
@@ -663,7 +693,9 @@ function pct(t) {
   return state.duration > 0 ? (100 * t / state.duration) : 0;
 }
 
-function makeSegment(startS, endS, label, color, tooltipText, extraClass) {
+// `player` defaults to the main Videos-view player; the T1/T2 view passes its own
+// <video> so clicks there seek that player instead.
+function makeSegment(startS, endS, label, color, tooltipText, extraClass, player) {
   const div = document.createElement('div');
   div.className = 'segment' + (extraClass ? ' ' + extraClass : '');
   const left = pct(startS);
@@ -676,13 +708,14 @@ function makeSegment(startS, endS, label, color, tooltipText, extraClass) {
   div.addEventListener('mouseleave', hideTooltip);
   div.addEventListener('click', e => {
     e.stopPropagation();
-    els.player.currentTime = startS;
-    els.player.play();
+    const p = player || els.player;
+    p.currentTime = startS;
+    p.play();
   });
   return div;
 }
 
-function makeTrack(labelText) {
+function makeTrack(labelText, player) {
   const track = document.createElement('div');
   track.className = 'track';
   const label = document.createElement('div');
@@ -693,7 +726,7 @@ function makeTrack(labelText) {
   // Click empty lane space to seek.
   lane.addEventListener('click', e => {
     const rect = lane.getBoundingClientRect();
-    els.player.currentTime = state.duration * (e.clientX - rect.left) / rect.width;
+    (player || els.player).currentTime = state.duration * (e.clientX - rect.left) / rect.width;
   });
   const playhead = document.createElement('div');
   playhead.className = 'playhead';
@@ -794,7 +827,7 @@ function renderTimeline() {
 
   if (state.timelineLayers.baseline) renderedAny = renderPredictedTrack() || renderedAny;
   if (state.timelineLayers.proposed) renderedAny = renderMonitorTracks() || renderedAny;
-  if (state.timelineLayers.reference) renderedAny = renderQualcommTracks(tl.qualcomm) || renderedAny;
+  if (state.timelineLayers.qualcomm) renderedAny = renderQualcommTracks(tl.qualcomm) || renderedAny;
   if (!renderedAny) {
     const note = document.createElement('div');
     note.className = 'muted';
@@ -940,8 +973,198 @@ function renderQualcommTracks(qc) {
   return rendered;
 }
 
+// ---------------------------------------------------------------------------
+// T1 / T2 split view
+// ---------------------------------------------------------------------------
+
+// Qualcomm-run arm selector (one entry per experiments/qualcomm_run/<arm>/ with a
+// result for this recording: qwen36_zs_turn, qwen36_zs_stream, ...).
+function populateQcArmSelect() {
+  const arms = state.qualcrun?.arms || [];
+  if (!els.qcArmSelect) return;
+  els.qcArmSelect.innerHTML = arms.length
+    ? arms.map((a, i) => {
+        const c = a.cost?.vlm_calls != null ? ` · ${a.cost.vlm_calls} calls` : '';
+        return `<option value="${i}">${escapeAttr(a.arm)}${c}</option>`;
+      }).join('')
+    : '<option>(no qualcomm_run predictions)</option>';
+  els.qcArmSelect.value = String(state.qcArmIdx);
+  els.qcArmSelect.onchange = () => {
+    state.qcArmIdx = parseInt(els.qcArmSelect.value, 10) || 0;
+    renderT1T2();
+  };
+}
+
+// Reminder color by subtype, shared by the T2 GT and predicted tracks/lists so a
+// technique-error GT reminder and a technique-error prediction read the same hue.
+const REMINDER_COLORS = {
+  order: '#b07cc6', missing_step: '#c9824f', technique: '#e5484d',
+  preparation: '#c95f8a', measurement: '#4f8cc9', timing: '#5bb5b0',
+  temperature: '#a68b52',
+};
+function reminderColor(subtype) { return REMINDER_COLORS[subtype] || '#8a8a95'; }
+function reminderLabel(ev) { return ev.subtype === 'missing_step' ? 'missing' : (ev.subtype || ev.cls || ev.class || '?'); }
+
+// Human-readable content for a GT reminder event: prefer the original CC4D error
+// text (joined on the anchor step server-side), then order pivot / missing
+// reminder_id / anchor description.
+function reminderContent(ev) {
+  if (ev.content) return ev.content;
+  if (ev.subtype === 'order' && ev.pivot) return `out of order (pivot: ${ev.pivot})`;
+  if (ev.reminder_id) return ev.reminder_id;
+  if (ev.anchor_desc) return cleanDesc(ev.anchor_desc);
+  return ev.subtype || ev.cls || '';
+}
+
+// The split T1/T2 timelines. T1 = GT steps vs predicted steps (stage_intervals);
+// T2 = GT proactive reminders (from CC4D, windowed) vs predicted reminder events.
+function renderT1T2() {
+  if (!els.t1Tracks) return;
+  els.t1Tracks.innerHTML = '';
+  els.t2Tracks.innerHTML = '';
+  renderAxisInto(els.t1Axis);
+  renderAxisInto(els.t2Axis);
+
+  const tl = state.timeline;
+  const arm = state.qualcrun?.arms?.[state.qcArmIdx] || null;
+  const p2 = els.player2;
+  els.qcArmMeta.textContent = arm
+    ? `${(arm.stage_intervals || []).length} steps · ${(arm.events || []).length} reminders · ${arm.meta?.mode || ''}`
+    : '';
+
+  // ---- T1: step localization ----
+  {
+    const { track, lane } = makeTrack('GT: steps', p2);
+    for (const s of tl?.gt?.steps || []) {
+      if (s.start_time < 0) continue;
+      const sid = String(s.step_id);
+      const errText = (s.errors || []).map(e => `⚠ ${e.tag}: ${e.description}`).join('\n');
+      lane.appendChild(makeSegment(
+        s.start_time, s.end_time, stepLabel(sid), colorFor(sid),
+        `${cleanDesc(s.description)}\n${fmtTime(s.start_time)} – ${fmtTime(s.end_time)}` + (errText ? '\n' + errText : ''),
+        s.errors && s.errors.length ? 'error-step' : '', p2));
+    }
+    els.t1Tracks.appendChild(track);
+  }
+  {
+    const { track, lane } = makeTrack(arm ? `Predicted: steps (${arm.arm})` : 'Predicted: steps', p2);
+    for (const iv of arm?.stage_intervals || []) {
+      const sid = String(iv.stage);
+      const desc = stepDescOf(sid);
+      lane.appendChild(makeSegment(
+        iv.start_s, iv.end_s, stepLabel(sid), colorFor(sid),
+        `pred: step ${sid}${desc ? ' — ' + desc : ''}\n${fmtTime(iv.start_s)} – ${fmtTime(iv.end_s)}`, 'pred', p2));
+    }
+    els.t1Tracks.appendChild(track);
+  }
+
+  // ---- T2: proactive reminders ----
+  const faEvents = (tl?.family_a?.events) || [];
+  {
+    const { track, lane } = makeTrack('GT: reminders', p2);
+    for (const ev of faEvents) {
+      const col = reminderColor(ev.subtype);
+      const pt = ev.start_s === ev.end_s;
+      const when = pt ? `@${fmtTime(ev.t ?? ev.start_s)}` : `${fmtTime(ev.start_s)} – ${fmtTime(ev.end_s)}`;
+      lane.appendChild(makeSegment(
+        ev.start_s, ev.end_s, reminderLabel(ev), col,
+        `${ev.cls} / ${ev.subtype}\n${reminderContent(ev)}\n${when}`,
+        pt ? 'marker reminder-gt' : 'reminder-gt', p2));
+    }
+    els.t2Tracks.appendChild(track);
+  }
+  // Optional reference lane: the ORIGINAL Qualcomm mistake feedback (execution-only,
+  // no order/missing) — the un-extended benchmark target, for comparison with our GT.
+  if (els.t2ShowQualcomm?.checked) {
+    const mistakes = tl?.qualcomm?.mistakes || [];
+    const { track, lane } = makeTrack('Qualcomm (original)', p2);
+    for (const m of mistakes) {
+      lane.appendChild(makeSegment(
+        m.t, m.t, m.class, reminderColor(m.class),
+        `Qualcomm mistake / ${m.class} @${fmtTime(m.t)}\n${m.text || ''}`, 'marker', p2));
+    }
+    els.t2Tracks.appendChild(track);
+  }
+  {
+    const { track, lane } = makeTrack(arm ? `Predicted: reminders (${arm.arm})` : 'Predicted: reminders', p2);
+    for (const ev of arm?.events || []) {
+      const sub = ev.subtype || ev.class;
+      lane.appendChild(makeSegment(
+        ev.t, ev.t, sub, reminderColor(ev.subtype),
+        `${ev.class} / ${ev.subtype} @${fmtTime(ev.t)}\n${ev.message || ''}`, 'marker', p2));
+    }
+    els.t2Tracks.appendChild(track);
+  }
+
+  // ---- VLM calls + context windows: WHEN the model was invoked to check for a mistake and
+  // WHAT it saw. This is a T2 (reminder-detection) diagnostic: each call is a mistake check.
+  // Two elements per call so dense tick-based arms stay readable: (1) a FAINT band over the
+  // sampled context window [win_start, win_end] (these tile/overlap on ungated arms — that is
+  // the point: near-continuous coverage), and (2) a CRISP tick at the call's decision moment t
+  // (red = fired a reminder, grey = silent). Hover either for full call detail.
+  if ((arm?.calls || []).length) {
+    const { track, lane } = makeTrack(`VLM calls + context (${(arm.calls || []).length})`, p2);
+    for (const c of arm.calls) {
+      const fired = (c.fired || []).length > 0;
+      const ws = c.win_start ?? c.t, we = c.win_end ?? c.t;
+      const tip = `VLM ${c.kind || 'mistake'} call @${fmtTime(c.t)}\n` +
+        `context window ${fmtTime(ws)} – ${fmtTime(we)} · ${c.n_frames ?? '?'} frames` +
+        (c.latency_s != null ? ` · ${c.latency_s}s` : '') + `\nstep ${c.step_id}\n` +
+        (fired ? `FIRED: ${(c.fired || []).join(', ')}` : 'no mistake') +
+        (c.answer ? `\nanswer: ${c.answer}` : '');
+      lane.appendChild(makeSegment(ws, we, '', '#5b6472', tip,
+        'vlm-window' + (fired ? ' fired' : ''), p2));               // faint window band
+      lane.appendChild(makeSegment(c.t, c.t, '', fired ? '#e5484d' : '#8a93a3', tip,
+        'vlm-moment' + (fired ? ' fired' : ''), p2));               // crisp call-moment tick
+    }
+    els.t2Tracks.appendChild(track);
+  }
+
+  renderReminderLists(faEvents, arm?.events || [], !!arm);
+  updateT1T2Playhead();
+}
+
+// The "time + content" side lists for T2: GT reminders (CC4D-derived) and the
+// model's predicted reminders.
+function renderReminderLists(gt, pred, hasArm) {
+  els.t2GtList.innerHTML = gt.length
+    ? gt.map(ev => {
+        const col = reminderColor(ev.subtype);
+        const when = ev.start_s === ev.end_s ? `@${fmtTime(ev.t ?? ev.start_s)}` : `${fmtTime(ev.start_s)} – ${fmtTime(ev.end_s)}`;
+        return `<div class="rem-item" style="border-left-color:${col}">
+          <div class="rem-head"><span class="rem-tag" style="background:${col}">${escapeHtml(reminderLabel(ev))}</span>
+          <span class="muted">${when}</span></div>
+          <div>${escapeHtml(reminderContent(ev))}</div></div>`;
+      }).join('')
+    : '<div class="muted">no GT reminders for this recording</div>';
+  els.t2PredList.innerHTML = pred.length
+    ? pred.map(ev => {
+        const col = reminderColor(ev.subtype);
+        return `<div class="rem-item" style="border-left-color:${col}">
+          <div class="rem-head"><span class="rem-tag" style="background:${col}">${escapeHtml(ev.subtype || ev.class || '?')}</span>
+          <span class="muted">@${fmtTime(ev.t)}</span></div>
+          <div>${escapeHtml(ev.message || '')}</div></div>`;
+      }).join('')
+    : `<div class="muted">${hasArm
+        ? 'this arm predicted no reminders for this recording'
+        : 'no qualcomm_run result for this recording'}</div>`;
+}
+
+function updateT1T2Playhead() {
+  if (!els.t1t2View) return;
+  const t = els.player2?.currentTime || 0;
+  for (const ph of els.t1t2View.querySelectorAll('.playhead')) {
+    ph.style.left = pct(t) + '%';
+  }
+}
+
 function renderAxis() {
-  els.axis.innerHTML = '';
+  renderAxisInto(els.axis);
+}
+
+function renderAxisInto(target) {
+  if (!target) return;
+  target.innerHTML = '';
   if (state.duration <= 0) return;
   const targetTicks = 10;
   const raw = state.duration / targetTicks;
@@ -952,7 +1175,7 @@ function renderAxis() {
     tick.className = 'axis-tick';
     tick.style.left = pct(t) + '%';
     tick.textContent = fmtTime(t);
-    els.axis.appendChild(tick);
+    target.appendChild(tick);
   }
 }
 
@@ -1066,7 +1289,7 @@ function cleanDesc(d) {
 // Active step/event display + playhead position, driven by timeupdate.
 function updatePlayhead() {
   const t = currentT();
-  for (const ph of document.querySelectorAll('.playhead')) {
+  for (const ph of els.videoView.querySelectorAll('.playhead')) {
     ph.style.left = pct(t) + '%';
   }
 
@@ -1150,6 +1373,15 @@ els.player.addEventListener('loadedmetadata', () => {
     state.duration = els.player.duration;
     renderTimeline();
     updatePlayhead();
+  }
+});
+
+// T1/T2 view: its own player drives its own playheads (and refines duration).
+els.player2.addEventListener('timeupdate', updateT1T2Playhead);
+els.player2.addEventListener('loadedmetadata', () => {
+  if (els.player2.duration && isFinite(els.player2.duration)) {
+    state.duration = els.player2.duration;
+    renderT1T2();
   }
 });
 

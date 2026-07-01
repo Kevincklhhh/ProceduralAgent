@@ -1,0 +1,47 @@
+{
+ "recording": "23_23",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 250,
+   "start_s": 0.0,
+   "end_s": 510.0
+  },
+  {
+   "stage": 252,
+   "start_s": 510.0,
+   "end_s": 1666.5
+  }
+ ],
+ "events": [
+  {
+   "t": 10.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently handling a bag of broccoli florets, but the instruction is to add soy sauce to the bowl. Please locate the soy sauce and a measuring cup to complete the step.",
+   "step_id": 250
+  },
+  {
+   "t": 515.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are using a bottle of soy sauce instead of honey.",
+   "step_id": 252
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 336,
+  "frames_sent": 1665,
+  "vlm_latency_total_s": 430.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 495.8
+ }
+}

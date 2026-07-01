@@ -1,0 +1,52 @@
+{
+ "recording": "7_19",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 0.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": 72,
+   "start_s": 100.0,
+   "end_s": 105.0
+  },
+  {
+   "stage": 73,
+   "start_s": 105.0,
+   "end_s": 821.2
+  }
+ ],
+ "events": [
+  {
+   "t": 85.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently cleaning the counter with paper towels instead of cracking the egg into the bowl as instructed.",
+   "step_id": 77
+  },
+  {
+   "t": 160.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently washing dishes in the sink, but the instruction requires you to microwave a bowl for 3 minutes and stir it in between. You have not started the cooking process.",
+   "step_id": 73
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 192,
+  "frames_sent": 820,
+  "vlm_latency_total_s": 265.3,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 302.0
+ }
+}

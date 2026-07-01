@@ -1,0 +1,275 @@
+{
+ "recording": "10_48",
+ "arm": "cs_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 2.5,
+   "end_s": 57.5
+  },
+  {
+   "stage": 111,
+   "start_s": 66.5,
+   "end_s": 165.5
+  },
+  {
+   "stage": 107,
+   "start_s": 174.2,
+   "end_s": 197.5
+  },
+  {
+   "stage": 113,
+   "start_s": 214.3,
+   "end_s": 231.0
+  },
+  {
+   "stage": 112,
+   "start_s": 232.9,
+   "end_s": 252.3
+  },
+  {
+   "stage": 118,
+   "start_s": 260.7,
+   "end_s": 283.6
+  },
+  {
+   "stage": 116,
+   "start_s": 294.6,
+   "end_s": 306.5
+  },
+  {
+   "stage": 110,
+   "start_s": 322.2,
+   "end_s": 345.2
+  },
+  {
+   "stage": 104,
+   "start_s": 360.3,
+   "end_s": 375.8
+  },
+  {
+   "stage": 106,
+   "start_s": 382.4,
+   "end_s": 412.2
+  },
+  {
+   "stage": 117,
+   "start_s": 413.0,
+   "end_s": 423.4
+  },
+  {
+   "stage": 105,
+   "start_s": 453.4,
+   "end_s": 466.1
+  },
+  {
+   "stage": 108,
+   "start_s": 467.2,
+   "end_s": 573.9
+  },
+  {
+   "stage": 114,
+   "start_s": 579.5,
+   "end_s": 611.9
+  },
+  {
+   "stage": 103,
+   "start_s": 613.7,
+   "end_s": 620.0
+  },
+  {
+   "stage": 109,
+   "start_s": 625.8,
+   "end_s": 635.5
+  }
+ ],
+ "events": [
+  {
+   "t": 48.9,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects a plain 8-inch flour tortilla placed on the cutting board; flag using a plate or other surface instead of the cutting board, or pre-toasting/heating the tortilla before use.",
+   "step_id": 115,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 117.4,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for the (clean) butter knife to scoop jelly; flag using a different or soiled utensil (e.g., spoon, kitchen knife, or a knife still dirty with nut butter).",
+   "step_id": 111,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 197.2,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects the butter knife used to spread jelly; flag using a different utensil such as a spoon.",
+   "step_id": 107,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 230.8,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for a butter knife and nut butter; flag using a different utensil (e.g., spoon or kitchen knife) or a different spread (e.g., regular butter instead of nut butter).",
+   "step_id": 113,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 251.9,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects the nut butter applied with a butter knife; flag using a different utensil such as a spoon.",
+   "step_id": 112,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 344.7,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for exactly 5 toothpicks inserted approximately 1 inch apart; flag a different count (e.g., 3 or 10) or toothpicks placed at irregular, non-even spacing rather than 1 inch apart.",
+   "step_id": 110,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 48.9,
+   "kind": "mistake",
+   "step_id": 115,
+   "win_start": 18.9,
+   "win_end": 78.9,
+   "n_frames": 32,
+   "latency_s": 21.6,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 117.4,
+   "kind": "mistake",
+   "step_id": 111,
+   "win_start": 87.4,
+   "win_end": 147.4,
+   "n_frames": 32,
+   "latency_s": 23.7,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 197.2,
+   "kind": "mistake",
+   "step_id": 107,
+   "win_start": 167.2,
+   "win_end": 227.2,
+   "n_frames": 32,
+   "latency_s": 22.0,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 230.8,
+   "kind": "mistake",
+   "step_id": 113,
+   "win_start": 200.8,
+   "win_end": 260.8,
+   "n_frames": 32,
+   "latency_s": 16.1,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 251.9,
+   "kind": "mistake",
+   "step_id": 112,
+   "win_start": 221.9,
+   "win_end": 281.9,
+   "n_frames": 32,
+   "latency_s": 16.5,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 275.7,
+   "kind": "mistake",
+   "step_id": 118,
+   "win_start": 245.7,
+   "win_end": 305.7,
+   "n_frames": 32,
+   "latency_s": 16.3,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 301.6,
+   "kind": "mistake",
+   "step_id": 116,
+   "win_start": 271.6,
+   "win_end": 331.6,
+   "n_frames": 32,
+   "latency_s": 16.3,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 344.7,
+   "kind": "mistake",
+   "step_id": 110,
+   "win_start": 314.7,
+   "win_end": 374.7,
+   "n_frames": 32,
+   "latency_s": 15.9,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 411.8,
+   "kind": "mistake",
+   "step_id": 106,
+   "win_start": 381.8,
+   "win_end": 441.8,
+   "n_frames": 32,
+   "latency_s": 24.0,
+   "fired": [],
+   "answer": "0"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 9,
+  "frames_sent": 288,
+  "vlm_latency_total_s": 172.3,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 193.9
+ }
+}

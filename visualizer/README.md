@@ -33,7 +33,7 @@ Header controls:
 For the selected video:
 - Video player with click-to-seek timeline and playhead.
 - Timeline layer toggles for **GT**, **Baseline VLM**, **Proposed monitor**, and
-  **Reference** views. GT / Baseline / Proposed are enabled by default; the
+  **Qualcomm** views. GT / Baseline / Proposed are enabled by default; the
   Qualcomm reference layer is opt-in to keep the view readable.
 - Timeline tracks:
   - **Stages (ann)** / **Reminder windows** / **Mistakes** — from a

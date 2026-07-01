@@ -1,0 +1,40 @@
+{
+ "recording": "10_7",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 0.0,
+   "end_s": 45.0
+  },
+  {
+   "stage": 113,
+   "start_s": 45.0,
+   "end_s": 636.9
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently opening the dishwasher, but the instruction requires you to use a butter knife to scoop nut butter from a jar. Please locate the jar of nut butter and a butter knife to proceed with the correct step.",
+   "step_id": 113
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 138,
+  "frames_sent": 635,
+  "vlm_latency_total_s": 187.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 214.8
+ }
+}

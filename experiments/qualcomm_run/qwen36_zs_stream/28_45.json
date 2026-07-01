@@ -1,0 +1,52 @@
+{
+ "recording": "28_45",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 327,
+   "start_s": 0.0,
+   "end_s": 590.0
+  },
+  {
+   "stage": 329,
+   "start_s": 590.0,
+   "end_s": 810.0
+  },
+  {
+   "stage": 335,
+   "start_s": 810.0,
+   "end_s": 838.5
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a tub of cream cheese instead of mayonnaise.",
+   "step_id": 327
+  },
+  {
+   "t": 595.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently measuring a white substance into a bowl, but the instruction is to lay out 2 large lettuce leaves. Please stop and find the lettuce leaves.",
+   "step_id": 329
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 185,
+  "frames_sent": 835,
+  "vlm_latency_total_s": 249.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 282.4
+ }
+}

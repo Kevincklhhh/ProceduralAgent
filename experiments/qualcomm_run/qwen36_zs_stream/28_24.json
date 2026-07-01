@@ -1,0 +1,55 @@
+{
+ "recording": "28_24",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 327,
+   "start_s": 0.0,
+   "end_s": 700.0
+  },
+  {
+   "stage": 329,
+   "start_s": 700.0,
+   "end_s": 720.0
+  },
+  {
+   "stage": 335,
+   "start_s": 720.0,
+   "end_s": 795.0
+  },
+  {
+   "stage": 336,
+   "start_s": 795.0,
+   "end_s": 800.0
+  },
+  {
+   "stage": 328,
+   "start_s": 800.0,
+   "end_s": 1070.6
+  }
+ ],
+ "events": [
+  {
+   "t": 35.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently retrieving vegetables from the refrigerator, but the instruction requires you to add 1/4 cup of mayonnaise to a bowl. Please locate the mayonnaise and a bowl to proceed with the correct step.",
+   "step_id": 327
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 292,
+  "frames_sent": 1070,
+  "vlm_latency_total_s": 415.3,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 456.7
+ }
+}

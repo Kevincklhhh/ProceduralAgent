@@ -1,0 +1,121 @@
+{
+ "recording": "10_7",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 3.1,
+   "end_s": 54.0
+  },
+  {
+   "stage": 113,
+   "start_s": 55.0,
+   "end_s": 86.0
+  },
+  {
+   "stage": 112,
+   "start_s": 86.0,
+   "end_s": 160.3
+  },
+  {
+   "stage": 118,
+   "start_s": 162.5,
+   "end_s": 173.2
+  },
+  {
+   "stage": 111,
+   "start_s": 178.2,
+   "end_s": 199.7
+  },
+  {
+   "stage": 107,
+   "start_s": 200.3,
+   "end_s": 230.4
+  },
+  {
+   "stage": 104,
+   "start_s": 238.2,
+   "end_s": 246.5
+  },
+  {
+   "stage": 110,
+   "start_s": 262.6,
+   "end_s": 335.5
+  },
+  {
+   "stage": 116,
+   "start_s": 284.9,
+   "end_s": 300.6
+  },
+  {
+   "stage": 114,
+   "start_s": 343.6,
+   "end_s": 358.3
+  },
+  {
+   "stage": 103,
+   "start_s": 360.9,
+   "end_s": 365.5
+  },
+  {
+   "stage": 106,
+   "start_s": 372.3,
+   "end_s": 397.6
+  },
+  {
+   "stage": 117,
+   "start_s": 397.9,
+   "end_s": 400.0
+  },
+  {
+   "stage": 105,
+   "start_s": 433.6,
+   "end_s": 436.6
+  },
+  {
+   "stage": 108,
+   "start_s": 436.9,
+   "end_s": 449.4
+  },
+  {
+   "stage": 102,
+   "start_s": 461.2,
+   "end_s": 470.2
+  },
+  {
+   "stage": 102,
+   "start_s": 471.2,
+   "end_s": 486.4
+  },
+  {
+   "stage": 102,
+   "start_s": 487.1,
+   "end_s": 506.7
+  },
+  {
+   "stage": 109,
+   "start_s": 525.1,
+   "end_s": 548.8
+  }
+ ],
+ "events": [
+  {
+   "t": 262.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 110,
+   "message": "Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

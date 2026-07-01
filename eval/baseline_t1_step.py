@@ -70,13 +70,19 @@ def step_ranks(steps):
     by_id = {s['step_id']: s for s in steps}
     if any(s.get('preconditions') for s in steps):
         memo = {}
+        visiting = set()
         def r(sid):
             if sid in memo:
                 return memo[sid]
+            if sid in visiting:           # cycle back-edge: ignore it (avoid infinite recursion)
+                return 0
+            visiting.add(sid)
             s = by_id.get(sid)
             preds = [p for p in (s.get('preconditions') or []) if p in by_id] if s else []
-            memo[sid] = 0 if not preds else 1 + max(r(p) for p in preds)
-            return memo[sid]
+            rank = 0 if not preds else 1 + max(r(p) for p in preds)
+            visiting.discard(sid)
+            memo[sid] = rank
+            return rank
         return {s['step_id']: r(s['step_id']) for s in steps}
     return {s['step_id']: s.get('order', 0) for s in steps}
 
@@ -182,6 +188,11 @@ class Qwen:
                    "response_format": {"type": "json_object"},
                    "messages": [{"role": "system", "content": SYSTEM_PROMPT},
                                 {"role": "user", "content": content}]}
+        # Opt-in: disable reasoning (Qwen3.6 thinking) to cut latency and to hold the inference
+        # config constant with the streaming arm for controlled comparisons. Non-breaking default.
+        if os.getenv("QWEN_NO_THINK"):
+            payload["chat_template_kwargs"] = {"enable_thinking": False}
+            payload["max_tokens"] = 256
         # Retry on transient server/network errors (chiefly ReadTimeout, which otherwise
         # leaves a dead 'other' window). Backoff between attempts; raise the last error.
         last = None

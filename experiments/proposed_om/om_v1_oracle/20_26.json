@@ -1,0 +1,125 @@
+{
+ "recording": "20_26",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 215,
+   "start_s": 4.3,
+   "end_s": 75.7
+  },
+  {
+   "stage": 206,
+   "start_s": 77.9,
+   "end_s": 158.2
+  },
+  {
+   "stage": 176,
+   "start_s": 163.3,
+   "end_s": 194.5
+  },
+  {
+   "stage": 205,
+   "start_s": 195.7,
+   "end_s": 224.9
+  },
+  {
+   "stage": 214,
+   "start_s": 225.1,
+   "end_s": 254.5
+  },
+  {
+   "stage": 212,
+   "start_s": 266.8,
+   "end_s": 338.4
+  },
+  {
+   "stage": 210,
+   "start_s": 345.4,
+   "end_s": 452.8
+  },
+  {
+   "stage": 208,
+   "start_s": 455.5,
+   "end_s": 470.9
+  },
+  {
+   "stage": 213,
+   "start_s": 485.7,
+   "end_s": 800.0
+  },
+  {
+   "stage": 211,
+   "start_s": 715.0,
+   "end_s": 797.8
+  },
+  {
+   "stage": 207,
+   "start_s": 800.0,
+   "end_s": 870.0
+  },
+  {
+   "stage": 218,
+   "start_s": 875.4,
+   "end_s": 885.2
+  },
+  {
+   "stage": 209,
+   "start_s": 908.4,
+   "end_s": 924.4
+  },
+  {
+   "stage": 207,
+   "start_s": 925.6,
+   "end_s": 1000.0
+  },
+  {
+   "stage": 219,
+   "start_s": 1002.0,
+   "end_s": 1017.2
+  },
+  {
+   "stage": 220,
+   "start_s": 1018.1,
+   "end_s": 1050.5
+  },
+  {
+   "stage": 216,
+   "start_s": 1053.7,
+   "end_s": 1083.6
+  }
+ ],
+ "events": [
+  {
+   "t": 4.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 215,
+   "message": "Heat 1 tbsp olive oil in a large skillet over medium-high heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 800.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 207,
+   "message": "cook the pan, often stirring, for 1 minute was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 800.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 207,
+   "message": "You skipped Add-1/4 tbsp balsamic vinegar to the pan; it is needed before cook the pan, often stirring, for 1 minute."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

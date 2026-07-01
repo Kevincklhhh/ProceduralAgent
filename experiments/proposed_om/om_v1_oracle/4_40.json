@@ -1,0 +1,103 @@
+{
+ "recording": "4_40",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 53.6,
+   "end_s": 152.1
+  },
+  {
+   "stage": 47,
+   "start_s": 175.8,
+   "end_s": 190.0
+  },
+  {
+   "stage": 51,
+   "start_s": 202.6,
+   "end_s": 259.0
+  },
+  {
+   "stage": 44,
+   "start_s": 273.6,
+   "end_s": 289.7
+  },
+  {
+   "stage": 46,
+   "start_s": 313.4,
+   "end_s": 335.6
+  },
+  {
+   "stage": 53,
+   "start_s": 413.2,
+   "end_s": 420.4
+  },
+  {
+   "stage": 52,
+   "start_s": 421.4,
+   "end_s": 427.2
+  },
+  {
+   "stage": 54,
+   "start_s": 433.7,
+   "end_s": 443.9
+  },
+  {
+   "stage": 49,
+   "start_s": 456.5,
+   "end_s": 466.4
+  },
+  {
+   "stage": 45,
+   "start_s": 472.3,
+   "end_s": 543.3
+  },
+  {
+   "stage": 48,
+   "start_s": 565.9,
+   "end_s": 595.1
+  },
+  {
+   "stage": 50,
+   "start_s": 600.0,
+   "end_s": 615.3
+  },
+  {
+   "stage": 55,
+   "start_s": 622.9,
+   "end_s": 633.2
+  },
+  {
+   "stage": 43,
+   "start_s": 638.7,
+   "end_s": 649.1
+  }
+ ],
+ "events": [
+  {
+   "t": 413.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 53,
+   "message": "Add chopped cilantro to the bowl was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 638.7,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 43,
+   "message": "You skipped Mix in the flavour packet to the bowl; it is needed before Stir noodles with a spoon or fork until the flavouring dissolves."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

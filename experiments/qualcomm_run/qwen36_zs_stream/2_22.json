@@ -1,0 +1,81 @@
+{
+ "recording": "2_22",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 0.0,
+   "end_s": 130.0
+  },
+  {
+   "stage": 16,
+   "start_s": 130.0,
+   "end_s": 185.0
+  },
+  {
+   "stage": 17,
+   "start_s": 185.0,
+   "end_s": 225.0
+  },
+  {
+   "stage": 21,
+   "start_s": 225.0,
+   "end_s": 520.0
+  },
+  {
+   "stage": 22,
+   "start_s": 520.0,
+   "end_s": 525.0
+  },
+  {
+   "stage": 23,
+   "start_s": 525.0,
+   "end_s": 1096.8
+  }
+ ],
+ "events": [
+  {
+   "t": 20.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently handling a package of carrots, but the instruction is to peel a garlic clove. Please locate the garlic instead.",
+   "step_id": 14
+  },
+  {
+   "t": 200.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are peeling the onion over an open trash bin, which is unsanitary and risks contaminating the food with dust or debris. Please move to a clean surface or sink to finish peeling.",
+   "step_id": 17
+  },
+  {
+   "t": 230.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently peeling an onion, but the instruction is to place 5 meatballs on a microwave-safe plate. Please switch to the meatballs.",
+   "step_id": 21
+  },
+  {
+   "t": 615.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are pouring the sauce mixture directly onto the plate with the meat and carrots instead of mixing it in a small bowl as instructed.",
+   "step_id": 23
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 255,
+  "frames_sent": 1095,
+  "vlm_latency_total_s": 367.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 408.9
+ }
+}

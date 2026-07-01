@@ -1,0 +1,506 @@
+[
+ {
+  "rid": "8_44",
+  "step_id": 83,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 16.42
+ },
+ {
+  "rid": "8_11",
+  "step_id": 83,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 18.21
+ },
+ {
+  "rid": "8_15",
+  "step_id": 83,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 18.9
+ },
+ {
+  "rid": "8_26",
+  "step_id": 83,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 19.15
+ },
+ {
+  "rid": "8_30",
+  "step_id": 83,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 23.84
+ },
+ {
+  "rid": "8_45",
+  "step_id": 83,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 14.27
+ },
+ {
+  "rid": "8_31",
+  "step_id": 83,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 18.11
+ },
+ {
+  "rid": "8_30",
+  "step_id": 84,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 17.68
+ },
+ {
+  "rid": "8_35",
+  "step_id": 84,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 17.63
+ },
+ {
+  "rid": "8_40",
+  "step_id": 84,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 14.08
+ },
+ {
+  "rid": "8_44",
+  "step_id": 84,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 16.76
+ },
+ {
+  "rid": "8_11",
+  "step_id": 84,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 13.88
+ },
+ {
+  "rid": "8_15",
+  "step_id": 84,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 15.45
+ },
+ {
+  "rid": "8_33",
+  "step_id": 84,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 18,
+  "latency_s": 16.84
+ },
+ {
+  "rid": "8_45",
+  "step_id": 84,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 17.17
+ },
+ {
+  "rid": "8_31",
+  "step_id": 84,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 14.08
+ },
+ {
+  "rid": "8_31",
+  "step_id": 85,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 18,
+  "latency_s": 14.18
+ },
+ {
+  "rid": "8_33",
+  "step_id": 85,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 17.42
+ },
+ {
+  "rid": "8_35",
+  "step_id": 85,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 11,
+  "latency_s": 13.58
+ },
+ {
+  "rid": "8_44",
+  "step_id": 85,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 19,
+  "latency_s": 15.24
+ },
+ {
+  "rid": "8_11",
+  "step_id": 85,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 14.07
+ },
+ {
+  "rid": "8_15",
+  "step_id": 85,
+  "gt": false,
+  "binary_pred": true,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 15.64
+ },
+ {
+  "rid": "8_11",
+  "step_id": 87,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 18.76
+ },
+ {
+  "rid": "8_30",
+  "step_id": 87,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 17.68
+ },
+ {
+  "rid": "8_35",
+  "step_id": 87,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 16.76
+ },
+ {
+  "rid": "8_40",
+  "step_id": 87,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": false,
+  "n_frames": 26,
+  "latency_s": 13.27
+ },
+ {
+  "rid": "8_15",
+  "step_id": 87,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 16.15
+ },
+ {
+  "rid": "8_16",
+  "step_id": 87,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 13.0
+ },
+ {
+  "rid": "8_33",
+  "step_id": 87,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 15.44
+ },
+ {
+  "rid": "8_45",
+  "step_id": 87,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 17,
+  "latency_s": 14.88
+ },
+ {
+  "rid": "8_33",
+  "step_id": 88,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 27,
+  "latency_s": 15.55
+ },
+ {
+  "rid": "8_11",
+  "step_id": 88,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 16.54
+ },
+ {
+  "rid": "8_15",
+  "step_id": 88,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 15.93
+ },
+ {
+  "rid": "8_26",
+  "step_id": 88,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 16.52
+ },
+ {
+  "rid": "8_35",
+  "step_id": 88,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 16.77
+ },
+ {
+  "rid": "8_31",
+  "step_id": 88,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 18.57
+ },
+ {
+  "rid": "8_40",
+  "step_id": 88,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 12.33
+ },
+ {
+  "rid": "8_44",
+  "step_id": 88,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 17.02
+ },
+ {
+  "rid": "8_45",
+  "step_id": 88,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 16.14
+ },
+ {
+  "rid": "8_33",
+  "step_id": 89,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 19.75
+ },
+ {
+  "rid": "8_11",
+  "step_id": 89,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 21.92
+ },
+ {
+  "rid": "8_15",
+  "step_id": 89,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 21.04
+ },
+ {
+  "rid": "8_26",
+  "step_id": 89,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 15.7
+ },
+ {
+  "rid": "8_31",
+  "step_id": 89,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 19.44
+ },
+ {
+  "rid": "8_35",
+  "step_id": 89,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 14.77
+ },
+ {
+  "rid": "8_40",
+  "step_id": 89,
+  "gt": true,
+  "binary_pred": true,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 13.63
+ },
+ {
+  "rid": "8_45",
+  "step_id": 89,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 19.91
+ },
+ {
+  "rid": "8_26",
+  "step_id": 90,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 16.55
+ },
+ {
+  "rid": "8_30",
+  "step_id": 90,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 20,
+  "latency_s": 13.77
+ },
+ {
+  "rid": "8_33",
+  "step_id": 90,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 25,
+  "latency_s": 16.39
+ },
+ {
+  "rid": "8_35",
+  "step_id": 90,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 16.8
+ },
+ {
+  "rid": "8_44",
+  "step_id": 90,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": true,
+  "n_frames": 32,
+  "latency_s": 13.18
+ },
+ {
+  "rid": "8_45",
+  "step_id": 90,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 23,
+  "latency_s": 18.31
+ },
+ {
+  "rid": "8_11",
+  "step_id": 90,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 31,
+  "latency_s": 15.01
+ },
+ {
+  "rid": "8_15",
+  "step_id": 90,
+  "gt": false,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 32,
+  "latency_s": 15.42
+ },
+ {
+  "rid": "8_50",
+  "step_id": 90,
+  "gt": true,
+  "binary_pred": false,
+  "targeted_pred": false,
+  "n_frames": 23,
+  "latency_s": 16.34
+ }
+]

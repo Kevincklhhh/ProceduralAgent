@@ -1,0 +1,123 @@
+{
+ "recording": "25_41",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 31.9,
+   "end_s": 52.7
+  },
+  {
+   "stage": 293,
+   "start_s": 61.4,
+   "end_s": 95.7
+  },
+  {
+   "stage": 291,
+   "start_s": 115.3,
+   "end_s": 123.8
+  },
+  {
+   "stage": 279,
+   "start_s": 132.7,
+   "end_s": 147.9
+  },
+  {
+   "stage": 276,
+   "start_s": 148.0,
+   "end_s": 153.0
+  },
+  {
+   "stage": 292,
+   "start_s": 170.6,
+   "end_s": 545.0
+  },
+  {
+   "stage": 285,
+   "start_s": 549.1,
+   "end_s": 597.5
+  },
+  {
+   "stage": 287,
+   "start_s": 598.4,
+   "end_s": 600.0
+  },
+  {
+   "stage": 290,
+   "start_s": 604.4,
+   "end_s": 692.8
+  },
+  {
+   "stage": 282,
+   "start_s": 694.5,
+   "end_s": 697.9
+  },
+  {
+   "stage": 277,
+   "start_s": 721.1,
+   "end_s": 733.4
+  },
+  {
+   "stage": 278,
+   "start_s": 740.7,
+   "end_s": 765.5
+  },
+  {
+   "stage": 284,
+   "start_s": 777.6,
+   "end_s": 781.3
+  },
+  {
+   "stage": 289,
+   "start_s": 780.0,
+   "end_s": 826.0
+  },
+  {
+   "stage": 286,
+   "start_s": 811.3,
+   "end_s": 814.7
+  },
+  {
+   "stage": 281,
+   "start_s": 825.5,
+   "end_s": 852.7
+  },
+  {
+   "stage": 288,
+   "start_s": 855.0,
+   "end_s": 983.2
+  },
+  {
+   "stage": 283,
+   "start_s": 988.9,
+   "end_s": 1003.4
+  }
+ ],
+ "events": [
+  {
+   "t": 148.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 276,
+   "message": "Turn on the heat to medium was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 549.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 285,
+   "message": "You skipped remove-Briefly remove the pan from the heat to reduce spitting; it is needed before Flip the tofu with tongs."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

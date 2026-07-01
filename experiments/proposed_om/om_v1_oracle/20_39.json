@@ -1,0 +1,122 @@
+{
+ "recording": "20_39",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 176,
+   "start_s": 12.4,
+   "end_s": 79.6
+  },
+  {
+   "stage": 214,
+   "start_s": 82.1,
+   "end_s": 96.1
+  },
+  {
+   "stage": 210,
+   "start_s": 96.5,
+   "end_s": 111.7
+  },
+  {
+   "stage": 212,
+   "start_s": 114.6,
+   "end_s": 182.5
+  },
+  {
+   "stage": 215,
+   "start_s": 185.1,
+   "end_s": 219.0
+  },
+  {
+   "stage": 208,
+   "start_s": 227.3,
+   "end_s": 233.9
+  },
+  {
+   "stage": 213,
+   "start_s": 235.0,
+   "end_s": 402.6
+  },
+  {
+   "stage": 209,
+   "start_s": 402.9,
+   "end_s": 417.2
+  },
+  {
+   "stage": 207,
+   "start_s": 418.0,
+   "end_s": 488.0
+  },
+  {
+   "stage": 211,
+   "start_s": 442.2,
+   "end_s": 465.2
+  },
+  {
+   "stage": 218,
+   "start_s": 466.6,
+   "end_s": 472.7
+  },
+  {
+   "stage": 217,
+   "start_s": 485.2,
+   "end_s": 541.5
+  },
+  {
+   "stage": 207,
+   "start_s": 542.5,
+   "end_s": 602.6
+  },
+  {
+   "stage": 219,
+   "start_s": 558.3,
+   "end_s": 570.8
+  },
+  {
+   "stage": 216,
+   "start_s": 602.9,
+   "end_s": 615.0
+  }
+ ],
+ "events": [
+  {
+   "t": 82.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 214,
+   "message": "You skipped pat rinsed mushrooms dry with a paper towel and Rinse 3 mushrooms under cold water; they are needed before Pull out mushroom stems."
+  },
+  {
+   "t": 185.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 215,
+   "message": "Heat 1 tbsp olive oil in a large skillet over medium-high heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 418.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 207,
+   "message": "cook the pan, often stirring, for 1 minute was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 602.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 216,
+   "message": "You skipped Season pan with salt; it is needed before Transfer the contents of the pan to a serving dish."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

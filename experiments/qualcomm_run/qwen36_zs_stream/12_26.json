@@ -1,0 +1,86 @@
+{
+ "recording": "12_26",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 125,
+   "start_s": 0.0,
+   "end_s": 25.0
+  },
+  {
+   "stage": 122,
+   "start_s": 25.0,
+   "end_s": 45.0
+  },
+  {
+   "stage": 119,
+   "start_s": 45.0,
+   "end_s": 150.0
+  },
+  {
+   "stage": 120,
+   "start_s": 150.0,
+   "end_s": 190.0
+  },
+  {
+   "stage": 123,
+   "start_s": 190.0,
+   "end_s": 225.0
+  },
+  {
+   "stage": 124,
+   "start_s": 225.0,
+   "end_s": 265.0
+  },
+  {
+   "stage": 126,
+   "start_s": 265.0,
+   "end_s": 329.2
+  }
+ ],
+ "events": [
+  {
+   "t": 90.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are dicing the tomato into small cubes instead of slicing it into 1/2 inch thick slices.",
+   "step_id": 119
+  },
+  {
+   "t": 220.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using iodized coffee creamer instead of salt. Please use salt to season the tomato slices.",
+   "step_id": 123
+  },
+  {
+   "t": 235.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a spice shaker to sprinkle seasoning instead of applying mozzarella cheese as instructed.",
+   "step_id": 124
+  },
+  {
+   "t": 280.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently washing a cutting board and knife in the sink, but the instruction is to season a platter with black pepper. You have not yet started the task or used the correct ingredients.",
+   "step_id": 126
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 99,
+  "frames_sent": 325,
+  "vlm_latency_total_s": 165.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 177.0
+ }
+}

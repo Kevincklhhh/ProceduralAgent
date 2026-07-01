@@ -1,0 +1,40 @@
+{
+ "recording": "5_44",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 62,
+   "start_s": 0.0,
+   "end_s": 220.0
+  },
+  {
+   "stage": 65,
+   "start_s": 220.0,
+   "end_s": 1020.7
+  }
+ ],
+ "events": [
+  {
+   "t": 225.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently handling a piece of dough, but the instruction requires you to weigh coffee beans. Please switch to the coffee beans and use a scale to measure them.",
+   "step_id": 65
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 248,
+  "frames_sent": 1020,
+  "vlm_latency_total_s": 341.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 380.3
+ }
+}

@@ -11,6 +11,7 @@
     <h1>ProceduralAgent Task Visualizer</h1>
     <nav id="view-nav">
       <button data-view="video" class="active">Videos</button>
+      <button data-view="t1t2">T1 / T2</button>
       <button data-view="json">Task JSON</button>
     </nav>
     <select id="recipe-select" title="Filter by recipe"></select>
@@ -40,7 +41,7 @@
           <label><input type="checkbox" id="layer-gt" checked /> GT</label>
           <label><input type="checkbox" id="layer-baseline" checked /> Baseline VLM</label>
           <label><input type="checkbox" id="layer-proposed" checked /> Proposed monitor</label>
-          <label><input type="checkbox" id="layer-reference" /> Reference</label>
+          <label><input type="checkbox" id="layer-qualcomm" /> Qualcomm</label>
         </div>
         <div id="time-axis"></div>
         <div id="tracks"></div>
@@ -81,6 +82,37 @@
       <div id="active-events"></div>
     </div>
   </main>
+
+  <section id="t1t2-view" hidden>
+    <div id="t1t2-left">
+      <video id="player2" controls preload="metadata"></video>
+      <div id="t1t2-controls">
+        <span class="control-label">predictions</span>
+        <label class="muted">arm <select id="qc-arm-select"></select></label>
+        <span id="qc-arm-meta" class="muted"></span>
+        <label class="muted" title="Original Qualcomm mistake feedback (execution only — no order/missing)"><input type="checkbox" id="t2-show-qualcomm" /> Qualcomm original</label>
+      </div>
+
+      <div id="t1-section">
+        <h3>T1 — step localization <span class="muted">(GT steps vs predicted steps)</span></h3>
+        <div id="t1-axis"></div>
+        <div id="t1-tracks"></div>
+      </div>
+
+      <div id="t2-section">
+        <h3>T2 — proactive reminders <span class="muted">(GT from CC4D errors vs predicted)</span></h3>
+        <div id="t2-axis"></div>
+        <div id="t2-tracks"></div>
+      </div>
+    </div>
+
+    <div id="t2-side">
+      <h3>GT reminders <span class="muted">(CC4D)</span></h3>
+      <div id="t2-gt-list"></div>
+      <h3>Predicted reminders</h3>
+      <div id="t2-pred-list"></div>
+    </div>
+  </section>
 
   <div id="tooltip"></div>
   <script src="app.js"></script>

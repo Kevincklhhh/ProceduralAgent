@@ -1,0 +1,52 @@
+{
+ "recording": "5_42",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 62,
+   "start_s": 0.0,
+   "end_s": 110.0
+  },
+  {
+   "stage": 65,
+   "start_s": 110.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": 67,
+   "start_s": 160.0,
+   "end_s": 676.5
+  }
+ ],
+ "events": [
+  {
+   "t": 45.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently handling a bag of coffee beans and a scale, but the instruction requires you to fold a paper filter. Please locate the paper filter to begin the task.",
+   "step_id": 62
+  },
+  {
+   "t": 170.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are not following the instruction to grind the coffee beans. Instead of using a coffee grinder, you are currently handling dough in a bowl.",
+   "step_id": 67
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 155,
+  "frames_sent": 675,
+  "vlm_latency_total_s": 219.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 243.8
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "recording": "29_49",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 342,
+   "start_s": 0.0,
+   "end_s": 175.0
+  },
+  {
+   "stage": 343,
+   "start_s": 175.0,
+   "end_s": 750.0
+  },
+  {
+   "stage": 344,
+   "start_s": 750.0,
+   "end_s": 776.1
+  }
+ ],
+ "events": [
+  {
+   "t": 15.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a plate instead of a bowl.",
+   "step_id": 342
+  },
+  {
+   "t": 225.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. The measuring spoon you are using is wet, which can cause the salt to clump and lead to inaccurate measurement. Please use a clean, dry spoon.",
+   "step_id": 343
+  },
+  {
+   "t": 755.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently adding salt to a bowl, but the instruction requires you to slice a baguette. You are using the wrong tool and ingredient for this step.",
+   "step_id": 344
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 169,
+  "frames_sent": 775,
+  "vlm_latency_total_s": 235.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 264.1
+ }
+}

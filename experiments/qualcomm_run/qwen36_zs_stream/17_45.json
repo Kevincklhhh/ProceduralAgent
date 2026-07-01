@@ -1,0 +1,40 @@
+{
+ "recording": "17_45",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 183,
+   "start_s": 0.0,
+   "end_s": 715.0
+  },
+  {
+   "stage": 181,
+   "start_s": 715.0,
+   "end_s": 774.6
+  }
+ ],
+ "events": [
+  {
+   "t": 15.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently taking a cucumber out of the refrigerator, but the instruction requires you to whisk 1 cup of chilled curd in a mixing bowl. Please switch to using plain curd and a whisk.",
+   "step_id": 183
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 168,
+  "frames_sent": 770,
+  "vlm_latency_total_s": 227.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 259.3
+ }
+}

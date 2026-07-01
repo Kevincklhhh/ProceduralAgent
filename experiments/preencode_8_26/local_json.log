@@ -1,0 +1,26 @@
+Loading weights:   0%|          | 0/1584 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1584 [00:00<06:15,  4.22it/s]Loading weights:   0%|          | 2/1584 [00:00<07:18,  3.61it/s]Loading weights:   2%|▏         | 38/1584 [00:00<00:17, 86.21it/s]Loading weights:   4%|▍         | 68/1584 [00:00<00:11, 133.30it/s]Loading weights:   6%|▋         | 100/1584 [00:00<00:08, 180.61it/s]Loading weights:   8%|▊         | 133/1584 [00:00<00:06, 210.53it/s]Loading weights:  10%|█         | 159/1584 [00:01<00:06, 222.59it/s]Loading weights:  12%|█▏        | 192/1584 [00:01<00:05, 239.24it/s]Loading weights:  14%|█▍        | 219/1584 [00:01<00:05, 236.78it/s]Loading weights:  16%|█▌        | 248/1584 [00:01<00:05, 250.31it/s]Loading weights:  18%|█▊        | 283/1584 [00:01<00:04, 274.85it/s]Loading weights:  20%|█▉        | 312/1584 [00:01<00:04, 270.71it/s]Loading weights:  22%|██▏       | 350/1584 [00:01<00:04, 297.51it/s]Loading weights:  24%|██▍       | 386/1584 [00:01<00:03, 314.45it/s]Loading weights:  27%|██▋       | 430/1584 [00:01<00:03, 340.10it/s]Loading weights:  30%|███       | 476/1584 [00:02<00:03, 367.75it/s]Loading weights:  33%|███▎      | 517/1584 [00:02<00:02, 377.77it/s]Loading weights:  35%|███▌      | 555/1584 [00:02<00:02, 375.89it/s]Loading weights:  37%|███▋      | 593/1584 [00:02<00:02, 374.00it/s]Loading weights:  40%|███▉      | 631/1584 [00:02<00:02, 338.59it/s]Loading weights:  42%|████▏     | 666/1584 [00:02<00:02, 313.62it/s]Loading weights:  44%|████▍     | 699/1584 [00:02<00:03, 293.05it/s]Loading weights:  47%|████▋     | 737/1584 [00:02<00:02, 304.72it/s]Loading weights:  48%|████▊     | 768/1584 [00:03<00:02, 277.58it/s]Loading weights:  51%|█████     | 808/1584 [00:03<00:02, 307.19it/s]Loading weights:  53%|█████▎    | 840/1584 [00:03<00:02, 296.50it/s]Loading weights:  55%|█████▌    | 874/1584 [00:03<00:02, 307.76it/s]Loading weights:  57%|█████▋    | 906/1584 [00:03<00:02, 306.81it/s]Loading weights:  59%|█████▉    | 938/1584 [00:03<00:02, 278.39it/s]Loading weights:  61%|██████    | 970/1584 [00:03<00:02, 284.51it/s]Loading weights:  63%|██████▎   | 1000/1584 [00:03<00:02, 275.41it/s]Loading weights:  65%|██████▌   | 1032/1584 [00:03<00:01, 277.65it/s]Loading weights:  67%|██████▋   | 1065/1584 [00:04<00:01, 287.70it/s]Loading weights:  69%|██████▉   | 1095/1584 [00:04<00:01, 278.66it/s]Loading weights:  71%|███████▏  | 1132/1584 [00:04<00:01, 298.56it/s]Loading weights:  73%|███████▎  | 1164/1584 [00:04<00:01, 304.27it/s]Loading weights:  76%|███████▌  | 1206/1584 [00:04<00:01, 330.95it/s]Loading weights:  78%|███████▊  | 1240/1584 [00:04<00:01, 322.38it/s]Loading weights:  93%|█████████▎| 1481/1584 [00:04<00:00, 910.74it/s]Loading weights: 100%|██████████| 1584/1584 [00:04<00:00, 335.83it/s]
+[resolve] visual: Qwen3_5VisionModel | lm: Qwen3_5TextModel | get_rope: yes
+[ids] </think>=248069
+
+Fetching ... files: 0it [00:00, ?it/s]Fetching ... files: 9it [00:00, 18988.30it/s]
+=== A think=ON  yes/no ===
+   gen_tokens=600 think_closed=False think_len=None
+   first40='The user wants me to check if the person in the video added exactly 2 pieces of chocolate to the mug, as per the recipe step.\n\n1.  **Analyze the video:**\n'
+   ANSWER='(no </think> within cap)'
+
+=== B think=OFF yes/no ===
+   gen_tokens=1 think_closed=False think_len=None
+   first40='No'
+   ANSWER='(no </think> within cap)'
+
+=== C think=ON  JSON   ===
+   gen_tokens=600 think_closed=False think_len=None
+   first40='The user wants me to check if the person in the video added exactly 2 pieces of chocolate to the mug.\n\n1.  **Analyze the video:**\n    *   The video starts'
+   ANSWER='(no </think> within cap)'
+
+=== D think=OFF JSON   ===
+   gen_tokens=8 think_closed=False think_len=None
+   first40='{"is_mistake": false}'
+   ANSWER='(no </think> within cap)'
+
+[done]

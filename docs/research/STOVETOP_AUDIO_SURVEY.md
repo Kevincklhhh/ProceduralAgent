@@ -162,3 +162,36 @@ igniters are broadband clicks, many stoves electric — not tonal); **A3 transie
 low-latency trigger ~60 % of the time; the missed ~40 % + confirmation go to the VLM. Net
 stovetop stack: **START = sizzle-onset rising-edge → VLM-confirm; END = AL (~8 s); sustained
 A4 only for "cooking ongoing" gating.** C-none (pancakes/caprese) onset unreliable for all cues.
+
+## Why DSP sizzle is poor-specificity, and how A4→A4-gated-by-AL got there (root cause)
+
+Frying is **broadband noise-like** sound; so are handling produce, adding water to a bowl,
+whisking, peeling, pouring. The 1.5–7 kHz-elevation + flatness gate cannot separate them — the
+**opposite** of the microwave hum (A1), which is reliable *because* it is a narrow tonal mains
+line unique to one appliance. So v1 instantaneous-spectrum A4 was 0.94 recall / **0.55** false-prep;
+switching to a **rolling-median sustained-level** gate (persistence, per EPIC-SOUNDS: sizzle is a
+long-form background class) gave 0.88 / **0.19** (3× specificity). The residual false-prep is
+irreducible (whisk, produce-handling are themselves sustained+broadband); EPIC-SOUNDS confirms it
+(human audio-only recognition 20.8 %), and the clean separation only comes from **fusion with a
+learned tagger** (AL) — which is how `A4_gated_by_AL` (above) was reached.
+
+## The full cheap-audio transition reach map (frontier probes v11–v12, 2026-06-15)
+
+Beyond stovetop cook, two more transition classes were probed (`appliance_water_eval.py`,
+`water_cnn_eval.py`) to answer "have we exhausted audio?":
+
+| Transition class | Verdict | Evidence |
+|---|---|---|
+| **Appliance on/off** (microwave, blender, grinder) | **A-solve**, recipe-gated | blender 1.00 (Pancakes/Chutney), grinder 0.93 (Coffee); ungated 3–7 false runs/rec |
+| **Cook-END** (sizzle-end via AL) | **A-solve** | offset latency ~2–21 s |
+| **Cook-START** (sizzle rising-edge) | **B-trigger** | ~6–11 s latency but fires ±15 s only ~60 % |
+| **Kettle boil** | **B-trigger** | 0.80, +53 s onset (gentle broadband ramp, no edge) |
+| **Water / tap** | detectable, **needs gating** | DSP 9–14 runs/rec; CNN ~halves it (free if AL runs), still 2–7/rec |
+| **Silent transfers (~48 % of steps), gentle/dry cook, fine technique, identity/qty** | **hard-impossible** (won't move) | inaudible to DSP *and* SOTA audio → RGB/VLM |
+
+**Governing rule (durable).** The cheap-audio sustained-cook anchor is **A-solve when cooking is
+acoustically louder+more-sustained than prep** (contrast ≳ +15 dB, e.g. Pan Fried Tofu),
+**B-trigger at mid contrast** (+9..+12 dB or loud-fry-noisy-prep), and **useless when cook ≤ prep**
+(gentle/dry cooking — target a different loud event like the blender, recipe-gated, or fall back to
+RGB/VLM). Remaining audio gains are **precision/gating, not new reach**. (Migrated here from the
+`sizzle-not-specific-stovetop` probe memory, 2026-06-28.)

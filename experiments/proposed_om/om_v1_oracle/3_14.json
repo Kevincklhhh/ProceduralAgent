@@ -1,0 +1,91 @@
+{
+ "recording": "3_14",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 4.2,
+   "end_s": 19.4
+  },
+  {
+   "stage": 40,
+   "start_s": 19.4,
+   "end_s": 83.4
+  },
+  {
+   "stage": 35,
+   "start_s": 83.4,
+   "end_s": 98.3
+  },
+  {
+   "stage": 28,
+   "start_s": 103.3,
+   "end_s": 115.5
+  },
+  {
+   "stage": 33,
+   "start_s": 117.3,
+   "end_s": 160.6
+  },
+  {
+   "stage": 38,
+   "start_s": 173.2,
+   "end_s": 194.6
+  },
+  {
+   "stage": 34,
+   "start_s": 197.0,
+   "end_s": 224.8
+  },
+  {
+   "stage": 41,
+   "start_s": 229.9,
+   "end_s": 276.1
+  },
+  {
+   "stage": 30,
+   "start_s": 281.3,
+   "end_s": 334.3
+  },
+  {
+   "stage": 31,
+   "start_s": 334.3,
+   "end_s": 344.5
+  },
+  {
+   "stage": 39,
+   "start_s": 371.8,
+   "end_s": 427.0
+  },
+  {
+   "stage": 29,
+   "start_s": 435.5,
+   "end_s": 451.2
+  },
+  {
+   "stage": 32,
+   "start_s": 452.2,
+   "end_s": 598.7
+  }
+ ],
+ "events": [
+  {
+   "t": 281.3,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 30,
+   "message": "You skipped Mix the contents of the mug thoroughly. (There might be some lumps, but that is ok.); it is needed before Take 1 tablespoon of marinara sauce."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

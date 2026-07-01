@@ -1,0 +1,40 @@
+[load] ckpt: /data/kailaic/hf_cache/models--Qwen--Qwen3.5-27B-FP8/snapshots/97f5941bf617e31c5e237364a8602ce3f03a551a attn: sdpa max_pixels: 100352
+Loading weights:   0%|          | 0/1584 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1584 [00:00<07:14,  3.65it/s]Loading weights:   0%|          | 2/1584 [00:00<09:05,  2.90it/s]Loading weights:   2%|▏         | 36/1584 [00:00<00:22, 68.38it/s]Loading weights:   4%|▎         | 59/1584 [00:00<00:15, 98.71it/s]Loading weights:   5%|▌         | 87/1584 [00:01<00:10, 138.31it/s]Loading weights:   7%|▋         | 114/1584 [00:01<00:08, 165.59it/s]Loading weights:   9%|▊         | 138/1584 [00:01<00:08, 177.84it/s]Loading weights:  11%|█         | 174/1584 [00:01<00:06, 220.34it/s]Loading weights:  13%|█▎        | 203/1584 [00:01<00:05, 231.31it/s]Loading weights:  14%|█▍        | 229/1584 [00:01<00:05, 226.06it/s]Loading weights:  17%|█▋        | 269/1584 [00:01<00:04, 267.56it/s]Loading weights:  19%|█▉        | 298/1584 [00:01<00:05, 247.62it/s]Loading weights:  21%|██        | 332/1584 [00:01<00:04, 263.59it/s]Loading weights:  23%|██▎       | 368/1584 [00:02<00:04, 278.86it/s]Loading weights:  25%|██▌       | 397/1584 [00:02<00:04, 271.82it/s]Loading weights:  27%|██▋       | 427/1584 [00:02<00:04, 276.39it/s]Loading weights:  29%|██▉       | 456/1584 [00:02<00:04, 270.93it/s]Loading weights:  31%|███       | 488/1584 [00:02<00:03, 278.68it/s]Loading weights:  33%|███▎      | 524/1584 [00:02<00:03, 295.79it/s]Loading weights:  35%|███▍      | 554/1584 [00:02<00:03, 279.11it/s]Loading weights:  37%|███▋      | 583/1584 [00:02<00:03, 277.08it/s]Loading weights:  39%|███▊      | 611/1584 [00:02<00:04, 230.58it/s]Loading weights:  41%|████      | 642/1584 [00:03<00:03, 243.11it/s]Loading weights:  42%|████▏     | 668/1584 [00:03<00:03, 234.38it/s]Loading weights:  44%|████▍     | 693/1584 [00:03<00:04, 205.28it/s]Loading weights:  46%|████▌     | 722/1584 [00:03<00:03, 219.42it/s]Loading weights:  47%|████▋     | 750/1584 [00:03<00:03, 233.56it/s]Loading weights:  49%|████▉     | 775/1584 [00:03<00:03, 216.73it/s]Loading weights:  51%|█████     | 800/1584 [00:03<00:03, 217.57it/s]Loading weights:  52%|█████▏    | 831/1584 [00:03<00:03, 237.77it/s]Loading weights:  54%|█████▍    | 856/1584 [00:04<00:03, 219.37it/s]Loading weights:  55%|█████▌    | 879/1584 [00:04<00:03, 221.27it/s]Loading weights:  57%|█████▋    | 908/1584 [00:04<00:02, 236.10it/s]Loading weights:  59%|█████▉    | 933/1584 [00:04<00:02, 220.73it/s]Loading weights:  61%|██████    | 965/1584 [00:04<00:02, 241.18it/s]Loading weights:  62%|██████▎   | 990/1584 [00:04<00:02, 225.09it/s]Loading weights:  64%|██████▍   | 1013/1584 [00:04<00:02, 212.51it/s]Loading weights:  66%|██████▌   | 1042/1584 [00:04<00:02, 227.16it/s]Loading weights:  67%|██████▋   | 1068/1584 [00:05<00:02, 233.99it/s]Loading weights:  69%|██████▉   | 1092/1584 [00:05<00:02, 209.96it/s]Loading weights:  71%|███████   | 1122/1584 [00:05<00:02, 229.29it/s]Loading weights:  72%|███████▏  | 1147/1584 [00:05<00:01, 228.11it/s]Loading weights:  74%|███████▍  | 1171/1584 [00:05<00:01, 218.15it/s]Loading weights:  76%|███████▌  | 1198/1584 [00:05<00:01, 230.95it/s]Loading weights:  77%|███████▋  | 1223/1584 [00:05<00:01, 235.51it/s]Loading weights:  79%|███████▊  | 1247/1584 [00:05<00:01, 213.24it/s]Loading weights:  89%|████████▉ | 1407/1584 [00:05<00:00, 581.89it/s]Loading weights:  97%|█████████▋| 1540/1584 [00:06<00:00, 787.26it/s]Loading weights: 100%|██████████| 1584/1584 [00:06<00:00, 260.45it/s]
+[load] done in 25.0s; dtype sample: torch.bfloat16 | device map spread: ['cuda:0']
+[resolve] visual: Qwen3_5VisionModel | lm: Qwen3_5TextModel | get_rope: yes
+
+===== window short (201.2, 206.2, 5) =====
+Fetching ... files: 0it [00:00, ?it/s]Fetching ... files: 9it [00:00, 8940.96it/s]
+[pre short] L=1176 k=1139 img_tokens=1100 decode=177ms prep=341ms vit=360ms merge=1ms prefill=11706ms
+[equiv short] native='The'(760)  manualfull==native:True  cached==native:True  cached==manualfull:True  pairs=[(760, 760), (760, 760), (760, 760), (760, 760), (760, 760)]
+[short arm A] trig median=766.9ms p90=872.6 p95=877.4  tok='The'
+[short arm B] trig median=566.9ms p90=574.0 p95=574.2  tok='The'
+[short arm C] trig median=516.6ms p90=517.7 p95=518.3  tok='The'
+[short arm D] trig median=133.1ms p90=148.6 p95=148.7  tok='The'
+
+===== window medium (196.2, 206.2, 10) =====
+[pre medium] L=2286 k=2249 img_tokens=2200 decode=314ms prep=71ms vit=101ms merge=0ms prefill=9550ms
+[equiv medium] native='The'(760)  manualfull==native:True  cached==native:True  cached==manualfull:True  pairs=[(760, 760), (760, 760), (760, 760), (760, 760), (760, 760)]
+[medium arm A] trig median=1459.2ms p90=1508.6 p95=1521.0  tok='The'
+[medium arm B] trig median=1081.6ms p90=1086.0 p95=1086.1  tok='The'
+[medium arm C] trig median=971.3ms p90=973.3 p95=973.4  tok='The'
+[medium arm D] trig median=132.6ms p90=133.0 p95=134.1  tok='The'
+
+===== window long (186.2, 206.2, 20) =====
+[pre long] L=4506 k=4469 img_tokens=4400 decode=457ms prep=127ms vit=219ms merge=1ms prefill=10607ms
+[equiv long] native='The'(760)  manualfull==native:True  cached==native:True  cached==manualfull:True  pairs=[(760, 760), (760, 760), (760, 760), (760, 760), (760, 760)]
+[long arm A] trig median=2809.8ms p90=2891.2 p95=2905.1  tok='The'
+[long arm B] trig median=2236.3ms p90=2245.8 p95=2247.2  tok='The'
+[long arm C] trig median=1989.3ms p90=2004.9 p95=2006.5  tok='The'
+[long arm D] trig median=133.1ms p90=133.4 p95=133.4  tok='The'
+
+===== negative cache-control (long) =====
+[neg-control] baseline='The' stale-cache='The' fresh-cache='The' differ=False
+
+[done] wrote runs.jsonl + summary.json to /home/kailaic/NeuroTrace/ProceduralAgent/experiments/preencode_8_26
+
+==== TRIGGER LATENCY (median ms) ====
+window      A cold    B prep     C vit D prefill   token
+short        766.9     566.9     516.6     133.1   A='The' D='The'
+medium      1459.2    1081.6     971.3     132.6   A='The' D='The'
+long        2809.8    2236.3    1989.3     133.1   A='The' D='The'

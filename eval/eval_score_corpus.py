@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """BOX 2 — corpus referee. Scores predicted reminders against the Box-1 truth table
-(`data/cc4d_family_a/`) over the full CC4D Family A corpus. See docs/REMINDER_EVALUATION.md.
+(`data/cc4d_proactive/`) over the full CC4D Family A corpus. See docs/REMINDER_EVALUATION.md.
 
 This is the generalization of the activity-8 pilot `eval/eval_score_activity8.py` to all 384 recordings.
 The pilot stays as-is (it is welded to the replay-arm files + REPORT in experiments/replay_v1).
@@ -27,13 +27,14 @@ With no --results-dir, two GT-DERIVED reference arms run (clearly non-deployable
   silent  - emits nothing                                             => R=0, silence correct
 
 Usage:  python eval/eval_score_corpus.py [--results-dir DIR --arms a,b] [--only 8_45] [--no-write]
-Outputs: data/cc4d_family_a/_scores_corpus.json  (+ stdout summary)
+Outputs: data/cc4d_proactive/_scores_corpus.json  (+ stdout summary)
 """
 import json, os, math, glob, argparse
 from collections import defaultdict, Counter
 
 BASE = os.path.join(os.path.dirname(__file__), '..')
-GT_DIR = os.path.join(BASE, 'data', 'cc4d_family_a')
+GT_DIR = os.path.join(BASE, 'data', 'cc4d_proactive')           # execution mistakes
+OM_DIR = os.path.join(BASE, 'data', 'cc4d_proactive_om')        # order + missing_step
 ANN = os.path.join(BASE, 'data', 'cc4d', 'annotations', 'annotation_json')
 GRACE = 15.0                                   # FA-2 interrupt tolerance; default radius unit
 
@@ -49,15 +50,65 @@ def ckey(e):
 
 
 # ---------------------------------------------------------------- loading
-def load_gt(only=None):
+# GT reminders are POINT timestamps (`t`, no window) in two dirs: execution mistakes
+# (cc4d_proactive) and order/missing (cc4d_proactive_om). We give each a zero-width
+# window [t, t] so the tolerance-based matcher (match_class: s-tol <= pred <= e+tol) works
+# unchanged -> exact-point at tol=0, +/-tol otherwise. cls is synthesized per subtype.
+def _exec_events(reminders):
+    out = []
+    for r in reminders:
+        t = r['t']
+        out.append({'t': t, 'cls': 'parameter_violation' if r.get('subtype') == 'timing'
+                    else 'execution_error', 'subtype': r.get('subtype'),
+                    'window': [t, t], 'anchor': r.get('anchor_step'),
+                    'id': r.get('id'), 'source': r.get('source')})
+    return out
+
+
+def _om_events(reminders):
+    out = []
+    for r in reminders:                              # all om order reminders are DAG violations
+        t = r['t']; sub = r.get('subtype')
+        out.append({'t': t, 'cls': 'precondition_violation', 'subtype': sub,
+                    'window': [t, t], 'dag_edge_violation': True if sub == 'order' else None,
+                    'anchor': r.get('anchor_step'),
+                    'id': r.get('id'), 'source': r.get('source')})
+    return out
+
+
+def split_rids(split):
+    """Recording ids belonging to a qualcomm-timeline split ('test'/'validation'/'train')."""
+    tl = json.load(open(os.path.join(BASE, 'data', 'qualcomm_interactive_cooking',
+                                     'qualcomm_timeline.json')))
+    return {v for v, d in tl.items() if d.get('split') == split}
+
+
+def load_gt(only=None, rids=None):
     gt = {}
-    for f in sorted(glob.glob(os.path.join(GT_DIR, '*.json'))):
+    for f in sorted(glob.glob(os.path.join(GT_DIR, '*.json'))):     # base: execution + all recordings
         if os.path.basename(f).startswith('_'):
             continue
         d = json.load(open(f))
-        if only and d['recording_id'] != only:
+        rid = d['recording_id']
+        if only and rid != only:
             continue
-        gt[d['recording_id']] = d
+        if rids is not None and rid not in rids:
+            continue
+        gt[rid] = {'recording_id': rid, 'duration_s': d.get('duration_s', 0),
+                   'is_error': d.get('is_error', False), 'events': _exec_events(d.get('reminders', []))}
+    for f in sorted(glob.glob(os.path.join(OM_DIR, '*.json'))):     # overlay: order + missing
+        if os.path.basename(f).startswith('_'):
+            continue
+        d = json.load(open(f))
+        rid = d['recording_id']
+        if only and rid != only:
+            continue
+        if rids is not None and rid not in rids:
+            continue
+        if rid not in gt:
+            gt[rid] = {'recording_id': rid, 'duration_s': d.get('duration_s', 0),
+                       'is_error': True, 'events': []}
+        gt[rid]['events'].extend(_om_events(d.get('reminders', [])))
     return gt
 
 
@@ -111,11 +162,51 @@ def match_class(gt_windows, pred_ts, tol):
     return tp_tags, n_fp, fn_tags
 
 
+def match_class_item(gt_windows, preds, tol):
+    """Identification match (route 3): a pred is a TP only if it is the SAME menu item as a GT
+    reminder -- same anchor step AND same subtype (subtype is unique per step, verified) AND
+    within tolerance. gt_windows: [(s, e, anchor, tag)]; preds: [(t, step_id)].
+    A pred with step_id is None (arm gave no location) can never item-match -> always FP.
+    Returns (tp_tags, n_fp, fn_tags)."""
+    plist = sorted((t, sid, j) for j, (t, sid) in enumerate(preds))
+    used = set()
+    tp_tags, matched = [], set()
+    for gi in sorted(range(len(gt_windows)), key=lambda i: (gt_windows[i][1], gt_windows[i][0])):
+        s, e, anchor, tag = gt_windows[gi]
+        for t, sid, pj in plist:
+            if pj in used:
+                continue
+            if sid is not None and sid == anchor and s - tol <= t <= e + tol:
+                used.add(pj); matched.add(gi); tp_tags.append(tag); break
+    n_fp = len(preds) - len(used)
+    fn_tags = [w[3] for i, w in enumerate(gt_windows) if i not in matched]
+    return tp_tags, n_fp, fn_tags
+
+
 def prf(tp, fp, fn):
     p = tp / (tp + fp) if (tp + fp) else None
     r = tp / (tp + fn) if (tp + fn) else None
     f = (2 * p * r / (p + r)) if (p and r) else (0.0 if (tp + fp + fn) else None)
     return {'TP': tp, 'FP': fp, 'FN': fn, 'precision': p, 'recall': r, 'f1': f}
+
+
+def score_fa1_item(gt, arm_res, tol):
+    """Route-3 identification scoring: TP requires same menu item (anchor step + subtype) AND
+    timing. Strictly stronger than score_fa1 (which is timing + subtype, pooled over steps)."""
+    per_class = {}
+    for ck in SCORED_CLASSES:
+        tp = fp = fn = 0
+        for rid, g in gt.items():
+            gw = [(e['window'][0], e['window'][1], e.get('anchor'), e.get('dag_edge_violation'))
+                  for e in g['events'] if e.get('window') and ckey(e) == ck]
+            preds = [(e['t'], e.get('step_id')) for e in arm_res[rid]['events'] if ckey(e) == ck]
+            tpt, nfp, fnt = match_class_item(gw, preds, tol)
+            tp += len(tpt); fp += nfp; fn += len(fnt)
+        per_class[ck] = prf(tp, fp, fn)
+    tot = prf(sum(c['TP'] for c in per_class.values()),
+              sum(c['FP'] for c in per_class.values()),
+              sum(c['FN'] for c in per_class.values()))
+    return {'per_class': per_class, 'pooled': tot}
 
 
 def score_fa1(gt, arm_res, tol):
@@ -146,11 +237,15 @@ def score_fa1(gt, arm_res, tol):
 
 
 # ---------------------------------------------------------------- FA-2
+# RETIRED scheme (decision-point interrupt-vs-silent). The cc4d_proactive GT is pure
+# event-detection (no decision_points), so this returns None unless legacy GT is present.
 def score_fa2(gt, arm_res, tol):
+    if not any('decision_points' in g for g in gt.values()):
+        return None
     cm = Counter()                              # confusion over decision points
     for rid, g in gt.items():
         ptimes = [e['t'] for e in arm_res[rid]['events']]
-        for dp in g['decision_points']:
+        for dp in g.get('decision_points', []):
             pred_interrupt = any(abs(pt - dp['t']) <= tol for pt in ptimes)
             gt_interrupt = (dp['label'] == 'interrupt')
             cm[(gt_interrupt, pred_interrupt)] += 1
@@ -226,10 +321,19 @@ def main():
     ap.add_argument('--results-dir')
     ap.add_argument('--arms', help='comma-separated arm names under --results-dir')
     ap.add_argument('--only')
+    ap.add_argument('--split', help="restrict scoring to a qualcomm-timeline split (e.g. test)")
+    ap.add_argument('--rids-file', help="JSON {'rids':[...]} or [...]; restrict scoring to these")
     ap.add_argument('--no-write', action='store_true')
     args = ap.parse_args()
 
-    gt = load_gt(args.only)
+    rids = None
+    if args.split:
+        rids = split_rids(args.split)
+    if args.rids_file:
+        d = json.load(open(args.rids_file))
+        fset = set(d['rids'] if isinstance(d, dict) else d)
+        rids = fset if rids is None else (rids & fset)
+    gt = load_gt(args.only, rids=rids)
     steps_by_rec = load_steps()
 
     if args.results_dir:
@@ -250,6 +354,8 @@ def main():
             'fa1_membership': score_fa1(gt, ar, 0.0),
             'fa1_pm15s': score_fa1(gt, ar, 15.0),
             'fa1_pm30s': score_fa1(gt, ar, 30.0),
+            'fa1_item_pm15s': score_fa1_item(gt, ar, 15.0),     # route 3: same-item identification
+            'fa1_item_pm30s': score_fa1_item(gt, ar, 30.0),
             'fa2_gmean': score_fa2(gt, ar, GRACE),
             'stage': stage_acc(gt, ar, steps_by_rec),
             'cost': score_cost(gt, ar)}
@@ -263,13 +369,18 @@ def main():
     for a in arms:
         s = scores['arms'][a]
         p = s['fa1_membership']['pooled']
+        fa2 = f"  | FA-2 G-Mean={round(s['fa2_gmean']['gmean_f1'],3)}" if s['fa2_gmean'] else ""
         print(f"\n[{a}] FA-1 membership pooled  P={p['precision']} R={p['recall']} F1={p['f1']}"
-              f"  | FA-2 G-Mean={round(s['fa2_gmean']['gmean_f1'],3)}"
+              f"{fa2}"
               f"  | stage acc={round(s['stage']['accuracy'],3) if s['stage']['accuracy'] is not None else None}")
+        pi = s['fa1_item_pm15s']['pooled']
+        print(f"     route3 same-item (±15s) pooled  P={_f(pi['precision'])} "
+              f"R={_f(pi['recall'])} F1={_f(pi['f1'])}  (vs timing+type F1={_f(s['fa1_pm15s']['pooled']['f1'])})")
         for ck in SCORED_CLASSES:
-            c = s['fa1_membership']['per_class'][ck]
-            print(f"     {ck:38s} TP={c['TP']:4d} FP={c['FP']:4d} FN={c['FN']:4d} "
-                  f"P={_f(c['precision'])} R={_f(c['recall'])} F1={_f(c['f1'])}")
+            c = s['fa1_pm15s']['per_class'][ck]
+            ci = s['fa1_item_pm15s']['per_class'][ck]
+            print(f"     {ck:38s} timing+type F1={_f(c['f1'])} | same-item TP={ci['TP']:3d} "
+                  f"FP={ci['FP']:4d} FN={ci['FN']:3d} P={_f(ci['precision'])} R={_f(ci['recall'])} F1={_f(ci['f1'])}")
         od = s['fa1_membership']['order_dag_breakdown']
         print(f"     order recall by detectability: dag-edge={_f(od['recall_dag_edge'])} "
               f"non-dag-edge={_f(od['recall_non_dag_edge'])}")

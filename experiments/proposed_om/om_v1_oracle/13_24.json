@@ -1,0 +1,81 @@
+{
+ "recording": "13_24",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 129,
+   "start_s": 56.8,
+   "end_s": 79.7
+  },
+  {
+   "stage": 137,
+   "start_s": 125.4,
+   "end_s": 169.8
+  },
+  {
+   "stage": 132,
+   "start_s": 176.7,
+   "end_s": 196.8
+  },
+  {
+   "stage": 133,
+   "start_s": 208.6,
+   "end_s": 338.4
+  },
+  {
+   "stage": 130,
+   "start_s": 368.7,
+   "end_s": 385.9
+  },
+  {
+   "stage": 138,
+   "start_s": 388.8,
+   "end_s": 419.9
+  },
+  {
+   "stage": 135,
+   "start_s": 433.0,
+   "end_s": 448.7
+  },
+  {
+   "stage": 131,
+   "start_s": 456.0,
+   "end_s": 477.0
+  },
+  {
+   "stage": 128,
+   "start_s": 467.8,
+   "end_s": 477.5
+  },
+  {
+   "stage": 136,
+   "start_s": 522.5,
+   "end_s": 540.5
+  },
+  {
+   "stage": 76,
+   "start_s": 544.7,
+   "end_s": 562.9
+  }
+ ],
+ "events": [
+  {
+   "t": 467.8,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 128,
+   "message": "You skipped Microwave the corn for 3 more minutes; it is needed before add lime juice to the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

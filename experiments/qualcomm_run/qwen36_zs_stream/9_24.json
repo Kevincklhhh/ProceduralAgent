@@ -1,0 +1,76 @@
+{
+ "recording": "9_24",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 94,
+   "start_s": 0.0,
+   "end_s": 140.0
+  },
+  {
+   "stage": 98,
+   "start_s": 140.0,
+   "end_s": 190.0
+  },
+  {
+   "stage": 99,
+   "start_s": 190.0,
+   "end_s": 285.0
+  },
+  {
+   "stage": 101,
+   "start_s": 285.0,
+   "end_s": 355.0
+  },
+  {
+   "stage": 95,
+   "start_s": 355.0,
+   "end_s": 731.3
+  }
+ ],
+ "events": [
+  {
+   "t": 5.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a bowl instead of a large mug to melt the butter.",
+   "step_id": 94
+  },
+  {
+   "t": 145.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently interacting with the microwave, but the instruction requires you to roll the butter around inside the mug to coat the sides. Please focus on coating the mug interior rather than using the appliance.",
+   "step_id": 98
+  },
+  {
+   "t": 220.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using English muffins instead of regular sliced bread.",
+   "step_id": 99
+  },
+  {
+   "t": 700.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently using a knife to cut the food item, but the instruction is to sprinkle cinnamon over the egg. Please stop cutting and proceed with sprinkling the cinnamon.",
+   "step_id": 95
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 236,
+  "frames_sent": 730,
+  "vlm_latency_total_s": 364.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 394.9
+ }
+}

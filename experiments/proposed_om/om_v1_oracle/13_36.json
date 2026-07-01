@@ -1,0 +1,71 @@
+{
+ "recording": "13_36",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 129,
+   "start_s": 136.6,
+   "end_s": 166.1
+  },
+  {
+   "stage": 137,
+   "start_s": 188.6,
+   "end_s": 225.9
+  },
+  {
+   "stage": 132,
+   "start_s": 252.1,
+   "end_s": 257.5
+  },
+  {
+   "stage": 133,
+   "start_s": 264.2,
+   "end_s": 500.6
+  },
+  {
+   "stage": 130,
+   "start_s": 563.3,
+   "end_s": 580.6
+  },
+  {
+   "stage": 138,
+   "start_s": 588.3,
+   "end_s": 598.9
+  },
+  {
+   "stage": 128,
+   "start_s": 619.8,
+   "end_s": 626.7
+  },
+  {
+   "stage": 136,
+   "start_s": 646.7,
+   "end_s": 653.0
+  },
+  {
+   "stage": 76,
+   "start_s": 674.5,
+   "end_s": 703.0
+  }
+ ],
+ "events": [
+  {
+   "t": 619.8,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 128,
+   "message": "You skipped Extract lime juice from 1/3 lime, Microwave the corn for 3 more minutes, and stir-then stir the bowl; they are needed before add lime juice to the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

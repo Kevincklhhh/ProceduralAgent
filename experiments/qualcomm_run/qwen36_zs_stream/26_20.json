@@ -1,0 +1,47 @@
+{
+ "recording": "26_20",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 297,
+   "start_s": 0.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": 299,
+   "start_s": 100.0,
+   "end_s": 1062.6
+  }
+ ],
+ "events": [
+  {
+   "t": 10.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are adding the sugar to a mug instead of the mixing bowl.",
+   "step_id": 297
+  },
+  {
+   "t": 290.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a teaspoon instead of a tablespoon to measure the flour.",
+   "step_id": 299
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 252,
+  "frames_sent": 1060,
+  "vlm_latency_total_s": 346.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 380.2
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "recording": "8_45",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 0.0,
+   "end_s": 30.0
+  },
+  {
+   "stage": 89,
+   "start_s": 30.0,
+   "end_s": 290.0
+  },
+  {
+   "stage": 84,
+   "start_s": 290.0,
+   "end_s": 376.2
+  }
+ ],
+ "events": [
+  {
+   "t": 265.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You have set the microwave to a reduced power level (PL 5) instead of the full power required by the instructions.",
+   "step_id": 89
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 144,
+  "frames_sent": 375,
+  "vlm_latency_total_s": 224.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 244.3
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "recording": "7_135",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 0.0,
+   "end_s": 45.0
+  },
+  {
+   "stage": 72,
+   "start_s": 45.0,
+   "end_s": 85.0
+  },
+  {
+   "stage": 73,
+   "start_s": 85.0,
+   "end_s": 928.9
+  }
+ ],
+ "events": [
+  {
+   "t": 50.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently cracking the egg into the bowl, which is a preparation step. The instruction is to whisk the egg, so you have not yet started the required action.",
+   "step_id": 72
+  },
+  {
+   "t": 195.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a mug instead of a bowl, which is not recommended for this recipe.",
+   "step_id": 73
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 216,
+  "frames_sent": 925,
+  "vlm_latency_total_s": 297.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 332.6
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "recording": "12_48",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 125,
+   "start_s": 0.0,
+   "end_s": 300.6
+  }
+ ],
+ "events": [
+  {
+   "t": 115.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You are currently handling a container of grains and a measuring spoon, but the instruction is to rinse a tomato. Please locate a tomato and rinse it under cold or room-temperature water.",
+   "step_id": 125
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 83,
+  "frames_sent": 300,
+  "vlm_latency_total_s": 123.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 137.9
+ }
+}

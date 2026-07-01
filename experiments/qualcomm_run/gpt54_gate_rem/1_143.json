@@ -1,0 +1,257 @@
+{
+ "recording": "1_143",
+ "arm": "gpt54_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 1,
+   "start_s": 18.1,
+   "end_s": 64.2
+  },
+  {
+   "stage": 4,
+   "start_s": 80.8,
+   "end_s": 185.6
+  },
+  {
+   "stage": 11,
+   "start_s": 189.7,
+   "end_s": 226.8
+  },
+  {
+   "stage": 12,
+   "start_s": 229.6,
+   "end_s": 272.4
+  },
+  {
+   "stage": 8,
+   "start_s": 275.6,
+   "end_s": 322.3
+  },
+  {
+   "stage": 9,
+   "start_s": 326.2,
+   "end_s": 365.2
+  },
+  {
+   "stage": 5,
+   "start_s": 387.9,
+   "end_s": 459.2
+  },
+  {
+   "stage": 10,
+   "start_s": 479.3,
+   "end_s": 537.9
+  },
+  {
+   "stage": 6,
+   "start_s": 540.0,
+   "end_s": 566.0
+  },
+  {
+   "stage": 2,
+   "start_s": 567.8,
+   "end_s": 600.0
+  }
+ ],
+ "events": [
+  {
+   "t": 59.1,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for exactly 1 egg; flag a different count (e.g., 2 eggs cracked into the cup).",
+   "step_id": 1,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 146.8,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for 30 seconds; flag a noticeably different duration (observed deviations include 10 s, 15 s, 20 s, 60 s, and over 1 minute).",
+   "step_id": 4,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 261.1,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects the muffin to be cut into two even halves; flag if the cut produces more than two pieces or two clearly uneven pieces.",
+   "step_id": 12,
+   "choice": 2,
+   "raw": "2,3"
+  },
+  {
+   "t": 261.1,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe specifies exactly two pieces; flag if the muffin is cut into three or more pieces instead of two halves.",
+   "step_id": 12,
+   "choice": 3,
+   "raw": "2,3"
+  },
+  {
+   "t": 483.8,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for about 10 seconds just until the cheese melts; flag a noticeably longer run (e.g., 20 or 30 seconds or more) or stopping before the cheese fully melts.",
+   "step_id": 10,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 483.8,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires the cheese to be on the ramekin cup for this microwave step; flag if the cheese was placed in a separate bowl, causing this step to operate on the wrong vessel.",
+   "step_id": 10,
+   "choice": 2,
+   "raw": "1,2"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 59.1,
+   "kind": "mistake",
+   "step_id": 1,
+   "win_start": 29.1,
+   "win_end": 89.1,
+   "n_frames": 32,
+   "latency_s": 3.1,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 146.8,
+   "kind": "mistake",
+   "step_id": 4,
+   "win_start": 116.8,
+   "win_end": 176.8,
+   "n_frames": 32,
+   "latency_s": 2.7,
+   "fired": [
+    "timing"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 224.2,
+   "kind": "mistake",
+   "step_id": 11,
+   "win_start": 194.2,
+   "win_end": 254.2,
+   "n_frames": 32,
+   "latency_s": 3.0,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 261.1,
+   "kind": "mistake",
+   "step_id": 12,
+   "win_start": 231.1,
+   "win_end": 291.1,
+   "n_frames": 32,
+   "latency_s": 5.1,
+   "fired": [
+    "technique",
+    "measurement"
+   ],
+   "answer": "2,3"
+  },
+  {
+   "t": 423.9,
+   "kind": "mistake",
+   "step_id": 5,
+   "win_start": 393.9,
+   "win_end": 453.9,
+   "n_frames": 32,
+   "latency_s": 2.9,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 447.4,
+   "kind": "mistake",
+   "step_id": 5,
+   "win_start": 417.4,
+   "win_end": 477.4,
+   "n_frames": 32,
+   "latency_s": 3.3,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 483.8,
+   "kind": "mistake",
+   "step_id": 10,
+   "win_start": 453.8,
+   "win_end": 513.8,
+   "n_frames": 32,
+   "latency_s": 3.6,
+   "fired": [
+    "timing",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 524.3,
+   "kind": "mistake",
+   "step_id": 10,
+   "win_start": 494.3,
+   "win_end": 554.3,
+   "n_frames": 32,
+   "latency_s": 3.0,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 554.5,
+   "kind": "mistake",
+   "step_id": 6,
+   "win_start": 524.5,
+   "win_end": 584.5,
+   "n_frames": 32,
+   "latency_s": 2.6,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 566.0,
+   "kind": "mistake",
+   "step_id": 6,
+   "win_start": 536.0,
+   "win_end": 596.0,
+   "n_frames": 32,
+   "latency_s": 2.6,
+   "fired": [],
+   "answer": "0"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 10,
+  "frames_sent": 320,
+  "vlm_latency_total_s": 31.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "backend": "gpt54",
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 56.2
+ }
+}

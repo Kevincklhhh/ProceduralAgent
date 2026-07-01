@@ -1,0 +1,1067 @@
+StreamingAssistant: Efficient Visual Token Pruning for
+Accelerating Online Video Understanding
+Xinqi Jin1,3,∗
+Hanxun Yu2,∗
+Yixuan Pei3
+Huan Wang4
+
+Bohan Yu3
+Fan Dang5
+
+Kebin Liu1,
+Jian liu3,
+Keda Tao2,3,4
+Jiangchuan Liu6
+Weiqiang Wang3
+
+arXiv:2512.12560v1 [cs.CV] 14 Dec 2025
+
+1
+
+Tsinghua University 2 Zhejiang University 3 Ant Group
+4
+Westlake University 5 Beijing Jiaotong University 6 Simon Fraser University
+
+Abstract
+Online video understanding is essential for applications like
+public surveillance and AI glasses. However, applying Multimodal Large Language Models (MLLMs) to this domain is
+challenging due to the large number of video frames, resulting in high GPU memory usage and computational latency.
+To address these challenges, we propose token pruning as
+a means to reduce context length while retaining critical
+information. Specifically, we introduce a novel redundancy
+metric, Maximum Similarity to Spatially Adjacent Video Tokens (MSSAVT), which accounts for both token similarity
+and spatial position. To mitigate the bidirectional dependency between pruning and redundancy, we further design
+a masked pruning strategy that ensures only mutually unadjacent tokens are pruned. We also integrate an existing
+temporal redundancy-based pruning method to eliminate
+temporal redundancy of the video modality. Experimental
+results on multiple online and offline video understanding
+benchmarks demonstrate that our method significantly improves the accuracy (i.e., by 4% at most) while incurring
+a negligible pruning latency (i.e., less than 1ms). Our full
+implementation will be made publicly available.
+
+1. Introduction
+Online video understanding is a critical technique in many
+real-world applications, such as public surveillance [8, 28]
+and AI glasses [18, 25]. With the recent advancements in
+Multimodal Large Language Models (MLLMs), significant
+efforts [2, 11, 24, 27] have been devoted to extending their
+impressive interaction capabilities to vision-language tasks.
+However, in online video understanding applications, video
+frames are continuously generated, and even a single frame
+* Co-first authors
+
+Co-corresponding authors (kebinliu2021@tsinghua.edu.cn, rex.lj
+@antgroup.com)
+
+is encoded into a large number of video tokens (e.g. hundreds or even thousands of tokens per frame). Such an excessively long input sequence incurs a heavy GPU memory
+overhead as well as a huge response latency that harms the
+user’s interaction experience.
+To effectively reduce the input sequence, one practical
+method is token pruning. The rationale behind token pruning lies in the high redundancy of the video modality. One
+major kind of redundancy is spatial redundancy. Existing
+works typically pinpoint spatially redundant tokens through
+two methods, both of which have several drawbacks:
+• Attention-based methods.
+Attention-based methods [19, 32] quantify the importance of a video token via
+its received attention scores in the video encoder. However, tokens receiving high attention weights are typically
+important to the training task and data, but not necessarily important to the user’s query. Furthermore, efficient
+attention implementations [6] may not compute the attention scores explicitly, so these methods require slow and
+memory-intensive attention implementations.
+• Similarity-based methods. Other works [1, 3, 26] quantify the redundancy of a token through its similarity to
+other video tokens. Intuitively, a token can be highly redundant if it is very similar to another video token. However, these tokens are represented by not only their embeddings but also their spatial indices, with the latter being modeled by the positional embedding module in the
+Large Language Model (LLM) part of the MLLM. Even
+if a token is similar to another remotely located token, it
+may not be redundant due to its significantly different positional embedding. Simply ignoring this issue can lead
+to the blurring or loss of spatial position information.
+In StreamingAssistant, we propose a novel redundancy
+metric - Maximum Similarity to Spatially Adjacent Video
+Tokens (MSSAVT) to address the aforementioned drawbacks. While the MSSAVT metric remains within the spectrum of similarity-based approaches, its key advancement
+
+Figure 1. We introduce StreamingAssistant, a token pruning method to eliminate both temporal and spatial redundancy in the video tokens.
+Its key innovation lies in the novel spatial redundancy metric (MSSAVT) and the masked pruning strategy to disentangle pruning from
+redundancy quantification.
+
+lies in restricting the comparison to spatially adjacent tokens. This design, rather than conducting a global similarity comparison to other tokens, ensures that the redundancy
+quantification inherently preserves and is guided by the tokens’ positional context.
+Despite offering a more principled characterization of
+spatially redundant regions, strictly using the MSSAVT
+metric as the pruning standard is still challenging. We observe a critical and complex entanglement effect between
+token pruning and redundancy quantification. Specifically,
+while token pruning operates under the guidance of precomputed redundancy values, this relationship is inherently
+bidirectional. The redundancy score of a token can be dynamically altered by the pruning of its spatial neighbors —
+removing one token may also reduce the redundancy values
+of its spatially adjacent tokens. The interleaving execution
+of pruning and redundancy update solves this issue at the
+cost of a large pre-processing latency, while simply ignoring this issue can lead to over-pruning and the erroneous removal of essential tokens. To break this entanglement effect
+while still enabling parallel and fast pruning, we propose a
+masked pruning strategy. The mask is carefully designed,
+and we only regard tokens selected by the mask as pruning candidates. We prove that this pruning strategy incurs
+neither over-pruning nor missed pruning.
+We also consider the temporal redundancy in StreamingAssistant. As shown in Fig. 1, we first use temporal pruning before applying spatial pruning. We currently use the
+DTD algorithm proposed in TimeChat-Online [33] for temporal pruning, but other temporal pruning methods can be
+used as well. A token is finally retained only if it is both
+temporally and spatially non-redundant.
+
+We evaluate our method on multiple widely used online
+and offline video understanding benchmarks. Under the
+same pruning ratio, StreamingAssistant achieves a higher
+response accuracy than many baseline methods. For example, it improves the accuracy by 4% at most compared to the
+DTD baseline. The pruning process of StreamingAssistant
+lasts less than 1ms and has a negligible impact on the Time
+to First Token (TTFT) latency. We also conduct comprehensive ablation studies to demonstrate the benefits of the
+MSSAVT metric and the masked pruning strategy.
+To summarize, our contributions are as follows:
+• To preserve the crucial positional information, we propose the novel MSSAVT metric to quantify spatial redundancy in video tokens.
+• We identify and address the entanglement effect between
+token pruning and redundancy quantification. To break
+this entanglement while enabling efficient parallel processing, we introduce a masked pruning strategy whose
+reliability is theoretically guaranteed.
+• We conduct extensive experiments on multiple video understanding benchmarks. StreamingAssistant achieves
+superior accuracy under the same pruning ratio while incurring a negligible pre-processing latency.
+
+2. Related Work
+Online/Streaming Video Understanding. The advancement of MLLMs [2, 11, 13, 24, 34, 35] has spurred numerous efforts to leverage their powerful understanding
+and generation capabilities for video-related tasks. Among
+these, VideoLLM-Online [4] pioneers the development of
+MLLMs for streaming video understanding, which introduces a streaming EOS prediction mechanism, enabling the
+
+Figure 2. Bottom: the workflow of StreamingAssistant. Top: the proposed spatial pruning method along with several sub-optimal methods.
+
+model to learn when to respond or remain silent. However, its performance is constrained by the limited perframe visual token input, stemming from the lack of effective streaming context compression. Subsequent research
+has focused on efficiently encoding dense video streams.
+For example, VideoLLM-MoD [31] addresses this limitation by incorporating a mixture of depth to optimize visual token computation, thus enabling higher input resolution. ReKV [7] and Inf-MLLM [16] focus on improving
+KV Cache management for better video context handling.
+StreamChat [15] and VideoChat-Online [10] employ dynamic memory banks to retain informative video tokens. In
+contrast, our approach takes a more comprehensive view by
+addressing both temporal and spatial redundancy, proposing a novel masked pruning strategy that not only improves
+accuracy but also boosts overall performance.
+Visual Token Pruning for MLLMs. The computational
+complexity of Transformer-based networks scales with the
+input token length, and MLLMs typically contain more visual tokens than textual ones. Existing methods for reducing spatial redundancy include VisionZip [32] and LLaVAPruMerge [19], which quantify token importance based on
+
+attention scores from the CLS token or other video tokens. FastV [5] prunes redundant tokens at specific layers of LLM based on the task-oriented attention importance.
+ToMe [3] and FOLDER [26] quantify the redundancy of a
+token through its similarity to other video tokens. Other approaches target reducing the temporal redundancy in videos.
+TempMe [21] minimizes temporal redundancy by merging
+adjacent video clips, while DTD [33] prunes each incoming frame independently and adaptively drops video tokens
+to reduce the computational burden. HoliTom [20] tackles temporal redundancy through global redundancy-aware
+video segmentation. In this paper, we adopt the DTD pruning algorithm from TimeChat-Online [33] for its simplicity and effectiveness. Another line of work [22, 36] also
+leverages language guidance through user queries for token
+pruning. However, they require reprocessing all previous
+frames for each new query and are prone to noisy or misleading textual clues. In contrast, we avoid language guidance and utilize the MSSAVT metric to efficiently quantify
+each token’s spatial redundancy and prune the most redundant tokens.
+
+3. StreamingAssistant
+3.1. System Workflow
+The workflow of StreamingAssistant is shown in Fig. 2.
+Video frames are continuously fed to StreamingAssistant,
+with the interval between two consecutive frames being ∆t.
+In contrast, the user query may be sent at any timestamp.
+Consequently, there are two categories of dataflows in
+StreamingAssistant, including the always-on dataflow and
+the user query-triggered dataflow. The always-on dataflow
+is triggered at n∆t for every integer n. In the always-on
+dataflow, the received video frame is first transformed into
+video tokens by the vision encoder and projector parts of the
+MLLM (corresponding to Step ➀ in Fig. 2). To reduce the
+number of video tokens and improve the MLLM’s generation efficiency, the video tokens are successively processed
+by the temporal pruning module (Step ➁) and the spatial
+pruning module (Step ➂). The retained tokens are stored in
+the buffer. The user query-triggered dataflow is triggered at
+time T , when the user asks a question about the past video
+stream. The query is converted into text tokens through the
+processing of the word embedding layer. The text tokens
+and video tokens currently in the buffer are together fed to
+the Large Language Model (LLM) part of the MLLM to
+produce the response (Step ➃).
+At the core of StreamingAssistant is its token pruning
+strategy. Specifically, the frame received at n∆t is converted into a matrix of video tokens V n ∈ RW ×H×D ,
+with W (or H) denoting the number of tokens per row (or
+column) and D denoting the embedding dimension. The
+temporal pruning module in StreamingAssistant uses the
+DTD algorithm, which is detailed in the paper of TimeChatOnline [33]. The temporal pruning module compares V n
+with V n−1 to produce a boolean dropping mask Mtn ∈
+{T rue, F alse}W ×H , with T rue indicating dropping and
+F alse indicating no dropping. The spatial pruning module takes V n as input and also produces a boolean dropping mask Msn ∈ {T rue, F alse}W ×H . The details of
+the proposed spatial pruning algorithm are discussed later
+in Sec. 3.2 and Sec. 3.3. A token will be retained only if
+it’s neither temporally redundant nor spatially redundant.
+Or, formally speaking, the final dropping mask M n is computed as Mtn | Msn .
+
+3.2. Quantification of Spatial Redundancy
+For spatial redundancy-based pruning, we decide whether
+to prune a token based on whether its spatial redundancy
+metric exceeds a threshold τs . Therefore, the design of the
+spatial redundancy metric has a great impact on the performance of StreamingAssistant.
+We notice that existing works typically quantify spatial redundancy via either the attention weights within the
+vision encoder [19, 20, 32] or the similarity between to-
+
+kens [1, 3, 26]. We do not consider the attention weightsbased methods for two reasons. First, these methods may be
+affected by the discrepancy between the training objective
+and the actual usage scenario. For example, when the vision
+encoder has a CLS token (such as the CLIP encoder [17]),
+these methods quantify a video token’s redundancy as the
+CLS token’s attention weight to this video token. However, the CLS token is typically used for classification in
+the training stage, so the CLS token’s attention weight to
+some video token only indicates how much information related to the classification task is included in the video token. Yet, the user query’s task may differ greatly from the
+classification task, making the CLS token-guided quantification method unreliable. Second, efficient attention implementations (such as FlashAttention [6]) do not directly
+compute the attention scores, while naive implementations
+can cause problems such as high computation latency and
+significant memory overhead. Therefore, attention weightsbased methods are inherently more difficult to deploy.
+Different from attention weights-based methods,
+similarity-based methods directly derive the redundancy of
+a token by its maximum similarity to other tokens in the
+frame. The intuition is that a token provides almost no new
+information if it is highly similar to other tokens. This category of methods is superior in terms of less dependency on
+the training objective and better compatibility with efficient
+attention implementations. Despite the advantages, these
+methods are still sub-optimal due to their neglect of the
+position information. While feeding a video token to the
+LLM part of the MLLM, both its feature embedding and
+positional index are required by the LLM. The LLM uses
+positional embedding techniques (such as the Multimodal
+Rotary Position Embedding [2, 23, 27] to encode the
+positional information into the token’s feature. From the
+perspective of the LLM, a token can still be informative
+even if its feature embedding is similar to a spatially distant
+token. As existing methods neglect this problem, they can
+cause over-pruning of informative tokens and losses or
+blurrings of the positional information.
+To further improve the similarity-based methods, we
+propose to derive the redundancy values from the Maximum
+Similarity to Spatially Adjacent Video Tokens (MSSAVT).
+Formally, we denote the token corresponding to the patch
+located at the i-th row and the j-th column of the n-th frame
+as V n [i, j] ∈ Rd . Its spatial redundancy is computed as
+n
+Rsn [i, j] =max(δi ,δj )∈{(−1,0),(1,0),(0,−1),(0,1)}
+o
+(1)
+Sim(V n [i, j], V n [i + δi , j + δj ]) ,
+with Sim(·, ·) denoting the cosine similarity between two
+token embeddings. We limit the value of δi and δj so that
+only the similarities to spatially neighbouring tokens are
+taken into consideration. This subtle design fundamentally
+
+changes the redundancy definition from a global, positionagnostic comparison to a local, position-aware one. By
+definition, the positional context of a token is captured by
+the identities of its neighbors. Therefore, MSSAVT intrinsically incorporates positional information into the redundancy score, directly addressing the core limitation of previous similarity-based methods.
+The computation process is also visualized in the top part
+of Fig. 2. The similarity between adjacent tokens is computed in step ➂-1 and the MSSAVT metric is obtained in
+step ➂-2. We also quantitatively demonstrate the benefits
+of the MSSAVT metric in Sec. 4.3.
+
+3.3. Masked Pruning Strategy
+Intuitively, token pruning methods rely on the pre-computed
+redundancy values to perform selective pruning. However,
+the token pruning process can also affect the redundancy
+values. An example is shown in Fig. 2. Initially, in step
+➂-2 of the figure, the token V n [1, 2] has a high MSSAVT
+value of Rsn [1, 2] = 0.9. When V n [1, 2] is pruned in step
+➂-3’, it does not contribute to the spatial redundancy of
+its adjacent tokens (i.e. V n [0, 2] and V n [1, 1]) anymore.
+Consequently, in step ➂-4’, Rsn [0, 2] decreases from 0.9 to
+0.8, and Rsn [1, 1] also decreases from 0.6 to 0.5. This example demonstrates the complex entanglement between token pruning and spatial redundancy. If we strictly use the
+MSSAVT metric as our pruning standard, we have to iteratively perform token pruning (i.e., step ➂-3’) and redundancy update (i.e., step ➂-4’). Such an interleaving and sequential pruning strategy can lead to a large pre-processing
+latency, which constitutes a part of the TTFT latency and
+offsets token pruning’s benefits to some extent.
+Surely, we can simply ignore the entanglement issue and
+directly drop all the tokens with a large initial MAASVT
+value. Although this naive parallel pruning strategy incurs a
+minimal pre-processing latency, it may cause over-pruning
+and the loss of necessary information. For example, let’s assume a spatial dropping threshold of 0.85. In such a setting,
+the naive parallel strategy simultaneously drops V n [0, 2]
+and V n [1, 2] (as shown in step ➂-3” of Fig. 2). However, as
+shown in step ➂-4’, V n [0, 2] becomes less redundant and
+has a redundancy value below the threshold 0.85 after the
+dropping of V n [1, 2].
+To handle the entanglement between pruning and redundancy without compromising the pre-processing latency,
+we propose a masked pruning strategy. The mask can be
+viewed as a boolean matrix Mp ∈ {T rue, F alse}W ×H ,
+with its element Mp [i, j] set as
+(
+Mp [i, j] =
+
+the mask Mp (i.e. tokens whose corresponding element in
+the mask is T rue) are considered as candidates for pruning.
+In step ➂-4, the strategy drops redundant tokens with the
+spatial dropping mask
+Msn = (Rs > τs ) & Mp .
+
+(3)
+
+Intuitively, our masked pruning strategy enables parallel
+pruning and incurs negligible pre-processing latency. We
+further discuss the benefits of the masked pruning strategy
+by answering the following two questions:
+Question #1: does masked pruning avoid over pruning?
+Answer #1: StreamingAssistant always obeys the rule of
+dropping tokens of large MSSAVT values, even if it never
+updates the MSSAVT value. Formally, if a token V n [i, j]
+is a pruning candidate selected by the mask Mp , we have
+(i + j)%2 == 1. According to the definition of MSSAVT,
+the pruning of V n [i, j] will only affect the MSSAVT metrics
+of its four neighbouring tokens V n [i − 1, j], V n [i + 1, j],
+V n [i, j − 1], V n [i, j + 1]. As
+((i − 1) + j)%2
+=((i + 1) + j)%2
+=(i + (j − 1))%2
+
+(4)
+
+=(i + (j + 1))%2
+=0,
+none of the four tokens is also the pruning candidate selected by Mp . Therefore, the pruning of V n [i, j] will not
+affect the MSSAVT metric of any other pruning candidates V n [i′ , j ′ ]. StreamingAssistant does not need to update Rsn [i′ , j ′ ] as it will not decrease at all. No over-pruning
+will occur due to the omission of unnecessary MSSAVT updates.
+Question #2: is it possible that masked pruning misses
+potential pruning chances?
+Answer #2: We point out that tokens not selected by the
+mask Mp must be unredundant after step ➂-4. We use proof
+by contradiction to verify this statement. Let’s assume that
+a token V n [i, j] is not selected by Mp and still spatially
+redundant after step ➂-4. We can draw a corollary that its
+similarity to some spatially adjacent token V n [i + δi , j +
+δj ] (with (δi , δj ) ∈ {(−1, 0), (1, 0), (0, −1), (0, 1)}) must
+exceed τs and V n [i + δi , j + δj ] is also retained after step
+➂-4. Since the token (i, j) is not selected by Mp , we have
+
+
+(i + δi ) + (j + (δj ) %2
+
+
+= (i + j)%2 + (δi + δj )%2 %2
+(5)
+=(0 + 1)%2
+
+T rue,
+
+if (i + j)%2 == 1,
+
+F alse,
+
+otherwise,
+
+(2)
+
+As shown in step ➂-3 of Fig. 2, only tokens selected by
+
+=1.
+According to equation (2), the token (i + δi , j + δj ) must be
+selected by the mask. Furthermore, according to equation
+
+Table 1. The average performance over all the benchmarks. The
+best and second-best scores are shown in bold and underlined, respectively.
+
+Method
+
+#Frames
+
+TimeChat-Online-7B [33]
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+
+1 fps
+1 fps
+1 fps
+1 fps
+1 fps
+1 fps
+1 fps
+1 fps
+1 fps
+
+Dropping
+Score
+Ratio
+Absolute Relative
+0%
+92.3%
+92.5%
+92.5%
+92.5%
+93.3%
+93.5%
+93.5%
+93.5%
+
+59.83
+56.17
+56.51
+57.01
+57.35
+55.05
+55.59
+56.38
+57.00
+
+100%
+93.88%
+94.45%
+95.29%
+95.85%
+92.01%
+92.91%
+94.23%
+95.27%
+
+(1), Ri+δi ,j+δj ≥ Sim(Ti,j , Ti+δi ,j+δj ) ≥ τs . According
+to equation (3), the token (i + δi , j + δj ) must be pruned in
+step ➂-4, contradicting with the previous corollary.
+
+4. Experimental Results
+4.1. Experimental Settings
+Settings of StreamingAssistant. We evaluate StreamingAssistant with the open-source TimeChat-Online-7B
+model [33]. This model is built by finetuning the Qwen2.5VL-7B model to adapt to pruned input of video tokens. We
+set the temporal dropping threshold τt as 0.2 and the spatial
+dropping threshold τs as 0.2 or 0.5. We process the video at
+1fps for evaluation.
+Settings of baselines. We use a baseline of no dropping
+as well as many baseline token pruning methods. During evaluation, we use the same open-source online video
+LLM model TimeChat-Online-7B [33]). The evaluated token pruning methods include DTD [33], VisionZip [32],
+and DivPrune [1]. DTD seeks to pinpoint temporally redundant tokens, while VisionZip and DivPrune pinpoint spatially redundant tokens through an attention-based strategy
+and a similarity-based strategy, respectively. For evaluation
+of the DTD baseline, we cannot directly control its dropping
+ratios and thus adjust its temporal dropping threshold for
+multiple times so that the resulting dropping ratio is close to
+that of StreamingAssistant. For evaluation of the VisionZip
+and DivPrune baseline, we use an equal pruning ratio for every frame in any single video and set each video’s pruning
+ratio to the same as that of StreamingAssistant. We also follow the setting in the paper of VisionZip by controlling the
+number of dominant visual tokens to 5.4 times more than
+that of contextual visual tokens.
+Metrics. We aim to improve the model’s inference latency
+while preserving the response quality with token pruning.
+
+However, we mainly report the accuracy under different
+pruning ratios. We mainly use pruning ratios rather than
+latencies for two reasons. First, StreamingAssistant and the
+baseline pruning methods all apply token pruning for every
+incoming frame independently and incur a negligible preprocessing latency (i.e. less than 1 millisecond). Therefore,
+different pruning methods incur almost the same TTFT latency when the pruning ratio is the same. Second, even if the
+pruning ratio is fixed, the inference latency is not constant
+and can be influenced by factors such as GPU capacity.
+
+4.2. Results on Video Benchmarks
+We evaluate StreamingAssistant on both the streaming
+video benchmarks (including StreamingBench [14] and
+OVO-Bench [12]) and offline video benchmarks (including
+Video-MME [9] and LongVideoBench [29]). In streaming
+video benchmarks, each question is paired with a timestamp
+attribute, and we only use the video part before the timestamp during evaluation. As for offline video benchmarks,
+we directly use the entire video for evaluation. The four
+benchmarks contain more than 9000 samples in total and
+provide comprehensive evaluation results.
+The average results are shown in Table 1. The separate results for each benchmark are shown in Table. 2, 3, 4,
+and 5, respectively. We have several key observations from
+the results. First, StreamingAssistant outperforms all the
+baselines on average. Its performance on each benchmark is
+also very high, demonstrating a high generalizability. Second, the accuracy of StreamingAssistant is rather close to
+the strategy of no dropping even at a high pruning ratio.
+Even if as many as 93.5% of tokens are pruned, StreamingAssistant still maintains a high relative accuracy score of
+95.27%. Overall, the experimental results demonstrate the
+huge efficiency advantages of StreamingAssistant.
+
+4.3. Ablation Studies
+Variants. We conduct comprehensive ablation studies
+to demonstrate the effectiveness of StreamingAssistant’s
+key designs. Specifically, we evaluate several variants of
+the proposed spatial pruning method. The first variant
+StreamingAssistant-IA (Interleaving & Adjacent) uses the
+strategy of interleaving pruning and redundancy update and
+still quantifies the spatial redundancy through the MSSAVT
+metric. This variant corresponds to the sequential pruning
+strategy in Fig. 2. The second variant StreamingAssistantIG (Interleaving & Global) uses the strategy of interleaving pruning and redundancy update and quantifies the spatial redundancy as the maximum to any other token within
+the entire frame. The third variant StreamingAssistant-NA
+(Non-interleaving & Adjacent) quantifies the spatial redundancy through the MSSAVT metric but uses the naive pruning strategy of computing the spatial dropping mask Msn
+through Rs > τs . This variant corresponds to the naive
+
+Table 2. The experimental results on the real-time visual understanding part of the StreamingBench benchmark. The benchmark contains
+many tasks, including Object Perception (OP), Causal Reasoning (CR), Clips Summarization (CS), Attribute Perception (ATP), Event
+Understanding (EU), Text-Rich Understanding (TR), Prospective Reasoning (PR), Spatial Understanding (SU), Action Perception (ACP),
+and Counting (CT). The best and the second-best scores are shown in bold and underlined, respectively.
+
+Method
+
+Dropping Ratio
+
+OP
+
+CR
+
+CS
+
+ATP
+
+EU
+
+TR
+
+PR
+
+SU
+
+ACP
+
+CT
+
+All
+
+No Dropping
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+
+0%
+91.2%
+91.5%
+91.5%
+91.5%
+92.7%
+92.8%
+92.8%
+92.8%
+
+80.22
+73.98
+74.25
+77.78
+78.05
+71.27
+73.98
+77.51
+75.88
+
+82.03
+78.91
+82.03
+78.91
+79.69
+81.25
+79.69
+78.91
+80.47
+
+79.50
+75.08
+76.97
+75.71
+76.97
+73.19
+76.97
+76.34
+76.03
+
+83.33
+73.40
+76.60
+77.24
+75.64
+72.44
+74.68
+75.96
+76.60
+
+76.10
+67.30
+72.96
+70.44
+72.96
+67.30
+69.81
+69.81
+69.81
+
+78.50
+68.22
+73.21
+72.27
+72.59
+66.67
+71.65
+71.96
+70.40
+
+78.70
+75.00
+73.15
+75.00
+80.56
+69.44
+73.15
+75.00
+80.56
+
+64.63
+59.35
+60.16
+60.16
+63.01
+59.76
+58.54
+58.54
+60.57
+
+69.60
+67.33
+68.75
+65.62
+67.05
+63.64
+66.76
+66.48
+66.76
+
+57.98
+27.13
+32.98
+27.13
+31.38
+19.68
+30.32
+23.94
+30.85
+
+75.36
+67.28
+69.76
+68.96
+70.24
+65.16
+68.32
+68.48
+69.16
+
+Table 3. The experimental results on the OVO-Bench benchmark. The benchmark contains many tasks, including Optical Character
+Recognition (OCR), Action Recognition (ACR), Attribute Recognition (ATR), Spatial Understanding (STU), Future Prediction (FPD),
+Object Recognition (OJR), Episodic Memory (EPM), Action Sequence Identification (ASI), Hallucination Detection (HLD), Repetition
+Event Count (REC), Sequential Steps Recognition (SSR), and Clues Reveal Responding (CRR).
+
+Method
+
+Dropping Ratio OCR ACR ATR
+
+No Dropping
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+
+0%
+93.0%
+93.0%
+93.0%
+93.0%
+93.9%
+94.0%
+94.0%
+94.0%
+
+75.2
+65.77
+63.76
+63.76
+69.13
+56.38
+60.40
+63.09
+68.46
+
+46.8
+43.12
+44.04
+45.87
+44.04
+40.37
+42.20
+44.04
+43.12
+
+70.7
+55.17
+55.17
+61.21
+62.07
+55.17
+56.90
+65.52
+62.07
+
+STU FPD
+
+OJR EPM
+
+ASI
+
+47.8
+41.57
+42.70
+46.63
+43.26
+42.13
+39.33
+44.38
+43.82
+
+61.4
+52.72
+56.52
+55.43
+53.80
+52.17
+54.35
+54.35
+53.80
+
+59.5
+9.7
+31.6 38.5 40.0 46.7
+56.76 9.68 27.45 33.63 40.00 42.08
+58.78 10.75 30.01 36.73 49.58 43.96
+60.14 6.99 30.75 36.03 42.92 43.90
+56.76 6.99 30.11 34.73 41.67 43.49
+57.43 9.68 24.89 33.25 40.42 40.85
+57.43 9.14 29.75 36.66 49.58 43.01
+58.78 6.45 30.66 35.70 44.58 43.89
+57.43 6.99 30.33 35.43 41.67 43.48
+
+parallel strategy in Fig. 2.
+We fix τt to 0.6 and vary τs to obtain each variant’s performance (including both the accuracy and the latency) under different pruning ratios. As each benchmark contains
+many samples and each sample has its own pruning ratio,
+we report the average pruning ratios over all the samples.
+We use StreamingBench for ablation studies.
+Accuracy results. As shown in Fig. 3, StreamingAssistantNA has the worst accuracy under the same level of pruning.
+This demonstrates that the naive pruning strategy ignores
+the entanglement between pruning and redundancy quantification and thus can lead to unreliable pruning results. In
+contrast, both StreamingAssistant and StreamingAssistantIA have significantly higher accuracies as they consider the
+entanglement issue.
+Furthermore, the performance of StreamingAssistant-
+
+69.3
+64.36
+64.36
+69.31
+66.34
+61.39
+66.34
+69.31
+65.35
+
+55.9
+49.83
+46.46
+47.14
+51.85
+48.15
+44.78
+48.48
+51.18
+
+HLD REC
+
+SSR
+
+CRR
+
+All
+
+IG is slightly worse than StreamingAssistant
+and StreamingAssistant-IA. The reason is that
+StreamingAssistant-IG computes the redundancy in a
+larger spatial range and may prune a token if it is similar
+to a remote token. However, a pair of spatially distant yet
+similarity-valued tokens may be better retained because
+they share very different positional information. This
+demonstrates the advantage of the MSSAVT metric.
+Latency results. Although StreamingAssistant has a comparable accuracy to StreamingAssistant-IA, its pruning efficiency is significantly higher. To quantify the advantage, we measure the pruning latency of StreamingAssistant and StreamingAssistant-IA on an idle NVIDIA A100
+GPU with 80GB memory. As StreamingAssistant and
+StreamingAssistant-IA prune video tokens from every incoming frame independently, the reported pruning latency
+
+Table 4. The experimental results on the VideoMME benchmark.
+The range of video duration is from 1 minute to 60 minutes, while
+the long part contains videos longer than 30 minutes.
+
+Method
+No Dropping
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+
+Dropping Video-MME
+Ratio
+overall long
+0%
+92.2%
+92.5%
+92.5%
+92.5%
+93.0%
+93.6%
+93.6%
+93.6%
+
+62.4
+62.0
+60.6
+61.3
+61.6
+61.8
+60.0
+60.3
+61.3
+
+48.4
+53.3
+51.4
+51.9
+53.1
+53.2
+51.7
+52.1
+53.0
+
+Figure 3. The accuracy results of the ablation studies.
+
+Table 5. The experimental results on LongVideoBench.
+
+Method
+No Dropping
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+DTD [33]
+VisionZip [32]
+DivPrune [1]
+StreamingAssistant
+
+Dropping Ratio Score
+0%
+93.5%
+93.6%
+93.6%
+93.6%
+94.6%
+94.7%
+94.7%
+94.7%
+
+55.4
+55.5
+52.0
+55.7
+56.2
+54.8
+51.5
+54.3
+56.2
+
+is the latency for processing a single frame. The reported
+pruning latency is defined as the duration from the encoder
+generating all the video tokens of a single frame to both the
+temporal and spatial pruning modules finishing processing.
+The pruning latency of StreamingAssistant is always less
+than 1 ms and agnostic to the pruning ratio. In contrast, as
+shown in Fig. 4, the pruning latency of StreamingAssistantIA variant increases linearly with the spatial dropping ratio
+and reaches a maximum latency of 23.6 ms for the StreamingBench benchmark. Such a high pruning latency prohibits its usage in many interactive and latency-sensitive
+applications [30]. Furthermore, each video frame in the
+benchmark is downscaled to have fewer than 448×448 pixels and then transformed to only 252 tokens. In applications
+requiring a high video resolution (such as the 4K resolution
+of 3840 x 2160 pixels), the maximum pruning latency can
+be as large as about 1 second, which is comparable to the
+LLM part’s TTFT latency under an input sequence length
+of more than ten thousand tokens.
+
+Figure 4. The pruning latency of StreamingAssistant-IA under different spatial pruning ratios.
+
+5. Discussion
+Advanced buffer control. To enhance StreamingAssistant’s practicality for real-world scenarios where late user
+queries can cause the buffer to overflow, we plan to design
+an automatic buffer update strategy. This strategy will store
+each video token with its corresponding redundancy value
+and evict the most redundant tokens once the buffer is full,
+thereby preventing out-of-memory errors and managing latency. Furthermore, this design will enable flexible control
+over response time: given a latency requirement, we can
+select the least redundant tokens from the buffer to meet
+the target. This approach will ensure StreamingAssistant
+remains robust and efficient under long-duration videos.
+
+6. Conclusion
+In this paper, we introduced StreamingAssistant, an
+efficient token pruning method for online video understanding with MLLMs. To address the limitations
+of existing methods, we propose the MSSAVT metric,
+which accurately quantifies spatial redundancy while
+preserving crucial positional information. We further
+identify and resolve the critical entanglement between
+redundancy quantification and pruning through a theoretically sound masked strategy, enabling fast and parallel
+processing. Extensive experiments confirm that StreamingAssistant achieves superior accuracy over existing
+baselines with negligible pre-processing latency, making
+it a highly effective solution for online video understanding.
+
+References
+[1] Saeed Ranjbar Alvar, Gursimran Singh, Mohammad Akbari,
+and Yong Zhang. Divprune: Diversity-based visual token
+pruning for large multimodal models. In CVPR, pages 9392–
+9401, 2025. 1, 4, 6, 7, 8
+[2] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin
+Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun
+Tang, et al. Qwen2. 5-vl technical report. arXiv preprint
+arXiv:2502.13923, 2025. 1, 2, 4
+[3] Daniel Bolya, Cheng-Yang Fu, Xiaoliang Dai, Peizhao
+Zhang, Christoph Feichtenhofer, and Judy Hoffman. Token
+merging: Your ViT but faster. In ICLR, 2023. 1, 3, 4
+[4] Joya Chen, Zhaoyang Lv, Shiwei Wu, Kevin Qinghong Lin,
+Chenan Song, Difei Gao, Jia-Wei Liu, Ziteng Gao, Dongxing
+Mao, and Mike Zheng Shou. Videollm-online: Online video
+large language model for streaming video. In Proceedings of
+the IEEE/CVF Conference on Computer Vision and Pattern
+Recognition, pages 18407–18418, 2024. 2
+[5] Liang Chen, Haozhe Zhao, Tianyu Liu, Shuai Bai, Junyang
+Lin, Chang Zhou, and Baobao Chang. An image is worth 1/2
+tokens after layer 2: Plug-and-play inference acceleration for
+large vision-language models. In European Conference on
+Computer Vision, pages 19–35. Springer, 2024. 3
+[6] Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, and
+Christopher Ré. FlashAttention: Fast and memory-efficient
+exact attention with IO-awareness. In NIPS, 2022. 1, 4
+[7] Shangzhe Di, Zhelun Yu, Guanghao Zhang, Haoyuan Li,
+Tao Zhong, Hao Cheng, Bolin Li, Wanggui He, Fangxun
+Shu, and Hao Jiang. Streaming video question-answering
+with in-context video kv-cache retrieval. arXiv preprint
+arXiv:2503.00540, 2025. 3
+[8] Catarina Fontes, Ellen Hohma, Caitlin C Corrigan, and
+Christoph Lütge. Ai-powered public surveillance systems:
+why we (might) need them and how we want them. Technology in Society, 71:102137, 2022. 1
+[9] Chaoyou Fu, Yuhan Dai, Yongdong Luo, Lei Li, Shuhuai
+Ren, Renrui Zhang, Zihan Wang, Chenyu Zhou, Yunhang
+Shen, Mengdan Zhang, Peixian Chen, Yanwei Li, Shaohui
+Lin, Sirui Zhao, Ke Li, Tong Xu, Xiawu Zheng, Enhong
+Chen, Caifeng Shan, Ran He, and Xing Sun. Video-mme:
+The first-ever comprehensive evaluation benchmark of multimodal llms in video analysis. In CVPR, pages 24108–24118,
+2025. 6
+[10] Zhenpeng Huang, Xinhao Li, Jiaqi Li, Jing Wang, Xiangyu
+Zeng, Cheng Liang, Tao Wu, Xi Chen, Liang Li, and Limin
+Wang. Online video understanding: Ovbench and videochatonline. In Proceedings of the Computer Vision and Pattern
+Recognition Conference, pages 3328–3338, 2025. 3
+[11] Bo Li, Yuanhan Zhang, Dong Guo, Renrui Zhang, Feng Li,
+Hao Zhang, Kaichen Zhang, Peiyuan Zhang, Yanwei Li, Ziwei Liu, and Chunyuan Li. Llava-onevision: Easy visual
+task transfer. Transactions on Machine Learning Research,
+2024. 1, 2
+[12] Yifei Li, Junbo Niu, Ziyang Miao, Chunjiang Ge, Yuanhang Zhou, Qihao He, Xiaoyi Dong, Haodong Duan, Shuangrui Ding, Rui Qian, Pan Zhang, Yuhang Zang, Yuhang
+Cao, Conghui He, and Jiaqi Wang. Ovo-bench: How far
+
+is your video-llms from real-world online video understanding?, 2025. 6
+[13] Bin Lin, Yang Ye, Bin Zhu, Jiaxi Cui, Munan Ning, Peng
+Jin, and Li Yuan. Video-llava: Learning united visual representation by alignment before projection. arXiv preprint
+arXiv:2311.10122, 2023. 2
+[14] Junming Lin, Zheng Fang, Chi Chen, Zihao Wan, Fuwen
+Luo, Peng Li, Yang Liu, and Maosong Sun. Streamingbench:
+Assessing the gap for mllms to achieve streaming video understanding. arXiv preprint arXiv:2411.03628, 2024. 6
+[15] Jihao Liu, Zhiding Yu, Shiyi Lan, Shihao Wang, Rongyao
+Fang, Jan Kautz, Hongsheng Li, and Jose M Alvare.
+Streamchat: Chatting with streaming video. arXiv preprint
+arXiv:2412.08646, 2024. 3
+[16] Zhenyu Ning, Jieru Zhao, Qihao Jin, Wenchao Ding, and
+Minyi Guo. Inf-mllm: Efficient streaming inference of multimodal large language models on a single gpu. arXiv preprint
+arXiv:2409.09086, 2024. 3
+[17] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya
+Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry,
+Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen
+Krueger, and Ilya Sutskever. Learning transferable visual
+models from natural language supervision. In Proceedings
+of the 38th International Conference on Machine Learning,
+pages 8748–8763. PMLR, 2021. 4
+[18] Daniel Rossos, Alex Mihailidis, and Brokoslaw Laschowski.
+Ai-powered smart glasses for sensing and recognition
+of human-robot walking environments.
+In 2024 10th
+IEEE RAS/EMBS International Conference for Biomedical Robotics and Biomechatronics (BioRob), pages 62–67.
+IEEE, 2024. 1
+[19] Yuzhang Shang, Mu Cai, Bingxin Xu, Yong Jae Lee, and Yan
+Yan. Llava-prumerge: Adaptive token reduction for efficient
+large multimodal models. ICCV, 2025. 1, 3, 4
+[20] Kele Shao, Keda Tao, Can Qin, Haoxuan You, Yang Sui, and
+Huan Wang. Holitom: Holistic token merging for fast video
+large language models. In NIPS, 2025. 3, 4
+[21] Leqi Shen, Tianxiang Hao, Tao He, Sicheng Zhao, Yifeng
+Zhang, Pengzhang Liu, Yongjun Bao, and Guiguang Ding.
+Tempme: Video temporal token merging for efficient textvideo retrieval. arXiv preprint arXiv:2409.01156, 2024. 3
+[22] Xiaoqian Shen, Yunyang Xiong, Changsheng Zhao, Lemeng
+Wu, Jun Chen, Chenchen Zhu, Zechun Liu, Fanyi Xiao, Balakrishnan Varadarajan, Florian Bordes, et al. Longvu: Spatiotemporal adaptive compression for long video-language
+understanding. arXiv preprint arXiv:2410.17434, 2024. 3
+[23] Jianlin Su, Murtadha Ahmed, Yu Lu, Shengfeng Pan, Wen
+Bo, and Yunfeng Liu. Roformer: Enhanced transformer with
+rotary position embedding. Neurocomputing, 568:127063,
+2024. 4
+[24] Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan Burnell,
+Libin Bai, Anmol Gulati, Garrett Tanzer, Damien Vincent,
+Zhufeng Pan, Shibo Wang, et al. Gemini 1.5: Unlocking
+multimodal understanding across millions of tokens of context. arXiv preprint arXiv:2403.05530, 2024. 1, 2
+[25] Ethan Waisberg, Joshua Ong, Mouayad Masalkhi, Nasif Zaman, Prithul Sarker, Andrew G Lee, and Alireza Tavakkoli.
+
+Meta smart glasses—large language models and the future
+for assistive glasses for individuals with vision impairments.
+Eye, 38(6):1036–1038, 2024. 1
+[26] Haicheng Wang, Zhemeng Yu, Gabriele Spadaro, Chen Ju,
+Victor Quétu, and Enzo Tartaglione. Folder: Accelerating
+multi-modal large language models with enhanced performance. arXiv preprint arXiv:2501.02430, 2025. 1, 3, 4
+[27] Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan,
+Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin
+Ge, et al. Qwen2-vl: Enhancing vision-language model’s
+perception of the world at any resolution. arXiv preprint
+arXiv:2409.12191, 2024. 1, 4
+[28] Hui Wei, Hanxun Yu, Kewei Zhang, Zhixiang Wang, Jianke
+Zhu, and Zheng Wang. Moiré backdoor attack (mba): A
+novel trigger for pedestrian detectors in the physical world.
+In Proceedings of the 31st ACM International Conference on
+Multimedia, pages 8828–8838, 2023. 1
+[29] Haoning Wu, Dongxu Li, Bei Chen, and Junnan Li.
+Longvideobench: A benchmark for long-context interleaved
+video-language understanding, 2024. 6
+[30] Jiangkai Wu, Zhiyuan Ren, Liming Liu, and Xinggong
+Zhang. Chat with ai: The surprising turn of real-time video
+communication from human to ai, 2025. 8
+[31] Shiwei Wu, Joya Chen, Kevin Qinghong Lin, Qimeng Wang,
+Yan Gao, Qianli Xu, Tong Xu, Yao Hu, Enhong Chen,
+and Mike Zheng Shou. Videollm-mod: Efficient videolanguage streaming with mixture-of-depths vision computation. Advances in Neural Information Processing Systems,
+37:109922–109947, 2024. 3
+[32] Senqiao Yang, Yukang Chen, Zhuotao Tian, Chengyao
+Wang, Jingyao Li, Bei Yu, and Jiaya Jia. Visionzip: Longer
+is better but not necessary in vision language models. In
+CVPR, pages 19792–19802, 2025. 1, 3, 4, 6, 7, 8
+[33] Linli Yao, Yicheng Li, Yuancheng Wei, Lei Li, Shuhuai Ren,
+Yuanxin Liu, Kun Ouyang, Lean Wang, Shicheng Li, Sida
+Li, Lingpeng Kong, Qi Liu, Yuanxing Zhang, and Xu Sun.
+Timechat-online: 80% visual tokens are naturally redundant
+in streaming videos. In ACMMM, pages 10807–10816, 2025.
+2, 3, 4, 6, 7, 8
+[34] Hanxun Yu, Wentong Li, Song Wang, Junbo Chen, and
+Jianke Zhu. Inst3d-lmm: Instance-aware 3d scene understanding with multi-modal instruction tuning. In Proceedings of the Computer Vision and Pattern Recognition Conference, pages 14147–14157, 2025. 2
+[35] Boqiang Zhang, Kehan Li, Zesen Cheng, Zhiqiang Hu,
+Yuqian Yuan, Guanzheng Chen, Sicong Leng, Yuming Jiang,
+Hang Zhang, Xin Li, et al. Videollama 3: Frontier multimodal foundation models for image and video understanding. arXiv preprint arXiv:2501.13106, 2025. 2
+[36] Yuan Zhang, Chun-Kai Fan, Junpeng Ma, Wenzhao Zheng,
+Tao Huang, Kuan Cheng, Denis Gudovskiy, Tomoyuki
+Okuno, Yohei Nakata, Kurt Keutzer, et al. Sparsevlm: Visual token sparsification for efficient vision-language model
+inference. arXiv preprint arXiv:2410.04417, 2024. 3
+
+

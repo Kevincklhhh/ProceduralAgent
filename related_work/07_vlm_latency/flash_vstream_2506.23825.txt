@@ -1,0 +1,2525 @@
+Flash-VStream: Efficient Real-Time Understanding for Long Video Streams
+Haoji Zhang1,2 * Yiqin Wang1,2∗
+1
+
+Tsinghua University
+
+2
+
+Yansong Tang1,2B
+
+Yong Liu1,2
+3
+
+Tsinghua Shenzhen International Graduate School
+
+Abstract
+
+Jiashi Feng4
+
+4
+
+Beijing Jiaotong University
+
+Previous Long Video VLM
+
+Q
+
+ByteDance Inc.
+
+Long Video: ✅, Online: ❌
+
+👁
+C
+
+Past
+
+arXiv:2506.23825v2 [cs.CV] 24 Jul 2025
+
+Xiaojie Jin3,4B†
+
+A✅
+
+Now
+
+Long Video Stream
+Slow Response🐢
+
+Benefiting from the advances in large language models and
+cross-modal alignment, existing multimodal large language
+models have achieved prominent performance in image and
+short video understanding. However, the understanding of
+long videos is still challenging, as their long-context nature
+results in significant computational and memory overhead.
+Most existing work treats long videos in the same way as
+short videos, which is inefficient for real-world applications
+and hard to generalize to even longer videos. To address
+these issues, we propose Flash-VStream, an efficient video
+language model capable of processing extremely long videos
+and responding to user queries in real time. Particularly, we
+design a Flash Memory module, containing a low-capacity
+context memory to aggregate long-context temporal information and model the distribution of information density, and
+a high-capacity augmentation memory to retrieve detailed
+spatial information based on this distribution. Compared
+to existing models, Flash-VStream achieves significant reductions in inference latency. Extensive experiments on long
+video benchmarks and comprehensive video benchmarks,
+i.e., EgoSchema, MLVU, LVBench, MVBench and VideoMME, demonstrate the state-of-the-art performance and
+outstanding efficiency of our method. Code is available at
+https://github.com/IVGSZ/Flash-VStream.
+
+Q1
+
+Q2
+
+Past
+
+A2❌
+
+C1
+
+C2
+
+Q3
+
+A3❌
+
+👁
+
+👁
+C3
+
+Now
+
+Long Video Stream
+
+Past
+
+🐇
+
+🐇
+
+Our Flash-VStream Model
+
+Fast Response
+
+Fast Response
+
+Fast Response
+
+C1
+
+C2
+
+C3
+
+C1
+
+C2
+
+C3
+
+🐇
+
+Long Video: ✅ , Online: ✅
+Now
+
+Long Video Stream
+Flash Memory
+
+👁
+
+👁
+
+👁
+Q1
+
+Q2
+A1 ✅
+
+Fast Response
+
+🐇
+
+Q3
+A2 ✅
+
+Fast Response
+
+🐇
+
+A3 ✅
+
+Fast Response
+
+🐇
+
+Figure 1. Comparison with previous methods. Flash-VStream
+can understand long videos accurately in an online manner. Here
+“C” denotes critical clues for questions.
+
+ployment, particularly on resource-constrained edge devices.
+Additionally, excessive computational requirements increase
+inference latency, directly affecting applications requiring
+real-time human-computer interactions. In this context, we
+define a video language model (VLM) as real-time if it can
+respond to user queries within one second.
+Real-time interaction capabilities are vital in numerous
+practical scenarios. Multimodal assistants [1, 53, 57, 64], for
+example, must operate in real-time to ensure fluid user experiences. Similarly, robots deployed in real-world environments
+benefit from VLMs capable of interpreting and reacting
+swiftly to dynamic situations [48, 51]. Surveillance systems
+also rely on real-time VLMs to continuously analyze video
+streams, thereby maintaining security effectively [6, 17, 44].
+However, current state-of-the-art VLMs still struggle to
+achieve real-time responsiveness when performing questionanswering tasks on long videos [8, 27, 40, 57].
+To address this challenge, we start from a widely recognized observation: temporal redundancy is prevalent in all
+video types [20, 21, 60–62]. Since not all video frames are
+equally informative, an efficient model should allocate more
+computational resources preferentially to critical frames. In
+Sec. 3, we propose the Flash Memory module, which addresses these challenges by integrating a Context Synopsis
+Memory that captures information density distribution along
+
+Achieving robust perception and understanding of complex,
+dynamic environments is a crucial milestone toward Artificial General Intelligence (AGI). A core objective in this
+pursuit is the development of advanced large multimodal
+models [1, 53, 57] capable of effectively integrating diverse
+data types, including text, visual content, and audio.
+Among multimodal tasks, long video understanding
+stands out as particularly significant yet challenging, primarily due to its substantial computational overhead and high
+GPU memory demands. Consequently, improving model
+efficiency is essential for making long video understanding
+practical. High GPU memory usage limits real-world deB Corresponding authors.
+
+A1 ✅
+
+👁
+
+1. Introduction
+
+* Equal contribution.
+
+Long Video: ❌ , Online: ✅
+
+Previous Online Video VLM
+
+†Project leader.
+
+1
+
+the temporal dimension, and a Detail Augmentation Memory
+designed to retrieve detailed content by selectively sampling
+key frames.
+In this paper, we introduce Flash-VStream, a two-process
+video-language model capable of efficiently handling extremely long video streams and providing real-time responses to user queries. As illustrated in Fig. 3, the frame
+handler operates continuously, encoding new frames through
+a visual encoder and updating the Flash Memory without
+interruption. Concurrently, the question handler functions
+as a server process, triggered by incoming questions, and
+leverages Flash Memory to rapidly generate the first token of
+the answer within one second. In summary, the two-process
+framework ensures simultaneous video processing, memory
+updating and real-time response generation. The innovative
+memory design sets our model apart from previous works,
+in terms of video length and online capability ( Fig. 1).
+As demonstrated in Fig. 2, Flash-VStream significantly
+reduces inference latency to meet real-time standards, achieving a superior balance between accuracy and efficiency,
+and setting new state-of-the-art performance on the full
+EgoSchema benchmark [43].
+We further validate the generalization capability of
+Flash-VStream through zero-shot video question answering experiments on three long video understanding benchmarks (EgoSchema [43], MLVU [82], LVBench [58])
+and two comprehensive video understanding benchmarks
+(MVBench [30], Video-MME [16]), as shown in Tab. 2.
+Additionally, detailed ablation studies in Sec. 4.4 clearly
+verify the effectiveness of Flash Memory. We summarize
+our contributions as follows:
+• We introduce Flash-VStream, an efficient large video language model capable of processing extremely long video
+and providing real-time responses to user queries. FlashVStream utilizes a fixed-size Flash Memory to bridge a
+two-process framework, ensuring efficient and timely processing of long-term video streams.
+• A novel Flash Memory module is proposed to reduce temporal redundancy between consecutive frames, which includes a Context Synopsis Memory to model the distribution of information density along the temporal dimension
+and a Detail Augmentation Memory to retrieve detailed
+information from key frames.
+• Extensive experiments and ablation studies on long video
+understanding benchmarks and comprehensive video understanding benchmarks demonstrate the outstanding performance and efficiency of Flash-VStream.
+
+Real-time Inference
+
+5.6x
+2.0x
+1.6x
+
+Figure 2. Response latency / Accuracy on EgoSchema v.s. Inference cost. Inputting more than 12000 tokens will not meet
+real-time requirements. Flash-VStream can respond to user queries
+in real time while maintaining outstanding performance.
+
+(MLLMs) [11, 27–29, 32, 33, 54], many works begin to build
+Video Language Models (VLMs) based on them. LLaMAVID [31] represents single-frame features with only 2 tokens.
+Chat-UniVi [25] employs dynamic tokens to model video
+features of different scales. Other works [40, 63, 75, 76] use
+different compression techniques to represent an entire video
+with fewer tokens. While these methods succeeded in short
+video understanding, they have relatively poor performance
+on long video understanding benchmarks [16, 43].
+
+2.2. Long Video Understanding
+Earlier work MIST [18] introduces an iterative method to
+select the most question-related video clip. SEVILA [77]
+performs temporal key frame localization and video question answering simultaneously. Compared to question-aware
+methods [18, 31, 77], Flash-VStream does not rely on specific questions and can achieve general information aggregation based on visual information itself. MovieChat [49]
+proposes to merge similar frame features by average pooling. Though it is able to process long video with limited
+GPU memory cost, its performance is suboptimal due to
+its training-free framework. Recent works [71, 80] explore
+long context extension finetuning. However, they are computationally expensive. RETAKE [59] proposes a KV cache
+pruning method, which successfully lowers the knowledge
+redundancy in long videos. Different from them, FlashVStream keeps most informative frames in memory to reduce temporal redundancy, resulting in higher efficiency.
+
+2. Related Work
+
+2.3. Real-Time Video Stream Understanding
+
+2.1. Video Language Models
+
+Real-time video stream understanding requires models to
+process video streams and finish specific tasks in real-time.
+Most existing methods are designed to perform a specific
+
+With recent advances in Large Language Models (LLMs) [4,
+14, 45, 55, 56, 73], and Multimodal Large Language Models
+2
+
+Frame Handler
+
+Visual
+Encoder
+
+Flash
+Memory
+
+Time = t+1
+
+Visual
+Encoder
+
+Flash
+Memory
+
+(No Question)
+
+Question Handler
+
+Question Handler
+
+LLM
+
+Video Stream
+
+Time = 60min 0s
+
+Clustering In Feature Space
+𝒆𝒊𝑳 : A feature map of the i-th frame
+(1) K-means clustering (𝑲 = 𝑵𝑪𝑺𝑴 )
+
+𝑴𝑪𝑺𝑴
+
+(high res.)
+𝒆𝑯
+𝒕
+
+Projector
+
+𝒆𝑯
+𝒕
+
+(2) Sort by cluster size |𝑺𝒌 |
+Pool
+
+Projector
+
+......
+
+Time = t+2
+
+𝑺𝒌 : A cluster of feature maps
+𝑴𝑪𝑺𝑴
+: Centroid of the cluster 𝑺𝒌
+𝒌
+
+Update
+
+Frame Handler
+Update
+
+Visual
+Encoder
+
+Time = t
+
+save to
+(4) Retrieve 𝒆𝒊𝑯 feature of key frames
+Feature
+Bank
+
+# 𝑪𝑺𝑴
+𝑴
+
+(low res.)
+𝒆𝑳𝒕
+
+Updating Strategy
+of Flash Memory
+
+𝑴𝑫𝑨𝑴
+
+(3) Slice the first 𝑵𝑫𝑨𝑴 centroids
+
+I : Interleave 𝑴𝑪𝑺𝑴 ⊕ 𝑴𝑫𝑨𝑴 , sorted by
+temporal positions, prepared for AM-RoPE
+
+Time = t-1
+
+......
+
+LLM
+
+Question
+
+Answer
+
+After 0.7s
+
+𝑴𝑪𝑺𝑴
+
+𝑴𝑫𝑨𝑴
+
+Update
+
+𝑴𝑪𝑺𝑴
+
+𝑴𝑫𝑨𝑴
+
+Flash Memory (Time = t + 1)
+
+Flash Memory (Time = t)
+
+I
+Flash Memory 𝑴𝑭
+
+Figure 3. Overview of Flash-VStream two-process framework. The frame handler process continuously encodes new frames. The
+question handler process asynchronously responds to human inquiries in real-time. Flash Memory is composed of interleaved Context
+Synopsis Memory and Detail Augmentation Memory, organized in chronological order. CSM is updated by clustering low resolution feature
+maps on an inter-frame level. DAM is updated by retrieving high resolution feature maps of the most informative frames from a feature bank.
+
+vision task, such as real-time object tracking [22, 68], action recognition [39, 65, 79], and segmentation [38, 66, 74].
+Zhou et al. [83] design a streaming framework for dense
+video captioning. VideoLLM-Online [7] is designed for
+streaming video narration and action anticipation. Considering natural language is becoming a general interface for
+various modalities [19, 29, 67] and tasks [2, 36, 84], our
+work focuses on real-time video question answering (VQA)
+upon free-form user queries, which is more challenging.
+
+is updated iteratively to retain key information from both
+current and historical frames. The Flash Memory comprises
+a Context Synopsis Memory (CSM) for long-term temporal information aggregation and representative key frame
+localization. It also contains a Detail Augmentation Memory
+(DAM) for enhancing the spatial details of the key frames.
+
+3.1. Model Architecture
+In order to lower the inference latency, Flash-VStream decouples vision processing and language processing into two
+processes. As presented in Fig. 3, the frame handler process
+is responsible for continuously frame encoding and memory
+consolidation, while the question handler process remains
+online, waiting for user queries. These processes collaborate by reading from and writing to shared memory, namely
+the Flash Memory. Following common practices, we adopt
+a Vision Transformer [13] as the visual encoder, a 2-layer
+MLP [33] as the projector, and a Qwen2-7b LLM [73] as
+the language decoder. Formally, the visual encoder takes
+the t-th frame Vt ∈ RH×W ×3 as input and outputs a high
+h×w×d
+resolution feature map eH
+and a low resolution
+t ∈ R
+L
+h′ ×w′ ×d
+feature map et ∈ R
+:
+
+2.4. Memory for Long Sequence Modeling
+Memory mechanisms are widely used to store and retrieve
+information in all forms of long sequence modeling tasks,
+such as time series forecasting [5], recommendation system [52], and video object segmentation [9, 35]. For video
+understanding, MovieChat [24] utilizes a long-term memory
+and short-term memory framework. MC-ViT [3] proposes
+a memory-consolidated vision transformer for long video
+understanding. GLMGIR [72] proposes a multi-granularity
+memory to solve fine-grained video captioning. In comparison, our method uses two memory modules that focus on
+temporal information modeling and spatial detail enhancement, resulting in a synergic improvement of efficiency.
+
+3. Flash-VStream
+
+eH
+t = fenc (Vt )
+
+(1)
+
+eLt = fenc (pool(Vt ))
+
+(2)
+
+Here h × w, h′ × w′ denotes the number of patches, d represents the hidden dimension size of visual encoder and “pool”
+stands for an average pooling layer with ratio Rpool = 4.
+
+Flash-VStream improves model efficiency by allocating
+more computation to the most informative and representative key frames. As illustrated in Fig. 3, Flash Memory
+3
+
+2
+4
+
+65.5
+
+65.0
+
+64.2 65.4 64.6 64.0 64.1 63.8
+
+8
+
+66.0
+
+65.5
+
+64.4 65.0 64.4 63.9 63.8 63.8
+
+16
+
+65.5 66.9 66.2 66.0 65.8 66.6
+
+66.5
+
+Spatial Pool Ratio
+
+66.8 67.2 66.4 67.2 66.8 66.6
+
+67.0
+
+64.9 64.2 64.0 63.9 63.8
+
+64.3 64.8 64.2 64.2 63.9 63.8
+
+32
+
+4
+
+66.0 67.2 66.8 66.6 66.4 66.6
+
+CSM Capacity Proportion
+
+64.0 64.2 64.0 64.5 63.7 63.8
+0.2 0.33 0.5 0.67 0.83 1
+
+CSM Capacity Proportion
+
+(a) EgoSchema
+
+64.5
+64.0
+63.5
+
+(b) MVBench
+
+Figure 4. Impact of Pool Ratio Rpool and CSM Capacity Proportion RCSM . The upper left grid is blank since its setting is invalid.
+
+CSM is designed for efficient long-term understanding. To
+represent as many frames as possible within limited resources, CSM (M CSM ) uses a set of compressed low resolution feature maps with size S CSM = N CSM × h′ × w′ × d.
+CSM integrates semantically similar frames, which form a
+cluster of similar frames, i.e., the context. As defined in
+Eq. (3), each item in CSM is the centroid of a cluster of low
+resolution feature maps, i.e., the synopsis of the context.
+M CSM =
+
+66.5 68.2 67.3 67.2 67.0 66.6
+
+67.5
+
+0.2 0.33 0.5 0.67 0.83 1
+
+3.2. Context Synopsis Memory
+
+1 X L
+ei
+|Sk |
+
+68.0
+
+8
+
+Table 1. Flash Memory configurations. The shape of an input
+frame can be rectangular, as long as pixel amount is less than
+Input Resolution. Temporal Size is the number of feature maps of
+memory. Spatial Size is the number of ViT tokens in a feature map.
+
+(
+
+67.9 67.0 66.6 66.5 66.6
+
+2
+
+DAM
+60
+448 × 448
+30
+1024
+30 × 256
+
+16
+
+CSM
+120
+224 × 224
+60
+256
+60 × 64
+
+Spatial Pool Ratio
+
+Notation
+H ×W
+N
+h×w
+NVtokens
+
+32
+
+Configuration
+Input Frames
+Input Resolution
+Temporal Size
+Spatial Size
+LLM tokens
+
+feature maps M DAM with size S DAM = N DAM × h × w × d.
+CSM
+
+M̃ CSM = sort(M CSM , key ={|Sk |}N
+k=1 )
+
+N
+CSM L
+M DAM = {eH
+, ei ) (6)
+f (k) }k=1 , f (k) = argmin D(M̃k
+i
+
+As shown in Fig. 3, DAM takes the top-N DAM largest cluster
+centroids as anchors. A frame is considered a key frame if
+its eLi is the nearest to a centroid anchor in the feature space.
+In Eqs. (5) and (6), M̃kCSM represents the centroid of the k-th
+largest cluster, sorted by the cluster size |Sk |, i.e., the number
+of frames in the cluster. f (k) denotes the index of the k-th
+important key frame. D(·, ·) denotes the Euclidean distance
+function. More ablation studies are provided in Sec. 4.4.
+H
+H
+A Feature Bank EtH = {eH
+1 , e2 , ..., et } is maintained for
+the retrieval of high resolution feature maps, where t is the
+number of current frames. The feature bank can be offloaded
+to disk to avoid memory overflow.
+In short, CSM captures long-term temporal information
+and DAM augments it with more fine-grained spatial details
+of key frames. They complement each other to provide a
+comprehensive understanding of long videos. As shown
+in Fig. 3, Flash Memory M F is the interleaved form of CSM
+and DAM, sorted by temporal positions of feature maps.
+Formally, temporal positions can be calculated as:
+1 X
+PkCSM =
+i, 1 ≤ k ≤ N CSM
+(7)
+|Sk |
+
+)N CSM
+,1 ≤ i ≤ t
+
+(3)
+
+i∈Sk
+
+k=1
+CSM
+CSM
+M
+= cluster(M
+⊕ eLt+1 )
+
+(5)
+
+DAM
+
+(4)
+
+Here Sk is the k-th cluster set with size=|Sk |, and ⊕ denotes
+feature concatenation. CSM is initialized with the feature
+maps of the first N CSM frames. In Eq. (4), CSM is updated by
+clustering algorithm using a new feature map of the (t + 1)th frame, following [3, 25, 49]. Since we need to limit the
+number of clusters to N CSM , K-means clustering [42] is
+employed as an effective and efficient clustering algorithm.
+Therefore, CSM maintains the cluster centroids to reduce
+additional computation, and the clusters themselves serve as
+an implicit representation of information density.
+
+3.3. Detail Augmentation Memory
+
+i∈Sk
+
+While CSM effectively aggregates long-term temporal information, it compromises spatial details critical for finegrained video understanding. To address this, we propose
+DAM as a complementary module to retain and augment
+spatial details crucial for precise video understanding. Considering the prohibitive computational costs of high resolution feature maps, DAM operates by selectively storing high
+resolution feature maps of key frames.
+It is natural to borrow the results of CSM for free and use
+them to guide key frame selection. Given that a CSM cluster
+centroid MkCSM is a synopsis of multiple frames, DAM retrieves fine-grained spatial features based on these centroids.
+DAM adopts a Feature-Centric retrieval policy for key frame
+localization. Specifically, DAM is a set of high resolution
+
+M
+
+F
+
+PkDAM = f (k), 1 ≤ k ≤ N DAM
+CSM
+DAM
+CSM
+
+= sort(M
+
+⊕M
+
+, key = P
+
+⊕P
+
+(8)
+DAM
+
+) (9)
+
+3.4. Adaptive Multimodal RoPE
+Rotary Position Embedding (RoPE) [50] is a widely used position embedding method in LLMs [14, 55, 56]. We improve
+upon the original Multimodal RoPE (M-RoPE) [50, 57] to
+support flexible positions, resulting in the Adaptive Multimodal RoPE (AM-RoPE). M-RoPE first splits the hidden
+dimension to three groups representing time, height and
+width axes, so that the position index becomes a triplet
+(nt , nh , nw ). AM-RoPE is designed for flexible relative
+4
+
+Model
+
+Max NVtokens
+
+Offline video language models
+MovieChat [49]
+32
+TimeChat [47]
+96
+LLaMA-VID [31]
+2fps
+ChatUni-Vi [25]
+896
+ShareGPT4-video [8]
+9216
+Video-Chat2-HD [30]
+512
+VideoLLaMA2 [10]
+9216
+LongVA [80]
+18432
+LLaVA-OneVision [27]
+6272
+LongVILA [71]
+50176
+Kangaroo [34]
+16384
+Oryx-MLLM [37]
+14400
+Qwen2-VL* [57]
+24576
+Online video language models
+VideoLLM-Online [7]
+2fps
+VideoLLM-MOD [69]
+1fps
+VideoStreaming [46]
+256
+Qwen2-VL-online†
+11520
+Flash-VStream (Ours)
+11520
+
+Video-MME
+w/o subs
+w/ subs
+
+EgoSchema
+
+MLVUdev
+
+LVBench
+
+MVBench
+
+33.0
+38.5
+55.8
+51.7
+60.1
+62.7
+64.8
+
+30.9
+33.2
+46.4
+47.9
+48.5
+56.3
+64.7
+61.0
+66.0
+
+22.5
+22.3
+23.9
+30.4
+41.4
+
+41.9
+51.2
+62.3
+54.6
+56.7
+61.0
+63.9
+65.1
+
+40.6
+39.9
+45.3
+47.9
+52.6
+58.2
+57.5
+56.0
+58.3
+61.1
+
+45.9
+43.6
+55.7
+50.3
+54.3
+61.5
+61.8
+57.6
+62.6
+65.9
+
+32.8
+44.1
+64.0
+68.2 (↑ 4.2)
+
+35.2
+62.9
+66.3 (↑ 3.4)
+
+24.0
+39.8
+42.0 (↑ 2.2)
+
+33.9
+63.3
+65.4 (↑ 2.1)
+
+26.9
+49.2
+59.4
+61.2 (↑ 1.8)
+
+29.9
+65.1
+67.0 (↑ 1.9)
+
+Table 2. Comparison with state-of-the-art video language models on video question answering benchmarks. We conduct experiments
+on five mainstream multiple-choice benchmarks. N Vtokens denotes the number of video tokens used during evaluation. subs is short for
+subtitles. Qwen2-VL* denotes the reproduced results under the official setting. Qwen2-VL-online† denotes Qwen2-VL tested under real-time
+restriction (N Vtokens <= 11520). The best two results are bold-faced and underlined, respectively.
+
+position embedding. The key is to use average positions to
+represent the compressed cluster feature. In Flash-VStream,
+there are two types of video token, the CSM token and DAM
+token. For a DAM token at position (x, y) of MkDAM , the
+AM-RoPE is calculated as: nt = PkDAM = t(k), nh =
+y × 2, nw = x × 2 to accommodate the effect of average pooling. For a CSM token at position (x, y) of MkCSM ,
+nt = PkCSM , nh = y, nw = x.
+When a new question is posed, the question handler process begins to infer based on current Flash Memory M F
+containing NVtokens = N CSM × h′ × w′ + N DAM × h × w
+tokens. By adjusting this budget, it is possible to ensure efficient real-time response in our asynchronous framework. We
+conduct a speed test in Sec. 4.2 and find that a 7b model can
+achieve real-time inference by limiting NVtokens ≤ 12000, as
+presented in Fig. 2.
+
+Memory and input frames. As discussed in Sec. 4.4, we
+empirically assign 1/3 tokens to CSM and 2/3 tokens to
+DAM. The Flash Memory costs 11520 LLM tokens in total.
+Training Settings. To enhance video understanding ability
+based on Flash Memory, we adopt a LoRA [23] instruction
+tuning stage. With the parameters of the visual encoder
+frozen, all linear layers of projector and LLM are LoRA
+finetuned. We adopted a 9k subset from LLaVA-Video
+dataset [81], which contains instruction-following tasks like
+captioning, open-ended VQA and multiple-choice VQA.
+More training details are provided in the supplementary.
+Evaluation Settings. For more reliable analysis, we conduct zero-shot multiple-choice VQA experiments on three
+long video benchmarks and two comprehensive video benchmarks. We report the multiple-choice accuracy on each
+benchmark. EgoSchema [43] is a long-form VQA dataset
+that is specifically designed for understanding first-person
+behaviors. MLVU [82] is a multi-task long video benchmark
+covering various video genres. LVBench [58] is an extreme
+long video understanding benchmark designed to test longterm comprehension capabilities of models. MVBench [30]
+contains amounts of temporal-related tasks, aiming at testing
+temporal understanding ability. Video-MME [16] is a highquality comprehensive video analysis benchmark, which
+contains videos ranging from 11 seconds to 1 hour.
+
+4. Experiments
+4.1. Experimental setup
+Implementation Details. Following Qwen2-VL, we employ
+a ViT with 3D patch embedding layer as the visual encoder,
+a merger projector as the projector. Therefore, every two
+adjacent frames are temporally pooled before being encoded,
+and four adjacent ViT tokens are spatially pooled to one
+LLM token. The visual encoder, projector and LLM are
+initialized from a pretrained MLLM, Qwen2-VL-7b [57].
+Tab. 1 shows detailed configurations of the proposed Flash
+
+Flash-VStream is evaluated on these benchmarks in an
+online setting. First, frames are extracted at 1 fps. Each
+5
+
+Model
+ChatUni-Vi [25]
+ShareGPT4-video [8]
+VideoLLaMA2 [10]
+LongVA [80]
+LongVILA [71]
+Kangaroo [34]
+Qwen2-VL* [57]
+Qwen2-VL-online†
+Flash-VStream (Ours)
+
+Max NVtokens
+896
+9216
+9216
+18432
+147456
+16384
+24576
+11520
+11520
+
+Short
+45.7
+48.3
+56.0
+61.1
+69.3
+66.1
+71.3
+70.3
+72.0
+
+w/o subtitles
+Middle Long
+40.3
+35.8
+36.3
+35.0
+45.4
+42.0
+50.4
+46.2
+56.1
+47.0
+55.3
+46.7
+61.3
+50.7
+59.8
+48.2
+61.1
+50.3
+
+Average
+40.6
+39.9
+47.9
+52.6
+57.5
+56.0
+61.1
+59.4
+61.2
+
+Short
+51.2
+53.6
+59.4
+61.1
+70.8
+68.0
+71.1
+71.4
+72.4
+
+w/ subtitles
+Middle Long
+44.6
+41.8
+39.3
+37.9
+47.6
+43.8
+53.6
+47.6
+60.6
+54.0
+55.4
+49.3
+69.0
+57.6
+66.0
+57.9
+67.0
+61.4
+
+Average
+45.9
+43.6
+50.3
+54.3
+61.8
+57.6
+65.9
+65.1
+67.0
+
+Table 3. Comparison with state-of-the-art video language models on Video-MME benchmark. N Vtokens denotes the number of video
+tokens used during evaluation. Qwen2-VL* denotes the reproduced results under the official setting. Qwen2-VL-online† denotes Qwen2-VL
+tested under real-time restriction (N Vtokens <= 11520). The best two results are bold-faced and underlined, respectively.
+
+frame is then fed to the Flash-VStream model sequentially,
+with the question posed at the end of the video frame stream.
+
+Tab. 3 provides a comprehensive comparison of model
+performance on the Video-MME benchmark. Leveraging
+the CSM and DAM memory, Flash-VStream achieves an
+effective trade-off between accuracy and efficiency across
+various video types.
+
+4.2. Computational Efficiency
+We first measure the response latency of the Flash-VStream
+model by counting the response wall time of the question
+handler process under different cost limitations, as presented
+in Fig. 2. Cost limitation confines the maximum number of
+video tokens during inference, namely N Vtokens . All experiments are tested on a single A100 GPU with BFloat16 precision and FlashAttention-2 [12]. The experimental results
+show that our model can achieve real-time response with
+NVtokens <= 12000. Models like Kangaroo [34], Qwen2VL [57], LongVA [80] and LongVILA [71] require far more
+than 12k tokens for inference, resulting in latency higher
+than 1 second. In contrast, Flash-VStream leverages a multiprocess framework with an efficient memory design and
+outperforms all competitive methods at the same token cost.
+
+4.4. Ablation Study
+Flash Memory. We conduct an ablation study to evaluate the
+effectiveness of CSM and DAM in the Flash Memory. From
+the results in Tab. 4, one can observe that both CSM and
+DAM bring significant and highly generalizable improvements across three benchmarks. There are three groups of
+experiments in Tab. 4. The first group evaluates the impact
+of removing components from the baseline setting row ①.
+CSM and DAM help improve the average accuracy by 2.0%
+and 0.7% compared to uniform sampling, respectively. The
+second group further evaluates the influence of CSM with the
+existence of uniformly sampled DAM in row ⑤ (since full
+DAM relies on full CSM). The third group compares the implementation details of Qwen2-VL-online setting in Tab. 2,
+which show different preferences for each benchmark.
+Memory Capacity Allocation. We investigate the capacity
+allocation strategy for CSM and DAM with a fixed total
+memory tokens budget. For real-time inference, the amount
+of visual tokens should not exceed 12000 (Fig. 2). Under
+this fixed budget condition, we adjust the proportion of CSM
+capacity in total memory RCSM = S CSM /(S CSM + S DAM )
+by controlling N CSM and N DAM ; and adjust the pool ratio
+Rpool = (h × w)/(h′ × w′ ) by controlling h × w and N DAM .
+The grid search result in Fig. 4 shows that allocating around
+one-third of the total memory capacity to CSM when pool
+ratio = 4 yields the best performance for EgoSchema and
+MVBench. This suggests that a balanced allocation strategy,
+where CSM is given sufficient capacity to capture long-term
+temporal information while DAM retains enough capacity to
+preserve detailed spatial information, is crucial for optimal
+performance. More ablation studies on memory structure
+configuration can be found in the supplementary.
+
+4.3. Main Results
+In comparison to previous competitive models [7, 8, 10, 25,
+30, 31, 34, 37, 46, 47, 49, 57, 71, 80] , Flash-VStream shows
+superior understanding capabilities on various challenging
+video understanding benchmarks, as detailed in Tab. 2. For
+Qwen2-VL [57], we re-evaluate it under official setting
+and find it difficult to reproduce the reported results. Although Flash-VStream performs slightly behind Qwen2-VL
+on MLVU dataset, our method is more efficient and saves
+53% of video tokens during inference. Flash-VStream significantly promotes the development of online VLMs, which
+are able to respond to human instructions in real time.
+For a fair comparison, we slightly modify the testing setting of Qwen2-VL [57] by limiting the maximum number
+of video tokens to 11520, resulting in a “Qwen2-VL-online”
+baseline. As reported in Tab. 2, Flash-VStream significantly
+surpasses Qwen2-VL-online on both short video and long
+video benchmarks under equal-cost condition, which demonstrates the effectiveness of the proposed Flash Memory.
+6
+
+ID
+①
+②
+③
+④
+⑤
+⑥
+⑦
+⑧
+⑨
+
+CSM
+✓
+✓
+✓
+Uni. Smp.
+✓
+Uni. Smp.
+✗
+Uni. Smp.
+✗
+
+Memory Component Settings
+DAM
+NVtokens
+CSM Size
+✓
+11520
+60 × 64
+Uni. Smp.
+11520
+60 × 64
+✗
+3840
+60 × 64
+✗
+3840
+60 × 64
+Uni. Smp.
+11520
+60 × 64
+Uni. Smp.
+11520
+60 × 64
+Uni. Smp.
+7680
+0
+✗
+11520
+180 × 64
+Uni. Smp.
+11520
+0
+
+DAM Size
+30 × 256
+30 × 256
+0
+0
+30 × 256
+30 × 256
+30 × 256
+0
+45 × 256
+
+MVBench
+65.4
+64.3
+64.0
+62.4
+64.3
+63.8
+63.1
+63.3
+63.2
+
+Evaluation Results
+EgoSchema
+Video-MME(w/o)
+68.2
+61.2
+67.8
+60.6
+66.8
+60.1
+63.4
+59.0
+67.8
+60.6
+66.0
+59.6
+65.7
+59.3
+64.0
+59.4
+65.1
+59.0
+
+Average
+64.9
+64.2
+63.6
+61.6
+64.2
+63.1
+62.7
+62.3
+62.4
+
+Table 4. Analysis of the design of Flash Memory. We investigate the effects of eliminating the two components of Flash Memory: CSM
+and DAM. “Uni. Smp.” stands for “Uniform Sample”. The first row is the default baseline setting of our model. The penultimate row is the
+same as the Qwen2-VL-online setting in Tab. 2.
+ID
+③
+
+④
+
+Clustering Policy
+K-means [42]
+DBScan [15]
+GMM
+Neighbor Merge [49]
+Neighbor Drop
+Uniform Sample
+
+MVB
+64.0
+63.8
+59.6
+63.7
+63.8
+62.4
+
+EGO
+66.8
+66.6
+65.8
+65.0
+62.4
+63.4
+
+MME
+60.1
+59.7
+59.5
+59.4
+59.4
+59.0
+
+ID
+①
+
+②
+①
+
+Table 5. Ablation study on CSM clustering policy. This experiment compares K-means with other clustering methods. DAM is
+removed to isolate the effect of CSM.
+
+Retrieval Policy
+Feature-Centric
+Temporal-Centric
+Cosine Similarity
+Uniform Sample
+Feature-Centric
+Feature-Centric
+Uniform Sample
+
+Selection Policy
+Top-k largest
+Top-k largest
+Top-k largest
+k frames
+Top-k largest
+Top-k smallest
+All frames
+
+MVB
+65.4
+64.4
+64.1
+64.3
+65.4
+63.9
+65.5
+
+EGO
+68.2
+67.8
+66.5
+67.8
+68.2
+67.6
+68.6
+
+MME
+61.2
+60.8
+60.2
+60.6
+61.2
+59.6
+61.2
+
+Table 6. Ablation study on DAM sampling policy. This experiment compares different retrieval methods and selection methods.
+Here k = N DAM and the last row uses 19200 visual tokens.
+
+CSM Clustering Policy. In Tab. 5, we compare the K-means
+clustering algorithm with other clustering methods. We remove DAM in Flash Memory to isolate the effect of CSM
+and take row ③ in Tab. 4 as a baseline. For example, DBScan [15] is robust to noise and outliers. GMM (Gaussian
+Mixture Model) is a clustering method based on probability
+distributions, which is appropriate for statistical analysis.
+MovieChat [49] utilizes a “Neighbor Merge” method for
+memory updating. It merges the tokens of the two most similar adjacent frames at every step. To examine the effect of
+token merge, we implement a similar method named “Neighbor Drop”, which randomly chooses a frame to keep and
+another to drop, instead of merging them. All the methods
+above are compared to uniform sampling.
+As presented in Tab. 5, K-means outperforms other clustering methods in the EgoSchema and MVBench datasets,
+surpassing the uniform sampling baseline by 3.4% and 1.6%,
+respectively. DBScan, while robust to noise and outliers,
+slightly underperforms K-means. We attribute this to the fact
+that this is a cluster number known task, where DBScan may
+not be the best choice. Note that although Neighbor Merge
+achieves equally good accuracy on MVBench, it falls behind
+in long video understanding tasks in EgoSchema.
+DAM Sampling Policy. DAM is designed for storing details
+of the most informative key frames. As proposed in Sec. 3.3,
+the default Feature-Centric retrieval method relates the importance of a frame to the distance between its feature map
+and the cluster centroid feature map. It selects N DAM frames
+nearest to the centroids of the top-N DAM largest clusters as
+DAM. We compare it with other methods from Tab. 4 row ①
+
+baseline. Temporal-Centric retrieval selects frames nearest
+to the temporal position PiCSM of top-N DAM largest clusters.
+Cosine Similarity method replaces the Euclidean distance
+in Eq. (6) with cosine similarity. As presented in Tab. 6,
+Feature-Centric retrieval demonstrates robust improvement
+on short video and long video understanding benchmarks.
+Cosine Similarity results in relatively lower performance,
+indicating the magnitude of features matters.
+As shown in the lower part of Tab. 6, top-k largest selection method outperforms top-k smallest method and uniformk method, being comparable to sampling all frames.
+
+4.5. Memory Visualization and Case Study
+We investigate the memory consolidation procedure in the
+deep feature space by dimension reduction with Principal
+Component Analysis (PCA). As illustrated on the left side
+of Fig. 5, each red hexagon stands for a memory token of
+CSM or DAM, and each blue point stands for a frame feature
+map (eLt in comparison with CSM and eH
+t in comparison with
+DAM). The PCA plots show that the memory features are
+distinctly separated from the frame features, suggesting that
+the CSM and DAM mechanisms are successful in encoding
+and consolidating important information. We note that CSM
+and DAM formulate different shapes of clusters for each
+video. For example, in the upper part of Fig. 5, DAM has
+four densely distributed areas while CSM has only two. We
+suppose that this is because high resolution features have
+more discriminability. The visualization proves that the
+Flash Memory features effectively capture the underlying
+7
+
+Question: At the beginning of the video, what is the
+man standing next to?
+Options:
+A. The UEFA Champions League Trophy.
+B. The Olympic Torch.
+C. The FIFA World Cup Trophy.
+D. The Super Bowl Trophy.
+Answer: C
+Model Prediction: C
+Question: What can be inferred from the video about
+the location of the FIFA World Cup 2026 Final?
+Options:
+A. It will be held in Manchester.
+B. It will be held in New York/New Jersey.
+C. It will be held in Houston.
+D. It will be held in Golden State.
+Answer: B
+Model Prediction: B
+
+Question: What aspects of the theatrical production
+process, as depicted in the video, do you find most
+intriguing or surprising?
+Model Prediction: The video highlights the intricate
+process of a theatrical production, showcasing
+rehearsals, and behind-the-scenes coordination. The
+teamwork, attention to detail in set design, and
+logistical challenges are particularly intriguing.
+
+Question: What kind of technical equipment and setup
+can be observed in the theater during the
+preparation for "The Lehman Trilogy"?
+Model Prediction: The theater setup for "The Lehman
+Trilogy" includes several large professional cameras,
+monitors, and laptops. The cameras are positioned in
+the seating area, aimed at the stage, indicating
+preparation for recording or live-streaming.
+
+Figure 5. Memory Distribution Visualization and Case Study. The left side presents a PCA visualization of the Flash Memory distribution
+in the feature space. Each point in it stands for a feature map of a single frame or a slice of memory. The CSM and DAM appropriately
+represent the distributional characteristics of the feature clusters. On the right side, different types of question answering cases show
+exceptional proficiency of the Flash-VStream model. (upper: multiple-choice questions; lower: open-ended questions)
+
+structure of the feature space.
+On the right side of Fig. 5, we present several questionanswering cases that illustrate the efficacy of the FlashVStream model. The case study encompasses both multiplechoice questions and open-ended questions, including those
+related to spatial cognition, optical character recognition
+(OCR), and complex reasoning. These results demonstrate
+that Flash-VStream not only excels in understanding and processing long video content but also in providing precise and
+contextually relevant answers, thereby validating its practical
+applicability in real-world scenarios. For more case studies,
+please refer to the supplementary materials.
+
+responses. The core innovation lies in the Flash Memory
+module, which comprises a Context Synopsis Memory for
+long-term temporal information aggregation and a Detail
+Augmentation Memory for retrieving detailed spatial information. This design is based on the observation that temporal
+redundancy is prevalent in videos. Extensive experiments
+on multiple comprehensive video benchmarks demonstrate
+the superior performance and efficiency of Flash-VStream
+compared to existing state-of-the-art models. We hope our
+work will inspire further research and advancements in the
+field of efficient long video understanding.
+
+Acknowledgements
+5. Conclusion
+
+This work was supported in part by the National Key Research and Development Program of China under Grant
+2023YFF1105101, and in part by the Guangdong Natural Science Funds for Distinguished Young Scholar (No.
+2025B1515020012).
+
+In conclusion, we introduce Flash-VStream, an efficient
+video-language model for understanding long video streams
+and providing real-time responses to user queries. FlashVStream uses a two-process asynchronous framework to
+separate vision and language processing, ensuring real-time
+8
+
+References
+
+[14] Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil
+Mathur, Alan Schelten, Amy Yang, Angela Fan, et al. The
+llama 3 herd of models. arXiv preprint arXiv:2407.21783,
+2024. 2, 4
+[15] Martin Ester, Hans-Peter Kriegel, Jörg Sander, Xiaowei Xu,
+et al. A density-based algorithm for discovering clusters in
+large spatial databases with noise. In KDD, pages 226–231,
+1996. 7
+[16] Chaoyou Fu, Yuhan Dai, Yongdong Luo, Lei Li, Shuhuai
+Ren, Renrui Zhang, Zihan Wang, Chenyu Zhou, Yunhang
+Shen, Mengdan Zhang, et al. Video-mme: The first-ever
+comprehensive evaluation benchmark of multi-modal llms in
+video analysis. In CVPR, pages 24108–24118, 2025. 2, 5
+[17] Tian Gan, Xiao Wang, Yan Sun, Jianlong Wu, Qingpei Guo,
+and Liqiang Nie. Temporal sentence grounding in streaming
+videos. In ACM MM, pages 4637–4646, 2023. 1
+[18] Difei Gao, Luowei Zhou, Lei Ji, Linchao Zhu, Yi Yang,
+and Mike Zheng Shou. Mist: Multi-modal iterative spatialtemporal transformer for long-form video question answering.
+In CVPR, pages 14773–14783, 2023. 2
+[19] Peng Gao, Shijie Geng, Renrui Zhang, Teli Ma, Rongyao
+Fang, Yongfeng Zhang, Hongsheng Li, and Yu Qiao. Clipadapter: Better vision-language models with feature adapters.
+IJCV, 132(2):581–595, 2024. 3
+[20] Amir Ghodrati, Babak Ehteshami Bejnordi, and Amirhossein
+Habibian. Frameexit: Conditional early exiting for efficient
+video recognition. In CVPR, pages 15608–15618, 2021. 1
+[21] Yizeng Han, Gao Huang, Shiji Song, Le Yang, Honghui
+Wang, and Yulin Wang. Dynamic neural networks: A survey.
+TPAMI, 44(11):7436–7456, 2021. 1
+[22] Anfeng He, Chong Luo, Xinmei Tian, and Wenjun Zeng. A
+twofold siamese network for real-time object tracking. In
+CVPR, pages 4834–4843, 2018. 3
+[23] Edward J Hu, yelong shen, Phillip Wallis, Zeyuan Allen-Zhu,
+Yuanzhi Li, Shean Wang, Lu Wang, and Weizhu Chen. LoRA:
+Low-rank adaptation of large language models. In ICLR,
+2022. 5
+[24] Qingqiu Huang, Yu Xiong, Anyi Rao, Jiaze Wang, and Dahua
+Lin. Movienet: A holistic dataset for movie understanding.
+In ECCV, pages 709–727, 2020. 3
+[25] Peng Jin, Ryuichi Takanobu, Wancai Zhang, Xiaochun Cao,
+and Li Yuan. Chat-univi: Unified visual representation empowers large language models with image and video understanding. In CVPR, pages 13700–13710, 2024. 2, 4, 5, 6, 13,
+14
+[26] Bohao Li, Yuying Ge, Yixiao Ge, Guangzhi Wang, Rui Wang,
+Ruimao Zhang, and Ying Shan. Seed-bench: Benchmarking
+multimodal large language models. In CVPR, pages 13299–
+13308, 2024. 14
+[27] Bo Li, Yuanhan Zhang, Dong Guo, Renrui Zhang, Feng Li,
+Hao Zhang, Kaichen Zhang, Yanwei Li, Ziwei Liu, and Chunyuan Li. Llava-onevision: Easy visual task transfer. arXiv
+preprint arXiv:2408.03326, 2024. 1, 2, 5, 13, 14
+[28] Junnan Li, Dongxu Li, Caiming Xiong, and Steven Hoi. Blip:
+Bootstrapping language-image pre-training for unified visionlanguage understanding and generation. In ICML, pages
+12888–12900, 2022.
+
+[1] Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad,
+Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko
+Altenschmidt, Sam Altman, Shyamal Anadkat, et al. Gpt-4
+technical report. arXiv preprint arXiv:2303.08774, 2023. 1
+[2] Sule Bai, Yong Liu, Yifei Han, Haoji Zhang, and Yansong
+Tang. Self-calibrated clip for training-free open-vocabulary
+segmentation. arXiv preprint arXiv:2411.15869, 2024. 3
+[3] Ivana Balazevic, Yuge Shi, Pinelopi Papalampidi, Rahma
+Chaabouni, Skanda Koppula, and Olivier J Hénaff. Memory
+consolidation enables long-context video understanding. In
+ICML, pages 2527–2542, 2024. 3, 4
+[4] Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan,
+Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language
+models are few-shot learners. NeurIPS, pages 33, 1877–1901,
+2020. 2
+[5] Yen-Yu Chang, Fan-Yun Sun, Yueh-Hua Wu, and Shou-De
+Lin. A memory-network based solution for multivariate timeseries forecasting. arXiv preprint arXiv:1809.02105, 2018.
+3
+[6] Jianguo Chen, Kenli Li, Qingying Deng, Keqin Li, and S Yu
+Philip. Distributed deep learning model for intelligent video
+surveillance systems with edge computing. IEEE Transactions on Industrial Informatics, 2019. 1
+[7] Joya Chen, Zhaoyang Lv, Shiwei Wu, Kevin Qinghong Lin,
+Chenan Song, Difei Gao, Jia-Wei Liu, Ziteng Gao, Dongxing
+Mao, and Mike Zheng Shou. Videollm-online: Online video
+large language model for streaming video. In CVPR, pages
+18407–18418, 2024. 3, 5, 6
+[8] Lin Chen, Xilin Wei, Jinsong Li, Xiaoyi Dong, Pan Zhang,
+Yuhang Zang, Zehui Chen, Haodong Duan, Zhenyu Tang, Li
+Yuan, et al. Sharegpt4video: Improving video understanding
+and generation with better captions. NeurIPS, 37:19472–
+19495, 2025. 1, 5, 6
+[9] Ho Kei Cheng and Alexander G Schwing. Xmem: Long-term
+video object segmentation with an atkinson-shiffrin memory
+model. In ECCV, pages 640–658. Springer, 2022. 3
+[10] Zesen Cheng, Sicong Leng, Hang Zhang, Yifei Xin, Xin
+Li, Guanzheng Chen, Yongxin Zhu, Wenqi Zhang, Ziyang
+Luo, Deli Zhao, et al. Videollama 2: Advancing spatialtemporal modeling and audio understanding in video-llms.
+arXiv preprint arXiv:2406.07476, 2024. 5, 6
+[11] Wenliang Dai, Junnan Li, DONGXU LI, Anthony Meng Huat
+Tiong, Junqi Zhao, Weisheng Wang, Boyang Li, Pascale N
+Fung, and Steven Hoi. Instructblip: Towards general-purpose
+vision-language models with instruction tuning. NeurIPS, 36,
+2024. 2
+[12] Tri Dao. Flashattention-2: Faster attention with better parallelism and work partitioning. In ICLR, 2024. 6, 13
+[13] Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov,
+Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner,
+Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby. An image is
+worth 16x16 words: Transformers for image recognition at
+scale. In ICLR, 2021. 3
+
+9
+
+[29] Junnan Li, Dongxu Li, Silvio Savarese, and Steven Hoi. Blip2: Bootstrapping language-image pre-training with frozen
+image encoders and large language models. In ICML, pages
+19730–19742, 2023. 2, 3
+[30] Kunchang Li, Yali Wang, Yinan He, Yizhuo Li, Yi Wang,
+Yi Liu, Zun Wang, Jilan Xu, Guo Chen, Ping Luo, et al.
+Mvbench: A comprehensive multi-modal video understanding benchmark. In CVPR, pages 22195–22206, 2024. 2, 5,
+6
+[31] Yanwei Li, Chengyao Wang, and Jiaya Jia. Llama-vid: An
+image is worth 2 tokens in large language models. In ECCV,
+pages 323–340. Springer, 2025. 2, 5, 6, 13, 14
+[32] Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee.
+Visual instruction tuning. NeurIPS, 36:34892–34916, 2023.
+2
+[33] Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee.
+Improved baselines with visual instruction tuning. In CVPR,
+pages 26296–26306, 2024. 2, 3
+[34] Jiajun Liu, Yibing Wang, Hanghang Ma, Xiaoping Wu, Xiaoqi Ma, Xiaoming Wei, Jianbin Jiao, Enhua Wu, and Jie
+Hu. Kangaroo: A powerful video-language model supporting
+long-context video input. arXiv preprint arXiv:2408.15542,
+2024. 5, 6
+[35] Yong Liu, Ran Yu, Fei Yin, Xinyuan Zhao, Wei Zhao, Weihao
+Xia, and Yujiu Yang. Learning quality-aware dynamic memory for video object segmentation. In ECCV, pages 468–486,
+2022. 3
+[36] Yong Liu, Cairong Zhang, Yitong Wang, Jiahao Wang, Yujiu
+Yang, and Yansong Tang. Universal segmentation at arbitrary
+granularity with language instruction. In CVPR, pages 3459–
+3469, 2024. 3
+[37] Zuyan Liu, Yuhao Dong, Ziwei Liu, Winston Hu, Jiwen
+Lu, and Yongming Rao. Oryx mllm: On-demand spatialtemporal understanding at arbitrary resolution. arXiv preprint
+arXiv:2409.12961, 2024. 5, 6
+[38] Zhuoyan Luo, Yicheng Xiao, Yong Liu, Shuyan Li, Yitong
+Wang, Yansong Tang, Xiu Li, and Yujiu Yang. Soc: Semanticassisted object cluster for referring video object segmentation.
+NeurIPS, pages 26425–26437, 2023. 3
+[39] Diogo C Luvizon, David Picard, and Hedi Tabia. Multi-task
+deep learning for real-time 3d human pose estimation and
+action recognition. IEEE TPAMI, 43(8):2752–2764, 2020. 3
+[40] Fan Ma, Xiaojie Jin, Heng Wang, Yuchen Xian, Jiashi Feng,
+and Yi Yang. Vista-llama: Reducing hallucination in video
+language models via equal distance to visual tokens. In CVPR,
+pages 13151–13160, 2024. 1, 2
+[41] Muhammad Maaz, Hanoona Rasheed, Salman Khan, and
+Fahad Khan. Video-chatgpt: Towards detailed video understanding via large vision and language models. In ACL, pages
+12585–12602, 2024. 14
+[42] J MacQueen. Some methods for classification and analysis of multivariate observations. In Proceedings of 5-th
+Berkeley Symposium on Mathematical Statistics and Probability/University of California Press, 1967. 4, 7
+[43] Karttikeya Mangalam, Raiymbek Akshulakov, and Jitendra
+Malik. Egoschema: A diagnostic benchmark for very longform video language understanding. NeurIPS, 36:46212–
+46244, 2023. 2, 5
+
+[44] Khan Muhammad, Tanveer Hussain, Javier Del Ser, Vasile
+Palade, and Victor Hugo C De Albuquerque. Deepres: A deep
+learning-based video summarization strategy for resourceconstrained industrial surveillance scenarios. IEEE Transactions on Industrial Informatics, 16(9):5938–5947, 2019.
+1
+[45] Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini
+Agarwal, Katarina Slama, Alex Ray, et al. Training language
+models to follow instructions with human feedback. NeurIPS,
+pages 27730–27744, 2022. 2
+[46] Rui Qian, Xiaoyi Dong, Pan Zhang, Yuhang Zang, Shuangrui
+Ding, Dahua Lin, and Jiaqi Wang. Streaming long video
+understanding with large language models. NeurIPS, 37:
+119336–119360, 2025. 5, 6
+[47] Shuhuai Ren, Linli Yao, Shicheng Li, Xu Sun, and Lu Hou.
+Timechat: A time-sensitive multimodal large language model
+for long video understanding. In CVPR, pages 14313–14323,
+2024. 5, 6
+[48] Pierre Sermanet, Tianli Ding, Jeffrey Zhao, Fei Xia, Debidatta Dwibedi, Keerthana Gopalakrishnan, Christine Chan,
+Gabriel Dulac-Arnold, Sharath Maddineni, Nikhil J Joshi,
+et al. Robovqa: Multimodal long-horizon reasoning for
+robotics. In ICRA, pages 645–652. IEEE, 2024. 1
+[49] Enxin Song, Wenhao Chai, Guanhong Wang, Yucheng Zhang,
+Haoyang Zhou, Feiyang Wu, Haozhe Chi, Xun Guo, Tian
+Ye, Yanting Zhang, et al. Moviechat: From dense token to
+sparse memory for long video understanding. In CVPR, pages
+18221–18232, 2024. 2, 4, 5, 6, 7, 13, 14
+[50] Jianlin Su, Murtadha Ahmed, Yu Lu, Shengfeng Pan, Wen
+Bo, and Yunfeng Liu. Roformer: Enhanced transformer with
+rotary position embedding. Neurocomputing, 568:127063,
+2024. 4
+[51] James Supancic III and Deva Ramanan. Tracking as online
+decision-making: Learning a policy from streaming videos
+with reinforcement learning. In ICCV, pages 322–331, 2017.
+1
+[52] Qiaoyu Tan, Jianwei Zhang, Ninghao Liu, Xiao Huang,
+Hongxia Yang, Jingren Zhou, and Xia Hu. Dynamic memory
+based attention network for sequential recommendation. In
+AAAI, pages 4384–4392, 2021. 3
+[53] Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan Burnell,
+Libin Bai, Anmol Gulati, Garrett Tanzer, Damien Vincent,
+Zhufeng Pan, Shibo Wang, et al. Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context.
+arXiv preprint arXiv:2403.05530, 2024. 1
+[54] Kimi Team, Angang Du, Bohong Yin, Bowei Xing, Bowen
+Qu, Bowen Wang, Cheng Chen, Chenlin Zhang, Chenzhuang
+Du, Chu Wei, et al. Kimi-vl technical report. arXiv preprint
+arXiv:2504.07491, 2025. 2
+[55] Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien
+Rodriguez, Armand Joulin, Edouard Grave, and Guillaume
+Lample. Llama: Open and efficient foundation language
+models. arXiv preprint arXiv:2302.13971, 2023. 2, 4
+[56] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya
+
+10
+
+Batra, Prajjwal Bhargava, Shruti Bhosale, et al. Llama 2:
+Open foundation and fine-tuned chat models. arXiv preprint
+arXiv:2307.09288, 2023. 2, 4
+[57] Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan,
+Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin
+Ge, et al. Qwen2-vl: Enhancing vision-language model’s
+perception of the world at any resolution. arXiv preprint
+arXiv:2409.12191, 2024. 1, 4, 5, 6, 13, 14
+[58] Weihan Wang, Zehai He, Wenyi Hong, Yean Cheng, Xiaohan
+Zhang, Ji Qi, Xiaotao Gu, Shiyu Huang, Bin Xu, Yuxiao
+Dong, et al. Lvbench: An extreme long video understanding
+benchmark. arXiv preprint arXiv:2406.08035, 2024. 2, 5
+[59] Xiao Wang, Qingyi Si, Jianlong Wu, Shiyu Zhu, Li Cao, and
+Liqiang Nie. Retake: Reducing temporal and knowledge
+redundancy for long video understanding. arXiv preprint
+arXiv:2412.20504, 2024. 2
+[60] Yulin Wang, Zhaoxi Chen, Haojun Jiang, Shiji Song, Yizeng
+Han, and Gao Huang. Adaptive focus for efficient video
+recognition. In ICCV, pages 16249–16258, 2021. 1
+[61] Yulin Wang, Yang Yue, Yuanze Lin, Haojun Jiang, Zihang Lai,
+Victor Kulikov, Nikita Orlov, Humphrey Shi, and Gao Huang.
+Adafocus v2: End-to-end training of spatial dynamic networks for video recognition. In CVPR, pages 20030–20040.
+IEEE, 2022.
+[62] Yulin Wang, Yang Yue, Xinhong Xu, Ali Hassani, Victor
+Kulikov, Nikita Orlov, Shiji Song, Humphrey Shi, and Gao
+Huang. Adafocusv3: On unified spatial-temporal dynamic
+video recognition. In ECCV, pages 226–243. Springer, 2022.
+1
+[63] Yiqin Wang, Haoji Zhang, Yansong Tang, Yong Liu, Jiashi
+Feng, Jifeng Dai, and Xiaojie Jin. Hierarchical memory for
+long video qa. arXiv preprint arXiv:2407.00603, 2024. 2
+[64] Yiqin Wang, Haoji Zhang, Jingqi Tian, and Yansong Tang.
+Ponder & press: Advancing visual gui agent towards general
+computer control. arXiv preprint arXiv:2412.01268, 2024. 1
+[65] Yulin Wang, Haoji Zhang, Yang Yue, Shiji Song, Chao Deng,
+Junlan Feng, and Gao Huang. Uni-adafocus: Spatial-temporal
+dynamic computation for video recognition. TPAMI, 2024. 3
+[66] Yuji Wang, Jingchen Ni, Yong Liu, Chun Yuan, and Yansong
+Tang. Iterprime: Zero-shot referring image segmentation with
+iterative grad-cam refinement and primary word emphasis. In
+AAAI, pages 8159–8168, 2025. 3
+[67] Yuji Wang, Haoran Xu, Yong Liu, Jiaze Li, and Yansong
+Tang. Sam2-love: Segment anything model 2 in languageaided audio-visual scenes. In CVPR, pages 28932–28941,
+2025. 3
+[68] Zhongdao Wang, Liang Zheng, Yixuan Liu, Yali Li, and
+Shengjin Wang. Towards real-time multi-object tracking. In
+ECCV, pages 107–122, 2020. 3
+[69] Shiwei Wu, Joya Chen, Kevin Qinghong Lin, Qimeng Wang,
+Yan Gao, Qianli Xu, Tong Xu, Yao Hu, Enhong Chen,
+and Mike Zheng Shou. Videollm-mod: Efficient videolanguage streaming with mixture-of-depths vision computation. NeurIPS, 37:109922–109947, 2024. 5
+[70] Junbin Xiao, Xindi Shang, Angela Yao, and Tat-Seng Chua.
+Next-qa: Next phase of question-answering to explaining
+temporal actions. In CVPR, pages 9777–9786, 2021. 14
+
+[71] Fuzhao Xue, Yukang Chen, Dacheng Li, Qinghao Hu, Ligeng
+Zhu, Xiuyu Li, Yunhao Fang, Haotian Tang, Shang Yang, Zhijian Liu, et al. Longvila: Scaling long-context visual language
+models for long videos. arXiv preprint arXiv:2408.10188,
+2024. 2, 5, 6
+[72] Yichao Yan, Ning Zhuang, Bingbing Ni, Jian Zhang, Minghao
+Xu, Qiang Zhang, Zheng Zhang, Shuo Cheng, Qi Tian, Yi Xu,
+et al. Fine-grained video captioning via graph-based multigranularity interaction learning. TPAMI, 44(2):666–683, 2019.
+3
+[73] An Yang, Baosong Yang, Binyuan Hui, Bo Zheng, Bowen
+Yu, Chang Zhou, Chengpeng Li, Chengyuan Li, Dayiheng
+Liu, Fei Huang, et al. Qwen2 technical report. arXiv preprint
+arXiv:2407.10671, 2024. 2, 3
+[74] Zhao Yang, Jiaqi Wang, Xubing Ye, Yansong Tang, Kai Chen,
+Hengshuang Zhao, and Philip HS Torr. Language-aware
+vision transformer for referring segmentation. TPAMI, 2024.
+3
+[75] Xubing Ye, Yukang Gan, Yixiao Ge, Xiao-Ping Zhang, and
+Yansong Tang. Atp-llava: Adaptive token pruning for large
+vision language models. In CVPR, pages 24972–24982, 2025.
+2
+[76] Xubing Ye, Yukang Gan, Xiaoke Huang, Yixiao Ge, and
+Yansong Tang. Voco-llama: Towards vision compression
+with large language models. In CVPR, pages 29836–29846,
+2025. 2
+[77] Shoubin Yu, Jaemin Cho, Prateek Yadav, and Mohit Bansal.
+Self-chained image-language model for video localization
+and question answering. Advances in Neural Information
+Processing Systems, 36:76749–76771, 2023. 2
+[78] Zhou Yu, Dejing Xu, Jun Yu, Ting Yu, Zhou Zhao, Yueting
+Zhuang, and Dacheng Tao. Activitynet-qa: A dataset for
+understanding complex web videos via question answering.
+In AAAI, pages 9127–9134, 2019. 14
+[79] Bowen Zhang, Limin Wang, Zhe Wang, Yu Qiao, and Hanli
+Wang. Real-time action recognition with enhanced motion
+vector cnns. In CVPR, pages 2718–2726, 2016. 3
+[80] Peiyuan Zhang, Kaichen Zhang, Bo Li, Guangtao Zeng,
+Jingkang Yang, Yuanhan Zhang, Ziyue Wang, Haoran Tan,
+Chunyuan Li, and Ziwei Liu. Long context transfer from
+language to vision. arXiv preprint arXiv:2406.16852, 2024.
+2, 5, 6
+[81] Yuanhan Zhang, Jinming Wu, Wei Li, Bo Li, Zejun Ma, Ziwei
+Liu, and Chunyuan Li. Video instruction tuning with synthetic
+data. arXiv preprint arXiv:2410.02713, 2024. 5, 12
+[82] Junjie Zhou, Yan Shu, Bo Zhao, Boya Wu, Shitao Xiao, Xi
+Yang, Yongping Xiong, Bo Zhang, Tiejun Huang, and Zheng
+Liu. Mlvu: A comprehensive benchmark for multi-task long
+video understanding. arXiv preprint arXiv:2406.04264, 2024.
+2, 5
+[83] Xingyi Zhou, Anurag Arnab, Shyamal Buch, Shen Yan,
+Austin Myers, Xuehan Xiong, Arsha Nagrani, and Cordelia
+Schmid. Streaming dense video captioning. In CVPR, pages
+18243–18252, 2024. 3
+[84] Yixuan Zhu, Haolin Wang, Ao Li, Wenliang Zhao, Yansong
+Tang, Jingxuan Niu, Lei Chen, Jie Zhou, and Jiwen Lu. Instarevive: One-step image enhancement via dynamic score
+matching. arXiv preprint arXiv:2504.15513, 2025. 3
+
+11
+
+Flash-VStream: Efficient Real-Time Understanding for Long Video Streams
+Supplementary Material
+Algorithm 1 K-means Clustering Algorithm
+
+In the supplementary material, we first provide implementation details of the Flash Memory mechanism and training
+settings. Subsequently, we conduct an analysis experiment
+on model inference efficiency and more ablation studies on
+memory structure configurations. We then present more visual cases to provide a comprehensive understanding of the
+performance of models.
+
+Require: Current cluster centroids M = M CSM
+Require: Newest frame feature e = eLt
+Require: Set of all points X = {M1 , M2 , . . . , MN , e}
+Require: Weights vector of points W = {w1 , w2 , . . . , wN , 1}
+Require: Maximum memory length N = N CSM
+Require: Maximum number of iterations T
+1: procedure K- MEANS(X, W, N, T )
+2:
+Initialize t ← 0
+3:
+Initialize centroids C = {c1 , c2 , . . . , cN } from X
+4:
+Initialize cluster assignment Sj ← {}, 1 ≤ j ≤ N
+5:
+while t < T do
+6:
+for xi ∈ X do
+7:
+j ← argmin∥xi − cj ∥2
+
+A. Implementation Details
+This section describes the details of the proposed Flash Memory mechanism in Sec. 3. The Flash Memory consists of
+Context Synopsis Memory (CSM) and Detail Augmentation Memory (DAM). CSM uses a clustering-based updating
+policy, while DAM uses a retrieval-based updating policy.
+MkCSM =
+
+1 X L
+ei , 1 ≤ k ≤ N CSM
+|Sk |
+
+j
+
+Sj ← Sj ∪ {xi }
+end for
+for j = 1, 2,P
+. . . , N do
+xi ∈Sj wi · xi
+new
+11:
+cj ← P
+xi ∈Sj wi
+12:
+end for
+13:
+Clear S
+14:
+C ← C new
+15:
+t←t+1
+16:
+end while
+17:
+for j = 1, 2, P
+. . . , N do
+18:
+wjCSM ← xi ∈Sj wi
+19:
+end for
+20:
+M CSM = C
+CSM }
+21:
+W CSM = {w1CSM , w2CSM , . . . , wN
+CSM
+CSM
+22:
+return M
+,W
+23: end procedure
+8:
+9:
+10:
+
+(10)
+
+i∈Sk
+
+M CSM = cluster(M CSM ⊕ eLt+1 )
+
+(11)
+
+A.1. Context Synopsis Memory
+As mentioned in Sec. 3.2, CSM is designed for aggregating
+long-context temporal information and modeling the distribution of information density. MkCSM represents the centroid
+of the k-th cluster. M CSM is initialized with the first N CSM
+feature maps of the first N CSM frames. When the next frame
+arrives, a clustering algorithm is employed to consolidate
+its feature map into existing clusters. Here we illustrate the
+“cluster” operation of Eq. (11) in detail.
+As shown in Alg. 1, CSM performs a temporal-wise Kmeans Clustering algorithm to condense (N CSM + 1) × h′ ×
+w′ tokens to N CSM × h′ × w′ tokens. Each frame feature in
+′
+′
+temporal memory MkCSM = ck ∈ Rh ×w ×d represents the
+centroid of the i-th feature map cluster.
+
+Algorithm 2 Feature-Centric Sampling
+H
+H
+Require: Current feature bank EtH = {eH
+1 , e2 , . . . , et }
+Require: Current cluster centroids M CSM
+Require: Weights vector of points W = {w1 , w2 , . . . , wN }
+Require: Maximum memory length N = N DAM
+1: procedure K EY F EATURE R ETRIEVAL(E H , M CSM , W, N )
+2:
+k←N
+3:
+idx ← argsort(W, descending=True)
+4:
+j1 , j2 , . . . , jk ← idx[: k]
+5:
+M DAM ← {}
+6:
+for z = 1, 2, . . . , k do
+7:
+anchor ← MjCSM
+z
+
+A.2. Detail Augmentation Memory
+As described in Sec. 3.3, DAM aims at storing spatial details
+of the most informative key frames, based on the feature clusters of CSM. For DAM, we use a Feature-Centric Sampling
+DAM
+method to calculate M DAM ∈ RN ×h×w×d .
+Alg. 2 shows the pseudo code of Feature-Centric Retrieval. Here wj is equal to the size of j-th cluster, i.e.,
+the number of feature maps in this cluster. We choose the
+centroids of the top-k largest clusters as anchors. Then we
+select key features from the feature bank EtH . EtH keeps
+high-resolution feature maps of all frames on disk, where
+t is the current number of frames. The features nearest to
+these anchors in the feature map space are considered as key
+features, which are added to the DAM.
+
+8:
+
+i ← argmin ∥eLi − anchor∥2
+i≤t
+
+9:
+M DAM ← M DAM ∪ {eH
+i}
+10:
+end for
+11:
+return M DAM
+12: end procedure
+
+B. Training Details
+We train Flash-VStream on a 9k subset of LLaVA-Video [81]
+dataset for one epoch. During training, we freeze the parameters of visual encoder, while all linear layers of projector and
+12
+
+3
+
+10
+
+30
+100
+Input frames
+
+300
+
+1000
+
+(a) Response latency (s) v.s. Input frames
+
+70
+60
+50
+
+LLaMA-VID
+Chat-UniVi
+MovieChat
+LLaVA-OV
+Qwen2-VL
+VideoLLM-Online
+Flash-VStream
+
+1.2
+Execution wall time (s)
+
+80
+
+LLaMA-VID
+Chat-UniVi
+MovieChat
+LLaVA-OV
+Qwen2-VL
+VideoLLM-Online
+Flash-VStream
+
+Max GPU memory (GB)
+
+Response latency (s)
+
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+01
+
+40
+30
+20
+10 1
+
+3
+
+10
+
+30
+100
+Input frames
+
+300
+
+1000
+
+(b) Max GPU memory (GB) v.s. Input frames
+
+Frame Handler
+
+Encoder
+Clustering
+Retrieval
+Memory I/O 0.905
+
+1.0
+0.8
+
+0.890
+
+0.912
+0.912 0.904
+0.808
+
+0.987
+0.931
+
+0.434 0.435
+
+0.4
+0.0
+
+LLM Inference
+Memory I/O
+
+0.646
+
+0.6
+0.2
+
+Question Handler
+
+0.234
+0.078
+0.078
+
+10
+
+30
+
+125 250 500 750 1000
+Input frames
+
+(c) Execution wall time (s) v.s. Input frames
+
+Figure 6. (a) Response latency comparison. (b) Max GPU memory comparison. (c) Execution wall time analysis. Response latency
+refers to the wall time between inputting a question and outputting the first token of the answer. Max GPU memory indicates the peak GPU
+memory usage during inference. All experiments were conducted on A100 GPUs using BFloat16 and FlashAttention-2.
+
+Settings
+Batch Size
+Learning Rate
+Lora Rank
+Lora Alpha
+Learning Schedule
+Warmup Ratio
+Weight Decay
+Epoch
+Optimizer
+Deepspeed Stage
+Visual Encoder
+Projector
+LLM
+
+Value
+64
+8e-4
+64
+32
+Cosine decay
+0.01
+0.1
+1
+AdamW
+2
+Freeze
+Open
+Open
+
+second). Fig. 6b illustrates the maximum GPU memory usage. Flash-VStream maintains a relatively stable and lower
+GPU memory consumption compared to other models, even
+as the number of input frames increases. This efficiency in
+memory usage makes Flash-VStream more scalable and suitable for deployment in resource-constrained environments.
+From a systematic perspective, we measure the execution wall time of each process in Fig. 6c. The result shows
+that the question handler process stays fast enough (< 1s)
+regardless of the number of input frames. This is because
+the question handler only relies on size-fixed Flash Memory.
+The execution time of the frame handler process grows up
+to more than 1 second when the number of frames exceeds
+1000. Although this may result in delayed updates of visual
+information, it would not affect the response latency.
+Overall, the results highlight the efficiency advantages of
+Flash-VStream in terms of both response latency and GPU
+memory consumption, making it a competitive choice for
+real-time long video understanding tasks.
+
+Table 7. Training settings of Flash-VStream.
+
+LLM are LoRA finetuned. The overall training can be finished in about 10 hours on 8 A100 80G GPUs with BFloat16
+automatic mixed precision and FlashAttention-2 [12]. Detailed training settings are shown in Tab. 7.
+
+D. Ablation Study on Memory Structure
+In Sec. 4.4 and Fig. 4, we initially explored the relationship
+between memory allocation strategy and pool ratio of CSM
+and DAM. Empirically, we found the best setting for these
+configurations under the fixed-budget constraint. In this
+section, we aim to answer the following questions:
+Q1: How sensitive is the model performance to cluster numbers of CSM, i.e., N CSM ?
+Q2: How sensitive is the model performance to key frame
+numbers of DAM, i.e., N DAM ?
+As presented in Tab. 8, we conduct two groups of experiments to investigate the model’s sensitivity to memory structure configurations, i.e., memory sizes N CSM and N DAM . In
+each group, we compare different memory size choices to
+the baseline row ① and row ③ in Table 4. The results show
+a scaling trend of accuracy with different memory sizes.
+
+C. Efficiency Analysis
+An efficiency analysis is performed to assess the inference
+efficiency of Flash-VStream. Specifically, we concentrate
+on the response latency and GPU memory consumption of
+models, as discussed in Sec. 1 of the paper.
+We compare Flash-VStream with other competitive video
+language models [25, 27, 31, 49, 57] in terms of response
+latency and max GPU memory. As presented in Fig. 6,
+Flash-VStream demonstrates superior performance in both
+efficiency metrics. Fig. 6a shows the response latency comparison, where Flash-VStream consistently exhibits lower
+latency across varying numbers of input frames. This indicates that Flash-VStream is more efficient in processing
+video inputs, resulting in faster response times (less than 1
+13
+
+ID
+
+①
+③
+③
+
+CSM
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+Memory Component Settings
+DAM
+NVtokens
+CSM Size
+✓
+19200
+60 × 64
+✓
+15360
+60 × 64
+✓
+11520
+60 × 64
+✓
+7680
+60 × 64
+✗
+3840
+60 × 64
+✗
+5760
+90 × 64
+✗
+3840
+60 × 64
+✗
+1920
+30 × 64
+✗
+960
+15 × 64
+
+DAM Size
+60 × 256
+45 × 256
+30 × 256
+15 × 256
+0
+0
+0
+0
+0
+
+EgoSchema
+68.6
+68.3
+68.2
+67.5
+66.8
+66.6
+66.8
+65.7
+63.0
+
+Evaluation Results
+MVBench
+Video-MME(w/o)
+65.5
+61.2
+65.3
+61.0
+65.4
+61.2
+64.9
+60.8
+64.0
+60.1
+63.9
+61.0
+64.0
+60.1
+63.6
+58.8
+63.0
+58.3
+
+Average
+65.1
+64.9
+64.9
+64.4
+63.6
+63.8
+63.6
+62.7
+61.5
+
+Table 8. Ablation study of memory structure configurations. We investigate the model’s sensitivity to cluster numbers of CSM and key
+frame numbers of DAM.
+Score
+Right
+Wrong
+Total
+
+0
+8
+355
+363
+
+1
+0
+290
+290
+
+2
+26
+1712
+1738
+
+3
+111
+82
+193
+
+4
+1916
+82
+1998
+
+5
+2732
+686
+3418
+
+Total
+4793
+3207
+8000
+
+Average Score
+4.53
+2.41
+3.68
+
+Table 9. Score distribution of a GPT-3.5-based evaluation. We tested Qwen2-VL-7b on ActivityNet-QA benchmark, using GPT-3.5-turbo0125 for evaluation. It is observed that many wrong predictions are assigned with a high score “5”, leading to a biased result.
+
+Therefore, the results of grid search experiment illustrated
+in Fig. 4 are reasonable.
+
+VQA benchmarks [70, 78] based on GPT-3.5-based judgment (GPT accuracy and GPT score). However, we notice
+that these metrics are highly unstable and prone to bias, so
+we try to avoid evaluating models on these LLM-as-a-judge
+benchmarks. Since GPT APIs are proprietary and upgrade
+over time, this evaluation approach lacks reliability, stability
+and reproducibility [26]. Furthermore, the evaluation can be
+disturbed by the hallucination of GPT, leading to a biased
+evaluation result [49]. As presented in Tab. 9, there is always
+a discrepancy between the distribution of GPT accuracy and
+GPT score. Therefore, it is still challenging to benchmark
+the open-ended VQA ability of MLLMs.
+
+E. Case Study
+In this section, we conduct a case study to provide a comprehensive understanding of the performance of models. This
+study presents a series of visual cases involving various
+types of videos, each accompanied by a specific question
+and multiple-choice options to evaluate the performance of
+three different models: Qwen2-VL [57], LLaVA-OV [27],
+and the proposed Flash-VStream.
+Figs. 7 to 12 present different genres of videos, including
+documentaries, cartoons, commercials, sports programs and
+tutorial videos. As shown in these cases, Flash-VStream exhibits strong understanding capabilities in object recognition,
+action recognition, action reasoning, temporal reasoning,
+object counting and object reasoning.
+
+G. Future Work
+Future work could focus on enhancing the models’ ability to
+understand edited videos with intensive text or rapid scene
+transitions, while maintaining the overall efficiency. Another
+interesting direction for future work would be to investigate
+reliable evaluation methods for open-ended VQA. Additionally, the techniques developed in this study could be adapted
+for use in other fields such as robotics and surveillance systems. We hope that our work will inspire further innovations
+and improvements in these fields, ultimately leading to more
+intelligent and versatile systems.
+
+F. Limitations
+F.1. Fail Case Analysis
+Flash-VStream may produce incorrect predictions in certain
+scenarios, such as text-intensive long videos (see Fig. 13)
+and long videos with rapid scene changes (see Fig. 14). We
+suggest that these heavily edited video have a different information density distribution compared to native videos,
+making efficient timing modeling more difficult.
+
+F.2. GPT-3.5-based Metric for Open-ended VQA
+It is worth noting that some previous works [25, 31, 49]
+follow Video-ChatGPT [41] to test models on open-ended
+14
+
+Video Duration: 1m56s
+
+Question Type: Object Recognition
+
+Question: In which river's
+bank is it possible to see
+snow?
+Options:
+A. Lena River.
+B. Yangze River.
+C. Ob-Irtysh River.
+D. Syr Darya River.
+Ground Truth Answer: C
+
+Qwen2-VL Prediction: B
+
+LLaVA-OV Prediction: C
+
+Flash-VStream Prediction: C
+
+Figure 7. Case Study. This figure presents a case study on documentary video about the 10 longest rivers in Asia, highlighting their
+lengths, sources, and outflows. The study includes a question regarding the possibility of seeing snow on the banks of these rivers, with
+multiple-choice options provided. The ground truth answer is indicated, along with the predictions from three different models: Qwen2-VL,
+LLaVA-OV, and Flash-VStream.
+Video Duration: 12m6s
+
+Question Type: Action Reasoning
+Question: Why does the
+mother bird bring a fish to
+the fox?
+Options:
+A. To thank the fox for
+raising its own offspring.
+B. Because the fox is
+extremely hungry.
+C. To fulfill its baby's
+wish to help the fox.
+D. Because the fox is a
+friend of its child.
+Ground Truth Answer: A
+
+Qwen2-VL Prediction: C
+
+LLaVA-OV Prediction: C
+
+Flash-VStream Prediction: A
+
+Figure 8. Case Study. This figure presents a case study involving a cartoon video depicting a mother bird bringing a fish to a fox. The study
+includes a question about the reason behind this action, with multiple-choice options provided. The ground truth answer is indicated, along
+with the predictions from three different models: Qwen2-VL, LLaVA-OV, and Flash-VStream.
+
+15
+
+Video Duration: 1m0s
+
+Question Type: Counting Problem
+
+Question: At the end of the
+video, how many people are
+there on the staircase
+along a coastal hillside?
+Options:
+A. 3.
+B. 2.
+C. 4.
+D. 5.
+Ground Truth Answer: D
+
+Qwen2-VL Prediction: A
+
+LLaVA-OV Prediction: C
+
+Flash-VStream Prediction: D
+
+Figure 9. Case Study. This figure presents a case study involving an advertising video, depicting various scenes including people by the
+pool, on the beach, and along a coastal hillside. The study includes a question about the number of people on the staircase at the end of the
+video, with multiple-choice options provided. The ground truth answer is indicated, along with the predictions from three different models:
+Qwen2-VL, LLaVA-OV, and Flash-VStream.
+Video Duration: 6m21s
+
+Question Type: Spatial Perception
+
+Question: Where is the
+first match held?
+Options:
+A. SINGAPORE.
+B. SUZHOU.
+C. Sudirman.
+D. HANGZHOU.
+Ground Truth Answer: B
+
+Qwen2-VL Prediction: A
+
+LLaVA-OV Prediction: C
+
+Flash-VStream Prediction: B
+
+Figure 10. Case Study. This figure presents a case study involving a sports documentary video of badminton tournaments, depicting various
+matches and players. The study includes a question about the location of the first match, with multiple-choice options provided. The ground
+truth answer is indicated, along with the predictions from three different models: Qwen2-VL, LLaVA-OV, and Flash-VStream.
+
+16
+
+Video Duration: 10m59s
+
+Question Type: Temporal Reasoning
+
+Question: According to this video, in which
+order do the following events happen?
+(a) A ring jumps into the finger.
+(b) A coin jumps from hand to hand.
+(c) The cigarette disappears and reappears.
+(d) A coin changes into a card.
+Options:
+A. (a)(c)(d)(b).
+B. (a)(b)(d)(c).
+C. (b)(c)(a)(d).
+D. (c)(d)(b)(a).
+Ground Truth Answer: A
+
+Qwen2-VL Prediction: D
+
+LLaVA-OV Prediction: B
+
+Flash-VStream Prediction: A
+
+Figure 11. Case Study. This figure presents a case study involving a tutorial video depicting various magic tricks. The study includes a
+question about the order of events in the video, with multiple-choice options provided. The ground truth answer is indicated, along with the
+predictions from three different models: Qwen2-VL, LLaVA-OV, and Flash-VStream.
+
+Video Duration: 35m46s
+
+Question Type: Object Reasoning
+
+Question: Which countries do the top three
+in the competition come from?
+Options:
+A. Qatar, South Korea, Ukraine.
+B. United States, South Korea, Italy.
+C. Ukraine, Qatar, United States.
+D. Italy, Qatar, Ukraine.
+Ground Truth Answer: A
+
+Qwen2-VL Prediction: D
+
+LLaVA-OV Prediction: B
+
+Flash-VStream Prediction: A
+
+Figure 12. Case Study. This figure presents a case study involving a sports video from a high jump competition, depicting various athletes
+and their performances. The video frames capture moments of intense competition, showcasing the athletes’ skills and determination as
+they strive to achieve their best performances. The analysis aims to evaluate the models’ ability to accurately interpret and predict the
+outcomes based on visual and contextual cues from the video. The study includes a question about the countries of the top three athletes in
+the competition, with multiple-choice options provided. The ground truth answer is indicated, along with the predictions from three different
+models: Qwen2-VL, LLaVA-OV, and Flash-VStream.
+
+17
+
+Video Duration: 9m30s
+
+Question Type: Object Reasoning
+Question: For the class of space debris
+measuring between 1 and 10 centimeters,
+which cleanup method is proposed in the
+video?
+Options:
+A. Sending up specialized garbage
+collection satellites.
+B. Capturing the debris with robotic arms.
+C. Employing large nets to collect debris.
+D. Using ground- and space-based lasers
+Ground Truth Answer: D
+
+Qwen2-VL Prediction: D
+
+LLaVA-OV Prediction: D
+
+Flash-VStream Prediction: A
+
+Figure 13. Fail Case Analysis. This figure presents a case study involving a video on space debris and proposed cleanup methods. The video
+frames illustrate various statistics and methods related to space debris, highlighting the challenges and potential solutions for mitigating the
+growing problem of space junk. The study includes a question about the recommended method for cleaning up space debris measuring
+between 1 and 10 centimeters, with multiple-choice options provided. The ground truth answer is indicated, along with the predictions from
+three different models: Qwen2-VL, LLaVA-OV, and Flash-VStream.
+
+Video Duration: 8m0s
+
+Question Type: Action Recognition
+
+Question: What does the white parrot do in
+this video?
+Options:
+A. Drinking water.
+B. Shouting to a mug.
+C. Finding food.
+D. Quarreling with others.
+Ground Truth Answer: B
+
+Qwen2-VL Prediction: B
+
+LLaVA-OV Prediction: B
+
+Flash-VStream Prediction: A
+
+Figure 14. Fail Case Analysis. This figure presents a case study involving a video showing various animals and their behaviors. The video
+frames capture different moments of animal interactions and activities, highlighting the diverse behaviors exhibited by the animals. The
+study includes a question about the specific action of a white parrot in the video, with multiple-choice options provided. The ground truth
+answer is indicated, along with the predictions from three different models: Qwen2-VL, LLaVA-OV, and Flash-VStream.
+
+18
+
+

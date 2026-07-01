@@ -1,0 +1,59 @@
+{
+ "recording": "2_19",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 0.0,
+   "end_s": 275.0
+  },
+  {
+   "stage": 16,
+   "start_s": 275.0,
+   "end_s": 740.0
+  },
+  {
+   "stage": 17,
+   "start_s": 740.0,
+   "end_s": 1104.0
+  }
+ ],
+ "events": [
+  {
+   "t": 15.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are peeling a red onion, but the instruction is to peel 1 garlic clove.",
+   "step_id": 14
+  },
+  {
+   "t": 295.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently cutting a red onion, but the instruction is to cut a garlic clove. Please switch to the garlic clove on the cutting board.",
+   "step_id": 16
+  },
+  {
+   "t": 765.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently using the microwave to heat strawberries, which does not fulfill the instruction to peel an onion. Please stop and begin peeling the onion.",
+   "step_id": 17
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 232,
+  "frames_sent": 1100,
+  "vlm_latency_total_s": 314.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 354.5
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "recording": "1_25",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 3,
+   "start_s": 0.0,
+   "end_s": 30.0
+  },
+  {
+   "stage": 1,
+   "start_s": 30.0,
+   "end_s": 65.0
+  },
+  {
+   "stage": 4,
+   "start_s": 65.0,
+   "end_s": 105.0
+  },
+  {
+   "stage": 11,
+   "start_s": 105.0,
+   "end_s": 155.0
+  },
+  {
+   "stage": 8,
+   "start_s": 155.0,
+   "end_s": 609.9
+  }
+ ],
+ "events": [
+  {
+   "t": 35.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a bottle of liquid egg substitute instead of cracking a whole egg into the ramekin cup as instructed.",
+   "step_id": 1
+  },
+  {
+   "t": 95.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You set the microwave timer to 3 minutes (180 seconds) instead of the required 30 seconds.",
+   "step_id": 4
+  },
+  {
+   "t": 110.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently operating the microwave, but the instruction is to stir the ramekin cup. You need to use a utensil to stir the contents of the cup instead of using the microwave.",
+   "step_id": 11
+  },
+  {
+   "t": 365.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "Yes. You are currently retrieving a package of lettuce from the refrigerator, which is not part of the instruction to microwave an egg. Please return to the microwave to continue cooking the egg for the required 15-30 seconds.",
+   "step_id": 8
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 176,
+  "frames_sent": 605,
+  "vlm_latency_total_s": 282.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 299.3
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "recording": "8_31",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 4.5,
+   "end_s": 45.4
+  },
+  {
+   "stage": 89,
+   "start_s": 48.0,
+   "end_s": 97.8
+  },
+  {
+   "stage": 84,
+   "start_s": 99.8,
+   "end_s": 146.5
+  },
+  {
+   "stage": 85,
+   "start_s": 152.8,
+   "end_s": 170.7
+  },
+  {
+   "stage": 83,
+   "start_s": 175.9,
+   "end_s": 233.2
+  }
+ ],
+ "events": [
+  {
+   "t": 152.8,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 85,
+   "message": "You skipped Add 1 teaspoon of white sugar to the mug and Add 2 pieces of chocolate to the mug; they are needed before Mix the contents of the mug."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

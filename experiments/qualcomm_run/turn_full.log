@@ -1,0 +1,63 @@
+[1/109] 10_18 (pinwheels) mode=turnbased
+  t=  65.0 step 113 MISTAKE [preparation]: Yes. You are using a kitchen knife instead of a butter knife.
+  t= 155.0 step 111 MISTAKE [preparation]: Yes. The knife you are using is already soiled with nut butter from the tortilla
+  t= 300.0 step 114 MISTAKE [preparation]: Yes. You are using a regular kitchen knife instead of the butter knife specified
+    -> 3 mistakes, 74 calls, 155.1s
+[2/109] 10_24 (pinwheels) mode=turnbased
+    -> 0 mistakes, 99 calls, 186.9s
+[3/109] 10_47 (pinwheels) mode=turnbased
+  t=  50.0 step 111 MISTAKE [preparation]: Yes. You are using a spoon instead of the butter knife specified in the instruct
+  t=  60.0 step 107 MISTAKE [preparation]: Yes. You are using a spoon to spread the jelly, but the instructions specify usi
+  t=  90.0 step 104 MISTAKE [preparation]: Yes. You are cleaning a spoon instead of the knife.
+  t= 105.0 step 113 MISTAKE [preparation]: Yes. You are using a spoon to scoop the nut butter, but the instructions specifi
+  t= 120.0 step 112 MISTAKE [technique]: Yes. You are using a spoon to spread the nut butter, but the instructions specif
+  t= 265.0 step 114 MISTAKE [preparation]: Yes. You are using a spoon to trim the ends of the roll, but the instructions re
+  t= 360.0 step 118 MISTAKE [preparation]: Yes. You are wiping a spoon instead of the knife.
+  t= 450.0 step 109 MISTAKE [preparation]: Yes. You are placing the pinwheels into a mug instead of on a plate.
+    -> 8 mistakes, 50 calls, 125.8s
+[4/109] 10_48 (pinwheels) mode=turnbased
+  t=  30.0 step 115 MISTAKE [preparation]: Yes. You are using a plate instead of a cutting board. Please place the tortilla
+  t= 135.0 step 111 MISTAKE [preparation]: Yes. You are using a kitchen knife instead of the butter knife specified in the 
+  t= 185.0 step 107 MISTAKE [preparation]: Yes. You are using a knife to scoop the jelly instead of a butter knife to sprea
+  t= 220.0 step 113 MISTAKE [preparation]: Yes. You are using a spoon instead of a butter knife.
+  t= 235.0 step 112 MISTAKE [technique]: Yes. You are using a spoon to spread the nut butter, but the instructions specif
+  t= 265.0 step 118 MISTAKE [preparation]: Yes. You are wiping a kitchen knife instead of the butter knife, and you are not
+  t= 475.0 step 108 MISTAKE [preparation]: Yes. You are using a knife to cut the food instead of pulling the floss ends in 
+  t= 585.0 step 114 MISTAKE [preparation]: Yes. You are using a spoon to trim the ends of the roll instead of the butter kn
+    -> 8 mistakes, 56 calls, 148.0s
+[5/109] 10_50 already done, skip
+[6/109] 12_119 (tomatomozzarellasalad) mode=turnbased
+    -> 0 mistakes, 37 calls, 70.9s
+[7/109] 12_17 already done, skip
+[8/109] 12_19 (tomatomozzarellasalad) mode=turnbased
+    -> 0 mistakes, 45 calls, 86.5s
+[9/109] 12_48 (tomatomozzarellasalad) mode=turnbased
+  t= 215.0 step 121 MISTAKE [preparation]: Yes. You are adding the oil to a pan on the stove instead of drizzling it over t
+    -> 1 mistakes, 18 calls, 42.5s
+[10/109] 12_51 already done, skip
+[11/109] 13_20 (buttercorncup) mode=turnbased
+  t= 220.0 step 133 MISTAKE [timing]: Yes. You are currently washing dishes in the sink, but the instruction is to mic
+  t= 605.0 step 134 MISTAKE [timing]: Yes. You are washing the utensils instead of microwaving the corn.
+    -> 2 mistakes, 78 calls, 203.1s
+[12/109] 13_41 (buttercorncup) mode=turnbased
+  t= 395.0 step 133 MISTAKE [timing]: Yes. You are currently handling a lemon, but the instruction is to microwave cor
+  t= 440.0 step 130 MISTAKE [technique]: Yes. You are using a red measuring spoon, which is typically used for liquids or
+  t= 470.0 step 128 MISTAKE [preparation]: Yes. You are squeezing the lime directly over the bowl, which combines the extra
+  t= 750.0 step 134 MISTAKE [timing]: Yes. You are currently washing a red bowl in the sink, but the instruction is to
+  t= 860.0 step 136 MISTAKE [measurement]: Yes. You are using a 1/2 teaspoon measuring spoon, but the recipe calls for 1 te
+    -> 5 mistakes, 96 calls, 304.3s
+[13/109] 13_44 (buttercorncup) mode=turnbased
+  t=  95.0 step 129 MISTAKE [technique]: Yes. You are using a 1-cup measuring cup, but the recipe requires 2 cups of corn
+  t= 140.0 step 137 MISTAKE [technique]: Yes. You are letting the corn spill out of the sieve and into the sink while rin
+  t= 240.0 step 132 MISTAKE [technique]: Yes. You are spilling corn kernels onto the countertop and into the sink while t
+  t= 290.0 step 133 MISTAKE [timing]: Yes. You are throwing the corn into the trash instead of microwaving it.
+  t= 590.0 step 128 MISTAKE [preparation]: Yes. You are squeezing the lime directly over the bowl, which combines the extra
+  t= 650.0 step 134 MISTAKE [timing]: Yes. You are currently washing dishes in the sink, but the instruction is to mic
+    -> 6 mistakes, 35 calls, 114.0s
+[14/109] 13_45 (buttercorncup) mode=turnbased
+  t= 150.0 step 132 MISTAKE [technique]: Yes. You are spilling corn onto the counter while transferring it from the colan
+  t= 220.0 step 133 MISTAKE [timing]: Yes. You are washing a colander in the sink, but the instruction is to microwave
+  t= 395.0 step 136 MISTAKE [preparation]: Yes. You are adding iodized salt, but the recipe calls for regular salt. Please 
+  t= 450.0 step 134 MISTAKE [timing]: Yes. You are currently washing utensils in the sink, but the instruction is to m
+    -> 4 mistakes, 51 calls, 125.8s
+[15/109] 15_18 (tomatochutney) mode=turnbased

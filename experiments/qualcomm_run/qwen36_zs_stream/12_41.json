@@ -1,0 +1,57 @@
+{
+ "recording": "12_41",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 125,
+   "start_s": 0.0,
+   "end_s": 50.0
+  },
+  {
+   "stage": 122,
+   "start_s": 50.0,
+   "end_s": 75.0
+  },
+  {
+   "stage": 119,
+   "start_s": 75.0,
+   "end_s": 145.0
+  },
+  {
+   "stage": 120,
+   "start_s": 145.0,
+   "end_s": 470.7
+  }
+ ],
+ "events": [
+  {
+   "t": 85.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a soiled cutting board that already has chopped vegetables on it. The instructions require a clean cutting surface for slicing the tomato.",
+   "step_id": 119
+  },
+  {
+   "t": 200.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently handling a spice shaker and a measuring spoon, but the instruction requires you to place thick slices of tomatoes on a platter. You have not yet started the task of arranging the tomatoes.",
+   "step_id": 120
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 120,
+  "frames_sent": 470,
+  "vlm_latency_total_s": 178.3,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 198.7
+ }
+}

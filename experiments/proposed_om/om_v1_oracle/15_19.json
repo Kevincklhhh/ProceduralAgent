@@ -1,0 +1,128 @@
+{
+ "recording": "15_19",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 145,
+   "start_s": 18.3,
+   "end_s": 255.3
+  },
+  {
+   "stage": 154,
+   "start_s": 258.2,
+   "end_s": 330.9
+  },
+  {
+   "stage": 139,
+   "start_s": 338.2,
+   "end_s": 384.4
+  },
+  {
+   "stage": 141,
+   "start_s": 385.5,
+   "end_s": 422.3
+  },
+  {
+   "stage": 140,
+   "start_s": 425.3,
+   "end_s": 604.0
+  },
+  {
+   "stage": 152,
+   "start_s": 613.6,
+   "end_s": 620.1
+  },
+  {
+   "stage": 149,
+   "start_s": 632.5,
+   "end_s": 660.0
+  },
+  {
+   "stage": 151,
+   "start_s": 661.0,
+   "end_s": 688.0
+  },
+  {
+   "stage": 155,
+   "start_s": 710.0,
+   "end_s": 789.0
+  },
+  {
+   "stage": 150,
+   "start_s": 825.8,
+   "end_s": 910.0
+  },
+  {
+   "stage": 148,
+   "start_s": 974.2,
+   "end_s": 1102.0
+  },
+  {
+   "stage": 147,
+   "start_s": 1104.8,
+   "end_s": 1163.2
+  },
+  {
+   "stage": 157,
+   "start_s": 1166.7,
+   "end_s": 1203.0
+  },
+  {
+   "stage": 142,
+   "start_s": 1204.9,
+   "end_s": 1223.0
+  },
+  {
+   "stage": 146,
+   "start_s": 1226.1,
+   "end_s": 1263.0
+  },
+  {
+   "stage": 153,
+   "start_s": 1270.3,
+   "end_s": 1580.7
+  },
+  {
+   "stage": 144,
+   "start_s": 1281.6,
+   "end_s": 1358.2
+  },
+  {
+   "stage": 143,
+   "start_s": 1581.0,
+   "end_s": 1587.1
+  },
+  {
+   "stage": 156,
+   "start_s": 1590.9,
+   "end_s": 1624.0
+  }
+ ],
+ "events": [
+  {
+   "t": 258.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 154,
+   "message": "Heat 3 tbsp oil in a pan over medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 1270.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 153,
+   "message": "simmer-Allow the mixture to simmer over low heat for 5 minutes or until the mixture becomes thick was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

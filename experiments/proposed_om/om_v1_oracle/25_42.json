@@ -1,0 +1,130 @@
+{
+ "recording": "25_42",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 168.1,
+   "end_s": 181.3
+  },
+  {
+   "stage": 293,
+   "start_s": 196.8,
+   "end_s": 216.8
+  },
+  {
+   "stage": 279,
+   "start_s": 237.1,
+   "end_s": 252.5
+  },
+  {
+   "stage": 286,
+   "start_s": 268.7,
+   "end_s": 273.1
+  },
+  {
+   "stage": 291,
+   "start_s": 285.9,
+   "end_s": 306.0
+  },
+  {
+   "stage": 276,
+   "start_s": 317.1,
+   "end_s": 321.7
+  },
+  {
+   "stage": 292,
+   "start_s": 349.1,
+   "end_s": 658.6
+  },
+  {
+   "stage": 282,
+   "start_s": 660.0,
+   "end_s": 664.2
+  },
+  {
+   "stage": 289,
+   "start_s": 671.0,
+   "end_s": 797.3
+  },
+  {
+   "stage": 280,
+   "start_s": 804.6,
+   "end_s": 807.7
+  },
+  {
+   "stage": 285,
+   "start_s": 819.0,
+   "end_s": 842.5
+  },
+  {
+   "stage": 287,
+   "start_s": 841.0,
+   "end_s": 847.0
+  },
+  {
+   "stage": 290,
+   "start_s": 849.2,
+   "end_s": 919.6
+  },
+  {
+   "stage": 278,
+   "start_s": 944.0,
+   "end_s": 953.5
+  },
+  {
+   "stage": 281,
+   "start_s": 974.2,
+   "end_s": 994.9
+  },
+  {
+   "stage": 284,
+   "start_s": 1008.7,
+   "end_s": 1015.0
+  },
+  {
+   "stage": 288,
+   "start_s": 1015.0,
+   "end_s": 1145.8
+  },
+  {
+   "stage": 283,
+   "start_s": 1155.2,
+   "end_s": 1179.6
+  }
+ ],
+ "events": [
+  {
+   "t": 660.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 282,
+   "message": "remove-Briefly remove from the heat again was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 671.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 289,
+   "message": "cook pan for 2 minutes was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 1008.7,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 284,
+   "message": "You skipped drizzle 1 tablespoon soy sauce (watch for spitting) on the pan; it is needed before Return to low heat."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

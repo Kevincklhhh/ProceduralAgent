@@ -1,0 +1,81 @@
+{
+ "recording": "13_44",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 129,
+   "start_s": 88.0,
+   "end_s": 124.5
+  },
+  {
+   "stage": 137,
+   "start_s": 126.9,
+   "end_s": 212.6
+  },
+  {
+   "stage": 132,
+   "start_s": 232.5,
+   "end_s": 245.8
+  },
+  {
+   "stage": 133,
+   "start_s": 256.6,
+   "end_s": 389.8
+  },
+  {
+   "stage": 130,
+   "start_s": 412.2,
+   "end_s": 421.2
+  },
+  {
+   "stage": 138,
+   "start_s": 478.5,
+   "end_s": 492.6
+  },
+  {
+   "stage": 135,
+   "start_s": 512.2,
+   "end_s": 533.5
+  },
+  {
+   "stage": 136,
+   "start_s": 553.9,
+   "end_s": 561.1
+  },
+  {
+   "stage": 128,
+   "start_s": 578.2,
+   "end_s": 601.8
+  },
+  {
+   "stage": 131,
+   "start_s": 578.4,
+   "end_s": 601.6
+  },
+  {
+   "stage": 134,
+   "start_s": 617.8,
+   "end_s": 746.0
+  }
+ ],
+ "events": [
+  {
+   "t": 553.9,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 136,
+   "message": "Add 1 teaspoon salt to the bowl was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

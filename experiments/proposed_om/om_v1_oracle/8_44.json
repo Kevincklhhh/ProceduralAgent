@@ -1,0 +1,58 @@
+{
+ "recording": "8_44",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 7.2,
+   "end_s": 61.2
+  },
+  {
+   "stage": 90,
+   "start_s": 67.0,
+   "end_s": 116.9
+  },
+  {
+   "stage": 84,
+   "start_s": 121.2,
+   "end_s": 160.6
+  },
+  {
+   "stage": 85,
+   "start_s": 167.4,
+   "end_s": 186.6
+  },
+  {
+   "stage": 83,
+   "start_s": 186.8,
+   "end_s": 343.1
+  }
+ ],
+ "events": [
+  {
+   "t": 67.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 90,
+   "message": "You skipped Microwave the contents of the mug for 1 minute; it is needed before Add 2 pieces of chocolate to the mug."
+  },
+  {
+   "t": 167.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 85,
+   "message": "You skipped Add 1 teaspoon of white sugar to the mug; it is needed before Mix the contents of the mug."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

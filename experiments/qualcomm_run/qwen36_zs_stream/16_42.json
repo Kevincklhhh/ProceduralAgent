@@ -1,0 +1,52 @@
+{
+ "recording": "16_42",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 158,
+   "start_s": 0.0,
+   "end_s": 470.0
+  },
+  {
+   "stage": 161,
+   "start_s": 470.0,
+   "end_s": 485.0
+  },
+  {
+   "stage": 163,
+   "start_s": 485.0,
+   "end_s": 950.6
+  }
+ ],
+ "events": [
+  {
+   "t": 40.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently peeling a red onion, but the instruction is to chop cilantro. Please switch to the cilantro.",
+   "step_id": 158
+  },
+  {
+   "t": 515.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. The onions in the pan appear to be sliced into wedges rather than chopped into small pieces as the instruction requires.",
+   "step_id": 163
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 206,
+  "frames_sent": 950,
+  "vlm_latency_total_s": 275.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 316.6
+ }
+}

@@ -1,6 +1,6 @@
 # Project Background: Vision, Dataset, and Constraints
 
-> 🧭 Merges the former `PROJECT_MEMORY.md` (vision/North Star) and `STARTING_POINT.md` (2026-06-10 design study), keeping the durable "why" and the still-valid dataset/infra facts. **Current execution is the three boxes** (`PIPELINE_THREE_BOXES.md`); the baseline suite, metrics, annotation protocol, and stage schema from the old design study now live in `REMINDER_EVALUATION.md` (Box 2), `FAMILY_A_CC4D_AUGMENTATION.md` (Box 1), and the Box-3 predictor docs (two-stage templates + `tasks/PROCEDURE_MONITOR_COMPILER.md` + `REMINDER_RUNTIME.md`). Superseded ideas (ThermalKitchens pivot, B0–B4 framing, hand-annotated windows) are dropped here and preserved in git history.
+> 🧭 Merges the former `PROJECT_MEMORY.md` (vision/North Star) and `STARTING_POINT.md` (2026-06-10 design study), keeping the durable "why" and the still-valid dataset/infra facts. **Current execution is the three boxes** (`PIPELINE_THREE_BOXES.md`); the baseline suite, metrics, annotation protocol, and stage schema from the old design study now live in `REMINDER_EVALUATION.md` (Box 2), `PROACTIVE_REMINDER_GT.md` (Box 1), and the Box-3 predictor docs (two-stage templates + `tasks/PROCEDURE_MONITOR_COMPILER.md` + `REMINDER_RUNTIME.md`). Superseded ideas (ThermalKitchens pivot, B0–B4 framing, hand-annotated windows) are dropped here and preserved in git history.
 
 ## 1. Vision / North Star
 
@@ -11,6 +11,14 @@ Why procedural tasks: they give the same structure that makes coding agents work
 **Scope boundary (vs robotics/VLA):** the human is the actor; the agent never emits motor control. Out of scope: improving base VLM perception accuracy, foundation-model scaling, generic video QA, prompt-only assistants.
 
 **The narrowed thesis (2026-06-14):** the concrete contribution is **sensor control** — given the procedure ahead of time, schedule cheap RGB+audio detectors to gate/trigger an expensive VLM, reported as *energy/latency saved at equal coverage*, not as error-detection accuracy. See `sensor-control` framing in `PIPELINE_THREE_BOXES.md`.
+
+**Current headline (2026-06-28) — the latency arm:** the live work has sharpened this into a
+**reminder-latency** story: a reminder is useful only if it arrives shortly after the evidence
+appears, so the deployable win is *low latency from evidence → spoken intervention* (achievable at a
+constant ~133 ms trigger via pre-encoded prefill + bounded claim checks), with *reminder accuracy*
+as the open risk (zero-shot detection still over-fires badly). Sensor control is the substrate that
+makes the fast-trigger path real; latency is the headline and accuracy the unsolved half. See
+`docs/LATENCY_STORY.md` for the current framing, metrics, and open problems.
 
 ## 2. Bottlenecks we care about (the motivation behind Box 2's metrics)
 
@@ -43,7 +51,7 @@ in code (`eval/proposed_vlm_arm.py`, `eval/baseline_t1_step.py`), not in a doc.
 | **CaptainCook4D** | primary replay corpus (audio + step + error GT) | chosen; on disk |
 | **Qualcomm Interactive Cooking** (LiveMamba, 2511.21998) | adds timestamped instruction/feedback/mistake events over all 384 CC4D recordings → the Box-1 GT timestamp source + the heavyweight end-to-end baseline | on disk; research-only DLA |
 | **HD-EPIC** | naturalistic transfer (quiet audio, recipe-step GT, no errors) | on disk, 116 GB, cycle-2 |
-| **EPIC-SOUNDS** | audio-detector calibration corpus (78.4k labeled segments) | grounds `research/AUDIO_LIBRARY.md` |
+| **EPIC-SOUNDS** | audio-detector calibration corpus (78.4k labeled segments) | grounds the audio primitives (`research/DETECTOR_CATALOG.md`) |
 | EgoPER | frame-exact error onsets | email-gated; promote if access lands |
 | WTaG | real human when-to-talk anchor (defuses circularity) | license form; 3 recipes |
 | EgoProactive/Pro2Bench | public when-to-speak challenge | released but **audio-stripped**, 0.7–3.9 s micro-action granularity — appendix only |

@@ -1,0 +1,35 @@
+{
+ "recording": "27_49",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 316,
+   "start_s": 0.0,
+   "end_s": 532.8
+  }
+ ],
+ "events": [
+  {
+   "t": 50.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a measuring spoon instead of a measuring cup, which makes it difficult to measure the required 1/3 cup accurately. Additionally, you are placing the cheese into the spoon rather than directly into the microwave-safe cup as instructed.",
+   "step_id": 316
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 116,
+  "frames_sent": 530,
+  "vlm_latency_total_s": 160.3,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 183.3
+ }
+}

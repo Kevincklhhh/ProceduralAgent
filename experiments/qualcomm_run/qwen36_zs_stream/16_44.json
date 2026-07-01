@@ -1,0 +1,57 @@
+{
+ "recording": "16_44",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 158,
+   "start_s": 0.0,
+   "end_s": 320.0
+  },
+  {
+   "stage": 161,
+   "start_s": 320.0,
+   "end_s": 325.0
+  },
+  {
+   "stage": 163,
+   "start_s": 325.0,
+   "end_s": 590.0
+  },
+  {
+   "stage": 164,
+   "start_s": 590.0,
+   "end_s": 1114.8
+  }
+ ],
+ "events": [
+  {
+   "t": 55.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently pouring oil into the pan, but the instruction is to chop 1 tsp of cilantro. Please set the oil aside and chop the cilantro first.",
+   "step_id": 158
+  },
+  {
+   "t": 655.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are adding the salt to the pan on the stove, but the instructions specify adding it to the bowl.",
+   "step_id": 164
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 298,
+  "frames_sent": 1110,
+  "vlm_latency_total_s": 425.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 466.6
+ }
+}

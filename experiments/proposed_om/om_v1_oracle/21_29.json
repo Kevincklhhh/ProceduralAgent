@@ -1,0 +1,91 @@
+{
+ "recording": "21_29",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 232,
+   "start_s": 21.1,
+   "end_s": 68.6
+  },
+  {
+   "stage": 229,
+   "start_s": 76.0,
+   "end_s": 106.2
+  },
+  {
+   "stage": 221,
+   "start_s": 119.0,
+   "end_s": 161.1
+  },
+  {
+   "stage": 227,
+   "start_s": 163.8,
+   "end_s": 222.4
+  },
+  {
+   "stage": 223,
+   "start_s": 231.6,
+   "end_s": 284.6
+  },
+  {
+   "stage": 231,
+   "start_s": 284.6,
+   "end_s": 343.2
+  },
+  {
+   "stage": 226,
+   "start_s": 343.2,
+   "end_s": 502.0
+  },
+  {
+   "stage": 233,
+   "start_s": 422.8,
+   "end_s": 502.5
+  },
+  {
+   "stage": 228,
+   "start_s": 504.3,
+   "end_s": 517.1
+  },
+  {
+   "stage": 230,
+   "start_s": 520.8,
+   "end_s": 532.7
+  },
+  {
+   "stage": 234,
+   "start_s": 530.8,
+   "end_s": 546.4
+  },
+  {
+   "stage": 222,
+   "start_s": 544.6,
+   "end_s": 562.9
+  },
+  {
+   "stage": 224,
+   "start_s": 562.9,
+   "end_s": 574.8
+  }
+ ],
+ "events": [
+  {
+   "t": 163.8,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 227,
+   "message": "You skipped Add 1 banana to a blender; it is needed before blitz the blender for 20 seconds."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

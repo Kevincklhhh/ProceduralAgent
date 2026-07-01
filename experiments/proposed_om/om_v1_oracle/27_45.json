@@ -1,0 +1,81 @@
+{
+ "recording": "27_45",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 316,
+   "start_s": 27.6,
+   "end_s": 100.5
+  },
+  {
+   "stage": 321,
+   "start_s": 132.9,
+   "end_s": 194.5
+  },
+  {
+   "stage": 322,
+   "start_s": 322.6,
+   "end_s": 366.3
+  },
+  {
+   "stage": 323,
+   "start_s": 368.0,
+   "end_s": 421.4
+  },
+  {
+   "stage": 318,
+   "start_s": 497.6,
+   "end_s": 671.1
+  },
+  {
+   "stage": 317,
+   "start_s": 682.4,
+   "end_s": 739.1
+  },
+  {
+   "stage": 319,
+   "start_s": 750.5,
+   "end_s": 781.3
+  },
+  {
+   "stage": 320,
+   "start_s": 810.5,
+   "end_s": 836.4
+  },
+  {
+   "stage": 314,
+   "start_s": 847.8,
+   "end_s": 870.4
+  },
+  {
+   "stage": 315,
+   "start_s": 893.1,
+   "end_s": 923.9
+  },
+  {
+   "stage": 324,
+   "start_s": 927.2,
+   "end_s": 1014.7
+  }
+ ],
+ "events": [
+  {
+   "t": 497.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 318,
+   "message": "Microwave the bowl, covered, for 2 minutes was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

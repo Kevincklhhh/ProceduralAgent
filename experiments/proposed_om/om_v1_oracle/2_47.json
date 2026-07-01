@@ -1,0 +1,106 @@
+{
+ "recording": "2_47",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 18.7,
+   "end_s": 120.4
+  },
+  {
+   "stage": 17,
+   "start_s": 118.7,
+   "end_s": 178.0
+  },
+  {
+   "stage": 27,
+   "start_s": 176.3,
+   "end_s": 191.6
+  },
+  {
+   "stage": 19,
+   "start_s": 189.6,
+   "end_s": 207.6
+  },
+  {
+   "stage": 22,
+   "start_s": 239.1,
+   "end_s": 279.8
+  },
+  {
+   "stage": 21,
+   "start_s": 281.5,
+   "end_s": 320.5
+  },
+  {
+   "stage": 20,
+   "start_s": 313.2,
+   "end_s": 509.4
+  },
+  {
+   "stage": 18,
+   "start_s": 547.6,
+   "end_s": 569.7
+  },
+  {
+   "stage": 16,
+   "start_s": 576.5,
+   "end_s": 593.4
+  },
+  {
+   "stage": 23,
+   "start_s": 596.8,
+   "end_s": 715.5
+  },
+  {
+   "stage": 26,
+   "start_s": 717.2,
+   "end_s": 746.0
+  },
+  {
+   "stage": 15,
+   "start_s": 747.7,
+   "end_s": 786.7
+  },
+  {
+   "stage": 24,
+   "start_s": 790.1,
+   "end_s": 851.2
+  },
+  {
+   "stage": 20,
+   "start_s": 854.6,
+   "end_s": 947.8
+  },
+  {
+   "stage": 18,
+   "start_s": 942.7,
+   "end_s": 966.5
+  },
+  {
+   "stage": 25,
+   "start_s": 968.2,
+   "end_s": 1054.6
+  }
+ ],
+ "events": [
+  {
+   "t": 313.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 20,
+   "message": "Microwave the plate, covered, on high for 1.5 minutes was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

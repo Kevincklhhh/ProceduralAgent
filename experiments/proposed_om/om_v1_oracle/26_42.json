@@ -1,0 +1,127 @@
+{
+ "recording": "26_42",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 310,
+   "start_s": 0.0,
+   "end_s": 79.0
+  },
+  {
+   "stage": 299,
+   "start_s": 85.5,
+   "end_s": 100.0
+  },
+  {
+   "stage": 303,
+   "start_s": 106.3,
+   "end_s": 163.2
+  },
+  {
+   "stage": 301,
+   "start_s": 169.2,
+   "end_s": 174.0
+  },
+  {
+   "stage": 304,
+   "start_s": 177.3,
+   "end_s": 225.3
+  },
+  {
+   "stage": 296,
+   "start_s": 226.8,
+   "end_s": 269.0
+  },
+  {
+   "stage": 308,
+   "start_s": 269.7,
+   "end_s": 288.3
+  },
+  {
+   "stage": 307,
+   "start_s": 331.9,
+   "end_s": 345.3
+  },
+  {
+   "stage": 312,
+   "start_s": 364.8,
+   "end_s": 505.5
+  },
+  {
+   "stage": 305,
+   "start_s": 507.2,
+   "end_s": 576.0
+  },
+  {
+   "stage": 309,
+   "start_s": 580.5,
+   "end_s": 620.6
+  },
+  {
+   "stage": 295,
+   "start_s": 625.4,
+   "end_s": 643.9
+  },
+  {
+   "stage": 298,
+   "start_s": 647.8,
+   "end_s": 716.7
+  },
+  {
+   "stage": 311,
+   "start_s": 720.4,
+   "end_s": 756.3
+  },
+  {
+   "stage": 306,
+   "start_s": 770.5,
+   "end_s": 783.1
+  },
+  {
+   "stage": 302,
+   "start_s": 794.4,
+   "end_s": 829.7
+  }
+ ],
+ "events": [
+  {
+   "t": 226.8,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 296,
+   "message": "Measure and add-2 tbsp water to the bowl was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 269.7,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 308,
+   "message": "You skipped Measure and add-1.5 tbsp sugar to the mixing bowl; it is needed before Whisk to combine mixture of flour, sugar and baking powder in the bowl."
+  },
+  {
+   "t": 331.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 307,
+   "message": "You skipped Whisk batter until no lumps remain, Measure and add-Measure and add 2 tsp vegetable oil to the bowl, and Measure and add-1/4 tsp vanilla extract to the bowl; they are needed before Pour batter into prepared mug."
+  },
+  {
+   "t": 507.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 305,
+   "message": "Allow to cool until it is no longer hot to the touch was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "recording": "10_18",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 0.0,
+   "end_s": 35.0
+  },
+  {
+   "stage": 113,
+   "start_s": 35.0,
+   "end_s": 80.0
+  },
+  {
+   "stage": 112,
+   "start_s": 80.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": 118,
+   "start_s": 120.0,
+   "end_s": 135.0
+  },
+  {
+   "stage": 111,
+   "start_s": 135.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": 107,
+   "start_s": 160.0,
+   "end_s": 165.0
+  },
+  {
+   "stage": 104,
+   "start_s": 165.0,
+   "end_s": 190.0
+  },
+  {
+   "stage": 116,
+   "start_s": 190.0,
+   "end_s": 230.0
+  },
+  {
+   "stage": 110,
+   "start_s": 230.0,
+   "end_s": 415.0
+  },
+  {
+   "stage": 114,
+   "start_s": 415.0,
+   "end_s": 620.3
+  }
+ ],
+ "events": [
+  {
+   "t": 65.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a kitchen knife instead of a butter knife.",
+   "step_id": 113
+  },
+  {
+   "t": 140.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a knife that is still dirty with nut butter to scoop the jelly. The instructions specify using a clean butter knife to avoid mixing the spreads.",
+   "step_id": 111
+  },
+  {
+   "t": 170.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using your hand to wipe the knife instead of a paper towel.",
+   "step_id": 104
+  },
+  {
+   "t": 425.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are using your hands to tear off the ends of the roll instead of using a butter knife to cut them cleanly.",
+   "step_id": 114
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 192,
+  "frames_sent": 620,
+  "vlm_latency_total_s": 294.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 318.9
+ }
+}

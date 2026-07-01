@@ -1,0 +1,106 @@
+{
+ "recording": "3_36",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 1.8,
+   "end_s": 21.0
+  },
+  {
+   "stage": 34,
+   "start_s": 58.5,
+   "end_s": 89.5
+  },
+  {
+   "stage": 33,
+   "start_s": 107.8,
+   "end_s": 174.5
+  },
+  {
+   "stage": 40,
+   "start_s": 180.9,
+   "end_s": 248.5
+  },
+  {
+   "stage": 38,
+   "start_s": 254.9,
+   "end_s": 296.0
+  },
+  {
+   "stage": 41,
+   "start_s": 300.6,
+   "end_s": 380.0
+  },
+  {
+   "stage": 28,
+   "start_s": 383.7,
+   "end_s": 433.9
+  },
+  {
+   "stage": 37,
+   "start_s": 436.7,
+   "end_s": 524.4
+  },
+  {
+   "stage": 35,
+   "start_s": 528.9,
+   "end_s": 560.9
+  },
+  {
+   "stage": 30,
+   "start_s": 576.0,
+   "end_s": 607.0
+  },
+  {
+   "stage": 31,
+   "start_s": 608.0,
+   "end_s": 611.0
+  },
+  {
+   "stage": 30,
+   "start_s": 611.0,
+   "end_s": 613.0
+  },
+  {
+   "stage": 31,
+   "start_s": 612.0,
+   "end_s": 638.6
+  },
+  {
+   "stage": 39,
+   "start_s": 651.4,
+   "end_s": 687.9
+  },
+  {
+   "stage": 29,
+   "start_s": 690.6,
+   "end_s": 715.3
+  },
+  {
+   "stage": 32,
+   "start_s": 716.2,
+   "end_s": 944.6
+  }
+ ],
+ "events": [
+  {
+   "t": 58.5,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 34,
+   "message": "Add-1 tablespoon of olive oil to the mug was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

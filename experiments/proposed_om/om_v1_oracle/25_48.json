@@ -1,0 +1,131 @@
+{
+ "recording": "25_48",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 52.9,
+   "end_s": 83.0
+  },
+  {
+   "stage": 286,
+   "start_s": 118.8,
+   "end_s": 128.4
+  },
+  {
+   "stage": 291,
+   "start_s": 137.5,
+   "end_s": 143.3
+  },
+  {
+   "stage": 279,
+   "start_s": 150.4,
+   "end_s": 175.3
+  },
+  {
+   "stage": 292,
+   "start_s": 199.6,
+   "end_s": 319.3
+  },
+  {
+   "stage": 285,
+   "start_s": 336.0,
+   "end_s": 363.7
+  },
+  {
+   "stage": 287,
+   "start_s": 367.0,
+   "end_s": 369.1
+  },
+  {
+   "stage": 278,
+   "start_s": 388.9,
+   "end_s": 400.2
+  },
+  {
+   "stage": 289,
+   "start_s": 403.9,
+   "end_s": 442.9
+  },
+  {
+   "stage": 282,
+   "start_s": 443.7,
+   "end_s": 449.3
+  },
+  {
+   "stage": 277,
+   "start_s": 461.3,
+   "end_s": 477.1
+  },
+  {
+   "stage": 284,
+   "start_s": 482.7,
+   "end_s": 488.2
+  },
+  {
+   "stage": 288,
+   "start_s": 510.0,
+   "end_s": 594.1
+  },
+  {
+   "stage": 283,
+   "start_s": 602.4,
+   "end_s": 631.5
+  }
+ ],
+ "events": [
+  {
+   "t": 150.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 279,
+   "message": "You skipped pat tofu dry with a towel; it is needed before add the tofu cubes to the pan."
+  },
+  {
+   "t": 199.6,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 292,
+   "message": "You skipped Turn on the heat to medium; it is needed before Cook 5 to 6 minutes until tofu cubes are lightly browned on the bottom."
+  },
+  {
+   "t": 336.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 285,
+   "message": "You skipped remove-Briefly remove the pan from the heat to reduce spitting; it is needed before Flip the tofu with tongs."
+  },
+  {
+   "t": 388.9,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 278,
+   "message": "drizzle with the 1 tablespoons sesame oil on the pan was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 443.7,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 282,
+   "message": "You skipped cook until tofu turns brown; it is needed before remove-Briefly remove from the heat again."
+  },
+  {
+   "t": 510.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 288,
+   "message": "You skipped flip tofu on the pan; it is needed before cook pan for 2 minutes until the colour is darkened."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

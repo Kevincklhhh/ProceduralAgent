@@ -1,0 +1,80 @@
+{
+ "recording": "17_28",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 189,
+   "start_s": 177.4,
+   "end_s": 195.5
+  },
+  {
+   "stage": 191,
+   "start_s": 228.3,
+   "end_s": 258.2
+  },
+  {
+   "stage": 181,
+   "start_s": 266.3,
+   "end_s": 281.2
+  },
+  {
+   "stage": 184,
+   "start_s": 287.2,
+   "end_s": 312.2
+  },
+  {
+   "stage": 187,
+   "start_s": 319.7,
+   "end_s": 360.7
+  },
+  {
+   "stage": 185,
+   "start_s": 376.4,
+   "end_s": 383.9
+  },
+  {
+   "stage": 190,
+   "start_s": 384.6,
+   "end_s": 391.3
+  },
+  {
+   "stage": 186,
+   "start_s": 393.2,
+   "end_s": 400.6
+  }
+ ],
+ "events": [
+  {
+   "t": 228.3,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 191,
+   "message": "You skipped whisk-In a mixing bowl, whisk 1 cup of chilled curd until smooth. Use fresh homemade or packaged curd; it is needed before Add-1/2 teaspoon of chaat masala powder to the bowl."
+  },
+  {
+   "t": 376.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 185,
+   "message": "You skipped peel the cucumber; it is needed before chop or grate-chop or grate the cucumber."
+  },
+  {
+   "t": 393.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 186,
+   "message": "You skipped Add 1 teaspoon of cumin powder to the bowl; it is needed before Combine all the ingredients in the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

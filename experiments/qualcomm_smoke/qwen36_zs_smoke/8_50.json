@@ -1,0 +1,27 @@
+{
+ "recording": "8_50",
+ "arm": "qwen36_zs_smoke",
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 0.0,
+   "end_s": 263.5
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 26,
+  "frames_sent": 104,
+  "vlm_latency_total_s": 1208.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 20.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 1213.2
+ }
+}

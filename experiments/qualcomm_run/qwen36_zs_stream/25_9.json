@@ -1,0 +1,40 @@
+{
+ "recording": "25_9",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 0.0,
+   "end_s": 155.0
+  },
+  {
+   "stage": 286,
+   "start_s": 155.0,
+   "end_s": 1058.5
+  }
+ ],
+ "events": [
+  {
+   "t": 240.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are adding oil to the pan, but the instruction is to add salt.",
+   "step_id": 286
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 258,
+  "frames_sent": 1055,
+  "vlm_latency_total_s": 349.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 393.9
+ }
+}

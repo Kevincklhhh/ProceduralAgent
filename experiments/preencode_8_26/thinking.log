@@ -1,0 +1,31 @@
+Loading weights:   0%|          | 0/1584 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1584 [00:00<07:16,  3.63it/s]Loading weights:   0%|          | 2/1584 [00:00<09:15,  2.85it/s]Loading weights:   2%|▏         | 36/1584 [00:00<00:22, 67.73it/s]Loading weights:   4%|▍         | 64/1584 [00:00<00:14, 105.00it/s]Loading weights:   7%|▋         | 114/1584 [00:01<00:07, 186.00it/s]Loading weights:   9%|▉         | 141/1584 [00:01<00:07, 199.57it/s]Loading weights:  11%|█         | 169/1584 [00:01<00:06, 219.03it/s]Loading weights:  12%|█▏        | 196/1584 [00:01<00:06, 214.77it/s]Loading weights:  14%|█▍        | 221/1584 [00:01<00:06, 223.58it/s]Loading weights:  17%|█▋        | 263/1584 [00:01<00:04, 272.57it/s]Loading weights:  18%|█▊        | 293/1584 [00:01<00:04, 264.17it/s]Loading weights:  21%|██        | 330/1584 [00:01<00:04, 289.61it/s]Loading weights:  23%|██▎       | 366/1584 [00:01<00:03, 306.27it/s]Loading weights:  25%|██▌       | 398/1584 [00:02<00:03, 303.28it/s]Loading weights:  27%|██▋       | 430/1584 [00:02<00:04, 279.43it/s]Loading weights:  29%|██▉       | 459/1584 [00:02<00:04, 275.34it/s]Loading weights:  31%|███▏      | 495/1584 [00:02<00:03, 292.38it/s]Loading weights:  33%|███▎      | 525/1584 [00:02<00:03, 288.51it/s]Loading weights:  35%|███▌      | 555/1584 [00:02<00:03, 275.81it/s]Loading weights:  37%|███▋      | 584/1584 [00:02<00:03, 268.98it/s]Loading weights:  39%|███▊      | 612/1584 [00:02<00:03, 261.27it/s]Loading weights:  41%|████      | 644/1584 [00:02<00:03, 264.84it/s]Loading weights:  43%|████▎     | 678/1584 [00:03<00:03, 280.50it/s]Loading weights:  45%|████▍     | 707/1584 [00:03<00:03, 279.66it/s]Loading weights:  47%|████▋     | 742/1584 [00:03<00:02, 286.63it/s]Loading weights:  49%|████▊     | 771/1584 [00:03<00:02, 273.53it/s]Loading weights:  51%|█████     | 809/1584 [00:03<00:02, 294.59it/s]Loading weights:  53%|█████▎    | 839/1584 [00:03<00:02, 294.61it/s]Loading weights:  55%|█████▌    | 876/1584 [00:03<00:02, 307.76it/s]Loading weights:  58%|█████▊    | 915/1584 [00:03<00:02, 322.02it/s]Loading weights:  60%|██████    | 951/1584 [00:03<00:01, 324.95it/s]Loading weights:  62%|██████▏   | 985/1584 [00:04<00:01, 322.23it/s]Loading weights:  64%|██████▍   | 1018/1584 [00:04<00:01, 320.72it/s]Loading weights:  66%|██████▋   | 1052/1584 [00:04<00:01, 325.00it/s]Loading weights:  68%|██████▊   | 1085/1584 [00:04<00:01, 308.31it/s]Loading weights:  71%|███████   | 1127/1584 [00:04<00:01, 330.80it/s]Loading weights:  73%|███████▎  | 1161/1584 [00:04<00:01, 304.11it/s]Loading weights:  76%|███████▌  | 1201/1584 [00:04<00:01, 329.42it/s]Loading weights:  78%|███████▊  | 1235/1584 [00:04<00:01, 302.59it/s]Loading weights:  87%|████████▋ | 1379/1584 [00:04<00:00, 601.14it/s]Loading weights: 100%|█████████▉| 1577/1584 [00:05<00:00, 964.07it/s]Loading weights: 100%|██████████| 1584/1584 [00:05<00:00, 313.30it/s]
+[resolve] visual: Qwen3_5VisionModel | lm: Qwen3_5TextModel | get_rope: yes
+
+=== enable_thinking=True | prompt tail ===
+...' occur in the frames? Answer yes or no.<|im_end|>\n<|im_start|>assistant\n<think>\n'
+
+=== enable_thinking=False | prompt tail ===
+...'he frames? Answer yes or no.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n'
+
+########## BOUNDED CLAIM ##########
+
+--- enable_thinking=True: generate 200 tok ---
+Fetching ... files: 0it [00:00, ?it/s]Fetching ... files: 9it [00:00, 17614.90it/s]
+'The user wants me to check if the person in the video added exactly 2 pieces of chocolate to the mug, as per the recipe step.\n\n1.  **Analyze the video:**\n    *   The video starts with a blue mug containing a white liquid (likely milk).\n    *   The person puts the mug down.\n    *   They open a cupboard and take out a yellow bag of "Toll House" chocolate chips.\n    *   They open the bag.\n    *   They reach into the bag and take out a handful of chocolate chips.\n    *   They pour the chocolate chips into the mug.\n    *   Wait, let\'s look closer at the action.\n    *   Frame 00:08: The person is holding the bag over the mug.\n    *   Frame 00:09: The person is reaching into the bag.\n    *   Frame 00:10:'
+   1st-token constrained: ans=yes scores={'yes': 10.81, 'no': 8.81, 'uncertain': 2.95}
+   1st-token top5: [('The', 27.25), ('1', 16.62), ('Thinking', 16.5), (' The', 15.56), ('Looking', 14.31)]
+
+--- enable_thinking=False: generate 200 tok ---
+'No<|im_end|>'
+   1st-token constrained: ans=no scores={'yes': 21.0, 'no': 24.0, 'uncertain': 8.81}
+   1st-token top5: [('No', 24.0), ('Yes', 21.0), ('Based', 18.12), ('The', 17.75), ('In', 15.44)]
+
+########## OPEN-ENDED ##########
+
+--- enable_thinking=True: generate 200 tok ---
+'The user wants me to monitor a cooking step: "Add 2 pieces of chocolate to the mug".\n\n1.  **Analyze the video:**\n    *   The video starts with a person holding a blue mug with white liquid (milk) in it.\n    *   They put the mug down on the counter.\n    *   They open a cupboard and take out a yellow bag of "Toll House" chocolate chips.\n    *   They open the bag.\n    *   They reach into the bag and take out a handful of chocolate chips.\n    *   They put the chocolate chips into the mug.\n    *   They close the bag and put it back in the cupboard.\n\n2.  **Evaluate the action against the instruction:**\n    *   The instruction is "Add 2 pieces of chocolate to the mug".\n    *   The person adds a *handful* of chocolate chips, which is definitely more than 2'
+
+--- enable_thinking=False: generate 200 tok ---
+'No reminder needed.<|im_end|>'
+
+[done]

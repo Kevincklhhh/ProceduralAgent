@@ -1,0 +1,405 @@
+{
+ "recording": "22_137",
+ "arm": "qwen36_zs_turn_cs",
+ "stage_intervals": [
+  {
+   "stage": 237,
+   "start_s": 0.0,
+   "end_s": 230.0
+  },
+  {
+   "stage": 249,
+   "start_s": 230.0,
+   "end_s": 275.0
+  },
+  {
+   "stage": 235,
+   "start_s": 275.0,
+   "end_s": 340.0
+  },
+  {
+   "stage": 247,
+   "start_s": 340.0,
+   "end_s": 375.0
+  },
+  {
+   "stage": 246,
+   "start_s": 375.0,
+   "end_s": 395.0
+  },
+  {
+   "stage": 240,
+   "start_s": 395.0,
+   "end_s": 530.0
+  },
+  {
+   "stage": 239,
+   "start_s": 530.0,
+   "end_s": 620.0
+  },
+  {
+   "stage": 240,
+   "start_s": 620.0,
+   "end_s": 701.8
+  }
+ ],
+ "events": [
+  {
+   "t": 10.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 2 tbsp chopped cilantro; flag if a clearly different amount is produced (e.g. only 1 tbsp chopped, or no measurement attempted at all).",
+   "step_id": 237,
+   "choice": 1,
+   "raw": "1,2,3"
+  },
+  {
+   "t": 10.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires chopping the cilantro with a knife; flag if it is not properly chopped (e.g. torn into pieces by hand instead of cut with a knife, or the cilantro is not measured before preparation).",
+   "step_id": 237,
+   "choice": 2,
+   "raw": "1,2,3"
+  },
+  {
+   "t": 10.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for chopping the cilantro finely; flag if the cutting action produces large irregular pieces rather than a proper chop (e.g. cilantro merely cut into rough chunks, not chopped).",
+   "step_id": 237,
+   "choice": 3,
+   "raw": "1,2,3"
+  },
+  {
+   "t": 245.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/2 tsp ground black pepper; flag if no measurement is used or a clearly different amount is added (e.g. poured directly from the shaker without measuring, or approximately 2 tsp used).",
+   "step_id": 249,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 245.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires a clean transfer of pepper into the bowl; flag if the technique is sloppy (e.g. pepper spills outside the bowl, or excess is added due to improper transfer from shaker to measuring spoon).",
+   "step_id": 249,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 275.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "The recipe requires heating the oil before cooking; flag if the oil is not heated (e.g. the stove is not turned on and the pan is used without the oil being heated).",
+   "step_id": 235,
+   "choice": 4,
+   "raw": "4"
+  },
+  {
+   "t": 365.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for a standard-sized tomato; flag if a wrong type is used (e.g. a cherry tomato instead of a regular tomato).",
+   "step_id": 247,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 375.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires a standard-sized tomato to be cut; flag if a wrong type of produce is used (e.g. a cherry tomato is cut instead of a regular tomato).",
+   "step_id": 246,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 400.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires the cut tomato halves to be placed properly in the pan; flag if the tomatoes are handled or placed incorrectly (e.g. placed onto a cutting board instead of the pan, or a cherry tomato is used instead of a regular tomato).",
+   "step_id": 240,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 555.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires cracking the egg directly into the bowl; flag if an improper method is used (e.g. egg is cracked onto another surface and then scooped into the bowl by hand).",
+   "step_id": 239,
+   "choice": 2,
+   "raw": "2"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 21,
+  "frames_sent": 635,
+  "vlm_latency_total_s": 138.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 186.4,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 10.0,
+   "kind": "mistake",
+   "step_id": 237,
+   "win_start": 5.0,
+   "win_end": 10.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "measurement",
+    "preparation",
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 230.0,
+   "kind": "mistake",
+   "step_id": 249,
+   "win_start": 225.0,
+   "win_end": 230.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 235.0,
+   "kind": "mistake",
+   "step_id": 249,
+   "win_start": 230.0,
+   "win_end": 235.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 240.0,
+   "kind": "mistake",
+   "step_id": 249,
+   "win_start": 235.0,
+   "win_end": 240.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 245.0,
+   "kind": "mistake",
+   "step_id": 249,
+   "win_start": 240.0,
+   "win_end": 245.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "measurement",
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 275.0,
+   "kind": "mistake",
+   "step_id": 235,
+   "win_start": 270.0,
+   "win_end": 275.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "temperature"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 340.0,
+   "kind": "mistake",
+   "step_id": 247,
+   "win_start": 335.0,
+   "win_end": 340.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 345.0,
+   "kind": "mistake",
+   "step_id": 247,
+   "win_start": 340.0,
+   "win_end": 345.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 350.0,
+   "kind": "mistake",
+   "step_id": 247,
+   "win_start": 345.0,
+   "win_end": 350.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 355.0,
+   "kind": "mistake",
+   "step_id": 247,
+   "win_start": 350.0,
+   "win_end": 355.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 360.0,
+   "kind": "mistake",
+   "step_id": 247,
+   "win_start": 355.0,
+   "win_end": 360.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 365.0,
+   "kind": "mistake",
+   "step_id": 247,
+   "win_start": 360.0,
+   "win_end": 365.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 375.0,
+   "kind": "mistake",
+   "step_id": 246,
+   "win_start": 370.0,
+   "win_end": 375.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 395.0,
+   "kind": "mistake",
+   "step_id": 240,
+   "win_start": 390.0,
+   "win_end": 395.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 400.0,
+   "kind": "mistake",
+   "step_id": 240,
+   "win_start": 395.0,
+   "win_end": 400.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 530.0,
+   "kind": "mistake",
+   "step_id": 239,
+   "win_start": 525.0,
+   "win_end": 530.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 535.0,
+   "kind": "mistake",
+   "step_id": 239,
+   "win_start": 530.0,
+   "win_end": 535.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 540.0,
+   "kind": "mistake",
+   "step_id": 239,
+   "win_start": 535.0,
+   "win_end": 540.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 545.0,
+   "kind": "mistake",
+   "step_id": 239,
+   "win_start": 540.0,
+   "win_end": 545.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 550.0,
+   "kind": "mistake",
+   "step_id": 239,
+   "win_start": 545.0,
+   "win_end": 550.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 555.0,
+   "kind": "mistake",
+   "step_id": 239,
+   "win_start": 550.0,
+   "win_end": 555.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  }
+ ]
+}

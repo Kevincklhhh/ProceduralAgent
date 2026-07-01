@@ -1,0 +1,85 @@
+{
+ "recording": "18_31",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 196,
+   "start_s": 2.0,
+   "end_s": 23.8
+  },
+  {
+   "stage": 204,
+   "start_s": 27.6,
+   "end_s": 179.9
+  },
+  {
+   "stage": 200,
+   "start_s": 183.9,
+   "end_s": 210.1
+  },
+  {
+   "stage": 199,
+   "start_s": 214.2,
+   "end_s": 246.1
+  },
+  {
+   "stage": 202,
+   "start_s": 251.0,
+   "end_s": 290.4
+  },
+  {
+   "stage": 194,
+   "start_s": 291.5,
+   "end_s": 312.9
+  },
+  {
+   "stage": 193,
+   "start_s": 313.0,
+   "end_s": 394.1
+  },
+  {
+   "stage": 197,
+   "start_s": 396.5,
+   "end_s": 415.3
+  },
+  {
+   "stage": 195,
+   "start_s": 416.2,
+   "end_s": 435.5
+  }
+ ],
+ "events": [
+  {
+   "t": 2.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 196,
+   "message": "Heat a large pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 2.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 196,
+   "message": "You skipped Spiralize 1 medium zucchini into thin noodles using a spiralizer; it is needed before Heat a large pan on medium heat."
+  },
+  {
+   "t": 396.5,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 197,
+   "message": "You skipped Cook for 2 minutes or until the zoodles are done, season with salt, and Add the zucchini noodles; they are needed before Remove from heat."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

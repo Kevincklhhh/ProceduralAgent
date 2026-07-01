@@ -1,0 +1,1515 @@
+{
+ "recording": "25_109",
+ "arm": "qwen36_zs_turn_cs",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 0.0,
+   "end_s": 380.0
+  },
+  {
+   "stage": 293,
+   "start_s": 380.0,
+   "end_s": 470.0
+  },
+  {
+   "stage": 291,
+   "start_s": 470.0,
+   "end_s": 505.0
+  },
+  {
+   "stage": 279,
+   "start_s": 505.0,
+   "end_s": 560.0
+  },
+  {
+   "stage": 286,
+   "start_s": 560.0,
+   "end_s": 600.0
+  },
+  {
+   "stage": 276,
+   "start_s": 600.0,
+   "end_s": 645.0
+  },
+  {
+   "stage": 292,
+   "start_s": 645.0,
+   "end_s": 1035.0
+  },
+  {
+   "stage": 280,
+   "start_s": 1035.0,
+   "end_s": 1065.0
+  },
+  {
+   "stage": 285,
+   "start_s": 1065.0,
+   "end_s": 1175.0
+  },
+  {
+   "stage": 290,
+   "start_s": 1175.0,
+   "end_s": 1595.0
+  },
+  {
+   "stage": 277,
+   "start_s": 1595.0,
+   "end_s": 1665.0
+  },
+  {
+   "stage": 278,
+   "start_s": 1665.0,
+   "end_s": 1765.0
+  },
+  {
+   "stage": 289,
+   "start_s": 1765.0,
+   "end_s": 1880.0
+  },
+  {
+   "stage": 281,
+   "start_s": 1880.0,
+   "end_s": 1935.0
+  },
+  {
+   "stage": 288,
+   "start_s": 1935.0,
+   "end_s": 2075.0
+  },
+  {
+   "stage": 283,
+   "start_s": 2075.0,
+   "end_s": 2127.0
+  }
+ ],
+ "events": [
+  {
+   "t": 475.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires transferring the measured olive oil cleanly into the pan; flag if oil is dropped or spilled during the pour from the measuring spoon into the pan.",
+   "step_id": 291,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 700.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for cooking 5 to 6 minutes (~360s) until lightly browned on the bottom; flag if the tofu is removed noticeably early (e.g. after only 2 to 3 minutes) before adequate bottom browning is achieved.",
+   "step_id": 292,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 1075.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe specifies using tongs to flip the tofu; flag if the tofu is flipped using an incorrect utensil (e.g. a spoon) that risks breaking the tofu cubes.",
+   "step_id": 285,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 1250.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires cooking the tofu until browned without spilling; flag if tofu pieces are knocked or spilled out of the pan (e.g. while checking if the bottom is browned).",
+   "step_id": 290,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 1925.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires flipping all tofu pieces cleanly in the pan; flag if not all pieces are flipped, or if tofu pieces and oil are spilled out of the pan during flipping.",
+   "step_id": 281,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 123,
+  "frames_sent": 1370,
+  "vlm_latency_total_s": 872.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 957.5,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 355.0,
+   "kind": "mistake",
+   "step_id": 275,
+   "win_start": 350.0,
+   "win_end": 355.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 360.0,
+   "kind": "mistake",
+   "step_id": 275,
+   "win_start": 355.0,
+   "win_end": 360.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 365.0,
+   "kind": "mistake",
+   "step_id": 275,
+   "win_start": 360.0,
+   "win_end": 365.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 370.0,
+   "kind": "mistake",
+   "step_id": 275,
+   "win_start": 365.0,
+   "win_end": 370.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 380.0,
+   "kind": "mistake",
+   "step_id": 293,
+   "win_start": 375.0,
+   "win_end": 380.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 385.0,
+   "kind": "mistake",
+   "step_id": 293,
+   "win_start": 380.0,
+   "win_end": 385.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 390.0,
+   "kind": "mistake",
+   "step_id": 293,
+   "win_start": 385.0,
+   "win_end": 390.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 395.0,
+   "kind": "mistake",
+   "step_id": 293,
+   "win_start": 390.0,
+   "win_end": 395.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 400.0,
+   "kind": "mistake",
+   "step_id": 293,
+   "win_start": 395.0,
+   "win_end": 400.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 405.0,
+   "kind": "mistake",
+   "step_id": 293,
+   "win_start": 400.0,
+   "win_end": 405.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 470.0,
+   "kind": "mistake",
+   "step_id": 291,
+   "win_start": 465.0,
+   "win_end": 470.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 475.0,
+   "kind": "mistake",
+   "step_id": 291,
+   "win_start": 470.0,
+   "win_end": 475.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 505.0,
+   "kind": "mistake",
+   "step_id": 279,
+   "win_start": 500.0,
+   "win_end": 505.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 510.0,
+   "kind": "mistake",
+   "step_id": 279,
+   "win_start": 505.0,
+   "win_end": 510.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 515.0,
+   "kind": "mistake",
+   "step_id": 279,
+   "win_start": 510.0,
+   "win_end": 515.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 520.0,
+   "kind": "mistake",
+   "step_id": 279,
+   "win_start": 515.0,
+   "win_end": 520.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 560.0,
+   "kind": "mistake",
+   "step_id": 286,
+   "win_start": 555.0,
+   "win_end": 560.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 565.0,
+   "kind": "mistake",
+   "step_id": 286,
+   "win_start": 560.0,
+   "win_end": 565.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 570.0,
+   "kind": "mistake",
+   "step_id": 286,
+   "win_start": 565.0,
+   "win_end": 570.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 575.0,
+   "kind": "mistake",
+   "step_id": 286,
+   "win_start": 570.0,
+   "win_end": 575.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 580.0,
+   "kind": "mistake",
+   "step_id": 286,
+   "win_start": 575.0,
+   "win_end": 580.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 645.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 640.0,
+   "win_end": 645.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 650.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 645.0,
+   "win_end": 650.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 655.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 650.0,
+   "win_end": 655.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 660.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 655.0,
+   "win_end": 660.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 665.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 660.0,
+   "win_end": 665.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 670.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 665.0,
+   "win_end": 670.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 675.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 670.0,
+   "win_end": 675.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 680.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 675.0,
+   "win_end": 680.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 685.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 680.0,
+   "win_end": 685.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 690.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 685.0,
+   "win_end": 690.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 695.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 690.0,
+   "win_end": 695.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 700.0,
+   "kind": "mistake",
+   "step_id": 292,
+   "win_start": 695.0,
+   "win_end": 700.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 1065.0,
+   "kind": "mistake",
+   "step_id": 285,
+   "win_start": 1060.0,
+   "win_end": 1065.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1070.0,
+   "kind": "mistake",
+   "step_id": 285,
+   "win_start": 1065.0,
+   "win_end": 1070.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1075.0,
+   "kind": "mistake",
+   "step_id": 285,
+   "win_start": 1070.0,
+   "win_end": 1075.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 1175.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1170.0,
+   "win_end": 1175.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1180.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1175.0,
+   "win_end": 1180.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1185.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1180.0,
+   "win_end": 1185.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1190.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1185.0,
+   "win_end": 1190.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1195.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1190.0,
+   "win_end": 1195.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1200.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1195.0,
+   "win_end": 1200.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1205.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1200.0,
+   "win_end": 1205.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1210.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1205.0,
+   "win_end": 1210.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1215.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1210.0,
+   "win_end": 1215.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1220.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1215.0,
+   "win_end": 1220.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1225.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1220.0,
+   "win_end": 1225.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1230.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1225.0,
+   "win_end": 1230.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1235.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1230.0,
+   "win_end": 1235.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1240.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1235.0,
+   "win_end": 1240.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1245.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1240.0,
+   "win_end": 1245.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1250.0,
+   "kind": "mistake",
+   "step_id": 290,
+   "win_start": 1245.0,
+   "win_end": 1250.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 1665.0,
+   "kind": "mistake",
+   "step_id": 278,
+   "win_start": 1660.0,
+   "win_end": 1665.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1670.0,
+   "kind": "mistake",
+   "step_id": 278,
+   "win_start": 1665.0,
+   "win_end": 1670.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1675.0,
+   "kind": "mistake",
+   "step_id": 278,
+   "win_start": 1670.0,
+   "win_end": 1675.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1680.0,
+   "kind": "mistake",
+   "step_id": 278,
+   "win_start": 1675.0,
+   "win_end": 1680.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1765.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1760.0,
+   "win_end": 1765.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1770.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1765.0,
+   "win_end": 1770.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1775.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1770.0,
+   "win_end": 1775.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1780.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1775.0,
+   "win_end": 1780.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1785.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1780.0,
+   "win_end": 1785.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1790.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1785.0,
+   "win_end": 1790.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1795.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1790.0,
+   "win_end": 1795.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1800.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1795.0,
+   "win_end": 1800.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1805.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1800.0,
+   "win_end": 1805.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1810.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1805.0,
+   "win_end": 1810.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1815.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1810.0,
+   "win_end": 1815.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1820.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1815.0,
+   "win_end": 1820.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1825.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1820.0,
+   "win_end": 1825.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1830.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1825.0,
+   "win_end": 1830.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1835.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1830.0,
+   "win_end": 1835.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1840.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1835.0,
+   "win_end": 1840.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1845.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1840.0,
+   "win_end": 1845.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1850.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1845.0,
+   "win_end": 1850.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1855.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1850.0,
+   "win_end": 1855.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1860.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1855.0,
+   "win_end": 1860.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1865.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1860.0,
+   "win_end": 1865.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1870.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1865.0,
+   "win_end": 1870.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1875.0,
+   "kind": "mistake",
+   "step_id": 289,
+   "win_start": 1870.0,
+   "win_end": 1875.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1880.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1875.0,
+   "win_end": 1880.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1885.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1880.0,
+   "win_end": 1885.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1890.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1885.0,
+   "win_end": 1890.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1895.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1890.0,
+   "win_end": 1895.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1900.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1895.0,
+   "win_end": 1900.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1905.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1900.0,
+   "win_end": 1905.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1910.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1905.0,
+   "win_end": 1910.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1915.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1910.0,
+   "win_end": 1915.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1920.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1915.0,
+   "win_end": 1920.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1925.0,
+   "kind": "mistake",
+   "step_id": 281,
+   "win_start": 1920.0,
+   "win_end": 1925.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 1935.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1930.0,
+   "win_end": 1935.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1940.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1935.0,
+   "win_end": 1940.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1945.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1940.0,
+   "win_end": 1945.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1950.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1945.0,
+   "win_end": 1950.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1955.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1950.0,
+   "win_end": 1955.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1960.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1955.0,
+   "win_end": 1960.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1965.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1960.0,
+   "win_end": 1965.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1970.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1965.0,
+   "win_end": 1970.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1975.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1970.0,
+   "win_end": 1975.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1980.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1975.0,
+   "win_end": 1980.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1985.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1980.0,
+   "win_end": 1985.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1990.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1985.0,
+   "win_end": 1990.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 1995.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1990.0,
+   "win_end": 1995.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2000.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 1995.0,
+   "win_end": 2000.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2005.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2000.0,
+   "win_end": 2005.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2010.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2005.0,
+   "win_end": 2010.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2015.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2010.0,
+   "win_end": 2015.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2020.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2015.0,
+   "win_end": 2020.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2025.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2020.0,
+   "win_end": 2025.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2030.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2025.0,
+   "win_end": 2030.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2035.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2030.0,
+   "win_end": 2035.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2040.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2035.0,
+   "win_end": 2040.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2045.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2040.0,
+   "win_end": 2045.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2050.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2045.0,
+   "win_end": 2050.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2055.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2050.0,
+   "win_end": 2055.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2060.0,
+   "kind": "mistake",
+   "step_id": 288,
+   "win_start": 2055.0,
+   "win_end": 2060.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2075.0,
+   "kind": "mistake",
+   "step_id": 283,
+   "win_start": 2070.0,
+   "win_end": 2075.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2080.0,
+   "kind": "mistake",
+   "step_id": 283,
+   "win_start": 2075.0,
+   "win_end": 2080.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2085.0,
+   "kind": "mistake",
+   "step_id": 283,
+   "win_start": 2080.0,
+   "win_end": 2085.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2090.0,
+   "kind": "mistake",
+   "step_id": 283,
+   "win_start": 2085.0,
+   "win_end": 2090.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2095.0,
+   "kind": "mistake",
+   "step_id": 283,
+   "win_start": 2090.0,
+   "win_end": 2095.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2100.0,
+   "kind": "mistake",
+   "step_id": 283,
+   "win_start": 2095.0,
+   "win_end": 2100.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2105.0,
+   "kind": "mistake",
+   "step_id": 283,
+   "win_start": 2100.0,
+   "win_end": 2105.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 2110.0,
+   "kind": "mistake",
+   "step_id": 283,
+   "win_start": 2105.0,
+   "win_end": 2110.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  }
+ ]
+}

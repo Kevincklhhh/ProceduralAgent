@@ -17,6 +17,9 @@ const DATA_DIR = path.join(ROOT, 'data');
 const CC4D_ANN = path.join(DATA_DIR, 'cc4d', 'annotations');
 const EXP_DIR = path.join(ROOT, 'experiments', 't1_baseline');   // baseline arms + traces (baseline_t1_step.py)
 const MON_DIR = path.join(ROOT, 'experiments', 'proposed_system'); // procedure-monitor arms
+const QRUN_DIR = path.join(ROOT, 'experiments', 'qualcomm_run');  // turn/stream Qualcomm runs (T1 stages + T2 events)
+const PROACTIVE_DIR = path.join(DATA_DIR, 'cc4d_proactive');       // execution-mistake reminder GT (eval/gt_build_proactive.py): {t, content, subtype}
+const PROACTIVE_OM_DIR = path.join(DATA_DIR, 'cc4d_proactive_om'); // order + missing-step reminder GT (eval/gt_build_om.py)
 
 // Video sources in priority order: when a recording exists in more than one
 // (e.g. the six activity-8 recordings are in both videos_480p and videos_360p),
@@ -277,6 +280,36 @@ function buildTimeline(videoId) {
     }));
   }
 
+  // Proactive-reminder GT: point reminders {t, content, subtype} from TWO dirs — execution
+  // mistakes (cc4d_proactive) + order/missing (cc4d_proactive_om) — merged into one T2 GT
+  // track. Reminders are points (no window); start_s==end_s==t. `cls` drives nothing scored
+  // here, just a label group. Event-detection scheme: no decision points / silent labels.
+  let familyA = null;
+  {
+    const byStep = {};
+    for (const s of (gtSteps || [])) byStep[s.step_id] = s;
+    const mapRem = (r, cls) => {
+      const step = byStep[r.anchor_step];
+      return {
+        ...r, cls,
+        start_s: Array.isArray(r.window) ? r.window[0] : r.t,
+        end_s: Array.isArray(r.window) ? r.window[1] : r.t,
+        anchor_desc: step ? step.description : null,
+      };
+    };
+    const fa = readJson(path.join(PROACTIVE_DIR, `${recId}.json`));
+    const om = readJson(path.join(PROACTIVE_OM_DIR, `${recId}.json`));
+    const events = [];
+    if (fa && Array.isArray(fa.reminders))
+      for (const r of fa.reminders) events.push(mapRem(r, r.subtype === 'timing' ? 'parameter' : 'execution'));
+    if (om && Array.isArray(om.reminders))
+      for (const r of om.reminders) events.push(mapRem(r, 'precondition'));
+    if (fa || om) {
+      events.sort((a, b) => a.start_s - b.start_s);
+      familyA = { recording_id: recId, is_error: (fa?.is_error ?? om?.is_error ?? null), events };
+    }
+  }
+
   // Duration: CSV first, then the browser fills the precise value client-side.
   const duration = durations[recId]
     || (gtSteps ? Math.max(0, ...gtSteps.map(s => s.end_time || 0)) : 0);
@@ -297,6 +330,7 @@ function buildTimeline(videoId) {
     annotation,
     gt: gtEntry ? { steps: gtSteps, is_error: gtEntry.is_error } : null,
     qualcomm: qcEntry,
+    family_a: familyA,
   };
 }
 
@@ -423,6 +457,37 @@ function buildMonitor(rid) {
 }
 
 // ---------------------------------------------------------------------------
+// Turn/stream Qualcomm runs (experiments/qualcomm_run/<arm>/<rid>.json)
+// ---------------------------------------------------------------------------
+
+// Each arm is a subdir with a unified <rid>.json: T1 stage_intervals + T2 events
+// (typed mistake/reminder predictions). The dir also holds *.log files — skip
+// non-directories.
+function buildQualcrun(rid) {
+  const arms = [];
+  if (fs.existsSync(QRUN_DIR)) {
+    for (const arm of fs.readdirSync(QRUN_DIR).sort()) {
+      const armDir = path.join(QRUN_DIR, arm);
+      let st;
+      try { st = fs.statSync(armDir); } catch { continue; }
+      if (!st.isDirectory()) continue;
+      const resPath = path.join(armDir, `${rid}.json`);
+      if (!fs.existsSync(resPath)) continue;
+      const res = readJson(resPath) || {};
+      arms.push({
+        arm,
+        stage_intervals: res.stage_intervals || [],
+        events: res.events || [],
+        calls: res.calls || [],            // per-call VLM trace (t, window, frames, fired)
+        cost: res.cost || {},
+        meta: res._meta || {},
+      });
+    }
+  }
+  return { arms };
+}
+
+// ---------------------------------------------------------------------------
 // HTTP server
 // ---------------------------------------------------------------------------
 
@@ -533,6 +598,10 @@ const server = http.createServer((req, res) => {
     // GET /api/monitor/:videoId — procedure-monitor arms (plan + run + VLM polls)
     if (parts[0] === 'api' && parts[1] === 'monitor' && parts.length === 3) {
       return sendJson(res, 200, buildMonitor(decodeURIComponent(parts[2])));
+    }
+    // GET /api/qualcrun/:videoId — turn/stream Qualcomm runs (T1 stages + T2 reminder events)
+    if (parts[0] === 'api' && parts[1] === 'qualcrun' && parts.length === 3) {
+      return sendJson(res, 200, buildQualcrun(recordingIdOf(decodeURIComponent(parts[2]))));
     }
     // GET /api/stepdescriptions — global CC4D step_idx -> description (for unified labels)
     if (parts[0] === 'api' && parts[1] === 'stepdescriptions' && parts.length === 2) {

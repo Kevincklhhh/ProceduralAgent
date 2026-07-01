@@ -57,7 +57,7 @@ python eval/eval_score_corpus.py --results-dir experiments/proposed_system/resul
 
 | # | File | Role |
 | --- | --- | --- |
-| 5.1 | `gt_build_family_a.py` | mechanical proactive-reminder GT / answer-key builder from CC4D + Qualcomm annotations. Firewalled from the predictor (Box 3). Writes `data/cc4d_family_a/`. |
+| 5.1 | `gt_build_proactive.py` | mechanical proactive-reminder GT / answer-key builder from CC4D + Qualcomm annotations (event-detection scheme: flat `reminders` = {t, content, subtype}; execution mistakes only, order/missing excluded). Firewalled from the predictor (Box 3). Writes `data/cc4d_proactive/`. See `docs/PROACTIVE_REMINDER_GT.md`. (Retired: `_legacy/gt_build_family_a.py`.) |
 
 ## Group 6 — Prior-work probes
 

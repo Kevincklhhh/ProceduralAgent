@@ -1,0 +1,98 @@
+{
+ "recording": "18_45",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 196,
+   "start_s": 5.1,
+   "end_s": 30.0
+  },
+  {
+   "stage": 200,
+   "start_s": 47.5,
+   "end_s": 125.0
+  },
+  {
+   "stage": 202,
+   "start_s": 232.0,
+   "end_s": 720.0
+  },
+  {
+   "stage": 204,
+   "start_s": 308.0,
+   "end_s": 321.0
+  },
+  {
+   "stage": 198,
+   "start_s": 434.0,
+   "end_s": 457.4
+  },
+  {
+   "stage": 203,
+   "start_s": 467.5,
+   "end_s": 638.3
+  },
+  {
+   "stage": 194,
+   "start_s": 653.2,
+   "end_s": 684.5
+  },
+  {
+   "stage": 199,
+   "start_s": 686.8,
+   "end_s": 710.5
+  },
+  {
+   "stage": 201,
+   "start_s": 726.9,
+   "end_s": 759.5
+  },
+  {
+   "stage": 193,
+   "start_s": 771.1,
+   "end_s": 814.8
+  },
+  {
+   "stage": 192,
+   "start_s": 821.1,
+   "end_s": 959.6
+  },
+  {
+   "stage": 197,
+   "start_s": 967.3,
+   "end_s": 974.1
+  },
+  {
+   "stage": 195,
+   "start_s": 978.2,
+   "end_s": 997.6
+  }
+ ],
+ "events": [
+  {
+   "t": 5.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 196,
+   "message": "Heat a large pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 232.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 202,
+   "message": "Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

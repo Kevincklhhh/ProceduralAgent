@@ -1,0 +1,85 @@
+{
+ "recording": "13_32",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 137,
+   "start_s": 41.5,
+   "end_s": 73.7
+  },
+  {
+   "stage": 132,
+   "start_s": 92.9,
+   "end_s": 102.1
+  },
+  {
+   "stage": 133,
+   "start_s": 126.8,
+   "end_s": 260.0
+  },
+  {
+   "stage": 138,
+   "start_s": 292.7,
+   "end_s": 310.4
+  },
+  {
+   "stage": 135,
+   "start_s": 332.4,
+   "end_s": 345.0
+  },
+  {
+   "stage": 136,
+   "start_s": 373.9,
+   "end_s": 384.4
+  },
+  {
+   "stage": 131,
+   "start_s": 432.3,
+   "end_s": 449.9
+  },
+  {
+   "stage": 128,
+   "start_s": 463.9,
+   "end_s": 469.0
+  },
+  {
+   "stage": 76,
+   "start_s": 469.0,
+   "end_s": 478.6
+  }
+ ],
+ "events": [
+  {
+   "t": 41.5,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 137,
+   "message": "You skipped Measure 2 cups of frozen corn; it is needed before Thaw the frozen corn by putting it in a sieve and running it under cold water."
+  },
+  {
+   "t": 332.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 135,
+   "message": "You skipped Add-1 teaspoon of pepper powder to the bowl; it is needed before stir-then stir the bowl."
+  },
+  {
+   "t": 373.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 136,
+   "message": "You skipped Microwave the corn for 3 more minutes; it is needed before Add 1 teaspoon salt to the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

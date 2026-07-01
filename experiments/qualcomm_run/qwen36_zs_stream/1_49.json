@@ -1,0 +1,35 @@
+{
+ "recording": "1_49",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 3,
+   "start_s": 0.0,
+   "end_s": 383.3
+  }
+ ],
+ "events": [
+  {
+   "t": 15.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a large decorative bowl instead of the required 6-oz ramekin cup.",
+   "step_id": 3
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 79,
+  "frames_sent": 380,
+  "vlm_latency_total_s": 103.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 126.2
+ }
+}

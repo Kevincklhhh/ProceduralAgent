@@ -1,0 +1,96 @@
+{
+ "recording": "28_26",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 336,
+   "start_s": 47.6,
+   "end_s": 83.4
+  },
+  {
+   "stage": 328,
+   "start_s": 91.2,
+   "end_s": 115.4
+  },
+  {
+   "stage": 327,
+   "start_s": 121.6,
+   "end_s": 222.2
+  },
+  {
+   "stage": 340,
+   "start_s": 265.9,
+   "end_s": 389.1
+  },
+  {
+   "stage": 339,
+   "start_s": 395.3,
+   "end_s": 437.4
+  },
+  {
+   "stage": 334,
+   "start_s": 437.4,
+   "end_s": 453.8
+  },
+  {
+   "stage": 335,
+   "start_s": 455.4,
+   "end_s": 472.5
+  },
+  {
+   "stage": 333,
+   "start_s": 545.0,
+   "end_s": 568.4
+  },
+  {
+   "stage": 329,
+   "start_s": 578.6,
+   "end_s": 609.0
+  },
+  {
+   "stage": 331,
+   "start_s": 620.7,
+   "end_s": 667.5
+  },
+  {
+   "stage": 326,
+   "start_s": 694.0,
+   "end_s": 714.2
+  },
+  {
+   "stage": 338,
+   "start_s": 718.9,
+   "end_s": 737.6
+  },
+  {
+   "stage": 330,
+   "start_s": 750.1,
+   "end_s": 769.6
+  },
+  {
+   "stage": 337,
+   "start_s": 770.4,
+   "end_s": 797.7
+  }
+ ],
+ "events": [
+  {
+   "t": 750.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 330,
+   "message": "You skipped place avocado slices on each leaf, top lettuce leaves with the tuna mixture, and cut avocado into thin slices; they are needed before Roll up the lettuce wraps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

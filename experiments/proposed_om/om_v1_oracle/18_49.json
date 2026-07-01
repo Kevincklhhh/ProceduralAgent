@@ -1,0 +1,98 @@
+{
+ "recording": "18_49",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 200,
+   "start_s": 0.0,
+   "end_s": 328.3
+  },
+  {
+   "stage": 196,
+   "start_s": 335.4,
+   "end_s": 343.1
+  },
+  {
+   "stage": 199,
+   "start_s": 360.9,
+   "end_s": 685.0
+  },
+  {
+   "stage": 202,
+   "start_s": 686.1,
+   "end_s": 858.8
+  },
+  {
+   "stage": 194,
+   "start_s": 860.0,
+   "end_s": 876.0
+  },
+  {
+   "stage": 198,
+   "start_s": 878.9,
+   "end_s": 887.9
+  },
+  {
+   "stage": 203,
+   "start_s": 906.8,
+   "end_s": 1077.7
+  },
+  {
+   "stage": 201,
+   "start_s": 1085.8,
+   "end_s": 1105.6
+  },
+  {
+   "stage": 204,
+   "start_s": 1116.6,
+   "end_s": 1168.4
+  },
+  {
+   "stage": 192,
+   "start_s": 1190.3,
+   "end_s": 1391.3
+  },
+  {
+   "stage": 193,
+   "start_s": 1391.8,
+   "end_s": 1459.2
+  },
+  {
+   "stage": 197,
+   "start_s": 1459.6,
+   "end_s": 1463.5
+  },
+  {
+   "stage": 195,
+   "start_s": 1481.1,
+   "end_s": 1494.4
+  }
+ ],
+ "events": [
+  {
+   "t": 335.4,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 196,
+   "message": "Heat a large pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 1190.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 192,
+   "message": "Cook for 2 minutes or until the zoodles are done was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

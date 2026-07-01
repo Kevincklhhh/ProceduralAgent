@@ -1,0 +1,45 @@
+{
+ "recording": "4_43",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 44,
+   "start_s": 0.0,
+   "end_s": 235.0
+  },
+  {
+   "stage": 47,
+   "start_s": 235.0,
+   "end_s": 750.0
+  },
+  {
+   "stage": 46,
+   "start_s": 750.0,
+   "end_s": 809.7
+  }
+ ],
+ "events": [
+  {
+   "t": 250.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently holding a block of instant noodles and opening a dishwasher, but the instruction is to peel an onion. You have not started the task of peeling the onion.",
+   "step_id": 47
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 221,
+  "frames_sent": 805,
+  "vlm_latency_total_s": 317.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 350.5
+ }
+}

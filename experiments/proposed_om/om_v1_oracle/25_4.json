@@ -1,0 +1,128 @@
+{
+ "recording": "25_4",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 293,
+   "start_s": 130.3,
+   "end_s": 142.8
+  },
+  {
+   "stage": 275,
+   "start_s": 157.3,
+   "end_s": 173.0
+  },
+  {
+   "stage": 291,
+   "start_s": 291.7,
+   "end_s": 300.5
+  },
+  {
+   "stage": 276,
+   "start_s": 460.9,
+   "end_s": 466.1
+  },
+  {
+   "stage": 279,
+   "start_s": 490.6,
+   "end_s": 499.0
+  },
+  {
+   "stage": 286,
+   "start_s": 530.2,
+   "end_s": 560.3
+  },
+  {
+   "stage": 292,
+   "start_s": 579.6,
+   "end_s": 894.7
+  },
+  {
+   "stage": 285,
+   "start_s": 908.7,
+   "end_s": 968.7
+  },
+  {
+   "stage": 280,
+   "start_s": 972.0,
+   "end_s": 980.0
+  },
+  {
+   "stage": 287,
+   "start_s": 980.0,
+   "end_s": 982.0
+  },
+  {
+   "stage": 290,
+   "start_s": 991.5,
+   "end_s": 1227.5
+  },
+  {
+   "stage": 282,
+   "start_s": 1235.7,
+   "end_s": 1240.7
+  },
+  {
+   "stage": 277,
+   "start_s": 1261.8,
+   "end_s": 1279.2
+  },
+  {
+   "stage": 278,
+   "start_s": 1291.6,
+   "end_s": 1298.2
+  },
+  {
+   "stage": 284,
+   "start_s": 1308.2,
+   "end_s": 1314.1
+  },
+  {
+   "stage": 289,
+   "start_s": 1320.6,
+   "end_s": 1450.3
+  },
+  {
+   "stage": 281,
+   "start_s": 1459.3,
+   "end_s": 1512.7
+  },
+  {
+   "stage": 288,
+   "start_s": 1510.3,
+   "end_s": 1645.9
+  },
+  {
+   "stage": 283,
+   "start_s": 1682.8,
+   "end_s": 1694.6
+  }
+ ],
+ "events": [
+  {
+   "t": 130.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 293,
+   "message": "pat tofu dry with a towel was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 908.7,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 285,
+   "message": "Flip the tofu with tongs was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

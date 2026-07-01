@@ -1,0 +1,148 @@
+{
+ "recording": "23_32",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 257,
+   "start_s": 26.5,
+   "end_s": 158.3
+  },
+  {
+   "stage": 269,
+   "start_s": 161.3,
+   "end_s": 193.1
+  },
+  {
+   "stage": 250,
+   "start_s": 198.4,
+   "end_s": 299.9
+  },
+  {
+   "stage": 252,
+   "start_s": 312.8,
+   "end_s": 366.6
+  },
+  {
+   "stage": 255,
+   "start_s": 369.0,
+   "end_s": 373.0
+  },
+  {
+   "stage": 268,
+   "start_s": 377.9,
+   "end_s": 418.1
+  },
+  {
+   "stage": 254,
+   "start_s": 424.1,
+   "end_s": 469.6
+  },
+  {
+   "stage": 260,
+   "start_s": 472.0,
+   "end_s": 488.0
+  },
+  {
+   "stage": 251,
+   "start_s": 489.0,
+   "end_s": 493.0
+  },
+  {
+   "stage": 273,
+   "start_s": 500.6,
+   "end_s": 605.1
+  },
+  {
+   "stage": 271,
+   "start_s": 611.9,
+   "end_s": 630.9
+  },
+  {
+   "stage": 263,
+   "start_s": 633.1,
+   "end_s": 670.3
+  },
+  {
+   "stage": 270,
+   "start_s": 673.3,
+   "end_s": 709.6
+  },
+  {
+   "stage": 259,
+   "start_s": 714.2,
+   "end_s": 736.1
+  },
+  {
+   "stage": 266,
+   "start_s": 747.5,
+   "end_s": 793.7
+  },
+  {
+   "stage": 265,
+   "start_s": 809.6,
+   "end_s": 820.2
+  },
+  {
+   "stage": 258,
+   "start_s": 820.2,
+   "end_s": 832.3
+  },
+  {
+   "stage": 253,
+   "start_s": 834.6,
+   "end_s": 864.9
+  },
+  {
+   "stage": 261,
+   "start_s": 866.4,
+   "end_s": 875.5
+  },
+  {
+   "stage": 274,
+   "start_s": 876.2,
+   "end_s": 1063.0
+  },
+  {
+   "stage": 272,
+   "start_s": 1033.0,
+   "end_s": 1051.0
+  },
+  {
+   "stage": 256,
+   "start_s": 1064.1,
+   "end_s": 1074.7
+  },
+  {
+   "stage": 264,
+   "start_s": 1077.7,
+   "end_s": 1205.7
+  }
+ ],
+ "events": [
+  {
+   "t": 369.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 255,
+   "message": "You skipped mince garlic; it is needed before Add 2 cloves minced garlic to the bowl."
+  },
+  {
+   "t": 472.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 260,
+   "message": "You skipped Add 1/2 tablespoon minced ginger to the bowl; it is needed before Whisk the contents of bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

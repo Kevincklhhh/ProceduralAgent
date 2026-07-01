@@ -1,0 +1,108 @@
+{
+ "recording": "28_44",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 340,
+   "start_s": 9.4,
+   "end_s": 82.5
+  },
+  {
+   "stage": 335,
+   "start_s": 85.7,
+   "end_s": 91.9
+  },
+  {
+   "stage": 336,
+   "start_s": 93.5,
+   "end_s": 198.8
+  },
+  {
+   "stage": 327,
+   "start_s": 230.2,
+   "end_s": 314.3
+  },
+  {
+   "stage": 333,
+   "start_s": 321.4,
+   "end_s": 339.5
+  },
+  {
+   "stage": 328,
+   "start_s": 342.6,
+   "end_s": 359.1
+  },
+  {
+   "stage": 341,
+   "start_s": 363.8,
+   "end_s": 457.3
+  },
+  {
+   "stage": 339,
+   "start_s": 465.2,
+   "end_s": 506.8
+  },
+  {
+   "stage": 325,
+   "start_s": 612.1,
+   "end_s": 664.8
+  },
+  {
+   "stage": 329,
+   "start_s": 662.4,
+   "end_s": 671.1
+  },
+  {
+   "stage": 334,
+   "start_s": 678.1,
+   "end_s": 697.8
+  },
+  {
+   "stage": 331,
+   "start_s": 695.4,
+   "end_s": 715.9
+  },
+  {
+   "stage": 338,
+   "start_s": 733.9,
+   "end_s": 766.1
+  },
+  {
+   "stage": 332,
+   "start_s": 777.1,
+   "end_s": 800.7
+  },
+  {
+   "stage": 330,
+   "start_s": 799.1,
+   "end_s": 812.5
+  }
+ ],
+ "events": [
+  {
+   "t": 612.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 325,
+   "message": "place avocado slices on each leaf was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 777.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 332,
+   "message": "You skipped season 1/4 tsp pepper on the bowl; it is needed before top lettuce leaves with the tuna mixture."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

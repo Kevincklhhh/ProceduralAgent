@@ -1,0 +1,80 @@
+{
+  "overall": {
+    "macro_f1": 0.2857,
+    "gmean_f1": 0.2857,
+    "interrupt_precision": 0.5,
+    "interrupt_recall": 0.2,
+    "interrupt_f1": 0.2857,
+    "silent_precision": 0.2,
+    "silent_recall": 0.5,
+    "silent_f1": 0.2857,
+    "tp": 1,
+    "fp": 1,
+    "tn": 1,
+    "fn": 4,
+    "support": 7
+  },
+  "per_task": {
+    "How to update your phone apps": {
+      "macro_f1": 0.2857,
+      "gmean_f1": 0.2857,
+      "interrupt_precision": 0.5,
+      "interrupt_recall": 0.2,
+      "interrupt_f1": 0.2857,
+      "silent_precision": 0.2,
+      "silent_recall": 0.5,
+      "silent_f1": 0.2857,
+      "tp": 1,
+      "fp": 1,
+      "tn": 1,
+      "fn": 4,
+      "support": 7
+    }
+  },
+  "total_sessions": 1,
+  "skipped_chunks": 0,
+  "per_row": [
+    {
+      "index": 0,
+      "video_path": "cc4ac34272e4c3e4.mp4",
+      "task": "How to update your phone apps",
+      "num_chunks": 7,
+      "tags": [
+        {
+          "gold": "interrupt",
+          "pred": "interrupt"
+        },
+        {
+          "gold": "interrupt",
+          "pred": "silent"
+        },
+        {
+          "gold": "interrupt",
+          "pred": "silent"
+        },
+        {
+          "gold": "silent",
+          "pred": "interrupt"
+        },
+        {
+          "gold": "interrupt",
+          "pred": "silent"
+        },
+        {
+          "gold": "interrupt",
+          "pred": "silent"
+        },
+        {
+          "gold": "silent",
+          "pred": "silent"
+        }
+      ],
+      "counts": {
+        "tp": 1,
+        "fp": 1,
+        "tn": 1,
+        "fn": 4
+      }
+    }
+  ]
+}

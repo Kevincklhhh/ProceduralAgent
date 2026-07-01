@@ -1,0 +1,40 @@
+{
+ "recording": "12_17",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 125,
+   "start_s": 0.0,
+   "end_s": 20.0
+  },
+  {
+   "stage": 122,
+   "start_s": 20.0,
+   "end_s": 247.1
+  }
+ ],
+ "events": [
+  {
+   "t": 50.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently cutting the tomato with a knife, but the instruction is to dry it with a paper or tea towel. Please stop cutting and use a towel to dry the tomato instead.",
+   "step_id": 122
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 58,
+  "frames_sent": 245,
+  "vlm_latency_total_s": 84.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 97.5
+ }
+}

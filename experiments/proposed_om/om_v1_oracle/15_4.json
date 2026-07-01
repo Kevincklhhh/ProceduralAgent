@@ -1,0 +1,121 @@
+{
+ "recording": "15_4",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 145,
+   "start_s": 0.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": 149,
+   "start_s": 123.1,
+   "end_s": 144.6
+  },
+  {
+   "stage": 140,
+   "start_s": 146.5,
+   "end_s": 251.9
+  },
+  {
+   "stage": 155,
+   "start_s": 258.2,
+   "end_s": 277.5
+  },
+  {
+   "stage": 150,
+   "start_s": 284.5,
+   "end_s": 395.9
+  },
+  {
+   "stage": 154,
+   "start_s": 405.7,
+   "end_s": 483.0
+  },
+  {
+   "stage": 139,
+   "start_s": 506.0,
+   "end_s": 603.2
+  },
+  {
+   "stage": 141,
+   "start_s": 603.8,
+   "end_s": 612.1
+  },
+  {
+   "stage": 152,
+   "start_s": 664.8,
+   "end_s": 679.8
+  },
+  {
+   "stage": 151,
+   "start_s": 681.8,
+   "end_s": 684.3
+  },
+  {
+   "stage": 148,
+   "start_s": 686.6,
+   "end_s": 773.5
+  },
+  {
+   "stage": 147,
+   "start_s": 748.4,
+   "end_s": 787.9
+  },
+  {
+   "stage": 157,
+   "start_s": 788.8,
+   "end_s": 815.9
+  },
+  {
+   "stage": 146,
+   "start_s": 816.5,
+   "end_s": 834.2
+  },
+  {
+   "stage": 142,
+   "start_s": 840.5,
+   "end_s": 877.2
+  },
+  {
+   "stage": 144,
+   "start_s": 879.2,
+   "end_s": 888.2
+  },
+  {
+   "stage": 153,
+   "start_s": 895.8,
+   "end_s": 1197.4
+  },
+  {
+   "stage": 156,
+   "start_s": 1182.7,
+   "end_s": 1237.8
+  },
+  {
+   "stage": 143,
+   "start_s": 1199.6,
+   "end_s": 1206.8
+  }
+ ],
+ "events": [
+  {
+   "t": 1182.7,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 156,
+   "message": "Transfer it to a serving bowl was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

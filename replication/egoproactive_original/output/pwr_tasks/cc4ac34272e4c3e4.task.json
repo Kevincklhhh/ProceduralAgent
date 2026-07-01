@@ -1,0 +1,158 @@
+{
+  "task_id": "cc4ac34272e4c3e4",
+  "title": "How to update your phone apps",
+  "source": "facebook/wearable-ai egoproactive",
+  "query": "How do I update my phone apps?",
+  "domain": "Tutorial",
+  "duration_in_sec": 29.1,
+  "source_video_path": "cc4ac34272e4c3e4.mp4",
+  "source_jsonl_line": 548,
+  "steps": [
+    {
+      "step_id": 1,
+      "order": 1,
+      "name": "egoproactive_interrupt_01",
+      "instruction": "Unlock your phone and tap the Play Store (or App Store) icon.",
+      "preconditions": [],
+      "egoproactive_interval_s": [
+        0.0,
+        2.0
+      ],
+      "egoproactive_source_decision_index": 1
+    },
+    {
+      "step_id": 2,
+      "order": 2,
+      "name": "egoproactive_interrupt_02",
+      "instruction": "Tap your profile or menu icon, then pick “Manage apps & device” to check for updates.",
+      "preconditions": [
+        1
+      ],
+      "egoproactive_interval_s": [
+        2.0,
+        4.8
+      ],
+      "egoproactive_source_decision_index": 2
+    },
+    {
+      "step_id": 3,
+      "order": 3,
+      "name": "egoproactive_interrupt_03",
+      "instruction": "Tap “Update all” or individual update buttons to grab the latest app versions.",
+      "preconditions": [
+        2
+      ],
+      "egoproactive_interval_s": [
+        4.8,
+        6.9
+      ],
+      "egoproactive_source_decision_index": 3
+    },
+    {
+      "step_id": 4,
+      "order": 4,
+      "name": "egoproactive_interrupt_04",
+      "instruction": "Swipe through pending updates—tap any app (like AT&T ActiveArmor) to peek at its details if you’d like!",
+      "preconditions": [
+        3
+      ],
+      "egoproactive_interval_s": [
+        9.6,
+        17.6
+      ],
+      "egoproactive_source_decision_index": 5
+    },
+    {
+      "step_id": 5,
+      "order": 5,
+      "name": "egoproactive_interrupt_05",
+      "instruction": "Hang tight—watch those progress bars shrink as each app installs and the update count drops!",
+      "preconditions": [
+        4
+      ],
+      "egoproactive_interval_s": [
+        17.6,
+        21.1
+      ],
+      "egoproactive_source_decision_index": 6
+    }
+  ],
+  "egoproactive_decision_points": [
+    {
+      "index": 1,
+      "interval_s": [
+        0.0,
+        2.0
+      ],
+      "decision": "interrupt",
+      "answer": "$interrupt$Unlock your phone and tap the Play Store (or App Store) icon.",
+      "step_id": 1
+    },
+    {
+      "index": 2,
+      "interval_s": [
+        2.0,
+        4.8
+      ],
+      "decision": "interrupt",
+      "answer": "$interrupt$Tap your profile or menu icon, then pick “Manage apps & device” to check for updates.",
+      "step_id": 2
+    },
+    {
+      "index": 3,
+      "interval_s": [
+        4.8,
+        6.9
+      ],
+      "decision": "interrupt",
+      "answer": "$interrupt$Tap “Update all” or individual update buttons to grab the latest app versions.",
+      "step_id": 3
+    },
+    {
+      "index": 4,
+      "interval_s": [
+        6.9,
+        9.6
+      ],
+      "decision": "silent",
+      "answer": "$silent$",
+      "step_id": null
+    },
+    {
+      "index": 5,
+      "interval_s": [
+        9.6,
+        17.6
+      ],
+      "decision": "interrupt",
+      "answer": "$interrupt$Swipe through pending updates—tap any app (like AT&T ActiveArmor) to peek at its details if you’d like!",
+      "step_id": 4
+    },
+    {
+      "index": 6,
+      "interval_s": [
+        17.6,
+        21.1
+      ],
+      "decision": "interrupt",
+      "answer": "$interrupt$Hang tight—watch those progress bars shrink as each app installs and the update count drops!",
+      "step_id": 5
+    },
+    {
+      "index": 7,
+      "interval_s": [
+        21.1,
+        29.1
+      ],
+      "decision": "silent",
+      "answer": "$silent$",
+      "step_id": null
+    }
+  ],
+  "reminders": [],
+  "allowed_assistant_actions": [
+    "none",
+    "interrupt",
+    "silent"
+  ]
+}

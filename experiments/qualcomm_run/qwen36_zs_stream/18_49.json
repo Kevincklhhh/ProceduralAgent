@@ -1,0 +1,71 @@
+{
+ "recording": "18_49",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 200,
+   "start_s": 0.0,
+   "end_s": 1045.0
+  },
+  {
+   "stage": 203,
+   "start_s": 1045.0,
+   "end_s": 1080.0
+  },
+  {
+   "stage": 196,
+   "start_s": 1080.0,
+   "end_s": 1350.0
+  },
+  {
+   "stage": 204,
+   "start_s": 1350.0,
+   "end_s": 1522.3
+  }
+ ],
+ "events": [
+  {
+   "t": 45.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are peeling more than one clove of garlic; the instruction specifies peeling only 1 clove.",
+   "step_id": 200
+  },
+  {
+   "t": 1075.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently washing a cup in the sink, but the instruction requires you to spiralize a zucchini. Please locate the zucchini and a spiralizer to begin the task.",
+   "step_id": 203
+  },
+  {
+   "t": 1185.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You are currently washing your hands at the sink, but the instruction is to heat a large pan on medium heat. Please move to the stove to begin heating the pan.",
+   "step_id": 196
+  },
+  {
+   "t": 1425.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are using a teaspoon to measure the butter, but the recipe calls for 1 tablespoon.",
+   "step_id": 204
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 355,
+  "frames_sent": 1520,
+  "vlm_latency_total_s": 492.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 556.2
+ }
+}

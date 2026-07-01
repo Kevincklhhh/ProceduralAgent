@@ -1,0 +1,52 @@
+{
+ "recording": "13_45",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 129,
+   "start_s": 0.0,
+   "end_s": 155.0
+  },
+  {
+   "stage": 131,
+   "start_s": 155.0,
+   "end_s": 255.0
+  },
+  {
+   "stage": 137,
+   "start_s": 255.0,
+   "end_s": 728.2
+  }
+ ],
+ "events": [
+  {
+   "t": 220.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are washing the colander instead of extracting lime juice. Please stop washing and begin juicing the lime as instructed.",
+   "step_id": 131
+  },
+  {
+   "t": 260.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are not using a sieve to thaw the corn as instructed; you are rinsing it directly in your hand.",
+   "step_id": 137
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 189,
+  "frames_sent": 725,
+  "vlm_latency_total_s": 269.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 299.2
+ }
+}

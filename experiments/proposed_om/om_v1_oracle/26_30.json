@@ -1,0 +1,125 @@
+{
+ "recording": "26_30",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 299,
+   "start_s": 3.5,
+   "end_s": 41.5
+  },
+  {
+   "stage": 297,
+   "start_s": 54.8,
+   "end_s": 91.4
+  },
+  {
+   "stage": 310,
+   "start_s": 92.8,
+   "end_s": 123.0
+  },
+  {
+   "stage": 308,
+   "start_s": 167.9,
+   "end_s": 211.5
+  },
+  {
+   "stage": 313,
+   "start_s": 222.0,
+   "end_s": 278.2
+  },
+  {
+   "stage": 296,
+   "start_s": 286.7,
+   "end_s": 343.6
+  },
+  {
+   "stage": 303,
+   "start_s": 344.3,
+   "end_s": 387.2
+  },
+  {
+   "stage": 301,
+   "start_s": 386.4,
+   "end_s": 391.7
+  },
+  {
+   "stage": 300,
+   "start_s": 399.8,
+   "end_s": 430.0
+  },
+  {
+   "stage": 294,
+   "start_s": 447.6,
+   "end_s": 498.2
+  },
+  {
+   "stage": 307,
+   "start_s": 518.5,
+   "end_s": 580.4
+  },
+  {
+   "stage": 309,
+   "start_s": 599.3,
+   "end_s": 626.0
+  },
+  {
+   "stage": 305,
+   "start_s": 626.0,
+   "end_s": 635.0
+  },
+  {
+   "stage": 295,
+   "start_s": 635.9,
+   "end_s": 649.9
+  },
+  {
+   "stage": 298,
+   "start_s": 659.8,
+   "end_s": 751.1
+  },
+  {
+   "stage": 306,
+   "start_s": 753.0,
+   "end_s": 786.1
+  },
+  {
+   "stage": 302,
+   "start_s": 787.4,
+   "end_s": 866.3
+  }
+ ],
+ "events": [
+  {
+   "t": 167.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 308,
+   "message": "You skipped Measure and add-1/4 tsp baking powder to the bowl; it is needed before Whisk to combine mixture of flour, sugar and baking powder in the bowl."
+  },
+  {
+   "t": 599.3,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 309,
+   "message": "You skipped Microwave the mug and batter on high power for 60 seconds. Check if the cake is done by inserting and toothpick into the center of the cake and then removing it. If wet batter clings to the toothpick, microwave for an additional 5 seconds. If the toothpick comes out clean, continue; it is needed before Invert the mug to release the cake onto a plate."
+  },
+  {
+   "t": 753.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 306,
+   "message": "You skipped seal zip top bag, removing as much air as possible; it is needed before cut-Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

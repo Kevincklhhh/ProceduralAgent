@@ -1,0 +1,1370 @@
+{
+  "agg": {
+    "n_steps": 42,
+    "recordings": [
+      "8_26",
+      "8_3",
+      "8_11",
+      "8_15",
+      "8_19",
+      "8_30"
+    ],
+    "open_decode_tokens": {
+      "median": 96.0,
+      "mean": 96,
+      "min": 96,
+      "max": 96,
+      "total": 4032
+    },
+    "bounded_decode_tokens": {
+      "median": 2.0,
+      "mean": 2.29,
+      "total": 96
+    },
+    "decode_ms": {
+      "open_median": 9584.5,
+      "bounded_median": 212.2,
+      "open_total": 406117.0,
+      "bounded_total": 9721.0
+    },
+    "open_hit_cap_count": 42,
+    "max_new_cap": 96,
+    "per_decoded_token_ms": 100.7,
+    "decode_token_reduction_x": 42.0,
+    "decode_time_reduction_x": 41.8
+  },
+  "rows": [
+    {
+      "rec": "8_26",
+      "step": 88,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 5171.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.3,
+      "open_decode_ms": 9946.7,
+      "open_text": "The user wants me to monitor a cooking step: \"Fill a microwave-safe mug with skimmed milk\".\n\n1.  **Analyze the video:**\n",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 404.9,
+      "bounded_decode_ms": 296.2,
+      "claims": [
+        {
+          "claim": "Filling should be done without spilling milk outside the mug",
+          "prefill_ms": 135.9,
+          "decode_ms": 98.8,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for skimmed milk in a clean, microwave-safe",
+          "prefill_ms": 134.9,
+          "decode_ms": 98.6,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for filling the mug; flag a noticeable unde",
+          "prefill_ms": 134.1,
+          "decode_ms": 98.8,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 89,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1520.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.3,
+      "open_decode_ms": 9482.4,
+      "open_text": "The user wants me to monitor a cooking step: \"Microwave the contents of the mug for 1 minute\".\n\n1.  **Analyze the frames",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 272.9,
+      "bounded_decode_ms": 201.7,
+      "claims": [
+        {
+          "claim": "The recipe specifies microwaving for 1 minute (60 s); flag a",
+          "prefill_ms": 135.2,
+          "decode_ms": 102.9,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe expects full (100%) microwave power; flag if a re",
+          "prefill_ms": 137.7,
+          "decode_ms": 98.8,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 84,
+      "n_frames": 2,
+      "k_ev_tokens": 483,
+      "ev_prefill_ms": 225.4,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.8,
+      "open_decode_ms": 9602.1,
+      "open_text": "The user is following a recipe on a tablet. The current step is \"Add 1/5 teaspoon cinnamon to the mug\".\nLooking at the f",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 404.2,
+      "bounded_decode_ms": 299.3,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1/5 teaspoon of cinnamon; flag a differ",
+          "prefill_ms": 135.1,
+          "decode_ms": 100.0,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for cinnamon added to the mug; flag a diffe",
+          "prefill_ms": 134.5,
+          "decode_ms": 99.6,
+          "answer": "The"
+        },
+        {
+          "claim": "Cinnamon should be added cleanly in one correctly-measured p",
+          "prefill_ms": 134.6,
+          "decode_ms": 99.7,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 87,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1527.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 138.8,
+      "open_decode_ms": 9771.3,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1 teaspoon of white sugar to the mug\".\n\n1.  **Analyze the video:**\n   ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 272.2,
+      "bounded_decode_ms": 221.6,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1 teaspoon of white sugar; flag a diffe",
+          "prefill_ms": 136.3,
+          "decode_ms": 99.3,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for white sugar; flag a different ingredien",
+          "prefill_ms": 135.9,
+          "decode_ms": 122.3,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 90,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1524.6,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 138.4,
+      "open_decode_ms": 9735.8,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 2 pieces of chocolate to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 280.5,
+      "bounded_decode_ms": 213.5,
+      "claims": [
+        {
+          "claim": "The recipe calls for exactly 2 pieces of chocolate; flag a d",
+          "prefill_ms": 142.2,
+          "decode_ms": 103.2,
+          "answer": "The"
+        },
+        {
+          "claim": "Chocolate pieces should be placed into the mug cleanly witho",
+          "prefill_ms": 138.3,
+          "decode_ms": 110.3,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 85,
+      "n_frames": 16,
+      "k_ev_tokens": 3587,
+      "ev_prefill_ms": 1529.5,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.1,
+      "open_decode_ms": 9983.7,
+      "open_text": "The user wants me to monitor a cooking step: \"Mix the contents of the mug\".\n\n1.  **Analyze the video:**\n    *   **00:00 ",
+      "n_claims": 1,
+      "bounded_decode_tokens": 1,
+      "bounded_prefill_ms": 136.4,
+      "bounded_decode_ms": 99.6,
+      "claims": [
+        {
+          "claim": "The recipe calls for properly mixing the contents of the mug",
+          "prefill_ms": 136.4,
+          "decode_ms": 99.6,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 83,
+      "n_frames": 16,
+      "k_ev_tokens": 3593,
+      "ev_prefill_ms": 1524.4,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.9,
+      "open_decode_ms": 9938.5,
+      "open_text": "The user wants me to monitor a cooking step: \"Heat the contents of the mug for 1 minute and serve\".\n\n1.  **Analyze the v",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 423.6,
+      "bounded_decode_ms": 312.9,
+      "claims": [
+        {
+          "claim": "The recipe expects full (high) microwave power for the final",
+          "prefill_ms": 151.8,
+          "decode_ms": 99.3,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe specifies heating for 1 minute (60 s) before serv",
+          "prefill_ms": 136.7,
+          "decode_ms": 99.4,
+          "answer": "The"
+        },
+        {
+          "claim": "The contents should be heated and served as specified withou",
+          "prefill_ms": 135.1,
+          "decode_ms": 114.2,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_3",
+      "step": 88,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1528.7,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 138.1,
+      "open_decode_ms": 9951.3,
+      "open_text": "The user wants me to monitor a cooking step: \"Fill a microwave-safe mug with skimmed milk\".\n\n1.  **Analyze the video:**\n",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 405.9,
+      "bounded_decode_ms": 297.7,
+      "claims": [
+        {
+          "claim": "Filling should be done without spilling milk outside the mug",
+          "prefill_ms": 135.9,
+          "decode_ms": 99.3,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for skimmed milk in a clean, microwave-safe",
+          "prefill_ms": 134.8,
+          "decode_ms": 99.4,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for filling the mug; flag a noticeable unde",
+          "prefill_ms": 135.2,
+          "decode_ms": 99.0,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_3",
+      "step": 89,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1526.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 136.4,
+      "open_decode_ms": 10007.6,
+      "open_text": "The user wants me to monitor a cooking step: \"Microwave the contents of the mug for 1 minute\".\n\n1.  **Analyze the frames",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 270.6,
+      "bounded_decode_ms": 198.3,
+      "claims": [
+        {
+          "claim": "The recipe specifies microwaving for 1 minute (60 s); flag a",
+          "prefill_ms": 135.8,
+          "decode_ms": 99.4,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe expects full (100%) microwave power; flag if a re",
+          "prefill_ms": 134.8,
+          "decode_ms": 98.9,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_3",
+      "step": 84,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1528.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.2,
+      "open_decode_ms": 9620.5,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1/5 teaspoon cinnamon to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 405.5,
+      "bounded_decode_ms": 297.8,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1/5 teaspoon of cinnamon; flag a differ",
+          "prefill_ms": 135.6,
+          "decode_ms": 99.0,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for cinnamon added to the mug; flag a diffe",
+          "prefill_ms": 135.3,
+          "decode_ms": 99.7,
+          "answer": "The"
+        },
+        {
+          "claim": "Cinnamon should be added cleanly in one correctly-measured p",
+          "prefill_ms": 134.6,
+          "decode_ms": 99.1,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_3",
+      "step": 87,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1528.1,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.9,
+      "open_decode_ms": 9581.9,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1 teaspoon of white sugar to the mug\".\n\n1.  **Analyze the video:**\n   ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 272.1,
+      "bounded_decode_ms": 200.3,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1 teaspoon of white sugar; flag a diffe",
+          "prefill_ms": 136.5,
+          "decode_ms": 100.0,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for white sugar; flag a different ingredien",
+          "prefill_ms": 135.6,
+          "decode_ms": 100.3,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_3",
+      "step": 90,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1530.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.2,
+      "open_decode_ms": 9554.5,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 2 pieces of chocolate to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 272.1,
+      "bounded_decode_ms": 198.9,
+      "claims": [
+        {
+          "claim": "The recipe calls for exactly 2 pieces of chocolate; flag a d",
+          "prefill_ms": 136.2,
+          "decode_ms": 99.5,
+          "answer": "The"
+        },
+        {
+          "claim": "Chocolate pieces should be placed into the mug cleanly witho",
+          "prefill_ms": 135.9,
+          "decode_ms": 99.4,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_3",
+      "step": 85,
+      "n_frames": 16,
+      "k_ev_tokens": 3587,
+      "ev_prefill_ms": 1525.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.4,
+      "open_decode_ms": 9558.6,
+      "open_text": "The user wants me to monitor a cooking step: \"Mix the contents of the mug\".\n\n1.  **Analyze the frames:**\n    *   **Frame",
+      "n_claims": 1,
+      "bounded_decode_tokens": 1,
+      "bounded_prefill_ms": 135.8,
+      "bounded_decode_ms": 100.0,
+      "claims": [
+        {
+          "claim": "The recipe calls for properly mixing the contents of the mug",
+          "prefill_ms": 135.8,
+          "decode_ms": 100.0,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_3",
+      "step": 83,
+      "n_frames": 16,
+      "k_ev_tokens": 3593,
+      "ev_prefill_ms": 1527.8,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.4,
+      "open_decode_ms": 9619.4,
+      "open_text": "The user wants me to monitor a cooking step: \"Heat the contents of the mug for 1 minute and serve\".\n\n1.  **Analyze the f",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 406.9,
+      "bounded_decode_ms": 299.7,
+      "claims": [
+        {
+          "claim": "The recipe expects full (high) microwave power for the final",
+          "prefill_ms": 135.9,
+          "decode_ms": 99.8,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe specifies heating for 1 minute (60 s) before serv",
+          "prefill_ms": 135.5,
+          "decode_ms": 100.0,
+          "answer": "The"
+        },
+        {
+          "claim": "The contents should be heated and served as specified withou",
+          "prefill_ms": 135.5,
+          "decode_ms": 99.9,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_11",
+      "step": 88,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1528.1,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 134.7,
+      "open_decode_ms": 9577.2,
+      "open_text": "The user wants me to monitor a cooking step: \"Fill a microwave-safe mug with skimmed milk\".\n\n1.  **Analyze the video:**\n",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 407.3,
+      "bounded_decode_ms": 301.4,
+      "claims": [
+        {
+          "claim": "Filling should be done without spilling milk outside the mug",
+          "prefill_ms": 135.8,
+          "decode_ms": 100.4,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for skimmed milk in a clean, microwave-safe",
+          "prefill_ms": 135.6,
+          "decode_ms": 100.1,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for filling the mug; flag a noticeable unde",
+          "prefill_ms": 135.9,
+          "decode_ms": 100.9,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_11",
+      "step": 89,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1528.1,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.3,
+      "open_decode_ms": 9564.1,
+      "open_text": "The user wants me to monitor a cooking step: \"Microwave the contents of the mug for 1 minute\".\n\n1.  **Analyze the video:",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 271.7,
+      "bounded_decode_ms": 199.7,
+      "claims": [
+        {
+          "claim": "The recipe specifies microwaving for 1 minute (60 s); flag a",
+          "prefill_ms": 136.0,
+          "decode_ms": 99.9,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe expects full (100%) microwave power; flag if a re",
+          "prefill_ms": 135.7,
+          "decode_ms": 99.8,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_11",
+      "step": 84,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1530.6,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 138.1,
+      "open_decode_ms": 9587.0,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1/5 teaspoon cinnamon to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 407.2,
+      "bounded_decode_ms": 300.2,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1/5 teaspoon of cinnamon; flag a differ",
+          "prefill_ms": 136.2,
+          "decode_ms": 100.5,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for cinnamon added to the mug; flag a diffe",
+          "prefill_ms": 135.4,
+          "decode_ms": 100.1,
+          "answer": "The"
+        },
+        {
+          "claim": "Cinnamon should be added cleanly in one correctly-measured p",
+          "prefill_ms": 135.6,
+          "decode_ms": 99.6,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_11",
+      "step": 87,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1528.3,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.5,
+      "open_decode_ms": 9642.6,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1 teaspoon of white sugar to the mug\".\n\n1.  **Analyze the video:**\n   ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 271.5,
+      "bounded_decode_ms": 199.7,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1 teaspoon of white sugar; flag a diffe",
+          "prefill_ms": 136.1,
+          "decode_ms": 99.9,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for white sugar; flag a different ingredien",
+          "prefill_ms": 135.4,
+          "decode_ms": 99.8,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_11",
+      "step": 90,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1529.1,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.2,
+      "open_decode_ms": 9981.0,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 2 pieces of chocolate to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 333.0,
+      "bounded_decode_ms": 242.5,
+      "claims": [
+        {
+          "claim": "The recipe calls for exactly 2 pieces of chocolate; flag a d",
+          "prefill_ms": 164.8,
+          "decode_ms": 121.0,
+          "answer": "The"
+        },
+        {
+          "claim": "Chocolate pieces should be placed into the mug cleanly witho",
+          "prefill_ms": 168.2,
+          "decode_ms": 121.5,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_11",
+      "step": 85,
+      "n_frames": 16,
+      "k_ev_tokens": 3587,
+      "ev_prefill_ms": 1527.0,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 140.5,
+      "open_decode_ms": 10194.9,
+      "open_text": "The user wants me to monitor a cooking step: \"Mix the contents of the mug\".\n\n1.  **Analyze the video:**\n    *   The vide",
+      "n_claims": 1,
+      "bounded_decode_tokens": 1,
+      "bounded_prefill_ms": 141.4,
+      "bounded_decode_ms": 105.6,
+      "claims": [
+        {
+          "claim": "The recipe calls for properly mixing the contents of the mug",
+          "prefill_ms": 141.4,
+          "decode_ms": 105.6,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_11",
+      "step": 83,
+      "n_frames": 16,
+      "k_ev_tokens": 3593,
+      "ev_prefill_ms": 1528.1,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 145.2,
+      "open_decode_ms": 9672.0,
+      "open_text": "The user wants me to monitor a cooking step: \"Heat the contents of the mug for 1 minute and serve\".\n\n1.  **Analyze the v",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 418.6,
+      "bounded_decode_ms": 306.3,
+      "claims": [
+        {
+          "claim": "The recipe expects full (high) microwave power for the final",
+          "prefill_ms": 136.6,
+          "decode_ms": 100.3,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe specifies heating for 1 minute (60 s) before serv",
+          "prefill_ms": 136.3,
+          "decode_ms": 100.4,
+          "answer": "The"
+        },
+        {
+          "claim": "The contents should be heated and served as specified withou",
+          "prefill_ms": 145.7,
+          "decode_ms": 105.6,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_15",
+      "step": 88,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1530.1,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 140.2,
+      "open_decode_ms": 9832.5,
+      "open_text": "The user wants me to monitor a cooking step: \"Fill a microwave-safe mug with skimmed milk\".\n\n1.  **Analyze the video:**\n",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 425.2,
+      "bounded_decode_ms": 308.1,
+      "claims": [
+        {
+          "claim": "Filling should be done without spilling milk outside the mug",
+          "prefill_ms": 137.0,
+          "decode_ms": 100.9,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for skimmed milk in a clean, microwave-safe",
+          "prefill_ms": 152.2,
+          "decode_ms": 100.8,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for filling the mug; flag a noticeable unde",
+          "prefill_ms": 136.0,
+          "decode_ms": 106.4,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_15",
+      "step": 89,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1530.1,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 141.3,
+      "open_decode_ms": 9859.9,
+      "open_text": "The user wants me to monitor a cooking step: \"Microwave the contents of the mug for 1 minute\".\n\n1.  **Analyze the video:",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 272.5,
+      "bounded_decode_ms": 210.9,
+      "claims": [
+        {
+          "claim": "The recipe specifies microwaving for 1 minute (60 s); flag a",
+          "prefill_ms": 136.7,
+          "decode_ms": 100.3,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe expects full (100%) microwave power; flag if a re",
+          "prefill_ms": 135.8,
+          "decode_ms": 110.6,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_15",
+      "step": 84,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1531.5,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 136.3,
+      "open_decode_ms": 9687.4,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1/5 teaspoon cinnamon to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 407.6,
+      "bounded_decode_ms": 299.7,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1/5 teaspoon of cinnamon; flag a differ",
+          "prefill_ms": 136.1,
+          "decode_ms": 99.7,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for cinnamon added to the mug; flag a diffe",
+          "prefill_ms": 135.9,
+          "decode_ms": 99.9,
+          "answer": "The"
+        },
+        {
+          "claim": "Cinnamon should be added cleanly in one correctly-measured p",
+          "prefill_ms": 135.6,
+          "decode_ms": 100.1,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_15",
+      "step": 87,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1528.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 136.0,
+      "open_decode_ms": 9574.3,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1 teaspoon of white sugar to the mug\".\n\n1.  **Analyze the video:**\n   ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 272.3,
+      "bounded_decode_ms": 200.5,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1 teaspoon of white sugar; flag a diffe",
+          "prefill_ms": 136.6,
+          "decode_ms": 100.6,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for white sugar; flag a different ingredien",
+          "prefill_ms": 135.7,
+          "decode_ms": 99.9,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_15",
+      "step": 90,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1534.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 134.9,
+      "open_decode_ms": 9559.8,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 2 pieces of chocolate to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 275.0,
+      "bounded_decode_ms": 203.1,
+      "claims": [
+        {
+          "claim": "The recipe calls for exactly 2 pieces of chocolate; flag a d",
+          "prefill_ms": 135.9,
+          "decode_ms": 99.7,
+          "answer": "The"
+        },
+        {
+          "claim": "Chocolate pieces should be placed into the mug cleanly witho",
+          "prefill_ms": 139.1,
+          "decode_ms": 103.4,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_15",
+      "step": 85,
+      "n_frames": 16,
+      "k_ev_tokens": 3587,
+      "ev_prefill_ms": 1527.9,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.3,
+      "open_decode_ms": 9498.1,
+      "open_text": "The user wants me to monitor a cooking step: \"Mix the contents of the mug\".\n\n1.  **Analyze the frames:**\n    *   **Frame",
+      "n_claims": 1,
+      "bounded_decode_tokens": 1,
+      "bounded_prefill_ms": 135.3,
+      "bounded_decode_ms": 99.7,
+      "claims": [
+        {
+          "claim": "The recipe calls for properly mixing the contents of the mug",
+          "prefill_ms": 135.3,
+          "decode_ms": 99.7,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_15",
+      "step": 83,
+      "n_frames": 16,
+      "k_ev_tokens": 3593,
+      "ev_prefill_ms": 1533.4,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.3,
+      "open_decode_ms": 9538.4,
+      "open_text": "The user wants me to monitor a cooking step: \"Heat the contents of the mug for 1 minute and serve\".\n\n1.  **Analyze the f",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 407.8,
+      "bounded_decode_ms": 299.8,
+      "claims": [
+        {
+          "claim": "The recipe expects full (high) microwave power for the final",
+          "prefill_ms": 136.7,
+          "decode_ms": 99.8,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe specifies heating for 1 minute (60 s) before serv",
+          "prefill_ms": 135.6,
+          "decode_ms": 99.9,
+          "answer": "The"
+        },
+        {
+          "claim": "The contents should be heated and served as specified withou",
+          "prefill_ms": 135.5,
+          "decode_ms": 100.1,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_19",
+      "step": 88,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1529.6,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 134.6,
+      "open_decode_ms": 9538.0,
+      "open_text": "The user wants me to monitor a cooking step: \"Fill a microwave-safe mug with skimmed milk\".\n\n1.  **Analyze the video:**\n",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 405.7,
+      "bounded_decode_ms": 298.8,
+      "claims": [
+        {
+          "claim": "Filling should be done without spilling milk outside the mug",
+          "prefill_ms": 135.3,
+          "decode_ms": 99.4,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for skimmed milk in a clean, microwave-safe",
+          "prefill_ms": 135.2,
+          "decode_ms": 99.7,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for filling the mug; flag a noticeable unde",
+          "prefill_ms": 135.2,
+          "decode_ms": 99.7,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_19",
+      "step": 89,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1532.6,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.0,
+      "open_decode_ms": 9539.7,
+      "open_text": "The user wants me to monitor a cooking step: \"Microwave the contents of the mug for 1 minute\".\n\n1.  **Analyze the frames",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 270.7,
+      "bounded_decode_ms": 199.6,
+      "claims": [
+        {
+          "claim": "The recipe specifies microwaving for 1 minute (60 s); flag a",
+          "prefill_ms": 135.5,
+          "decode_ms": 99.8,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe expects full (100%) microwave power; flag if a re",
+          "prefill_ms": 135.2,
+          "decode_ms": 99.8,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_19",
+      "step": 84,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1532.6,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 134.9,
+      "open_decode_ms": 9560.1,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1/5 teaspoon cinnamon to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 407.0,
+      "bounded_decode_ms": 299.1,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1/5 teaspoon of cinnamon; flag a differ",
+          "prefill_ms": 135.7,
+          "decode_ms": 99.7,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for cinnamon added to the mug; flag a diffe",
+          "prefill_ms": 135.9,
+          "decode_ms": 100.0,
+          "answer": "The"
+        },
+        {
+          "claim": "Cinnamon should be added cleanly in one correctly-measured p",
+          "prefill_ms": 135.4,
+          "decode_ms": 99.4,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_19",
+      "step": 87,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1530.7,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.3,
+      "open_decode_ms": 9566.7,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1 teaspoon of white sugar to the mug\".\n\n1.  **Analyze the video:**\n   ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 270.9,
+      "bounded_decode_ms": 199.4,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1 teaspoon of white sugar; flag a diffe",
+          "prefill_ms": 135.4,
+          "decode_ms": 99.4,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for white sugar; flag a different ingredien",
+          "prefill_ms": 135.5,
+          "decode_ms": 100.0,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_19",
+      "step": 90,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1528.6,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.4,
+      "open_decode_ms": 9544.0,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 2 pieces of chocolate to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 272.0,
+      "bounded_decode_ms": 199.7,
+      "claims": [
+        {
+          "claim": "The recipe calls for exactly 2 pieces of chocolate; flag a d",
+          "prefill_ms": 136.4,
+          "decode_ms": 99.9,
+          "answer": "The"
+        },
+        {
+          "claim": "Chocolate pieces should be placed into the mug cleanly witho",
+          "prefill_ms": 135.6,
+          "decode_ms": 99.8,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_19",
+      "step": 85,
+      "n_frames": 16,
+      "k_ev_tokens": 3587,
+      "ev_prefill_ms": 1529.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.1,
+      "open_decode_ms": 9538.0,
+      "open_text": "The user wants me to monitor a cooking step: \"Mix the contents of the mug\".\n\n1.  **Analyze the video:**\n    *   **Frame ",
+      "n_claims": 1,
+      "bounded_decode_tokens": 1,
+      "bounded_prefill_ms": 135.8,
+      "bounded_decode_ms": 102.8,
+      "claims": [
+        {
+          "claim": "The recipe calls for properly mixing the contents of the mug",
+          "prefill_ms": 135.8,
+          "decode_ms": 102.8,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_19",
+      "step": 83,
+      "n_frames": 16,
+      "k_ev_tokens": 3593,
+      "ev_prefill_ms": 1529.4,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.3,
+      "open_decode_ms": 9558.8,
+      "open_text": "The user wants me to monitor a cooking step: \"Heat the contents of the mug for 1 minute and serve\".\n\n1.  **Analyze the f",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 408.2,
+      "bounded_decode_ms": 300.5,
+      "claims": [
+        {
+          "claim": "The recipe expects full (high) microwave power for the final",
+          "prefill_ms": 136.2,
+          "decode_ms": 100.1,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe specifies heating for 1 minute (60 s) before serv",
+          "prefill_ms": 136.0,
+          "decode_ms": 100.0,
+          "answer": "The"
+        },
+        {
+          "claim": "The contents should be heated and served as specified withou",
+          "prefill_ms": 136.0,
+          "decode_ms": 100.4,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_30",
+      "step": 88,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1533.4,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 136.5,
+      "open_decode_ms": 9559.4,
+      "open_text": "The user wants me to monitor a cooking step: \"Fill a microwave-safe mug with skimmed milk\".\n\n1.  **Analyze the video:**\n",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 408.1,
+      "bounded_decode_ms": 305.7,
+      "claims": [
+        {
+          "claim": "Filling should be done without spilling milk outside the mug",
+          "prefill_ms": 135.5,
+          "decode_ms": 99.6,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for skimmed milk in a clean, microwave-safe",
+          "prefill_ms": 135.9,
+          "decode_ms": 99.9,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for filling the mug; flag a noticeable unde",
+          "prefill_ms": 136.7,
+          "decode_ms": 106.2,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_30",
+      "step": 89,
+      "n_frames": 2,
+      "k_ev_tokens": 483,
+      "ev_prefill_ms": 225.5,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 134.3,
+      "open_decode_ms": 9617.6,
+      "open_text": "The user is following a recipe step that says \"Microwave the contents of the mug for 1 minute\".\nLooking at the images, I",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 270.4,
+      "bounded_decode_ms": 199.9,
+      "claims": [
+        {
+          "claim": "The recipe specifies microwaving for 1 minute (60 s); flag a",
+          "prefill_ms": 135.1,
+          "decode_ms": 100.1,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe expects full (100%) microwave power; flag if a re",
+          "prefill_ms": 135.3,
+          "decode_ms": 99.8,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_30",
+      "step": 84,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1527.7,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.4,
+      "open_decode_ms": 9571.2,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1/5 teaspoon cinnamon to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 407.1,
+      "bounded_decode_ms": 300.0,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1/5 teaspoon of cinnamon; flag a differ",
+          "prefill_ms": 135.8,
+          "decode_ms": 100.1,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for cinnamon added to the mug; flag a diffe",
+          "prefill_ms": 135.6,
+          "decode_ms": 99.8,
+          "answer": "The"
+        },
+        {
+          "claim": "Cinnamon should be added cleanly in one correctly-measured p",
+          "prefill_ms": 135.7,
+          "decode_ms": 100.1,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_30",
+      "step": 87,
+      "n_frames": 16,
+      "k_ev_tokens": 3591,
+      "ev_prefill_ms": 1533.6,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.0,
+      "open_decode_ms": 9547.4,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 1 teaspoon of white sugar to the mug\".\n\n1.  **Analyze the video:**\n   ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 271.1,
+      "bounded_decode_ms": 199.1,
+      "claims": [
+        {
+          "claim": "The recipe calls for 1 teaspoon of white sugar; flag a diffe",
+          "prefill_ms": 135.6,
+          "decode_ms": 99.7,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe calls for white sugar; flag a different ingredien",
+          "prefill_ms": 135.5,
+          "decode_ms": 99.4,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_30",
+      "step": 90,
+      "n_frames": 16,
+      "k_ev_tokens": 3590,
+      "ev_prefill_ms": 1530.1,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.3,
+      "open_decode_ms": 9559.1,
+      "open_text": "The user wants me to monitor a cooking step: \"Add 2 pieces of chocolate to the mug\".\n\n1.  **Analyze the video:**\n    *  ",
+      "n_claims": 2,
+      "bounded_decode_tokens": 2,
+      "bounded_prefill_ms": 271.0,
+      "bounded_decode_ms": 199.6,
+      "claims": [
+        {
+          "claim": "The recipe calls for exactly 2 pieces of chocolate; flag a d",
+          "prefill_ms": 135.6,
+          "decode_ms": 99.9,
+          "answer": "The"
+        },
+        {
+          "claim": "Chocolate pieces should be placed into the mug cleanly witho",
+          "prefill_ms": 135.4,
+          "decode_ms": 99.7,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_30",
+      "step": 85,
+      "n_frames": 16,
+      "k_ev_tokens": 3587,
+      "ev_prefill_ms": 1534.2,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 134.9,
+      "open_decode_ms": 9587.4,
+      "open_text": "The user wants me to monitor a cooking step: \"Mix the contents of the mug\".\n\n1.  **Analyze the video:**\n    *   The vide",
+      "n_claims": 1,
+      "bounded_decode_tokens": 1,
+      "bounded_prefill_ms": 140.0,
+      "bounded_decode_ms": 103.2,
+      "claims": [
+        {
+          "claim": "The recipe calls for properly mixing the contents of the mug",
+          "prefill_ms": 140.0,
+          "decode_ms": 103.2,
+          "answer": "The"
+        }
+      ]
+    },
+    {
+      "rec": "8_30",
+      "step": 83,
+      "n_frames": 16,
+      "k_ev_tokens": 3593,
+      "ev_prefill_ms": 1531.0,
+      "open_decode_tokens": 96,
+      "open_hit_cap": true,
+      "open_prefill_ms": 135.0,
+      "open_decode_ms": 9706.2,
+      "open_text": "The user wants me to monitor a cooking step: \"Heat the contents of the mug for 1 minute and serve\".\n\n1.  **Analyze the v",
+      "n_claims": 3,
+      "bounded_decode_tokens": 3,
+      "bounded_prefill_ms": 422.5,
+      "bounded_decode_ms": 299.3,
+      "claims": [
+        {
+          "claim": "The recipe expects full (high) microwave power for the final",
+          "prefill_ms": 135.9,
+          "decode_ms": 99.9,
+          "answer": "The"
+        },
+        {
+          "claim": "The recipe specifies heating for 1 minute (60 s) before serv",
+          "prefill_ms": 135.7,
+          "decode_ms": 99.7,
+          "answer": "The"
+        },
+        {
+          "claim": "The contents should be heated and served as specified withou",
+          "prefill_ms": 150.9,
+          "decode_ms": 99.7,
+          "answer": "The"
+        }
+      ]
+    }
+  ]
+}

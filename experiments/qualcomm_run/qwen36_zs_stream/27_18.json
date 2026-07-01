@@ -1,0 +1,47 @@
+{
+ "recording": "27_18",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 316,
+   "start_s": 0.0,
+   "end_s": 430.0
+  },
+  {
+   "stage": 320,
+   "start_s": 430.0,
+   "end_s": 891.4
+  }
+ ],
+ "events": [
+  {
+   "t": 20.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently handling a red bell pepper, but the instruction requires you to add cheddar cheese to a microwave-safe cup.",
+   "step_id": 316
+  },
+  {
+   "t": 715.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently using a knife to scrape a yellow substance (which appears to be butter or margarine) off a measuring spoon. The instruction requires you to add 1 tablespoon of water. You are using the wrong ingredient and have not yet added any water.",
+   "step_id": 320
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 239,
+  "frames_sent": 890,
+  "vlm_latency_total_s": 345.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 383.2
+ }
+}

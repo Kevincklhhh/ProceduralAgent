@@ -1,0 +1,64 @@
+{
+ "recording": "20_48",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 206,
+   "start_s": 0.0,
+   "end_s": 65.0
+  },
+  {
+   "stage": 205,
+   "start_s": 65.0,
+   "end_s": 180.0
+  },
+  {
+   "stage": 212,
+   "start_s": 180.0,
+   "end_s": 325.0
+  },
+  {
+   "stage": 214,
+   "start_s": 325.0,
+   "end_s": 855.3
+  }
+ ],
+ "events": [
+  {
+   "t": 50.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are rinsing 4 mushrooms, but the recipe calls for 3.",
+   "step_id": 206
+  },
+  {
+   "t": 95.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a cloth towel instead of a paper towel to dry the mushrooms.",
+   "step_id": 205
+  },
+  {
+   "t": 185.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently drying mushrooms, but the instruction is to chop a shallot. Please switch to the shallot.",
+   "step_id": 212
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 294,
+  "frames_sent": 855,
+  "vlm_latency_total_s": 441.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 477.8
+ }
+}

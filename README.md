@@ -9,7 +9,7 @@ Project concept and rationale: [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md) 
 | Directory | What lives there |
 | --- | --- |
 | `docs/` | Research docs: task definition, detector feasibility study, related-work survey, project memory. `docs/multi-sensor/` = parent-project notes. |
-| `related_work/` | Paper PDFs (30+) + extracted text for key ones. Index: [docs/RELATED_WORK_TASK_STRUCTURES.md](docs/RELATED_WORK_TASK_STRUCTURES.md) |
+| `related_work/` | Paper PDFs (30+) + extracted text for key ones, grouped by role. Index: [related_work/README.md](related_work/README.md) |
 | `tasks/` | Task-graph JSONs (the compiled "sensing graph" per recipe) + ground-truth annotation templates. Schema: [tasks/PROCEDURE_MONITOR_COMPILER.md](tasks/PROCEDURE_MONITOR_COMPILER.md) (two-stage criteria→sensorplan templates) |
 | `detectors/` | Detector library (`detectors_lib.py` — frozen, validated audio detectors) and `probes/` (the feasibility experiments that validated them, scripts + results JSONs + plots) |
 | `eval/` | Main evaluation scripts (see "How to run") |
@@ -21,8 +21,8 @@ Project concept and rationale: [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md) 
 | # | Experiment | Where | Outcome |
 | --- | --- | --- | --- |
 | 0 | Periodic-VLM baseline sanity check on an HD-EPIC scrambled-eggs clip (Gemini 9/18, Qwen 11/18 stage acc) | `experiments/hdepic_eggs_v0/` | Baseline works end-to-end; established Qwen needs guided JSON |
-| 1 | Detector feasibility probes — 5 probes on six CC4D Spiced-Hot-Chocolate 4K recordings vs GT, thresholds tuned on clean run 8_16 only, frozen, evaluated on the other five | `detectors/probes/`, report: [docs/DETECTOR_FEASIBILITY.md](docs/DETECTOR_FEASIBILITY.md) | DSP hum+beep works (11/12 runs, 0 false); AST/CLAP localize microwave; RGB global-motion stirring FAILED |
-| 2 | Task inventory: all 24 CC4D recipes classified by detector-coverable steps; cross-dataset audio availability survey | [docs/DETECTOR_FEASIBILITY.md](docs/DETECTOR_FEASIBILITY.md) §1–2 | Spiced hot chocolate ranks #1; most proactive-assistance datasets ship NO audio (EgoProactive, IndustReal, Assembly101 ...) |
+| 1 | Detector feasibility probes — 5 probes on six CC4D Spiced-Hot-Chocolate 4K recordings vs GT, thresholds tuned on clean run 8_16 only, frozen, evaluated on the other five | `detectors/probes/`, report: `docs/research/DETECTOR_CATALOG.md` | DSP hum+beep works (11/12 runs, 0 false); AST/CLAP localize microwave; RGB global-motion stirring FAILED |
+| 2 | Task inventory: all 24 CC4D recipes classified by detector-coverable steps; cross-dataset audio availability survey | `docs/research/DETECTOR_CATALOG.md` §1–2 | Spiced hot chocolate ranks #1; most proactive-assistance datasets ship NO audio (EgoProactive, IndustReal, Assembly101 ...) |
 | 3 | **Replay experiment v1** — 3 arms × 6 recordings: `detector_replay` (audio DSP + graph, 0 VLM), `periodic_vlm_qwen` (call every 10 s, 229 calls), `detector_plus_escalation` (DSP + exactly 1 VLM call/recording) | [experiments/replay_v1/REPORT.md](experiments/replay_v1/REPORT.md) | Detector graph: 67.2% coarse stage acc, reminder R=50% (71.4% with escalation) at ~0 cost; periodic Qwen: 37.8%, R=0%, 5.13× real time |
 
 ## Audio models / detectors: what we used, I/O, what they did well

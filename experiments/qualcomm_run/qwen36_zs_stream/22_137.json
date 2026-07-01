@@ -1,0 +1,59 @@
+{
+ "recording": "22_137",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 237,
+   "start_s": 0.0,
+   "end_s": 215.0
+  },
+  {
+   "stage": 239,
+   "start_s": 215.0,
+   "end_s": 605.0
+  },
+  {
+   "stage": 242,
+   "start_s": 605.0,
+   "end_s": 701.8
+  }
+ ],
+ "events": [
+  {
+   "t": 15.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently handling measuring spoons and kitchen utensils, but you have not yet begun the task of chopping cilantro. Please locate the cilantro and a knife to start the preparation.",
+   "step_id": 237
+  },
+  {
+   "t": 245.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently opening a package of butter instead of cracking an egg. Please locate an egg to proceed with the instruction.",
+   "step_id": 239
+  },
+  {
+   "t": 610.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently cracking an egg into a bowl, but the instruction is to add chopped cilantro. Please stop and add the cilantro instead.",
+   "step_id": 242
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 150,
+  "frames_sent": 700,
+  "vlm_latency_total_s": 211.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 243.9
+ }
+}

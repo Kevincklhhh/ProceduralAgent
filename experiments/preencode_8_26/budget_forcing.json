@@ -1,0 +1,727 @@
+{
+  "agg": {
+    "recordings": [
+      "8_26"
+    ],
+    "n_steps": 7,
+    "budgets": [
+      0,
+      64,
+      128,
+      256
+    ],
+    "think_cap": 256,
+    "open_accuracy_by_budget": {
+      "0": {
+        "recall": 0.25,
+        "precision": 1.0,
+        "tp": 1,
+        "fp": 0,
+        "fn": 3,
+        "tn": 3
+      },
+      "64": {
+        "recall": 0.0,
+        "precision": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "tn": 3
+      },
+      "128": {
+        "recall": 0.25,
+        "precision": 1.0,
+        "tp": 1,
+        "fp": 0,
+        "fn": 3,
+        "tn": 3
+      },
+      "256": {
+        "recall": 0.5,
+        "precision": 1.0,
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "tn": 3
+      }
+    },
+    "bounded_accuracy_by_budget": {
+      "0": {
+        "recall": 0.17,
+        "precision": 0.5,
+        "tp": 1,
+        "fp": 1,
+        "fn": 5,
+        "tn": 9
+      },
+      "64": {
+        "recall": 0.17,
+        "precision": 0.5,
+        "tp": 1,
+        "fp": 1,
+        "fn": 5,
+        "tn": 9
+      },
+      "128": {
+        "recall": 0.17,
+        "precision": 0.5,
+        "tp": 1,
+        "fp": 1,
+        "fn": 5,
+        "tn": 9
+      },
+      "256": {
+        "recall": 0.17,
+        "precision": 0.5,
+        "tp": 1,
+        "fp": 1,
+        "fn": 5,
+        "tn": 9
+      }
+    }
+  },
+  "rows": [
+    {
+      "rec": "8_26",
+      "step": 88,
+      "gt_pos": true,
+      "open_think_capped": 256,
+      "open_by_budget": {
+        "0": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "64": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "128": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "256": {
+          "answer": "The user spilled some milk while pouring it",
+          "pred": true,
+          "correct": true
+        }
+      },
+      "claims": [
+        {
+          "subtype": "technique",
+          "gt": true,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "Yes.",
+              "pred": true,
+              "correct": true
+            },
+            "64": {
+              "answer": "Yes",
+              "pred": true,
+              "correct": true
+            },
+            "128": {
+              "answer": "Yes",
+              "pred": true,
+              "correct": true
+            },
+            "256": {
+              "answer": "Yes",
+              "pred": true,
+              "correct": true
+            }
+          }
+        },
+        {
+          "subtype": "preparation",
+          "gt": true,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No.",
+              "pred": false,
+              "correct": false
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            }
+          }
+        },
+        {
+          "subtype": "measurement",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 89,
+      "gt_pos": true,
+      "open_think_capped": 256,
+      "open_by_budget": {
+        "0": {
+          "answer": "The user is microwaving a mug",
+          "pred": true,
+          "correct": true
+        },
+        "64": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "128": {
+          "answer": "The microwave timer is set for 1",
+          "pred": true,
+          "correct": true
+        },
+        "256": {
+          "answer": "The instruction is to microwave for 1",
+          "pred": true,
+          "correct": true
+        }
+      },
+      "claims": [
+        {
+          "subtype": "timing",
+          "gt": true,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            }
+          }
+        },
+        {
+          "subtype": "temperature",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 84,
+      "gt_pos": false,
+      "open_think_capped": 256,
+      "open_by_budget": {
+        "0": {
+          "answer": "No reminder needed.\n</think>\n\nNo",
+          "pred": false,
+          "correct": true
+        },
+        "64": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        },
+        "128": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        },
+        "256": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        }
+      },
+      "claims": [
+        {
+          "subtype": "measurement",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        },
+        {
+          "subtype": "preparation",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        },
+        {
+          "subtype": "technique",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No.",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 87,
+      "gt_pos": false,
+      "open_think_capped": 256,
+      "open_by_budget": {
+        "0": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        },
+        "64": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        },
+        "128": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        },
+        "256": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        }
+      },
+      "claims": [
+        {
+          "subtype": "measurement",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "Yes",
+              "pred": true,
+              "correct": false
+            },
+            "64": {
+              "answer": "Yes",
+              "pred": true,
+              "correct": false
+            },
+            "128": {
+              "answer": "Yes",
+              "pred": true,
+              "correct": false
+            },
+            "256": {
+              "answer": "Yes",
+              "pred": true,
+              "correct": false
+            }
+          }
+        },
+        {
+          "subtype": "preparation",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 90,
+      "gt_pos": true,
+      "open_think_capped": 256,
+      "open_by_budget": {
+        "0": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "64": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "128": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "256": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        }
+      },
+      "claims": [
+        {
+          "subtype": "measurement",
+          "gt": true,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            }
+          }
+        },
+        {
+          "subtype": "technique",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 85,
+      "gt_pos": false,
+      "open_think_capped": 256,
+      "open_by_budget": {
+        "0": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        },
+        "64": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        },
+        "128": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        },
+        "256": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": true
+        }
+      },
+      "claims": [
+        {
+          "subtype": "technique",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No.",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rec": "8_26",
+      "step": 83,
+      "gt_pos": true,
+      "open_think_capped": 256,
+      "open_by_budget": {
+        "0": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "64": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "128": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        },
+        "256": {
+          "answer": "No reminder needed.",
+          "pred": false,
+          "correct": false
+        }
+      },
+      "claims": [
+        {
+          "subtype": "temperature",
+          "gt": true,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            }
+          }
+        },
+        {
+          "subtype": "timing",
+          "gt": true,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": false
+            }
+          }
+        },
+        {
+          "subtype": "preparation",
+          "gt": false,
+          "think_len_capped": 256,
+          "by_budget": {
+            "0": {
+              "answer": "No.",
+              "pred": false,
+              "correct": true
+            },
+            "64": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "128": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            },
+            "256": {
+              "answer": "No",
+              "pred": false,
+              "correct": true
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

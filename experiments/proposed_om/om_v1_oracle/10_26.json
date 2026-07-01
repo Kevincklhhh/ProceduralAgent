@@ -1,0 +1,98 @@
+{
+ "recording": "10_26",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 0.0,
+   "end_s": 25.5
+  },
+  {
+   "stage": 118,
+   "start_s": 34.6,
+   "end_s": 48.5
+  },
+  {
+   "stage": 111,
+   "start_s": 53.6,
+   "end_s": 73.4
+  },
+  {
+   "stage": 107,
+   "start_s": 74.2,
+   "end_s": 97.2
+  },
+  {
+   "stage": 104,
+   "start_s": 104.3,
+   "end_s": 109.4
+  },
+  {
+   "stage": 116,
+   "start_s": 121.3,
+   "end_s": 147.3
+  },
+  {
+   "stage": 110,
+   "start_s": 171.0,
+   "end_s": 207.7
+  },
+  {
+   "stage": 114,
+   "start_s": 214.1,
+   "end_s": 224.8
+  },
+  {
+   "stage": 108,
+   "start_s": 235.4,
+   "end_s": 248.9
+  },
+  {
+   "stage": 102,
+   "start_s": 249.0,
+   "end_s": 254.3
+  },
+  {
+   "stage": 102,
+   "start_s": 255.0,
+   "end_s": 258.0
+  },
+  {
+   "stage": 102,
+   "start_s": 259.0,
+   "end_s": 263.0
+  },
+  {
+   "stage": 109,
+   "start_s": 278.2,
+   "end_s": 284.2
+  }
+ ],
+ "events": [
+  {
+   "t": 34.6,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 118,
+   "message": "You skipped Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges and scoop-Use a butter knife to scoop nut butter from the jar; they are needed before Clean the knife by wiping it with a paper towel."
+  },
+  {
+   "t": 235.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 108,
+   "message": "You skipped Cross the floss's two ends over the tortilla roll's top, Slide floss under the tortilla, perpendicular to the length of the roll, and Place the floss halfway between toothpicks; they are needed before pull the floss ends in opposite directions to slice."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

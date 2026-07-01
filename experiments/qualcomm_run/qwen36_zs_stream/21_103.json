@@ -1,0 +1,47 @@
+{
+ "recording": "21_103",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 221,
+   "start_s": 0.0,
+   "end_s": 170.0
+  },
+  {
+   "stage": 225,
+   "start_s": 170.0,
+   "end_s": 928.0
+  }
+ ],
+ "events": [
+  {
+   "t": 45.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently peeling a banana, but the instruction is to add 1/2 tsp of baking powder to the blender. Please stop peeling the banana and measure the baking powder.",
+   "step_id": 221
+  },
+  {
+   "t": 225.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently holding a spoon with a white powder, but the instruction is to add a banana. Please put down the powder and add a whole banana to the blender instead.",
+   "step_id": 225
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 205,
+  "frames_sent": 925,
+  "vlm_latency_total_s": 281.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 317.9
+ }
+}

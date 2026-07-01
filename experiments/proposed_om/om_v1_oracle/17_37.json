@@ -1,0 +1,88 @@
+{
+ "recording": "17_37",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 188,
+   "start_s": 29.5,
+   "end_s": 96.4
+  },
+  {
+   "stage": 187,
+   "start_s": 102.7,
+   "end_s": 194.8
+  },
+  {
+   "stage": 189,
+   "start_s": 205.4,
+   "end_s": 228.6
+  },
+  {
+   "stage": 183,
+   "start_s": 270.8,
+   "end_s": 352.4
+  },
+  {
+   "stage": 182,
+   "start_s": 359.4,
+   "end_s": 459.3
+  },
+  {
+   "stage": 184,
+   "start_s": 465.6,
+   "end_s": 534.6
+  },
+  {
+   "stage": 181,
+   "start_s": 541.6,
+   "end_s": 584.5
+  },
+  {
+   "stage": 191,
+   "start_s": 585.0,
+   "end_s": 616.0
+  },
+  {
+   "stage": 186,
+   "start_s": 620.0,
+   "end_s": 635.0
+  },
+  {
+   "stage": 190,
+   "start_s": 649.0,
+   "end_s": 656.0
+  },
+  {
+   "stage": 186,
+   "start_s": 664.0,
+   "end_s": 706.2
+  }
+ ],
+ "events": [
+  {
+   "t": 29.5,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 188,
+   "message": "Add 1 teaspoon of cumin powder to the bowl was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 649.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 190,
+   "message": "You skipped chop or grate-chop or grate the cucumber; it is needed before Add the chopped or grated cucumber to the whisked curd."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

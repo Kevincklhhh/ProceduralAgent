@@ -1,0 +1,143 @@
+{
+ "recording": "23_16",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 252,
+   "start_s": 10.7,
+   "end_s": 128.6
+  },
+  {
+   "stage": 271,
+   "start_s": 135.2,
+   "end_s": 148.4
+  },
+  {
+   "stage": 270,
+   "start_s": 153.3,
+   "end_s": 169.8
+  },
+  {
+   "stage": 250,
+   "start_s": 178.1,
+   "end_s": 215.2
+  },
+  {
+   "stage": 254,
+   "start_s": 224.2,
+   "end_s": 271.2
+  },
+  {
+   "stage": 268,
+   "start_s": 272.0,
+   "end_s": 309.1
+  },
+  {
+   "stage": 267,
+   "start_s": 307.5,
+   "end_s": 409.7
+  },
+  {
+   "stage": 273,
+   "start_s": 421.2,
+   "end_s": 446.8
+  },
+  {
+   "stage": 269,
+   "start_s": 450.1,
+   "end_s": 468.2
+  },
+  {
+   "stage": 259,
+   "start_s": 475.6,
+   "end_s": 521.0
+  },
+  {
+   "stage": 257,
+   "start_s": 528.4,
+   "end_s": 628.1
+  },
+  {
+   "stage": 262,
+   "start_s": 634.7,
+   "end_s": 802.9
+  },
+  {
+   "stage": 255,
+   "start_s": 806.2,
+   "end_s": 826.8
+  },
+  {
+   "stage": 260,
+   "start_s": 830.1,
+   "end_s": 859.8
+  },
+  {
+   "stage": 251,
+   "start_s": 859.8,
+   "end_s": 865.5
+  },
+  {
+   "stage": 263,
+   "start_s": 865.5,
+   "end_s": 954.6
+  },
+  {
+   "stage": 266,
+   "start_s": 961.1,
+   "end_s": 1014.7
+  },
+  {
+   "stage": 258,
+   "start_s": 1035.3,
+   "end_s": 1044.2
+  },
+  {
+   "stage": 265,
+   "start_s": 1044.4,
+   "end_s": 1048.4
+  },
+  {
+   "stage": 253,
+   "start_s": 1048.7,
+   "end_s": 1172.6
+  },
+  {
+   "stage": 261,
+   "start_s": 1173.1,
+   "end_s": 1185.4
+  },
+  {
+   "stage": 274,
+   "start_s": 1186.2,
+   "end_s": 1246.4
+  },
+  {
+   "stage": 272,
+   "start_s": 1246.4,
+   "end_s": 1256.2
+  },
+  {
+   "stage": 256,
+   "start_s": 1258.7,
+   "end_s": 1267.0
+  },
+  {
+   "stage": 264,
+   "start_s": 1266.1,
+   "end_s": 1306.5
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

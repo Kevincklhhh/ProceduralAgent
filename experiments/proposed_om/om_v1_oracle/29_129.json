@@ -1,0 +1,76 @@
+{
+ "recording": "29_129",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 343,
+   "start_s": 0.0,
+   "end_s": 55.1
+  },
+  {
+   "stage": 344,
+   "start_s": 58.5,
+   "end_s": 122.9
+  },
+  {
+   "stage": 347,
+   "start_s": 127.5,
+   "end_s": 160.6
+  },
+  {
+   "stage": 346,
+   "start_s": 163.5,
+   "end_s": 176.8
+  },
+  {
+   "stage": 342,
+   "start_s": 178.5,
+   "end_s": 230.1
+  },
+  {
+   "stage": 350,
+   "start_s": 240.0,
+   "end_s": 296.0
+  },
+  {
+   "stage": 349,
+   "start_s": 308.0,
+   "end_s": 364.0
+  },
+  {
+   "stage": 348,
+   "start_s": 380.2,
+   "end_s": 403.4
+  },
+  {
+   "stage": 352,
+   "start_s": 410.4,
+   "end_s": 893.2
+  },
+  {
+   "stage": 345,
+   "start_s": 894.3,
+   "end_s": 925.1
+  }
+ ],
+ "events": [
+  {
+   "t": 380.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 348,
+   "message": "You skipped add-In a bowl, add the cut cherry tomatoes; it is needed before Combine the contents of the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

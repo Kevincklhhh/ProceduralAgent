@@ -1,0 +1,121 @@
+{
+ "recording": "25_3",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 63.7,
+   "end_s": 73.4
+  },
+  {
+   "stage": 293,
+   "start_s": 91.2,
+   "end_s": 115.5
+  },
+  {
+   "stage": 276,
+   "start_s": 133.2,
+   "end_s": 137.4
+  },
+  {
+   "stage": 286,
+   "start_s": 208.4,
+   "end_s": 222.9
+  },
+  {
+   "stage": 291,
+   "start_s": 237.4,
+   "end_s": 249.0
+  },
+  {
+   "stage": 279,
+   "start_s": 280.0,
+   "end_s": 300.0
+  },
+  {
+   "stage": 292,
+   "start_s": 311.2,
+   "end_s": 638.3
+  },
+  {
+   "stage": 280,
+   "start_s": 640.0,
+   "end_s": 649.4
+  },
+  {
+   "stage": 285,
+   "start_s": 658.6,
+   "end_s": 709.2
+  },
+  {
+   "stage": 287,
+   "start_s": 716.5,
+   "end_s": 721.9
+  },
+  {
+   "stage": 290,
+   "start_s": 733.8,
+   "end_s": 942.3
+  },
+  {
+   "stage": 282,
+   "start_s": 944.4,
+   "end_s": 947.5
+  },
+  {
+   "stage": 278,
+   "start_s": 964.0,
+   "end_s": 972.1
+  },
+  {
+   "stage": 277,
+   "start_s": 991.5,
+   "end_s": 1010.3
+  },
+  {
+   "stage": 284,
+   "start_s": 1010.7,
+   "end_s": 1016.6
+  },
+  {
+   "stage": 289,
+   "start_s": 1018.6,
+   "end_s": 1123.2
+  },
+  {
+   "stage": 281,
+   "start_s": 1126.2,
+   "end_s": 1165.2
+  },
+  {
+   "stage": 288,
+   "start_s": 1172.4,
+   "end_s": 1313.8
+  },
+  {
+   "stage": 283,
+   "start_s": 1317.2,
+   "end_s": 1330.2
+  }
+ ],
+ "events": [
+  {
+   "t": 133.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 276,
+   "message": "Turn on the heat to medium was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

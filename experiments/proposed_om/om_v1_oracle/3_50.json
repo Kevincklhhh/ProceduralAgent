@@ -1,0 +1,103 @@
+{
+ "recording": "3_50",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 3.9,
+   "end_s": 11.3
+  },
+  {
+   "stage": 40,
+   "start_s": 35.3,
+   "end_s": 60.6
+  },
+  {
+   "stage": 33,
+   "start_s": 69.8,
+   "end_s": 102.5
+  },
+  {
+   "stage": 39,
+   "start_s": 118.6,
+   "end_s": 153.0
+  },
+  {
+   "stage": 28,
+   "start_s": 169.6,
+   "end_s": 187.1
+  },
+  {
+   "stage": 38,
+   "start_s": 191.4,
+   "end_s": 203.6
+  },
+  {
+   "stage": 41,
+   "start_s": 208.9,
+   "end_s": 233.7
+  },
+  {
+   "stage": 34,
+   "start_s": 245.5,
+   "end_s": 263.8
+  },
+  {
+   "stage": 37,
+   "start_s": 269.0,
+   "end_s": 286.0
+  },
+  {
+   "stage": 30,
+   "start_s": 291.7,
+   "end_s": 312.2
+  },
+  {
+   "stage": 31,
+   "start_s": 324.4,
+   "end_s": 330.1
+  },
+  {
+   "stage": 35,
+   "start_s": 335.7,
+   "end_s": 350.1
+  },
+  {
+   "stage": 29,
+   "start_s": 359.7,
+   "end_s": 368.4
+  },
+  {
+   "stage": 32,
+   "start_s": 372.4,
+   "end_s": 444.7
+  }
+ ],
+ "events": [
+  {
+   "t": 118.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 39,
+   "message": "Sprinkle 1 generous tablespoon of mozzarella cheese on top of the sauce was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 191.4,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 38,
+   "message": "Stir the contents in the mug well was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

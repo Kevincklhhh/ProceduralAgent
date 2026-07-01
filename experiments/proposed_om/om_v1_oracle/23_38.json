@@ -1,0 +1,152 @@
+{
+ "recording": "23_38",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 273,
+   "start_s": 11.3,
+   "end_s": 63.5
+  },
+  {
+   "stage": 269,
+   "start_s": 70.6,
+   "end_s": 109.4
+  },
+  {
+   "stage": 271,
+   "start_s": 127.0,
+   "end_s": 142.0
+  },
+  {
+   "stage": 263,
+   "start_s": 148.0,
+   "end_s": 222.4
+  },
+  {
+   "stage": 270,
+   "start_s": 233.0,
+   "end_s": 245.0
+  },
+  {
+   "stage": 271,
+   "start_s": 252.7,
+   "end_s": 258.4
+  },
+  {
+   "stage": 261,
+   "start_s": 268.3,
+   "end_s": 275.3
+  },
+  {
+   "stage": 257,
+   "start_s": 295.0,
+   "end_s": 392.0
+  },
+  {
+   "stage": 262,
+   "start_s": 392.5,
+   "end_s": 417.2
+  },
+  {
+   "stage": 255,
+   "start_s": 424.3,
+   "end_s": 438.4
+  },
+  {
+   "stage": 250,
+   "start_s": 456.0,
+   "end_s": 488.5
+  },
+  {
+   "stage": 251,
+   "start_s": 495.1,
+   "end_s": 496.1
+  },
+  {
+   "stage": 256,
+   "start_s": 497.0,
+   "end_s": 504.6
+  },
+  {
+   "stage": 266,
+   "start_s": 517.4,
+   "end_s": 542.2
+  },
+  {
+   "stage": 259,
+   "start_s": 575.3,
+   "end_s": 617.7
+  },
+  {
+   "stage": 258,
+   "start_s": 618.4,
+   "end_s": 628.3
+  },
+  {
+   "stage": 265,
+   "start_s": 628.4,
+   "end_s": 634.3
+  },
+  {
+   "stage": 268,
+   "start_s": 642.4,
+   "end_s": 685.5
+  },
+  {
+   "stage": 274,
+   "start_s": 723.6,
+   "end_s": 1054.0
+  },
+  {
+   "stage": 267,
+   "start_s": 995.4,
+   "end_s": 1032.8
+  },
+  {
+   "stage": 272,
+   "start_s": 1036.8,
+   "end_s": 1050.1
+  }
+ ],
+ "events": [
+  {
+   "t": 268.3,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 261,
+   "message": "You skipped cook-cook, stirring often, for 4 minutes. If the pan gets too hot on medium-high, turn the heat down to medium; it is needed before Add bell pepper to the skillet."
+  },
+  {
+   "t": 495.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 251,
+   "message": "You skipped Whisk the contents of bowl, Add 1 tablespoon honey to the bowl, and Add 1 teaspoon cornstarch to the bowl; they are needed before Set aside the sauce mixture."
+  },
+  {
+   "t": 497.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 256,
+   "message": "Pour the sauce into the skillet was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 517.4,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 266,
+   "message": "Heat 2 tablespoons olive oil in a skillet over medium-high heat was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

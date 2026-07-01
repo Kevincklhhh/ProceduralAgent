@@ -1,0 +1,169 @@
+{
+ "recording": "8_45",
+ "arm": "cs_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 4.5,
+   "end_s": 38.9
+  },
+  {
+   "stage": 90,
+   "start_s": 39.1,
+   "end_s": 62.0
+  },
+  {
+   "stage": 84,
+   "start_s": 62.0,
+   "end_s": 97.1
+  },
+  {
+   "stage": 87,
+   "start_s": 97.1,
+   "end_s": 114.1
+  },
+  {
+   "stage": 89,
+   "start_s": 120.9,
+   "end_s": 254.6
+  },
+  {
+   "stage": 83,
+   "start_s": 260.2,
+   "end_s": 373.4
+  }
+ ],
+ "events": [
+  {
+   "t": 85.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/5 teaspoon of cinnamon; flag a different quantity or the use of a tablespoon instead of a teaspoon (observed: 1/4 tsp used, tablespoon substituted, 4 recordings).",
+   "step_id": 84,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 108.6,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1 teaspoon of white sugar; flag a different amount (e.g. 2 teaspoons) or using a tablespoon instead of a teaspoon (observed: tablespoon used instead of teaspoon, double quantity, 4 recordings).",
+   "step_id": 87,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 311.2,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "The recipe expects full (high) microwave power for the final heat; flag a reduced or low power setting (observed: low power, mixed high/low split, 4 occurrences across 3 recordings).",
+   "step_id": 83,
+   "choice": 1,
+   "raw": "Based on the visual evidence in the frames:\n\n1.  **Mistake 1"
+  },
+  {
+   "t": 311.2,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The contents should be heated and served as specified without overflow; flag the milk rising and spilling out of the mug due to excess heat or time, or an incorrect serving arrangement (observed: milk overflow from over-heating, wrong serving vessel used, 2 recordings).",
+   "step_id": 83,
+   "choice": 3,
+   "raw": "Based on the visual evidence in the frames:\n\n1.  **Mistake 1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 30.5,
+   "kind": "mistake",
+   "step_id": 88,
+   "win_start": 0.5,
+   "win_end": 60.5,
+   "n_frames": 60,
+   "latency_s": 15.5,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 52.1,
+   "kind": "mistake",
+   "step_id": 90,
+   "win_start": 22.1,
+   "win_end": 82.1,
+   "n_frames": 60,
+   "latency_s": 13.4,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 85.0,
+   "kind": "mistake",
+   "step_id": 84,
+   "win_start": 55.0,
+   "win_end": 115.0,
+   "n_frames": 60,
+   "latency_s": 13.9,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 108.6,
+   "kind": "mistake",
+   "step_id": 87,
+   "win_start": 78.6,
+   "win_end": 138.6,
+   "n_frames": 60,
+   "latency_s": 13.2,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 195.4,
+   "kind": "mistake",
+   "step_id": 89,
+   "win_start": 165.4,
+   "win_end": 225.4,
+   "n_frames": 60,
+   "latency_s": 13.8,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 311.2,
+   "kind": "mistake",
+   "step_id": 83,
+   "win_start": 281.2,
+   "win_end": 341.2,
+   "n_frames": 60,
+   "latency_s": 41.3,
+   "fired": [
+    "temperature",
+    "preparation"
+   ],
+   "answer": "Based on the visual evidence in the frames:\n\n1.  **Mistake 1 (Power Setting):** "
+  }
+ ],
+ "cost": {
+  "vlm_calls": 6,
+  "frames_sent": 360,
+  "vlm_latency_total_s": 111.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 139.0
+ }
+}

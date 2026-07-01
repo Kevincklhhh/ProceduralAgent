@@ -1,0 +1,143 @@
+{
+  "recording": "8_26",
+  "step_id": 90,
+  "model": "Qwen3.5-27B-FP8",
+  "note": "streaming rolling-prefill: one frame -> cache at a time",
+  "windows": {
+    "short": {
+      "win": [
+        201.2,
+        206.2,
+        5
+      ],
+      "L": 1176,
+      "k": 1139,
+      "n_frames": 5,
+      "decision_equiv": {
+        "free_argmax_batch": 760,
+        "free_argmax_stream": 760,
+        "answer_batch": "no",
+        "answer_stream": "no",
+        "answers_match": true,
+        "stream_vs_batch_max_abs_logit_diff": 1.984375,
+        "fp8_noise_floor": 0.0,
+        "scores_batch": {
+          "yes": 8.9375,
+          "no": 9.4375,
+          "uncertain": 3.296875
+        },
+        "scores_stream": {
+          "yes": 8.8125,
+          "no": 9.4375,
+          "uncertain": 2.6875
+        }
+      },
+      "per_frame_stream_ms": {
+        "median": 145.96128836274147,
+        "p90": 156.498103402555,
+        "p95": 159.35629326850176,
+        "min": 144.09491140395403,
+        "max": 160.25595646351576,
+        "n": 25
+      },
+      "trigger_floor_ms": {
+        "median": 133.18100944161415,
+        "p90": 148.1803683564067,
+        "p95": 148.2232427224517,
+        "min": 132.37734977155924,
+        "max": 148.61412066966295,
+        "n": 30
+      }
+    },
+    "medium": {
+      "win": [
+        196.2,
+        206.2,
+        10
+      ],
+      "L": 2286,
+      "k": 2249,
+      "n_frames": 10,
+      "decision_equiv": {
+        "free_argmax_batch": 760,
+        "free_argmax_stream": 760,
+        "answer_batch": "no",
+        "answer_stream": "no",
+        "answers_match": true,
+        "stream_vs_batch_max_abs_logit_diff": 2.1875,
+        "fp8_noise_floor": 0.0,
+        "scores_batch": {
+          "yes": 7.8125,
+          "no": 9.3125,
+          "uncertain": 3.203125
+        },
+        "scores_stream": {
+          "yes": 7.90625,
+          "no": 8.25,
+          "uncertain": 3.03125
+        }
+      },
+      "per_frame_stream_ms": {
+        "median": 145.61943523585796,
+        "p90": 146.5013911947608,
+        "p95": 146.5319273993373,
+        "min": 144.45471204817295,
+        "max": 146.7769667506218,
+        "n": 50
+      },
+      "trigger_floor_ms": {
+        "median": 134.1270925477147,
+        "p90": 148.3581457287073,
+        "p95": 149.84998013824224,
+        "min": 133.43249633908272,
+        "max": 151.97579935193062,
+        "n": 30
+      }
+    },
+    "long": {
+      "win": [
+        186.2,
+        206.2,
+        20
+      ],
+      "L": 4506,
+      "k": 4469,
+      "n_frames": 20,
+      "decision_equiv": {
+        "free_argmax_batch": 760,
+        "free_argmax_stream": 760,
+        "answer_batch": "no",
+        "answer_stream": "no",
+        "answers_match": true,
+        "stream_vs_batch_max_abs_logit_diff": 1.9375,
+        "fp8_noise_floor": 0.0,
+        "scores_batch": {
+          "yes": 7.65625,
+          "no": 8.6875,
+          "uncertain": 3.96875
+        },
+        "scores_stream": {
+          "yes": 8.0625,
+          "no": 8.6875,
+          "uncertain": 4.28125
+        }
+      },
+      "per_frame_stream_ms": {
+        "median": 148.8679712638259,
+        "p90": 152.62039750814438,
+        "p95": 153.4803817048669,
+        "min": 145.31419333070517,
+        "max": 163.32804784178734,
+        "n": 100
+      },
+      "trigger_floor_ms": {
+        "median": 134.96814668178558,
+        "p90": 139.50828835368156,
+        "p95": 140.65524470061064,
+        "min": 134.5923002809286,
+        "max": 141.75567962229252,
+        "n": 30
+      }
+    }
+  }
+}

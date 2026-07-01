@@ -1,0 +1,86 @@
+{
+ "recording": "1_37",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 3,
+   "start_s": 2.4,
+   "end_s": 47.2
+  },
+  {
+   "stage": 1,
+   "start_s": 56.1,
+   "end_s": 90.9
+  },
+  {
+   "stage": 4,
+   "start_s": 94.8,
+   "end_s": 183.1
+  },
+  {
+   "stage": 6,
+   "start_s": 185.7,
+   "end_s": 255.0
+  },
+  {
+   "stage": 12,
+   "start_s": 259.2,
+   "end_s": 316.0
+  },
+  {
+   "stage": 9,
+   "start_s": 326.2,
+   "end_s": 365.8
+  },
+  {
+   "stage": 11,
+   "start_s": 376.8,
+   "end_s": 391.4
+  },
+  {
+   "stage": 8,
+   "start_s": 393.1,
+   "end_s": 430.4
+  },
+  {
+   "stage": 5,
+   "start_s": 438.8,
+   "end_s": 480.1
+  },
+  {
+   "stage": 10,
+   "start_s": 481.3,
+   "end_s": 586.7
+  },
+  {
+   "stage": 2,
+   "start_s": 588.1,
+   "end_s": 595.9
+  },
+  {
+   "stage": 7,
+   "start_s": 596.3,
+   "end_s": 604.9
+  }
+ ],
+ "events": [
+  {
+   "t": 185.7,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 6,
+   "message": "Top -Top cup with 1 tablespoon of salsa was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

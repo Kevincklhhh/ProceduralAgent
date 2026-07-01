@@ -1,0 +1,162 @@
+{
+ "recording": "23_39",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 257,
+   "start_s": 48.0,
+   "end_s": 107.0
+  },
+  {
+   "stage": 262,
+   "start_s": 108.0,
+   "end_s": 235.9
+  },
+  {
+   "stage": 255,
+   "start_s": 243.7,
+   "end_s": 261.6
+  },
+  {
+   "stage": 268,
+   "start_s": 270.3,
+   "end_s": 314.4
+  },
+  {
+   "stage": 269,
+   "start_s": 318.3,
+   "end_s": 345.7
+  },
+  {
+   "stage": 260,
+   "start_s": 357.5,
+   "end_s": 385.9
+  },
+  {
+   "stage": 251,
+   "start_s": 385.9,
+   "end_s": 391.8
+  },
+  {
+   "stage": 271,
+   "start_s": 401.6,
+   "end_s": 452.5
+  },
+  {
+   "stage": 270,
+   "start_s": 404.0,
+   "end_s": 422.0
+  },
+  {
+   "stage": 250,
+   "start_s": 456.4,
+   "end_s": 503.4
+  },
+  {
+   "stage": 273,
+   "start_s": 510.3,
+   "end_s": 585.7
+  },
+  {
+   "stage": 267,
+   "start_s": 589.6,
+   "end_s": 649.4
+  },
+  {
+   "stage": 256,
+   "start_s": 660.1,
+   "end_s": 712.0
+  },
+  {
+   "stage": 259,
+   "start_s": 780.0,
+   "end_s": 871.7
+  },
+  {
+   "stage": 263,
+   "start_s": 876.6,
+   "end_s": 921.6
+  },
+  {
+   "stage": 265,
+   "start_s": 934.4,
+   "end_s": 992.2
+  },
+  {
+   "stage": 258,
+   "start_s": 993.1,
+   "end_s": 1005.9
+  },
+  {
+   "stage": 253,
+   "start_s": 1038.2,
+   "end_s": 1319.3
+  },
+  {
+   "stage": 261,
+   "start_s": 1320.3,
+   "end_s": 1332.0
+  },
+  {
+   "stage": 254,
+   "start_s": 1334.0,
+   "end_s": 1391.7
+  },
+  {
+   "stage": 272,
+   "start_s": 1431.9,
+   "end_s": 1464.2
+  },
+  {
+   "stage": 252,
+   "start_s": 1465.2,
+   "end_s": 1518.1
+  },
+  {
+   "stage": 264,
+   "start_s": 1522.0,
+   "end_s": 1559.2
+  }
+ ],
+ "events": [
+  {
+   "t": 357.5,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 260,
+   "message": "Whisk the contents of bowl was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 660.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 256,
+   "message": "Pour the sauce into the skillet was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 934.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 265,
+   "message": "You skipped Heat 2 tablespoons olive oil in a skillet over medium-high heat; it is needed before Add broccoli to the skillet."
+  },
+  {
+   "t": 1431.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 272,
+   "message": "You skipped continue cooking-continue cooking, stirring often, for 2-3 minutes, until vegetables are crisp-tender; it is needed before Whisk the sauce again to recombine the ingredients."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

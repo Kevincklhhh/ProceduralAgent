@@ -1,0 +1,95 @@
+{
+ "recording": "18_33",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 196,
+   "start_s": 1.0,
+   "end_s": 33.1
+  },
+  {
+   "stage": 203,
+   "start_s": 36.3,
+   "end_s": 188.2
+  },
+  {
+   "stage": 200,
+   "start_s": 189.1,
+   "end_s": 202.3
+  },
+  {
+   "stage": 204,
+   "start_s": 206.2,
+   "end_s": 290.2
+  },
+  {
+   "stage": 199,
+   "start_s": 291.1,
+   "end_s": 365.3
+  },
+  {
+   "stage": 194,
+   "start_s": 365.8,
+   "end_s": 380.8
+  },
+  {
+   "stage": 201,
+   "start_s": 383.2,
+   "end_s": 401.7
+  },
+  {
+   "stage": 192,
+   "start_s": 406.0,
+   "end_s": 581.0
+  },
+  {
+   "stage": 198,
+   "start_s": 407.0,
+   "end_s": 418.6
+  },
+  {
+   "stage": 193,
+   "start_s": 480.0,
+   "end_s": 509.0
+  },
+  {
+   "stage": 197,
+   "start_s": 510.6,
+   "end_s": 521.8
+  }
+ ],
+ "events": [
+  {
+   "t": 1.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 196,
+   "message": "Heat a large pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 365.8,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 194,
+   "message": "You skipped Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic; it is needed before season-pepper to taste."
+  },
+  {
+   "t": 406.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 192,
+   "message": "Cook for 2 minutes or until the zoodles are done was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,40 @@
+[load] ckpt: /data/kailaic/hf_cache/models--Qwen--Qwen3.5-27B-FP8/snapshots/97f5941bf617e31c5e237364a8602ce3f03a551a
+[resolve] visual: Qwen3_5VisionModel | lm: Qwen3_5TextModel | get_rope: yes
+
+===== short (201.2, 206.2, 5)  L=1176 tok =====
+  N=   1  decode=     0.1ms  total(prefill+decode)=   478.1ms  marginal=  0.11 ms/tok
+  N=  32  decode=  3075.4ms  total(prefill+decode)=  3553.4ms  marginal= 99.20 ms/tok
+  N=  96  decode=  9534.2ms  total(prefill+decode)= 10012.1ms  marginal=100.92 ms/tok
+  N= 256  decode= 25562.0ms  total(prefill+decode)= 26039.9ms  marginal=100.17 ms/tok
+  N= 512  decode= 51278.5ms  total(prefill+decode)= 51756.4ms  marginal=100.46 ms/tok
+  N= 768  decode= 77233.3ms  total(prefill+decode)= 77711.2ms  marginal=101.39 ms/tok
+  N=1024  decode=102817.8ms  total(prefill+decode)=103295.8ms  marginal= 99.94 ms/tok
+  N=1280  decode=128306.0ms  total(prefill+decode)=128784.0ms  marginal= 99.56 ms/tok
+  N=1536  decode=153925.3ms  total(prefill+decode)=154403.3ms  marginal=100.08 ms/tok
+  N=2048  decode=205777.2ms  total(prefill+decode)=206255.1ms  marginal=101.27 ms/tok
+
+===== medium (196.2, 206.2, 10)  L=2286 tok =====
+  N=   1  decode=     0.1ms  total(prefill+decode)=   908.0ms  marginal=  0.10 ms/tok
+  N=  32  decode=  3152.4ms  total(prefill+decode)=  4060.3ms  marginal=101.69 ms/tok
+  N=  96  decode=  9583.3ms  total(prefill+decode)= 10491.2ms  marginal=100.48 ms/tok
+  N= 256  decode= 25774.6ms  total(prefill+decode)= 26682.5ms  marginal=101.20 ms/tok
+  N= 512  decode= 51491.3ms  total(prefill+decode)= 52399.2ms  marginal=100.46 ms/tok
+  N= 768  decode= 77278.5ms  total(prefill+decode)= 78186.4ms  marginal=100.73 ms/tok
+  N=1024  decode=103131.9ms  total(prefill+decode)=104039.8ms  marginal=100.99 ms/tok
+  N=1280  decode=128999.5ms  total(prefill+decode)=129907.4ms  marginal=101.05 ms/tok
+  N=1536  decode=154769.9ms  total(prefill+decode)=155677.9ms  marginal=100.67 ms/tok
+  N=2048  decode=206250.3ms  total(prefill+decode)=207158.3ms  marginal=100.55 ms/tok
+
+===== long (186.2, 206.2, 20)  L=4506 tok =====
+  N=   1  decode=     0.1ms  total(prefill+decode)=  1906.0ms  marginal=  0.10 ms/tok
+  N=  32  decode=  3106.8ms  total(prefill+decode)=  5012.6ms  marginal=100.22 ms/tok
+  N=  96  decode=  9474.4ms  total(prefill+decode)= 11380.3ms  marginal= 99.49 ms/tok
+  N= 256  decode= 25245.5ms  total(prefill+decode)= 27151.4ms  marginal= 98.57 ms/tok
+  N= 512  decode= 50679.6ms  total(prefill+decode)= 52585.5ms  marginal= 99.35 ms/tok
+  N= 768  decode= 75978.2ms  total(prefill+decode)= 77884.0ms  marginal= 98.82 ms/tok
+  N=1024  decode=101113.0ms  total(prefill+decode)=103018.8ms  marginal= 98.18 ms/tok
+  N=1280  decode=126279.8ms  total(prefill+decode)=128185.6ms  marginal= 98.31 ms/tok
+  N=1536  decode=151650.3ms  total(prefill+decode)=153556.1ms  marginal= 99.10 ms/tok
+  N=2048  decode=202784.5ms  total(prefill+decode)=204690.3ms  marginal= 99.87 ms/tok
+
+[done] wrote decode_length_sweep.json

@@ -1,0 +1,40 @@
+{
+ "recording": "3_18",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 0.0,
+   "end_s": 15.0
+  },
+  {
+   "stage": 28,
+   "start_s": 15.0,
+   "end_s": 954.7
+  }
+ ],
+ "events": [
+  {
+   "t": 110.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently drying your hands with a paper towel, but the instruction is to measure and add salt to the mug. You have not yet started the task of measuring the salt.",
+   "step_id": 28
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 211,
+  "frames_sent": 950,
+  "vlm_latency_total_s": 281.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 323.1
+ }
+}

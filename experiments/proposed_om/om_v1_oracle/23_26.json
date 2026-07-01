@@ -1,0 +1,148 @@
+{
+ "recording": "23_26",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 252,
+   "start_s": 0.0,
+   "end_s": 86.2
+  },
+  {
+   "stage": 254,
+   "start_s": 87.9,
+   "end_s": 130.2
+  },
+  {
+   "stage": 268,
+   "start_s": 135.3,
+   "end_s": 175.0
+  },
+  {
+   "stage": 257,
+   "start_s": 173.3,
+   "end_s": 231.0
+  },
+  {
+   "stage": 262,
+   "start_s": 237.1,
+   "end_s": 330.1
+  },
+  {
+   "stage": 250,
+   "start_s": 337.0,
+   "end_s": 409.4
+  },
+  {
+   "stage": 270,
+   "start_s": 414.6,
+   "end_s": 436.2
+  },
+  {
+   "stage": 255,
+   "start_s": 436.2,
+   "end_s": 451.7
+  },
+  {
+   "stage": 271,
+   "start_s": 459.4,
+   "end_s": 472.4
+  },
+  {
+   "stage": 269,
+   "start_s": 479.3,
+   "end_s": 493.0
+  },
+  {
+   "stage": 259,
+   "start_s": 502.5,
+   "end_s": 539.6
+  },
+  {
+   "stage": 263,
+   "start_s": 543.0,
+   "end_s": 587.9
+  },
+  {
+   "stage": 260,
+   "start_s": 593.9,
+   "end_s": 614.6
+  },
+  {
+   "stage": 273,
+   "start_s": 617.2,
+   "end_s": 663.7
+  },
+  {
+   "stage": 251,
+   "start_s": 668.0,
+   "end_s": 674.9
+  },
+  {
+   "stage": 266,
+   "start_s": 703.4,
+   "end_s": 834.4
+  },
+  {
+   "stage": 258,
+   "start_s": 849.9,
+   "end_s": 866.3
+  },
+  {
+   "stage": 253,
+   "start_s": 871.4,
+   "end_s": 1123.1
+  },
+  {
+   "stage": 261,
+   "start_s": 1124.9,
+   "end_s": 1139.5
+  },
+  {
+   "stage": 274,
+   "start_s": 1140.4,
+   "end_s": 1269.7
+  },
+  {
+   "stage": 272,
+   "start_s": 1269.7,
+   "end_s": 1274.9
+  },
+  {
+   "stage": 256,
+   "start_s": 1275.1,
+   "end_s": 1280.1
+  },
+  {
+   "stage": 264,
+   "start_s": 1282.0,
+   "end_s": 1359.5
+  }
+ ],
+ "events": [
+  {
+   "t": 593.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 260,
+   "message": "You skipped Add 1/2 tablespoon minced ginger to the bowl; it is needed before Whisk the contents of bowl."
+  },
+  {
+   "t": 871.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 253,
+   "message": "You skipped Add broccoli to the skillet; it is needed before cook-cook, stirring often, for 4 minutes. If the pan gets too hot on medium-high, turn the heat down to medium."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

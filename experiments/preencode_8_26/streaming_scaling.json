@@ -1,0 +1,158 @@
+{
+  "recording": "8_26",
+  "model": "Qwen3.5-27B-FP8",
+  "full_attn_layers": [
+    3,
+    7,
+    11,
+    15,
+    19,
+    23,
+    27,
+    31,
+    35,
+    39,
+    43,
+    47,
+    51,
+    55,
+    59,
+    63
+  ],
+  "n_full": 16,
+  "n_linear": 48,
+  "checkpoints": [
+    {
+      "frames": 10,
+      "ctx_tokens": 2249,
+      "full_kv_MB": 147.39,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 132.4,
+      "trigger_ms_p90": 132.7,
+      "per_frame_prefill_ms": 143.7,
+      "answer": "yes",
+      "free_token": "The"
+    },
+    {
+      "frames": 25,
+      "ctx_tokens": 5579,
+      "full_kv_MB": 365.63,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 132.0,
+      "trigger_ms_p90": 132.3,
+      "per_frame_prefill_ms": 153.5,
+      "answer": "yes",
+      "free_token": "The"
+    },
+    {
+      "frames": 50,
+      "ctx_tokens": 11129,
+      "full_kv_MB": 729.35,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 132.9,
+      "trigger_ms_p90": 133.2,
+      "per_frame_prefill_ms": 167.6,
+      "answer": "no",
+      "free_token": "The"
+    },
+    {
+      "frames": 75,
+      "ctx_tokens": 16679,
+      "full_kv_MB": 1093.07,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 133.3,
+      "trigger_ms_p90": 134.0,
+      "per_frame_prefill_ms": 181.9,
+      "answer": "no",
+      "free_token": "The"
+    },
+    {
+      "frames": 100,
+      "ctx_tokens": 22229,
+      "full_kv_MB": 1456.8,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 133.8,
+      "trigger_ms_p90": 142.2,
+      "per_frame_prefill_ms": 198.6,
+      "answer": "yes",
+      "free_token": "The"
+    },
+    {
+      "frames": 150,
+      "ctx_tokens": 33329,
+      "full_kv_MB": 2184.25,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 134.8,
+      "trigger_ms_p90": 135.2,
+      "per_frame_prefill_ms": 226.0,
+      "answer": "yes",
+      "free_token": "The"
+    },
+    {
+      "frames": 200,
+      "ctx_tokens": 44429,
+      "full_kv_MB": 2911.7,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 136.4,
+      "trigger_ms_p90": 147.8,
+      "per_frame_prefill_ms": 255.1,
+      "answer": "no",
+      "free_token": "The"
+    },
+    {
+      "frames": 250,
+      "ctx_tokens": 55529,
+      "full_kv_MB": 3639.15,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 150.9,
+      "trigger_ms_p90": 153.5,
+      "per_frame_prefill_ms": 287.7,
+      "answer": "yes",
+      "free_token": "The"
+    },
+    {
+      "frames": 300,
+      "ctx_tokens": 66629,
+      "full_kv_MB": 4366.6,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 178.5,
+      "trigger_ms_p90": 179.1,
+      "per_frame_prefill_ms": 324.8,
+      "answer": "no",
+      "free_token": "The"
+    },
+    {
+      "frames": 350,
+      "ctx_tokens": 77729,
+      "full_kv_MB": 5094.05,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 208.5,
+      "trigger_ms_p90": 209.2,
+      "per_frame_prefill_ms": 366.8,
+      "answer": "no",
+      "free_token": "The"
+    },
+    {
+      "frames": 400,
+      "ctx_tokens": 88829,
+      "full_kv_MB": 5821.5,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 234.9,
+      "trigger_ms_p90": 235.5,
+      "per_frame_prefill_ms": 400.6,
+      "answer": "no",
+      "free_token": "The"
+    },
+    {
+      "frames": 440,
+      "ctx_tokens": 97709,
+      "full_kv_MB": 6403.46,
+      "lin_state_MB": 79.43,
+      "trigger_ms_median": 254.9,
+      "trigger_ms_p90": 255.5,
+      "per_frame_prefill_ms": 429.1,
+      "answer": "no",
+      "free_token": "The"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+ "recording": "4_35",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 47,
+   "start_s": 18.7,
+   "end_s": 70.2
+  },
+  {
+   "stage": 14,
+   "start_s": 84.2,
+   "end_s": 94.9
+  },
+  {
+   "stage": 46,
+   "start_s": 134.4,
+   "end_s": 170.1
+  },
+  {
+   "stage": 51,
+   "start_s": 177.8,
+   "end_s": 190.2
+  },
+  {
+   "stage": 44,
+   "start_s": 208.6,
+   "end_s": 220.3
+  },
+  {
+   "stage": 54,
+   "start_s": 247.0,
+   "end_s": 264.0
+  },
+  {
+   "stage": 52,
+   "start_s": 268.1,
+   "end_s": 273.1
+  },
+  {
+   "stage": 55,
+   "start_s": 276.8,
+   "end_s": 284.1
+  },
+  {
+   "stage": 45,
+   "start_s": 296.1,
+   "end_s": 373.7
+  },
+  {
+   "stage": 48,
+   "start_s": 375.7,
+   "end_s": 495.0
+  },
+  {
+   "stage": 53,
+   "start_s": 420.5,
+   "end_s": 426.5
+  },
+  {
+   "stage": 42,
+   "start_s": 501.4,
+   "end_s": 509.4
+  },
+  {
+   "stage": 43,
+   "start_s": 517.4,
+   "end_s": 546.8
+  }
+ ],
+ "events": [
+  {
+   "t": 296.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 45,
+   "message": "You skipped Cover with a lid (or paper towel) to prevent splattering; it is needed before Microwave the ramen for 4 minutes."
+  },
+  {
+   "t": 501.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 42,
+   "message": "You skipped Add basil to the bowl; it is needed before Mix in the flavour packet to the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

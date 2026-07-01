@@ -1,0 +1,35 @@
+{
+ "recording": "21_47",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 221,
+   "start_s": 0.0,
+   "end_s": 751.2
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently peeling a banana, but the instruction is to add 1/2 tsp of baking powder to the blender. Please set the banana aside and measure the baking powder.",
+   "step_id": 221
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 162,
+  "frames_sent": 750,
+  "vlm_latency_total_s": 216.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 245.9
+ }
+}

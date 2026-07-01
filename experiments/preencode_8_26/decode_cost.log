@@ -1,0 +1,84 @@
+Loading weights:   0%|          | 0/1584 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1584 [00:00<07:13,  3.65it/s]Loading weights:   0%|          | 2/1584 [00:00<09:07,  2.89it/s]Loading weights:   2%|▏         | 35/1584 [00:00<00:23, 65.53it/s]Loading weights:   4%|▍         | 60/1584 [00:00<00:14, 101.89it/s]Loading weights:   6%|▌         | 89/1584 [00:00<00:10, 144.48it/s]Loading weights:   7%|▋         | 114/1584 [00:01<00:08, 169.36it/s]Loading weights:   9%|▊         | 138/1584 [00:01<00:08, 180.28it/s]Loading weights:  11%|█         | 172/1584 [00:01<00:06, 214.10it/s]Loading weights:  12%|█▏        | 197/1584 [00:01<00:06, 204.94it/s]Loading weights:  14%|█▍        | 220/1584 [00:01<00:06, 210.08it/s]Loading weights:  16%|█▌        | 249/1584 [00:01<00:05, 227.18it/s]Loading weights:  17%|█▋        | 273/1584 [00:01<00:05, 222.78it/s]Loading weights:  19%|█▉        | 297/1584 [00:01<00:05, 217.66it/s]Loading weights:  20%|██        | 322/1584 [00:02<00:05, 226.19it/s]Loading weights:  22%|██▏       | 348/1584 [00:02<00:05, 223.89it/s]Loading weights:  23%|██▎       | 371/1584 [00:02<00:05, 218.08it/s]Loading weights:  25%|██▍       | 394/1584 [00:02<00:05, 216.57it/s]Loading weights:  26%|██▋       | 417/1584 [00:02<00:05, 212.54it/s]Loading weights:  28%|██▊       | 444/1584 [00:02<00:05, 227.52it/s]Loading weights:  29%|██▉       | 467/1584 [00:02<00:05, 198.10it/s]Loading weights:  31%|███▏      | 497/1584 [00:02<00:04, 221.47it/s]Loading weights:  33%|███▎      | 521/1584 [00:02<00:04, 223.44it/s]Loading weights:  34%|███▍      | 544/1584 [00:03<00:05, 203.65it/s]Loading weights:  36%|███▌      | 566/1584 [00:03<00:04, 203.93it/s]Loading weights:  38%|███▊      | 595/1584 [00:03<00:04, 218.32it/s]Loading weights:  39%|███▉      | 618/1584 [00:03<00:04, 201.92it/s]Loading weights:  41%|████      | 644/1584 [00:03<00:04, 208.63it/s]Loading weights:  42%|████▏     | 673/1584 [00:03<00:04, 224.99it/s]Loading weights:  44%|████▍     | 696/1584 [00:03<00:04, 201.56it/s]Loading weights:  46%|████▌     | 722/1584 [00:03<00:04, 211.96it/s]Loading weights:  48%|████▊     | 758/1584 [00:04<00:03, 240.75it/s]Loading weights:  49%|████▉     | 783/1584 [00:04<00:03, 242.39it/s]Loading weights:  52%|█████▏    | 816/1584 [00:04<00:02, 260.25it/s]Loading weights:  53%|█████▎    | 843/1584 [00:04<00:02, 256.40it/s]Loading weights:  55%|█████▌    | 874/1584 [00:04<00:02, 265.68it/s]Loading weights:  57%|█████▋    | 901/1584 [00:04<00:02, 259.97it/s]Loading weights:  59%|█████▊    | 928/1584 [00:04<00:02, 249.18it/s]Loading weights:  61%|██████    | 962/1584 [00:04<00:02, 274.08it/s]Loading weights:  62%|██████▎   | 990/1584 [00:04<00:02, 268.37it/s]Loading weights:  64%|██████▍   | 1018/1584 [00:05<00:02, 250.02it/s]Loading weights:  66%|██████▌   | 1045/1584 [00:05<00:02, 251.23it/s]Loading weights:  68%|██████▊   | 1071/1584 [00:05<00:02, 242.08it/s]Loading weights:  69%|██████▉   | 1096/1584 [00:05<00:02, 232.27it/s]Loading weights:  71%|███████   | 1121/1584 [00:05<00:01, 233.21it/s]Loading weights:  72%|███████▏  | 1148/1584 [00:05<00:01, 234.73it/s]Loading weights:  74%|███████▍  | 1172/1584 [00:05<00:01, 223.39it/s]Loading weights:  76%|███████▌  | 1199/1584 [00:05<00:01, 235.93it/s]Loading weights:  77%|███████▋  | 1224/1584 [00:05<00:01, 236.59it/s]Loading weights:  79%|███████▉  | 1248/1584 [00:06<00:01, 208.09it/s]Loading weights:  88%|████████▊ | 1387/1584 [00:06<00:00, 515.69it/s]Loading weights:  97%|█████████▋| 1531/1584 [00:06<00:00, 763.19it/s]Loading weights: 100%|██████████| 1584/1584 [00:06<00:00, 251.26it/s]
+[resolve] visual: Qwen3_5VisionModel | lm: Qwen3_5TextModel | get_rope: yes
+Fetching ... files: 0it [00:00, ?it/s]Fetching ... files: 9it [00:00, 11442.48it/s]
+[warmup] done
+[8_26 s88] open=96tok/9947ms  bounded=3tok/296ms  (evprefill=5171ms)  open='The user wants me to monitor a cooking step: "Fill'
+[8_26 s89] open=96tok/9482ms  bounded=2tok/202ms  (evprefill=1520ms)  open='The user wants me to monitor a cooking step: "Micr'
+[8_26 s84] open=96tok/9602ms  bounded=3tok/299ms  (evprefill=225ms)  open='The user is following a recipe on a tablet. The cu'
+[8_26 s87] open=96tok/9771ms  bounded=2tok/222ms  (evprefill=1527ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_26 s90] open=96tok/9736ms  bounded=2tok/214ms  (evprefill=1525ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_26 s85] open=96tok/9984ms  bounded=1tok/100ms  (evprefill=1529ms)  open='The user wants me to monitor a cooking step: "Mix '
+[8_26 s83] open=96tok/9939ms  bounded=3tok/313ms  (evprefill=1524ms)  open='The user wants me to monitor a cooking step: "Heat'
+[8_3 s88] open=96tok/9951ms  bounded=3tok/298ms  (evprefill=1529ms)  open='The user wants me to monitor a cooking step: "Fill'
+[8_3 s89] open=96tok/10008ms  bounded=2tok/198ms  (evprefill=1526ms)  open='The user wants me to monitor a cooking step: "Micr'
+[8_3 s84] open=96tok/9621ms  bounded=3tok/298ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_3 s87] open=96tok/9582ms  bounded=2tok/200ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_3 s90] open=96tok/9554ms  bounded=2tok/199ms  (evprefill=1530ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_3 s85] open=96tok/9559ms  bounded=1tok/100ms  (evprefill=1525ms)  open='The user wants me to monitor a cooking step: "Mix '
+[8_3 s83] open=96tok/9619ms  bounded=3tok/300ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Heat'
+[8_11 s88] open=96tok/9577ms  bounded=3tok/301ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Fill'
+[8_11 s89] open=96tok/9564ms  bounded=2tok/200ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Micr'
+[8_11 s84] open=96tok/9587ms  bounded=3tok/300ms  (evprefill=1531ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_11 s87] open=96tok/9643ms  bounded=2tok/200ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_11 s90] open=96tok/9981ms  bounded=2tok/242ms  (evprefill=1529ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_11 s85] open=96tok/10195ms  bounded=1tok/106ms  (evprefill=1527ms)  open='The user wants me to monitor a cooking step: "Mix '
+[8_11 s83] open=96tok/9672ms  bounded=3tok/306ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Heat'
+[8_15 s88] open=96tok/9832ms  bounded=3tok/308ms  (evprefill=1530ms)  open='The user wants me to monitor a cooking step: "Fill'
+[8_15 s89] open=96tok/9860ms  bounded=2tok/211ms  (evprefill=1530ms)  open='The user wants me to monitor a cooking step: "Micr'
+[8_15 s84] open=96tok/9687ms  bounded=3tok/300ms  (evprefill=1531ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_15 s87] open=96tok/9574ms  bounded=2tok/200ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_15 s90] open=96tok/9560ms  bounded=2tok/203ms  (evprefill=1534ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_15 s85] open=96tok/9498ms  bounded=1tok/100ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Mix '
+[8_15 s83] open=96tok/9538ms  bounded=3tok/300ms  (evprefill=1533ms)  open='The user wants me to monitor a cooking step: "Heat'
+[8_19 s88] open=96tok/9538ms  bounded=3tok/299ms  (evprefill=1530ms)  open='The user wants me to monitor a cooking step: "Fill'
+[8_19 s89] open=96tok/9540ms  bounded=2tok/200ms  (evprefill=1533ms)  open='The user wants me to monitor a cooking step: "Micr'
+[8_19 s84] open=96tok/9560ms  bounded=3tok/299ms  (evprefill=1533ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_19 s87] open=96tok/9567ms  bounded=2tok/199ms  (evprefill=1531ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_19 s90] open=96tok/9544ms  bounded=2tok/200ms  (evprefill=1529ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_19 s85] open=96tok/9538ms  bounded=1tok/103ms  (evprefill=1529ms)  open='The user wants me to monitor a cooking step: "Mix '
+[8_19 s83] open=96tok/9559ms  bounded=3tok/300ms  (evprefill=1529ms)  open='The user wants me to monitor a cooking step: "Heat'
+[8_30 s88] open=96tok/9559ms  bounded=3tok/306ms  (evprefill=1533ms)  open='The user wants me to monitor a cooking step: "Fill'
+[8_30 s89] open=96tok/9618ms  bounded=2tok/200ms  (evprefill=225ms)  open='The user is following a recipe step that says "Mic'
+[8_30 s84] open=96tok/9571ms  bounded=3tok/300ms  (evprefill=1528ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_30 s87] open=96tok/9547ms  bounded=2tok/199ms  (evprefill=1534ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_30 s90] open=96tok/9559ms  bounded=2tok/200ms  (evprefill=1530ms)  open='The user wants me to monitor a cooking step: "Add '
+[8_30 s85] open=96tok/9587ms  bounded=1tok/103ms  (evprefill=1534ms)  open='The user wants me to monitor a cooking step: "Mix '
+[8_30 s83] open=96tok/9706ms  bounded=3tok/299ms  (evprefill=1531ms)  open='The user wants me to monitor a cooking step: "Heat'
+
+==== AGGREGATE ====
+{
+  "n_steps": 42,
+  "recordings": [
+    "8_26",
+    "8_3",
+    "8_11",
+    "8_15",
+    "8_19",
+    "8_30"
+  ],
+  "open_decode_tokens": {
+    "median": 96.0,
+    "mean": 96,
+    "min": 96,
+    "max": 96,
+    "total": 4032
+  },
+  "bounded_decode_tokens": {
+    "median": 2.0,
+    "mean": 2.29,
+    "total": 96
+  },
+  "decode_ms": {
+    "open_median": 9584.5,
+    "bounded_median": 212.2,
+    "open_total": 406117.0,
+    "bounded_total": 9721.0
+  },
+  "open_hit_cap_count": 42,
+  "max_new_cap": 96,
+  "per_decoded_token_ms": 100.7,
+  "decode_token_reduction_x": 42.0,
+  "decode_time_reduction_x": 41.8
+}
+
+[done] wrote decode_cost_planned_claims.json

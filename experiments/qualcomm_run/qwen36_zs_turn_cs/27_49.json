@@ -1,0 +1,423 @@
+{
+ "recording": "27_49",
+ "arm": "qwen36_zs_turn_cs",
+ "stage_intervals": [
+  {
+   "stage": 320,
+   "start_s": 0.0,
+   "end_s": 45.0
+  },
+  {
+   "stage": 316,
+   "start_s": 45.0,
+   "end_s": 70.0
+  },
+  {
+   "stage": 323,
+   "start_s": 70.0,
+   "end_s": 125.0
+  },
+  {
+   "stage": 321,
+   "start_s": 125.0,
+   "end_s": 185.0
+  },
+  {
+   "stage": 322,
+   "start_s": 185.0,
+   "end_s": 200.0
+  },
+  {
+   "stage": 317,
+   "start_s": 200.0,
+   "end_s": 230.0
+  },
+  {
+   "stage": 318,
+   "start_s": 230.0,
+   "end_s": 410.0
+  },
+  {
+   "stage": 319,
+   "start_s": 410.0,
+   "end_s": 430.0
+  },
+  {
+   "stage": 315,
+   "start_s": 430.0,
+   "end_s": 450.0
+  },
+  {
+   "stage": 314,
+   "start_s": 450.0,
+   "end_s": 460.0
+  },
+  {
+   "stage": 324,
+   "start_s": 460.0,
+   "end_s": 532.8
+  }
+ ],
+ "events": [
+  {
+   "t": 45.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires adding cheddar cheese to a microwave-safe cup; flag if the cheese is placed into a bowl instead of a cup, or if a wrong cheese variety (e.g. mozzarella) is used.",
+   "step_id": 316,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 75.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for microwaving the cup for 30 seconds as the initial melt cycle; flag if a noticeably different duration is used (e.g. 10 seconds, which is too short to melt, or 60 seconds, which is too long).",
+   "step_id": 323,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 135.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires chopping the bell pepper into tiny bits; flag if the pepper is sliced rather than chopped, chopped into large pieces instead of tiny bits, or chopped without first removing the seeds.",
+   "step_id": 321,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 190.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects a clean transfer of chopped pepper into the bowl; flag if pepper is spilled during placement, or placed unevenly (e.g. piled to one side rather than covering the base of the bowl).",
+   "step_id": 322,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 200.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires mixing the cheese and pepper in the bowl using an appropriate utensil; flag if the user mixes with bare hands, or if mixing is done in an incorrect vessel (e.g. a plate).",
+   "step_id": 317,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 230.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires the bowl to be covered before microwaving; flag if the bowl is placed in the microwave without a cover.",
+   "step_id": 318,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 450.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects butter to be added to the bowl using a utensil; flag if the user adds softened butter directly with bare hands.",
+   "step_id": 314,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 460.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires mixing all ingredients together in the bowl using an appropriate utensil; flag if the user mixes with bare hands, or if ingredients are transferred to and mixed in a plate instead of the bowl.",
+   "step_id": 324,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 23,
+  "frames_sent": 425,
+  "vlm_latency_total_s": 223.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 251.7,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 10.0,
+   "kind": "mistake",
+   "step_id": 320,
+   "win_start": 5.0,
+   "win_end": 10.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 15.0,
+   "kind": "mistake",
+   "step_id": 320,
+   "win_start": 10.0,
+   "win_end": 15.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 20.0,
+   "kind": "mistake",
+   "step_id": 320,
+   "win_start": 15.0,
+   "win_end": 20.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 25.0,
+   "kind": "mistake",
+   "step_id": 320,
+   "win_start": 20.0,
+   "win_end": 25.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 45.0,
+   "kind": "mistake",
+   "step_id": 316,
+   "win_start": 40.0,
+   "win_end": 45.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 70.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 65.0,
+   "win_end": 70.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 75.0,
+   "kind": "mistake",
+   "step_id": 323,
+   "win_start": 70.0,
+   "win_end": 75.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 125.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 120.0,
+   "win_end": 125.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 130.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 125.0,
+   "win_end": 130.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 135.0,
+   "kind": "mistake",
+   "step_id": 321,
+   "win_start": 130.0,
+   "win_end": 135.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 185.0,
+   "kind": "mistake",
+   "step_id": 322,
+   "win_start": 180.0,
+   "win_end": 185.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 190.0,
+   "kind": "mistake",
+   "step_id": 322,
+   "win_start": 185.0,
+   "win_end": 190.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 200.0,
+   "kind": "mistake",
+   "step_id": 317,
+   "win_start": 195.0,
+   "win_end": 200.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 230.0,
+   "kind": "mistake",
+   "step_id": 318,
+   "win_start": 225.0,
+   "win_end": 230.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 410.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 405.0,
+   "win_end": 410.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 415.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 410.0,
+   "win_end": 415.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 420.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 415.0,
+   "win_end": 420.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 425.0,
+   "kind": "mistake",
+   "step_id": 319,
+   "win_start": 420.0,
+   "win_end": 425.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 430.0,
+   "kind": "mistake",
+   "step_id": 315,
+   "win_start": 425.0,
+   "win_end": 430.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 435.0,
+   "kind": "mistake",
+   "step_id": 315,
+   "win_start": 430.0,
+   "win_end": 435.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 440.0,
+   "kind": "mistake",
+   "step_id": 315,
+   "win_start": 435.0,
+   "win_end": 440.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 450.0,
+   "kind": "mistake",
+   "step_id": 314,
+   "win_start": 445.0,
+   "win_end": 450.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 460.0,
+   "kind": "mistake",
+   "step_id": 324,
+   "win_start": 455.0,
+   "win_end": 460.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  }
+ ]
+}

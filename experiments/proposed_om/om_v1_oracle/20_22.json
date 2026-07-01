@@ -1,0 +1,123 @@
+{
+ "recording": "20_22",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 215,
+   "start_s": 20.3,
+   "end_s": 330.6
+  },
+  {
+   "stage": 176,
+   "start_s": 33.9,
+   "end_s": 107.3
+  },
+  {
+   "stage": 206,
+   "start_s": 109.3,
+   "end_s": 152.2
+  },
+  {
+   "stage": 205,
+   "start_s": 153.9,
+   "end_s": 176.8
+  },
+  {
+   "stage": 214,
+   "start_s": 182.6,
+   "end_s": 221.7
+  },
+  {
+   "stage": 210,
+   "start_s": 223.2,
+   "end_s": 325.9
+  },
+  {
+   "stage": 208,
+   "start_s": 331.3,
+   "end_s": 336.7
+  },
+  {
+   "stage": 213,
+   "start_s": 337.7,
+   "end_s": 523.7
+  },
+  {
+   "stage": 211,
+   "start_s": 356.2,
+   "end_s": 397.4
+  },
+  {
+   "stage": 212,
+   "start_s": 405.3,
+   "end_s": 502.2
+  },
+  {
+   "stage": 209,
+   "start_s": 524.4,
+   "end_s": 532.2
+  },
+  {
+   "stage": 207,
+   "start_s": 534.0,
+   "end_s": 571.0
+  },
+  {
+   "stage": 218,
+   "start_s": 572.0,
+   "end_s": 576.6
+  },
+  {
+   "stage": 217,
+   "start_s": 590.6,
+   "end_s": 646.4
+  },
+  {
+   "stage": 207,
+   "start_s": 648.6,
+   "end_s": 698.6
+  },
+  {
+   "stage": 219,
+   "start_s": 699.4,
+   "end_s": 730.1
+  },
+  {
+   "stage": 220,
+   "start_s": 731.6,
+   "end_s": 741.9
+  },
+  {
+   "stage": 216,
+   "start_s": 745.3,
+   "end_s": 772.3
+  }
+ ],
+ "events": [
+  {
+   "t": 20.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 215,
+   "message": "Heat 1 tbsp olive oil in a large skillet over medium-high heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 534.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 207,
+   "message": "cook the pan, often stirring, for 1 minute was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

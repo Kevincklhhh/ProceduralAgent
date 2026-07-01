@@ -1,0 +1,369 @@
+{
+ "recording": "5_44",
+ "arm": "cs_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 65,
+   "start_s": 5.2,
+   "end_s": 105.6
+  },
+  {
+   "stage": 60,
+   "start_s": 110.5,
+   "end_s": 154.6
+  },
+  {
+   "stage": 69,
+   "start_s": 192.4,
+   "end_s": 207.9
+  },
+  {
+   "stage": 59,
+   "start_s": 216.2,
+   "end_s": 326.5
+  },
+  {
+   "stage": 67,
+   "start_s": 330.2,
+   "end_s": 371.3
+  },
+  {
+   "stage": 58,
+   "start_s": 388.1,
+   "end_s": 441.6
+  },
+  {
+   "stage": 68,
+   "start_s": 464.7,
+   "end_s": 576.3
+  },
+  {
+   "stage": 70,
+   "start_s": 584.6,
+   "end_s": 661.4
+  },
+  {
+   "stage": 57,
+   "start_s": 714.0,
+   "end_s": 728.3
+  },
+  {
+   "stage": 56,
+   "start_s": 730.5,
+   "end_s": 760.1
+  },
+  {
+   "stage": 61,
+   "start_s": 761.8,
+   "end_s": 780.8
+  },
+  {
+   "stage": 66,
+   "start_s": 781.0,
+   "end_s": 856.8
+  },
+  {
+   "stage": 64,
+   "start_s": 813.3,
+   "end_s": 936.8
+  },
+  {
+   "stage": 71,
+   "start_s": 938.8,
+   "end_s": 969.5
+  },
+  {
+   "stage": 62,
+   "start_s": 973.3,
+   "end_s": 982.5
+  },
+  {
+   "stage": 63,
+   "start_s": 989.2,
+   "end_s": 1010.6
+  }
+ ],
+ "events": [
+  {
+   "t": 56.7,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 0.8\u20131.2 oz of coffee beans; flag a measured weight outside that range (e.g. 0.4\u20130.7 oz, 1.4 oz, or 4 oz), including cases where spilling during transfer reduces the amount on the scale.",
+   "step_id": 65,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 56.7,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects beans to be transferred cleanly to the weighing scale; flag spilling while transferring beans from the packet to the scale.",
+   "step_id": 65,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 333.7,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires the filter to be spread into a proper open cone; flag failing to form the cone shape correctly (e.g. the filter remains folded, or multiple compressed filters cannot be properly spread).",
+   "step_id": 59,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 368.2,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects clean transfer of beans into the grinder; flag spilling while moving beans from the weighing scale to the coffee grinder.",
+   "step_id": 67,
+   "choice": 3,
+   "raw": "3"
+  },
+  {
+   "t": 476.2,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires measuring cold water with a measuring jug; flag using a different liquid (e.g. milk instead of water) or a different vessel (e.g. a weighing scale instead of a measuring jug).",
+   "step_id": 68,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 728.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires pouring hot water from the kettle onto the grounds in the filter; flag using a different liquid (e.g. milk), pouring from a non-kettle source (e.g. tap water via measuring cup), or not pouring water from the kettle onto the grounds at all.",
+   "step_id": 57,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 775.3,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for a slow circular-motion pour without overfilling beyond the top of the paper filter; flag pouring all water in a single fast shot, omitting the circular motion, spilling, or overfilling beyond the filter top.",
+   "step_id": 61,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 856.8,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires boiling water in the kettle; flag if the water is heated in a different vessel or by a different method (e.g. microwaved in a bowl or boiled in a pan instead of the kettle).",
+   "step_id": 64,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 950.7,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe expects the temperature to be checked on the kettle water; flag if the temperature is checked in a different vessel (e.g. a pan) rather than the kettle.",
+   "step_id": 71,
+   "choice": 2,
+   "raw": "2"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 56.7,
+   "kind": "mistake",
+   "step_id": 65,
+   "win_start": 26.7,
+   "win_end": 86.7,
+   "n_frames": 32,
+   "latency_s": 7.5,
+   "fired": [
+    "measurement",
+    "technique"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 105.2,
+   "kind": "mistake",
+   "step_id": 65,
+   "win_start": 75.2,
+   "win_end": 135.2,
+   "n_frames": 32,
+   "latency_s": 8.9,
+   "fired": [
+    "measurement",
+    "technique"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 207.3,
+   "kind": "mistake",
+   "step_id": 69,
+   "win_start": 177.3,
+   "win_end": 237.3,
+   "n_frames": 32,
+   "latency_s": 7.0,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 322.7,
+   "kind": "mistake",
+   "step_id": 59,
+   "win_start": 292.7,
+   "win_end": 352.7,
+   "n_frames": 32,
+   "latency_s": 7.0,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 333.7,
+   "kind": "mistake",
+   "step_id": 59,
+   "win_start": 303.7,
+   "win_end": 363.7,
+   "n_frames": 32,
+   "latency_s": 7.2,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 368.2,
+   "kind": "mistake",
+   "step_id": 67,
+   "win_start": 338.2,
+   "win_end": 398.2,
+   "n_frames": 32,
+   "latency_s": 7.0,
+   "fired": [
+    "technique"
+   ],
+   "answer": "3"
+  },
+  {
+   "t": 476.2,
+   "kind": "mistake",
+   "step_id": 68,
+   "win_start": 446.2,
+   "win_end": 506.2,
+   "n_frames": 32,
+   "latency_s": 7.2,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 634.6,
+   "kind": "mistake",
+   "step_id": 70,
+   "win_start": 604.6,
+   "win_end": 664.6,
+   "n_frames": 32,
+   "latency_s": 7.0,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 728.0,
+   "kind": "mistake",
+   "step_id": 57,
+   "win_start": 698.0,
+   "win_end": 758.0,
+   "n_frames": 32,
+   "latency_s": 7.2,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 728.0,
+   "kind": "mistake",
+   "step_id": 57,
+   "win_start": 698.0,
+   "win_end": 758.0,
+   "n_frames": 32,
+   "latency_s": 6.1,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 775.3,
+   "kind": "mistake",
+   "step_id": 61,
+   "win_start": 745.3,
+   "win_end": 805.3,
+   "n_frames": 32,
+   "latency_s": 7.1,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 856.8,
+   "kind": "mistake",
+   "step_id": 64,
+   "win_start": 826.8,
+   "win_end": 886.8,
+   "n_frames": 32,
+   "latency_s": 7.0,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 950.7,
+   "kind": "mistake",
+   "step_id": 71,
+   "win_start": 920.7,
+   "win_end": 980.7,
+   "n_frames": 32,
+   "latency_s": 7.2,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 961.7,
+   "kind": "mistake",
+   "step_id": 71,
+   "win_start": 931.7,
+   "win_end": 991.7,
+   "n_frames": 32,
+   "latency_s": 7.1,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 14,
+  "frames_sent": 448,
+  "vlm_latency_total_s": 100.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 133.0
+ }
+}

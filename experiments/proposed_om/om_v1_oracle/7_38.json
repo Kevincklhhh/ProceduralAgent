@@ -1,0 +1,88 @@
+{
+ "recording": "7_38",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 4.1,
+   "end_s": 64.0
+  },
+  {
+   "stage": 81,
+   "start_s": 66.3,
+   "end_s": 101.3
+  },
+  {
+   "stage": 73,
+   "start_s": 110.6,
+   "end_s": 270.0
+  },
+  {
+   "stage": 74,
+   "start_s": 271.0,
+   "end_s": 320.4
+  },
+  {
+   "stage": 82,
+   "start_s": 321.3,
+   "end_s": 344.2
+  },
+  {
+   "stage": 72,
+   "start_s": 344.4,
+   "end_s": 355.4
+  },
+  {
+   "stage": 80,
+   "start_s": 355.7,
+   "end_s": 387.6
+  },
+  {
+   "stage": 79,
+   "start_s": 387.6,
+   "end_s": 396.8
+  },
+  {
+   "stage": 75,
+   "start_s": 405.2,
+   "end_s": 424.6
+  },
+  {
+   "stage": 76,
+   "start_s": 426.9,
+   "end_s": 443.4
+  },
+  {
+   "stage": 78,
+   "start_s": 444.3,
+   "end_s": 459.4
+  }
+ ],
+ "events": [
+  {
+   "t": 110.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 73,
+   "message": "Microwave for 3 minutes, stirring in between was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 387.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 79,
+   "message": "Pour egg mixture on top of the tortilla was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

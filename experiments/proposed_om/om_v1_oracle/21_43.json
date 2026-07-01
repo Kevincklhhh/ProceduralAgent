@@ -1,0 +1,86 @@
+{
+ "recording": "21_43",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 221,
+   "start_s": 11.0,
+   "end_s": 71.0
+  },
+  {
+   "stage": 225,
+   "start_s": 73.5,
+   "end_s": 101.6
+  },
+  {
+   "stage": 229,
+   "start_s": 118.8,
+   "end_s": 160.4
+  },
+  {
+   "stage": 232,
+   "start_s": 178.8,
+   "end_s": 197.2
+  },
+  {
+   "stage": 227,
+   "start_s": 213.1,
+   "end_s": 307.4
+  },
+  {
+   "stage": 223,
+   "start_s": 338.0,
+   "end_s": 401.7
+  },
+  {
+   "stage": 231,
+   "start_s": 422.5,
+   "end_s": 450.7
+  },
+  {
+   "stage": 226,
+   "start_s": 453.1,
+   "end_s": 595.2
+  },
+  {
+   "stage": 228,
+   "start_s": 592.7,
+   "end_s": 676.0
+  },
+  {
+   "stage": 230,
+   "start_s": 673.6,
+   "end_s": 727.5
+  },
+  {
+   "stage": 224,
+   "start_s": 709.1,
+   "end_s": 722.2
+  },
+  {
+   "stage": 234,
+   "start_s": 727.7,
+   "end_s": 748.4
+  }
+ ],
+ "events": [
+  {
+   "t": 709.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 224,
+   "message": "You skipped Chop 1 strawberry and Serve the pancakes with chopped strawberries; they are needed before splash maple syrup on plate."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

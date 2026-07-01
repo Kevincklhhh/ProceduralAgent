@@ -1,0 +1,154 @@
+{
+ "recording": "16_39",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 173,
+   "start_s": 8.2,
+   "end_s": 53.9
+  },
+  {
+   "stage": 168,
+   "start_s": 64.2,
+   "end_s": 115.9
+  },
+  {
+   "stage": 161,
+   "start_s": 120.1,
+   "end_s": 153.7
+  },
+  {
+   "stage": 177,
+   "start_s": 159.5,
+   "end_s": 227.6
+  },
+  {
+   "stage": 178,
+   "start_s": 240.8,
+   "end_s": 271.8
+  },
+  {
+   "stage": 167,
+   "start_s": 272.0,
+   "end_s": 286.0
+  },
+  {
+   "stage": 169,
+   "start_s": 296.8,
+   "end_s": 316.4
+  },
+  {
+   "stage": 176,
+   "start_s": 324.2,
+   "end_s": 407.5
+  },
+  {
+   "stage": 175,
+   "start_s": 424.3,
+   "end_s": 446.0
+  },
+  {
+   "stage": 160,
+   "start_s": 424.3,
+   "end_s": 446.0
+  },
+  {
+   "stage": 162,
+   "start_s": 424.9,
+   "end_s": 445.3
+  },
+  {
+   "stage": 165,
+   "start_s": 446.0,
+   "end_s": 506.0
+  },
+  {
+   "stage": 164,
+   "start_s": 513.8,
+   "end_s": 525.3
+  },
+  {
+   "stage": 180,
+   "start_s": 536.6,
+   "end_s": 568.5
+  },
+  {
+   "stage": 160,
+   "start_s": 575.5,
+   "end_s": 587.5
+  },
+  {
+   "stage": 158,
+   "start_s": 592.4,
+   "end_s": 621.8
+  },
+  {
+   "stage": 159,
+   "start_s": 628.0,
+   "end_s": 637.0
+  },
+  {
+   "stage": 172,
+   "start_s": 633.0,
+   "end_s": 640.2
+  },
+  {
+   "stage": 171,
+   "start_s": 650.6,
+   "end_s": 685.4
+  },
+  {
+   "stage": 174,
+   "start_s": 685.5,
+   "end_s": 692.4
+  }
+ ],
+ "events": [
+  {
+   "t": 8.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 173,
+   "message": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 8.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 173,
+   "message": "You skipped Chop 1/4 medium onion; it is needed before Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat."
+  },
+  {
+   "t": 64.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 168,
+   "message": "Add 1/8 tsp of turmeric to the pan was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 424.3,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 160,
+   "message": "You skipped Saute the onions on medium heat until they are soft and translucent and add chopped onions to the pan; they are needed before Add garlic to the pan."
+  },
+  {
+   "t": 633.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 172,
+   "message": "You skipped Cook covered for 1 minute or until the tomatoes soften; it is needed before pour-Slowly pour the whisked eggs into the pan."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

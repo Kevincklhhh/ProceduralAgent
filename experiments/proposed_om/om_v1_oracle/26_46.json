@@ -1,0 +1,125 @@
+{
+ "recording": "26_46",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 297,
+   "start_s": 0.0,
+   "end_s": 77.9
+  },
+  {
+   "stage": 299,
+   "start_s": 78.4,
+   "end_s": 103.6
+  },
+  {
+   "stage": 304,
+   "start_s": 106.7,
+   "end_s": 138.0
+  },
+  {
+   "stage": 303,
+   "start_s": 140.1,
+   "end_s": 181.0
+  },
+  {
+   "stage": 310,
+   "start_s": 183.1,
+   "end_s": 198.6
+  },
+  {
+   "stage": 308,
+   "start_s": 210.0,
+   "end_s": 244.7
+  },
+  {
+   "stage": 301,
+   "start_s": 249.4,
+   "end_s": 253.5
+  },
+  {
+   "stage": 296,
+   "start_s": 253.5,
+   "end_s": 278.3
+  },
+  {
+   "stage": 313,
+   "start_s": 280.0,
+   "end_s": 310.5
+  },
+  {
+   "stage": 294,
+   "start_s": 313.1,
+   "end_s": 347.3
+  },
+  {
+   "stage": 300,
+   "start_s": 358.7,
+   "end_s": 397.5
+  },
+  {
+   "stage": 307,
+   "start_s": 404.3,
+   "end_s": 422.8
+  },
+  {
+   "stage": 312,
+   "start_s": 423.4,
+   "end_s": 561.7
+  },
+  {
+   "stage": 309,
+   "start_s": 578.1,
+   "end_s": 597.4
+  },
+  {
+   "stage": 298,
+   "start_s": 604.2,
+   "end_s": 717.6
+  },
+  {
+   "stage": 306,
+   "start_s": 718.0,
+   "end_s": 725.1
+  },
+  {
+   "stage": 302,
+   "start_s": 731.4,
+   "end_s": 782.1
+  }
+ ],
+ "events": [
+  {
+   "t": 313.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 294,
+   "message": "Whisk batter until no lumps remain was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 604.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 298,
+   "message": "You skipped remove-then carefully remove the paper liner and Allow to cool until it is no longer hot to the touch; they are needed before Scoop-While the cake is cooling, prepare to pipe the frosting. Scoop 4 spoonfuls of chocolate frosting into a zip-top bag."
+  },
+  {
+   "t": 718.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 306,
+   "message": "You skipped seal zip top bag, removing as much air as possible; it is needed before cut-Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

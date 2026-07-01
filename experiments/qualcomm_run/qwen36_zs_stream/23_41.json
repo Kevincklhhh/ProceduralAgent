@@ -1,0 +1,59 @@
+{
+ "recording": "23_41",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 250,
+   "start_s": 0.0,
+   "end_s": 345.0
+  },
+  {
+   "stage": 252,
+   "start_s": 345.0,
+   "end_s": 625.0
+  },
+  {
+   "stage": 254,
+   "start_s": 625.0,
+   "end_s": 839.6
+  }
+ ],
+ "events": [
+  {
+   "t": 25.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are holding a bag of broccoli florets, but the instruction is to add soy sauce to the bowl. Please locate the soy sauce and a measuring cup to complete the step.",
+   "step_id": 250
+  },
+  {
+   "t": 400.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are adding sweet and sour sauce instead of honey.",
+   "step_id": 252
+  },
+  {
+   "t": 800.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are using baking powder instead of cornstarch.",
+   "step_id": 254
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 218,
+  "frames_sent": 835,
+  "vlm_latency_total_s": 311.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 346.1
+ }
+}

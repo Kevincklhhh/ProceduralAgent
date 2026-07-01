@@ -1,0 +1,47 @@
+{
+ "recording": "29_48",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 342,
+   "start_s": 0.0,
+   "end_s": 360.0
+  },
+  {
+   "stage": 343,
+   "start_s": 360.0,
+   "end_s": 579.0
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a measuring cup to handle tomatoes, but the instruction requires you to measure 1/8 cup of shredded mozzarella.",
+   "step_id": 342
+  },
+  {
+   "t": 365.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You used a wet measuring spoon to add the salt.",
+   "step_id": 343
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 128,
+  "frames_sent": 575,
+  "vlm_latency_total_s": 175.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 199.6
+ }
+}

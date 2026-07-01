@@ -52,7 +52,7 @@ TAG2REMINDER = {
 
 def load_annotations():
     """Return (error_records, activity_id -> recipe_file_stem)."""
-    from eval.gt_build_family_a import ACT2FILE
+    from eval.gt_build_proactive import ACT2FILE
     err = json.load(open(os.path.join(ANN, 'error_annotations.json')))
     ann = json.load(open(os.path.join(ANN, 'complete_step_annotations.json')))
     id2file = {}

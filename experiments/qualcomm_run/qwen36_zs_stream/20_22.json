@@ -1,0 +1,59 @@
+{
+ "recording": "20_22",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 206,
+   "start_s": 0.0,
+   "end_s": 150.0
+  },
+  {
+   "stage": 205,
+   "start_s": 150.0,
+   "end_s": 165.0
+  },
+  {
+   "stage": 212,
+   "start_s": 165.0,
+   "end_s": 1065.2
+  }
+ ],
+ "events": [
+  {
+   "t": 20.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You are currently pouring oil into a pan, but the instruction is to rinse 3 mushrooms under cold water. Please stop and proceed with rinsing the mushrooms as directed.",
+   "step_id": 206
+  },
+  {
+   "t": 155.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a cloth towel to dry the mushrooms, but the instructions specify using a paper towel.",
+   "step_id": 205
+  },
+  {
+   "t": 175.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are chopping the shallot on a paper towel inside a colander. Please use a proper cutting board for safety and hygiene.",
+   "step_id": 212
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 220,
+  "frames_sent": 1065,
+  "vlm_latency_total_s": 322.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 362.5
+ }
+}

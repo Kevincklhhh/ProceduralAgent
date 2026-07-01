@@ -1,0 +1,116 @@
+{
+ "recording": "20_17",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 206,
+   "start_s": 0.7,
+   "end_s": 75.8
+  },
+  {
+   "stage": 205,
+   "start_s": 76.9,
+   "end_s": 109.8
+  },
+  {
+   "stage": 214,
+   "start_s": 110.4,
+   "end_s": 129.8
+  },
+  {
+   "stage": 210,
+   "start_s": 135.1,
+   "end_s": 308.7
+  },
+  {
+   "stage": 176,
+   "start_s": 344.7,
+   "end_s": 545.1
+  },
+  {
+   "stage": 212,
+   "start_s": 547.2,
+   "end_s": 715.2
+  },
+  {
+   "stage": 211,
+   "start_s": 719.2,
+   "end_s": 860.4
+  },
+  {
+   "stage": 215,
+   "start_s": 870.5,
+   "end_s": 970.2
+  },
+  {
+   "stage": 208,
+   "start_s": 1000.4,
+   "end_s": 1040.0
+  },
+  {
+   "stage": 213,
+   "start_s": 1041.0,
+   "end_s": 1354.8
+  },
+  {
+   "stage": 209,
+   "start_s": 1355.6,
+   "end_s": 1379.2
+  },
+  {
+   "stage": 207,
+   "start_s": 1381.0,
+   "end_s": 1441.0
+  },
+  {
+   "stage": 217,
+   "start_s": 1496.5,
+   "end_s": 1525.0
+  },
+  {
+   "stage": 218,
+   "start_s": 1547.3,
+   "end_s": 1558.9
+  },
+  {
+   "stage": 207,
+   "start_s": 1560.3,
+   "end_s": 1636.2
+  },
+  {
+   "stage": 219,
+   "start_s": 1639.7,
+   "end_s": 1705.8
+  },
+  {
+   "stage": 220,
+   "start_s": 1732.6,
+   "end_s": 1781.7
+  },
+  {
+   "stage": 216,
+   "start_s": 1834.3,
+   "end_s": 1891.4
+  }
+ ],
+ "events": [
+  {
+   "t": 1381.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 207,
+   "message": "cook the pan, often stirring, for 1 minute was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

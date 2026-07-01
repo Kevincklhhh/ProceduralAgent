@@ -1,0 +1,209 @@
+{
+ "recording": "13_44",
+ "arm": "gpt54_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 129,
+   "start_s": 88.0,
+   "end_s": 124.5
+  },
+  {
+   "stage": 137,
+   "start_s": 126.9,
+   "end_s": 212.6
+  },
+  {
+   "stage": 132,
+   "start_s": 232.5,
+   "end_s": 245.8
+  },
+  {
+   "stage": 133,
+   "start_s": 256.6,
+   "end_s": 389.8
+  },
+  {
+   "stage": 130,
+   "start_s": 412.2,
+   "end_s": 421.2
+  },
+  {
+   "stage": 138,
+   "start_s": 478.5,
+   "end_s": 492.6
+  },
+  {
+   "stage": 135,
+   "start_s": 512.2,
+   "end_s": 533.5
+  },
+  {
+   "stage": 136,
+   "start_s": 553.9,
+   "end_s": 561.1
+  },
+  {
+   "stage": 131,
+   "start_s": 578.4,
+   "end_s": 601.6
+  },
+  {
+   "stage": 128,
+   "start_s": 578.2,
+   "end_s": 601.8
+  },
+  {
+   "stage": 134,
+   "start_s": 617.8,
+   "end_s": 746.0
+  }
+ ],
+ "events": [
+  {
+   "t": 97.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects corn to be transferred cleanly; flag if corn is spilled while measuring or while adding it to the sieve.",
+   "step_id": 129,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 139.4,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects corn to remain in the sieve during rinsing; flag if corn spills into the sink or out of the sieve while thawing or rinsing.",
+   "step_id": 137,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 517.2,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for stirring the bowl thoroughly; flag if stirring is clearly insufficient (e.g., only a few passes) or if contents spill out of the bowl during stirring.",
+   "step_id": 135,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 582.2,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe specifies extracting lime juice as a separate step before adding it to the bowl later; flag if the extraction and bowl addition are combined into a single action (e.g., juicing the lime directly into the corn bowl).",
+   "step_id": 131,
+   "choice": 2,
+   "raw": "2"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 97.0,
+   "kind": "mistake",
+   "step_id": 129,
+   "win_start": 67.0,
+   "win_end": 127.0,
+   "n_frames": 32,
+   "latency_s": 2.8,
+   "fired": [
+    "technique"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 139.4,
+   "kind": "mistake",
+   "step_id": 137,
+   "win_start": 109.4,
+   "win_end": 169.4,
+   "n_frames": 32,
+   "latency_s": 3.5,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 517.2,
+   "kind": "mistake",
+   "step_id": 135,
+   "win_start": 487.2,
+   "win_end": 547.2,
+   "n_frames": 32,
+   "latency_s": 2.5,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 556.4,
+   "kind": "mistake",
+   "step_id": 136,
+   "win_start": 526.4,
+   "win_end": 586.4,
+   "n_frames": 32,
+   "latency_s": 2.7,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 582.2,
+   "kind": "mistake",
+   "step_id": 131,
+   "win_start": 552.2,
+   "win_end": 612.2,
+   "n_frames": 32,
+   "latency_s": 2.9,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 582.3,
+   "kind": "mistake",
+   "step_id": 131,
+   "win_start": 552.3,
+   "win_end": 612.3,
+   "n_frames": 32,
+   "latency_s": 2.6,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 745.3,
+   "kind": "mistake",
+   "step_id": 134,
+   "win_start": 715.3,
+   "win_end": 766.0,
+   "n_frames": 31,
+   "latency_s": 3.1,
+   "fired": [],
+   "answer": "0"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 7,
+  "frames_sent": 223,
+  "vlm_latency_total_s": 20.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "backend": "gpt54",
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 37.3
+ }
+}

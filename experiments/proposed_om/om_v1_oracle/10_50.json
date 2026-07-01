@@ -1,0 +1,105 @@
+{
+ "recording": "10_50",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 4.1,
+   "end_s": 24.9
+  },
+  {
+   "stage": 118,
+   "start_s": 29.5,
+   "end_s": 50.4
+  },
+  {
+   "stage": 111,
+   "start_s": 51.0,
+   "end_s": 86.7
+  },
+  {
+   "stage": 107,
+   "start_s": 88.1,
+   "end_s": 106.6
+  },
+  {
+   "stage": 104,
+   "start_s": 107.3,
+   "end_s": 113.5
+  },
+  {
+   "stage": 116,
+   "start_s": 119.1,
+   "end_s": 142.7
+  },
+  {
+   "stage": 110,
+   "start_s": 144.1,
+   "end_s": 176.4
+  },
+  {
+   "stage": 106,
+   "start_s": 179.7,
+   "end_s": 199.3
+  },
+  {
+   "stage": 114,
+   "start_s": 181.9,
+   "end_s": 198.0
+  },
+  {
+   "stage": 103,
+   "start_s": 198.9,
+   "end_s": 204.5
+  },
+  {
+   "stage": 102,
+   "start_s": 214.0,
+   "end_s": 218.1
+  },
+  {
+   "stage": 102,
+   "start_s": 220.0,
+   "end_s": 223.0
+  },
+  {
+   "stage": 109,
+   "start_s": 230.0,
+   "end_s": 238.7
+  }
+ ],
+ "events": [
+  {
+   "t": 29.5,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 118,
+   "message": "You skipped Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges and scoop-Use a butter knife to scoop nut butter from the jar; they are needed before Clean the knife by wiping it with a paper towel."
+  },
+  {
+   "t": 179.7,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 106,
+   "message": "Slide floss under the tortilla, perpendicular to the length of the roll was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 214.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 102,
+   "message": "You skipped Cross the floss's two ends over the tortilla roll's top, pull the floss ends in opposite directions to slice, and Place the floss halfway between toothpicks; they are needed before slicing-Continue slicing with floss to create 1 more pinwheel."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

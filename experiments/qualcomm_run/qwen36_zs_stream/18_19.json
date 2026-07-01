@@ -1,0 +1,69 @@
+{
+ "recording": "18_19",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 200,
+   "start_s": 0.0,
+   "end_s": 235.0
+  },
+  {
+   "stage": 203,
+   "start_s": 235.0,
+   "end_s": 245.0
+  },
+  {
+   "stage": 196,
+   "start_s": 245.0,
+   "end_s": 590.0
+  },
+  {
+   "stage": 204,
+   "start_s": 590.0,
+   "end_s": 610.0
+  },
+  {
+   "stage": 199,
+   "start_s": 610.0,
+   "end_s": 883.7
+  }
+ ],
+ "events": [
+  {
+   "t": 10.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently taking a tray out of the dishwasher, which is not part of the instruction to peel garlic. Please proceed to peel 1 garlic clove.",
+   "step_id": 200
+  },
+  {
+   "t": 320.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You are currently washing a garlic clove at the sink, but the instruction is to heat a large pan on medium heat. Please move to the stove to begin heating the pan.",
+   "step_id": 196
+  },
+  {
+   "t": 650.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are adding salt to the pan instead of minced garlic.",
+   "step_id": 199
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 205,
+  "frames_sent": 880,
+  "vlm_latency_total_s": 289.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 322.7
+ }
+}

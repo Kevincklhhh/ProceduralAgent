@@ -1,0 +1,81 @@
+{
+ "recording": "29_48",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 350,
+   "start_s": 0.7,
+   "end_s": 108.5
+  },
+  {
+   "stage": 344,
+   "start_s": 110.3,
+   "end_s": 143.3
+  },
+  {
+   "stage": 347,
+   "start_s": 144.8,
+   "end_s": 190.8
+  },
+  {
+   "stage": 352,
+   "start_s": 192.6,
+   "end_s": 329.8
+  },
+  {
+   "stage": 342,
+   "start_s": 335.9,
+   "end_s": 361.3
+  },
+  {
+   "stage": 343,
+   "start_s": 374.0,
+   "end_s": 400.9
+  },
+  {
+   "stage": 351,
+   "start_s": 406.0,
+   "end_s": 424.5
+  },
+  {
+   "stage": 349,
+   "start_s": 429.2,
+   "end_s": 472.4
+  },
+  {
+   "stage": 346,
+   "start_s": 476.0,
+   "end_s": 491.9
+  },
+  {
+   "stage": 348,
+   "start_s": 495.6,
+   "end_s": 509.0
+  },
+  {
+   "stage": 345,
+   "start_s": 550.0,
+   "end_s": 575.0
+  }
+ ],
+ "events": [
+  {
+   "t": 192.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 352,
+   "message": "Toast both sides of the slices on the pan for 2 to 3 minutes until lightly charred and crispy and transfer the slices to a plate was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

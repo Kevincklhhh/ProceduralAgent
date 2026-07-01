@@ -1,0 +1,81 @@
+{
+ "recording": "7_50",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 7.3,
+   "end_s": 75.4
+  },
+  {
+   "stage": 81,
+   "start_s": 82.3,
+   "end_s": 121.1
+  },
+  {
+   "stage": 72,
+   "start_s": 125.4,
+   "end_s": 171.5
+  },
+  {
+   "stage": 73,
+   "start_s": 177.1,
+   "end_s": 346.4
+  },
+  {
+   "stage": 79,
+   "start_s": 347.2,
+   "end_s": 381.7
+  },
+  {
+   "stage": 75,
+   "start_s": 387.3,
+   "end_s": 451.9
+  },
+  {
+   "stage": 74,
+   "start_s": 467.4,
+   "end_s": 522.6
+  },
+  {
+   "stage": 78,
+   "start_s": 529.9,
+   "end_s": 554.9
+  },
+  {
+   "stage": 82,
+   "start_s": 561.8,
+   "end_s": 602.3
+  },
+  {
+   "stage": 76,
+   "start_s": 604.0,
+   "end_s": 616.9
+  },
+  {
+   "stage": 80,
+   "start_s": 626.4,
+   "end_s": 679.8
+  }
+ ],
+ "events": [
+  {
+   "t": 347.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 79,
+   "message": "Pour egg mixture on top of the tortilla was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

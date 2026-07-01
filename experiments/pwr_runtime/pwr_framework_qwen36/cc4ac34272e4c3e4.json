@@ -1,0 +1,147 @@
+{
+ "stage_intervals": [
+  {
+   "stage": 1,
+   "start_s": 0.0,
+   "end_s": 2.0
+  },
+  {
+   "stage": 2,
+   "start_s": 2.0,
+   "end_s": 4.8
+  },
+  {
+   "stage": 3,
+   "start_s": 4.8,
+   "end_s": 29.1
+  }
+ ],
+ "events": [
+  {
+   "t": 0.0,
+   "class": "none",
+   "subtype": "none",
+   "id": "none",
+   "message": "Please unlock your phone and tap the Play Store icon to begin."
+  },
+  {
+   "t": 2.0,
+   "class": "none",
+   "subtype": "none",
+   "id": "none",
+   "message": "Great, you've opened the Play Store. Now tap your profile icon in the top right corner, then select 'Manage apps & device'."
+  },
+  {
+   "t": 4.8,
+   "class": "none",
+   "subtype": "none",
+   "id": "none",
+   "message": "Perfect, you've selected 'Manage apps & device'. Now tap 'Update all' or individual update buttons to start updating your apps."
+  },
+  {
+   "t": 17.6,
+   "class": "none",
+   "subtype": "none",
+   "id": "none",
+   "message": "You're on the right track! Just tap 'Update all' or the individual update buttons to start the process."
+  },
+  {
+   "t": 21.1,
+   "class": "none",
+   "subtype": "none",
+   "id": "none",
+   "message": "You're on the right track! Just tap 'Update all' or the individual update buttons to start the process."
+  }
+ ],
+ "interventions": [
+  {
+   "t_s": 0.0,
+   "type": "reminder",
+   "step_id": 1,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Please unlock your phone and tap the Play Store icon to begin.",
+   "evidence": "The phone is on the desk but the screen is not showing the Play Store app."
+  },
+  {
+   "t_s": 2.0,
+   "type": "step_complete",
+   "step_id": 1,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Great, you've opened the Play Store. Now tap your profile icon in the top right corner, then select 'Manage apps & device'.",
+   "evidence": "The Play Store app is now open on the screen, showing the main interface."
+  },
+  {
+   "t_s": 4.8,
+   "type": "step_complete",
+   "step_id": 2,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Perfect, you've selected 'Manage apps & device'. Now tap 'Update all' or individual update buttons to start updating your apps.",
+   "evidence": "The screen shows the 'Manage apps & device' menu with the 'Updates available' tab visible."
+  },
+  {
+   "t_s": 17.6,
+   "type": "reminder",
+   "step_id": 3,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "You're on the right track! Just tap 'Update all' or the individual update buttons to start the process.",
+   "evidence": "The 'Updates available' list is visible, but no updates have been initiated yet."
+  },
+  {
+   "t_s": 21.1,
+   "type": "reminder",
+   "step_id": 3,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "You're on the right track! Just tap 'Update all' or the individual update buttons to start the process.",
+   "evidence": "The 'Updates available' list is visible, but no updates have been initiated yet."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 12,
+  "duplex_calls": 7,
+  "planner_calls": 5,
+  "frames_sent": 84,
+  "vlm_latency_total_s": 339.68,
+  "duplex_latency_s": 172.94,
+  "planner_latency_s": 166.74,
+  "compute_s": 0.0
+ },
+ "replication_manifest": {
+  "claim": "PWR framework implementation following the paper factorization; trained checkpoints are replaced by configured backends.",
+  "paper_mapping": [
+   "Duplex interaction model consumes cached plan plus plan-anchored clips at every observation.",
+   "Planner is invoked only when duplex emits interrupt; silent turns carry Pt-1 forward unchanged.",
+   "Planner consumes the duplex output and the most recent clip, not the full video history.",
+   "Plan state stores completed/current/remaining steps and current-step visual cues."
+  ],
+  "config": {
+   "tick_s": 0.5,
+   "clip_window_s": 8.0,
+   "frames_per_clip": 4,
+   "max_clips": 4
+  }
+ },
+ "_meta": {
+  "duplex_model": "Qwen/Qwen3.6-27B",
+  "planner_model": "Qwen/Qwen3.6-27B",
+  "evaluated_s": 29.1,
+  "video_duration_s": 29.1,
+  "raw_video_duration_s": 146.13,
+  "parse_failures": 0,
+  "task_id": "cc4ac34272e4c3e4",
+  "final_plan": "Task: How to update your phone apps\nProcedural plan:\n- [completed] step_id=1: Unlock your phone and tap the Play Store (or App Store) icon.\n- [completed] step_id=2: Tap your profile or menu icon, then pick “Manage apps & device” to check for updates.\n- [current] step_id=3: Tap “Update all” or individual update buttons to grab the latest app versions.\n- [remaining] step_id=4: Swipe through pending updates—tap any app (like AT&T ActiveArmor) to peek at its details if you’d like!\n- [remaining] step_id=5: Hang tight—watch those progress bars shrink as each app installs and the update count drops!\n\nCurrent-step complete cues:\n- Update all button is tapped\n- Individual update buttons are tapped\n- Progress bars appear for apps\n\nCurrent-step incomplete cues:\n- List of available updates is visible\n- Update all button is visible but not tapped\n- Individual update buttons are visible but not tapped",
+  "plan_update_times": [
+   0.0,
+   2.0,
+   4.8
+  ],
+  "trace": true
+ },
+ "recording": "cc4ac34272e4c3e4",
+ "arm": "pwr_framework_qwen36"
+}

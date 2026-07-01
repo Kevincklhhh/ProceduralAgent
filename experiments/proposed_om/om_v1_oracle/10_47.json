@@ -1,0 +1,128 @@
+{
+ "recording": "10_47",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 2.1,
+   "end_s": 20.7
+  },
+  {
+   "stage": 111,
+   "start_s": 31.6,
+   "end_s": 59.2
+  },
+  {
+   "stage": 107,
+   "start_s": 59.2,
+   "end_s": 74.0
+  },
+  {
+   "stage": 104,
+   "start_s": 74.1,
+   "end_s": 94.5
+  },
+  {
+   "stage": 113,
+   "start_s": 95.5,
+   "end_s": 115.7
+  },
+  {
+   "stage": 112,
+   "start_s": 118.4,
+   "end_s": 153.2
+  },
+  {
+   "stage": 116,
+   "start_s": 162.1,
+   "end_s": 185.0
+  },
+  {
+   "stage": 106,
+   "start_s": 212.3,
+   "end_s": 237.5
+  },
+  {
+   "stage": 117,
+   "start_s": 237.0,
+   "end_s": 238.1
+  },
+  {
+   "stage": 105,
+   "start_s": 238.2,
+   "end_s": 249.0
+  },
+  {
+   "stage": 114,
+   "start_s": 263.4,
+   "end_s": 281.0
+  },
+  {
+   "stage": 103,
+   "start_s": 296.2,
+   "end_s": 304.3
+  },
+  {
+   "stage": 110,
+   "start_s": 308.2,
+   "end_s": 347.3
+  },
+  {
+   "stage": 118,
+   "start_s": 357.3,
+   "end_s": 373.3
+  },
+  {
+   "stage": 108,
+   "start_s": 382.7,
+   "end_s": 388.3
+  },
+  {
+   "stage": 102,
+   "start_s": 389.0,
+   "end_s": 402.0
+  },
+  {
+   "stage": 102,
+   "start_s": 403.0,
+   "end_s": 415.0
+  },
+  {
+   "stage": 102,
+   "start_s": 416.0,
+   "end_s": 429.6
+  },
+  {
+   "stage": 109,
+   "start_s": 435.4,
+   "end_s": 456.9
+  }
+ ],
+ "events": [
+  {
+   "t": 31.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 111,
+   "message": "scoop-Use the knife to scoop jelly from the jar was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 212.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 106,
+   "message": "Slide floss under the tortilla, perpendicular to the length of the roll was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

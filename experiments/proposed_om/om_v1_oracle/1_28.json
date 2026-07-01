@@ -1,0 +1,81 @@
+{
+ "recording": "1_28",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 12,
+   "start_s": 4.1,
+   "end_s": 40.4
+  },
+  {
+   "stage": 3,
+   "start_s": 43.8,
+   "end_s": 72.5
+  },
+  {
+   "stage": 1,
+   "start_s": 73.2,
+   "end_s": 103.8
+  },
+  {
+   "stage": 11,
+   "start_s": 116.5,
+   "end_s": 153.2
+  },
+  {
+   "stage": 8,
+   "start_s": 155.0,
+   "end_s": 229.4
+  },
+  {
+   "stage": 6,
+   "start_s": 190.0,
+   "end_s": 260.8
+  },
+  {
+   "stage": 5,
+   "start_s": 261.4,
+   "end_s": 294.7
+  },
+  {
+   "stage": 9,
+   "start_s": 300.0,
+   "end_s": 324.5
+  },
+  {
+   "stage": 10,
+   "start_s": 330.2,
+   "end_s": 400.8
+  },
+  {
+   "stage": 2,
+   "start_s": 408.2,
+   "end_s": 438.9
+  },
+  {
+   "stage": 7,
+   "start_s": 439.7,
+   "end_s": 445.9
+  }
+ ],
+ "events": [
+  {
+   "t": 116.5,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 11,
+   "message": "You skipped Microwave the ramekin cup uncovered on high for 30 seconds; it is needed before stir the ramekin cup."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

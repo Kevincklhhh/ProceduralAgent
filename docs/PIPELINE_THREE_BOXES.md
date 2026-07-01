@@ -6,9 +6,9 @@ Older docs that bundled them (`CONVERSION_AND_EVAL_PROTOCOL.md`) are superseded 
 ```
 ┌─ BOX 1 ─ REMINDER GT GENERATION (answer key) ────────────┐
 │ in : CC4D error tags + Qualcomm timestamps + DAG          │
-│ alg: reactive (Qualcomm ts) | DAG-derived (missing step)  │
-│ out: data/cc4d_family_a/{rid}.json  {window, class, id}   │
-│ doc: FAMILY_A_CC4D_AUGMENTATION.md   code: eval/gt_build_family_a.py
+│ alg: reactive (Qualcomm ts + text); execution mistakes only│
+│ out: data/cc4d_proactive/{rid}.json  {t, content, subtype} │
+│ doc: PROACTIVE_REMINDER_GT.md   code: eval/gt_build_proactive.py
 └───────────────────────────────────────────────────────────┘
                               │ truth table
                               ▼

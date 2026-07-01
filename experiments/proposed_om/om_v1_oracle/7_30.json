@@ -1,0 +1,66 @@
+{
+ "recording": "7_30",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 2.9,
+   "end_s": 53.2
+  },
+  {
+   "stage": 72,
+   "start_s": 55.4,
+   "end_s": 76.6
+  },
+  {
+   "stage": 73,
+   "start_s": 78.1,
+   "end_s": 259.6
+  },
+  {
+   "stage": 82,
+   "start_s": 263.3,
+   "end_s": 281.1
+  },
+  {
+   "stage": 80,
+   "start_s": 282.1,
+   "end_s": 298.4
+  },
+  {
+   "stage": 74,
+   "start_s": 299.2,
+   "end_s": 327.2
+  },
+  {
+   "stage": 76,
+   "start_s": 327.2,
+   "end_s": 364.1
+  },
+  {
+   "stage": 75,
+   "start_s": 365.1,
+   "end_s": 385.6
+  }
+ ],
+ "events": [
+  {
+   "t": 365.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 75,
+   "message": "You skipped Pour egg mixture on top of the tortilla and Place 8 inch tortilla on a cutting board; they are needed before Sprinkle 1 tbsp shredded cheddar cheese on top of the egg."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

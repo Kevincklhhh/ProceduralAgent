@@ -1,0 +1,35 @@
+{
+ "recording": "26_46",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 297,
+   "start_s": 0.0,
+   "end_s": 782.1
+  }
+ ],
+ "events": [
+  {
+   "t": 15.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are adding the sugar to a mug instead of the mixing bowl.",
+   "step_id": 297
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 159,
+  "frames_sent": 780,
+  "vlm_latency_total_s": 202.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 233.8
+ }
+}

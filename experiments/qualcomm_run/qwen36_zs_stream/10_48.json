@@ -1,0 +1,35 @@
+{
+ "recording": "10_48",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 0.0,
+   "end_s": 649.7
+  }
+ ],
+ "events": [
+  {
+   "t": 30.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a plate instead of a cutting board. Please place the tortilla on the cutting board as instructed.",
+   "step_id": 115
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 135,
+  "frames_sent": 645,
+  "vlm_latency_total_s": 177.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 200.9
+ }
+}

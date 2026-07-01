@@ -1,0 +1,121 @@
+{
+ "recording": "15_8",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 145,
+   "start_s": 3.9,
+   "end_s": 249.3
+  },
+  {
+   "stage": 149,
+   "start_s": 250.7,
+   "end_s": 277.9
+  },
+  {
+   "stage": 140,
+   "start_s": 278.7,
+   "end_s": 536.3
+  },
+  {
+   "stage": 155,
+   "start_s": 537.0,
+   "end_s": 608.1
+  },
+  {
+   "stage": 150,
+   "start_s": 628.3,
+   "end_s": 838.2
+  },
+  {
+   "stage": 154,
+   "start_s": 842.0,
+   "end_s": 1017.0
+  },
+  {
+   "stage": 141,
+   "start_s": 1028.7,
+   "end_s": 1079.1
+  },
+  {
+   "stage": 139,
+   "start_s": 1087.3,
+   "end_s": 1110.4
+  },
+  {
+   "stage": 152,
+   "start_s": 1515.3,
+   "end_s": 1534.7
+  },
+  {
+   "stage": 151,
+   "start_s": 1541.4,
+   "end_s": 1544.8
+  },
+  {
+   "stage": 148,
+   "start_s": 1546.4,
+   "end_s": 1703.2
+  },
+  {
+   "stage": 147,
+   "start_s": 1664.6,
+   "end_s": 1766.5
+  },
+  {
+   "stage": 157,
+   "start_s": 1773.4,
+   "end_s": 1821.7
+  },
+  {
+   "stage": 142,
+   "start_s": 1822.8,
+   "end_s": 1837.2
+  },
+  {
+   "stage": 144,
+   "start_s": 1838.5,
+   "end_s": 1928.1
+  },
+  {
+   "stage": 146,
+   "start_s": 1869.6,
+   "end_s": 1902.0
+  },
+  {
+   "stage": 153,
+   "start_s": 1940.3,
+   "end_s": 2247.7
+  },
+  {
+   "stage": 143,
+   "start_s": 2252.3,
+   "end_s": 2257.0
+  },
+  {
+   "stage": 156,
+   "start_s": 2262.0,
+   "end_s": 2315.6
+  }
+ ],
+ "events": [
+  {
+   "t": 1838.5,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 144,
+   "message": "Mix well tomato puree with contents in the pan was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,81 @@
+{
+ "recording": "10_16",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 0.0,
+   "end_s": 50.0
+  },
+  {
+   "stage": 113,
+   "start_s": 50.0,
+   "end_s": 105.0
+  },
+  {
+   "stage": 112,
+   "start_s": 105.0,
+   "end_s": 190.0
+  },
+  {
+   "stage": 118,
+   "start_s": 190.0,
+   "end_s": 205.0
+  },
+  {
+   "stage": 111,
+   "start_s": 205.0,
+   "end_s": 250.0
+  },
+  {
+   "stage": 107,
+   "start_s": 250.0,
+   "end_s": 973.6
+  }
+ ],
+ "events": [
+  {
+   "t": 45.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using paper towels instead of a flour tortilla. Please place an 8-inch flour tortilla on the cutting board.",
+   "step_id": 115
+  },
+  {
+   "t": 65.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a kitchen knife instead of a butter knife.",
+   "step_id": 113
+  },
+  {
+   "t": 210.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a knife that is still dirty with nut butter to scoop the jelly. The instructions specify using a clean butter knife to avoid mixing the flavors.",
+   "step_id": 111
+  },
+  {
+   "t": 260.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a spoon to scoop the jelly, but the instructions specify using a butter knife to spread it.",
+   "step_id": 107
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 227,
+  "frames_sent": 970,
+  "vlm_latency_total_s": 322.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 358.7
+ }
+}

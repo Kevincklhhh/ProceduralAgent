@@ -1,0 +1,47 @@
+{
+ "recording": "25_41",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 0.0,
+   "end_s": 60.0
+  },
+  {
+   "stage": 286,
+   "start_s": 60.0,
+   "end_s": 1015.9
+  }
+ ],
+ "events": [
+  {
+   "t": 50.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are cutting the tofu into triangles instead of cubes. Please adjust your cuts to create 1-inch square cubes as instructed.",
+   "step_id": 275
+  },
+  {
+   "t": 65.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently handling paper towels and cheese on a cutting board, but the instruction is to add salt to the pan. You have not yet added the salt.",
+   "step_id": 286
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 214,
+  "frames_sent": 1015,
+  "vlm_latency_total_s": 285.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 326.7
+ }
+}

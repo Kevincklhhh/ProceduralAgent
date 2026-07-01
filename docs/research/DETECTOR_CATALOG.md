@@ -8,11 +8,10 @@
 > library; use this only for provenance.
 
 This table is the **one authoritative list** of detector primitives, their tier, validation
-status, and measured cost. It consolidates what used to be triplicated across
-`DETECTOR_FEASIBILITY.md` (probe evidence), `AUDIO_LIBRARY.md` (EPIC-SOUNDS design rationale),
-and the Box-3 predictor docs (`../../tasks/PROCEDURE_MONITOR_COMPILER.md`). **If any of those
-disagree with this table, this table wins.** Each of those docs now references this file
-and keeps only its own role (evidence / rationale / prompt).
+status, and measured cost. It absorbed the probe-evidence and EPIC-SOUNDS design-rationale
+docs (formerly `DETECTOR_FEASIBILITY.md` / `AUDIO_LIBRARY.md`, now removed) and the Box-3
+predictor docs (`../../tasks/PROCEDURE_MONITOR_COMPILER.md`). **If anything disagrees with this
+table, this table wins.**
 
 Status vocabulary: **validated** = probed on real CC4D recordings; **weak** = works but
 only as gated/corroborating evidence; **untested** = catalog-plausible, binding it is a
@@ -25,9 +24,9 @@ CLAP, all RGB); **escalation** = VLM, one targeted call. This supersedes the old
 cheap/medium/expensive labels, which conflated DSP-vs-neural implementation with energy
 budget: AST is cheap on a server GPU yet cannot run always-on on the glasses, while a
 quantized CNN14/YAMNet can. All always-on audio DSP shares one 16 kHz STFT front-end (≪0.1% of
-one CPU core). Probe evidence: `DETECTOR_FEASIBILITY.md` §4; EPIC-SOUNDS grounding: `AUDIO_LIBRARY.md`.
+one CPU core).
 
-## Audio primitives (always-on on-device; A-ids = compiler vocab, #=AUDIO_LIBRARY id)
+## Audio primitives (always-on on-device; A-ids = compiler vocab, #=legacy v1 id)
 
 > The AST/CLAP rows at the bottom are **triggered** (GPU-required), not always-on — they live
 > here only because they are audio. A3 and A6 are **DROPPED** (not armable standalone).
@@ -49,7 +48,7 @@ one CPU core). Probe evidence: `DETECTOR_FEASIBILITY.md` §4; EPIC-SOUNDS ground
 | — | — | `AST` (AudioSet-527 tagger) | **triggered** (GPU) | **validated** for microwave (pooled AUC 0.868); NO for pour/add | server/offline cross-check + pseudo-label oracle — DSP A1 already beats it on microwave (0.93 recall vs AUC 0.868); not always-on on-device (86.6M, GPU) | 16–18 ms/win GPU, 745 ms CPU |
 | — | — | `CLAP` (open-vocab text prompts) | **triggered** (GPU) | **validated** as zero-shot segment labeler; weak on quiet transients | disambiguation, per-env calibration; not always-on on-device | ~9 ms/win GPU |
 
-Dropped from v1 (per EPIC-SOUNDS, `AUDIO_LIBRARY.md` rule 1): material-specific collision
+Dropped from v1 (per EPIC-SOUNDS material-ambiguity rule): material-specific collision
 discrimination; `impulse_single` standalone; `friction_flatness` (folded into A7/A8).
 
 ## RGB primitives (TRIGGERED tier — GPU-required, never always-on; measured on RTX 6000 Ada)

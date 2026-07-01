@@ -1,0 +1,85 @@
+{
+ "recording": "27_38",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 316,
+   "start_s": 6.1,
+   "end_s": 61.0
+  },
+  {
+   "stage": 321,
+   "start_s": 70.5,
+   "end_s": 219.2
+  },
+  {
+   "stage": 322,
+   "start_s": 223.0,
+   "end_s": 247.8
+  },
+  {
+   "stage": 318,
+   "start_s": 257.3,
+   "end_s": 331.6
+  },
+  {
+   "stage": 320,
+   "start_s": 340.0,
+   "end_s": 368.2
+  },
+  {
+   "stage": 317,
+   "start_s": 376.2,
+   "end_s": 423.1
+  },
+  {
+   "stage": 314,
+   "start_s": 433.4,
+   "end_s": 483.3
+  },
+  {
+   "stage": 319,
+   "start_s": 501.2,
+   "end_s": 532.5
+  },
+  {
+   "stage": 324,
+   "start_s": 533.6,
+   "end_s": 550.0
+  }
+ ],
+ "events": [
+  {
+   "t": 257.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 318,
+   "message": "Microwave the bowl, covered, for 2 minutes was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 376.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 317,
+   "message": "You skipped Melt the cheese by microwaving cup for 30 sec. (Check after 30 seconds and microwave for 10 seconds more if needed); it is needed before Mix the cheese and red bell pepper in the bowl."
+  },
+  {
+   "t": 533.6,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 324,
+   "message": "You skipped Add 1/4 teaspoon salt to the bowl; it is needed before Mix all the ingredients of the bowl well."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

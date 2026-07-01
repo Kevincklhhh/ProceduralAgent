@@ -1,0 +1,64 @@
+{
+ "recording": "21_50",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 221,
+   "start_s": 0.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": 225,
+   "start_s": 100.0,
+   "end_s": 175.0
+  },
+  {
+   "stage": 229,
+   "start_s": 175.0,
+   "end_s": 335.0
+  },
+  {
+   "stage": 232,
+   "start_s": 335.0,
+   "end_s": 834.8
+  }
+ ],
+ "events": [
+  {
+   "t": 40.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are holding a bag of all-purpose flour, but the instruction calls for baking powder. Please use the correct ingredient.",
+   "step_id": 221
+  },
+  {
+   "t": 275.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are adding a creamy substance from a container, not an egg.",
+   "step_id": 229
+  },
+  {
+   "t": 340.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are adding an egg to the blender, but the instruction calls for 1 heaped tbsp of flour.",
+   "step_id": 232
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 209,
+  "frames_sent": 830,
+  "vlm_latency_total_s": 295.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 329.1
+ }
+}

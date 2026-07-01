@@ -1,0 +1,81 @@
+{
+ "recording": "27_49",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 320,
+   "start_s": 7.6,
+   "end_s": 27.2
+  },
+  {
+   "stage": 316,
+   "start_s": 44.1,
+   "end_s": 62.8
+  },
+  {
+   "stage": 323,
+   "start_s": 66.2,
+   "end_s": 106.1
+  },
+  {
+   "stage": 321,
+   "start_s": 123.9,
+   "end_s": 167.1
+  },
+  {
+   "stage": 322,
+   "start_s": 181.6,
+   "end_s": 195.1
+  },
+  {
+   "stage": 317,
+   "start_s": 196.0,
+   "end_s": 229.1
+  },
+  {
+   "stage": 318,
+   "start_s": 227.4,
+   "end_s": 400.5
+  },
+  {
+   "stage": 319,
+   "start_s": 408.1,
+   "end_s": 430.2
+  },
+  {
+   "stage": 315,
+   "start_s": 429.3,
+   "end_s": 442.0
+  },
+  {
+   "stage": 314,
+   "start_s": 446.3,
+   "end_s": 457.3
+  },
+  {
+   "stage": 324,
+   "start_s": 456.5,
+   "end_s": 490.4
+  }
+ ],
+ "events": [
+  {
+   "t": 196.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 317,
+   "message": "Mix the cheese and red bell pepper in the bowl was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "recording": "17_23",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 183,
+   "start_s": 0.0,
+   "end_s": 180.0
+  },
+  {
+   "stage": 181,
+   "start_s": 180.0,
+   "end_s": 785.0
+  },
+  {
+   "stage": 184,
+   "start_s": 785.0,
+   "end_s": 915.0
+  },
+  {
+   "stage": 187,
+   "start_s": 915.0,
+   "end_s": 962.1
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a red measuring cup instead of a mixing bowl, and you are not whisking the curd. Please transfer the curd to a mixing bowl and whisk it until smooth.",
+   "step_id": 183
+  },
+  {
+   "t": 290.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently opening the dishwasher, which is not part of the instruction to add red chilli powder to the bowl. Please return to the counter to complete the task.",
+   "step_id": 181
+  },
+  {
+   "t": 840.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently washing a grater in the sink, but the instruction is to add 1/4 teaspoon of salt to the bowl. Please stop washing the grater and measure the salt.",
+   "step_id": 184
+  },
+  {
+   "t": 920.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are using a red measuring spoon to scoop a white powder from a container, but the instruction calls for adding chopped cilantro leaves.",
+   "step_id": 187
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 238,
+  "frames_sent": 960,
+  "vlm_latency_total_s": 353.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 396.4
+ }
+}

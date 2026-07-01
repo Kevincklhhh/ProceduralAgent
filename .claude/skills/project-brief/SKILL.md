@@ -11,6 +11,8 @@ Apply the relevant half: **§1 at the start of a task** (keep the thesis straigh
 
 The contribution is **sensor CONTROL**, measured as **energy/latency saved at equal coverage** — *not* "% of errors detected." Given the procedure ahead of time, plan per stage: which cheap RGB+audio detectors run vs. sleep (energy), where a cheap detector gives a verdict without the VLM (latency), and where a cheap event should **trigger one** VLM call instead of running it continuously.
 
+> **Current framing (2026-06-28):** the live arm sharpens this to **reminder latency** — the win is *low latency from evidence → spoken reminder* (constant ~133 ms trigger via pre-encoded prefill + bounded claim checks), with *reminder accuracy* as the open risk. Sensor control is the substrate; latency is the headline; accuracy is unsolved. "Not error-detection accuracy" still means *don't headline a detection-% number* — it does **not** mean accuracy is irrelevant. Full framing + open problems: `docs/LATENCY_STORY.md`.
+
 Classify each (stage, anticipated error) into a sensing role:
 - **A — solve:** a cheap sensor settles it alone (timing via audio, appliance state, precondition/order via graph state). The real win slice.
 - **B — trigger:** a cheap event fires **one** targeted VLM call (duty-cycled, not continuous).

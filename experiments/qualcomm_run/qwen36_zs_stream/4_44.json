@@ -1,0 +1,57 @@
+{
+ "recording": "4_44",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 44,
+   "start_s": 0.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": 47,
+   "start_s": 100.0,
+   "end_s": 140.0
+  },
+  {
+   "stage": 46,
+   "start_s": 140.0,
+   "end_s": 175.0
+  },
+  {
+   "stage": 14,
+   "start_s": 175.0,
+   "end_s": 608.4
+  }
+ ],
+ "events": [
+  {
+   "t": 165.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are chopping the onion into small pieces instead of slicing it into rings or half-rings.",
+   "step_id": 46
+  },
+  {
+   "t": 535.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently handling a bag of leafy greens, but the instruction is to peel a garlic clove. Please locate the garlic to begin the task.",
+   "step_id": 14
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 224,
+  "frames_sent": 605,
+  "vlm_latency_total_s": 348.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 369.2
+ }
+}

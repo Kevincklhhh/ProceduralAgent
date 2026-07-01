@@ -1,0 +1,98 @@
+{
+ "recording": "4_32",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 47,
+   "start_s": 36.7,
+   "end_s": 90.1
+  },
+  {
+   "stage": 44,
+   "start_s": 119.4,
+   "end_s": 146.7
+  },
+  {
+   "stage": 14,
+   "start_s": 189.2,
+   "end_s": 210.6
+  },
+  {
+   "stage": 51,
+   "start_s": 230.5,
+   "end_s": 248.8
+  },
+  {
+   "stage": 54,
+   "start_s": 278.3,
+   "end_s": 283.0
+  },
+  {
+   "stage": 52,
+   "start_s": 283.0,
+   "end_s": 286.4
+  },
+  {
+   "stage": 55,
+   "start_s": 320.5,
+   "end_s": 326.6
+  },
+  {
+   "stage": 49,
+   "start_s": 340.7,
+   "end_s": 343.3
+  },
+  {
+   "stage": 45,
+   "start_s": 347.1,
+   "end_s": 597.2
+  },
+  {
+   "stage": 48,
+   "start_s": 632.5,
+   "end_s": 692.4
+  },
+  {
+   "stage": 53,
+   "start_s": 649.3,
+   "end_s": 660.1
+  },
+  {
+   "stage": 42,
+   "start_s": 709.9,
+   "end_s": 717.7
+  },
+  {
+   "stage": 43,
+   "start_s": 726.4,
+   "end_s": 750.7
+  }
+ ],
+ "events": [
+  {
+   "t": 278.3,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 54,
+   "message": "You skipped slice 1/4 medium onion into pieces; it is needed before Put all the Vegetables in a microwave-safe bowl."
+  },
+  {
+   "t": 709.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 42,
+   "message": "You skipped Add basil to the bowl; it is needed before Mix in the flavour packet to the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,81 @@
+{
+ "recording": "17_49",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 181,
+   "start_s": 11.2,
+   "end_s": 88.4
+  },
+  {
+   "stage": 189,
+   "start_s": 124.1,
+   "end_s": 152.5
+  },
+  {
+   "stage": 188,
+   "start_s": 157.1,
+   "end_s": 181.5
+  },
+  {
+   "stage": 182,
+   "start_s": 182.8,
+   "end_s": 211.9
+  },
+  {
+   "stage": 191,
+   "start_s": 215.2,
+   "end_s": 252.1
+  },
+  {
+   "stage": 184,
+   "start_s": 258.7,
+   "end_s": 287.8
+  },
+  {
+   "stage": 183,
+   "start_s": 302.9,
+   "end_s": 406.6
+  },
+  {
+   "stage": 186,
+   "start_s": 407.9,
+   "end_s": 467.3
+  },
+  {
+   "stage": 187,
+   "start_s": 487.1,
+   "end_s": 595.3
+  },
+  {
+   "stage": 185,
+   "start_s": 602.6,
+   "end_s": 658.7
+  },
+  {
+   "stage": 190,
+   "start_s": 661.3,
+   "end_s": 682.4
+  }
+ ],
+ "events": [
+  {
+   "t": 11.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 181,
+   "message": "Add-1/4 teaspoon of red chilli powder to the bowl was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

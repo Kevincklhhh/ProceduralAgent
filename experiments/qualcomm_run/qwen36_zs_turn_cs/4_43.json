@@ -1,0 +1,486 @@
+{
+ "recording": "4_43",
+ "arm": "qwen36_zs_turn_cs",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 0.0,
+   "end_s": 45.0
+  },
+  {
+   "stage": 44,
+   "start_s": 45.0,
+   "end_s": 75.0
+  },
+  {
+   "stage": 47,
+   "start_s": 75.0,
+   "end_s": 125.0
+  },
+  {
+   "stage": 51,
+   "start_s": 125.0,
+   "end_s": 145.0
+  },
+  {
+   "stage": 54,
+   "start_s": 145.0,
+   "end_s": 175.0
+  },
+  {
+   "stage": 46,
+   "start_s": 175.0,
+   "end_s": 205.0
+  },
+  {
+   "stage": 50,
+   "start_s": 205.0,
+   "end_s": 280.0
+  },
+  {
+   "stage": 55,
+   "start_s": 280.0,
+   "end_s": 340.0
+  },
+  {
+   "stage": 49,
+   "start_s": 340.0,
+   "end_s": 360.0
+  },
+  {
+   "stage": 45,
+   "start_s": 360.0,
+   "end_s": 675.0
+  },
+  {
+   "stage": 48,
+   "start_s": 675.0,
+   "end_s": 760.0
+  },
+  {
+   "stage": 42,
+   "start_s": 760.0,
+   "end_s": 780.0
+  },
+  {
+   "stage": 43,
+   "start_s": 780.0,
+   "end_s": 809.7
+  }
+ ],
+ "events": [
+  {
+   "t": 30.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires the garlic clove to be peeled properly with the skin fully removed; flag if the clove is peeled incompletely, leaving papery layers attached (observed: peeled improperly; peeled garlic clove incompletely).",
+   "step_id": 14,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 80.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires peeling the onion completely so no papery skin remains; flag if the onion is peeled only partially or not peeled at all (observed: did not peel completely; did not peel the onion).",
+   "step_id": 47,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 80.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires the onion to be peeled as a preparatory step before slicing; flag if the user skips peeling entirely and proceeds without removing the outer skin (observed: did not peel the onion).",
+   "step_id": 47,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 125.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for chopping the garlic clove; flag if the garlic is sliced instead of chopped (observed: sliced garlic clove instead of chopping).",
+   "step_id": 51,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 150.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires placing all vegetables into the bowl without spilling; flag if vegetables are dropped or land on the countertop rather than in the bowl (observed: spilling some vegetables on the counter top).",
+   "step_id": 54,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 175.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for slicing the onion (long strokes producing rings or half-rings); flag if the user chops the onion instead of slicing it (observed: chopping the 1/4 onion instead of slicing).",
+   "step_id": 46,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 280.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires water to fully cover the noodles in a microwave-safe bowl; flag if the water level is insufficient (e.g. only halfway up the noodles) or if an incorrect vessel such as a plate is used (observed: water does not cover the noodles, only half covers; using a plate instead of a bowl).",
+   "step_id": 55,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 280.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires adding enough water so the noodles are fully covered; flag if the amount poured is clearly too little, leaving the noodles exposed (observed: added only a little amount that does not cover the noodles with water).",
+   "step_id": 55,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 370.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for 4 minutes (240 s) of microwaving; flag if the microwave is set for a substantially different duration \u2014 e.g. 16 seconds, 1 minute, 2 minutes, or 3 minutes instead of 4 (observed: microwave run for 16 s, 1 min, 2 min, 2.5 min, or 3 min instead of 4 min).",
+   "step_id": 45,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 675.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for letting the noodles sit for about 1 minute (60 s); flag if the resting time is noticeably shorter or longer \u2014 e.g. only 30 seconds or as long as 2 minutes (observed: 30 seconds instead of 1 minute; 2 minutes instead of 1 minute).",
+   "step_id": 48,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 790.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires stirring gently and thoroughly with a spoon or fork until the flavouring fully dissolves; flag if stirring is so vigorous that water spills out of the bowl, or if stirring is so poor that the flavouring does not dissolve (observed: stirred fast enough to spill water out of the bo",
+   "step_id": 43,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 25,
+  "frames_sent": 560,
+  "vlm_latency_total_s": 172.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 203.8,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 25.0,
+   "kind": "mistake",
+   "step_id": 14,
+   "win_start": 20.0,
+   "win_end": 25.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 30.0,
+   "kind": "mistake",
+   "step_id": 14,
+   "win_start": 25.0,
+   "win_end": 30.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 45.0,
+   "kind": "mistake",
+   "step_id": 44,
+   "win_start": 40.0,
+   "win_end": 45.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 50.0,
+   "kind": "mistake",
+   "step_id": 44,
+   "win_start": 45.0,
+   "win_end": 50.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 55.0,
+   "kind": "mistake",
+   "step_id": 44,
+   "win_start": 50.0,
+   "win_end": 55.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 60.0,
+   "kind": "mistake",
+   "step_id": 44,
+   "win_start": 55.0,
+   "win_end": 60.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 65.0,
+   "kind": "mistake",
+   "step_id": 44,
+   "win_start": 60.0,
+   "win_end": 65.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 75.0,
+   "kind": "mistake",
+   "step_id": 47,
+   "win_start": 70.0,
+   "win_end": 75.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 80.0,
+   "kind": "mistake",
+   "step_id": 47,
+   "win_start": 75.0,
+   "win_end": 80.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique",
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 125.0,
+   "kind": "mistake",
+   "step_id": 51,
+   "win_start": 120.0,
+   "win_end": 125.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 145.0,
+   "kind": "mistake",
+   "step_id": 54,
+   "win_start": 140.0,
+   "win_end": 145.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 150.0,
+   "kind": "mistake",
+   "step_id": 54,
+   "win_start": 145.0,
+   "win_end": 150.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 175.0,
+   "kind": "mistake",
+   "step_id": 46,
+   "win_start": 170.0,
+   "win_end": 175.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 280.0,
+   "kind": "mistake",
+   "step_id": 55,
+   "win_start": 275.0,
+   "win_end": 280.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation",
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 340.0,
+   "kind": "mistake",
+   "step_id": 49,
+   "win_start": 335.0,
+   "win_end": 340.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 360.0,
+   "kind": "mistake",
+   "step_id": 45,
+   "win_start": 355.0,
+   "win_end": 360.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 365.0,
+   "kind": "mistake",
+   "step_id": 45,
+   "win_start": 360.0,
+   "win_end": 365.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 370.0,
+   "kind": "mistake",
+   "step_id": 45,
+   "win_start": 365.0,
+   "win_end": 370.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 675.0,
+   "kind": "mistake",
+   "step_id": 48,
+   "win_start": 670.0,
+   "win_end": 675.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 760.0,
+   "kind": "mistake",
+   "step_id": 42,
+   "win_start": 755.0,
+   "win_end": 760.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 765.0,
+   "kind": "mistake",
+   "step_id": 42,
+   "win_start": 760.0,
+   "win_end": 765.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 770.0,
+   "kind": "mistake",
+   "step_id": 42,
+   "win_start": 765.0,
+   "win_end": 770.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 780.0,
+   "kind": "mistake",
+   "step_id": 43,
+   "win_start": 775.0,
+   "win_end": 780.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 785.0,
+   "kind": "mistake",
+   "step_id": 43,
+   "win_start": 780.0,
+   "win_end": 785.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 790.0,
+   "kind": "mistake",
+   "step_id": 43,
+   "win_start": 785.0,
+   "win_end": 790.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  }
+ ]
+}

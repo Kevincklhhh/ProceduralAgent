@@ -1,0 +1,147 @@
+{
+ "recording": "16_27",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 163,
+   "start_s": 3.7,
+   "end_s": 50.5
+  },
+  {
+   "stage": 168,
+   "start_s": 56.2,
+   "end_s": 115.3
+  },
+  {
+   "stage": 158,
+   "start_s": 121.5,
+   "end_s": 166.2
+  },
+  {
+   "stage": 173,
+   "start_s": 173.2,
+   "end_s": 235.2
+  },
+  {
+   "stage": 178,
+   "start_s": 291.4,
+   "end_s": 303.7
+  },
+  {
+   "stage": 177,
+   "start_s": 311.5,
+   "end_s": 355.9
+  },
+  {
+   "stage": 161,
+   "start_s": 364.5,
+   "end_s": 407.2
+  },
+  {
+   "stage": 176,
+   "start_s": 409.6,
+   "end_s": 477.7
+  },
+  {
+   "stage": 164,
+   "start_s": 483.5,
+   "end_s": 500.7
+  },
+  {
+   "stage": 180,
+   "start_s": 502.4,
+   "end_s": 514.7
+  },
+  {
+   "stage": 179,
+   "start_s": 518.0,
+   "end_s": 525.8
+  },
+  {
+   "stage": 167,
+   "start_s": 531.5,
+   "end_s": 562.7
+  },
+  {
+   "stage": 166,
+   "start_s": 572.6,
+   "end_s": 590.6
+  },
+  {
+   "stage": 162,
+   "start_s": 591.0,
+   "end_s": 606.6
+  },
+  {
+   "stage": 160,
+   "start_s": 606.6,
+   "end_s": 615.2
+  },
+  {
+   "stage": 159,
+   "start_s": 618.9,
+   "end_s": 641.3
+  },
+  {
+   "stage": 165,
+   "start_s": 641.5,
+   "end_s": 674.3
+  },
+  {
+   "stage": 172,
+   "start_s": 678.0,
+   "end_s": 690.8
+  },
+  {
+   "stage": 171,
+   "start_s": 715.0,
+   "end_s": 810.2
+  },
+  {
+   "stage": 174,
+   "start_s": 811.0,
+   "end_s": 820.9
+  }
+ ],
+ "events": [
+  {
+   "t": 56.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 168,
+   "message": "Add 1/8 tsp of turmeric to the pan was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 173.2,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 173,
+   "message": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 173.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 173,
+   "message": "You skipped Chop 1/4 tomato; it is needed before Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat."
+  },
+  {
+   "t": 678.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 172,
+   "message": "You skipped Cook covered for 1 minute or until the tomatoes soften and Add tomatoes to the pan; they are needed before pour-Slowly pour the whisked eggs into the pan."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

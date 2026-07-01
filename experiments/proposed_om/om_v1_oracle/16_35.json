@@ -1,0 +1,154 @@
+{
+ "recording": "16_35",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 173,
+   "start_s": 8.9,
+   "end_s": 62.6
+  },
+  {
+   "stage": 176,
+   "start_s": 63.9,
+   "end_s": 140.4
+  },
+  {
+   "stage": 167,
+   "start_s": 147.3,
+   "end_s": 202.3
+  },
+  {
+   "stage": 163,
+   "start_s": 223.2,
+   "end_s": 373.7
+  },
+  {
+   "stage": 179,
+   "start_s": 393.9,
+   "end_s": 409.1
+  },
+  {
+   "stage": 169,
+   "start_s": 414.8,
+   "end_s": 473.6
+  },
+  {
+   "stage": 161,
+   "start_s": 481.8,
+   "end_s": 519.1
+  },
+  {
+   "stage": 178,
+   "start_s": 525.4,
+   "end_s": 549.4
+  },
+  {
+   "stage": 175,
+   "start_s": 561.4,
+   "end_s": 574.7
+  },
+  {
+   "stage": 166,
+   "start_s": 575.6,
+   "end_s": 714.0
+  },
+  {
+   "stage": 160,
+   "start_s": 714.3,
+   "end_s": 716.4
+  },
+  {
+   "stage": 162,
+   "start_s": 717.1,
+   "end_s": 723.9
+  },
+  {
+   "stage": 165,
+   "start_s": 724.8,
+   "end_s": 956.3
+  },
+  {
+   "stage": 158,
+   "start_s": 957.2,
+   "end_s": 1029.9
+  },
+  {
+   "stage": 168,
+   "start_s": 1039.4,
+   "end_s": 1070.7
+  },
+  {
+   "stage": 164,
+   "start_s": 1075.4,
+   "end_s": 1102.3
+  },
+  {
+   "stage": 159,
+   "start_s": 1107.0,
+   "end_s": 1142.1
+  },
+  {
+   "stage": 172,
+   "start_s": 1143.7,
+   "end_s": 1158.3
+  },
+  {
+   "stage": 171,
+   "start_s": 1158.3,
+   "end_s": 1237.9
+  },
+  {
+   "stage": 174,
+   "start_s": 1242.4,
+   "end_s": 1270.8
+  }
+ ],
+ "events": [
+  {
+   "t": 8.9,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 173,
+   "message": "Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 8.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 173,
+   "message": "You skipped Mince peeled garlic cloves; it is needed before Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat."
+  },
+  {
+   "t": 561.4,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 175,
+   "message": "Add tomatoes to the pan was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 1107.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 159,
+   "message": "You skipped add 1 tbsp milk to the bowl; it is needed before Whisk the egg mixture in the bowl."
+  },
+  {
+   "t": 1143.7,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 172,
+   "message": "You skipped Cook covered for 1 minute or until the tomatoes soften; it is needed before pour-Slowly pour the whisked eggs into the pan."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

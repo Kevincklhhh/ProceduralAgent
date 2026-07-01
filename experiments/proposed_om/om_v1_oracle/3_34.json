@@ -1,0 +1,100 @@
+{
+ "recording": "3_34",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 10.1,
+   "end_s": 21.9
+  },
+  {
+   "stage": 35,
+   "start_s": 23.6,
+   "end_s": 72.5
+  },
+  {
+   "stage": 38,
+   "start_s": 72.5,
+   "end_s": 85.9
+  },
+  {
+   "stage": 28,
+   "start_s": 95.5,
+   "end_s": 123.6
+  },
+  {
+   "stage": 40,
+   "start_s": 125.3,
+   "end_s": 159.5
+  },
+  {
+   "stage": 34,
+   "start_s": 172.5,
+   "end_s": 205.6
+  },
+  {
+   "stage": 41,
+   "start_s": 215.2,
+   "end_s": 256.7
+  },
+  {
+   "stage": 37,
+   "start_s": 257.8,
+   "end_s": 280.3
+  },
+  {
+   "stage": 30,
+   "start_s": 292.7,
+   "end_s": 327.5
+  },
+  {
+   "stage": 33,
+   "start_s": 337.1,
+   "end_s": 407.8
+  },
+  {
+   "stage": 39,
+   "start_s": 434.2,
+   "end_s": 471.9
+  },
+  {
+   "stage": 32,
+   "start_s": 474.1,
+   "end_s": 574.7
+  }
+ ],
+ "events": [
+  {
+   "t": 72.5,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 38,
+   "message": "Stir the contents in the mug well was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 434.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 39,
+   "message": "You skipped spread marinara sauce around the surface of the batter; it is needed before Sprinkle 1 generous tablespoon of mozzarella cheese on top of the sauce."
+  },
+  {
+   "t": 474.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 32,
+   "message": "You skipped Sprinkle dried Italian herbs inside the mug; it is needed before Microwave for 1 minute 20 seconds, or until it rises and the toppings are bubbling."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,409 @@
+{
+ "recording": "13_44",
+ "arm": "qwen36_zs_turn_cs_w12",
+ "stage_intervals": [
+  {
+   "stage": 129,
+   "start_s": 0.0,
+   "end_s": 130.0
+  },
+  {
+   "stage": 137,
+   "start_s": 130.0,
+   "end_s": 235.0
+  },
+  {
+   "stage": 132,
+   "start_s": 235.0,
+   "end_s": 260.0
+  },
+  {
+   "stage": 133,
+   "start_s": 260.0,
+   "end_s": 415.0
+  },
+  {
+   "stage": 130,
+   "start_s": 415.0,
+   "end_s": 480.0
+  },
+  {
+   "stage": 138,
+   "start_s": 480.0,
+   "end_s": 515.0
+  },
+  {
+   "stage": 135,
+   "start_s": 515.0,
+   "end_s": 555.0
+  },
+  {
+   "stage": 136,
+   "start_s": 555.0,
+   "end_s": 580.0
+  },
+  {
+   "stage": 128,
+   "start_s": 580.0,
+   "end_s": 620.0
+  },
+  {
+   "stage": 134,
+   "start_s": 620.0,
+   "end_s": 766.0
+  }
+ ],
+ "events": [
+  {
+   "t": 90.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 2 cups of frozen corn; flag if a different amount is measured (e.g., 1 cup or 3 cups instead of 2).",
+   "step_id": 129,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 140.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects corn to remain in the sieve during rinsing; flag if corn spills into the sink or out of the sieve while thawing or rinsing.",
+   "step_id": 137,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 235.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects corn to be transferred cleanly into the bowl; flag if corn spills during the transfer from sieve to bowl.",
+   "step_id": 132,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 265.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for 2 minutes (120 seconds) of microwave time; flag if the corn is microwaved for a noticeably different duration (e.g., only 30 seconds, 1.5 minutes, or over 3 minutes).",
+   "step_id": 133,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 520.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for stirring the bowl thoroughly; flag if stirring is clearly insufficient (e.g., only a few passes) or if contents spill out of the bowl during stirring.",
+   "step_id": 135,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 560.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe expects salt to be added cleanly to the bowl; flag if salt spills during the addition.",
+   "step_id": 136,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 625.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for 3 more minutes of microwave time; flag if the corn is microwaved for a noticeably different duration (e.g., stopped after only 2 minutes instead of 3).",
+   "step_id": 134,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 23,
+  "frames_sent": 1140,
+  "vlm_latency_total_s": 199.6,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 12.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 292.9,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 90.0,
+   "kind": "mistake",
+   "step_id": 129,
+   "win_start": 78.0,
+   "win_end": 90.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "measurement"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 130.0,
+   "kind": "mistake",
+   "step_id": 137,
+   "win_start": 118.0,
+   "win_end": 130.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 135.0,
+   "kind": "mistake",
+   "step_id": 137,
+   "win_start": 123.0,
+   "win_end": 135.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 140.0,
+   "kind": "mistake",
+   "step_id": 137,
+   "win_start": 128.0,
+   "win_end": 140.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 235.0,
+   "kind": "mistake",
+   "step_id": 132,
+   "win_start": 223.0,
+   "win_end": 235.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 260.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 248.0,
+   "win_end": 260.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 265.0,
+   "kind": "mistake",
+   "step_id": 133,
+   "win_start": 253.0,
+   "win_end": 265.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 415.0,
+   "kind": "mistake",
+   "step_id": 130,
+   "win_start": 403.0,
+   "win_end": 415.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 420.0,
+   "kind": "mistake",
+   "step_id": 130,
+   "win_start": 408.0,
+   "win_end": 420.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 480.0,
+   "kind": "mistake",
+   "step_id": 138,
+   "win_start": 468.0,
+   "win_end": 480.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 485.0,
+   "kind": "mistake",
+   "step_id": 138,
+   "win_start": 473.0,
+   "win_end": 485.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 490.0,
+   "kind": "mistake",
+   "step_id": 138,
+   "win_start": 478.0,
+   "win_end": 490.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 515.0,
+   "kind": "mistake",
+   "step_id": 135,
+   "win_start": 503.0,
+   "win_end": 515.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 520.0,
+   "kind": "mistake",
+   "step_id": 135,
+   "win_start": 508.0,
+   "win_end": 520.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 555.0,
+   "kind": "mistake",
+   "step_id": 136,
+   "win_start": 543.0,
+   "win_end": 555.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 560.0,
+   "kind": "mistake",
+   "step_id": 136,
+   "win_start": 548.0,
+   "win_end": 560.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 580.0,
+   "kind": "mistake",
+   "step_id": 128,
+   "win_start": 568.0,
+   "win_end": 580.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 585.0,
+   "kind": "mistake",
+   "step_id": 128,
+   "win_start": 573.0,
+   "win_end": 585.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 590.0,
+   "kind": "mistake",
+   "step_id": 128,
+   "win_start": 578.0,
+   "win_end": 590.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 595.0,
+   "kind": "mistake",
+   "step_id": 128,
+   "win_start": 583.0,
+   "win_end": 595.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 600.0,
+   "kind": "mistake",
+   "step_id": 128,
+   "win_start": 588.0,
+   "win_end": 600.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 620.0,
+   "kind": "mistake",
+   "step_id": 134,
+   "win_start": 608.0,
+   "win_end": 620.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 625.0,
+   "kind": "mistake",
+   "step_id": 134,
+   "win_start": 613.0,
+   "win_end": 625.0,
+   "n_frames": 12,
+   "latency_s": null,
+   "fired": [
+    "timing"
+   ],
+   "answer": ""
+  }
+ ]
+}

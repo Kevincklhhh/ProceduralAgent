@@ -1,0 +1,57 @@
+{
+ "recording": "27_45",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 316,
+   "start_s": 0.0,
+   "end_s": 215.0
+  },
+  {
+   "stage": 320,
+   "start_s": 215.0,
+   "end_s": 995.0
+  },
+  {
+   "stage": 321,
+   "start_s": 995.0,
+   "end_s": 1000.0
+  },
+  {
+   "stage": 322,
+   "start_s": 1000.0,
+   "end_s": 1018.0
+  }
+ ],
+ "events": [
+  {
+   "t": 145.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently washing a red bell pepper, but the instruction is to add cheddar cheese to a microwave-safe cup. Please stop washing the vegetable and locate the cheddar cheese and a microwave-safe cup to begin the correct step.",
+   "step_id": 316
+  },
+  {
+   "t": 1005.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are placing the chopped pepper into a plate instead of a microwave-safe bowl.",
+   "step_id": 322
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 388,
+  "frames_sent": 1015,
+  "vlm_latency_total_s": 593.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 632.3
+ }
+}

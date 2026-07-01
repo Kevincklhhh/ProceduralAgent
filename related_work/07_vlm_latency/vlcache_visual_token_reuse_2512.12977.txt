@@ -1,0 +1,2527 @@
+VLC ACHE: Computing 2% Vision Tokens and
+Reusing 98% for Vision–Language Inference
+
+arXiv:2512.12977v2 [cs.CV] 18 Dec 2025
+
+Shengling Qin1∗ Hao Yu1∗ Chenxin Wu2∗ Zheng Li1
+Yizhong Cao1 Zhengyang Zhuge1 Yuxin Zhou1 Wentao Yao1 Yi Zhang1
+Zhengheng Wang2 Shuai Bai1 Jianwei Zhang1† Junyang Lin1
+1
+
+2
+
+Qwen Team, Alibaba Inc.
+TairKVCache Team, Alibaba Cloud
+
+Abstract
+This paper presents VLCache, a cache reuse framework that exploits both KeyValue (KV) cache and encoder cache from prior multimodal inputs to eliminate
+costly recomputation when the same multimodal inputs recur. Unlike previous
+heuristic approaches, we formally identify the cumulative reuse error effect and
+demonstrate how to minimize the non-prefix cache reuse error effectively. We
+further analyze the varying importance of model layers and propose a dynamic,
+layer-aware recomputation strategy to balance accuracy and efficiency. Experimental results show that VLCache achieves an accuracy on par with full recomputation,
+while requiring only 2–5% of the tokens to compute, yielding 1.2x–16x TTFT
+speedups. We develop an experimental implementation of the proposed VLCache
+pipeline based on SGLang, enabling significantly faster inference in practical
+deployments.
+
+1
+
+Introduction
+
+The Vision-Language Model (VLM) has emerged as a fundamental paradigm for visual question
+answering and multimodal understanding. With a Vision Transformer (ViT) [5, 8] as the visual
+embedding backbone, and a Large Language Model (LLM) [1, 10, 12] as the main reasoning module,
+the VLM shows remarkable performance in complex tasks, such as visual reasoning, referring
+expression comprehension, and multimodal dialogue.
+To speed up the inference of language models, engineers leverage the Key-Value (KV) cache computed for a previous request in future requests to skip time-consuming computation. This attention
+mechanism requires an exact prefix match for lossless cache reuse and token generation. Considering
+that the prefix match requirement is not always met, several position-independent reuse schemes,
+including CacheBlend [14], MPIC [16] and KVShare [13], have emerged to address this problem.
+Those methods enable the reuse of the KV cache across different requests, even when initial token
+sequences differ, thereby eliminating the dependency on shared prefixes. To partially correct the
+reuse error, these algorithms will recompute part of the tokens at designated positions. Then the
+problem becomes deciding the recomputation rate and the position of recomputed tokens.
+However, these heuristic schemes show significant issues in defining the importance of the vision
+tokens, which is the basis of selecting the top ones for recomputation. For CacheBlend and KVShare,
+the KV cache distance or the attention score distance between the reused and recomputed tokens
+is used to decide the importance of each token. Although effective on some occasions, this local
+∗
+†
+
+Equal contribution.
+Corresponding author.
+
+Preprint.
+
+Request:
+
+Describe this image.
+
+Stored/Reused Image Cache
+Recomputed Image Tokens
+Context
+
+Compute image hash → Cache hit?
+miss
+
+hit
+
+Encoder Output
+Layer
+
+!
+
+Encoder Output
+
+Key/Value
+
+Layer
+
+Layer ! + 1 Key/Value
+Layer ! + 2 Key/Value
+
+!
+
+Key/Value
+
+Layer ! + 1 Key/Value
+
+Cache Manager
+
+(1) Caching
+
+Layer ! + 2 Key/Value
+
+(2) Reusing
+
+Figure 1: Overview of VLC ACHE. Both the KV cache and encoder cache are stored and will be
+reused in future requests, with selective recomputation in the KV cache to ensure accuracy.
+information at the layer level cannot accurately tell the importance of the token. We find that, when
+evaluating the attention outputs, the token with the greatest distance is often not the most important
+one. For MPIC, the recomputation budget is allocated to several earlier tokens of each reused cache
+chunk. The effectiveness of MPIC relies on the attention sink effect, where the initial tokens in the
+prompt—typically the system prompt—attract high attention. In our setting, however, this effect does
+not occur because the reused vision tokens do not function as a system prompt.
+To address these issues, we have an in-depth investigation into reuse errors in VLMs. We identify
+the cumulative error effect on VL cache reuse, which propagates the initial error to later tokens.
+We argue that this cumulative error is a key reason why recomputing the initial image tokens can
+effectively mitigate performance degradation. In addition, we observe that different transformer
+layers contribute unevenly to the final model output. Building on this insight, we further analyze the
+layer-wise importance diversity in VLMs. Based on the error cumulative effect we have discovered,
+we propose a dynamic algorithm that allocates an optimal per-layer recomputation rate given a fixed
+overall recomputation budget.
+Integrating these findings, we propose VLC ACHE, an end-to-end vision token KV cache reuse
+pipeline. VLCache stores the output of the vision encoder for each image patch along with the
+corresponding KV cache. When the same image is encountered again in a subsequent request,
+VLCache bypasses the vision encoder computation entirely and directly reuses the stored encoder
+cache and KV cache. To preserve output accuracy, VLCache selectively recomputes a layer-dependent
+fraction of the initial image tokens at each LLM layer. Compared with previous methods, extensive
+experiments demonstrate that VLCache offers two key advantages: higher acceleration and better
+accuracy. With only 2-5% of vision tokens recomputed, VLCache achieves near-lossless accuracy.
+We integrate the VLCache pipeline into the SGLang framework, significantly reducing the Time-ToFirst-Token (TTFT). Depending on the model architecture and the length of the input image tokens,
+VLCache yields 1.2x to 16x TTFT speedups.
+
+2
+
+Preliminaries
+
+2.1
+
+KV Cache for LLMs
+
+Vision language models (VLMs) [2, 9, 3] have demonstrated human-level capabilities in understanding and generating multimodal content. State-of-the-art VLMs typically employ a Vision Transformer
+(ViT) [4, 5] as the visual encoder, which is then integrated into a large-scale pre-training large
+language model (LLM) backbone [1, 10, 11]. In general, LLMs are built on the neural structure
+of Transformers [8], which requires a computational cost quadratic to the input sequence’s length
+and makes long sequence inference intractable. To mitigate this inefficiency, the auto-regressive
+decoding LLMs support Key-Value (KV) caches, i.e., to cache the previous context’s intermediate
+key and value states in memory. KV caches can avoid redundant computation of previous tokens, thus
+2
+
+expediting the inference process. Building upon KV cache, the prefix caching [7, 17] mechanism will
+retain the KV cache of fixed or shared prefix sequences (such as system prompts or task instructions).
+This further reduces computation overhead by allowing the model to skip processing the repeated
+prefix entirely during inference.
+2.2
+
+Position-Independent KV Cache Reuse
+
+The prefix cache mechanism stipulates that a new request can only reuse KV cached content if
+its initial segment (i.e., prefix) exactly matches an existing cached sequence. While this strict
+matching criterion ensures output accuracy, it introduces a significant efficiency bottleneck. Positionindependent KV Cache reuse, on the other hand, allows for reusing the pre-cached KV Cache at
+different locations, thereby achieving higher flexibility. To maintain accuracy after reusing positionindependent KV Cache, it is necessary to recompute part of the token’s KV Cache. To determine
+the token indices that need to be recomputed, different researchers have proposed various methods.
+CacheBlend [14] will first calculate the distances of the first three layers of KV Cache, record
+the farthest token index, and then recompute these tokens in the remaining layers. EPIC [6] and
+MPIC [16] will recompute the initial tokens of each chunk. Depending on the deviation of the
+attention map, KVShare [13] will selectively recompute critical tokens during the prefilling and
+decoding stages. However, all those methods lack both an in-depth analysis of how reused tokens
+affect the decoding stage and a systematic investigation into the impact of different model layers on
+the final output.
+
+3
+
+Observations
+
+3.1
+
+Cumulative Reuse Error Effect
+
+The self-attention mechanism implies that the output of a token is influenced by its surrounding
+context. In causal language models, where each token attends to itself and all preceding tokens,
+the output depends on itself and its prefix. When a multimodal input is reused in a new request, its
+context differs from the original one—this discrepancy, known as prefix mismatch, leads to what we
+call reuse error in the KV cache. For causal language models, the reuse error of a token consists of
+two components: the self reuse error and the propagated error from previously reused tokens. The
+propagated error from previous tokens to the current token can then be expressed as:
+eprop
+=
+k
+
+k−1
+X
+
+eprop
+(i,k) ,
+
+(1)
+
+i=1
+
+where eprop
+(i,k) represents the propagated error from the reused token at position i to position k. Thus,
+the total reuse error for token k is given by:
+etotal
+= eself
++ eprop
+k
+k
+k
+= eself
++
+k
+
+k−1
+X
+
+(2)
+
+eprop
+(i,k)
+
+i=1
+prop
+prop
+prop
+= eself
++
+e
+k
+(1,k) + · · · + e(k−2,k) + e(k−1,k) .
+
+(3)
+(4)
+
+Therefore, the ‘accuracy’ of a reused token is affected by all previously reused tokens, while it, in
+turn, influences all subsequent tokens. We refer to this phenomenon as reuse error propagation. This
+property introduces positional weighting among tokens and serves as the theoretical foundation for
+designing an efficient recomputation token selection strategy.
+To validate the propagation of the reuse error, we conduct several experiments shown in Fig. 2.
+Using two representative image inputs, we measure each token’s attention output error when its
+key/value states are reused rather than recomputed, and compare per-token error norms under different
+recomputation ratios throughout the generation sequence. In both examples, the propagation pattern
+is clear: early reused tokens introduce errors that persist and accumulate, yielding larger error norms
+for later tokens. Selectively recomputing early tokens (e.g., 10% or 30%) significantly suppresses
+downstream accumulation, as early recomputation cancels a large portion of the upstream error. These
+3
+
+Layer 5
+
+Layer 10
+
+gen text
+
+image
+
+15
+
+300
+
+150
+
+Error Norm
+
+Error Norm
+
+20
+
+100
+
+10
+
+0
+
+0
+0
+
+250
+
+500
+
+6
+
+750 1000 1250
+Token Index
+
+image
+
+Layer 5
+
+1500
+
+1750
+
+2000
+
+gen text
+
+250
+
+500
+
+750 1000 1250
+Token Index
+
+image
+
+175
+
+Layer 10
+
+1500
+
+1750
+
+2000
+
+0
+
+gen text
+
+100
+75
+
+100
+
+25
+
+50
+
+0
+
+0
+200
+
+300
+Token Index
+
+400
+
+500
+
+1500
+
+1750
+
+2000
+
+gen text
+
+150
+
+1
+100
+
+image
+
+Layer 15
+
+200
+
+50
+
+0
+
+750 1000 1250
+Token Index
+
+250
+Error Norm
+
+Error Norm
+
+2
+
+500
+
+300
+
+125
+
+3
+
+250
+
+350
+
+150
+
+4
+Error Norm
+
+0
+0
+
+5
+
+200
+100
+
+50
+
+5
+
+gen text
+
+image
+
+400
+
+200
+
+25
+Error Norm
+
+Layer 15
+
+gen text
+
+image
+
+30
+
+0
+0
+
+100
+
+200
+
+300
+Token Index
+
+400
+
+500
+
+0
+
+100
+
+200
+
+300
+Token Index
+
+400
+
+Recomp 0.0
+Recomp
+500 0.1
+Recomp
+0.3
+
+Figure 2: The reuse error of earlier token recomputation for two image examples. Earlier token
+recomputation cancels out more reuse errors and slows down the error accumulation at later generated
+tokens, leading to better accuracy.
+findings directly support our theoretical claim that reuse error induces a positional weighting effect
+and show that prioritizing earlier tokens for recomputation offers disproportionately large accuracy
+gains.
+3.2
+
+Layer-wise Importance Difference
+
+As mentioned above, different model layers exert distinct influences on the output. To validate this
+hypothesis, we conducted an empirical experiment on Qwen2.5-VL-7B. Specifically, we select 20
+samples each from the MMMU-Pro [15] Standard & Vision dataset used as experimental subjects.
+The entire experimental procedure consists of the following three phases:
+• Constructing the KV cache with a replacement prompt. For each sample, we keep the image
+input unchanged and replace the original question prompt with a semantically unrelated or
+neutral alternative prompt (e.g., ‘Please describe this image’). In this setting, we perform a
+full forward pass and cache the image-related KV cache.
+• Obtaining the original output as the baseline. Next, we conduct standard decoding with the
+original prompt, recording the output logits and corresponding text.
+• Reuse KV cache and measure errors. Finally, we combine the original question prompt and
+the text generated via standard decoding as input. During inference, we inject the image KV
+cache generated from the substituted prompt (i.e., a ‘mismatched’ KV cache) into all layers,
+while recomputing the KV cache for only the top 10% & 20% & 30% of image tokens in a
+single layer. We record the logits of the decoding text and compute the MSE loss between
+them and the logits produced by the original model.
+The loss curve is shown in Fig 3. Compared to directly reusing the KV cache, applying different
+recomputation ratios across layers leads to varying degrees of MSE loss reduction for the decoding
+text. These results show that using the same recomputation ratio across all layers is sub-optimal, as
+some more sensitive layers should have a higher recomputation ratio, while some layers should not
+even recompute image tokens at all.
+
+4
+
+Algorithm
+
+4.1
+
+VLCache: Reuse and Dynamic Recomputation
+
+Basic Algorithm Based on the above observations, we design the VLCache algorithm illustrated in
+Fig. 1, which reuses most vision tokens while selectively recomputing a small subset of important
+ones. VLCache operates as a plugin within the standard inference pipeline. Upon receiving a
+4
+
+4.25
+4.25
+4.20
+4.20
+
+MSE Loss
+
+MSE Loss
+
+4.15
+4.15
+
+4.10
+
+4.10
+
+4.05
+
+4.05
+Recomp 10%
+Recomp 20%
+Recomp 30%
+Recomp 0.0
+
+4.00
+0
+
+5
+
+10
+
+15
+Layer Index
+
+20
+
+Recomp 10%
+Recomp 20%
+Recomp 30%
+Recomp 0.0
+
+4.00
+
+25
+
+0
+
+5
+
+10
+
+15
+Layer Index
+
+20
+
+25
+
+Figure 3: MSE loss between the logits of the generated text and those produced by the original model
+(with correct KV cache), when recomputing the top 10%, 20%, and 30% of image tokens, evaluated
+on the MMMU-Pro Standard (left) and MMMU-Pro Vision (right) datasets.
+Normal computation
+Context
+
+Recomputation
+Skip Reused
+
+Image
+
+Context
+
+Figure 4: Full attention computation (left) v.s. VLCache partial attention computation (right).
+VLCache skips a large portion of attention operations and forms contiguous computation regions,
+which is hardware-friendly.
+
+request, it first computes a hash of the input image. For cache misses, normal prefilling is performed
+and both the encoder cache and KV cache are stored in the backend KVCache store. For cache
+hits, the stored encoder and KV caches are retrieved and reused. We directly reuse most image
+tokens and only recompute a small set of early tokens, with the recomputation ratio denoted as r.
+The query tokens and the selected tokens for recomputation are concatenated to form the actual
+model input. For reused tokens, all associated computations—including attention and MLP—will be
+skipped, which determines the acceleration. An example of attention skipping is shown in Fig. 4.
+The resulting attention computation regions become contiguous, making the kernel execution more
+hardware-friendly.
+Dynamic Recomputation As previously discussed, a key challenge lies in accurately determining
+the proportion of tokens to recompute for each layer. To address this, we propose an adaptive search
+strategy, i.e., to allocate a higher recomputation ratio to layers that are more sensitive to output quality,
+while applying a more aggressive KV cache reuse policy to less sensitive layers.
+Given a proxy dataset D, we follow the experimental procedure outlined in Section 3.2. First, we
+generate the mismatched KV cache (i.e., using a substituted prompt) and reuse it across all layers.
+Next, for each layer, we evaluate the MSE loss of the decoding text logits corresponding to the
+original model and recompute a fixed proportion of image tokens in that layer, i.e.,
+
+Si (r) = E(x,y)∈D MSE zorig , zreuse
+,
+i,r
+
+(5)
+
+where Si (r) is the layer i sensitivity score with recomputation rate r (e.g., r=0.002, 0.004, · · · 0.300).
+zorig is the logits produced by the original model using correct KV cache. zreuse
+i,r represents the logits
+where the mismatched key-value cache is reused across all layers, and only in the i-th layer the first r
+tokens will be recomputed.
+After obtaining the sensitivity scores for each layer, given a target total recomputation ratio Ptar , we
+minimize the sum of sensitivity scores across all layers, subject to the constraint that the per-layer
+recomputation ratio is non-increasing with depth (i.e., monotonically decreasing or constant across
+5
+
+layers). That is
+minimize
+{ri }L
+i=1
+
+subject to
+
+L
+X
+
+Si (r)
+
+(6)
+
+ri ≤ Ptar ,
+
+(7)
+
+ℓ=1
+L
+X
+i=1
+
+r1 ≥ r2 ≥ · · · ≥ rL ≥ 0,
+ri ∈ {0.002, 0.004, · · · 0.300},
+
+∀i ∈ {1, . . . , L}.
+
+(8)
+(9)
+
+Given a set of distinct target parameters, we can dynamically generate multiple choices, demonstrating
+remarkable flexibility.
+Since the selected ranks are discrete, this optimization problem is inherently an integer programming problem. To address it, we propose a simple greedy algorithm for an approximate solution.
+Notably, we adopt a simplifying assumption: the sensitivity of a given layer depends only on its
+own recomputation strategy and is independent of the ranks chosen for other layers. Although this
+greedy algorithm does not guarantee a globally optimal configuration, exhaustively searching over all
+possible combinations to find the exact global minimum is computationally prohibitive. In contrast,
+our approximate greedy approach dramatically accelerates the search process. As we will demonstrate
+in subsequent experiments, the adaptive configurations obtained via this greedy strategy achieve
+strong performance across diverse model architectures and a wide range of tasks.
+Notably, to ensure the validity of acceleration, the token recomputation rate must be monotonically
+non-increasing across layers, i.e., ri ≤ ri−1 for all layers. This constraint arises from VLCache’s core
+mechanism: it reuses hidden states of retained tokens from upper layers and skips their corresponding
+attention and MLP computations in subsequent layers. If a deeper layer were assigned a higher
+recomputation rate than the shallow layer, it would require recomputing hidden states for tokens
+that were not retained (and thus not available for reuse) by the shallow layer. This will violate the
+reuse assumption and introduce redundant computation, which directly contradicts the acceleration
+objective.
+4.2
+
+SGLang Integration of VLCache
+
+For evaluation, we implement the proposed VLCache pipeline as a prototype based on the SGLang
+framework. Our integration introduces two key modifications: (1) skipping ViT computation via
+hash-based image embedding caching, and (2) skipping attention and MLP computation through
+per-image adaptive recomputation with fine-grained KV cache reuse.
+For the ViT encoder, we implement request-level embedding reuse based on content hashing. Upon
+receiving a multimodal request, SGLang computes a global hash over the concatenated pixel values
+of all input images. If this hash matches a previously processed request, the precomputed image
+embeddings are retrieved from a distributed key-value store which is Tair KVCache Store in practice,
+entirely bypassing ViT computation. Otherwise, embeddings are computed and stored for future
+reuse.
+To support image-level KV cache reuse, each image in a request is assigned an individual hash based
+on its pixel content. These per-image hashes enable fine-grained identification of reused visual content
+across varying contexts, enabling modular cache management. We store the KV cache before rotary
+position embedding (RoPE) is applied. Building on this, we implement adaptive recomputation in
+different attention layers using Block Sparse Attention. At each layer, a recompute ratio r determines
+the fraction of tokens to recompute per image. For an image with T tokens, only the first ⌊r · T ⌋
+tokens undergo full attention computation; the remainder reuse their KV states from prior executions,
+indexed by the corresponding image hash. In practice, we construct a computation mask at each
+layer to identify which tokens require computation or not. This binary mask is used to index into the
+input hidden states, extracting only the subset of tokens designated for fresh processing. The selected
+tokens are then passed through RoPE and fed into the attention kernel for computation.
+These features are seamlessly integrated into SGLang’s execution engine. The system transparently
+accelerates VLM inference, enabling efficient deployment of long-context multimodal workloads.
+6
+
+Table 1: Speedup for Qwen3-VL-8B
+1K
+
+3K
+
+5K
+
+10K
+
+20K
+
+Configuration
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+Origin
+w/o ViT
+Static (r=0.3)
+Static (r=0.2)
+Static (r=0.1)
+Static (r=0.0)
+Dynamic (r̄ = 0.035)
+Dynamic (r̄ = 0.025)
+
+0.392
+0.286
+0.249
+0.229
+0.230
+0.227
+0.253
+0.259
+
+1.00x
+1.37x
+1.57x
+1.71x
+1.70x
+1.73x
+1.55x
+1.51x
+
+1.176
+0.962
+0.794
+0.752
+0.720
+0.692
+0.750
+0.728
+
+1.00x
+1.22x
+1.48x
+1.56x
+1.63x
+1.70x
+1.57x
+1.62x
+
+1.993
+1.631
+1.306
+1.235
+1.208
+1.133
+1.222
+1.258
+
+1.00x
+1.22x
+1.53x
+1.61x
+1.65x
+1.76x
+1.63x
+1.58x
+
+4.087
+3.428
+2.592
+2.428
+2.361
+2.206
+2.408
+2.438
+
+1.00x
+1.19x
+1.58x
+1.68x
+1.73x
+1.85x
+1.70x
+1.68x
+
+8.784
+7.565
+5.341
+4.945
+4.666
+4.430
+4.823
+4.714
+
+1.00x
+1.16x
+1.64x
+1.78x
+1.88x
+1.98x
+1.82x
+1.86x
+
+Table 2: Speedup for Qwen3-VL-32B
+1K
+
+3K
+
+5K
+
+10K
+
+20K
+
+Configuration
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+Origin
+w/o ViT
+Static (r=0.3)
+Static (r=0.2)
+Static (r=0.1)
+Static (r=0.0)
+Dynamic (r̄ = 0.035)
+Dynamic (r̄ = 0.025)
+
+0.772
+0.701
+0.423
+0.368
+0.330
+0.306
+0.393
+0.383
+
+1.00x
+1.10x
+1.83x
+2.10x
+2.34x
+2.52x
+1.96x
+2.02x
+
+2.501
+2.218
+1.337
+1.098
+0.963
+0.792
+0.995
+1.023
+
+1.00x
+1.13x
+1.87x
+2.28x
+2.60x
+3.16x
+2.51x
+2.44x
+
+4.186
+3.761
+2.183
+1.901
+1.551
+1.313
+1.643
+1.651
+
+1.00x
+1.11x
+1.92x
+2.20x
+2.70x
+3.19x
+2.55x
+2.54x
+
+8.927
+8.078
+4.335
+3.787
+2.984
+2.522
+3.136
+3.160
+
+1.00x
+1.11x
+2.06x
+2.36x
+2.99x
+3.54x
+2.85x
+2.83x
+
+20.279
+18.549
+9.102
+7.794
+6.099
+5.144
+6.399
+6.375
+
+1.00x
+1.09x
+2.23x
+2.60x
+3.32x
+3.94x
+3.17x
+3.18x
+
+5
+
+Experiments and Discussion
+
+5.1
+
+Acceleration of VLCache
+
+We evaluate the effectiveness of VLCache in reducing Time to First Token (TTFT) on Qwen3-VL-8B
+and Qwen3-VL-32B using an NVIDIA H20-3e GPU. Each input prompt follows the format:
+<text><image_1><image_2>...<image_n>,
+where the number of images varies across requests, simulating realistic multimodal workloads.
+Experiments are conducted with varying total input lengths (including both text and image tokens)
+under the following four configurations:
+• Origin: Baseline setup with full computation;
+• w/o ViT: Skip ViT computation by reusing cached image embeddings;
+• Static Recompute: Skip ViT using cached image embeddings, and skip attention and MLP
+computation with a uniform recompute ratio r applied across all layers;
+• Dynamic Recompute: Skip ViT using cached image embeddings, and skip attention and
+MLP computation with layer-adaptive recompute ratios. The average recompute ratio is
+denoted as r̄.
+To measure the sensitivity of a specific layer, we randomly select 40 samples from the training set to
+construct an auxiliary dataset D. The specific recomputation ratio for each model can be viewed in
+our code.
+Table 1 - 2 present the detailed TTFT acceleration results. Here, the text remains fixed at 20 tokens,
+and the terms like ‘1K’, ‘3K’ refer to the length of the image tokens. For Qwen3-VL series models,
+we observe substantial speedups of up to 3.9x. The acceleration is predominantly attributable to KV
+cache reuse, as a result of the more efficient ViT module architecture in the model. The speedup
+becomes more pronounced as the number of image tokens increases, since KV cache reuse effectively
+reduces the computationally intensive attention operation with O(n2 ) complexity. To minimize the
+recomputation rate, we employ a dynamic recomputation scheme, which introduces a small overhead
+but maintains significant speedup, especially for longer input sequences.
+7
+
+Table 3: Accuracy Preservation for Qwen3-VL-8B
+Dataset
+
+r = 0.0
+
+r̄ = 0.025
+
+r̄ = 0.035
+
+r = 0.1
+
+r = 0.2
+
+r = 0.3
+
+r = 1.0
+
+MMMU-VAL
+MMMU-Pro-Standard
+MMMU-Pro-Vision
+MathVista-MINI
+HallusionBench
+MBench-DEV-CN-V11
+MBench-DEV-EN-V11
+RealWorldQA
+AI2D-TEST
+ChartQA-TEST
+DocVQA-VAL
+
+67.44
+53.82
+53.12
+77.00
+58.97
+84.13
+85.14
+71.13
+85.27
+83.60
+94.84
+
+67.33
+54.28
+53.29
+77.20
+60.17
+84.37
+85.91
+71.76
+84.75
+84.44
+95.15
+
+67.00
+54.68
+53.93
+77.00
+60.28
+84.29
+85.84
+71.76
+85.01
+84.44
+95.15
+
+68.00
+54.05
+52.49
+77.60
+60.45
+84.06
+85.45
+71.76
+85.20
+84.44
+95.08
+
+67.22
+53.53
+53.29
+77.60
+59.18
+84.37
+85.91
+72.03
+84.68
+84.08
+95.13
+
+66.56
+54.51
+52.60
+77.70
+60.59
+84.75
+86.15
+71.37
+85.49
+84.12
+95.14
+
+66.33
+54.10
+52.14
+77.80
+61.78
+85.53
+85.91
+70.98
+85.43
+84.24
+95.09
+
+Mean
+
+74.04
+
+74.42
+
+74.49
+
+74.42
+
+74.27
+
+74.45
+
+74.48
+
+Table 4: Accuracy Preservation for Qwen3-VL-32B
+Dataset
+
+r = 0.0
+
+r̄ = 0.025
+
+r̄ = 0.035
+
+r = 0.1
+
+r = 0.2
+
+r = 0.3
+
+r = 1.0
+
+MMMU-VAL
+MMMU-Pro-Standard
+MMMU-Pro-Vision
+MathVista-MINI
+HallusionBench
+MBench-DEV-CN-V11
+MBench-DEV-EN-V11
+RealWorldQA
+AI2D-TEST
+ChartQA-TEST
+DocVQA-VAL
+
+73.78
+64.57
+61.01
+82.90
+62.53
+88.70
+89.32
+79.35
+88.21
+83.00
+95.83
+
+74.44
+63.93
+61.21
+82.90
+63.52
+89.01
+89.09
+80.65
+88.70
+83.64
+95.78
+
+73.44
+65.20
+62.77
+82.90
+62.90
+89.40
+89.09
+79.87
+88.83
+83.56
+95.84
+
+74.11
+63.76
+62.60
+83.30
+62.43
+89.09
+89.32
+80.26
+88.99
+83.96
+95.80
+
+73.67
+65.09
+62.02
+82.70
+61.81
+89.01
+89.09
+79.08
+88.99
+84.48
+95.87
+
+74.78
+63.70
+62.43
+83.00
+63.48
+88.62
+89.55
+78.95
+88.80
+84.32
+95.70
+
+73.00
+63.18
+61.68
+82.10
+64.13
+88.70
+89.47
+78.69
+88.89
+86.92
+95.87
+
+Mean
+
+79.01
+
+79.35
+
+79.44
+
+79.42
+
+79.26
+
+79.39
+
+79.33
+
+5.2
+
+Accuracy Preservation of VLCache
+
+We assess the near-lossless performance of VLCache across a broad suite of vision–language benchmarks, covering general visual question answering, visual mathematics, OCR-based tasks, and
+hallucinations. The experiments are conducted in the following manner:
+• Extract the images from the dataset, and pair each image with a relevant query to construct
+an auxiliary prompt;
+• Construct the encoder cache and KV cache pool by input the auxiliary prompt;
+• Send the formal prompt and evaluate the model response.
+The results are shown in Table 3 - Table 4. For example, across the datasets in Table 3, VLCache
+maintains accuracy extremely well even at low recomputation rates. For example, at r = 0.1, most
+datasets show accuracy values nearly identical to the r = 1.0 (full-recompute) baseline. Datasets
+such as MMMU-VAL, MathVista-MINI, RealWorldQA, ChartQA-TEST, and DocVQA-VAL all
+remain within roughly 0–1 percentage points of their full-recompute accuracy. More challenging
+benchmarks, such as HallusionBench or MBench-DEV-CN-V11, display similarly tight accuracy
+preservation, with changes typically under 1–2 points.
+Besides, our dynamic KV-cache recomputation strategy achieves remarkable accuracy preservation
+across diverse multimodal benchmarks—even at very low recomputation rates. Notably, the mean
+accuracy peaks at r̄ = 0.035 (74.49). This advantage stems from our layer-wise dynamic allocation of recomputation budget: rather than uniformly recompute tokens across layers (as in static
+schemes), our method preferentially targets layers and tokens where cache staleness most harms
+model output—yielding higher fidelity at lower cost.
+8
+
+Table 5: Performance comparison of our method and prior SOTA on Qwen3-VL-8B. ‘Cache’ uses
+KV-cache distance for matching (CacheBlend), while ‘Attn.’ uses attention-map–based matching
+(KVShare).
+r = 0.1
+
+Metric
+
+r = 0.2
+
+r = 0.3
+
+Ours
+
+Cache
+
+Attn.
+
+Ours
+
+Cache
+
+Attn.
+
+Ours
+
+Cache
+
+Attn.
+
+MMMU-VAL
+MMMU-Pro-Standard
+MMMU-Pro-Vision
+MathVista-MINI
+MathVision
+MBench-DEV-CN-V11
+MBench-DEV-EN-V11
+RealWorldQA
+AI2D-TEST
+ChartQA-TEST
+DocVQA-VAL
+
+68.00
+54.05
+52.49
+77.60
+60.45
+84.06
+85.45
+71.76
+85.20
+84.44
+95.08
+
+68.89
+54.45
+53.41
+76.40
+58.72
+84.13
+84.91
+71.37
+85.98
+83.64
+95.17
+
+68.45
+54.22
+52.10
+75.95
+58.20
+83.55
+84.30
+70.80
+84.85
+83.10
+94.55
+
+67.22
+53.53
+53.29
+77.60
+59.18
+84.37
+85.91
+72.03
+84.68
+84.08
+95.13
+
+67.56
+53.29
+52.31
+76.70
+60.09
+84.91
+85.45
+70.98
+85.10
+83.44
+95.19
+
+67.20
+53.30
+52.65
+77.15
+59.70
+84.10
+85.85
+71.10
+84.20
+82.95
+94.60
+
+66.56
+54.51
+52.60
+77.70
+60.59
+84.75
+86.15
+71.37
+85.49
+84.12
+95.14
+
+65.78
+54.45
+53.70
+76.90
+59.29
+84.52
+85.72
+71.50
+85.17
+83.44
+95.18
+
+65.95
+55.08
+52.02
+76.08
+58.40
+83.95
+85.10
+70.65
+84.45
+83.80
+94.50
+
+Mean
+
+74.42
+
+74.28
+
+73.64
+
+74.27
+
+74.09
+
+73.89
+
+74.45
+
+74.15
+
+73.63
+
+Overall, the tables demonstrate that VLCache can maintain 99% accuracy at low recomputation
+rates, with accuracy steadily increasing as r grows, and that dynamic recomputation provides better
+performance compared to static approaches.
+5.3
+
+Comparisons with Other SOTA Methods
+
+We conduct comparison experiments between our proposed VLCache and two state-of-the-art baselines, i.e., CacheBlend [14] and KVShare [13] under identical hyperparameter settings. Without
+employing our dynamic strategy, we adopt a uniform recomputation rate across all layers—specifically
+10%, 20%, and 30%. As shown in Table 5, VLCache consistently outperforms both baselines at every
+recomputation rate, demonstrating its effectiveness, robustness, and the validity of the underlying
+cumulative reuse error effect.
+
+6
+
+Conclusion
+
+In this work, we propose VLCache, a cache reuse scheme designed to accelerate the prefill stage
+of VLMs while preserving inference accuracy. VLCache provides a holistic design that integrates
+algorithmic optimizations and system-level implementations, achieving significant acceleration
+without compromising accuracy. It demonstrates substantial speedup over standard VLM inference,
+especially in scenarios where multiple queries are paired with a same set of images to become
+overlapping requests. Following this work, future explorations could investigate extending cache
+reuse to similar visual inputs, enabling broader applicability across diverse multi-query or multi-image
+tasks.
+
+9
+
+References
+[1] Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, Xiaodong Deng, Yang Fan, Wenbin
+Ge, Yu Han, Fei Huang, Binyuan Hui, Luo Ji, Mei Li, Junyang Lin, Runji Lin, Dayiheng Liu,
+Gao Liu, Chengqiang Lu, Keming Lu, Jianxin Ma, Rui Men, Xingzhang Ren, Xuancheng Ren,
+Chuanqi Tan, Sinan Tan, Jianhong Tu, Peng Wang, Shijie Wang, Wei Wang, Shengguang Wu,
+Benfeng Xu, Jin Xu, An Yang, Hao Yang, Jian Yang, Shusheng Yang, Yang Yao, Bowen Yu,
+Hongyi Yuan, Zheng Yuan, Jianwei Zhang, Xingxuan Zhang, Yichang Zhang, Zhenru Zhang,
+Chang Zhou, Jingren Zhou, Xiaohuan Zhou, and Tianhang Zhu. Qwen technical report. arXiv
+preprint arXiv:2309.16609, 2023.
+[2] Jinze Bai, Shuai Bai, Shusheng Yang, Shijie Wang, Sinan Tan, Peng Wang, Junyang Lin, Chang
+Zhou, and Jingren Zhou. Qwen-vl: A versatile vision-language model for understanding,
+localization, text reading, and beyond. arXiv preprint arXiv:2308.12966, 2023.
+[3] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang,
+Shijie Wang, Jun Tang, Humen Zhong, Yuanzhi Zhu, Mingkun Yang, Zhaohai Li, Jianqiang
+Wan, Pengfei Wang, Wei Ding, Zheren Fu, Yiheng Xu, Jiabo Ye, Xi Zhang, Tianbao Xie, Zesen
+Cheng, Hang Zhang, Zhibo Yang, Haiyang Xu, and Junyang Lin. Qwen2.5-vl technical report.
+arXiv preprint arXiv:2502.13923, 2025.
+[4] Mostafa Dehghani, Basil Mustafa, Josip Djolonga, Jonathan Heek, Matthias Minderer, Mathilde
+Caron, Andreas Steiner, Joan Puigcerver, Robert Geirhos, Ibrahim M Alabdulmohsin, Avital
+Oliver, Piotr Padlewski, Alexey Gritsenko, Mario Lucic, and Neil Houlsby. Patch n’ pack: Navit,
+a vision transformer for any aspect ratio and resolution. In Advances in Neural Information
+Processing Systems, volume 36, pages 2252–2274, 2023.
+[5] Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai,
+Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly,
+Jakob Uszkoreit, and Neil Houlsby. An image is worth 16x16 words: Transformers for image
+recognition at scale. In International Conference on Learning Representations (ICLR), 2021.
+[6] Junhao Hu, Wenrui Huang, Weidong Wang, Haoyi Wang, tiancheng hu, zhang qin, Hao Feng,
+Xusheng Chen, Yizhou Shan, and Tao Xie. EPIC: Efficient position-independent caching
+for serving large language models. In Proceedings of the 42nd International Conference on
+Machine Learning, 2025.
+[7] Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu,
+Joseph E. Gonzalez, Hao Zhang, and Ion Stoica. Efficient memory management for large language model serving with pagedattention. In Proceedings of the ACM SIGOPS 29th Symposium
+on Operating Systems Principles, 2023.
+[8] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez,
+Ł ukasz Kaiser, and Illia Polosukhin. Attention is all you need. In Advances in Neural
+Information Processing Systems 30, volume 30, pages 5998–6008, 2017.
+[9] Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan, Jinze Bai, Keqin Chen, Xuejing
+Liu, Jialin Wang, Wenbin Ge, Yang Fan, Kai Dang, Mengfei Du, Xuancheng Ren, Rui Men,
+Dayiheng Liu, Chang Zhou, Jingren Zhou, and Junyang Lin. Qwen2-vl: Enhancing visionlanguage model’s perception of the world at any resolution. arXiv preprint arXiv:2409.12191,
+2024.
+[10] An Yang, Baosong Yang, Binyuan Hui, Bo Zheng, Bowen Yu, Chang Zhou, Chengpeng Li,
+Chengyuan Li, Dayiheng Liu, Fei Huang, Guanting Dong, Haoran Wei, Huan Lin, Jialong
+Tang, Jialin Wang, Jian Yang, Jianhong Tu, Jianwei Zhang, Jianxin Ma, Jin Xu, Jingren Zhou,
+Jinze Bai, Jinzheng He, Junyang Lin, Kai Dang, Keming Lu, Keqin Chen, Kexin Yang, Mei Li,
+Mingfeng Xue, Na Ni, Pei Zhang, Peng Wang, Ru Peng, Rui Men, Ruize Gao, Runji Lin, Shijie
+Wang, Shuai Bai, Sinan Tan, Tianhang Zhu, Tianhao Li, Tianyu Liu, Wenbin Ge, Xiaodong
+Deng, Xiaohuan Zhou, Xingzhang Ren, Xinyu Zhang, Xipin Wei, Xuancheng Ren, Yang Fan,
+Yang Yao, Yichang Zhang, Yu Wan, Yunfei Chu, Yuqiong Liu, Zeyu Cui, Zhenru Zhang, and
+Zhihao Fan. Qwen2 technical report. arXiv preprint arXiv:2407.10671, 2024.
+10
+
+[11] An Yang, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng, Bowen Yu, Chengyuan
+Li, Dayiheng Liu, Fei Huang, Haoran Wei, Huan Lin, Jian Yang, Jianhong Tu, Jianwei Zhang,
+Jianxin Yang, Jiaxi Yang, Jingren Zhou, Junyang Lin, Kai Dang, Keming Lu, Keqin Bao, Kexin
+Yang, Le Yu, Mei Li, Mingfeng Xue, Pei Zhang, Qin Zhu, Rui Men, Runji Lin, Tianhao Li,
+Tingyu Xia, Xingzhang Ren, Xuancheng Ren, Yang Fan, Yang Su, Yichang Zhang, Yu Wan,
+Yuqiong Liu, Zeyu Cui, Zhenru Zhang, and Zihan Qiu. Qwen2.5 technical report. arXiv preprint
+arXiv:2412.15115, 2024.
+[12] An Yang, Anfeng Li, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng, Bowen Yu,
+Chang Gao, Chengen Huang, Chenxu Lv, Chujie Zheng, Dayiheng Liu, Fan Zhou, Fei Huang,
+Feng Hu, Hao Ge, Haoran Wei, Huan Lin, Jialong Tang, Jian Yang, Jianhong Tu, Jianwei Zhang,
+Jianxin Yang, Jiaxi Yang, Jing Zhou, Jingren Zhou, Junyang Lin, Kai Dang, Keqin Bao, Kexin
+Yang, Le Yu, Lianghao Deng, Mei Li, Mingfeng Xue, Mingze Li, Pei Zhang, Peng Wang, Qin
+Zhu, Rui Men, Ruize Gao, Shixuan Liu, Shuang Luo, Tianhao Li, Tianyi Tang, Wenbiao Yin,
+Xingzhang Ren, Xinyu Wang, Xinyu Zhang, Xuancheng Ren, Yang Fan, Yang Su, Yichang
+Zhang, Yinger Zhang, Yu Wan, Yuqiong Liu, Zekun Wang, Zeyu Cui, Zhenru Zhang, Zhipeng
+Zhou, and Zihan Qiu. Qwen3 technical report. arXiv preprint arXiv:2505.09388, 2025.
+[13] Huan Yang, Renji Zhang, Mingzhe Huang, Weijun Wang, Yin Tang, Yuanchun Li, Yunxin Liu,
+and Deyu Zhang. KVShare: An llm service system with efficient and effective multi-tenant kv
+cache reuse. arXiv preprint arXiv:2503.16525, 2025.
+[14] Jiayi Yao, Hanchen Li, Yuhan Liu, Siddhant Ray, Yihua Cheng, Qizheng Zhang, Kuntai Du,
+Shan Lu, and Junchen Jiang. CacheBlend: Fast large language model serving for rag with
+cached knowledge fusion. In Proceedings of the Twentieth European Conference on Computer
+Systems, page 94–109, 2025.
+[15] Xiang Yue, Tianyu Zheng, Yuansheng Ni, Yubo Wang, Kai Zhang, Shengbang Tong, Yuxuan
+Sun, Botao Yu, Ge Zhang, Huan Sun, Yu Su, Wenhu Chen, and Graham Neubig. MMMU-pro:
+A more robust multi-discipline multimodal understanding benchmark. In Proceedings of the
+63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers),
+pages 15134–15186, 2025.
+[16] Shiju Zhao, Junhao Hu, Rongxiao Huang, Jiaqi Zheng, and Guihai Chen. MPIC: Positionindependent multimodal context caching system for efficient mllm serving. arXiv preprint
+arXiv:2502.01960, 2025.
+[17] Lianmin Zheng, Liangsheng Yin, Zhiqiang Xie, Chuyue Sun, Jeff Huang, Cody Hao Yu, Shiyi
+Cao, Christos Kozyrakis, Ion Stoica, Joseph E. Gonzalez, Clark Barrett, and Ying Sheng. Sglang:
+Efficient execution of structured language model programs. In Advances in Neural Information
+Processing Systems, volume 37, pages 62557–62583, 2024.
+
+11
+
+A
+
+Additional Results
+
+A.1
+
+Comparing Recomputing Earlier v.s. Later Tokens
+
+To determine which strategy yields lower reuse error, we compare allocating the recomputation budget
+to earlier versus later tokens. As shown in Fig. 5, recomputing earlier tokens significantly reduces the
+accumulated error. In contrast, recomputing later tokens provides only limited improvement, since
+early-stage errors have already propagated through the sequence, resulting in substantially higher
+overall error.
+Layer 5
+
+Layer 15
+
+gen text
+
+image
+
+image
+
+15
+
+300
+
+150
+
+Error Norm
+
+Error Norm
+
+20
+
+100
+
+10
+
+0
+
+0
+0
+
+250
+
+500
+
+750 1000 1250
+Token Index
+
+1500
+
+1750
+
+2000
+
+200
+100
+
+50
+
+5
+
+gen text
+
+400
+
+200
+
+25
+Error Norm
+
+Layer 10
+
+250
+
+gen text
+
+image
+30
+
+0
+0
+
+250
+
+500
+
+750 1000 1250
+Token Index
+
+1500
+
+1750
+
+2000
+
+0
+
+250
+
+500
+
+Recomp 0.0
+Later
+750 1000 1250Recomp
+15000.3
+1750Tokens
+2000
+Recomp
+0.3 Earlier
+Tokens
+Token Index
+
+Figure 5: The reuse error of recomputing earlier tokens versus later tokens. Earlier token recomputation cancels out more reuse error and slows down the error propagation, leading to significantly lower
+error in generated texts.
+
+A.2
+
+Additional Results on Qwen2.5-VL Models
+
+To further demonstrate the effectiveness of our method, we also conducted relevant experiments on
+Qwen2.5VL-7B and Qwen2.5VL-32B. The speed and accuracy results are shown in the Table 6 Table 9 below.
+We can draw the same conclusion. As the recomputation rate increases from r = 0.0 toward r = 1.0,
+most datasets show a gradual upward trend. For instance, MMMU-VAL rises from 56.78 to 58.00,
+MathVision from 25.20 to 25.39, and RealWorldQA from 68.50 to 69.02. While a few datasets exhibit
+small oscillations (e.g., MMMU-Pro-Vision, AI2D-TEST), the overall average accuracy improves as
+more tokens are recomputed.
+Moreover, the results highlight that the layer-wise dynamic KV cache recomputation scheme achieves
+higher accuracy than static recomputation at the same recomputation rate. This advantage is especially
+visible at intermediate rates (e.g., r = 0.1–0.3), where dynamic recomputation yields accuracy that is
+notably closer to the full-recompute values.
+A.3
+
+Additional Results on Qwen3-VL Models
+
+To further demonstrate the effectiveness of our method, we evaluate the inference-time efficiency and
+accuracy trade-offs of various vision compression strategies on Qwen3-VL-30B-A3B model.
+As shown in Table 10, though the overall acceleration is lower, we have consistently achieved a
+20%-80% TTFT acceleration. Crucially, Table 11 demonstrates that aggressive compression incurs
+minimal accuracy degradation, i.e., VLCache with r̄ = 0.035 outperforms the baseline in mean
+accuracy (76.52 v.s. 76.47). This further supports the robustness of our approach. Overall, these
+results reveal a highly favorable Pareto frontier, i.e., up to 1.79× faster TTFT with no loss, and
+sometimes improvement in accuracy.
+
+12
+
+Table 6: Speedup for Qwen2.5-VL-7B
+1.4K
+
+3.6K
+
+5K
+
+10K
+
+20K
+
+Configuration
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+Origin
+w/o ViT
+Static (r=0.3)
+Static (r=0.2)
+Static (r=0.1)
+Static (r=0.0)
+Dynamic (r̄ = 0.1)
+Dynamic (r̄ = 0.05)
+
+0.635
+0.322
+0.251
+0.231
+0.216
+0.210
+0.255
+0.232
+
+1.00x
+1.97x
+2.53x
+2.75x
+2.94x
+3.02x
+2.49x
+2.74x
+
+2.631
+0.985
+0.722
+0.673
+0.612
+0.606
+0.712
+0.699
+
+1.00x
+2.67x
+3.64x
+3.91x
+4.30x
+4.34x
+3.70x
+3.76x
+
+4.398
+1.334
+0.987
+0.936
+0.844
+0.825
+0.957
+0.879
+
+1.00x
+3.30x
+4.46x
+4.70x
+5.21x
+5.33x
+4.60x
+5.00x
+
+16.160
+2.693
+2.006
+1.877
+1.740
+1.626
+1.912
+1.885
+
+1.00x
+6.00x
+8.06x
+8.61x
+9.29x
+9.94x
+8.45x
+8.57x
+
+62.750
+6.251
+4.402
+4.054
+3.847
+3.701
+4.130
+3.966
+
+1.00x
+10.04x
+14.25x
+15.48x
+16.31x
+16.95x
+15.19x
+15.82x
+
+Table 7: Accuracy Preservation for Qwen2.5-VL-7B
+Dataset
+
+r = 0.0
+
+r̄ = 0.01
+
+r̄ = 0.02
+
+r̄ = 0.05
+
+r = 0.1
+
+r̄ = 0.1
+
+r = 0.2
+
+r = 0.3
+
+r = 1.0
+
+MMMU-VAL
+MMMU-Pro-Standard
+MMMU-Pro-Vision
+MathVista-MINI
+MathVision
+HallusionBench
+MBench-DEV-CN-V11
+MBench-DEV-EN-V11
+RealWorldQA
+AI2D-TEST
+ChartQA-TEST
+DocVQA-VAL
+
+56.78
+41.16
+33.24
+67.00
+25.20
+50.54
+80.88
+83.20
+68.50
+84.26
+86.08
+94.61
+
+56.78
+41.50
+34.45
+67.20
+24.51
+50.46
+81.04
+83.13
+68.50
+84.13
+85.92
+94.61
+
+57.11
+41.56
+34.91
+65.80
+25.66
+51.24
+80.88
+83.28
+68.76
+84.23
+86.24
+94.60
+
+57.78
+41.56
+34.91
+66.90
+26.05
+50.37
+80.96
+83.13
+68.37
+84.26
+86.20
+94.58
+
+57.00
+40.87
+34.68
+67.40
+25.82
+50.15
+81.04
+83.05
+68.50
+84.07
+86.40
+94.60
+
+57.33
+41.10
+35.90
+67.60
+26.35
+50.66
+80.88
+82.89
+68.63
+84.20
+86.44
+94.63
+
+57.33
+41.10
+35.09
+68.80
+25.56
+50.76
+81.11
+82.89
+68.24
+84.03
+86.24
+94.58
+
+57.44
+40.69
+36.99
+68.50
+26.22
+50.81
+81.35
+83.13
+68.50
+84.20
+86.40
+94.43
+
+58.00
+40.87
+36.99
+68.40
+25.39
+53.13
+82.20
+84.13
+69.02
+84.13
+87.40
+94.74
+
+Mean
+
+64.29
+
+64.35
+
+64.52
+
+64.59
+
+64.47
+
+64.72
+
+64.64
+
+64.88
+
+65.37
+
+Table 8: Speedup for Qwen2.5-VL-32B
+1.4K
+
+3.6K
+
+5K
+
+10K
+
+20K
+
+Configuration
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+Origin
+w/o ViT
+Static (r=0.3)
+Static (r=0.2)
+Static (r=0.1)
+Static (r=0.0)
+Dynamic (r̄ = 0.04)
+Dynamic (r̄ = 0.02)
+
+1.176
+0.873
+0.503
+0.457
+0.375
+0.325
+0.391
+0.397
+
+1.00x
+1.35x
+2.34x
+2.57x
+3.14x
+3.62x
+3.01x
+2.96x
+
+3.961
+2.342
+1.303
+1.073
+0.944
+0.620
+0.929
+0.920
+
+1.00x
+1.69x
+3.04x
+3.69x
+4.20x
+6.39x
+4.26x
+4.31x
+
+6.525
+3.226
+1.777
+1.488
+1.275
+0.820
+1.181
+1.201
+
+1.00x
+2.02x
+3.67x
+4.39x
+5.12x
+7.96x
+5.52x
+5.43x
+
+20.110
+6.865
+3.494
+2.969
+2.707
+1.905
+2.443
+2.469
+
+1.00x
+2.93x
+5.76x
+6.77x
+7.43x
+10.56x
+8.23x
+8.14x
+
+70.570
+15.351
+7.649
+6.308
+5.444
+4.181
+5.406
+5.286
+
+1.00x
+4.60x
+9.23x
+11.19x
+12.96x
+16.88x
+13.05x
+13.35x
+
+Table 9: Accuracy Preservation for Qwen2.5-VL-32B
+Dataset
+
+r = 0.0
+
+r̄ = 0.02
+
+r̄ = 0.04
+
+r = 0.1
+
+r = 0.2
+
+r = 0.3
+
+r = 1.0
+
+MMMU-VAL
+MMMU-Pro-Standard
+MMMU-Pro-Vision
+MathVista-MINI
+MathVision
+HallusionBench
+MBench-DEV-CN-V11
+MBench-DEV-EN-V11
+RealWorldQA
+AI2D-TEST
+ChartQA-TEST
+DocVQA-VAL
+
+66.56
+51.50
+45.26
+75.70
+38.55
+57.20
+85.14
+86.30
+69.54
+85.33
+68.92
+92.52
+
+67.00
+52.25
+46.65
+75.30
+38.95
+56.78
+85.53
+86.46
+70.20
+85.65
+69.72
+92.55
+
+67.89
+52.08
+47.28
+75.60
+38.45
+57.21
+85.29
+86.53
+70.46
+85.30
+69.44
+92.54
+
+67.89
+51.85
+45.95
+75.00
+39.61
+57.55
+85.22
+86.22
+69.54
+85.78
+69.64
+92.73
+
+66.67
+51.91
+45.78
+74.20
+39.87
+57.46
+85.06
+86.84
+69.67
+85.85
+70.20
+92.44
+
+66.78
+51.62
+46.53
+74.10
+39.77
+56.41
+85.22
+86.76
+69.41
+85.88
+70.92
+92.50
+
+67.00
+51.91
+46.59
+74.30
+39.41
+57.17
+85.45
+86.61
+70.85
+85.52
+74.60
+92.68
+
+Mean
+
+68.54
+
+68.92
+
+69.01
+
+68.92
+
+68.83
+
+68.83
+
+69.34
+
+13
+
+Table 10: Speedup for Qwen3-VL-30B-A3B
+1K
+
+3K
+
+5K
+
+10K
+
+20K
+
+Configuration
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+TTFT
+
+Speedup
+
+Origin
+w/o ViT
+Static (r=0.3)
+Static (r=0.2)
+Static (r=0.1)
+Static (r=0.0)
+Dynamic (r̄ = 0.035)
+Dynamic (r̄ = 0.025)
+
+0.350
+0.322
+0.314
+0.299
+0.283
+0.327
+0.310
+0.317
+
+1.00x
+1.09x
+1.11x
+1.17x
+1.24x
+1.07x
+1.13x
+1.10x
+
+1.052
+0.815
+0.756
+0.750
+0.752
+0.747
+0.761
+0.785
+
+1.00x
+1.29x
+1.39x
+1.40x
+1.40x
+1.41x
+1.38x
+1.34x
+
+1.802
+1.418
+1.233
+1.245
+1.280
+1.226
+1.215
+1.216
+
+1.00x
+1.27x
+1.46x
+1.45x
+1.41x
+1.76x
+1.47x
+1.48x
+
+3.758
+3.006
+2.447
+2.369
+2.462
+2.385
+2.325
+2.311
+
+1.00x
+1.25x
+1.54x
+1.59x
+1.53x
+1.58x
+1.62x
+1.63x
+
+8.172
+6.931
+4.997
+4.804
+4.736
+4.697
+4.562
+4.572
+
+1.09x
+1.18x
+1.64x
+1.70x
+1.73x
+1.74x
+1.79x
+1.79x
+
+Table 11: Accuracy Preservation for Qwen3-VL-30B-A3B
+Dataset
+
+r = 0.0
+
+r̄ = 0.025
+
+r̄ = 0.035
+
+r = 0.1
+
+r = 0.2
+
+r = 0.3
+
+r = 1.0
+
+MMMU-VAL
+MMMU-Pro-Standard
+MMMU-Pro-Vision
+MathVista-MINI
+HallusionBench
+MBench-DEV-CN-V11
+MBench-DEV-EN-V11
+RealWorldQA
+AI2D-TEST
+ChartQA-TEST
+DocVQA-VAL
+
+71.00
+59.83
+53.35
+78.10
+60.61
+87.15
+87.38
+74.12
+85.40
+85.60
+94.47
+
+69.33
+60.75
+53.53
+79.80
+60.75
+86.53
+87.62
+73.99
+85.98
+85.76
+94.36
+
+70.00
+60.06
+54.51
+80.10
+61.07
+87.31
+88.24
+75.16
+85.04
+85.72
+94.48
+
+69.56
+61.27
+54.05
+79.70
+60.75
+87.00
+87.54
+74.51
+85.69
+85.60
+94.32
+
+69.44
+61.56
+53.35
+79.60
+60.65
+86.61
+87.85
+73.99
+85.40
+85.84
+94.36
+
+70.56
+60.40
+54.57
+79.90
+61.80
+87.23
+88.08
+73.73
+85.49
+86.04
+94.41
+
+70.89
+60.46
+55.49
+78.20
+62.20
+86.76
+88.47
+73.33
+84.81
+85.96
+94.59
+
+Mean
+
+76.09
+
+76.22
+
+76.52
+
+76.36
+
+76.24
+
+76.56
+
+76.47
+
+14
+
+

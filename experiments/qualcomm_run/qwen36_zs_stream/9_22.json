@@ -1,0 +1,76 @@
+{
+ "recording": "9_22",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 94,
+   "start_s": 0.0,
+   "end_s": 235.0
+  },
+  {
+   "stage": 98,
+   "start_s": 235.0,
+   "end_s": 240.0
+  },
+  {
+   "stage": 99,
+   "start_s": 240.0,
+   "end_s": 370.0
+  },
+  {
+   "stage": 101,
+   "start_s": 370.0,
+   "end_s": 550.0
+  },
+  {
+   "stage": 95,
+   "start_s": 550.0,
+   "end_s": 857.7
+  }
+ ],
+ "events": [
+  {
+   "t": 60.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. The instructions require you to melt butter in a large mug, but you are currently handling bread over a bowl.",
+   "step_id": 94
+  },
+  {
+   "t": 290.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently handling eggs, but the instruction is to cut or tear a slice of bread into bite-size pieces. Please switch to using bread.",
+   "step_id": 99
+  },
+  {
+   "t": 375.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a spoon to whisk the egg, but the instructions specify using a fork.",
+   "step_id": 101
+  },
+  {
+   "t": 700.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently washing dishes in the sink, but the instruction is to sprinkle cinnamon over an egg. You have not started the correct task.",
+   "step_id": 95
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 224,
+  "frames_sent": 855,
+  "vlm_latency_total_s": 329.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 365.3
+ }
+}

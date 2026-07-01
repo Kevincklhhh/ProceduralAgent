@@ -1,0 +1,59 @@
+{
+ "recording": "22_21",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 237,
+   "start_s": 0.0,
+   "end_s": 95.0
+  },
+  {
+   "stage": 239,
+   "start_s": 95.0,
+   "end_s": 310.0
+  },
+  {
+   "stage": 242,
+   "start_s": 310.0,
+   "end_s": 711.0
+  }
+ ],
+ "events": [
+  {
+   "t": 15.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently taking a tomato out of a bag, but the instruction is to chop cilantro.",
+   "step_id": 237
+  },
+  {
+   "t": 265.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently scooping a substance from a container with a spoon, which does not match the instruction to crack an egg into a bowl.",
+   "step_id": 239
+  },
+  {
+   "t": 335.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently washing a spoon at the sink, but the instruction is to add chopped cilantro to a bowl. You have not yet performed the required action.",
+   "step_id": 242
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 184,
+  "frames_sent": 710,
+  "vlm_latency_total_s": 270.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 296.6
+ }
+}

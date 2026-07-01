@@ -1,0 +1,86 @@
+{
+ "recording": "2_38",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 23.2,
+   "end_s": 65.5
+  },
+  {
+   "stage": 17,
+   "start_s": 61.2,
+   "end_s": 137.3
+  },
+  {
+   "stage": 16,
+   "start_s": 149.9,
+   "end_s": 171.1
+  },
+  {
+   "stage": 26,
+   "start_s": 166.8,
+   "end_s": 209.1
+  },
+  {
+   "stage": 22,
+   "start_s": 215.4,
+   "end_s": 420.3
+  },
+  {
+   "stage": 27,
+   "start_s": 424.5,
+   "end_s": 475.2
+  },
+  {
+   "stage": 19,
+   "start_s": 475.2,
+   "end_s": 540.6
+  },
+  {
+   "stage": 21,
+   "start_s": 547.0,
+   "end_s": 612.4
+  },
+  {
+   "stage": 24,
+   "start_s": 627.2,
+   "end_s": 728.6
+  },
+  {
+   "stage": 20,
+   "start_s": 737.0,
+   "end_s": 1092.0
+  },
+  {
+   "stage": 20,
+   "start_s": 1091.8,
+   "end_s": 1298.8
+  },
+  {
+   "stage": 18,
+   "start_s": 1281.0,
+   "end_s": 1323.6
+  }
+ ],
+ "events": [
+  {
+   "t": 737.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 20,
+   "message": "You skipped Pour the sauces over the meatballs and Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl; they are needed before Microwave the plate, covered, on high for 1.5 minutes."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

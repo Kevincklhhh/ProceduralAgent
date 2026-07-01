@@ -1,8 +1,9 @@
 # Research / evidence docs — NOT runtime specs
 
-These are the **provenance and evidence** behind the audio detectors: probe results,
-EPIC-SOUNDS design rationale, the full annotated catalog (with refuted alternatives and
-dated findings), and the stovetop survey. They record *how we decided what works*.
+These are the **provenance and evidence** behind the audio detectors: the full annotated
+catalog (with refuted alternatives and dated findings) and the stovetop survey. They record
+*how we decided what works*. (Probe-evidence and EPIC-SOUNDS-rationale docs were folded into
+`DETECTOR_CATALOG.md` and removed.)
 
 **The runtime system does NOT read these.** The clean, filtered, runtime-facing detector
 vocabulary the compiler binds is **`../../tasks/AUDIO_RUNTIME_LIBRARY.md`** (only measured-reliable
@@ -12,9 +13,7 @@ the runtime library wins for anything the system executes.
 | File | What it is |
 |---|---|
 | `AUDIO_RUNTIME_LIBRARY.md` (in `../../tasks/`) | **the runtime vocabulary** — start here for the system |
-| `DETECTOR_CATALOG.md` | full annotated primitive catalog + dated findings (research log) |
-| `DETECTOR_FEASIBILITY.md` | task inventory, per-detector probe evidence, cost ledger |
-| `AUDIO_LIBRARY.md` | EPIC-SOUNDS-grounded design rationale for the audio primitives |
+| `DETECTOR_CATALOG.md` | full annotated primitive catalog + dated findings + probe evidence + EPIC-SOUNDS rationale (research log) |
 | `STOVETOP_AUDIO_SURVEY.md` | A4-vs-AL head-to-head, boundary/onset/fusion measurements |
 
 Probe code + raw results: `detectors/probes/`.

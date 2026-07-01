@@ -1,0 +1,47 @@
+{
+ "recording": "2_46",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 0.0,
+   "end_s": 75.0
+  },
+  {
+   "stage": 16,
+   "start_s": 75.0,
+   "end_s": 671.7
+  }
+ ],
+ "events": [
+  {
+   "t": 25.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are peeling an onion instead of a garlic clove.",
+   "step_id": 14
+  },
+  {
+   "t": 345.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently cutting a carrot, but the instruction is to cut 1/8 of a garlic clove. Please switch to the garlic.",
+   "step_id": 16
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 193,
+  "frames_sent": 670,
+  "vlm_latency_total_s": 280.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 307.9
+ }
+}

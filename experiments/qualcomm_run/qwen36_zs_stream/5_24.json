@@ -1,0 +1,64 @@
+{
+ "recording": "5_24",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 62,
+   "start_s": 0.0,
+   "end_s": 90.0
+  },
+  {
+   "stage": 65,
+   "start_s": 90.0,
+   "end_s": 165.0
+  },
+  {
+   "stage": 67,
+   "start_s": 165.0,
+   "end_s": 580.0
+  },
+  {
+   "stage": 68,
+   "start_s": 580.0,
+   "end_s": 871.3
+  }
+ ],
+ "events": [
+  {
+   "t": 95.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently folding a paper filter, but the instruction is to weigh coffee beans. Please set the filter aside and begin weighing the beans.",
+   "step_id": 65
+  },
+  {
+   "t": 265.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are not using a coffee grinder as instructed; you are manually tearing a paper filter. Please use a coffee grinder to grind the beans.",
+   "step_id": 67
+  },
+  {
+   "t": 585.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a weighing scale to measure the water, but the instructions require you to use a measuring jug.",
+   "step_id": 68
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 213,
+  "frames_sent": 870,
+  "vlm_latency_total_s": 307.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 338.5
+ }
+}

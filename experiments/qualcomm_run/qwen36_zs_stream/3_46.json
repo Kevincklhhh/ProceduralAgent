@@ -1,0 +1,52 @@
+{
+ "recording": "3_46",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 0.0,
+   "end_s": 15.0
+  },
+  {
+   "stage": 28,
+   "start_s": 15.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": 33,
+   "start_s": 120.0,
+   "end_s": 694.4
+  }
+ ],
+ "events": [
+  {
+   "t": 70.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are reaching for a box of baking soda instead of salt. Please use salt for this step.",
+   "step_id": 28
+  },
+  {
+   "t": 160.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You spilled flour on the counter while transferring it from the spoon to the mug.",
+   "step_id": 33
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 159,
+  "frames_sent": 690,
+  "vlm_latency_total_s": 218.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 244.2
+ }
+}

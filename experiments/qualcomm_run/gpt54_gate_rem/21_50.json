@@ -1,0 +1,282 @@
+{
+ "recording": "21_50",
+ "arm": "gpt54_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 232,
+   "start_s": 25.3,
+   "end_s": 77.1
+  },
+  {
+   "stage": 221,
+   "start_s": 87.7,
+   "end_s": 113.0
+  },
+  {
+   "stage": 225,
+   "start_s": 118.3,
+   "end_s": 172.8
+  },
+  {
+   "stage": 227,
+   "start_s": 210.0,
+   "end_s": 253.9
+  },
+  {
+   "stage": 229,
+   "start_s": 327.0,
+   "end_s": 347.0
+  },
+  {
+   "stage": 231,
+   "start_s": 358.9,
+   "end_s": 466.6
+  },
+  {
+   "stage": 226,
+   "start_s": 462.0,
+   "end_s": 563.0
+  },
+  {
+   "stage": 228,
+   "start_s": 535.7,
+   "end_s": 623.5
+  },
+  {
+   "stage": 223,
+   "start_s": 624.8,
+   "end_s": 678.0
+  },
+  {
+   "stage": 230,
+   "start_s": 677.0,
+   "end_s": 780.0
+  },
+  {
+   "stage": 233,
+   "start_s": 713.9,
+   "end_s": 763.0
+  },
+  {
+   "stage": 234,
+   "start_s": 784.3,
+   "end_s": 810.9
+  },
+  {
+   "stage": 222,
+   "start_s": 810.9,
+   "end_s": 833.5
+  }
+ ],
+ "events": [
+  {
+   "t": 155.3,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1 whole banana; flag a different quantity (e.g. only half a banana).",
+   "step_id": 225,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 390.4,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The batter should be poured straight from the blender; flag spooning the batter into the pan instead of pouring directly.",
+   "step_id": 231,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 590.7,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for a fork or a fish slice spatula; flag flipping without an appropriate utensil.",
+   "step_id": 228,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 645.8,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for a small knob of butter; flag using a noticeably larger amount (e.g. a tablespoon or full spoonful).",
+   "step_id": 223,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 759.3,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The strawberry should be chopped with a knife; flag tearing it by hand, or using slicing/mincing/cutting actions instead of chopping.",
+   "step_id": 233,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 765.5,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for 20-30 seconds more; flag cooking noticeably too short or too long (e.g. only 10 seconds, or well over 30 seconds).",
+   "step_id": 230,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 765.5,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The stove should be managed appropriately once this short cook is done; flag leaving the stove on after the cook is complete.",
+   "step_id": 230,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 796.8,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for transferring to a plate; flag using a different vessel (e.g. a bowl).",
+   "step_id": 234,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 155.3,
+   "kind": "mistake",
+   "step_id": 225,
+   "win_start": 125.3,
+   "win_end": 185.3,
+   "n_frames": 32,
+   "latency_s": 3.2,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 253.9,
+   "kind": "mistake",
+   "step_id": 227,
+   "win_start": 223.9,
+   "win_end": 283.9,
+   "n_frames": 32,
+   "latency_s": 2.6,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 390.4,
+   "kind": "mistake",
+   "step_id": 231,
+   "win_start": 360.4,
+   "win_end": 420.4,
+   "n_frames": 32,
+   "latency_s": 2.6,
+   "fired": [
+    "technique"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 590.7,
+   "kind": "mistake",
+   "step_id": 228,
+   "win_start": 560.7,
+   "win_end": 620.7,
+   "n_frames": 32,
+   "latency_s": 2.8,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 607.7,
+   "kind": "mistake",
+   "step_id": 228,
+   "win_start": 577.7,
+   "win_end": 637.7,
+   "n_frames": 32,
+   "latency_s": 2.6,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 645.8,
+   "kind": "mistake",
+   "step_id": 223,
+   "win_start": 615.8,
+   "win_end": 675.8,
+   "n_frames": 32,
+   "latency_s": 2.5,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 759.3,
+   "kind": "mistake",
+   "step_id": 233,
+   "win_start": 729.3,
+   "win_end": 789.3,
+   "n_frames": 32,
+   "latency_s": 2.4,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 765.5,
+   "kind": "mistake",
+   "step_id": 230,
+   "win_start": 735.5,
+   "win_end": 795.5,
+   "n_frames": 32,
+   "latency_s": 3.0,
+   "fired": [
+    "timing",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 796.8,
+   "kind": "mistake",
+   "step_id": 234,
+   "win_start": 766.8,
+   "win_end": 826.8,
+   "n_frames": 32,
+   "latency_s": 2.8,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 9,
+  "frames_sent": 288,
+  "vlm_latency_total_s": 24.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "backend": "gpt54",
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 45.9
+ }
+}

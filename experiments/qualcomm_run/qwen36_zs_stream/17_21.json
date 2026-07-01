@@ -1,0 +1,52 @@
+{
+ "recording": "17_21",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 183,
+   "start_s": 0.0,
+   "end_s": 85.0
+  },
+  {
+   "stage": 181,
+   "start_s": 85.0,
+   "end_s": 165.0
+  },
+  {
+   "stage": 184,
+   "start_s": 165.0,
+   "end_s": 799.3
+  }
+ ],
+ "events": [
+  {
+   "t": 10.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently taking vegetables out of the refrigerator, but the instruction requires you to whisk curd in a mixing bowl. Please find a mixing bowl and some plain curd to begin the task.",
+   "step_id": 183
+  },
+  {
+   "t": 200.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently peeling a cucumber, but the instruction is to add 1/4 teaspoon of salt to the bowl. Please stop peeling and add the salt as directed.",
+   "step_id": 184
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 183,
+  "frames_sent": 795,
+  "vlm_latency_total_s": 257.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 291.2
+ }
+}

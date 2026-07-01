@@ -1,0 +1,567 @@
+{
+ "recording": "29_129",
+ "arm": "qwen36_zs_turn_cs",
+ "stage_intervals": [
+  {
+   "stage": 343,
+   "start_s": 0.0,
+   "end_s": 60.0
+  },
+  {
+   "stage": 344,
+   "start_s": 60.0,
+   "end_s": 130.0
+  },
+  {
+   "stage": 347,
+   "start_s": 130.0,
+   "end_s": 165.0
+  },
+  {
+   "stage": 346,
+   "start_s": 165.0,
+   "end_s": 180.0
+  },
+  {
+   "stage": 342,
+   "start_s": 180.0,
+   "end_s": 240.0
+  },
+  {
+   "stage": 350,
+   "start_s": 240.0,
+   "end_s": 310.0
+  },
+  {
+   "stage": 349,
+   "start_s": 310.0,
+   "end_s": 385.0
+  },
+  {
+   "stage": 348,
+   "start_s": 385.0,
+   "end_s": 415.0
+  },
+  {
+   "stage": 352,
+   "start_s": 415.0,
+   "end_s": 895.0
+  },
+  {
+   "stage": 345,
+   "start_s": 895.0,
+   "end_s": 925.1
+  }
+ ],
+ "events": [
+  {
+   "t": 45.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires adding salt to a bowl with a clean dry measuring spoon; flag a wet or contaminated measuring spoon (observed: measuring spoon was wet).",
+   "step_id": 343,
+   "choice": 1,
+   "raw": "1,3"
+  },
+  {
+   "t": 45.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires cleanly adding salt to the bowl; flag a spill during the transfer (observed: spill while adding salt to the bowl/plate).",
+   "step_id": 343,
+   "choice": 3,
+   "raw": "1,3"
+  },
+  {
+   "t": 95.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for slicing a clean baguette with a knife; flag using the wrong bread (a muffin), a soiled baguette, or the wrong tool (a peeler instead of a knife) (observed: muffin used, peeler used, soiled baguette used).",
+   "step_id": 344,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 135.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires cleanly measuring and adding basil to the bowl; flag a spill or dropping the measuring utensil during transfer (observed: spill while measuring basil to the cup, spill while measuring oregano, dropping measuring utensil while adding basil).",
+   "step_id": 347,
+   "choice": 1,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 1 (Spill/Drop):*"
+  },
+  {
+   "t": 135.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/16 cup of basil; flag a noticeably different quantity (observed: 1/8 cup or 1/4 cup basil used in multiple recordings).",
+   "step_id": 347,
+   "choice": 2,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 1 (Spill/Drop):*"
+  },
+  {
+   "t": 165.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires cleanly adding pepper to the bowl; flag a spill during the transfer, including difficulty with the container (observed: spill while adding pepper, spill while transferring from a replacement container).",
+   "step_id": 346,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 180.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/8 cup of shredded mozzarella; flag a noticeably different quantity (observed: 1/4 cup substituted in multiple recordings).",
+   "step_id": 342,
+   "choice": 1,
+   "raw": "Based on the visual evidence in the frames:\n1.  **Mistake 1 "
+  },
+  {
+   "t": 180.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires cleanly transferring mozzarella into the bowl; flag a spill during measuring or adding (observed: spill while measuring mozzarella to the cup, spill while adding mozzarella to a bowl).",
+   "step_id": 342,
+   "choice": 2,
+   "raw": "Based on the visual evidence in the frames:\n1.  **Mistake 1 "
+  },
+  {
+   "t": 240.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for cutting cherry tomatoes cleanly into halves; flag cutting into quarters, mincing, or a spill during handling (observed: cut into 4 parts, minced instead of halved, spill while taking tomatoes to cut).",
+   "step_id": 350,
+   "choice": 1,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 2**: The contain"
+  },
+  {
+   "t": 240.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe specifies cherry tomatoes; flag if a different type of tomato is used (observed: normal/regular tomatoes used instead of cherry tomatoes).",
+   "step_id": 350,
+   "choice": 2,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 2**: The contain"
+  },
+  {
+   "t": 240.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/4 cup of cherry tomatoes; flag a noticeably different quantity (observed: 1/2 cup of cherry tomatoes used instead of 1/4 cup).",
+   "step_id": 350,
+   "choice": 3,
+   "raw": "Based on the visual evidence:\n1.  **Mistake 2**: The contain"
+  },
+  {
+   "t": 315.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for brushing the olive oil onto the slices; flag pouring oil directly onto the slices or dipping the bread into oil instead of brushing (observed: olive oil poured instead of brushed, baguette dipped in oil, oil poured onto brush and then slices instead of direct brushing).",
+   "step_id": 349,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 415.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "The recipe implies moderate heat for lightly charring without scorching; flag heat set too high causing the bread to scorch, or too low preventing proper toasting (observed: toasted on high heat causing scorching, toasted on low heat).",
+   "step_id": 352,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 900.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for using a spoon to transfer the mixture; flag using a fork or hands instead of a spoon (observed: hands used instead of spoon, fork used instead of spoon in multiple recordings).",
+   "step_id": 345,
+   "choice": 2,
+   "raw": "2"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 31,
+  "frames_sent": 875,
+  "vlm_latency_total_s": 218.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 279.7,
+  "calls_reconstructed": true
+ },
+ "calls": [
+  {
+   "t": 5.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 0.0,
+   "win_end": 5.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 10.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 5.0,
+   "win_end": 10.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 15.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 10.0,
+   "win_end": 15.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 20.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 15.0,
+   "win_end": 20.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 25.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 20.0,
+   "win_end": 25.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 30.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 25.0,
+   "win_end": 30.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 35.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 30.0,
+   "win_end": 35.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 40.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 35.0,
+   "win_end": 40.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 45.0,
+   "kind": "mistake",
+   "step_id": 343,
+   "win_start": 40.0,
+   "win_end": 45.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation",
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 60.0,
+   "kind": "mistake",
+   "step_id": 344,
+   "win_start": 55.0,
+   "win_end": 60.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 65.0,
+   "kind": "mistake",
+   "step_id": 344,
+   "win_start": 60.0,
+   "win_end": 65.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 70.0,
+   "kind": "mistake",
+   "step_id": 344,
+   "win_start": 65.0,
+   "win_end": 70.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 75.0,
+   "kind": "mistake",
+   "step_id": 344,
+   "win_start": 70.0,
+   "win_end": 75.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 80.0,
+   "kind": "mistake",
+   "step_id": 344,
+   "win_start": 75.0,
+   "win_end": 80.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 85.0,
+   "kind": "mistake",
+   "step_id": 344,
+   "win_start": 80.0,
+   "win_end": 85.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 90.0,
+   "kind": "mistake",
+   "step_id": 344,
+   "win_start": 85.0,
+   "win_end": 90.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 95.0,
+   "kind": "mistake",
+   "step_id": 344,
+   "win_start": 90.0,
+   "win_end": 95.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 130.0,
+   "kind": "mistake",
+   "step_id": 347,
+   "win_start": 125.0,
+   "win_end": 130.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 135.0,
+   "kind": "mistake",
+   "step_id": 347,
+   "win_start": 130.0,
+   "win_end": 135.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique",
+    "measurement"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 165.0,
+   "kind": "mistake",
+   "step_id": 346,
+   "win_start": 160.0,
+   "win_end": 165.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 180.0,
+   "kind": "mistake",
+   "step_id": 342,
+   "win_start": 175.0,
+   "win_end": 180.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "measurement",
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 240.0,
+   "kind": "mistake",
+   "step_id": 350,
+   "win_start": 235.0,
+   "win_end": 240.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique",
+    "preparation",
+    "measurement"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 310.0,
+   "kind": "mistake",
+   "step_id": 349,
+   "win_start": 305.0,
+   "win_end": 310.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 315.0,
+   "kind": "mistake",
+   "step_id": 349,
+   "win_start": 310.0,
+   "win_end": 315.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "technique"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 385.0,
+   "kind": "mistake",
+   "step_id": 348,
+   "win_start": 380.0,
+   "win_end": 385.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 390.0,
+   "kind": "mistake",
+   "step_id": 348,
+   "win_start": 385.0,
+   "win_end": 390.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 395.0,
+   "kind": "mistake",
+   "step_id": 348,
+   "win_start": 390.0,
+   "win_end": 395.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 400.0,
+   "kind": "mistake",
+   "step_id": 348,
+   "win_start": 395.0,
+   "win_end": 400.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 415.0,
+   "kind": "mistake",
+   "step_id": 352,
+   "win_start": 410.0,
+   "win_end": 415.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "temperature"
+   ],
+   "answer": ""
+  },
+  {
+   "t": 895.0,
+   "kind": "mistake",
+   "step_id": 345,
+   "win_start": 890.0,
+   "win_end": 895.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [],
+   "answer": ""
+  },
+  {
+   "t": 900.0,
+   "kind": "mistake",
+   "step_id": 345,
+   "win_start": 895.0,
+   "win_end": 900.0,
+   "n_frames": 8,
+   "latency_s": null,
+   "fired": [
+    "preparation"
+   ],
+   "answer": ""
+  }
+ ]
+}

@@ -1,0 +1,140 @@
+{
+ "recording": "9_108",
+ "arm": "gpt54_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 94,
+   "start_s": 4.8,
+   "end_s": 100.5
+  },
+  {
+   "stage": 98,
+   "start_s": 119.7,
+   "end_s": 149.4
+  },
+  {
+   "stage": 101,
+   "start_s": 151.3,
+   "end_s": 184.8
+  },
+  {
+   "stage": 100,
+   "start_s": 192.5,
+   "end_s": 219.3
+  },
+  {
+   "stage": 95,
+   "start_s": 238.4,
+   "end_s": 257.6
+  },
+  {
+   "stage": 93,
+   "start_s": 257.6,
+   "end_s": 273.9
+  },
+  {
+   "stage": 99,
+   "start_s": 333.2,
+   "end_s": 396.4
+  },
+  {
+   "stage": 92,
+   "start_s": 398.4,
+   "end_s": 435.7
+  },
+  {
+   "stage": 91,
+   "start_s": 433.8,
+   "end_s": 552.5
+  },
+  {
+   "stage": 97,
+   "start_s": 573.6,
+   "end_s": 583.2
+  },
+  {
+   "stage": 96,
+   "start_s": 581.3,
+   "end_s": 599.5
+  }
+ ],
+ "events": [
+  {
+   "t": 62.3,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires melting the butter in a large mug; flag if the user uses a bowl or any vessel other than a mug (observed: bowl instead of mug).",
+   "step_id": 94,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 62.3,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe specifies about 30 seconds of microwave time; flag if the user runs the microwave for noticeably less (e.g. under 20 s) or more (e.g. 60 s) than 30 seconds.",
+   "step_id": 94,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 367.2,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires regular sliced bread; flag if the user uses a different bread product (e.g. English muffins instead of bread).",
+   "step_id": 99,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 62.3,
+   "kind": "mistake",
+   "step_id": 94,
+   "win_start": 32.3,
+   "win_end": 92.3,
+   "n_frames": 32,
+   "latency_s": 2.5,
+   "fired": [
+    "preparation",
+    "timing"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 367.2,
+   "kind": "mistake",
+   "step_id": 99,
+   "win_start": 337.2,
+   "win_end": 397.2,
+   "n_frames": 32,
+   "latency_s": 2.6,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 2,
+  "frames_sent": 64,
+  "vlm_latency_total_s": 5.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "backend": "gpt54",
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 9.6
+ }
+}

@@ -1,0 +1,413 @@
+{
+ "recording": "26_46",
+ "arm": "cs_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 297,
+   "start_s": 0.0,
+   "end_s": 77.9
+  },
+  {
+   "stage": 299,
+   "start_s": 78.4,
+   "end_s": 103.6
+  },
+  {
+   "stage": 304,
+   "start_s": 106.7,
+   "end_s": 138.0
+  },
+  {
+   "stage": 303,
+   "start_s": 140.1,
+   "end_s": 181.0
+  },
+  {
+   "stage": 310,
+   "start_s": 183.1,
+   "end_s": 198.6
+  },
+  {
+   "stage": 308,
+   "start_s": 210.0,
+   "end_s": 244.7
+  },
+  {
+   "stage": 301,
+   "start_s": 249.4,
+   "end_s": 253.5
+  },
+  {
+   "stage": 296,
+   "start_s": 253.5,
+   "end_s": 278.3
+  },
+  {
+   "stage": 313,
+   "start_s": 280.0,
+   "end_s": 310.5
+  },
+  {
+   "stage": 294,
+   "start_s": 313.1,
+   "end_s": 347.3
+  },
+  {
+   "stage": 300,
+   "start_s": 358.7,
+   "end_s": 397.5
+  },
+  {
+   "stage": 307,
+   "start_s": 404.3,
+   "end_s": 422.8
+  },
+  {
+   "stage": 312,
+   "start_s": 423.4,
+   "end_s": 561.7
+  },
+  {
+   "stage": 309,
+   "start_s": 578.1,
+   "end_s": 597.4
+  },
+  {
+   "stage": 298,
+   "start_s": 604.2,
+   "end_s": 717.6
+  },
+  {
+   "stage": 306,
+   "start_s": 718.0,
+   "end_s": 725.1
+  },
+  {
+   "stage": 302,
+   "start_s": 731.4,
+   "end_s": 782.1
+  }
+ ],
+ "events": [
+  {
+   "t": 61.5,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for white sugar measured with a clean instrument and added to the mixing bowl; flag a wrong ingredient (salt or brown sugar in place of white sugar), a soiled or unclean measuring spoon, or adding to a mug instead of the mixing bowl.",
+   "step_id": 297,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 91.9,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for flour measured with a clean instrument and added to the mixing bowl; flag a soiled or unclean measuring spoon or cup, or adding to a mug instead of the mixing bowl.",
+   "step_id": 299,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 95.9,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 2 tbsp flour; flag a different amount or the wrong unit (a teaspoon used in place of a tablespoon).",
+   "step_id": 299,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 122.2,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The baking powder should be transferred cleanly; flag spilling powder while opening the container or adding it, or dropping the measuring instrument into the bowl.",
+   "step_id": 304,
+   "choice": 3,
+   "raw": "3"
+  },
+  {
+   "t": 198.1,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for a pinch of salt; flag adding a measured teaspoon or otherwise noticeably more than a pinch.",
+   "step_id": 310,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 198.1,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for plain salt added to the mixing bowl; flag using sugar in place of salt, seasoned salt instead of plain salt, or adding to a mug instead of the mixing bowl.",
+   "step_id": 310,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 300.9,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/4 tsp vanilla extract; flag a different amount (e.g. 1/2 tsp).",
+   "step_id": 313,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 390.2,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 2 tsp vegetable oil; flag a different amount or the wrong unit (tablespoons in place of teaspoons, or noticeably more than 2 tsp).",
+   "step_id": 300,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 689.2,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 4 spoonfuls of frosting; flag scooping noticeably fewer (e.g. 1, 1.5, or 2 spoonfuls), which will not be enough for frosting.",
+   "step_id": 298,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 763.9,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for small dollops applied in a circle around the base of the cake; flag piping in a square, one big circle, or otherwise not making small dollops around the base.",
+   "step_id": 302,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 61.5,
+   "kind": "mistake",
+   "step_id": 297,
+   "win_start": 31.5,
+   "win_end": 91.5,
+   "n_frames": 32,
+   "latency_s": 18.7,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 91.9,
+   "kind": "mistake",
+   "step_id": 299,
+   "win_start": 61.9,
+   "win_end": 121.9,
+   "n_frames": 32,
+   "latency_s": 19.1,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 95.9,
+   "kind": "mistake",
+   "step_id": 299,
+   "win_start": 65.9,
+   "win_end": 125.9,
+   "n_frames": 32,
+   "latency_s": 22.5,
+   "fired": [
+    "measurement",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 122.2,
+   "kind": "mistake",
+   "step_id": 304,
+   "win_start": 92.2,
+   "win_end": 152.2,
+   "n_frames": 32,
+   "latency_s": 27.2,
+   "fired": [
+    "technique"
+   ],
+   "answer": "3"
+  },
+  {
+   "t": 133.2,
+   "kind": "mistake",
+   "step_id": 304,
+   "win_start": 103.2,
+   "win_end": 163.2,
+   "n_frames": 32,
+   "latency_s": 18.9,
+   "fired": [
+    "technique"
+   ],
+   "answer": "3"
+  },
+  {
+   "t": 198.1,
+   "kind": "mistake",
+   "step_id": 310,
+   "win_start": 168.1,
+   "win_end": 228.1,
+   "n_frames": 32,
+   "latency_s": 31.0,
+   "fired": [
+    "measurement",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 198.1,
+   "kind": "mistake",
+   "step_id": 310,
+   "win_start": 168.1,
+   "win_end": 228.1,
+   "n_frames": 32,
+   "latency_s": 22.2,
+   "fired": [
+    "measurement",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 198.1,
+   "kind": "mistake",
+   "step_id": 310,
+   "win_start": 168.1,
+   "win_end": 228.1,
+   "n_frames": 32,
+   "latency_s": 31.4,
+   "fired": [
+    "measurement",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 263.5,
+   "kind": "mistake",
+   "step_id": 296,
+   "win_start": 233.5,
+   "win_end": 293.5,
+   "n_frames": 32,
+   "latency_s": 22.0,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 300.9,
+   "kind": "mistake",
+   "step_id": 313,
+   "win_start": 270.9,
+   "win_end": 330.9,
+   "n_frames": 32,
+   "latency_s": 18.9,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 303.4,
+   "kind": "mistake",
+   "step_id": 313,
+   "win_start": 273.4,
+   "win_end": 333.4,
+   "n_frames": 32,
+   "latency_s": 16.1,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 390.2,
+   "kind": "mistake",
+   "step_id": 300,
+   "win_start": 360.2,
+   "win_end": 420.2,
+   "n_frames": 32,
+   "latency_s": 16.1,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 396.7,
+   "kind": "mistake",
+   "step_id": 300,
+   "win_start": 366.7,
+   "win_end": 426.7,
+   "n_frames": 32,
+   "latency_s": 16.3,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 503.9,
+   "kind": "mistake",
+   "step_id": 312,
+   "win_start": 473.9,
+   "win_end": 533.9,
+   "n_frames": 32,
+   "latency_s": 16.9,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 689.2,
+   "kind": "mistake",
+   "step_id": 298,
+   "win_start": 659.2,
+   "win_end": 719.2,
+   "n_frames": 32,
+   "latency_s": 20.3,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 763.9,
+   "kind": "mistake",
+   "step_id": 302,
+   "win_start": 733.9,
+   "win_end": 782.1,
+   "n_frames": 31,
+   "latency_s": 16.7,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 16,
+  "frames_sent": 511,
+  "vlm_latency_total_s": 334.3,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 374.8
+ }
+}

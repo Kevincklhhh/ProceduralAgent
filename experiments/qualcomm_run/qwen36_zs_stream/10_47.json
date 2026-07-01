@@ -1,0 +1,64 @@
+{
+ "recording": "10_47",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 115,
+   "start_s": 0.0,
+   "end_s": 20.0
+  },
+  {
+   "stage": 113,
+   "start_s": 20.0,
+   "end_s": 110.0
+  },
+  {
+   "stage": 112,
+   "start_s": 110.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": 118,
+   "start_s": 160.0,
+   "end_s": 462.5
+  }
+ ],
+ "events": [
+  {
+   "t": 50.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a spoon instead of a butter knife to scoop the nut butter.",
+   "step_id": 113
+  },
+  {
+   "t": 115.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using a spoon to apply the nut butter, but the instructions specify using a butter knife.",
+   "step_id": 112
+  },
+  {
+   "t": 165.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are not cleaning a knife; you are currently handling a tortilla on the cutting board. Please locate the butter knife and wipe it with a paper towel as instructed.",
+   "step_id": 118
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 103,
+  "frames_sent": 460,
+  "vlm_latency_total_s": 149.3,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 168.4
+ }
+}

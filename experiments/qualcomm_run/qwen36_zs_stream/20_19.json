@@ -1,0 +1,64 @@
+{
+ "recording": "20_19",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 206,
+   "start_s": 0.0,
+   "end_s": 40.0
+  },
+  {
+   "stage": 205,
+   "start_s": 40.0,
+   "end_s": 75.0
+  },
+  {
+   "stage": 212,
+   "start_s": 75.0,
+   "end_s": 615.0
+  },
+  {
+   "stage": 214,
+   "start_s": 615.0,
+   "end_s": 1338.4
+  }
+ ],
+ "events": [
+  {
+   "t": 45.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently rinsing the mushrooms under the tap, but the instruction is to pat them dry with a paper towel. Please turn off the water and use a paper towel to gently pat the mushrooms dry.",
+   "step_id": 205
+  },
+  {
+   "t": 80.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are using mushrooms instead of a shallot. Please substitute the correct ingredient.",
+   "step_id": 212
+  },
+  {
+   "t": 1115.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You have left the stems on the mushrooms; please pull them out completely before adding them to the pan.",
+   "step_id": 214
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 376,
+  "frames_sent": 1335,
+  "vlm_latency_total_s": 542.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 595.2
+ }
+}

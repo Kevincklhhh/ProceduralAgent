@@ -1,0 +1,91 @@
+{
+ "recording": "21_28",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 229,
+   "start_s": 7.7,
+   "end_s": 60.7
+  },
+  {
+   "stage": 232,
+   "start_s": 80.5,
+   "end_s": 119.1
+  },
+  {
+   "stage": 225,
+   "start_s": 119.1,
+   "end_s": 140.1
+  },
+  {
+   "stage": 227,
+   "start_s": 142.3,
+   "end_s": 209.6
+  },
+  {
+   "stage": 223,
+   "start_s": 218.4,
+   "end_s": 334.2
+  },
+  {
+   "stage": 231,
+   "start_s": 351.8,
+   "end_s": 384.9
+  },
+  {
+   "stage": 226,
+   "start_s": 387.1,
+   "end_s": 496.3
+  },
+  {
+   "stage": 228,
+   "start_s": 494.1,
+   "end_s": 543.7
+  },
+  {
+   "stage": 230,
+   "start_s": 541.5,
+   "end_s": 566.9
+  },
+  {
+   "stage": 233,
+   "start_s": 568.0,
+   "end_s": 596.7
+  },
+  {
+   "stage": 234,
+   "start_s": 595.6,
+   "end_s": 636.4
+  },
+  {
+   "stage": 222,
+   "start_s": 635.3,
+   "end_s": 649.6
+  },
+  {
+   "stage": 224,
+   "start_s": 648.5,
+   "end_s": 669.5
+  }
+ ],
+ "events": [
+  {
+   "t": 142.3,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 227,
+   "message": "You skipped Add-1/2 tsp baking powder to a blender; it is needed before blitz the blender for 20 seconds."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,91 @@
+{
+ "recording": "3_22",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 36,
+   "start_s": 8.6,
+   "end_s": 24.9
+  },
+  {
+   "stage": 35,
+   "start_s": 89.0,
+   "end_s": 135.0
+  },
+  {
+   "stage": 40,
+   "start_s": 152.2,
+   "end_s": 196.2
+  },
+  {
+   "stage": 28,
+   "start_s": 200.1,
+   "end_s": 228.8
+  },
+  {
+   "stage": 33,
+   "start_s": 232.6,
+   "end_s": 336.9
+  },
+  {
+   "stage": 38,
+   "start_s": 358.0,
+   "end_s": 408.7
+  },
+  {
+   "stage": 34,
+   "start_s": 409.7,
+   "end_s": 440.3
+  },
+  {
+   "stage": 41,
+   "start_s": 446.1,
+   "end_s": 501.6
+  },
+  {
+   "stage": 37,
+   "start_s": 515.9,
+   "end_s": 625.1
+  },
+  {
+   "stage": 30,
+   "start_s": 636.6,
+   "end_s": 729.4
+  },
+  {
+   "stage": 31,
+   "start_s": 732.3,
+   "end_s": 770.6
+  },
+  {
+   "stage": 39,
+   "start_s": 787.8,
+   "end_s": 828.0
+  },
+  {
+   "stage": 32,
+   "start_s": 871.1,
+   "end_s": 984.0
+  }
+ ],
+ "events": [
+  {
+   "t": 871.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 32,
+   "message": "You skipped Sprinkle dried Italian herbs inside the mug; it is needed before Microwave for 1 minute 20 seconds, or until it rises and the toppings are bubbling."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

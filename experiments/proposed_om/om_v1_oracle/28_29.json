@@ -1,0 +1,96 @@
+{
+ "recording": "28_29",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 340,
+   "start_s": 33.7,
+   "end_s": 69.6
+  },
+  {
+   "stage": 329,
+   "start_s": 76.3,
+   "end_s": 122.9
+  },
+  {
+   "stage": 339,
+   "start_s": 125.2,
+   "end_s": 202.6
+  },
+  {
+   "stage": 335,
+   "start_s": 209.9,
+   "end_s": 214.4
+  },
+  {
+   "stage": 336,
+   "start_s": 215.5,
+   "end_s": 277.8
+  },
+  {
+   "stage": 328,
+   "start_s": 277.3,
+   "end_s": 287.4
+  },
+  {
+   "stage": 333,
+   "start_s": 288.5,
+   "end_s": 297.5
+  },
+  {
+   "stage": 341,
+   "start_s": 298.0,
+   "end_s": 376.0
+  },
+  {
+   "stage": 325,
+   "start_s": 376.0,
+   "end_s": 391.7
+  },
+  {
+   "stage": 327,
+   "start_s": 412.5,
+   "end_s": 447.9
+  },
+  {
+   "stage": 331,
+   "start_s": 458.0,
+   "end_s": 481.5
+  },
+  {
+   "stage": 338,
+   "start_s": 481.5,
+   "end_s": 510.2
+  },
+  {
+   "stage": 326,
+   "start_s": 518.0,
+   "end_s": 539.4
+  },
+  {
+   "stage": 332,
+   "start_s": 543.3,
+   "end_s": 564.0
+  }
+ ],
+ "events": [
+  {
+   "t": 458.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 331,
+   "message": "You skipped Add 1 can drained tuna to the bowl; it is needed before Mix the contents of the bowl."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

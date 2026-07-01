@@ -1,0 +1,101 @@
+{
+ "recording": "22_37",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 237,
+   "start_s": 6.4,
+   "end_s": 47.5
+  },
+  {
+   "stage": 249,
+   "start_s": 56.1,
+   "end_s": 82.1
+  },
+  {
+   "stage": 235,
+   "start_s": 87.3,
+   "end_s": 111.3
+  },
+  {
+   "stage": 247,
+   "start_s": 112.7,
+   "end_s": 134.1
+  },
+  {
+   "stage": 246,
+   "start_s": 135.0,
+   "end_s": 145.9
+  },
+  {
+   "stage": 240,
+   "start_s": 146.0,
+   "end_s": 333.2
+  },
+  {
+   "stage": 239,
+   "start_s": 193.3,
+   "end_s": 220.1
+  },
+  {
+   "stage": 248,
+   "start_s": 253.0,
+   "end_s": 306.7
+  },
+  {
+   "stage": 244,
+   "start_s": 335.1,
+   "end_s": 356.2
+  },
+  {
+   "stage": 236,
+   "start_s": 352.4,
+   "end_s": 360.1
+  },
+  {
+   "stage": 242,
+   "start_s": 371.2,
+   "end_s": 394.0
+  },
+  {
+   "stage": 241,
+   "start_s": 394.8,
+   "end_s": 412.5
+  },
+  {
+   "stage": 238,
+   "start_s": 432.2,
+   "end_s": 522.7
+  },
+  {
+   "stage": 245,
+   "start_s": 520.1,
+   "end_s": 525.3
+  },
+  {
+   "stage": 243,
+   "start_s": 530.3,
+   "end_s": 552.2
+  }
+ ],
+ "events": [
+  {
+   "t": 87.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 235,
+   "message": "Heat 1 tbsp oil in a non-stick frying pan was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

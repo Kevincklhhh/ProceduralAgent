@@ -1,0 +1,88 @@
+{
+ "recording": "9_45",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 100,
+   "start_s": 10.6,
+   "end_s": 34.2
+  },
+  {
+   "stage": 94,
+   "start_s": 35.7,
+   "end_s": 83.0
+  },
+  {
+   "stage": 98,
+   "start_s": 84.5,
+   "end_s": 97.0
+  },
+  {
+   "stage": 101,
+   "start_s": 106.6,
+   "end_s": 126.7
+  },
+  {
+   "stage": 91,
+   "start_s": 127.7,
+   "end_s": 187.1
+  },
+  {
+   "stage": 95,
+   "start_s": 189.6,
+   "end_s": 212.2
+  },
+  {
+   "stage": 93,
+   "start_s": 212.2,
+   "end_s": 227.3
+  },
+  {
+   "stage": 99,
+   "start_s": 228.8,
+   "end_s": 255.9
+  },
+  {
+   "stage": 92,
+   "start_s": 242.4,
+   "end_s": 275.6
+  },
+  {
+   "stage": 97,
+   "start_s": 277.1,
+   "end_s": 293.7
+  },
+  {
+   "stage": 96,
+   "start_s": 296.2,
+   "end_s": 314.8
+  }
+ ],
+ "events": [
+  {
+   "t": 10.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 100,
+   "message": "Add 1/4 teaspoon vanilla extract to the mug was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 127.7,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 91,
+   "message": "Microwave on high for 90 seconds until the egg is cooked through was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "recording": "18_101",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 200,
+   "start_s": 0.0,
+   "end_s": 10.0
+  },
+  {
+   "stage": 203,
+   "start_s": 10.0,
+   "end_s": 535.0
+  },
+  {
+   "stage": 196,
+   "start_s": 535.0,
+   "end_s": 585.0
+  },
+  {
+   "stage": 204,
+   "start_s": 585.0,
+   "end_s": 829.5
+  }
+ ],
+ "events": [
+  {
+   "t": 20.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are using a knife to peel garlic, but the instruction requires you to spiralize a zucchini. Please locate a zucchini and a spiralizer to begin the correct task.",
+   "step_id": 203
+  },
+  {
+   "t": 545.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You are currently using a spiralizer on a cutting board, but the instruction is to heat a large pan on medium heat. Please move to the stove to begin heating the pan.",
+   "step_id": 196
+  },
+  {
+   "t": 600.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You are currently using a vegetable spiralizer on a cutting board, which is not the correct action for melting butter. Please stop this step and move to a stovetop or microwave to melt 1 tablespoon of softened butter.",
+   "step_id": 204
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 173,
+  "frames_sent": 825,
+  "vlm_latency_total_s": 245.5,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 280.9
+ }
+}

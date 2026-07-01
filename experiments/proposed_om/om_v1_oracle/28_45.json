@@ -1,0 +1,105 @@
+{
+ "recording": "28_45",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 336,
+   "start_s": 17.0,
+   "end_s": 139.2
+  },
+  {
+   "stage": 335,
+   "start_s": 144.9,
+   "end_s": 173.2
+  },
+  {
+   "stage": 340,
+   "start_s": 177.3,
+   "end_s": 235.5
+  },
+  {
+   "stage": 328,
+   "start_s": 246.1,
+   "end_s": 262.2
+  },
+  {
+   "stage": 339,
+   "start_s": 335.1,
+   "end_s": 373.1
+  },
+  {
+   "stage": 341,
+   "start_s": 381.2,
+   "end_s": 480.8
+  },
+  {
+   "stage": 334,
+   "start_s": 486.4,
+   "end_s": 501.0
+  },
+  {
+   "stage": 327,
+   "start_s": 522.1,
+   "end_s": 616.8
+  },
+  {
+   "stage": 333,
+   "start_s": 621.6,
+   "end_s": 642.7
+  },
+  {
+   "stage": 338,
+   "start_s": 649.1,
+   "end_s": 676.7
+  },
+  {
+   "stage": 329,
+   "start_s": 692.0,
+   "end_s": 739.0
+  },
+  {
+   "stage": 332,
+   "start_s": 761.6,
+   "end_s": 790.8
+  },
+  {
+   "stage": 325,
+   "start_s": 789.2,
+   "end_s": 797.3
+  }
+ ],
+ "events": [
+  {
+   "t": 649.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 338,
+   "message": "You skipped Mix the contents of the bowl; it is needed before Season bowl with 1/4 tsp salt."
+  },
+  {
+   "t": 761.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 332,
+   "message": "top lettuce leaves with the tuna mixture was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 761.6,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 332,
+   "message": "You skipped season 1/4 tsp pepper on the bowl; it is needed before top lettuce leaves with the tuna mixture."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

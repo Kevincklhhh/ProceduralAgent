@@ -1,0 +1,227 @@
+{
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 0.0,
+   "end_s": 10.0
+  },
+  {
+   "stage": 88,
+   "start_s": 10.0,
+   "end_s": 20.0
+  },
+  {
+   "stage": 88,
+   "start_s": 20.0,
+   "end_s": 30.0
+  },
+  {
+   "stage": 88,
+   "start_s": 30.0,
+   "end_s": 40.0
+  },
+  {
+   "stage": 88,
+   "start_s": 40.0,
+   "end_s": 50.0
+  },
+  {
+   "stage": 88,
+   "start_s": 50.0,
+   "end_s": 60.0
+  },
+  {
+   "stage": 88,
+   "start_s": 60.0,
+   "end_s": 70.0
+  },
+  {
+   "stage": 88,
+   "start_s": 70.0,
+   "end_s": 80.0
+  },
+  {
+   "stage": 88,
+   "start_s": 80.0,
+   "end_s": 90.0
+  },
+  {
+   "stage": 88,
+   "start_s": 90.0,
+   "end_s": 100.0
+  },
+  {
+   "stage": 88,
+   "start_s": 100.0,
+   "end_s": 110.0
+  },
+  {
+   "stage": 88,
+   "start_s": 110.0,
+   "end_s": 120.0
+  },
+  {
+   "stage": 88,
+   "start_s": 120.0,
+   "end_s": 130.0
+  },
+  {
+   "stage": 88,
+   "start_s": 130.0,
+   "end_s": 140.0
+  },
+  {
+   "stage": 88,
+   "start_s": 140.0,
+   "end_s": 150.0
+  },
+  {
+   "stage": 88,
+   "start_s": 150.0,
+   "end_s": 160.0
+  },
+  {
+   "stage": 88,
+   "start_s": 160.0,
+   "end_s": 170.0
+  },
+  {
+   "stage": 88,
+   "start_s": 170.0,
+   "end_s": 180.0
+  },
+  {
+   "stage": 88,
+   "start_s": 180.0,
+   "end_s": 190.0
+  },
+  {
+   "stage": 88,
+   "start_s": 190.0,
+   "end_s": 200.0
+  },
+  {
+   "stage": 88,
+   "start_s": 200.0,
+   "end_s": 210.0
+  },
+  {
+   "stage": 88,
+   "start_s": 210.0,
+   "end_s": 220.0
+  },
+  {
+   "stage": 88,
+   "start_s": 220.0,
+   "end_s": 230.0
+  },
+  {
+   "stage": 88,
+   "start_s": 230.0,
+   "end_s": 240.0
+  },
+  {
+   "stage": 88,
+   "start_s": 240.0,
+   "end_s": 250.0
+  },
+  {
+   "stage": 88,
+   "start_s": 250.0,
+   "end_s": 260.0
+  },
+  {
+   "stage": 88,
+   "start_s": 260.0,
+   "end_s": 270.0
+  },
+  {
+   "stage": 88,
+   "start_s": 270.0,
+   "end_s": 280.0
+  },
+  {
+   "stage": 88,
+   "start_s": 280.0,
+   "end_s": 290.0
+  },
+  {
+   "stage": 88,
+   "start_s": 290.0,
+   "end_s": 300.0
+  },
+  {
+   "stage": 88,
+   "start_s": 300.0,
+   "end_s": 310.0
+  },
+  {
+   "stage": 88,
+   "start_s": 310.0,
+   "end_s": 320.0
+  },
+  {
+   "stage": 88,
+   "start_s": 320.0,
+   "end_s": 330.0
+  },
+  {
+   "stage": 88,
+   "start_s": 330.0,
+   "end_s": 340.0
+  },
+  {
+   "stage": 88,
+   "start_s": 340.0,
+   "end_s": 350.0
+  },
+  {
+   "stage": 88,
+   "start_s": 350.0,
+   "end_s": 360.0
+  },
+  {
+   "stage": 88,
+   "start_s": 360.0,
+   "end_s": 370.0
+  },
+  {
+   "stage": 88,
+   "start_s": 370.0,
+   "end_s": 380.0
+  },
+  {
+   "stage": 88,
+   "start_s": 380.0,
+   "end_s": 390.0
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 39,
+  "frames_sent": 390,
+  "vlm_latency_total_s": 1746.06,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "model": "Qwen/Qwen3.6-27B",
+  "interval_s": 10.0,
+  "fps_sampling": 1.0,
+  "evaluated_s": 397.8,
+  "parse_failures": 0,
+  "mode": "completion_criteria",
+  "lookahead": 0,
+  "criteria_steps": 7,
+  "n_steps": 7,
+  "final_step_idx": 0,
+  "advances": 0,
+  "reached_end": false,
+  "stalled": true,
+  "max_dwell_ticks": 39,
+  "traced": true,
+  "debugged": false
+ },
+ "recording": "8_40",
+ "arm": "criteria_i10"
+}

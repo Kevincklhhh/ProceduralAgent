@@ -1,0 +1,83 @@
+{
+ "recording": "17_40",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 188,
+   "start_s": 17.1,
+   "end_s": 80.9
+  },
+  {
+   "stage": 187,
+   "start_s": 125.3,
+   "end_s": 220.4
+  },
+  {
+   "stage": 189,
+   "start_s": 229.8,
+   "end_s": 243.4
+  },
+  {
+   "stage": 181,
+   "start_s": 251.1,
+   "end_s": 279.5
+  },
+  {
+   "stage": 183,
+   "start_s": 293.1,
+   "end_s": 390.0
+  },
+  {
+   "stage": 185,
+   "start_s": 391.1,
+   "end_s": 473.3
+  },
+  {
+   "stage": 184,
+   "start_s": 474.4,
+   "end_s": 496.9
+  },
+  {
+   "stage": 191,
+   "start_s": 502.8,
+   "end_s": 536.5
+  },
+  {
+   "stage": 190,
+   "start_s": 548.3,
+   "end_s": 564.8
+  },
+  {
+   "stage": 186,
+   "start_s": 567.2,
+   "end_s": 597.9
+  }
+ ],
+ "events": [
+  {
+   "t": 17.1,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 188,
+   "message": "Add 1 teaspoon of cumin powder to the bowl was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 391.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 185,
+   "message": "You skipped peel the cucumber; it is needed before chop or grate-chop or grate the cucumber."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,338 @@
+{
+ "recording": "2_47",
+ "arm": "cs_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 18.7,
+   "end_s": 120.4
+  },
+  {
+   "stage": 17,
+   "start_s": 118.7,
+   "end_s": 178.0
+  },
+  {
+   "stage": 27,
+   "start_s": 176.3,
+   "end_s": 191.6
+  },
+  {
+   "stage": 19,
+   "start_s": 189.6,
+   "end_s": 207.6
+  },
+  {
+   "stage": 22,
+   "start_s": 239.1,
+   "end_s": 279.8
+  },
+  {
+   "stage": 21,
+   "start_s": 281.5,
+   "end_s": 320.5
+  },
+  {
+   "stage": 20,
+   "start_s": 313.2,
+   "end_s": 509.4
+  },
+  {
+   "stage": 18,
+   "start_s": 547.6,
+   "end_s": 569.7
+  },
+  {
+   "stage": 16,
+   "start_s": 576.5,
+   "end_s": 593.4
+  },
+  {
+   "stage": 23,
+   "start_s": 596.8,
+   "end_s": 715.5
+  },
+  {
+   "stage": 26,
+   "start_s": 717.2,
+   "end_s": 746.0
+  },
+  {
+   "stage": 15,
+   "start_s": 747.7,
+   "end_s": 786.7
+  },
+  {
+   "stage": 24,
+   "start_s": 790.1,
+   "end_s": 851.2
+  },
+  {
+   "stage": 20,
+   "start_s": 854.6,
+   "end_s": 947.8
+  },
+  {
+   "stage": 18,
+   "start_s": 942.7,
+   "end_s": 966.5
+  },
+  {
+   "stage": 25,
+   "start_s": 968.2,
+   "end_s": 1054.6
+  }
+ ],
+ "events": [
+  {
+   "t": 203.6,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires the onion to be sliced (thin, flat cuts); flag if chopping or a different cutting technique is used instead of slicing.",
+   "step_id": 19,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 203.6,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/8 of a medium onion; flag if a noticeably larger fraction is used (e.g. 1/4 or 1/2 onion).",
+   "step_id": 19,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 318.4,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for exactly 5 meatballs on the plate; flag if a different count is placed (e.g. 3, 4, 6, or more meatballs).",
+   "step_id": 21,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 346.7,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for 1.5 minutes per microwave cycle; flag if a noticeably different duration is used (e.g. 1 minute, 2 minutes, 3 minutes, or 5 minutes instead of 1.5 minutes).",
+   "step_id": 20,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 586.5,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/8 of a garlic clove; flag if a noticeably larger fraction is cut instead (e.g. 1/2 or a whole clove).",
+   "step_id": 16,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 586.5,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires cutting the garlic, not slicing it lengthwise; flag if the wrong cutting action is used (e.g. slicing the whole clove rather than cutting off a 1/8 portion).",
+   "step_id": 16,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 738.2,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires mincing (producing very fine, uniform pieces); flag if a coarser technique is used instead (e.g. chopping rather than mincing).",
+   "step_id": 26,
+   "choice": 2,
+   "raw": "2"
+  },
+  {
+   "t": 759.2,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires pouring the sauces over the meatballs on the plate; flag if instead the meatballs are put into the sauce bowl, or if a meatball is dropped from the plate, or if sauce is spilled during pouring.",
+   "step_id": 15,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 759.2,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires the sauces to be poured cleanly over the meatballs without significant spillage; flag if a notable amount of sauce is spilled in the process.",
+   "step_id": 15,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 939.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires the plate to be covered before microwaving; flag if the plate is placed in the microwave without a cover (uncovered).",
+   "step_id": 20,
+   "choice": 2,
+   "raw": "2"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 114.6,
+   "kind": "mistake",
+   "step_id": 14,
+   "win_start": 84.6,
+   "win_end": 144.6,
+   "n_frames": 32,
+   "latency_s": 16.5,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 189.3,
+   "kind": "mistake",
+   "step_id": 27,
+   "win_start": 159.3,
+   "win_end": 219.3,
+   "n_frames": 32,
+   "latency_s": 16.1,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 203.6,
+   "kind": "mistake",
+   "step_id": 19,
+   "win_start": 173.6,
+   "win_end": 233.6,
+   "n_frames": 32,
+   "latency_s": 25.7,
+   "fired": [
+    "technique",
+    "measurement"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 272.0,
+   "kind": "mistake",
+   "step_id": 21,
+   "win_start": 242.0,
+   "win_end": 302.0,
+   "n_frames": 32,
+   "latency_s": 16.3,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 318.4,
+   "kind": "mistake",
+   "step_id": 21,
+   "win_start": 288.4,
+   "win_end": 348.4,
+   "n_frames": 32,
+   "latency_s": 16.9,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 346.7,
+   "kind": "mistake",
+   "step_id": 20,
+   "win_start": 316.7,
+   "win_end": 376.7,
+   "n_frames": 32,
+   "latency_s": 13.0,
+   "fired": [
+    "timing"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 441.7,
+   "kind": "mistake",
+   "step_id": 20,
+   "win_start": 411.7,
+   "win_end": 471.7,
+   "n_frames": 32,
+   "latency_s": 12.8,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 586.5,
+   "kind": "mistake",
+   "step_id": 16,
+   "win_start": 556.5,
+   "win_end": 616.5,
+   "n_frames": 32,
+   "latency_s": 13.4,
+   "fired": [
+    "measurement",
+    "technique"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 738.2,
+   "kind": "mistake",
+   "step_id": 26,
+   "win_start": 708.2,
+   "win_end": 768.2,
+   "n_frames": 32,
+   "latency_s": 13.1,
+   "fired": [
+    "technique"
+   ],
+   "answer": "2"
+  },
+  {
+   "t": 759.2,
+   "kind": "mistake",
+   "step_id": 15,
+   "win_start": 729.2,
+   "win_end": 789.2,
+   "n_frames": 32,
+   "latency_s": 12.7,
+   "fired": [
+    "technique",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 939.0,
+   "kind": "mistake",
+   "step_id": 20,
+   "win_start": 909.0,
+   "win_end": 969.0,
+   "n_frames": 32,
+   "latency_s": 12.5,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "2"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 11,
+  "frames_sent": 352,
+  "vlm_latency_total_s": 168.9,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 196.0
+ }
+}

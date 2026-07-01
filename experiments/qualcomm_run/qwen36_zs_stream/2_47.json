@@ -1,0 +1,40 @@
+{
+ "recording": "2_47",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 0.0,
+   "end_s": 30.0
+  },
+  {
+   "stage": 16,
+   "start_s": 30.0,
+   "end_s": 1064.8
+  }
+ ],
+ "events": [
+  {
+   "t": 130.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently handling a red onion, but the instruction is to cut a garlic clove. Please locate the garlic to proceed with the correct step.",
+   "step_id": 16
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 237,
+  "frames_sent": 1060,
+  "vlm_latency_total_s": 313.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 358.1
+ }
+}

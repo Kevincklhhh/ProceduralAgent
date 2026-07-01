@@ -1,0 +1,113 @@
+{
+ "recording": "25_40",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 275,
+   "start_s": 158.1,
+   "end_s": 210.4
+  },
+  {
+   "stage": 286,
+   "start_s": 259.9,
+   "end_s": 264.8
+  },
+  {
+   "stage": 291,
+   "start_s": 280.1,
+   "end_s": 291.7
+  },
+  {
+   "stage": 293,
+   "start_s": 304.5,
+   "end_s": 314.0
+  },
+  {
+   "stage": 279,
+   "start_s": 316.1,
+   "end_s": 325.0
+  },
+  {
+   "stage": 276,
+   "start_s": 335.0,
+   "end_s": 338.0
+  },
+  {
+   "stage": 292,
+   "start_s": 336.3,
+   "end_s": 440.1
+  },
+  {
+   "stage": 280,
+   "start_s": 488.0,
+   "end_s": 500.0
+  },
+  {
+   "stage": 285,
+   "start_s": 510.0,
+   "end_s": 524.0
+  },
+  {
+   "stage": 287,
+   "start_s": 528.0,
+   "end_s": 532.0
+  },
+  {
+   "stage": 290,
+   "start_s": 533.0,
+   "end_s": 600.0
+  },
+  {
+   "stage": 282,
+   "start_s": 597.3,
+   "end_s": 605.5
+  },
+  {
+   "stage": 278,
+   "start_s": 660.9,
+   "end_s": 680.0
+  },
+  {
+   "stage": 277,
+   "start_s": 687.4,
+   "end_s": 695.9
+  },
+  {
+   "stage": 284,
+   "start_s": 700.0,
+   "end_s": 702.0
+  },
+  {
+   "stage": 289,
+   "start_s": 703.4,
+   "end_s": 780.2
+  },
+  {
+   "stage": 281,
+   "start_s": 785.0,
+   "end_s": 795.0
+  },
+  {
+   "stage": 288,
+   "start_s": 796.0,
+   "end_s": 863.0
+  },
+  {
+   "stage": 283,
+   "start_s": 864.0,
+   "end_s": 871.0
+  }
+ ],
+ "events": [],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

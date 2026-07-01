@@ -1,0 +1,1969 @@
+VideoLLM-online: Online Video Large Language Model for Streaming Video
+Joya Chen1 Zhaoyang Lv2 Shiwei Wu1 Kevin Qinghong Lin1 Chenan Song1
+Difei Gao1 Jia-Wei Liu1 Ziteng Gao1 Dongxing Mao1 Mike Zheng Shou1B
+1
+Show Lab, National University of Singapore 2 Reality Labs Research, Meta
+
+arXiv:2406.11816v1 [cs.CV] 17 Jun 2024
+
+Streaming Video
+Time = 5s
+
+Time = 5.5s
+
+…
+
+Time = 17.5s
+
+…
+
+What am
+I doing
+now?
+
+You walk
+around in
+a kitchen.
+
+…
+Help me to
+cook
+noodles.
+
+(skip, response
+no change)
+
+Sure! A general
+procedure is 1. clean
+hands, 2. takes out
+ingredients, 3. boil
+water…
+
+…
+
+Time = 22.0s
+
+…
+
+Time = 80.0s
+
+…
+
+You hold the
+container with
+your left hand.
+
+You open
+the stove.
+
+Time = 80.5s
+
+…
+
+You cut the
+vegetable with
+the knife.
+
+Example 1:
+Real-time Narration
+(skip, response
+no change)
+
+Processing Speed: 10 ~ 15 FPS on A100 GPU, 5 ~ 10 FPS on 3090 GPU
+
+(skip, response
+no change)
+
+You ready to
+boil the water.
+Then you can
+start to chop…
+
+(skip, response
+no change)
+
+What have
+I done?
+
+You have done 1. clean hands,
+2. takes out ingredients, 3.
+boil water. Now you are
+cutting the vegetable…
+
+…
+Example 2:
+Online Chat
+
+…
+
+Streaming Dialogue
+
+Figure 1. Zero-shot examples of our VideoLLM-online applied to an egocentric video stream from Ego-Exo4D dataset [29]. Our model
+is designed for temporally aligned, long-context, real-time dialogue in continuous video streams, shedding light on the future always-on,
+contextual AI assistants (e.g., smart AR glasses). Model responses are appropriately simplified for better visualization.
+
+responses in real-world video streams. With our LIVE
+framework, we built VideoLLM-online model upon Llama2/Llama-3 and demonstrate its significant advantages in
+processing streaming videos. For instance, on average,
+our model can support streaming dialogue in a 5-minute
+video clip at over 10 FPS on an A100 GPU. Moreover, it
+also showcases state-of-the-art performance on public offline video benchmarks, such as recognition, captioning,
+and forecasting. The code, model, data, and demo have
+been made available at showlab.github.io/videollm-online.
+
+Abstract
+Recent Large Language Models have been enhanced
+with vision capabilities, enabling them to comprehend
+images, videos, and interleaved vision-language content.
+However, the learning methods of these large multimodal
+models typically treat videos as predetermined clips, making them less effective and efficient at handling streaming
+video inputs. In this paper, we propose a novel Learning-InVideo-Stream (LIVE) framework, which enables temporally
+aligned, long-context, and real-time conversation within a
+continuous video stream. Our LIVE framework comprises
+comprehensive approaches to achieve video streaming dialogue, encompassing: (1) a training objective designed to
+perform language modeling for continuous streaming inputs, (2) a data generation scheme that converts offline temporal annotations into a streaming dialogue format, and
+(3) an optimized inference pipeline to speed up the model
+
+1. Introduction
+Building the future of an always-on, contextual AI assistant
+that can actively help humans in various situations, digitize
+inputs as episodic memories, and forecast future plans in an
+online, continuous setting represents one of the ”holy grail”
+missions in AI research. Powered by advancements in large
+language models (LLMs) [9, 37, 63, 64, 66, 76], recent large
+
+B Corresponding Author.
+
+This is the Llama-3 upgraded version for CVPR camera-ready.
+
+1
+
+Time = 2.5s
+
+Time = 3.0s
+
+Time = 3.5s
+
+Time = 4.0s
+
+Time = 4.5s
+
+Time = 5.0s
+
+…
+
+…
+(Keep silent)
+
+You pick a spoon.
+
+(Keep silent)
+
+(Keep silent)
+
+Time = 17.0s
+
+Time = 17.5s
+
+Time = 18.0s
+
+Time = 18.5s
+
+You stir the mixture.
+
+Time = 19.0s
+
+(Keep silent)
+
+Time = 19.5s
+
+…
+
+…
+(Keep silent)
+
+You put the spoon on the table.
+
+(Keep silent)
+
+(Keep silent)
+
+Time = 2.5s
+
+You open the tap.
+
+(Keep silent)
+
+Time = 19.5s
+
+Time = 20.0s
+
+Time = 20.5s
+
+Time = 28.0s
+
+Time = 28.5s
+
+Time = 29.0s
+
+…
+
+…
+(Keep silent)
+
+You wash your hands.
+
+(Keep silent)
+
+(Keep silent)
+
+Time = 2.5s
+
+You wipe your hands with a towel.
+
+(Keep silent)
+
+Figure 2. Our model shows strong temporal alignment capability in streaming video narration. The query at the beginning is “Please
+describe what I am doing in real time”.
+
+multimodal models (LMMs) have unveiled impressive capabilities such as vision-language dialogue [7, 14, 43, 44,
+51, 52, 100], spatial understanding [7, 40, 54, 67, 88, 93],
+processing diverse modalities [20, 30, 58, 81, 90]. Seminal exemplars, like OpenAI’s GPT-4V [65] or GPT-4o [27],
+are progressively evolving into highly versatile human AI
+assistants.
+However, even the most advanced GPT-4o [27] has only
+achieved streaming voice-driven multimodal assistance.2
+Therefore, it is time to envision an always-on, contextual, J.A.R.V.I.S-like video assistant that supports free-form
+user-assistant dialogue within the video stream, which we
+term “video streaming dialogue”. Unlike existing LMMs
+for video understanding (i.e., VideoLLMs) [45, 46, 55,
+59, 72, 86, 92] that work offline with manually selected
+short-video clips, an online assistant should continuously
+receive video frames with visual content that is constantly
+refreshed. This paradigm shift presents new challenges.
+First, the user query may come with temporally aligned requirements (e.g., “alert me when it’s time to flip the steak”),
+thus the VideoLLM should scan every incoming frame to
+avoid event missing, instead of only yielding video-level
+responses. Second, to answer questions regarding summarization and planning, the VideoLLM must retain the longcontext historical vision and language, which poses huge
+
+risk of exceeding maximum context window of LLMs, as
+well as introduces considerable burden to causal decoding
+speed and GPU memory. Third, the VideoLLM should generate the answer in real-time, keeping pace with the video
+stream for always-on scenario. These abilities, however, are
+even partially overlooked by the most advanced AI assistants [4, 65].
+One possible path towards such an online VideoLLM,
+inspired by current interleaved vision-language models [4,
+7, 43, 65, 87], is to employ a multi-turn dialogue format to
+achieve per-frame chatting within a video stream. This can
+be accomplished by facilitating very frequent user interactions, utilizing the visual frame as query at each timestamp
+to obtain the answer. We follow this to perform prompt
+engineering for GPT-4V [47, 65], but the results are disappointing: GPT-4V tends to output lengthy content at every frame, leading to significant delays, making it impractical for real-time streaming video. We also explore training baseline models for per-frame chatting. Unfortunately,
+this approach evidently diminishes the language modeling
+capability, likely due to harmful language modeling on an
+excessive number of redundant frames.
+We propose Learning-In-Video-strEam (LIVE), a comprehensive framework that encompasses learning, data, and
+inference methods to develop an online video assistant.
+Unlike per-frame dialogue approach, LIVE introduces a
+novel training objective termed Streaming EOS (End-Of-
+
+2 Based on their demo videos, the GPT-4o responses to visual scenes can
+
+only occur after an active human voice input.
+
+2
+
+Sequence) prediction that enables the model to learn when
+to response or remain silent in a video stream. This objective differs from next-token prediction since EOS tokens
+here will not appear in the input/output sequence. However, it can work well with the autoregressive loss to train
+an online VideoLLM. This design reduces unnecessary context, helping the model to manage much longer streaming
+videos. Nevertheless, the training still requires data from
+user queries and assistant responses within video streams,
+which is scarce in popular video datasets usually used for
+training offline video models. To address this issue, LIVE
+presents a streaming dialogue generation scheme that converts offline annotations into online dialogues to support
+free-form chatting. To enhance inference efficiency, LIVE
+leverages continuous key-value caching for streaming assistance, and parallelizes the fast visual encoding and slow
+language decoding to prevent bottlenecks, thus moving towards real-time application.
+With LIVE framework, we build a simple VideoLLMonline model upon CLIP [68] vision encoder and Llama2 [77]/Llama-3 [1] language model. To evaluate the performance of video streaming dialogue, we utilize the language
+perplexity metric and design two new metrics to comprehensively assess the model’s capabilities in language modeling, temporal responsiveness, and overall streaming fluency. Experiments with real-time Ego4D narration [28]
+demonstrate that our method shows advantages in all that
+metrics, with higher speed and lower memory cost. Furthermore, our model achieves state-of-the-art results on numerous offline benchmarks, such as short- and long-term activity recognition and forecasting on the COIN and Ego4D
+LTA benchmarks [28, 75]. In addition, our model has
+good speed/memory efficiency, e.g., allowing continuous
+5-minute video streaming dialogue with memory cost less
+than 20 GB and average speed higher than 10 FPS on a single A100 GPU, paving the way for future real-world usage.
+
+models (LLMs) [9, 63, 66] has inspired a series of LLM
+multimodal variants, i.e. large multimodal models (LMMs).
+Early LMMs [3, 14, 44, 52, 100] achieve image dialogue
+by projecting the image encoding (e.g., from CLIP [68])
+to align with LLM embedding space. Then, lots of efforts [4, 7, 43, 65, 87] explore more free-form interleaved
+vision-text chatting, spatial understanding [7, 12, 13, 40, 54,
+88, 93], video comprehension [45, 46, 55, 59, 72, 86, 92],
+etc. However, when it comes to online scenario, there is
+less exploration on how LLMs can fulfill the temporal alignment, long-context, and real-time requirements for streaming video inputs. Our research bridges this gap, offering
+comprehensive solutions across model training, data, and
+inference to study the problem.
+Online Video Understanding. Typical video understanding benchmarks, such as action recognition [10], temporal
+action localization [31], video question answering [41], and
+video dialogue [2], typically allow models to access entire video frames to make predictions, a setting referred
+to as ”offline”. However, such setting does not align well
+with many real-time demands (e.g., autonomous driving,
+AR glasses). Instead, there is a growing focus on “online” video understanding problems like online action detection [25] and anticipation [38], which aim to identify the
+current/future action at each timestamp without seeing the
+future. Our study pioneers LMMs for online video understanding. Unlike previous online action detection [79, 95]
+or anticipation models [26, 94], which primarily address
+one task with a highly customized model, we aim to propose a general solution to achieve free-form dialogue along
+the online video stream, enabling a model to flexibly handle
+diverse tasks. Streaming video caption [99] belongs to our
+concurrent work, but it only supports captioning rather than
+free-form dialogue, and its streaming caption temporal region is fixed, making it much less flexible and general than
+our work.
+Efficient Token Decoding. Efficient token decoding for
+LLMs and LMMs is essential for applying them to real-time
+online services. To accelerate that, a diversity of strategies has been proposed, such as parallelism on batch dimension [70] or cached key-value sequence [16], computation/memory management optimization [24, 32, 39, 70, 89],
+and even some lossy approaches [53, 82]. Our focused
+streaming video scenario has less concerns in large batch
+processing, but expects faster decoding to avoid excessive
+frame skipping. We have considered this in training objectives, and further propose some inference schemes to accelerate the decoding efficiency.
+
+2. Related Work
+Visual Dialogue. Before transformers [78] become mainstream in vision, visual dialogue methods [2, 17] tend to
+employ a visually enhanced encoder, with a discriminative
+head to select candidate answers or a recurrent architecture
+to generate multi-turn responses. For the encoder, a variety of attention mechanism-based approaches [23, 62, 69]
+have been proposed to learn the interactions between the
+image, the answers, and the dialogue history. There have
+also been explorations of encoder-only BERT [19] models
+for visual dialogue [60, 80]. However, most of them rely
+solely on a single image/video at the beginning of the conversation, followed by multi-turn pure language dialogue,
+which makes them less flexible than the current interleaved
+vision-language dialogue systems.
+Large Multimodal Models. The advent of large language
+
+3. Method
+In this section, we present Learning-In-Video-strEam
+(LIVE) framework that enables LMMs to provide temporally aligned response, handle long-context streaming
+3
+
+video, and run efficiently towards real-time usage. We will
+start from the problem definition of “video streaming dialogue”, analyze its challenges, and introduce our approach
+to solve the problem.
+
+  \max P(\texttt {[Txt$^{t}_{i+1}$]}|\texttt {[Ctx$^{<t_1}$]}, \texttt {[Frame$^{t}$]}, \texttt {[Txt$^{t}_{\leq i}$]}) 
+(2)
+for every frame from timestamp t1 ≤ t ≤ t2 . Since
+t2 is necessary to output answer, so we can simply learn
+short text (e.g., “this is not the time to answer”) between
+t1 ≤ t < t2 . However, this approach imposes a significant
+burden on processing speed. For every frame, performing
+the slow, recurrent, and lengthy next-token prediction with
+a billion-scale language model makes it extremely hard to
+achieve real-time video streaming dialogue. Then, this will
+lead to unavoidable frame skipping, which is unexpected
+and detrimental for temporal alignment. Furthermore, it
+taxes the limited context window of the language model,
+presenting challenges for modeling long contexts and managing GPU memory efficiently.
+Streaming EOS Prediction. To solve the problem mentioned above, we first consider a more efficient per-frame
+chatting method: simply assigning the End-of-Sequence
+(EOS) token as the content for chatting between t1 ≤ t <
+t2 . However, this approach remains suboptimal. The dialogue prompt template (e.g., [INST], [/INST], space tokens in Llama [76, 77]) still consumes a considerable number of tokens per frame, which is less favorable due to the
+numerous frames in streaming video. Furthermore, the excessive number of EOS tokens in the sequence can significantly increase the language model’s perplexity, as we have
+observed in our experiments.
+Instead, we propose a novel training objective named
+“streaming EOS prediction” to address this issue. We still
+assume t2 is essential for decoding language; thus, we normally learn language modeling here:
+
+3.1. Video Streaming Dialogue
+Problem Formulation. Though huge successes have been
+witnessed in large multimodal models (LMMs), the assistance scenario like a smart AR glass helping the user with
+cooking, is still far from the capabilities of current LMMs,
+even for the most advanced version, GPT-4V [65]. For
+example, despite carefully prompting GPT-4V similarly to
+MMVid [47]—to perform per-frame dialogue for handling
+streaming video inputs—the redundancy in responses between frames, a limited context window of 10∼50 frames,
+and slow speed, collectively render the current GPT-4V unsuitable for online video understanding, as our prompting
+analysis demonstrates (see supplementary material).
+To bridge the gap, we define a problem termed “video
+streaming dialogue”. Given the context sequence before
+time t = t1 , denoted as [Ctxt<t1 ], which may encompass previous vision-language content (e.g., historical user
+queries, video frames, assistant responses), and an ongoing continuous video stream from t1 to t2 , denoted as
+[Framet1 ≤t≤t2 ], our goal is (1) to determine whether the
+current time t2 is suitable for language modeling; (2) to
+carry out language modeling
+
+  \max P(\texttt {[Txt$^{t_2}_{i+1}$]}|\texttt {[Ctx$^{<t_1}$]}, \texttt {[F$^{t_1\leq t\leq t_2}$]}, \texttt {[Txt$^{t_2}_{\leq i}$]}) 
+(1)
+if t2 is determined, where [Txtti ] denotes the ideal language token in the i-th position at timestamp t. [F] is the
+abbreviation of [Frame].
+In the following, we analyze if existing techniques have
+been enough to solve the problem.
+Interleaved/Per-frame Dialogue are Suboptimal. First,
+we investigate whether the popular approach of interleaved
+vision-language chatting can address this problem. Related
+to our formulation above, such a method learns language
+modeling after given frames between timestamps t1 and t2 .
+However, if this approach is adopted during inference, it
+necessitates the manual selection of timestamps t1 and t2 ,
+which does not align with the concept of video streaming
+dialogue. Current VideoLLMs [45, 46, 55, 59, 72, 86, 92]
+represent a simplified version of this approach, engaging
+in single- or multi-turn pure language dialogue following
+video clip inputs.
+If we consider a more free-form format, multi-turn interleaved vision-language chatting [4, 7, 43, 65, 87], we can
+get a per-frame chatting solution that might be hopeful to
+solve video streaming dialogue, which performs per-frame
+language modeling
+
+  \max P(\texttt {[Txt$^{t_2}_{i+1}$]}|\texttt {[Ctx$^{<t_2}$]}, \texttt {[Frame$^{t_2}$]}, \texttt {[Txt$^{t_2}_{\leq i}$]}). 
+(3)
+However, for timestamps t1 ≤ t < t2 , which are redundant for producing answers, we directly learn the model to
+predict EOS token on the frame tokens, i.e.
+
+  \max P(\text {EOS}|\texttt {[Ctx$^{<t}$]}, \texttt {[Frame$^{t}$]}), \text {where } t_1 \leq t < t_2. 
+(4)
+In this way, we “skip” a dialogue turn and learn to determine
+when it is appropriate to decode language for streaming inputs. During inference, if EOS is predicted on a frame, then
+we can directly ask the next frame to input. Meanwhile, the
+EOS token is not appended to the context to prevent it from
+affecting the language modeling. Therefore, this task is not
+about next-token prediction; however, it can work with autoregressive loss to train a video streaming dialogue model.
+In the following, we first introduce how can we get the data
+of streaming video and timestamped language annotations,
+4
+
+then present the details about the model and the training
+procedure.
+We also note that the EOS token mentioned here is not
+limited to the real EOS token used in language models (e.g.,
+</s> in Llama). It is permissible to use any token or to
+introduce a new token, provided that it is specified in the
+system prompt. We use this term solely for simplicity.
+
+Query Templates
+About Past
+
+About Now
+
+1.
+2.
+3.
+
+What have I done?
+What just happened?
+Summarize my activities
+related to {goal}.
+…
+
+1.
+2.
+3.
+
+To achieve {goal}, what are the next actions?
+Help me with {goal}.
+Can you instruct me what should be done in the next?
+…
+
+1.
+2.
+3.
+
+What do you see now?
+Describe my action now.
+Current happened things.
+…
+
+About Next
+
+3.2. Data
+Online Annotations to Video Streaming Dialogue. Some
+video datasets, such as Ego4D narrations [28], are inherently collected in a streaming manner, with annotators providing real-time narrations as they watch a 5-minute long
+video clip. However, prior research [48, 96] has predominantly focused on learning from short, discrete clips (e.g.
+only 32 frames), rather than in a continuous streaming context. For this dataset, we followed the same instructions
+provided to human annotators [28] as our model training
+prompt. This prompt instructs the model to simulate human
+annotators to streamingly generate narrations in a 5-minute
+video (about 600 frames in 2 FPS). For demo purposes (not
+for experiments), we also utilize Llama-2-13B-Chat [77] or
+Llama-3-8B-Instruct [1] to rephrase the narration text, correcting grammatical errors and typos, and converting it into
+a more understandable version (e.g., changing “C does...”
+to “You do...”).
+Offline Annotations to Video Streaming Dialogue. Despite the Ego4D narration data being collected in a streaming manner, most prevalent video datasets [15, 28, 57, 75]
+are used to train offline models and only feature temporal
+segment annotations paired with basic language descriptions (e.g., activities, narrations). To bridge this gap, we
+propose a method for synthesizing dialogue data from these
+sources. As shown in Figure 3, our key idea is use LLM
+to generate user-assistant dialogues based on video annotations, involving the following steps:
+• First, we prepare a question template library containing
+various queries about the past, present, and future tenses
+of the video, totaling N queries. We randomly sample
+one question from the library, denoted as Qi .
+• Then, we obtain the video annotation timeline from the
+offline dataset. This usually includes timestamped language descriptions, which we organize into a language
+prompt, e.g., “time ta ∼ tb : boiling the water; time
+tc ∼ td : cutting the vegetables.”, denoted as A. We consider all the state change critical timestamps as the ideal
+response times. For this example, ta , tb , tc , and td are all
+considered response times.
+• Third, we prompt the large language model to generate
+responses at every critical timestamp, e.g., ta , tb , tc , td ,
+according to Qi and A. We can repeat this procedure for
+each Qi until all queries have been processed. The responses are saved for loading during training.
+
+Temporally
+Random
+Insert
+
+t1
+t2
+Label
+t3
+t4
+…
+
+Video Streaming Dialogue
+
+L
+L
+M
+
+User: Random templated question Q1
+Assistant: LLM Response to Q1 at time t1~t2
+Assistant: LLM Response to Q1 at time t2~t3
+Assistant: LLM Response to Q1 at time t3~t4
+User: Random templated question Q2
+Assistant: LLM Response to Q2 at time t4~…
+
+…
+
+Video Annotation Timeline
+
+Figure 3. The streaming dialogue data generation method in
+our LIVE framework. We randomly insert templated questions
+into the video timeline and “expose” the ground-truth video annotations (along with their timestamps) to LLMs, prompting them to
+answer the queries within a period of time.
+
+• Finally, during training, we (1) randomly sample a query
+and load its responses at critical timestamps, (2) randomly
+insert a query into a video timestamp tr , (3) discard the
+responses that occur before tr , and add a response at
+tr . Here different queries can be inserted into one video,
+which only requires discarding the responses of the previous query after the new query insertion timestamp.
+In this way, we can generate temporally varied and freeform dialogue data within a video stream. We have prepared 50 questions each for past, current, and future events,
+totaling N = 150 queries. We use Llama-2-13B-Chat [77]
+or Llama-3-8B-Instruct [1] to generate the responses and
+insert a maximum of 3 queries per training sample. The
+offline datasets we used are COIN [75] and Ego4D GoalStep [73] (for demo usage), which belong to the categories
+of egocentric and instructional video datasets, aligning with
+our aim to develop online video assistants. Here, we do not
+consider online action detection benchmarks (e.g., THUMOS14 [36], TVSeries [25]) because they are closed-set
+online classification benchmarks, and their labels are too
+brief, which may cause language models to generate hallucinatory responses. Please refer to the supplementary material for the generated dialogue example.
+5
+
+Streaming Loss
+
+Training
+Target
+
+[EOS] [EOS] [EOS] [EOS] AI
+
+LM Loss
+
+LM Loss
+
+Streaming Loss
+
+: _appeared [EOS]
+
+[EOS] [EOS] AI
+
+: _disappeared [EOS]
+
+…
+
+…
+
+Language Model (Llama-2 / Llama-3) LoRA
+User
+
+:
+
+…
+
+Text Tokens
+
+AI
+
+:
+
+_appeared
+
+…
+
+…
+
+AI:
+disappeared
+
+…
+
+…
+
+Answer
+
+Video Frames
+
+AI
+
+:
+
+_disappeared
+
+Video Frame Tokens
+
+(1 or more tokens per frame)
+
+MLP Projector
+Image Encoder
+User:
+Remind
+me when
+y appears
+
+Query
+
+AI:
+appeared
+
+Video Frames
+
+Answer
+
+Frames
+
+Query/
+Answer
+
+Figure 4. The training method in our LIVE framework. We organize the user-assistant dialogue data and video frames in temporal
+order as the input sequence. To learn the model when to answer or keep silent in a video stream, we employ not only the standard language
+modeling (LM) loss but also introduce a streaming EOS prediction loss. This additional loss supervises the model when it is necessary to
+generate language, enabling it to produce temporally aligned responses and reduces the redundant dialogue history.
+
+3.3. Model Training
+
+regressive language modeling, aiming to maximize the joint
+probability of input text sequences. The second training objective involves streaming EOS prediction, which requires
+the model to remain silent when it is unnecessary to output responses. With these two training objectives, we have
+language modeling (LM) loss and streaming loss terms to
+minimize, both employing cross-entropy loss:
+
+Model Architecture. We illustrate the model architecture
+in Figure 4. Similar to LLaVA [51, 52], it comprises three
+key components: an image encoder, an MLP projector, and
+a language model. For the image encoder, we utilize the
+CLIP ViT-L [21, 68] encoder (pretrained on DataComp1B [22]) to extract video frame embeddings at 2 FPS. Each
+video frame embedding has a shape of (1 + hp × wp ) × c,
+where (1 + hp × wp ) denotes the CLS token and average
+pooled spatial tokens.3 The extracted frame embeddings
+from the image encoder are then fed into MLP projector to
+frame tokens, as in LLaVA-1.5 [51]. Then frame tokens
+are interleaved with language tokens as input to an LLM,
+Llama-2-7B-Chat [77] or Llama-3-8B-Instruct [1]. Finally,
+we incorporate LoRA [33] in every linear layer of the LLM
+for efficient tuning.
+Training Loss. As described in Section 3.1, our learning objective is twofold. The first part focuses on auto-
+
+  L = \frac {1}{N}\sum ^N_{j=1}(\underbrace {-\log l_{j+1}P_j^\texttt {[Txt$_{j+1}$]}}_{LM Loss} - \underbrace {w\log f_jP_j^\texttt {[EOS]}}_{Streaming Loss}),  (5)
+
+where lj and fj denote condition indicators. lj is 1 if the jth token is a language response token, and 0 otherwise. fj
+is 1 if (1) the j-th token is the last token of a frame4 , and (2)
+lj+1 = 0. In essence, the streaming EOS loss is applied to
+[Txt
+]
+frames before responding. Pj j+1 denotes the probability on j + 1-th text token, output from the language model
+head of the j-th token, and Pj[EOS] represents that probability for the EOS token. w is a balance term, set to w = 1 by
+default. As shown in Figuer 4, we visualize the ranges of
+language loss and streaming loss in an input sequence when
+we only use 1 token for each frame.
+
+3 The experiments described in this paper are conducted without extra spa-
+
+tial tokens (i.e., hp = wp = 0), which is the most efficient setup and
+can handle half-hour videos within a 4096 context window. Our released
+models for demo usage include 1 + hp × wp = 1 + 3 × 3 = 10 tokens,
+offering better detail in dialogue but supporting shorter maximum video
+lengths. Despite more tokens used per frame, all models can still run at
+over 10 FPS for 5-minute Ego4D narration streams.
+
+4 When a frame has multiple patch tokens, loss is only on the last one.
+
+6
+
+EOS
+
+LIVE
+
+EOS
+
+AI: appeared
+
+EOS
+
+AI: disappeared
+
+ing OpenCLIP-ViT-L-224 [22, 68] as the video frame encoder, a 2-layer MLP as the connector, and Llama-2-7BChat [77] as the language model. Each video frame only
+costs 1 CLS token.
+• The more effective one, VideoLLM-online-8B-v1+,
+using SigLIP-ViT-L-384 [91] as the video frame encoder, a
+2-layer MLP as the connector, and Llama-3-8B-Instruct [1]
+as the language model. Each video frame costs 1 CLS token and 3×3 tokens by average pooling, i.e., 10 tokens per
+frame.
+By default, the experiments in this paper are conducted
+with VideoLLM-online-7B-v1 due to our limited computation resources. We also train a VideoLLM-online-8B-v1+
+model for demo purpose.
+For model training, all models are trained with with 2
+FPS sampled videos.5 We train model with LoRA [33] to
+all linear layers, with a rank of 128, scaling factor of 256.
+For the sake of simplicity, the training is directly performed
+without vision-language aligning procedure [52]. We also
+tried to use LlaVA-1.5 [51] to initialize our connector and
+LLM, but we found the performance is similar, thus we
+just keep the MLP randomly initialized. For video streaming dialogue experiments, we train 2 epochs for the model.
+For the downstreaming offline experiments, we train 5∼6
+epochs without pre-training for fair comparison with previous methods. By default, we set streaming loss weight
+w = 1.0 during training.
+
+…
+
+Key-Value
+Cache
+
+Delayed
+frames
+
+User:
+When x
+appears,
+tell me
+
+Query
+
+…
+
+…
+Frame
+
+Frame
+
+Frame
+
+Frame
+
+Frame
+
+Frame
+
+…
+
+Figure 5. Inference pipeline in our LIVE framework. During inference, video frames serve as streaming inputs. Our model
+maintains a continuous key-value cache as the input progresses to
+speed up the inference. Furthermore, we parallelize the fast video
+frame encoder and the slower language model to avoid the bottleneck in the latter. Video frame tokens can be always encoded and
+buffered, no need to wait the language decoding.
+
+3.4. Inference
+Probability Correction. The prevalence of EOS token will
+bias the model towards EOS token prediction. To address
+this, we introduce a threshold θ to correct the output probability on frame tokens: EOS will not be considered as
+the next token if Pj[EOS] < θ. In practical usage, we find
+that setting θ to 0.5∼0.8 yields much better results than no
+threshold here.
+Continuous Key-Value Cache. As shown in Figure 5, During inference, the video is input as a frame-by-frame stream,
+with a default FPS 2. Our model takes the current frame as
+input and generates tokens on-the-fly. In the whole process,
+we use the key-value cache trick to accelerate token decoding, thus we do not need to manually append the generated
+tokens for the next frame. As our training encourages the
+model to keep silence, this continuous inference would be
+efficient, providing the possibility to pace with the video
+stream speed.
+Parallelization of encoding and decoding. Our video
+frame encoder utilizes CLIP ViT-L (307M), which is significantly smaller than the 7B/8B LLM. This size discrepancy
+leads to a speed mismatch, potentially resulting in frame
+skipping when the LLM decodes long sentences. To mitigate this issue, we parallelize the processes and establish a
+FIFO queue for video frame tokens. The fast encoder does
+not need to wait the slow LLM, it just always encode the
+video frames and append them to the queue. Once the language model completes its previous frame decoding, it can
+fetch the frame tokens in the queue but do not delay the
+video encoding.
+
+4.2. Evaluation Setting
+Datasets. We use (1) assistance-related, instructional video
+dataset COIN [75] and (2) continuous, egocentric video
+dataset Ego4D [28] in various settings:
+• Ego4D Narration Stream: We also leverage the dense
+Ego4D timestamp-narration to create a streaming set. The
+goal is to generate narrations timely like Ego4D human
+annotators [28]. We follow the division of the training,
+validation, and test set in EgoVLP [48].
+• COIN+Ego4D Narration Stream: To further evaluate
+the potential of model’s performance to free-form dialogue, we construct a simple COIN+Ego4D Stream set,
+constructed from COIN annotations using our data generation methods, and the above Ego4D Narration Stream.
+The model should remind the user when an action starts,
+summarizes the action when it ends, as well as forecasts
+the next action. We use the same training/testing splits as
+COIN benchmarks. See appendix for details.
+• Ego4D GoalStep+Narration Stream: Due to potential
+privacy risks associated with COIN dataset collected from
+YouTube videos, we have opted to use Ego4D GoalStep [73] for training our released model. While it is
+
+4. Experiments
+4.1. Implementation Details
+We implement VideoLLM-online with our LIVE framework. It has two versions:
+• The more efficient one, VideoLLM-online-7B-v1, us-
+
+5 The inference can be set with higher FPS. We tried 10 FPS in some ex-
+
+amples and we do not observe obvious performance degradation when
+inference FPS is 10.
+
+7
+
+also capable of online chatting, it may exhibit limitations
+when dealing with third-person perspective videos.
+• COIN Benchmarks: Following on previous studies [50,
+61, 84, 97], we evaluate our model on six common benchmarks of the COIN dataset: step recognition, step forecasting, task summarization, procedure forecasting, procedure forecasting with a goal.
+• Ego4D long-term action anticipation (LTA) benchmark: This benchmark requires to predict next Z = 20
+actions (verbs and nouns) for the given video of previous
+8 steps. We use the standard Ego4d v2 splits as in previous studies [34, 94].
+Evaluation metrics. We use the following metrics to evaluate the model as an online video assistant:
+
+swer with streaming video settings. To better understand
+the challenges, we build baseline models for video-text interleaved dialogue, per-frame dialogue, as we described in
+Section 3.1, with the same model architecture and training
+details to VideoLLM-online, differing only in their training
+objective and multi-turn formulation.
+
+4.3. Ablation Study
+Learning Method. Table 1a shows the ablation studies
+on learning methods in a streaming setting. Both visionlanguage interleaved and streaming methods exhibit low
+perplexity loss, indicating that our proposed objective does
+not hurt language modeling capability. However, learning
+with per-frame for streaming will produce significant higher
+LM-PPL than others, which might be attributed to the too
+more single EOS token in answering that affects the original language modeling.
+When we turn to online metrics of TimeDiff and Fluency,
+streaming dialogue method yields much better results than
+others. In our observation, the first interleaved dialogue
+method always outputs language after every frame, and the
+second mutli-turn for streaming dialogue approach tends to
+answer EOS token after every frame, which decreases their
+performance for streaming video inputs. Furthermore, perframe for streaming dialogue method will significanly slow
+down the training speed due to its lengthy prompts, while
+our method has no negative impact on the efficiency.
+Streaming Loss. We continue to investigate the most suitable strategy to learn the streaming objective. As shown
+in Table 1b and Table 1c, we find a default setting works
+surprisingly well (CE loss, τ = 1.0), which demonstrates
+there is no need to apply more advanced loss (e.g. Focal
+Loss [49]) to address the imbalance on EOS token.
+Inference Efficiency. In Table 1d, we test the inference efficiency on Ego4D narration stream validation set (5
+minute), and report the memory cost and average FPS on a
+single A100 GPU. The first interleaved dialogue method,
+which will output language after every video frame, has
+huge memory cost and slow generation speed. The second one, per-frame dialogue for streaming that formulates
+all in a multi-turn dialogue, show better efficiency than the
+first one since it can cost less tokens in redundant frames.
+However, this approach still lags significantly behind our
+streaming dialogue approach, which does not cost extra tokens in redundant frames thus maintain smaller key-value
+cache. We observe for most Ego4D videos, our model can
+run larger than 10 FPS, providing possibility for AI assistants working in real-time video stream.
+
+• Language Modeling Metrics. We use common language perplexity to indicate the language modeling capability (LM-PPL) at a given timestamp. A lower LMPPL signifies better accuracy in answering. However, this
+metric is not suitable for comparing different LLMs due
+to potential variations in language tokenization. Therefore, we calculate the language generation matching ratio (LG-Match) to compare VideoLLM-online-7B-v1 and
+VideoLLM-online-8B-v1+. Note that LG-Match is calculated in an autoregressive order, meaning it represents
+the ratio of the position of the first error token to the total
+number of tokens.
+• Time Difference (TimeDiff). To evaluate the temporal
+alignment capability of an online assistant, we calculate
+the discrepancy between the timestamp of its response
+and the expected timestamp for each response. We average TimeDiff each turn as the metric.
+• Fluency. Individual LM-PPL, LG-Match or TimeDiff do
+not entirely evaluate both language and temporal effectiveness in a streaming dialogue. We introduce the Fluency metric, which evaluates the proportion of consecutive successful token prediction within a dialogue turn.
+As the token also including language tokens, Fluency can
+comprehensively reflect the language modeling in an online streaming.
+We would like to note that these metrics are mainly for
+monitoring model performance in the streaming narration
+task. Firstly, the narration text is relatively simple, mainly
+composed of a subject, verb, and object, thus the LM-PPL
+and LG-Match can still work for this simple language. Secondly, the streaming narration requires the human annotator
+to write the description at the moment when the action state
+has changed, which is very suitable for validating the time
+differences. However, these metrics are not so effective for
+evaluating more complicated, free-form online conversation
+scenarios, and this is also a common problem in evaluating
+free-form LLM generation. We leave this for future work.
+Baselines. To our best knowledge, we are the first one to
+tackle producing temporal aligned, free-form language an-
+
+4.4. Results
+Offline Language Modeling. We show our model can
+perform well on traditional temporal summarization and
+forecasting problems. As shown in Table 2(a), our model
+8
+
+Method
+
+Ego4D Narration Stream on Validation
+LM-PPL↓
+TimeDiff ↓
+Fluency↑
+
+Training Objective
+No Training
+
+#Training Token↓
+
+Training Cost
+
+498.5
+
+6.50
+
+0.1%
+
+n/a
+
+n/a
+
+Interleaved Dialogue
+
+Language Modeling
+
+2.45
+
+6.47
+
+11.1%
+
+1694
+
+12h
+
+Per-frame Dialogue for Streaming
+
+Language Modeling (w/ EOS turns)
+
+3.34
+
+2.52
+
+37.7 %
+
+6737
+
+22h
+
+Streaming Dialogue (Ours)
+
+Language Modeling + Streaming EOS
+
+2.43
+
+2.32
+
+42.6%
+
+1694
+
+12h
+
+(a) Learning method for streaming dialogue. Training with streaming dialogue method can achieve much better TimeDiff and Fluency, as well as
+maintain the language modeling quality. Meanwhile, the streaming dialogue can enjoy much more efficient training than per-frame dialogue for video
+streaming dialogue.
+Streaming Loss
+Standard CE
+OHEM [71]
+Focal Loss [49]
+
+2.43
+2.53
+2.59
+
+2.32
+2.39
+2.44
+
+Ego4D Narration Stream Validation
+LM-PPL↓
+TimeDiff ↓
+Fluency↑
+
+Weight τ
+
+Ego4D Narration Stream Validation
+LM-PPL↓
+TimeDiff ↓
+Fluency↑
+
+τ = 0.5
+τ = 1.0
+τ = 2.0
+τ = 3.0
+
+42.6%
+41.0%
+39.4%
+
+2.44
+2.43
+2.46
+2.47
+
+2.32
+2.32
+2.31
+2.32
+
+42.4%
+42.6%
+42.5%
+42.5%
+
+Method
+
+Mem↓
+
+FPS↑
+
+Interleaved
+
+34.4G
+
+1.5
+
+Per-frame
+Streaming
+
+24.9G
+
+7.5
+
+Streaming
+
+18.2G
+
+13.5
+
+(b) Streaming loss function. Standard CE (cross-entropy) is (c) Streaming loss weight. Using slightly higher stream(d) Generation memory/speed.
+enough for training streaming dialogue; there is no need to ing loss weight (τ = 2.0) achieves the best trade-off
+Streaming dialogue method has
+specifically to address the class imbalance on EOS token.
+among various metrics.
+much better efficiency.
+
+Table 1. Ablation experiments on Ego4D Narration Stream. We train VideoLLM-online on Ego4D [28] narration stream training set
+and evaluate on its validation set. The comparison is based on our designed metrics: the ratio of strictly correct prediction tokens (Fluency),
+language modeling perplexity (LM-PPL) and time difference (TimeDiff ) metrics. #Training Token denotes the average token length during
+training. TimeDiff refers to difference in second. Default settings are highlighted.
+
+Method
+ClipBERT [42]
+TimeSformer [8]
+Paprika [98]
+DistantSup [50]
+VideoTF [61]
+ProcedureVRL [97]
+VideoTaskGraph [6]
+VideoLLM-online-7B-v1
+VideoLLM-online-8B-v1+
+
+Not use
+HT100M
+✓
+✗
+✗
+✗
+✗
+✗
+✗
+✓
+✓
+
+COIN Benchmark Top-1 Accuracy↑
+Step
+Task
+Next
+Proc.
+Proc.+
+
+Method
+
+Not use
+EgoVLP
+
+End-to
+-end?
+
+Ego4D LTA ED@Z=20↓
+Verb
+Noun
+Action
+
+30.8
+46.5
+51.0
+54.1
+56.5
+56.9
+57.2
+59.8
+63.1
+
+CLIP [18]
+EgoT2 [83]
+I-CVAE [56]
+HierVL [5]
+VideoLLM [11]
+VideoLLM-online-7B-v1
+VideoLLM-online-8B-v1+
+
+✓
+✓
+✓
+✓
+✗
+✓
+✓
+
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+
+0.739
+0.722
+0.753
+0.724
+0.721
+0.697
+0.689
+
+0.769
+0.764
+0.749
+0.735
+0.725
+0.698
+0.671
+
+0.941
+0.935
+0.931
+0.928
+0.921
+0.897
+0.884
+
+Palm [34]
+AntGPT [94]
+
+✗
+✗
+
+✗
+✗
+
+0.696
+0.650
+
+0.651
+0.650
+
+0.886
+0.877
+
+65.4
+85.3
+85.8
+90.0
+91.0
+90.8
+90.5
+92.1
+92.7
+
+34.0
+43.2
+39.4
+42.4
+46.8
+40.2
+48.1
+49.1
+
+17.0
+40.2
+47.9
+49.8
+
+40.1
+41.3
+46.4
+52.9
+54.1
+
+(a) Results on COIN benchmarks (left to right): step recognition, task recognition, (b) Results on Ego4D LTA benchmark, evaluated on public server.
+next forecasting, procedure forecasting, procedure forecasting with a goal.
+ED@Z=20 denotes editing distance for future 20 actions.
+
+Table 2. Experiments on COIN [75] and Ego4D [28] benchmarks. VideoLLM-online is finetuned on their training set, and strictly evaluated
+on the test set by generated string comparison with the ground-truth text. It achieves best results among end-to-end models.
+
+Comparison between Model Variants. We compare
+VideoLLM-online-7B-v1, VideoLLM-online-8B-v1, and
+VideoLLM-online-8B-v1+ on the Ego4D narration stream
+task. “7B” and “8B” refer to Llama-2-7B and Llama-38B, respectively, while “v1” and “v1+” indicate the usage
+of either one token per frame or multiple tokens per frame.
+As shown in Table 3, the enhanced language model significantly improves performance across all aspects. Utilizing
+more tokens per frame enhances the vision-language capability, albeit with limited benefits to online performance.
+
+achieves state-of-the-art performances in step/task summarization and next step/procedure forecasting benchmarks
+of COIN dataset [75]. Furthermore, we also obtain the
+best performance among end-to-end models evaluated on
+Ego4D LTA. Although the results of AntGPT [94] are better
+than us, they used egocentric pre-trained visual feature [48],
+and integrates lots of complex cascading methods to improve the forecasting results. Our VideoLLM-online, however, directly outputs language as the results, which performs better than the similar end-to-end VideoLLM [11].
+Method
+VideoLLM-online-7B-v1
+VideoLLM-online-8B-v1
+VideoLLM-online-8B-v1+
+
+Visualization. In Figure 1, we visualize two representative examples, real-time narration and online dialogue. The
+most distinctive characteristics of our approach are: (1) the
+dialogue process goes along with the streaming video input, rather than chatting based on the full video. (2) The response will be “muted” when it is unnecessary, significantly
+improving the overall speed of video streaming dialogue.
+
+Ego4D Narration Stream Validation
+LG-Match↑
+TimeDiff ↓
+Fluency↑
+42.3%
+48.3%
+49.0%
+
+2.25
+2.05
+2.05
+
+42.6%
+45.2%
+45.3%
+
+Table 3. Performance comparison of VideoLLM-online variants.
+
+9
+
+Another example is shown in Figure 2. It can be seen
+that our model demonstrates strong alignment between the
+streaming visual frames and the output responses. With our
+efficient inference strategy, we can envision an J.A.R.V.I.Slike intelligent assistant that can assist users in real time.
+
+Tom Hennigan, Benjamin Lee, Fabio Viola, Malcolm
+Reynolds, Yuanzhong Xu, Ryan Doherty, Eli Collins,
+Clemens Meyer, Eliza Rutherford, Erica Moreira, Kareem
+Ayoub, Megha Goel, George Tucker, Enrique Piqueras,
+Maxim Krikun, Iain Barr, Nikolay Savinov, Ivo Danihelka, Becca Roelofs, Anaı̈s White, Anders Andreassen,
+Tamara von Glehn, Lakshman Yagati, Mehran Kazemi, Lucas Gonzalez, Misha Khalman, Jakub Sygnowski, and et
+al. Gemini: A family of highly capable multimodal models. arXiv:2312.11805, 2023. 2, 3, 4
+[5] Kumar Ashutosh, Rohit Girdhar, Lorenzo Torresani, and
+Kristen Grauman. Hiervl: Learning hierarchical videolanguage embeddings. In CVPR, pages 23066–23078,
+2023. 9, 4
+[6] Kumar Ashutosh, Santhosh Kumar Ramakrishnan, Triantafyllos Afouras, and Kristen Grauman. Video-mined
+task graphs for keystep recognition in instructional videos.
+In NeurIPS, 2023. 9
+[7] Jinze Bai, Shuai Bai, Shusheng Yang, Shijie Wang, Sinan
+Tan, Peng Wang, Junyang Lin, Chang Zhou, and Jingren
+Zhou. Qwen-vl: A frontier large vision-language model
+with versatile abilities. arXiv:2308.12966, 2023. 2, 3, 4
+[8] Gedas Bertasius, Heng Wang, and Lorenzo Torresani. Is
+space-time attention all you need for video understanding?
+In ICML, 2021. 9
+[9] Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom
+Henighan, Rewon Child, Aditya Ramesh, Daniel Ziegler,
+Jeffrey Wu, Clemens Winter, Chris Hesse, Mark Chen, Eric
+Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack
+Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. Language models
+are few-shot learners. In NeurIPS, pages 1877–1901, 2020.
+1, 3
+[10] João Carreira and Andrew Zisserman. Quo vadis, action
+recognition? A new model and the kinetics dataset. In
+CVPR, pages 4724–4733, 2017. 3
+[11] Guo Chen, Yin-Dong Zheng, Jiahao Wang, Jilan Xu, Yifei
+Huang, Junting Pan, Yi Wang, Yali Wang, Yu Qiao, Tong
+Lu, et al. Videollm: Modeling video sequence with large
+language models. arXiv preprint arXiv:2305.13292, 2023.
+9
+[12] Jun Chen, Deyao Zhu, Xiaoqian Shen, Xiang Li, Zechun
+Liu, Pengchuan Zhang, Raghuraman Krishnamoorthi,
+Vikas Chandra, Yunyang Xiong, and Mohamed Elhoseiny.
+Minigpt-v2: large language model as a unified interface
+for vision-language multi-task learning. arXiv:2310.09478,
+2023. 3
+[13] Keqin Chen, Zhao Zhang, Weili Zeng, Richong Zhang,
+Feng Zhu, and Rui Zhao. Shikra: Unleashing multimodal llm’s referential dialogue magic. arXiv preprint
+arXiv:2306.15195, 2023. 3
+[14] Wenliang Dai, Junnan Li, Dongxu Li, Anthony Meng Huat
+Tiong, Junqi Zhao, Weisheng Wang, Boyang Li, Pascale
+Fung, and Steven C.H.Hoi. Instructblip: Towards general-
+
+5. Conclusion
+We propose Learning-In-Video-strEam (LIVE), a novel
+framework empowering LLMs to handle streaming video,
+to produce temporal aligned answers, hold long-context
+video duration, and have high inference efficiency. We use
+LIVE to train a simple VideoLLM-online model, which not
+only achieves superior capability in online/offline visionlanguage tasks, but also enable fast inference for an online
+video streaming setting. We believe enabling such abilities will be an important step to move towards always-on
+online assistant. In future work, to make our VideoLLMonline be more general and improve its spatial capability in
+zero-shot prediction for downstream applications, we will
+explore suitable pre-training data source, and develop models that can employ more spatial tokens but without many
+trade-off on speed and memory cost.
+
+Acknowledgment This work is sponsored by Project
+Aria Team, Meta. The datasets and processing were acquired and all models were trained at the National University of Singapore (NUS) by NUS authors.
+References
+[1] Introducing meta llama 3: The most capable openly available llm to date. https://ai.meta.com/blog/
+meta-llama-3/, 2024. 3, 5, 6, 7
+[2] Huda AlAmri, Vincent Cartillier, Abhishek Das, Jue Wang,
+Anoop Cherian, Irfan Essa, Dhruv Batra, Tim K. Marks,
+Chiori Hori, Peter Anderson, Stefan Lee, and Devi Parikh.
+Audio visual scene-aware dialog. In CVPR, pages 7558–
+7567, 2019. 3
+[3] Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine
+Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch, Katherine Millican, Malcolm Reynolds, Roman Ring,
+Eliza Rutherford, Serkan Cabi, Tengda Han, Zhitao Gong,
+Sina Samangooei, Marianne Monteiro, Jacob L. Menick,
+Sebastian Borgeaud, Andy Brock, Aida Nematzadeh, Sahand Sharifzadeh, Mikolaj Binkowski, Ricardo Barreira,
+Oriol Vinyals, Andrew Zisserman, and Karén Simonyan.
+Flamingo: a visual language model for few-shot learning.
+In NeurIPS, 2022. 3
+[4] Rohan Anil, Sebastian Borgeaud, Yonghui Wu, JeanBaptiste Alayrac, Jiahui Yu, Radu Soricut, Johan Schalkwyk, Andrew M. Dai, Anja Hauth, Katie Millican, David
+Silver, Slav Petrov, Melvin Johnson, Ioannis Antonoglou,
+Julian Schrittwieser, Amelia Glaese, Jilin Chen, Emily
+Pitler, Timothy P. Lillicrap, Angeliki Lazaridou, Orhan Firat, James Molloy, Michael Isard, Paul Ronald Barham,
+
+10
+
+[27] GPT-4o. Hello gpt-4o, 2024. 2
+[28] Kristen Grauman, Andrew Westbury, Eugene Byrne,
+Zachary Chavis, Antonino Furnari, Rohit Girdhar, Jackson
+Hamburger, Hao Jiang, Miao Liu, Xingyu Liu, Miguel Martin, Tushar Nagarajan, Ilija Radosavovic, Santhosh Kumar
+Ramakrishnan, Fiona Ryan, Jayant Sharma, Michael Wray,
+Mengmeng Xu, Eric Zhongcong Xu, Chen Zhao, Siddhant Bansal, Dhruv Batra, Vincent Cartillier, Sean Crane,
+Tien Do, Morrie Doulaty, Akshay Erapalli, Christoph
+Feichtenhofer, Adriano Fragomeni, Qichen Fu, Abrham
+Gebreselasie, Cristina González, James Hillis, Xuhua
+Huang, Yifei Huang, Wenqi Jia, Weslie Khoo, Jáchym
+Kolár, Satwik Kottur, Anurag Kumar, Federico Landini,
+Chao Li, Yanghao Li, Zhenqiang Li, Karttikeya Mangalam, Raghava Modhugu, Jonathan Munro, Tullie Murrell, Takumi Nishiyasu, Will Price, Paola Ruiz Puentes,
+Merey Ramazanova, Leda Sari, Kiran Somasundaram, Audrey Southerland, Yusuke Sugano, Ruijie Tao, Minh Vo,
+Yuchen Wang, Xindi Wu, Takuma Yagi, Ziwei Zhao, Yunyi
+Zhu, Pablo Arbeláez, David Crandall, Dima Damen, Giovanni Maria Farinella, Christian Fuegen, Bernard Ghanem,
+Vamsi Krishna Ithapu, C. V. Jawahar, Hanbyul Joo, Kris
+Kitani, Haizhou Li, Richard A. Newcombe, Aude Oliva,
+Hyun Soo Park, James M. Rehg, Yoichi Sato, Jianbo Shi,
+Mike Zheng Shou, Antonio Torralba, Lorenzo Torresani,
+Mingfei Yan, and Jitendra Malik. Ego4d: Around the world
+in 3, 000 hours of egocentric video. In CVPR, pages 18973–
+18990, 2022. 3, 5, 7, 9, 4
+[29] Kristen Grauman, Andrew Westbury, Lorenzo Torresani,
+Kris Kitani, Jitendra Malik, Triantafyllos Afouras, Kumar
+Ashutosh, Vijay Baiyya, Siddhant Bansal, Bikram Boote,
+Eugene Byrne, Zachary Chavis, Joya Chen, Feng Cheng,
+Fu-Jen Chu, Sean Crane, Avijit Dasgupta, Jing Dong, Marı́a
+Escobar, Cristhian Forigua, Abrham Gebreselasie, Sanjay
+Haresh, Jing Huang, Md Mohaiminul Islam, Suyog Dutt
+Jain, Rawal Khirodkar, Devansh Kukreja, Kevin J. Liang,
+Jia-Wei Liu, Sagnik Majumder, Yongsen Mao, Miguel Martin, Effrosyni Mavroudi, Tushar Nagarajan, Francesco Ragusa, Santhosh Kumar Ramakrishnan, Luigi Seminara, Arjun Somayazulu, Yale Song, Shan Su, Zihui Xue, Edward Zhang, Jinxu Zhang, Angela Castillo, Changan Chen,
+Xinzhu Fu, Ryosuke Furuta, Cristina González, Prince
+Gupta, Jiabo Hu, Yifei Huang, Yiming Huang, Weslie Khoo, and et al. Ego-exo4d: Understanding skilled
+human activity from first- and third-person perspectives.
+arXiv:2311.18259, 2023. 1
+[30] Jiaming Han, Renrui Zhang, Wenqi Shao, Peng Gao, Peng
+Xu, Han Xiao, Kaipeng Zhang, Chris Liu, Song Wen, Ziyu
+Guo, et al. Imagebind-llm: Multi-modality instruction tuning. arXiv:2309.03905, 2023. 2
+[31] Fabian Caba Heilbron, Victor Escorcia, Bernard Ghanem,
+and Juan Carlos Niebles. Activitynet: A large-scale video
+benchmark for human activity understanding. In CVPR,
+pages 961–970, 2015. 3
+[32] Ke Hong, Guohao Dai, Jiaming Xu, Qiuli Mao, Xiuhong
+Li, Jun Liu, Kangdi Chen, Hanyu Dong, and Yu Wang.
+Flashdecoding++: Faster large language model inference
+on gpus. arXiv:2311.01282, 2023. 3
+
+purpose vision-language models with instruction tuning.
+arXiv:2305.06500, 2023. 2, 3
+[15] Dima Damen, Hazel Doughty, Giovanni Maria Farinella,
+Antonino Furnari, Evangelos Kazakos, Jian Ma, Davide
+Moltisanti, Jonathan Munro, Toby Perrett, Will Price, and
+Michael Wray. Rescaling egocentric vision: Collection,
+pipeline and challenges for EPIC-KITCHENS-100. Int. J.
+Comput. Vis., 130(1):33–55, 2022. 5
+[16] Tri Dao, Daniel Haziza, Francisco Massa, and Grigory
+Sizov. Flash-decoding for long-context inference. https:
+//pytorch.org/blog/flash-decoding/, 2023.
+3
+[17] Abhishek Das, Satwik Kottur, Khushi Gupta, Avi Singh,
+Deshraj Yadav, José M. F. Moura, Devi Parikh, and Dhruv
+Batra. Visual dialog. In CVPR, pages 1080–1089, 2017. 3
+[18] Srijan Das and Michael S. Ryoo. Video + clip baseline
+for ego4d long-term action anticipation. arXiv:2207.00579,
+2022. 9
+[19] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina
+Toutanova. BERT: pre-training of deep bidirectional transformers for language understanding. In NAACL, pages
+4171–4186, 2019. 3
+[20] Runpei Dong, Chunrui Han, Yuang Peng, Zekun Qi, Zheng
+Ge, Jinrong Yang, Liang Zhao, Jianjian Sun, Hongyu Zhou,
+Haoran Wei, et al. Dreamllm: Synergistic multimodal comprehension and creation. arXiv:2309.11499, 2023. 2
+[21] Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov,
+Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner,
+Mostafa Dehghani, Matthias Minderer, Georg Heigold,
+Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby. An image is worth 16x16 words: Transformers for image recognition at scale. In ICLR, 2021. 6
+[22] Samir Yitzhak Gadre, Gabriel Ilharco, Alex Fang, Jonathan
+Hayase, Georgios Smyrnis, Thao Nguyen, Ryan Marten,
+Mitchell Wortsman, Dhruba Ghosh, Jieyu Zhang, Eyal Orgad, Rahim Entezari, Giannis Daras, Sarah M. Pratt, Vivek
+Ramanujan, Yonatan Bitton, Kalyani Marathe, Stephen
+Mussmann, Richard Vencu, Mehdi Cherti, Ranjay Krishna,
+Pang Wei Koh, Olga Saukh, Alexander Ratner, Shuran
+Song, Hannaneh Hajishirzi, Ali Farhadi, Romain Beaumont, Sewoong Oh, Alex Dimakis, Jenia Jitsev, Yair Carmon, Vaishaal Shankar, and Ludwig Schmidt. Datacomp:
+In search of the next generation of multimodal datasets.
+arXiv:2304.14108, 2023. 6, 7
+[23] Zhe Gan, Yu Cheng, Ahmed El Kholy, Linjie Li, Jingjing
+Liu, and Jianfeng Gao. Multi-step reasoning via recurrent
+dual attention for visual dialog. In ACL, pages 6463–6474,
+2019. 3
+[24] Suyu Ge, Yunan Zhang, Liyuan Liu, Minjia Zhang, Jiawei Han, and Jianfeng Gao. Model tells you what
+to discard: Adaptive kv cache compression for llms.
+arXiv:2310.01801, 2023. 3
+[25] Roeland De Geest, Efstratios Gavves, Amir Ghodrati,
+Zhenyang Li, Cees Snoek, and Tinne Tuytelaars. Online
+action detection. In ECCV, pages 269–284, 2016. 3, 5
+[26] Rohit Girdhar and Kristen Grauman. Anticipative video
+transformer. Arxiv, 2106.02036, 2021. 3
+
+11
+
+[48] Kevin Qinghong Lin, Alex Jinpeng Wang, Mattia Soldan,
+Michael Wray, Rui Yan, Eric Zhongcong Xu, Difei Gao,
+Rongcheng Tu, Wenzhe Zhao, Weijie Kong, Chengfei Cai,
+Hongfa Wang, Dima Damen, Bernard Ghanem, Wei Liu,
+and Mike Zheng Shou. Egocentric video-language pretraining. arXiv:2206.01670, 2022. 5, 7, 9
+[49] Tsung-Yi Lin, Priya Goyal, Ross B. Girshick, Kaiming He,
+and Piotr Dollár. Focal loss for dense object detection. In
+ICCV, pages 2999–3007, 2017. 8, 9
+[50] Xudong Lin, Fabio Petroni, Gedas Bertasius, Marcus
+Rohrbach, Shih-Fu Chang, and Lorenzo Torresani. Learning to recognize procedural activities with distant supervision. In CVPR, pages 13843–13853, 2022. 8, 9, 3
+[51] Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae
+Lee. Improved baselines with visual instruction tuning.
+arXiv:2310.03744, 2023. 2, 6, 7
+[52] Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae
+Lee. Visual instruction tuning. NeurIPS, 2023. 2, 3, 6, 7
+[53] Xiaoxuan Liu, Lanxiang Hu, Peter Bailis, Ion Stoica, Zhijie
+Deng, Alvin Cheung, and Hao Zhang. Online speculative
+decoding. arXiv:2310.07177, 2023. 3
+[54] Chenyang Lyu, Minghao Wu, Longyue Wang, Xinting
+Huang, Bingshuai Liu, Zefeng Du, Shuming Shi, and
+Zhaopeng Tu. Macaw-llm: Multi-modal language modeling with image, audio, video, and text integration.
+arXiv:2306.09093, 2023. 2, 3
+[55] Muhammad Maaz, Hanoona Rasheed, Salman Khan, and
+Fahad Shahbaz Khan. Video-chatgpt: Towards detailed
+video understanding via large vision and language models.
+arXiv:2306.05424, 2023. 2, 3, 4
+[56] Esteve Valls Mascaro, Hyemin Ahn, and Dongheui Lee.
+Intention-conditioned long-term human egocentric action
+anticipation. In WACV, pages 6037–6046, 2023. 9, 4
+[57] Antoine Miech, Dimitri Zhukov, Jean-Baptiste Alayrac,
+Makarand Tapaswi, Ivan Laptev, and Josef Sivic.
+Howto100m: Learning a text-video embedding by watching hundred million narrated video clips. In ICCV, pages
+2630–2640, 2019. 5
+[58] Seungwhan Moon, Andrea Madotto, Zhaojiang Lin, Tushar
+Nagarajan, Matt Smith, Shashank Jain, Chun-Fu Yeh,
+Prakash Murugesan, Peyman Heidari, Yue Liu, et al. Anymal: An efficient and scalable any-modality augmented language model. arXiv:2309.16058, 2023. 2
+[59] Yao Mu, Qinglong Zhang, Mengkang Hu, Wenhai Wang,
+Mingyu Ding, Jun Jin, Bin Wang, Jifeng Dai, Yu Qiao, and
+Ping Luo. Embodiedgpt: Vision-language pre-training via
+embodied chain of thought. arXiv:2305.15021, 2023. 2, 3,
+4
+[60] Vishvak Murahari, Dhruv Batra, Devi Parikh, and Abhishek
+Das. Large-scale pretraining for visual dialog: A simple
+state-of-the-art baseline. In ECCV, pages 336–352, 2020. 3
+[61] Medhini Narasimhan, Licheng Yu, Sean Bell, Ning Zhang,
+and Trevor Darrell. Learning and verification of task structure in instructional videos. arXiv:2303.13519, 2023. 8, 9,
+3
+[62] Van-Quang Nguyen, Masanori Suganuma, and Takayuki
+Okatani. Efficient attention mechanism for visual dialog
+
+[33] Edward J Hu, Yelong Shen, Phillip Wallis, Zeyuan AllenZhu, Yuanzhi Li, Shean Wang, Lu Wang, and Weizhu Chen.
+Lora: Low-rank adaptation of large language models. arXiv
+preprint arXiv:2106.09685, 2021. 6, 7
+[34] Daoji Huang, Otmar Hilliges, Luc Van Gool, and Xi
+Wang. Palm: Predicting actions through language models @ ego4d long-term action anticipation challenge 2023.
+arXiv:2306.16545, 2023. 8, 9, 4
+[35] Heikki Hyyrö. Explaining and extending the bit-parallel
+approximate string matching algorithm of myers. 2001. 4
+[36] Haroon Idrees, Amir R. Zamir, Yu-Gang Jiang, Alex Gorban, Ivan Laptev, Rahul Sukthankar, and Mubarak Shah.
+The THUMOS challenge on action recognition for videos
+”in the wild”. Comput. Vis. Image Underst., 155:1–23,
+2017. 5
+[37] Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B.
+Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec
+Radford, Jeffrey Wu, and Dario Amodei. Scaling laws for
+neural language models. arXiv:2001.08361, 2020. 1
+[38] Kris M. Kitani, Brian D. Ziebart, James Andrew Bagnell,
+and Martial Hebert. Activity forecasting. In ECCV, pages
+201–214, 2012. 3
+[39] Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng,
+Lianmin Zheng, Cody Hao Yu, Joseph E Gonzalez, Hao
+Zhang, and Ion Stoica. Efficient memory management
+for large language model serving with pagedattention.
+arXiv:2309.06180, 2023. 3
+[40] Xin Lai, Zhuotao Tian, Yukang Chen, Yanwei Li, Yuhui
+Yuan, Shu Liu, and Jiaya Jia. Lisa: Reasoning segmentation
+via large language model. arXiv:2308.00692, 2023. 2, 3
+[41] Jie Lei, Licheng Yu, Mohit Bansal, and Tamara L. Berg.
+TVQA: localized, compositional video question answering.
+In EMNLP, pages 1369–1379, 2018. 3
+[42] Jie Lei, Linjie Li, Luowei Zhou, Zhe Gan, Tamara L. Berg,
+Mohit Bansal, and Jingjing Liu. Less is more: Clipbert for
+video-and-language learning via sparse sampling. In CVPR,
+pages 7331–7341, 2021. 9
+[43] Bo Li, Yuanhan Zhang, Liangyu Chen, Jinghao Wang,
+Jingkang Yang, and Ziwei Liu. Otter: A multi-modal model
+with in-context instruction tuning. arXiv:2305.03726,
+2023. 2, 3, 4
+[44] Junnan Li, Dongxu Li, Silvio Savarese, and Steven Hoi.
+Blip-2: Bootstrapping language-image pre-training with
+frozen image encoders and large language models. arXiv
+preprint arXiv:2301.12597, 2023. 2, 3
+[45] KunChang Li, Yinan He, Yi Wang, Yizhuo Li, Wenhai Wang, Ping Luo, Yali Wang, Limin Wang, and
+Yu Qiao. Videochat: Chat-centric video understanding.
+arXiv:2305.06355, 2023. 2, 3, 4
+[46] Bin Lin, Bin Zhu, Yang Ye, Munan Ning, Peng Jin, and Li
+Yuan. Video-llava: Learning united visual representation
+by alignment before projection. arXiv:2311.10122, 2023.
+2, 3, 4
+[47] Kevin Lin, Faisal Ahmed, Linjie Li, Chung-Ching Lin,
+Ehsan Azarnasab, Zhengyuan Yang, Jianfeng Wang, Lin
+Liang, Zicheng Liu, Yumao Lu, Ce Liu, and Lijuan
+Wang. MM-VID: advancing video understanding with gpt4v(ision). arXiv:2310.19773, 2023. 2, 4
+
+12
+
+et al. Llama: Open and efficient foundation language models. arXiv:2302.13971, 2023. 1, 4, 3
+[77] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, Dan Bikel, Lukas Blecher, Cristian Canton-Ferrer,
+Moya Chen, Guillem Cucurull, David Esiobu, Jude Fernandes, Jeremy Fu, Wenyin Fu, Brian Fuller, Cynthia Gao,
+Vedanuj Goswami, Naman Goyal, Anthony Hartshorn,
+Saghar Hosseini, Rui Hou, Hakan Inan, Marcin Kardas,
+Viktor Kerkez, Madian Khabsa, Isabel Kloumann, Artem
+Korenev, Punit Singh Koura, Marie-Anne Lachaux, Thibaut
+Lavril, Jenya Lee, Diana Liskovich, Yinghai Lu, Yuning
+Mao, Xavier Martinet, Todor Mihaylov, Pushkar Mishra,
+Igor Molybog, Yixin Nie, Andrew Poulton, Jeremy Reizenstein, Rashi Rungta, Kalyan Saladi, Alan Schelten, Ruan
+Silva, Eric Michael Smith, Ranjan Subramanian, Xiaoqing Ellen Tan, Binh Tang, Ross Taylor, Adina Williams,
+Jian Xiang Kuan, Puxin Xu, Zheng Yan, Iliyan Zarov,
+Yuchen Zhang, Angela Fan, Melanie Kambadur, Sharan Narang, Aurélien Rodriguez, Robert Stojnic, Sergey
+Edunov, and Thomas Scialom. Llama 2: Open foundation
+and fine-tuned chat models. arXiv:2307.09288, 2023. 3, 4,
+5, 6, 7
+[78] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob
+Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser,
+and Illia Polosukhin. Attention is all you need. In NeurIPS,
+pages 6000–6010, 2017. 3
+[79] Xiang Wang, Shiwei Zhang, Zhiwu Qing, Yuanjie Shao,
+Zhengrong Zuo, Changxin Gao, and Nong Sang. Oadtr:
+Online action detection with transformers. In ICCV, pages
+7545–7555, 2021. 3
+[80] Yue Wang, Shafiq R. Joty, Michael R. Lyu, Irwin King,
+Caiming Xiong, and Steven C. H. Hoi. VD-BERT: A unified vision and dialog transformer with BERT. In EMNLP,
+pages 3325–3338, 2020. 3
+[81] Shengqiong Wu, Hao Fei, Leigang Qu, Wei Ji, and
+Tat-Seng Chua. Next-gpt: Any-to-any multimodal llm.
+arXiv:2309.05519, 2023. 2
+[82] Guangxuan Xiao, Yuandong Tian, Beidi Chen, Song Han,
+and Mike Lewis. Efficient streaming language models with
+attention sinks. arXiv:2309.17453, 2023. 3
+[83] Zihui Xue, Yale Song, Kristen Grauman, and Lorenzo Torresani. Egocentric video task translation. In CVPR, pages
+2310–2320, 2023. 9, 4
+[84] Shen Yan, Xuehan Xiong, Arsha Nagrani, Anurag Arnab,
+Zhonghao Wang, Weina Ge, David Ross, and Cordelia
+Schmid. Unloc: A unified framework for video localization tasks. In ICCV, pages 13623–13633, 2023. 8
+[85] Antoine Yang, Arsha Nagrani, Ivan Laptev, Josef Sivic, and
+Cordelia Schmid. Vidchapters-7m: Video chapters at scale.
+In NeurIPS, 2023. 5
+[86] Antoine Yang, Arsha Nagrani, Paul Hongsuck Seo, Antoine Miech, Jordi Pont-Tuset, Ivan Laptev, Josef Sivic, and
+Cordelia Schmid. Vid2seq: Large-scale pretraining of a visual language model for dense video captioning. In CVPR,
+pages 10714–10726, 2023. 2, 3, 4
+
+that can handle all the interactions between multiple inputs.
+In ECCV, pages 223–240, 2020. 3
+[63] OpenAI. Introducing chatgpt. https://openai.com/
+blog/chatgpt/, 2023. 1, 3
+[64] OpenAI. GPT-4 technical report. arXiv:2303.08774, 2023.
+1
+[65] OpenAI. Gpt-4v(ision) system card. https://cdn.
+openai.com/papers/GPTV_System_Card.pdf,
+2023. 2, 3, 4
+[66] Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman,
+Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens,
+Amanda Askell, Peter Welinder, Paul F. Christiano, Jan
+Leike, and Ryan Lowe. Training language models to follow instructions with human feedback. In NeurIPS, 2022.
+1, 3
+[67] Zhiliang Peng, Wenhui Wang, Li Dong, Yaru Hao, Shaohan Huang, Shuming Ma, and Furu Wei. Kosmos-2:
+Grounding multimodal large language models to the world.
+arXiv:2306.14824, 2023. 2
+[68] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya
+Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry,
+Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen
+Krueger, and Ilya Sutskever. Learning transferable visual
+models from natural language supervision. In ICML, pages
+8748–8763, 2021. 3, 6, 7
+[69] Idan Schwartz, Seunghak Yu, Tamir Hazan, and Alexander G. Schwing. Factor graph attention. In CVPR, pages
+2039–2048, 2019. 3
+[70] Ying Sheng, Lianmin Zheng, Binhang Yuan, Zhuohan Li,
+Max Ryabinin, Beidi Chen, Percy Liang, Christopher Re,
+Ion Stoica, and Ce Zhang. Flexgen: High-throughput generative inference of large language models with a single
+gpu. arXiv:2303.06865, 2023. 3
+[71] Abhinav Shrivastava, Abhinav Gupta, and Ross B. Girshick. Training region-based object detectors with online
+hard example mining. In CVPR, pages 761–769, 2016. 9
+[72] Enxin Song, Wenhao Chai, Guanhong Wang, Yucheng
+Zhang, Haoyang Zhou, Feiyang Wu, Xun Guo, Tian Ye,
+Yan Lu, Jenq-Neng Hwang, et al. Moviechat: From
+dense token to sparse memory for long video understanding. arXiv:2307.16449, 2023. 2, 3, 4
+[73] Yale Song, Eugene Byrne, Tushar Nagarajan, Huiyu Wang,
+Miguel Martin, and Lorenzo Torresani. Ego4d goal-step:
+Toward hierarchical understanding of procedural activities.
+In NeurIPS, 2023. 5, 7
+[74] Yuchong Sun, Hongwei Xue, Ruihua Song, Bei Liu, Huan
+Yang, and Jianlong Fu. Long-form video-language pretraining with multimodal temporal contrastive learning. In
+NeurIPS, 2022. 5
+[75] Yansong Tang, Dajun Ding, Yongming Rao, Yu Zheng,
+Danyang Zhang, Lili Zhao, Jiwen Lu, and Jie Zhou. COIN:
+A large-scale dataset for comprehensive instructional video
+analysis. In CVPR, pages 1207–1216, 2019. 3, 5, 7, 9
+[76] Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier
+Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar,
+
+13
+
+[87] Zhewei Yao, Xiaoxia Wu, Conglong Li, Minjia Zhang,
+Heyang Qi, Olatunji Ruwase, Ammar Ahmad Awan,
+Samyam Rajbhandari, and Yuxiong He.
+Deepspeedvisualchat: Multi-round multi-image interleave chat via
+multi-modal causal attention. arXiv:2309.14327, 2023. 2,
+3, 4
+[88] Haoxuan You, Haotian Zhang, Zhe Gan, Xianzhi Du,
+Bowen Zhang, Zirui Wang, Liangliang Cao, Shih-Fu
+Chang, and Yinfei Yang. Ferret: Refer and ground anything
+anywhere at any granularity. arXiv:2310.07704, 2023. 2, 3
+[89] Gyeong-In Yu, Joo Seong Jeong, Geon-Woo Kim, Soojeong Kim, and Byung-Gon Chun. Orca: A distributed
+serving system for {Transformer-Based} generative models. In OSDI, pages 521–538, 2022. 3
+[90] Lili Yu, Bowen Shi, Ramakanth Pasunuru, Benjamin
+Muller, Olga Golovneva, Tianlu Wang, Arun Babu, Binh
+Tang, Brian Karrer, Shelly Sheynin, et al. Scaling autoregressive multi-modal models: Pretraining and instruction
+tuning. arXiv:2309.02591, 2023. 2
+[91] Xiaohua Zhai, Basil Mustafa, Alexander Kolesnikov, and
+Lucas Beyer. Sigmoid loss for language image pre-training.
+In ICCV, pages 11941–11952, 2023. 7
+[92] Hang Zhang, Xin Li, and Lidong Bing. Video-llama: An
+instruction-tuned audio-visual language model for video
+understanding. arXiv:2306.02858, 2023. 2, 3, 4
+[93] Shilong Zhang, Peize Sun, Shoufa Chen, Min Xiao, Wenqi
+Shao, Wenwei Zhang, Kai Chen, and Ping Luo. Gpt4roi:
+Instruction tuning large language model on region-ofinterest. arXiv:2307.03601, 2023. 2, 3
+[94] Qi Zhao, Ce Zhang, Shijie Wang, Changcheng Fu, Nakul
+Agarwal, Kwonjoon Lee, and Chen Sun. Antgpt: Can large
+language models help long-term action anticipation from
+videos? In ICLR, 2024. 3, 8, 9, 4
+[95] Yue Zhao and Philipp Krähenbühl. Real-time online video
+detection with temporal smoothing transformers. In ECCV,
+pages 485–502, 2022. 3
+[96] Yue Zhao, Ishan Misra, Philipp Krähenbühl, and Rohit
+Girdhar. Learning video representations from large language models. In CVPR, pages 6586–6597, 2023. 5
+[97] Yiwu Zhong, Licheng Yu, Yang Bai, Shangwen Li, Xueting
+Yan, and Yin Li. Learning procedure-aware video representation from instructional videos and their narrations. In
+CVPR, pages 14825–14835, 2023. 8, 9, 3
+[98] Honglu Zhou, Roberto Martı́n-Martı́n, Mubbasir Kapadia,
+Silvio Savarese, and Juan Carlos Niebles. Procedure-aware
+pretraining for instructional video understanding. In CVPR,
+pages 10727–10738, 2023. 9
+[99] Xingyi Zhou, Anurag Arnab, Shyamal Buch, Shen
+Yan, Austin Myers, Xuehan Xiong, Arsha Nagrani, and
+Cordelia Schmid. Streaming dense video captioning.
+arXiv:2404.01297, 2024. 3
+[100] Deyao Zhu, Jun Chen, Xiaoqian Shen, Xiang Li, and
+Mohamed Elhoseiny.
+Minigpt-4: Enhancing visionlanguage understanding with advanced large language
+models. arXiv:2304.10592, 2023. 2, 3
+
+14
+
+VideoLLM-online: Online Video Large Language Model for Streaming Video
+Supplementary Material
+This supplementary material includes following sections:
+• Section A provides an analysis of per-frame chatting.
+More specifically, we prompt GPT-4V for video streaming dialogue and compare it with interleaved visionlanguage dialogue and our method.
+• Section B elaborates on data details, especially on
+prompts, including examples of Ego4D Narration Stream,
+COIN Dialogue Stream, training and inference prompts,
+and evaluation schemes for COIN benchmarks and
+Ego4D LTA.
+• Section ?? shows the results on Ego4D+COIN stream
+set. Meanwhile, we show some demo results from the
+VideoLLM-online-model.
+• Section D discusses some limitations of the paper. Please also refer to our released repository at
+showlab.github.io/videollm-online for more implementation details.
+
+for stable evaluation, i.e., the user query occurs only at the
+beginning, which simplifies the evaluation process. However, the models use for demo, as depicted in Figure 1 of
+the paper, is trained with randomized queries, timestamps,
+and varying numbers of turns.
+Ego4D Narration Stream Set. The annotation process for
+Ego4D Narration inherently follows a streaming dialogue
+format. Initially, videos are segmented into clips, each with
+a maximum duration of five minutes, for the purpose of acquiring narrations. Annotators are then tasked with providing a concise summary narration, typically 1-3 sentences
+long, for each clip. Once they have established an overall
+understanding of the clip, they proceed to write detailed,
+play-by-play descriptions of the actions. Here we only use
+the second part, i.e. the streaming narration. The training and inference prompts for Ego4D narration, which are
+adapted from the original text guidelines provided to annotators, are detailed in Section B.2. Note the narration for
+experiments are not refined by Llama; we use the original
+narration for stability (but remove special strings like “#C”,
+“#O”) .
+
+A. Analysis to Per-frame Chatting
+As shown in Figure 6, we prompt GPT-4V to do the realtime narration task. In ideal case, we hope the model just
+output narration like “cutting vegetables” at the first frame,
+since these frames are nearly no change. We use two methods of prompting: (1) no prompting restriction: this prompt
+allows the GPT-4V to output language at every frame, without consideration on the conciseness. See Figure 6 left part,
+we can observe that the response of GPT-4V is very lengthy,
+making it impossible for real-time usage; (2) with strong
+prompting restriction: the right part of the figure suggests
+that GPT-4V can be prompted to approach the video streaming dialogue. However, it is still per-frame dialogue and
+still cost tokens and times per frame. Moreover, we find it
+is not so stable; sometimes there would be obvious hallucination that may not be appeared in GPT-4V level, like “you
+are peeling” vs. “you have stopped” at the first and second
+frame.
+
+B.2. Training and Inference Prompt
+System Prompt. We have a simple system prompt at the
+beginning of the dialogue:
+A user wears AR glasses equipped with an intelligent assistant. The AR glasses continuously receive streaming
+video frames from the user’s viewpoint, enabling the assistant to observe and provide real-time assistance in response to the user’s queries when necessary. Below is
+their dialogue, accompanied by streaming video frames
+included in the user’s query.
+In the following, we use [System] to denote it.
+Frame Placeholder. In our training, each video frame is
+initially encoded using frozen CLIP ViT. These encoded
+frames are then projected into a language token-compatible
+space through a learnable MLP. We use [F] to denote tokens per frame. In our paper experiments, the number of tokens per frame is |[F]| = 1 for fast training/validation and
+parameters searching. For our demo, we use |[F]| = 10,
+i.e. 1 CLS + 3 × 3 average pooled spatial token for better
+vision understanding ability.
+Streaming Dialogue Examples. To illustrate the streaming
+dialogue format more clearly, we provide examples of training prompts from our generated COIN Dialogue Stream set
+and our curated Ego4D Narration Stream set. In these examples, tokens related to the streaming objective are highlighted in blue, while tokens associated with the language
+modeling objective are marked in orange. We ignored
+
+B. More Data Details
+B.1. Data Construction
+COIN Stream Set. This set is derived from COIN annotations, adapted using our streaming dialogue generation
+schemes. Initially, a user query outlines the video’s overall task, prompting the model to track and record the activities shown. The model is then required to watch the video
+and provide real-time responses. An example of this process is provided in Section B.2. It’s important to note that
+this dataset for experiment has a relatively fixed structure
+1
+
+GPT-4V as online assistant without prompt restruction
+
+GPT-4V as online assistant with strong prompt restruction
+
+2
+
+some chat template strings (e.g., [INST], [/INST] in
+Llama [76, 77]) for better visualization.
+
+[System]
+[F][F]· · · [F][F]
+User: What are the next 5 steps?[BenchEval]
+Assistant: Insert it into the crystal head; fixe it with a
+crimping pliers; cut a certain length; insert it into the
+crystal head; fixe it with a crimping pliers.
+• COIN Procedure Forecasting with Task Goal:
+[System]
+[F][F]· · · [F][F]
+User: What are the next 2 steps to hang wallpaper?[BenchEval]
+Assistant: Wipe or polish the wall; crop the wallpaper.
+• COIN Action Segmentation:
+[System]
+User: Please output the corresponding action of each
+frame.[BenchEval]
+[F][F]· · · [F][F]Assistant:
+Show the blank
+paper.[F]Assistant:
+Show the blank paper.[F]· · · [F][F]· · · [F][F]Assistant:
+Show
+the money to the audience.[F]Assistant: Show the
+money to the audience.[F]· · · [F][F]· · ·
+• Ego4D LTA:
+[System]
+[F][F]· · · [F][F]
+User: What are the next 20 steps?[BenchEval]
+Assistant: apply flour; attach dough; knead dough; take
+dough; put dough; remove dough; knead dough; take
+dough; put dough; move dough; apply flour; knead
+dough; take dough; put dough; move table; apply flour;
+knead table; take dough; put dough; move dough.
+
+• COIN Stream Example:
+[System]
+User: The video is about to install ceiling fan. Please
+remind me when the related action starts, summarizes
+when it ends, as well as forecasts the next action.
+[F][F]...[F][F]Assistant:
+Now doing the
+step to close switch.
+Then try to install fan
+tray.[F][F]...[F][F]Assistant:
+Just finished
+the step to close switch. Then try to install fan tray.
+[F][F]...[F][F]Assistant: Now doing the step to
+install fan tray. Then try to install fans and lights.
+[F][F]...
+• Ego4D Narration Dialogue Stream Example:
+[System]
+User: Please watch the video and narrate the video in
+real-time.
+[F][F]Assistant:
+C
+walks
+around
+a
+room.[F][F][F]Assistant: C picks up a wire
+from the floor.[F][F][F][F]Assistant: C pulls out
+a wire from a wall.[F][F][F][F][F]Assistant: C
+looks around a room.[F][F]...
+Benchmark Evaluation Prompt. For benchmark evaluation, responses must adhere to a specific format. We incorporate an additional prompt in the user query for this
+purpose, denoted as [BenchEval]:
+Please answer briefly for benchmark evaluation, and may
+use ; to separate different steps.
+
+B.3. Evaluation Scheme
+
+Additionally, we provide examples from all the benchmarks on which we have conducted evaluations:
+
+We detail our methodology for evaluating performance on
+existing benchmarks.
+COIN Benchmarks. Following the approach in [50, 61,
+97], we report top-1 accuracy for the COIN benchmarks. A
+unique challenge arises with Online-VideoLLM, as it produces outputs in natural language rather than class indices.
+To address this, we employ a simple string matching technique: we compare the model’s language output with the
+COIN taxonomy dictionary to assign class indices, which
+are then used to calculate accuracy. Outputs not found in
+the taxonomy dictionary are automatically considered incorrect. For computing frame-wise accuracy in COIN action segmentation mask, we apply a similar method.
+For procedures involving multiple steps, we need to calculate step-wise accuracy. We employ a straightforward
+approach using string comparison to identify verb/noun indices. As noted in our training prompts, actions are separated by a semicolon “;”. Thus, we split the modelgenerated content using this delimiter to extract the texts
+corresponding to the 20 steps.
+
+• COIN Step Recognition:
+[System]
+[F][F]· · · [F][F]
+User: What was the previous step?[BenchEval]
+Assistant: Take off the shell.
+• COIN Task Summarization:
+[System]
+[F][F]· · · [F][F]
+User:
+What task can summarize these
+steps?[BenchEval]
+Assistant: Cut and restore rope trick.
+• COIN Next Step Forecasting:
+[System]
+[F][F]· · · [F][F]
+User: What is the next 1 step?[BenchEval]
+Assistant: Rotate body and accelerate the hammer.
+• COIN Procedure Forecasting:
+3
+
+Figure 7. Online narration demo of VideoLLM-online.
+
+Figure 8. Online chatting demo of VideoLLM-online.
+
+Ego4D LTA. The Ego4D LTA benchmark, as outlined
+in [28], utilizes Edit Distance (ED) as its evaluation metric,
+as described in [35]. ED quantifies the minimum number
+of operations needed to transform one string into another.
+In contrast to previous works (e.g., [5, 28, 34, 56, 83, 94])
+that used a classification paradigm and calculated ED based
+on predicted verb/noun indices, our Online-VideoLLM system, which exclusively generates text, presents challenges
+
+in metric calculation. Additionally, the method we used for
+evaluating on COIN Benchmarks is limited to producing results for either a single step or an overall procedure, not for
+more complex text outputs.
+To derive verb/noun indices from our model’s outputs,
+we use a straightforward method involving string splitting
+and comparison. As outlined in our training prompts, actions are separated by a semicolon “;”. We use this delim4
+
+Method
+Per-frame Dial.
+LIVE
+
+COIN + Ego4D Stream Validation
+LM-PPL↓ TimeDiff ↓ Fluency↑
+3.29
+2.56
+
+6.98
+4.21
+
+32.9%
+39.8%
+
+Table 4. Joint training of COIN Dialogue Stream and Ego4D Narration Stream. LIVE consistently performs better than per-frame
+dialogue method.
+
+iter to split the model-generated content into the text for
+each of the 20 steps. If the split results in more or fewer
+than 20 steps, we adjust by adding ’none’ for padding or by
+clamping the excess steps, respectively. Next, we construct
+a dictionary that maps action text to their corresponding
+verb/noun category indices, a task facilitated by the available taxonomy annotations. Finally, this dictionary is used
+to convert the generated text into verb/noun category indices, which are then employed to calculate the Edit Distance (ED).
+
+C. More Results
+Streaming Dialogue. As shown in Table 4, we evaluate our model on joint COIN and Ego4D streaming set.
+COIN Stream is built by our streaming dialogue generation method, while the Ego4D narration stream simulates
+Ego4D annotators to write the narration while watching the
+video [28]. From the table, we can see our method has
+the similar language modeling ability (reflected by LMPPL) with the per-frame video-language dialogue format,
+but achieves huge advantages in fluency and time difference, which suggests better support for streaming videos.
+Demo Results with More Tokens. Figure 8 shows our
+demo results, supported by model trained with 1 + 3 × 3
+tokens per frame. Though we do not show evaluation performance for more spatial tokens in our paper, we observe
+their quantitative results are much better than 1 token. We
+will update the results in our github repository.
+
+D. Limitations
+Our primary limitation lies in the inadequacy of highquality streaming dialogue data, which hinders its generalization capability. The dialogues generated in our method
+are derived from existing video datasets, which cannot capture the complex and varied requirements of real-world
+users. We observe the method can overfit when training on
+a small dataset. Our future efforts are scaling the method
+on larger datasets [74, 85] or ASR texts in streaming video.
+Furthermore, we also find that the spatial ability is not
+strong due to its less spatial token. In the future, we will
+seek better trade-off strategy to balance spatial and temporal dimensions in video streaming dialogue.
+
+5
+
+

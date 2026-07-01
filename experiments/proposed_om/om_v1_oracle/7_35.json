@@ -1,0 +1,90 @@
+{
+ "recording": "7_35",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 1.8,
+   "end_s": 54.3
+  },
+  {
+   "stage": 72,
+   "start_s": 67.8,
+   "end_s": 93.8
+  },
+  {
+   "stage": 74,
+   "start_s": 122.3,
+   "end_s": 152.0
+  },
+  {
+   "stage": 80,
+   "start_s": 156.1,
+   "end_s": 187.4
+  },
+  {
+   "stage": 73,
+   "start_s": 192.7,
+   "end_s": 239.1
+  },
+  {
+   "stage": 82,
+   "start_s": 240.0,
+   "end_s": 255.2
+  },
+  {
+   "stage": 79,
+   "start_s": 256.6,
+   "end_s": 290.2
+  },
+  {
+   "stage": 81,
+   "start_s": 260.0,
+   "end_s": 274.0
+  },
+  {
+   "stage": 75,
+   "start_s": 292.0,
+   "end_s": 324.4
+  },
+  {
+   "stage": 78,
+   "start_s": 326.0,
+   "end_s": 355.9
+  }
+ ],
+ "events": [
+  {
+   "t": 122.3,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 74,
+   "message": "Add 1/2 tbsp sweet and sour sauce to the bowl was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 256.6,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 79,
+   "message": "Pour egg mixture on top of the tortilla was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 256.6,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 79,
+   "message": "You skipped Mix the contents of the bowl well; it is needed before Pour egg mixture on top of the tortilla."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

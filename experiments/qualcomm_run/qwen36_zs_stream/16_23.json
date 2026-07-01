@@ -1,0 +1,57 @@
+{
+ "recording": "16_23",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 158,
+   "start_s": 0.0,
+   "end_s": 30.0
+  },
+  {
+   "stage": 161,
+   "start_s": 30.0,
+   "end_s": 35.0
+  },
+  {
+   "stage": 163,
+   "start_s": 35.0,
+   "end_s": 460.0
+  },
+  {
+   "stage": 164,
+   "start_s": 460.0,
+   "end_s": 1290.5
+  }
+ ],
+ "events": [
+  {
+   "t": 250.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently chopping a tomato, but the instruction is to chop 1/4 of a medium onion.",
+   "step_id": 163
+  },
+  {
+   "t": 485.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently holding the salt container over a trash bin instead of the bowl. Please move to the bowl to add the salt as instructed.",
+   "step_id": 164
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 311,
+  "frames_sent": 1290,
+  "vlm_latency_total_s": 427.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 477.7
+ }
+}

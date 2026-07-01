@@ -1,0 +1,35 @@
+{
+ "recording": "27_38",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 316,
+   "start_s": 0.0,
+   "end_s": 583.5
+  }
+ ],
+ "events": [
+  {
+   "t": 85.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are retrieving a red bell pepper from the refrigerator, but the instruction requires you to add cheddar cheese to a microwave-safe cup.",
+   "step_id": 316
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 133,
+  "frames_sent": 580,
+  "vlm_latency_total_s": 179.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 210.5
+ }
+}

@@ -1,0 +1,113 @@
+{
+ "recording": "4_43",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 14,
+   "start_s": 21.5,
+   "end_s": 30.2
+  },
+  {
+   "stage": 44,
+   "start_s": 44.1,
+   "end_s": 65.0
+  },
+  {
+   "stage": 47,
+   "start_s": 74.4,
+   "end_s": 116.5
+  },
+  {
+   "stage": 51,
+   "start_s": 122.4,
+   "end_s": 136.1
+  },
+  {
+   "stage": 54,
+   "start_s": 143.9,
+   "end_s": 150.7
+  },
+  {
+   "stage": 46,
+   "start_s": 173.6,
+   "end_s": 187.1
+  },
+  {
+   "stage": 50,
+   "start_s": 202.7,
+   "end_s": 214.4
+  },
+  {
+   "stage": 55,
+   "start_s": 277.1,
+   "end_s": 331.8
+  },
+  {
+   "stage": 49,
+   "start_s": 335.8,
+   "end_s": 342.0
+  },
+  {
+   "stage": 45,
+   "start_s": 360.0,
+   "end_s": 372.0
+  },
+  {
+   "stage": 52,
+   "start_s": 390.1,
+   "end_s": 393.9
+  },
+  {
+   "stage": 45,
+   "start_s": 403.4,
+   "end_s": 651.7
+  },
+  {
+   "stage": 48,
+   "start_s": 670.7,
+   "end_s": 733.4
+  },
+  {
+   "stage": 53,
+   "start_s": 681.5,
+   "end_s": 690.2
+  },
+  {
+   "stage": 42,
+   "start_s": 757.8,
+   "end_s": 772.5
+  },
+  {
+   "stage": 43,
+   "start_s": 776.5,
+   "end_s": 808.0
+  }
+ ],
+ "events": [
+  {
+   "t": 143.9,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 54,
+   "message": "Put all the Vegetables in a microwave-safe bowl was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 202.7,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 50,
+   "message": "Add basil to the bowl was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

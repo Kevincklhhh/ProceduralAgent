@@ -1,0 +1,206 @@
+{
+ "recording": "17_45",
+ "arm": "cs_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 189,
+   "start_s": 8.2,
+   "end_s": 47.9
+  },
+  {
+   "stage": 188,
+   "start_s": 83.0,
+   "end_s": 153.3
+  },
+  {
+   "stage": 181,
+   "start_s": 177.9,
+   "end_s": 210.8
+  },
+  {
+   "stage": 182,
+   "start_s": 227.3,
+   "end_s": 274.4
+  },
+  {
+   "stage": 187,
+   "start_s": 289.3,
+   "end_s": 453.1
+  },
+  {
+   "stage": 191,
+   "start_s": 462.8,
+   "end_s": 524.1
+  },
+  {
+   "stage": 185,
+   "start_s": 532.3,
+   "end_s": 572.7
+  },
+  {
+   "stage": 190,
+   "start_s": 581.7,
+   "end_s": 602.6
+  },
+  {
+   "stage": 184,
+   "start_s": 609.3,
+   "end_s": 633.3
+  },
+  {
+   "stage": 183,
+   "start_s": 651.2,
+   "end_s": 729.7
+  },
+  {
+   "stage": 186,
+   "start_s": 740.9,
+   "end_s": 767.1
+  }
+ ],
+ "events": [
+  {
+   "t": 196.9,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires adding red chilli powder without spilling; flag spilling red chilli powder outside the bowl while adding.",
+   "step_id": 181,
+   "choice": 3,
+   "raw": "3"
+  },
+  {
+   "t": 260.8,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for the cucumber to be fully peeled; flag incomplete or improper peeling (skin left on, half-peeled, or only the ends cut off).",
+   "step_id": 182,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 571.3,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for the cucumber to be chopped or grated; flag a different cut style (e.g. slicing into discs, cutting into thin strips) or use of an inappropriate tool (e.g. scissors, a blunt knife).",
+   "step_id": 185,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 728.2,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe calls for plain curd whisked in a mixing bowl; flag using a different container (e.g. a coffee mug or a separate bowl) or a different material (e.g. flavoured fruit yogurt instead of plain curd), or adding the curd without whisking at all.",
+   "step_id": 183,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 143.0,
+   "kind": "mistake",
+   "step_id": 188,
+   "win_start": 113.0,
+   "win_end": 173.0,
+   "n_frames": 32,
+   "latency_s": 16.1,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 196.9,
+   "kind": "mistake",
+   "step_id": 181,
+   "win_start": 166.9,
+   "win_end": 226.9,
+   "n_frames": 32,
+   "latency_s": 16.2,
+   "fired": [
+    "technique"
+   ],
+   "answer": "3"
+  },
+  {
+   "t": 260.8,
+   "kind": "mistake",
+   "step_id": 182,
+   "win_start": 230.8,
+   "win_end": 290.8,
+   "n_frames": 32,
+   "latency_s": 16.1,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 571.3,
+   "kind": "mistake",
+   "step_id": 185,
+   "win_start": 541.3,
+   "win_end": 601.3,
+   "n_frames": 32,
+   "latency_s": 16.0,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 626.3,
+   "kind": "mistake",
+   "step_id": 184,
+   "win_start": 596.3,
+   "win_end": 656.3,
+   "n_frames": 32,
+   "latency_s": 22.5,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 728.2,
+   "kind": "mistake",
+   "step_id": 183,
+   "win_start": 698.2,
+   "win_end": 758.2,
+   "n_frames": 32,
+   "latency_s": 17.1,
+   "fired": [
+    "preparation"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 749.4,
+   "kind": "mistake",
+   "step_id": 186,
+   "win_start": 719.4,
+   "win_end": 774.6,
+   "n_frames": 31,
+   "latency_s": 9.9,
+   "fired": [],
+   "answer": "0"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 7,
+  "frames_sent": 223,
+  "vlm_latency_total_s": 114.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 131.2
+ }
+}

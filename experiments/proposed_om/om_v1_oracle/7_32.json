@@ -1,0 +1,78 @@
+{
+ "recording": "7_32",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 4.0,
+   "end_s": 31.3
+  },
+  {
+   "stage": 72,
+   "start_s": 33.9,
+   "end_s": 61.9
+  },
+  {
+   "stage": 73,
+   "start_s": 64.6,
+   "end_s": 167.7
+  },
+  {
+   "stage": 81,
+   "start_s": 187.4,
+   "end_s": 213.1
+  },
+  {
+   "stage": 74,
+   "start_s": 215.6,
+   "end_s": 279.7
+  },
+  {
+   "stage": 82,
+   "start_s": 281.3,
+   "end_s": 298.9
+  },
+  {
+   "stage": 76,
+   "start_s": 301.3,
+   "end_s": 315.9
+  },
+  {
+   "stage": 79,
+   "start_s": 319.4,
+   "end_s": 328.9
+  },
+  {
+   "stage": 78,
+   "start_s": 333.5,
+   "end_s": 351.6
+  }
+ ],
+ "events": [
+  {
+   "t": 301.3,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 76,
+   "message": "You skipped Add 1 tbsp salsa to the bowl; it is needed before Mix the contents of the bowl well."
+  },
+  {
+   "t": 333.5,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 78,
+   "message": "You skipped Sprinkle 1 tbsp shredded cheddar cheese on top of the egg; it is needed before Roll the tortilla from one end to another into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps but not so tight that the filling leaks."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

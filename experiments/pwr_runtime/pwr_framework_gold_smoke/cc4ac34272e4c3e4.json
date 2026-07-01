@@ -1,0 +1,154 @@
+{
+ "stage_intervals": [
+  {
+   "stage": 2,
+   "start_s": 0.0,
+   "end_s": 2.0
+  },
+  {
+   "stage": 3,
+   "start_s": 2.0,
+   "end_s": 4.8
+  },
+  {
+   "stage": 4,
+   "start_s": 4.8,
+   "end_s": 9.6
+  },
+  {
+   "stage": 5,
+   "start_s": 9.6,
+   "end_s": 17.6
+  }
+ ],
+ "events": [
+  {
+   "t": 0.0,
+   "class": "none",
+   "subtype": "none",
+   "id": "egoproactive_1",
+   "message": "Unlock your phone and tap the Play Store (or App Store) icon."
+  },
+  {
+   "t": 2.0,
+   "class": "none",
+   "subtype": "none",
+   "id": "egoproactive_2",
+   "message": "Tap your profile or menu icon, then pick “Manage apps & device” to check for updates."
+  },
+  {
+   "t": 4.8,
+   "class": "none",
+   "subtype": "none",
+   "id": "egoproactive_3",
+   "message": "Tap “Update all” or individual update buttons to grab the latest app versions."
+  },
+  {
+   "t": 9.6,
+   "class": "none",
+   "subtype": "none",
+   "id": "egoproactive_5",
+   "message": "Swipe through pending updates—tap any app (like AT&T ActiveArmor) to peek at its details if you’d like!"
+  },
+  {
+   "t": 17.6,
+   "class": "none",
+   "subtype": "none",
+   "id": "egoproactive_6",
+   "message": "Hang tight—watch those progress bars shrink as each app installs and the update count drops!"
+  }
+ ],
+ "interventions": [
+  {
+   "t_s": 0.0,
+   "type": "step_complete",
+   "step_id": 1,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Unlock your phone and tap the Play Store (or App Store) icon.",
+   "evidence": "EgoProactive gold interval 1 [0.0, 2.0]"
+  },
+  {
+   "t_s": 2.0,
+   "type": "step_complete",
+   "step_id": 2,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Tap your profile or menu icon, then pick “Manage apps & device” to check for updates.",
+   "evidence": "EgoProactive gold interval 2 [2.0, 4.8]"
+  },
+  {
+   "t_s": 4.8,
+   "type": "step_complete",
+   "step_id": 3,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Tap “Update all” or individual update buttons to grab the latest app versions.",
+   "evidence": "EgoProactive gold interval 3 [4.8, 6.9]"
+  },
+  {
+   "t_s": 9.6,
+   "type": "step_complete",
+   "step_id": 4,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Swipe through pending updates—tap any app (like AT&T ActiveArmor) to peek at its details if you’d like!",
+   "evidence": "EgoProactive gold interval 5 [9.6, 17.6]"
+  },
+  {
+   "t_s": 17.6,
+   "type": "step_complete",
+   "step_id": 5,
+   "event_class": "none",
+   "event_subtype": "none",
+   "utterance": "Hang tight—watch those progress bars shrink as each app installs and the update count drops!",
+   "evidence": "EgoProactive gold interval 6 [17.6, 21.1]"
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 12,
+  "duplex_calls": 7,
+  "planner_calls": 5,
+  "frames_sent": 90,
+  "vlm_latency_total_s": 0.0,
+  "duplex_latency_s": 0.0,
+  "planner_latency_s": 0.0,
+  "compute_s": 0.0
+ },
+ "replication_manifest": {
+  "claim": "PWR framework implementation following the paper factorization; trained checkpoints are replaced by configured backends.",
+  "paper_mapping": [
+   "Duplex interaction model consumes cached plan plus plan-anchored clips at every observation.",
+   "Planner is invoked only when duplex emits interrupt; silent turns carry Pt-1 forward unchanged.",
+   "Planner consumes the duplex output and the most recent clip, not the full video history.",
+   "Plan state stores completed/current/remaining steps and current-step visual cues."
+  ],
+  "config": {
+   "tick_s": 0.5,
+   "clip_window_s": 8.0,
+   "frames_per_clip": 4,
+   "max_clips": 4
+  }
+ },
+ "_meta": {
+  "duplex_model": "mock-pwr-framework",
+  "planner_model": "mock-pwr-framework",
+  "evaluated_s": 29.1,
+  "video_duration_s": 29.1,
+  "raw_video_duration_s": 146.13,
+  "parse_failures": 0,
+  "task_id": "cc4ac34272e4c3e4",
+  "final_plan": "Task: How to update your phone apps\nProcedural plan:\n- [completed] step_id=1: Unlock your phone and tap the Play Store (or App Store) icon.\n- [completed] step_id=2: Tap your profile or menu icon, then pick “Manage apps & device” to check for updates.\n- [completed] step_id=3: Tap “Update all” or individual update buttons to grab the latest app versions.\n- [completed] step_id=4: Swipe through pending updates—tap any app (like AT&T ActiveArmor) to peek at its details if you’d like!\n- [completed] step_id=5: Hang tight—watch those progress bars shrink as each app installs and the update count drops!\n\nCurrent-step complete cues:\n- none\n\nCurrent-step incomplete cues:\n- none",
+  "plan_update_times": [
+   0.0,
+   2.0,
+   4.8,
+   9.6,
+   17.6
+  ],
+  "trace": true
+ },
+ "recording": "cc4ac34272e4c3e4",
+ "arm": "pwr_framework_gold_smoke"
+}

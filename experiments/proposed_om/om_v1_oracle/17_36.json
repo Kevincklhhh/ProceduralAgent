@@ -1,0 +1,68 @@
+{
+ "recording": "17_36",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 187,
+   "start_s": 4.8,
+   "end_s": 82.0
+  },
+  {
+   "stage": 191,
+   "start_s": 85.4,
+   "end_s": 115.1
+  },
+  {
+   "stage": 183,
+   "start_s": 130.2,
+   "end_s": 177.8
+  },
+  {
+   "stage": 182,
+   "start_s": 192.1,
+   "end_s": 270.2
+  },
+  {
+   "stage": 181,
+   "start_s": 276.7,
+   "end_s": 289.8
+  },
+  {
+   "stage": 188,
+   "start_s": 297.7,
+   "end_s": 345.8
+  },
+  {
+   "stage": 185,
+   "start_s": 364.6,
+   "end_s": 412.5
+  }
+ ],
+ "events": [
+  {
+   "t": 4.8,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 187,
+   "message": "add 1 tablespoon of chopped cilantro leaves to the bowl was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 192.1,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 182,
+   "message": "You skipped Rinse 1 medium sized cucumber; it is needed before peel the cucumber."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

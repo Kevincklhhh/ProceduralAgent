@@ -1,0 +1,47 @@
+{
+ "recording": "29_19",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 342,
+   "start_s": 0.0,
+   "end_s": 545.0
+  },
+  {
+   "stage": 343,
+   "start_s": 545.0,
+   "end_s": 1048.6
+  }
+ ],
+ "events": [
+  {
+   "t": 15.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are holding a package of bread, but the instruction requires you to add shredded mozzarella cheese to a bowl. Please find the shredded mozzarella.",
+   "step_id": 342
+  },
+  {
+   "t": 550.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You spilled some salt on the counter while adding it to the bowl.",
+   "step_id": 343
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 213,
+  "frames_sent": 1045,
+  "vlm_latency_total_s": 278.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 316.2
+ }
+}

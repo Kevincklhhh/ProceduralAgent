@@ -1,0 +1,35 @@
+{
+ "recording": "18_45",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 200,
+   "start_s": 0.0,
+   "end_s": 1010.1
+  }
+ ],
+ "events": [
+  {
+   "t": 510.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently peeling a cucumber, but the instruction requires you to peel 1 garlic clove.",
+   "step_id": 200
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 304,
+  "frames_sent": 1010,
+  "vlm_latency_total_s": 436.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 478.2
+ }
+}

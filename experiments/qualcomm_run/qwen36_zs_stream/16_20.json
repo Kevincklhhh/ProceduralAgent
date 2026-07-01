@@ -1,0 +1,47 @@
+{
+ "recording": "16_20",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 158,
+   "start_s": 0.0,
+   "end_s": 745.0
+  },
+  {
+   "stage": 161,
+   "start_s": 745.0,
+   "end_s": 1930.9
+  }
+ ],
+ "events": [
+  {
+   "t": 40.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently handling eggs, but the instruction is to chop cilantro. Please set the eggs aside and begin chopping the cilantro.",
+   "step_id": 158
+  },
+  {
+   "t": 785.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. You are currently peeling a red onion, but the instruction is to chop a green chilli.",
+   "step_id": 161
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 402,
+  "frames_sent": 1930,
+  "vlm_latency_total_s": 519.2,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 594.2
+ }
+}

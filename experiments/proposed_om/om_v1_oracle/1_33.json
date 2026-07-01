@@ -1,0 +1,88 @@
+{
+ "recording": "1_33",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 3,
+   "start_s": 8.6,
+   "end_s": 70.5
+  },
+  {
+   "stage": 1,
+   "start_s": 79.6,
+   "end_s": 255.7
+  },
+  {
+   "stage": 12,
+   "start_s": 278.6,
+   "end_s": 337.1
+  },
+  {
+   "stage": 4,
+   "start_s": 343.9,
+   "end_s": 394.6
+  },
+  {
+   "stage": 11,
+   "start_s": 398.5,
+   "end_s": 432.8
+  },
+  {
+   "stage": 8,
+   "start_s": 433.0,
+   "end_s": 500.2
+  },
+  {
+   "stage": 9,
+   "start_s": 454.0,
+   "end_s": 489.7
+  },
+  {
+   "stage": 5,
+   "start_s": 505.9,
+   "end_s": 540.4
+  },
+  {
+   "stage": 10,
+   "start_s": 541.3,
+   "end_s": 605.0
+  },
+  {
+   "stage": 7,
+   "start_s": 606.9,
+   "end_s": 631.2
+  },
+  {
+   "stage": 2,
+   "start_s": 610.0,
+   "end_s": 620.0
+  }
+ ],
+ "events": [
+  {
+   "t": 505.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 5,
+   "message": "You skipped Top -Top cup with 1 tablespoon of salsa; it is needed before sprinkle -sprinkle 1 tablespoon of cheese on cup."
+  },
+  {
+   "t": 606.9,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 7,
+   "message": "replace -replace the top of the English muffin was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "recording": "15_18",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 145,
+   "start_s": 0.0,
+   "end_s": 365.0
+  },
+  {
+   "stage": 140,
+   "start_s": 365.0,
+   "end_s": 505.0
+  },
+  {
+   "stage": 149,
+   "start_s": 505.0,
+   "end_s": 635.0
+  },
+  {
+   "stage": 155,
+   "start_s": 635.0,
+   "end_s": 640.0
+  },
+  {
+   "stage": 150,
+   "start_s": 640.0,
+   "end_s": 740.0
+  },
+  {
+   "stage": 154,
+   "start_s": 740.0,
+   "end_s": 1725.8
+  }
+ ],
+ "events": [
+  {
+   "t": 360.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently washing a tomato, but the instruction is to peel 4 large garlic cloves. Please switch to peeling the garlic.",
+   "step_id": 145
+  },
+  {
+   "t": 410.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently cutting a tomato, but the instruction is to mince the garlic. Please switch your focus to the garlic cloves on the cutting board.",
+   "step_id": 140
+  },
+  {
+   "t": 795.0,
+   "class": "execution_error",
+   "subtype": "temperature",
+   "message": "Yes. You are pouring the oil into a white bowl instead of the pan.",
+   "step_id": 154
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 481,
+  "frames_sent": 1725,
+  "vlm_latency_total_s": 687.1,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 754.4
+ }
+}

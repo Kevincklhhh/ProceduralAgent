@@ -1,0 +1,78 @@
+{
+ "recording": "7_26",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 2.6,
+   "end_s": 59.7
+  },
+  {
+   "stage": 73,
+   "start_s": 60.4,
+   "end_s": 162.7
+  },
+  {
+   "stage": 82,
+   "start_s": 164.6,
+   "end_s": 183.4
+  },
+  {
+   "stage": 74,
+   "start_s": 184.1,
+   "end_s": 216.7
+  },
+  {
+   "stage": 80,
+   "start_s": 216.7,
+   "end_s": 246.2
+  },
+  {
+   "stage": 81,
+   "start_s": 246.7,
+   "end_s": 298.5
+  },
+  {
+   "stage": 79,
+   "start_s": 299.9,
+   "end_s": 316.8
+  },
+  {
+   "stage": 75,
+   "start_s": 317.8,
+   "end_s": 355.6
+  },
+  {
+   "stage": 78,
+   "start_s": 357.3,
+   "end_s": 379.6
+  }
+ ],
+ "events": [
+  {
+   "t": 60.4,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 73,
+   "message": "You skipped Whisk the egg; it is needed before Microwave for 3 minutes, stirring in between."
+  },
+  {
+   "t": 299.9,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 79,
+   "message": "You skipped Mix the contents of the bowl well; it is needed before Pour egg mixture on top of the tortilla."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

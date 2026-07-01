@@ -1,0 +1,57 @@
+{
+ "recording": "4_24",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 44,
+   "start_s": 0.0,
+   "end_s": 530.0
+  },
+  {
+   "stage": 47,
+   "start_s": 530.0,
+   "end_s": 535.0
+  },
+  {
+   "stage": 46,
+   "start_s": 535.0,
+   "end_s": 600.0
+  },
+  {
+   "stage": 14,
+   "start_s": 600.0,
+   "end_s": 1204.6
+  }
+ ],
+ "events": [
+  {
+   "t": 100.0,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "Yes. You are currently peeling an onion, but the instruction is to remove noodles from a package. Please switch to the noodle package to follow the correct step.",
+   "step_id": 44
+  },
+  {
+   "t": 860.0,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "Yes. You are currently preparing cilantro, but the instruction is to peel 1 garlic clove. Please switch to peeling the garlic.",
+   "step_id": 14
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 324,
+  "frames_sent": 1200,
+  "vlm_latency_total_s": 465.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 509.1
+ }
+}

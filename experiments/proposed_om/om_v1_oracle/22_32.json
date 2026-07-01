@@ -1,0 +1,112 @@
+{
+ "recording": "22_32",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 239,
+   "start_s": 34.8,
+   "end_s": 65.4
+  },
+  {
+   "stage": 249,
+   "start_s": 80.4,
+   "end_s": 105.0
+  },
+  {
+   "stage": 237,
+   "start_s": 112.8,
+   "end_s": 184.2
+  },
+  {
+   "stage": 235,
+   "start_s": 216.0,
+   "end_s": 262.8
+  },
+  {
+   "stage": 247,
+   "start_s": 274.8,
+   "end_s": 319.8
+  },
+  {
+   "stage": 246,
+   "start_s": 318.6,
+   "end_s": 328.2
+  },
+  {
+   "stage": 248,
+   "start_s": 357.0,
+   "end_s": 387.6
+  },
+  {
+   "stage": 240,
+   "start_s": 404.4,
+   "end_s": 432.6
+  },
+  {
+   "stage": 241,
+   "start_s": 431.4,
+   "end_s": 443.4
+  },
+  {
+   "stage": 238,
+   "start_s": 446.0,
+   "end_s": 526.0
+  },
+  {
+   "stage": 245,
+   "start_s": 529.2,
+   "end_s": 541.8
+  },
+  {
+   "stage": 243,
+   "start_s": 544.2,
+   "end_s": 585.6
+  },
+  {
+   "stage": 236,
+   "start_s": 570.0,
+   "end_s": 578.0
+  }
+ ],
+ "events": [
+  {
+   "t": 216.0,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 235,
+   "message": "Heat 1 tbsp oil in a non-stick frying pan was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 357.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 248,
+   "message": "You skipped add the chopped cilantro to the bowl; it is needed before Beat the contents of the bowl."
+  },
+  {
+   "t": 431.4,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 241,
+   "message": "Pour the egg mixture into the pan was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 570.0,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 236,
+   "message": "You skipped Scoop the tomatoes from the pan; it is needed before put tomatoes on a serving plate."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

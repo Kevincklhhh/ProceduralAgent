@@ -1,0 +1,61 @@
+{
+ "recording": "8_35",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 88,
+   "start_s": 7.6,
+   "end_s": 87.7
+  },
+  {
+   "stage": 87,
+   "start_s": 87.4,
+   "end_s": 145.4
+  },
+  {
+   "stage": 89,
+   "start_s": 148.7,
+   "end_s": 224.5
+  },
+  {
+   "stage": 84,
+   "start_s": 230.4,
+   "end_s": 286.8
+  },
+  {
+   "stage": 85,
+   "start_s": 286.8,
+   "end_s": 297.3
+  },
+  {
+   "stage": 90,
+   "start_s": 300.0,
+   "end_s": 335.3
+  },
+  {
+   "stage": 83,
+   "start_s": 338.6,
+   "end_s": 414.7
+  }
+ ],
+ "events": [
+  {
+   "t": 87.4,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 87,
+   "message": "Add 1 teaspoon of white sugar to the mug was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

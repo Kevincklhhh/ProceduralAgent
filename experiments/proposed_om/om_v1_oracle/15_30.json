@@ -1,0 +1,123 @@
+{
+ "recording": "15_30",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 154,
+   "start_s": 5.4,
+   "end_s": 45.7
+  },
+  {
+   "stage": 149,
+   "start_s": 48.5,
+   "end_s": 60.1
+  },
+  {
+   "stage": 139,
+   "start_s": 70.4,
+   "end_s": 109.5
+  },
+  {
+   "stage": 155,
+   "start_s": 111.1,
+   "end_s": 135.3
+  },
+  {
+   "stage": 145,
+   "start_s": 139.7,
+   "end_s": 215.6
+  },
+  {
+   "stage": 150,
+   "start_s": 219.6,
+   "end_s": 271.0
+  },
+  {
+   "stage": 140,
+   "start_s": 273.6,
+   "end_s": 334.4
+  },
+  {
+   "stage": 141,
+   "start_s": 335.3,
+   "end_s": 371.6
+  },
+  {
+   "stage": 152,
+   "start_s": 372.5,
+   "end_s": 395.4
+  },
+  {
+   "stage": 151,
+   "start_s": 401.9,
+   "end_s": 405.4
+  },
+  {
+   "stage": 148,
+   "start_s": 406.4,
+   "end_s": 415.5
+  },
+  {
+   "stage": 157,
+   "start_s": 415.2,
+   "end_s": 432.2
+  },
+  {
+   "stage": 146,
+   "start_s": 435.6,
+   "end_s": 448.6
+  },
+  {
+   "stage": 142,
+   "start_s": 451.7,
+   "end_s": 471.3
+  },
+  {
+   "stage": 144,
+   "start_s": 472.2,
+   "end_s": 499.4
+  },
+  {
+   "stage": 153,
+   "start_s": 507.1,
+   "end_s": 582.2
+  },
+  {
+   "stage": 143,
+   "start_s": 582.8,
+   "end_s": 588.1
+  },
+  {
+   "stage": 156,
+   "start_s": 592.1,
+   "end_s": 635.0
+  }
+ ],
+ "events": [
+  {
+   "t": 5.4,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 154,
+   "message": "Heat 3 tbsp oil in a pan over medium heat was done out of order relative to the recipe steps."
+  },
+  {
+   "t": 415.2,
+   "class": "precondition_violation",
+   "subtype": "missing_step",
+   "step_id": 157,
+   "message": "You skipped Add 2 tbsp red chili powder to the pan; it is needed before mix well contents of the pan."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

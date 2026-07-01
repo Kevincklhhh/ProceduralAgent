@@ -1,0 +1,86 @@
+{
+ "recording": "1_49",
+ "arm": "om_v1_oracle",
+ "stage_intervals": [
+  {
+   "stage": 3,
+   "start_s": 2.1,
+   "end_s": 31.2
+  },
+  {
+   "stage": 5,
+   "start_s": 36.8,
+   "end_s": 74.6
+  },
+  {
+   "stage": 10,
+   "start_s": 75.1,
+   "end_s": 101.8
+  },
+  {
+   "stage": 12,
+   "start_s": 99.9,
+   "end_s": 147.6
+  },
+  {
+   "stage": 1,
+   "start_s": 160.5,
+   "end_s": 183.6
+  },
+  {
+   "stage": 4,
+   "start_s": 190.1,
+   "end_s": 218.2
+  },
+  {
+   "stage": 11,
+   "start_s": 218.3,
+   "end_s": 231.4
+  },
+  {
+   "stage": 8,
+   "start_s": 236.6,
+   "end_s": 280.6
+  },
+  {
+   "stage": 6,
+   "start_s": 282.3,
+   "end_s": 315.5
+  },
+  {
+   "stage": 9,
+   "start_s": 316.3,
+   "end_s": 346.9
+  },
+  {
+   "stage": 2,
+   "start_s": 355.0,
+   "end_s": 369.3
+  },
+  {
+   "stage": 7,
+   "start_s": 370.6,
+   "end_s": 378.6
+  }
+ ],
+ "events": [
+  {
+   "t": 36.8,
+   "class": "precondition_violation",
+   "subtype": "order",
+   "step_id": 5,
+   "message": "sprinkle -sprinkle 1 tablespoon of cheese on cup was done out of order relative to the recipe steps."
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 0,
+  "frames_sent": 0,
+  "vlm_latency_total_s": 0.0,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "detector": "proposed_om_v1",
+  "track": "oracle"
+ }
+}

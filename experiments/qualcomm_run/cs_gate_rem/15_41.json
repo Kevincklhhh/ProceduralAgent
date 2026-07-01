@@ -1,0 +1,360 @@
+{
+ "recording": "15_41",
+ "arm": "cs_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 145,
+   "start_s": 1.6,
+   "end_s": 158.6
+  },
+  {
+   "stage": 154,
+   "start_s": 193.6,
+   "end_s": 275.3
+  },
+  {
+   "stage": 139,
+   "start_s": 283.1,
+   "end_s": 314.1
+  },
+  {
+   "stage": 140,
+   "start_s": 325.5,
+   "end_s": 408.4
+  },
+  {
+   "stage": 141,
+   "start_s": 315.2,
+   "end_s": 442.9
+  },
+  {
+   "stage": 152,
+   "start_s": 484.5,
+   "end_s": 500.3
+  },
+  {
+   "stage": 149,
+   "start_s": 507.5,
+   "end_s": 535.7
+  },
+  {
+   "stage": 151,
+   "start_s": 537.4,
+   "end_s": 541.3
+  },
+  {
+   "stage": 155,
+   "start_s": 544.7,
+   "end_s": 597.2
+  },
+  {
+   "stage": 150,
+   "start_s": 602.4,
+   "end_s": 685.3
+  },
+  {
+   "stage": 157,
+   "start_s": 695.0,
+   "end_s": 730.4
+  },
+  {
+   "stage": 146,
+   "start_s": 734.4,
+   "end_s": 777.1
+  },
+  {
+   "stage": 147,
+   "start_s": 778.1,
+   "end_s": 858.5
+  },
+  {
+   "stage": 142,
+   "start_s": 862.0,
+   "end_s": 878.8
+  },
+  {
+   "stage": 144,
+   "start_s": 883.6,
+   "end_s": 920.0
+  },
+  {
+   "stage": 153,
+   "start_s": 925.0,
+   "end_s": 1052.8
+  },
+  {
+   "stage": 143,
+   "start_s": 1053.2,
+   "end_s": 1061.0
+  },
+  {
+   "stage": 156,
+   "start_s": 1066.7,
+   "end_s": 1086.6
+  }
+ ],
+ "events": [
+  {
+   "t": 273.6,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 3 tbsp of oil; flag if a noticeably different amount or wrong unit is used (e.g. 1-2 tsp, 4-5 tbsp, or 1/2 tbsp) or if a spill causes extra oil to be added.",
+   "step_id": 154,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 313.1,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/4 tsp of mustard seeds; flag if a larger unit or noticeably more is used (e.g. 1/4 tbsp instead of 1/4 tsp, or an excess amount).",
+   "step_id": 139,
+   "choice": 1,
+   "raw": "Based on the visual evidence:\n\n1.  **Mistake 1 (Incorrect Am"
+  },
+  {
+   "t": 313.1,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Mustard seeds should be added to the pan; flag if the wrong ingredient is added instead (e.g. red chili flakes) or seeds are spilled before reaching the pan.",
+   "step_id": 139,
+   "choice": 2,
+   "raw": "Based on the visual evidence:\n\n1.  **Mistake 1 (Incorrect Am"
+  },
+  {
+   "t": 358.5,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The garlic should be minced (chopped fine), not sliced, roughly cut, or crushed; flag if a different cutting technique is used instead of mincing.",
+   "step_id": 140,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 532.5,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1 tomato; flag if 2 or more tomatoes are taken.",
+   "step_id": 149,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 651.4,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires pureeing tomatoes without any water; flag if water is added to the blender, water is spilled in, or the tomatoes are left as chunks instead of being pureed.",
+   "step_id": 150,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 772.4,
+   "class": "execution_error",
+   "subtype": "measurement",
+   "message": "The recipe calls for 1/2 tsp of salt; flag if a different amount or wrong unit is used (e.g. 1 tsp or 1/2 cup instead of 1/2 tsp).",
+   "step_id": 146,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 772.4,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The salt should be measured before adding to the pan; flag if salt is poured freehand without measuring, risking an excessive or unknown amount.",
+   "step_id": 146,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 909.6,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The mixture should be stirred cleanly without spilling; flag if contents are spilled out of the pan while mixing.",
+   "step_id": 144,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 1052.5,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for simmering 5 minutes (~300s) or until the mixture thickens; flag if cooking is stopped after only 1-2 minutes before the mixture has thickened.",
+   "step_id": 153,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 75.6,
+   "kind": "mistake",
+   "step_id": 145,
+   "win_start": 45.6,
+   "win_end": 105.6,
+   "n_frames": 32,
+   "latency_s": 7.2,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 273.6,
+   "kind": "mistake",
+   "step_id": 154,
+   "win_start": 243.6,
+   "win_end": 303.6,
+   "n_frames": 32,
+   "latency_s": 7.3,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 313.1,
+   "kind": "mistake",
+   "step_id": 139,
+   "win_start": 283.1,
+   "win_end": 343.1,
+   "n_frames": 32,
+   "latency_s": 47.8,
+   "fired": [
+    "measurement",
+    "preparation"
+   ],
+   "answer": "Based on the visual evidence:\n\n1.  **Mistake 1 (Incorrect Amount):** The person "
+  },
+  {
+   "t": 358.5,
+   "kind": "mistake",
+   "step_id": 140,
+   "win_start": 328.5,
+   "win_end": 388.5,
+   "n_frames": 32,
+   "latency_s": 7.3,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 532.5,
+   "kind": "mistake",
+   "step_id": 149,
+   "win_start": 502.5,
+   "win_end": 562.5,
+   "n_frames": 32,
+   "latency_s": 7.3,
+   "fired": [
+    "measurement"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 540.4,
+   "kind": "mistake",
+   "step_id": 151,
+   "win_start": 510.4,
+   "win_end": 570.4,
+   "n_frames": 32,
+   "latency_s": 7.4,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 566.6,
+   "kind": "mistake",
+   "step_id": 155,
+   "win_start": 536.6,
+   "win_end": 596.6,
+   "n_frames": 32,
+   "latency_s": 7.2,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 651.4,
+   "kind": "mistake",
+   "step_id": 150,
+   "win_start": 621.4,
+   "win_end": 681.4,
+   "n_frames": 32,
+   "latency_s": 7.4,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 677.9,
+   "kind": "mistake",
+   "step_id": 150,
+   "win_start": 647.9,
+   "win_end": 707.9,
+   "n_frames": 32,
+   "latency_s": 7.4,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 772.4,
+   "kind": "mistake",
+   "step_id": 146,
+   "win_start": 742.4,
+   "win_end": 802.4,
+   "n_frames": 32,
+   "latency_s": 7.8,
+   "fired": [
+    "measurement",
+    "technique"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 909.6,
+   "kind": "mistake",
+   "step_id": 144,
+   "win_start": 879.6,
+   "win_end": 939.6,
+   "n_frames": 32,
+   "latency_s": 7.2,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 1052.5,
+   "kind": "mistake",
+   "step_id": 153,
+   "win_start": 1022.5,
+   "win_end": 1082.5,
+   "n_frames": 32,
+   "latency_s": 7.3,
+   "fired": [
+    "timing"
+   ],
+   "answer": "1"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 12,
+  "frames_sent": 384,
+  "vlm_latency_total_s": 128.7,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 155.9
+ }
+}

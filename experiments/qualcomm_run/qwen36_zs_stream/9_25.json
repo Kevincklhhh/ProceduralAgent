@@ -1,0 +1,35 @@
+{
+ "recording": "9_25",
+ "arm": "qwen36_zs_stream",
+ "stage_intervals": [
+  {
+   "stage": 94,
+   "start_s": 0.0,
+   "end_s": 853.5
+  }
+ ],
+ "events": [
+  {
+   "t": 25.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "Yes. The instructions specify using a large mug, but you are using a bowl.",
+   "step_id": 94
+  }
+ ],
+ "escalation_requests": [],
+ "cost": {
+  "vlm_calls": 175,
+  "frames_sent": 850,
+  "vlm_latency_total_s": 224.8,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "mode": "streaming",
+  "interval_s": 5.0,
+  "sample_fps": 1.0,
+  "prompt_source": "qualcomm_appendix_F",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 259.5
+ }
+}

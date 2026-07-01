@@ -1,0 +1,239 @@
+{
+ "recording": "7_50",
+ "arm": "gpt54_gate_rem",
+ "stage_intervals": [
+  {
+   "stage": 77,
+   "start_s": 7.3,
+   "end_s": 75.4
+  },
+  {
+   "stage": 81,
+   "start_s": 82.3,
+   "end_s": 121.1
+  },
+  {
+   "stage": 72,
+   "start_s": 125.4,
+   "end_s": 171.5
+  },
+  {
+   "stage": 73,
+   "start_s": 177.1,
+   "end_s": 346.4
+  },
+  {
+   "stage": 79,
+   "start_s": 347.2,
+   "end_s": 381.7
+  },
+  {
+   "stage": 75,
+   "start_s": 387.3,
+   "end_s": 451.9
+  },
+  {
+   "stage": 74,
+   "start_s": 467.4,
+   "end_s": 522.6
+  },
+  {
+   "stage": 78,
+   "start_s": 529.9,
+   "end_s": 554.9
+  },
+  {
+   "stage": 82,
+   "start_s": 561.8,
+   "end_s": 602.3
+  },
+  {
+   "stage": 76,
+   "start_s": 604.0,
+   "end_s": 616.9
+  },
+  {
+   "stage": 80,
+   "start_s": 626.4,
+   "end_s": 679.8
+  }
+ ],
+ "events": [
+  {
+   "t": 65.3,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The egg should be cracked cleanly with only its contents added to the bowl; flag if shell fragments are introduced into the bowl (e.g., pieces broken in and later removed).",
+   "step_id": 77,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 168.9,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe requires whisking the egg thoroughly; flag improper whisking (under-whisked) or egg contents splashed/spilled outside the bowl.",
+   "step_id": 72,
+   "choice": 1,
+   "raw": "1"
+  },
+  {
+   "t": 344.0,
+   "class": "parameter_violation",
+   "subtype": "timing",
+   "message": "The recipe calls for about 180s (3 minutes) of microwaving; flag a noticeably shorter cook time (e.g. 30 s, 1.5 min, or 2 min instead of 3 min).",
+   "step_id": 73,
+   "choice": 1,
+   "raw": "1,2"
+  },
+  {
+   "t": 344.0,
+   "class": "execution_error",
+   "subtype": "preparation",
+   "message": "The recipe requires stirring the bowl in between microwave intervals and using a bowl; flag failure to stir partway through, or use of a mug instead of a bowl.",
+   "step_id": 73,
+   "choice": 2,
+   "raw": "1,2"
+  },
+  {
+   "t": 551.9,
+   "class": "execution_error",
+   "subtype": "technique",
+   "message": "The recipe calls for rolling the tortilla snugly to prevent gaps but not so tightly that the filling leaks; flag improper rolling that causes the filling to leak out or the tortilla to break.",
+   "step_id": 78,
+   "choice": 1,
+   "raw": "1"
+  }
+ ],
+ "escalation_requests": [],
+ "calls": [
+  {
+   "t": 65.3,
+   "kind": "mistake",
+   "step_id": 77,
+   "win_start": 35.3,
+   "win_end": 95.3,
+   "n_frames": 32,
+   "latency_s": 2.8,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 168.9,
+   "kind": "mistake",
+   "step_id": 72,
+   "win_start": 138.9,
+   "win_end": 198.9,
+   "n_frames": 32,
+   "latency_s": 2.7,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 344.0,
+   "kind": "mistake",
+   "step_id": 73,
+   "win_start": 314.0,
+   "win_end": 374.0,
+   "n_frames": 32,
+   "latency_s": 3.4,
+   "fired": [
+    "timing",
+    "preparation"
+   ],
+   "answer": "1,2"
+  },
+  {
+   "t": 447.3,
+   "kind": "mistake",
+   "step_id": 75,
+   "win_start": 417.3,
+   "win_end": 477.3,
+   "n_frames": 32,
+   "latency_s": 2.3,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 519.9,
+   "kind": "mistake",
+   "step_id": 74,
+   "win_start": 489.9,
+   "win_end": 549.9,
+   "n_frames": 32,
+   "latency_s": 3.8,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 551.9,
+   "kind": "mistake",
+   "step_id": 78,
+   "win_start": 521.9,
+   "win_end": 581.9,
+   "n_frames": 32,
+   "latency_s": 2.7,
+   "fired": [
+    "technique"
+   ],
+   "answer": "1"
+  },
+  {
+   "t": 590.8,
+   "kind": "mistake",
+   "step_id": 82,
+   "win_start": 560.8,
+   "win_end": 620.8,
+   "n_frames": 32,
+   "latency_s": 2.7,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 607.0,
+   "kind": "mistake",
+   "step_id": 82,
+   "win_start": 577.0,
+   "win_end": 637.0,
+   "n_frames": 32,
+   "latency_s": 3.3,
+   "fired": [],
+   "answer": "0"
+  },
+  {
+   "t": 663.9,
+   "kind": "mistake",
+   "step_id": 80,
+   "win_start": 633.9,
+   "win_end": 687.6,
+   "n_frames": 31,
+   "latency_s": 2.6,
+   "fired": [],
+   "answer": "0"
+  }
+ ],
+ "cost": {
+  "vlm_calls": 9,
+  "frames_sent": 287,
+  "vlm_latency_total_s": 26.4,
+  "compute_s": 0.0
+ },
+ "_meta": {
+  "backend": "gpt54",
+  "mode": "turnbased",
+  "prompt_style": "closedset",
+  "interval_s": 5.0,
+  "window_s": 5.0,
+  "enable_thinking": false,
+  "sample_fps": 1.0,
+  "gate": "reminders",
+  "gate_window_s": 30.0,
+  "prompt_source": "closedset_criteria",
+  "mistake_summary_source": "criteria.generated",
+  "wall_s": 47.4
+ }
+}
